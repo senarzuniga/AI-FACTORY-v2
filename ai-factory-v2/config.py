@@ -38,6 +38,12 @@ MAX_TECHNICAL_RISK: float = 4.0
 BRANCH_PREFIX: str = "ai-factory/"
 
 # ---------------------------------------------------------------------------
+# Supabase (optional — set both vars to enable remote persistence)
+# ---------------------------------------------------------------------------
+SUPABASE_URL: str = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY", "")
+
+# ---------------------------------------------------------------------------
 # Learning registry
 # ---------------------------------------------------------------------------
 LEARNING_FILE: str = "ai-factory-v2/learning/history.json"

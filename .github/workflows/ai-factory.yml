@@ -55,6 +55,8 @@ jobs:
           AI_MAX_TOKENS: ${{ vars.AI_MAX_TOKENS || '4096' }}
           AI_TEMPERATURE: ${{ vars.AI_TEMPERATURE || '0.3' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           cd ai-factory-v2
           python orchestrator.py
