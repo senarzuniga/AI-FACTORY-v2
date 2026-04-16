@@ -48,22 +48,47 @@ jobs:
       # ── 4. Run orchestrator ──────────────────────────────────────────
       - name: Run AI Factory v2 Orchestrator
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Use a PAT stored as secret AI_FACTORY_TOKEN to enable multi-repo mode.
+          # If AI_FACTORY_TOKEN is not set, falls back to the built-in GITHUB_TOKEN
+          # which is scoped only to this repository.
+          GITHUB_TOKEN: ${{ secrets.AI_FACTORY_TOKEN || secrets.GITHUB_TOKEN }}
+          # Set to ALL in repo Variables (or leave unset) to analyse all owned repos.
+          # Requires AI_FACTORY_TOKEN with full repo scope.
+          GITHUB_REPOSITORY: ${{ vars.GITHUB_REPOSITORY || 'ALL' }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           AI_MODEL: ${{ vars.AI_MODEL || 'gpt-4o' }}
           AI_MAX_TOKENS: ${{ vars.AI_MAX_TOKENS || '4096' }}
           AI_TEMPERATURE: ${{ vars.AI_TEMPERATURE || '0.3' }}
+          SKIP_REPOS: ${{ vars.SKIP_REPOS || '' }}
+          SKIP_FORKS: ${{ vars.SKIP_FORKS || 'true' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |
           cd ai-factory-v2
           python orchestrator.py
 
-      # ── 5. Upload learning history as artifact ───────────────────────
+      # ── 5. Commit learning history back to main ────────────────────
+      - name: Commit learning history
+        if: always()
+        run: |
+          git config --local user.email "ai-factory[bot]@users.noreply.github.com"
+          git config --local user.name "AI Factory v2"
+          git add ai-factory-v2/learning/history.json || true
+          git diff --staged --quiet || git commit -m "chore: update learning history [skip ci]"
+          git push || true
+
+      # ── 6. Upload learning history as artifact ───────────────────────
       - name: Upload learning history
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ai-factory-learning-${{ github.run_id }}
           path: ai-factory-v2/learning/history.json
+          if-no-files-found: ignore
+
+      - name: Upload cycle reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-factory-cycle-reports-${{ github.run_id }}
+          path: ai-factory-v2/output/cycles/
           if-no-files-found: ignore

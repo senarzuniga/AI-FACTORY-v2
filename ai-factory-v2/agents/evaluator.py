@@ -119,7 +119,7 @@ Return ONLY a valid JSON array. No extra text.
 
     def _parse_scores(
         self, raw: str, hypotheses: list[Hypothesis]
-    ) -> dict[str, HypothesisScore]:
+    ) -> dict[str, tuple[HypothesisScore, str]]:
         raw = raw.strip()
         if raw.startswith("```"):
             raw = raw.split("```", 2)[1]
@@ -131,24 +131,24 @@ Return ONLY a valid JSON array. No extra text.
             logger.error("EvaluatorAgent — failed to parse LLM response: %s", exc)
             return {}
 
-        result: dict[str, HypothesisScore] = {}
+        result: dict[str, tuple[HypothesisScore, str]] = {}
         for item in items:
             h_id = item.get("hypothesis_id", "")
             if not h_id:
-                # Fall back to positional matching
                 idx = items.index(item)
                 if idx < len(hypotheses):
                     h_id = hypotheses[idx].id
             if not h_id:
                 continue
             try:
-                result[h_id] = HypothesisScore(
+                score = HypothesisScore(
                     business_impact=float(item.get("business_impact", 0)),
                     technical_risk=float(item.get("technical_risk", 10)),
                     complexity=float(item.get("complexity", 10)),
                     maintainability=float(item.get("maintainability", 0)),
                     scalability=float(item.get("scalability", 0)),
                 )
+                result[h_id] = (score, item.get("rationale", ""))
             except (TypeError, ValueError) as exc:
                 logger.warning("EvaluatorAgent — bad score entry for %s: %s", h_id, exc)
         return result
@@ -158,11 +158,13 @@ Return ONLY a valid JSON array. No extra text.
     # ------------------------------------------------------------------
 
     def _apply_scores(
-        self, hypotheses: list[Hypothesis], scores: dict[str, HypothesisScore]
+        self, hypotheses: list[Hypothesis], scores: dict[str, tuple[HypothesisScore, str]]
     ) -> None:
         for h in hypotheses:
             if h.id in scores:
-                h.score = scores[h.id]
+                score, rationale = scores[h.id]
+                h.score = score
+                h.evaluation_rationale = rationale
                 h.status = HypothesisStatus.EVALUATED
             else:
                 logger.warning("EvaluatorAgent — no score found for hypothesis '%s'", h.id)
@@ -172,29 +174,46 @@ Return ONLY a valid JSON array. No extra text.
         if not evaluated:
             return
 
-        # Sort descending by composite score
         evaluated.sort(key=lambda h: h.score.composite, reverse=True)  # type: ignore[union-attr]
-        best = evaluated[0]
+        for hypothesis in evaluated:
+            hypothesis.status = HypothesisStatus.REJECTED
 
-        if (
-            best.score.business_impact >= config.MIN_BUSINESS_IMPACT  # type: ignore[union-attr]
-            and best.score.technical_risk <= config.MAX_TECHNICAL_RISK  # type: ignore[union-attr]
-        ):
+        eligible = [h for h in evaluated if self._meets_execution_gate(h.score)]
+        if eligible:
+            best = eligible[0]
             best.status = HypothesisStatus.SELECTED
             logger.info(
                 "EvaluatorAgent — SELECTED '%s' (composite=%.2f)",
                 best.title,
                 best.score.composite,  # type: ignore[union-attr]
             )
-        else:
-            best.status = HypothesisStatus.REJECTED
-            logger.warning(
-                "EvaluatorAgent — best hypothesis '%s' does NOT meet thresholds "
-                "(business_impact=%.1f, technical_risk=%.1f). Rejected.",
-                best.title,
-                best.score.business_impact,  # type: ignore[union-attr]
-                best.score.technical_risk,  # type: ignore[union-attr]
-            )
+            return
+
+        best = evaluated[0]
+        logger.warning(
+            "EvaluatorAgent — best hypothesis '%s' failed execution gates "
+            "(impact=%.1f, risk=%.1f, complexity=%.1f, maintainability=%.1f, scalability=%.1f, composite=%.2f).",
+            best.title,
+            best.score.business_impact,  # type: ignore[union-attr]
+            best.score.technical_risk,  # type: ignore[union-attr]
+            best.score.complexity,  # type: ignore[union-attr]
+            best.score.maintainability,  # type: ignore[union-attr]
+            best.score.scalability,  # type: ignore[union-attr]
+            best.score.composite,  # type: ignore[union-attr]
+        )
+
+    @staticmethod
+    def _meets_execution_gate(score: Optional[HypothesisScore]) -> bool:
+        if score is None:
+            return False
+        return (
+            score.business_impact >= config.MIN_BUSINESS_IMPACT
+            and score.technical_risk <= config.MAX_TECHNICAL_RISK
+            and score.maintainability >= config.MIN_MAINTAINABILITY
+            and score.scalability >= config.MIN_SCALABILITY
+            and score.complexity <= config.MAX_COMPLEXITY
+            and score.composite >= config.MIN_COMPOSITE_SCORE
+        )
 
     # ------------------------------------------------------------------
     # Logging
