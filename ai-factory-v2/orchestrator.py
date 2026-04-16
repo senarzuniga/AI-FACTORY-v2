@@ -283,19 +283,6 @@ class Orchestrator:
             reverse=True,
         )
 
-    @staticmethod
-    def _rank_safe_hypotheses(hypotheses: list[Hypothesis]) -> list[Hypothesis]:
-        """Return all execution-eligible hypotheses ranked by composite score."""
-        ranked = [
-            h for h in hypotheses
-            if h.score is not None and EvaluatorAgent._meets_execution_gate(h.score)
-        ]
-        return sorted(
-            ranked,
-            key=lambda h: h.score.composite if h.score else 0.0,
-            reverse=True,
-        )
-
     def _log_cycle_summary(self, result: CycleResult) -> None:
         logger.info("Cycle ID:            %s", result.cycle_id)
         logger.info("Repository:          %s", result.repository)
@@ -341,6 +328,8 @@ def _run_all_repos() -> int:
         all_repos = GitHubClient.discover_repos(
             config.GITHUB_TOKEN,
             skip_forks=config.SKIP_FORKS,
+            allowed_owners=config.TARGET_OWNERS,
+            max_repos=config.MAX_REPOS_PER_RUN,
         )
     except Exception as exc:  # noqa: BLE001
         logger.error("Failed to discover repositories: %s", exc)

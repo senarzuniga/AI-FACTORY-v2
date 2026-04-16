@@ -20,6 +20,14 @@ SKIP_REPOS: list[str] = [
     r.strip() for r in os.environ.get("SKIP_REPOS", "").split(",") if r.strip()
 ]
 
+# Optional owner/org filter in ALL mode (comma-separated, e.g. "my-user,my-org")
+TARGET_OWNERS: list[str] = [
+    o.strip().lower() for o in os.environ.get("TARGET_OWNERS", "").split(",") if o.strip()
+]
+
+# Optional cap for multi-repo runs to limit rollout size; 0 means unlimited.
+MAX_REPOS_PER_RUN: int = int(os.environ.get("MAX_REPOS_PER_RUN", "0"))
+
 # Whether to skip forked repositories in ALL mode
 SKIP_FORKS: bool = os.environ.get("SKIP_FORKS", "true").lower() == "true"
 

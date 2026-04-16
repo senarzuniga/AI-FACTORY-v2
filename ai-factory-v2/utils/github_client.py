@@ -229,16 +229,50 @@ class GitHubClient:
     # Multi-repo discovery
     # ------------------------------------------------------------------
 
+    @staticmethod
+    def _filter_repo_payloads(
+        payloads: list[dict],
+        *,
+        skip_archived: bool = True,
+        skip_forks: bool = False,
+        allowed_owners: Optional[set[str]] = None,
+        seen: Optional[set[str]] = None,
+    ) -> list[str]:
+        """Normalize and filter repository payloads into unique owner/repo names."""
+        owners = {owner.lower() for owner in (allowed_owners or set())}
+        known = seen if seen is not None else set()
+        repos: list[str] = []
+
+        for repo in payloads:
+            full_name = repo.get("full_name")
+            owner = str(repo.get("owner", {}).get("login", "")).lower()
+            if not full_name:
+                continue
+            if owners and owner not in owners:
+                continue
+            if skip_archived and repo.get("archived"):
+                continue
+            if skip_forks and repo.get("fork"):
+                continue
+            if full_name in known:
+                continue
+            known.add(full_name)
+            repos.append(full_name)
+
+        return repos
+
     @classmethod
     def discover_repos(
         cls,
         token: str,
         skip_archived: bool = True,
         skip_forks: bool = False,
+        allowed_owners: Optional[list[str]] = None,
+        max_repos: int = 0,
     ) -> list[str]:
         """
-        Return all 'owner/repo' strings accessible with the given token.
-        Only repos where the authenticated user is the owner are returned.
+        Return all accessible owner/repo strings for the given token.
+        In ALL mode this can be narrowed to specific users or organizations.
         Handles GitHub pagination automatically.
         """
         session = requests.Session()
@@ -250,24 +284,68 @@ class GitHubClient:
             }
         )
         repos: list[str] = []
+        seen: set[str] = set()
+        owner_filter = {owner.lower() for owner in (allowed_owners or [])}
         page = 1
         while True:
-            resp = session.get(
-                f"{cls.BASE_URL}/user/repos",
-                params={"per_page": 100, "page": page, "affiliation": "owner", "sort": "updated"},
-            )
-            resp.raise_for_status()
-            batch = resp.json()
+            last_error: Optional[Exception] = None
+            for attempt in range(1, config.API_RETRY_ATTEMPTS + 1):
+                try:
+                    resp = session.get(
+                        f"{cls.BASE_URL}/user/repos",
+                        params={
+                            "per_page": 100,
+                            "page": page,
+                            "affiliation": "owner,organization_member",
+                            "sort": "updated",
+                        },
+                        timeout=30,
+                    )
+                    resp.raise_for_status()
+                    batch = resp.json()
+                    break
+                except requests.RequestException as exc:
+                    last_error = exc
+                    status_code = getattr(getattr(exc, "response", None), "status_code", None)
+                    should_retry = status_code in {429, 500, 502, 503, 504} or status_code is None
+                    if attempt >= config.API_RETRY_ATTEMPTS or not should_retry:
+                        raise
+                    delay = config.API_RETRY_BACKOFF_SECONDS * attempt
+                    logger.warning(
+                        "GitHub repo discovery failed on attempt %d/%d (%s). Retrying in %.1fs.",
+                        attempt,
+                        config.API_RETRY_ATTEMPTS,
+                        exc,
+                        delay,
+                    )
+                    time.sleep(delay)
+            else:
+                assert last_error is not None
+                raise last_error
+
             if not batch:
                 break
-            for r in batch:
-                if skip_archived and r.get("archived"):
-                    continue
-                if skip_forks and r.get("fork"):
-                    continue
-                repos.append(r["full_name"])
+
+            repos.extend(
+                cls._filter_repo_payloads(
+                    batch,
+                    skip_archived=skip_archived,
+                    skip_forks=skip_forks,
+                    allowed_owners=owner_filter,
+                    seen=seen,
+                )
+            )
+
+            if max_repos > 0 and len(repos) >= max_repos:
+                repos = repos[:max_repos]
+                break
             if len(batch) < 100:
                 break
             page += 1
-        logger.info("Discovered %d repository/repositories for the authenticated user", len(repos))
+
+        logger.info(
+            "Discovered %d repository/repositories for rollout%s",
+            len(repos),
+            f" (owners: {', '.join(sorted(owner_filter))})" if owner_filter else "",
+        )
         return repos

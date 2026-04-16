@@ -60,6 +60,8 @@ jobs:
           AI_MAX_TOKENS: ${{ vars.AI_MAX_TOKENS || '4096' }}
           AI_TEMPERATURE: ${{ vars.AI_TEMPERATURE || '0.3' }}
           SKIP_REPOS: ${{ vars.SKIP_REPOS || '' }}
+          TARGET_OWNERS: ${{ vars.TARGET_OWNERS || '' }}
+          MAX_REPOS_PER_RUN: ${{ vars.MAX_REPOS_PER_RUN || '0' }}
           SKIP_FORKS: ${{ vars.SKIP_FORKS || 'true' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
         run: |

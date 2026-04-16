@@ -17,6 +17,7 @@ from models.hypothesis import (
     RepositoryAnalysis,
 )
 from orchestrator import Orchestrator
+from utils.github_client import GitHubClient
 
 
 class FakeGitHubClient:
@@ -153,6 +154,25 @@ class OrchestrationTaxonomyTests(unittest.TestCase):
         self.assertTrue(result.rejected)
         self.assertFalse(github.branch_created)
         self.assertIsNone(result.pr_url)
+
+    def test_multi_repo_filter_honors_owner_scope_and_deduplicates(self):
+        payloads = [
+            {"full_name": "senarzuniga/repo-a", "owner": {"login": "senarzuniga"}, "archived": False, "fork": False},
+            {"full_name": "senarzuniga/repo-a", "owner": {"login": "senarzuniga"}, "archived": False, "fork": False},
+            {"full_name": "my-org/repo-b", "owner": {"login": "my-org"}, "archived": False, "fork": False},
+            {"full_name": "someone-else/repo-c", "owner": {"login": "someone-else"}, "archived": False, "fork": False},
+            {"full_name": "senarzuniga/repo-d", "owner": {"login": "senarzuniga"}, "archived": True, "fork": False},
+            {"full_name": "my-org/repo-e", "owner": {"login": "my-org"}, "archived": False, "fork": True},
+        ]
+
+        filtered = GitHubClient._filter_repo_payloads(
+            payloads,
+            skip_archived=True,
+            skip_forks=True,
+            allowed_owners={"senarzuniga", "my-org"},
+        )
+
+        self.assertEqual(filtered, ["senarzuniga/repo-a", "my-org/repo-b"])
 
     def test_orchestrator_uses_fallback_hypothesis_after_critic_block(self):
         primary = Hypothesis(
