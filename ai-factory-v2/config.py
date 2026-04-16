@@ -63,6 +63,8 @@ DRY_RUN: bool = os.environ.get("DRY_RUN", "false").lower() == "true"
 MAX_FILES_PER_EXECUTION: int = int(os.environ.get("MAX_FILES_PER_EXECUTION", "5"))
 MAX_FILE_CHANGE_SIZE: int = int(os.environ.get("MAX_FILE_CHANGE_SIZE", "20000"))
 MAX_TOTAL_CHANGE_SIZE: int = int(os.environ.get("MAX_TOTAL_CHANGE_SIZE", "60000"))
+API_RETRY_ATTEMPTS: int = int(os.environ.get("API_RETRY_ATTEMPTS", "3"))
+API_RETRY_BACKOFF_SECONDS: float = float(os.environ.get("API_RETRY_BACKOFF_SECONDS", "1.0"))
 
 # ---------------------------------------------------------------------------
 # Learning registry

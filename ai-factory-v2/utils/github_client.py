@@ -11,6 +11,7 @@ from typing import Optional
 
 import requests
 
+import config
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -45,22 +46,44 @@ class GitHubClient:
     def _url(self, path: str) -> str:
         return f"{self.BASE_URL}{path}"
 
-    def _get(self, path: str, **kwargs) -> dict | list:
+    def _request(self, method: str, path: str, **kwargs) -> requests.Response:
         url = self._url(path)
-        response = self._session.get(url, **kwargs)
-        response.raise_for_status()
+        last_error: Optional[Exception] = None
+        for attempt in range(1, config.API_RETRY_ATTEMPTS + 1):
+            try:
+                response = self._session.request(method, url, timeout=30, **kwargs)
+                response.raise_for_status()
+                return response
+            except requests.RequestException as exc:
+                last_error = exc
+                status_code = getattr(getattr(exc, "response", None), "status_code", None)
+                should_retry = status_code in {429, 500, 502, 503, 504} or status_code is None
+                if attempt >= config.API_RETRY_ATTEMPTS or not should_retry:
+                    raise
+                delay = config.API_RETRY_BACKOFF_SECONDS * attempt
+                logger.warning(
+                    "GitHub API %s %s failed on attempt %d/%d (%s). Retrying in %.1fs.",
+                    method.upper(),
+                    path,
+                    attempt,
+                    config.API_RETRY_ATTEMPTS,
+                    exc,
+                    delay,
+                )
+                time.sleep(delay)
+        assert last_error is not None
+        raise last_error
+
+    def _get(self, path: str, **kwargs) -> dict | list:
+        response = self._request("get", path, **kwargs)
         return response.json()
 
     def _post(self, path: str, payload: dict) -> dict:
-        url = self._url(path)
-        response = self._session.post(url, json=payload)
-        response.raise_for_status()
+        response = self._request("post", path, json=payload)
         return response.json()
 
     def _put(self, path: str, payload: dict) -> dict:
-        url = self._url(path)
-        response = self._session.put(url, json=payload)
-        response.raise_for_status()
+        response = self._request("put", path, json=payload)
         return response.json()
 
     # ------------------------------------------------------------------

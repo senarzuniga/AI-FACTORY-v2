@@ -9,7 +9,8 @@ Autonomous multi-agent engineering orchestrator for GitHub repositories.
 - Scoring gates based on business impact, risk, complexity, maintainability, and scalability
 - Critic validation with explicit risk tracking
 - Safe execution guardrails for minimal, validated changes only
-- Automatic branch and pull-request creation
+- Automatic fallback to the next safe hypothesis when a better-ranked one is blocked
+- Automatic branch and pull-request creation with retry support for transient API failures
 - Learning history and per-cycle audit reports
 
 ## Run locally on Windows
