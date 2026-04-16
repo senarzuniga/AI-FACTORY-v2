@@ -13,7 +13,7 @@ from typing import Optional
 from openai import OpenAI
 
 import config
-from models.hypothesis import Problem
+from models.hypothesis import Problem, RepositoryAnalysis
 from utils.github_client import GitHubClient
 from utils.logger import get_logger
 
@@ -34,26 +34,34 @@ class AnalyzerAgent:
 You are the Analysis Agent (Planner/Scout) of AI Factory v2.
 
 Your job is to:
-1. Read a snapshot of a repository's source code.
-2. Identify concrete improvement opportunities (problems).
-3. Return a JSON array of problems.
+1. Read a snapshot of the full repository.
+2. Summarize the current architecture and quality posture.
+3. Identify concrete improvement opportunities (problems).
+4. Return a single JSON object.
 
-Each problem must have:
+Return this schema:
 {
-  "id":           "<short slug, e.g. 'perf-001'>",
-  "title":        "<brief title>",
-  "description":  "<detailed description of the issue>",
-  "category":     "<architecture|performance|security|maintainability|testing|documentation>",
-  "affected_files": ["<path>", ...],
-  "priority":     "<low|medium|high|critical>"
+  "repository_summary": "<2-4 sentence summary>",
+  "architecture_notes": ["<important architectural observation>", ...],
+  "improvement_opportunities": ["<high-value opportunity>", ...],
+  "problems": [
+    {
+      "id": "<short slug>",
+      "title": "<brief title>",
+      "description": "<detailed description>",
+      "category": "<architecture|performance|security|maintainability|testing|documentation>",
+      "affected_files": ["<path>", ...],
+      "priority": "<low|medium|high|critical>"
+    }
+  ]
 }
 
 Rules:
-- Return ONLY a valid JSON array. No extra text.
+- Return ONLY valid JSON. No markdown.
 - Identify at most 5 problems per cycle.
 - Each problem must be actionable and structurally meaningful.
 - Do NOT suggest trivial renames or micro-adjustments.
-- If no meaningful problems are found, return an empty array [].
+- If no meaningful problems are found, return an empty problems array.
 """
 
     def __init__(
@@ -63,20 +71,23 @@ Rules:
     ) -> None:
         self.github = github_client
         self.ai = openai_client or OpenAI(api_key=config.OPENAI_API_KEY)
+        self.local_root = config.APP_DIR.parent
+        self.last_analysis = RepositoryAnalysis()
 
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
 
-    def analyse(self) -> list[Problem]:
-        """Analyse the repository and return detected problems."""
+    def analyse(self) -> RepositoryAnalysis:
+        """Analyse the repository and return structured repository context."""
         logger.info("AnalyzerAgent — collecting repository snapshot …")
         snapshot = self._build_snapshot()
         logger.info("AnalyzerAgent — snapshot size: %d chars", len(snapshot))
         raw = self._call_llm(snapshot)
-        problems = self._parse_problems(raw)
-        logger.info("AnalyzerAgent — detected %d problem(s)", len(problems))
-        return problems
+        analysis = self._parse_analysis(raw, snapshot)
+        self.last_analysis = analysis
+        logger.info("AnalyzerAgent — detected %d problem(s)", len(analysis.problems))
+        return analysis
 
     # ------------------------------------------------------------------
     # Snapshot building
@@ -94,7 +105,7 @@ Rules:
         return self._collect_files(files, source="github")
 
     def _snapshot_from_filesystem(self) -> str:
-        root = Path(".")
+        root = self.local_root
         files: list[str] = []
         for p in root.rglob("*"):
             if p.is_file():
@@ -102,7 +113,7 @@ Rules:
                 if any(skip in parts for skip in config.SKIP_DIRS):
                     continue
                 if p.suffix in config.ANALYSED_EXTENSIONS:
-                    files.append(str(p))
+                    files.append(p.relative_to(root).as_posix())
         return self._collect_files(files, source="filesystem")
 
     def _collect_files(self, file_paths: list[str], source: str) -> str:
@@ -128,7 +139,7 @@ Rules:
         if source == "github" and self.github:
             return self.github.get_file_content(path)
         try:
-            return Path(path).read_text(encoding="utf-8", errors="replace")
+            return (self.local_root / path).read_text(encoding="utf-8", errors="replace")
         except OSError:
             return None
 
@@ -139,7 +150,7 @@ Rules:
     def _call_llm(self, snapshot: str) -> str:
         user_message = (
             f"Repository snapshot:\n\n{snapshot}\n\n"
-            "Identify improvement opportunities and return the JSON array."
+            "Identify improvement opportunities and return the structured JSON object."
         )
         response = self.ai.chat.completions.create(
             model=config.OPENAI_MODEL,
@@ -156,22 +167,39 @@ Rules:
     # Parsing
     # ------------------------------------------------------------------
 
-    def _parse_problems(self, raw: str) -> list[Problem]:
+    def _parse_analysis(self, raw: str, snapshot: str) -> RepositoryAnalysis:
         raw = raw.strip()
-        # Strip markdown code fences if present
         if raw.startswith("```"):
             raw = raw.split("```", 2)[1]
             if raw.startswith("json"):
                 raw = raw[4:]
         try:
-            items = json.loads(raw)
+            data = json.loads(raw)
         except json.JSONDecodeError as exc:
             logger.error("AnalyzerAgent — failed to parse LLM response: %s", exc)
             logger.debug("Raw response: %s", raw)
-            return []
+            return RepositoryAnalysis(
+                repository_summary="Repository analysis could not be fully parsed.",
+                architecture_notes=[],
+                improvement_opportunities=[],
+                repo_context=snapshot,
+                problems=[],
+            )
+
+        if isinstance(data, list):
+            payload = {
+                "repository_summary": "Repository scanned and candidate improvements were identified.",
+                "architecture_notes": [],
+                "improvement_opportunities": [item.get("title", "Unnamed opportunity") for item in data[:5] if isinstance(item, dict)],
+                "problems": data,
+            }
+        else:
+            payload = data
 
         problems: list[Problem] = []
-        for item in items:
+        for item in payload.get("problems", []):
+            if not isinstance(item, dict):
+                continue
             try:
                 problems.append(
                     Problem(
@@ -185,4 +213,11 @@ Rules:
                 )
             except Exception as exc:  # noqa: BLE001
                 logger.warning("AnalyzerAgent — skipping malformed problem entry: %s", exc)
-        return problems
+
+        return RepositoryAnalysis(
+            repository_summary=payload.get("repository_summary", "Repository scanned for improvements."),
+            architecture_notes=payload.get("architecture_notes", []),
+            improvement_opportunities=payload.get("improvement_opportunities", []),
+            repo_context=snapshot,
+            problems=problems,
+        )

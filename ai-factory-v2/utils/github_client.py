@@ -186,6 +186,13 @@ class GitHubClient:
             self._add_labels(pr["number"], labels)
         return pr
 
+    def get_pull_request(self, pr_number: int) -> dict:
+        """Fetch a pull request by number and return its API payload."""
+        data = self._get(f"/repos/{self.owner}/{self.repo}/pulls/{pr_number}")
+        if not isinstance(data, dict):
+            raise ValueError(f"Unexpected PR response for #{pr_number}")
+        return data
+
     def _add_labels(self, pr_number: int, labels: list[str]) -> None:
         try:
             self._post(
@@ -194,3 +201,50 @@ class GitHubClient:
             )
         except requests.HTTPError:
             logger.warning("Could not add labels to PR #%s (they may not exist)", pr_number)
+
+    # ------------------------------------------------------------------
+    # Multi-repo discovery
+    # ------------------------------------------------------------------
+
+    @classmethod
+    def discover_repos(
+        cls,
+        token: str,
+        skip_archived: bool = True,
+        skip_forks: bool = False,
+    ) -> list[str]:
+        """
+        Return all 'owner/repo' strings accessible with the given token.
+        Only repos where the authenticated user is the owner are returned.
+        Handles GitHub pagination automatically.
+        """
+        session = requests.Session()
+        session.headers.update(
+            {
+                "Authorization": f"Bearer {token}",
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            }
+        )
+        repos: list[str] = []
+        page = 1
+        while True:
+            resp = session.get(
+                f"{cls.BASE_URL}/user/repos",
+                params={"per_page": 100, "page": page, "affiliation": "owner", "sort": "updated"},
+            )
+            resp.raise_for_status()
+            batch = resp.json()
+            if not batch:
+                break
+            for r in batch:
+                if skip_archived and r.get("archived"):
+                    continue
+                if skip_forks and r.get("fork"):
+                    continue
+                repos.append(r["full_name"])
+            if len(batch) < 100:
+                break
+            page += 1
+        logger.info("Discovered %d repository/repositories for the authenticated user", len(repos))
+        return repos

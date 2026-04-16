@@ -6,10 +6,11 @@ and opens a Pull Request.
 """
 from __future__ import annotations
 
+import ast
 import json
 import re
-import uuid
 from datetime import datetime, timezone
+from pathlib import PurePosixPath
 from typing import Optional
 
 from openai import OpenAI
@@ -95,6 +96,14 @@ Rules:
             cycle_result.rejection_reason = "Executor could not generate concrete file changes."
             return cycle_result
 
+        is_safe, reason = self._validate_changes(file_changes, hypothesis, problem)
+        if not is_safe:
+            logger.warning("ExecutorAgent — blocked by safety gate: %s", reason)
+            cycle_result.rejected = True
+            cycle_result.rejection_reason = reason
+            hypothesis.status = HypothesisStatus.REJECTED
+            return cycle_result
+
         branch_name = self._make_branch_name(hypothesis)
         logger.info("ExecutorAgent — creating branch '%s' …", branch_name)
         self.github.create_branch(branch_name)
@@ -178,6 +187,86 @@ Rules:
             logger.error("ExecutorAgent — failed to parse file changes: %s", exc)
             return []
 
+    def _validate_changes(
+        self,
+        file_changes: list[dict],
+        hypothesis: Hypothesis,
+        problem: Problem,
+    ) -> tuple[bool, str]:
+        """Validate that generated changes are small, safe, and syntactically sound."""
+        if len(file_changes) > config.MAX_FILES_PER_EXECUTION:
+            return False, (
+                f"Safety gate blocked execution: {len(file_changes)} files exceed the limit "
+                f"of {config.MAX_FILES_PER_EXECUTION}."
+            )
+
+        allowed_files = set(hypothesis.files_to_modify) | set(problem.affected_files)
+        seen_paths: set[str] = set()
+        total_size = 0
+
+        for change in file_changes:
+            path = str(change.get("path", "")).replace("\\", "/").strip()
+            content = change.get("content", "")
+
+            if not path:
+                return False, "Safety gate blocked execution: empty file path detected."
+            if path.startswith("/") or ".." in PurePosixPath(path).parts:
+                return False, f"Safety gate blocked execution: invalid path '{path}'."
+            if path in seen_paths:
+                return False, f"Safety gate blocked execution: duplicate path '{path}'."
+            if not isinstance(content, str) or not content.strip():
+                return False, f"Safety gate blocked execution: file '{path}' has empty content."
+            if len(content) > config.MAX_FILE_CHANGE_SIZE:
+                return False, (
+                    f"Safety gate blocked execution: file '{path}' is too large "
+                    f"({len(content)} chars)."
+                )
+
+            if allowed_files and path not in allowed_files and not self._is_related_path(path, allowed_files):
+                return False, (
+                    f"Safety gate blocked execution: unexpected file '{path}' was not present "
+                    "in the approved implementation scope."
+                )
+
+            syntax_error = self._validate_syntax(path, content)
+            if syntax_error:
+                return False, f"Safety gate blocked execution: {syntax_error}"
+
+            seen_paths.add(path)
+            total_size += len(content)
+
+        if total_size > config.MAX_TOTAL_CHANGE_SIZE:
+            return False, (
+                f"Safety gate blocked execution: total payload size {total_size} chars exceeds "
+                f"the limit of {config.MAX_TOTAL_CHANGE_SIZE}."
+            )
+
+        return True, "ok"
+
+    @staticmethod
+    def _is_related_path(path: str, allowed_files: set[str]) -> bool:
+        path_parts = PurePosixPath(path).parts[:-1]
+        for allowed in allowed_files:
+            allowed_parts = PurePosixPath(allowed.replace('\\', '/')).parts[:-1]
+            if path_parts and path_parts == allowed_parts:
+                return True
+        return False
+
+    @staticmethod
+    def _validate_syntax(path: str, content: str) -> Optional[str]:
+        suffix = PurePosixPath(path).suffix.lower()
+        if suffix == ".py":
+            try:
+                ast.parse(content)
+            except SyntaxError as exc:
+                return f"python syntax error in '{path}': {exc.msg}"
+        if suffix == ".json":
+            try:
+                json.loads(content)
+            except json.JSONDecodeError as exc:
+                return f"json syntax error in '{path}': {exc.msg}"
+        return None
+
     # ------------------------------------------------------------------
     # Branch naming
     # ------------------------------------------------------------------
@@ -247,6 +336,10 @@ Rules:
                 f"| Scalability | {s.scalability} / 10 |",
                 f"| **Composite** | **{s.composite:.2f} / 10** |",
                 "",
+                "### Final Decision Justification",
+                "",
+                selected.evaluation_rationale or "Selected because it best balanced value, safety, and maintainability.",
+                "",
             ]
 
         if selected.critic_feedback:
@@ -256,6 +349,8 @@ Rules:
                 selected.critic_feedback,
                 "",
             ]
+            if selected.critic_risks:
+                lines += ["**Risks reviewed:**"] + [f"- {risk}" for risk in selected.critic_risks] + [""]
 
         if discarded:
             lines += [
