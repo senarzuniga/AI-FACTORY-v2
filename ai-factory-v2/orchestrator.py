@@ -38,6 +38,7 @@ from learning.registry import LearningRegistry
 from models.hypothesis import CycleResult, Hypothesis, HypothesisStatus, Problem, RepositoryAnalysis
 from utils.github_client import GitHubClient
 from utils.logger import get_logger, log_section
+from db.supabase_client import create_supabase_store
 
 logger = get_logger("orchestrator")
 
@@ -66,6 +67,7 @@ class Orchestrator:
         self.critic = CriticAgent(openai_client=self.ai)
         self.executor = ExecutorAgent(github_client=self.github, openai_client=self.ai)
         self.learning = LearningRegistry(config.LEARNING_FILE)
+        self.supabase = create_supabase_store(config.SUPABASE_URL, config.SUPABASE_KEY)
 
     # ------------------------------------------------------------------
     # Main entry point
@@ -104,6 +106,10 @@ class Orchestrator:
         log_section(logger, "STEP 9 — Register Learning")
         self._write_cycle_report(result)
         self._step_learn(result)
+
+        # ── Step 10: Persist to Supabase ──────────────────────────────
+        log_section(logger, "STEP 10 — Supabase Persistence")
+        self._step_persist(result)
 
         log_section(logger, "CYCLE COMPLETE")
         self._log_cycle_summary(result)
@@ -217,6 +223,12 @@ class Orchestrator:
             stats["rejected"],
             stats["success_rate"] * 100,
         )
+
+    def _step_persist(self, result: CycleResult) -> None:
+        if self.supabase is None:
+            logger.info("Supabase persistence skipped — credentials not configured.")
+            return
+        self.supabase.persist_cycle(result)
 
     # ------------------------------------------------------------------
     # Helpers

@@ -62,6 +62,8 @@ jobs:
           SKIP_REPOS: ${{ vars.SKIP_REPOS || '' }}
           SKIP_FORKS: ${{ vars.SKIP_FORKS || 'true' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           cd ai-factory-v2
           python orchestrator.py

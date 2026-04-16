@@ -53,16 +53,10 @@ MAX_COMPLEXITY: float = float(os.environ.get("MAX_COMPLEXITY", "7.0"))
 BRANCH_PREFIX: str = "ai-factory/"
 
 # ---------------------------------------------------------------------------
-# Dry-run mode (analyse and score only — no PR creation)
+# Supabase (optional — set both vars to enable remote persistence)
 # ---------------------------------------------------------------------------
-DRY_RUN: bool = os.environ.get("DRY_RUN", "false").lower() == "true"
-
-# ---------------------------------------------------------------------------
-# Execution safety gates
-# ---------------------------------------------------------------------------
-MAX_FILES_PER_EXECUTION: int = int(os.environ.get("MAX_FILES_PER_EXECUTION", "5"))
-MAX_FILE_CHANGE_SIZE: int = int(os.environ.get("MAX_FILE_CHANGE_SIZE", "20000"))
-MAX_TOTAL_CHANGE_SIZE: int = int(os.environ.get("MAX_TOTAL_CHANGE_SIZE", "60000"))
+SUPABASE_URL: str = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY", "")
 
 # ---------------------------------------------------------------------------
 # Learning registry
