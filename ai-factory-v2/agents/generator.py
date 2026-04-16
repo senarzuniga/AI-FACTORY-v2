@@ -61,12 +61,22 @@ Return ONLY a valid JSON array. No extra text.
         logger.info(
             "GeneratorAgent — generating hypotheses for problem '%s' …", problem.title
         )
-        raw = self._call_llm(problem, repo_context)
-        hypotheses = self._parse(raw, problem)
+
+        hypotheses: list[Hypothesis] = []
+        for attempt in range(1, 3):
+            raw = self._call_llm(problem, repo_context)
+            hypotheses = self._ensure_structural_diversity(self._parse(raw, problem))
+            if len(hypotheses) >= config.MIN_HYPOTHESES:
+                break
+            logger.warning(
+                "GeneratorAgent — diversity gate not met for '%s' on attempt %d.",
+                problem.title,
+                attempt,
+            )
 
         if len(hypotheses) < config.MIN_HYPOTHESES:
             logger.error(
-                "GeneratorAgent — only %d hypothesis/hypotheses returned for '%s'; "
+                "GeneratorAgent — only %d structurally distinct hypothesis/hypotheses returned for '%s'; "
                 "minimum is %d. Skipping problem.",
                 len(hypotheses),
                 problem.title,
@@ -74,7 +84,6 @@ Return ONLY a valid JSON array. No extra text.
             )
             return []
 
-        # Cap at MAX_HYPOTHESES
         hypotheses = hypotheses[: config.MAX_HYPOTHESES]
         logger.info(
             "GeneratorAgent — %d hypothesis/hypotheses generated for '%s'",
@@ -149,3 +158,15 @@ Return ONLY a valid JSON array. No extra text.
             except Exception as exc:  # noqa: BLE001
                 logger.warning("GeneratorAgent — skipping malformed hypothesis: %s", exc)
         return hypotheses
+
+    def _ensure_structural_diversity(self, hypotheses: list[Hypothesis]) -> list[Hypothesis]:
+        """Keep only one hypothesis per normalized structural approach."""
+        unique: list[Hypothesis] = []
+        seen_approaches: set[str] = set()
+        for hypothesis in hypotheses:
+            approach = hypothesis.approach.strip().lower()
+            if not approach or approach in seen_approaches:
+                continue
+            seen_approaches.add(approach)
+            unique.append(hypothesis)
+        return unique

@@ -78,6 +78,7 @@ Return ONLY a valid JSON object. No extra text.
         verdict, risks, feedback = self._parse(raw)
 
         hypothesis.critic_feedback = feedback
+        hypothesis.critic_risks = risks
         if verdict == _VERDICT_APPROVE:
             hypothesis.status = HypothesisStatus.APPROVED
             logger.info(
@@ -99,6 +100,7 @@ Return ONLY a valid JSON object. No extra text.
     # ------------------------------------------------------------------
 
     def _call_llm(self, problem: Problem, hypothesis: Hypothesis) -> str:
+        score_summary = hypothesis.score.to_dict() if hypothesis.score else {}
         user_message = (
             f"Problem: {problem.title}\n"
             f"Description: {problem.description}\n\n"
@@ -107,7 +109,9 @@ Return ONLY a valid JSON object. No extra text.
             f"  Approach: {hypothesis.approach}\n"
             f"  Description: {hypothesis.description}\n"
             f"  Implementation plan:\n{hypothesis.implementation_plan}\n"
-            f"  Files to modify: {', '.join(hypothesis.files_to_modify) or 'not specified'}\n\n"
+            f"  Files to modify: {', '.join(hypothesis.files_to_modify) or 'not specified'}\n"
+            f"  Evaluator rationale: {hypothesis.evaluation_rationale or 'none'}\n"
+            f"  Score summary: {json.dumps(score_summary)}\n\n"
             "Provide your critical assessment."
         )
         response = self.ai.chat.completions.create(
