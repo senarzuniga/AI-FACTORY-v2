@@ -1,3 +1,4 @@
+
 """
 AI Factory v2 — Configuration
 """
@@ -110,3 +111,4 @@ MAX_FILE_CHARS: int = 8_000
 
 # Maximum total characters for the repository snapshot
 MAX_REPO_CHARS: int = 60_000
+
