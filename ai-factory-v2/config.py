@@ -4,33 +4,33 @@ AI Factory v2 — Configuration
 """
 from __future__ import annotations
 
-import os
+from decouple import config
 from pathlib import Path
 
 
 # ---------------------------------------------------------------------------
 # GitHub
 # ---------------------------------------------------------------------------
-GITHUB_TOKEN: str = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_TOKEN: str = config("GITHUB_TOKEN", default="")
 # Set to a specific "owner/repo" to target one repository.
 # Set to "ALL" (or leave empty) to analyse every repo you own.
-GITHUB_REPOSITORY: str = os.environ.get("GITHUB_REPOSITORY", "ALL")
+GITHUB_REPOSITORY: str = config("GITHUB_REPOSITORY", default="ALL")
 
 # Repos to skip in ALL mode (comma-separated, e.g. "owner/repo1,owner/repo2")
 SKIP_REPOS: list[str] = [
-    r.strip() for r in os.environ.get("SKIP_REPOS", "").split(",") if r.strip()
+    r.strip() for r in config("SKIP_REPOS", default="").split(",") if r.strip()
 ]
 
 # Whether to skip forked repositories in ALL mode
-SKIP_FORKS: bool = os.environ.get("SKIP_FORKS", "true").lower() == "true"
+SKIP_FORKS: bool = config("SKIP_FORKS", default="true").lower() == "true"
 
 # ---------------------------------------------------------------------------
 # AI / LLM
 # ---------------------------------------------------------------------------
-OPENAI_API_KEY: str = os.environ.get("OPENAI_API_KEY", "")
-OPENAI_MODEL: str = os.environ.get("AI_MODEL", "gpt-4o")
-OPENAI_MAX_TOKENS: int = int(os.environ.get("AI_MAX_TOKENS", "4096"))
-OPENAI_TEMPERATURE: float = float(os.environ.get("AI_TEMPERATURE", "0.3"))
+OPENAI_API_KEY: str = config("OPENAI_API_KEY", default="")
+OPENAI_MODEL: str = config("AI_MODEL", default="gpt-4o")
+OPENAI_MAX_TOKENS: int = config("AI_MAX_TOKENS", cast=int, default=4096)
+OPENAI_TEMPERATURE: float = config("AI_TEMPERATURE", cast=float, default=0.3)
 
 # ---------------------------------------------------------------------------
 # Hypothesis Engineering
@@ -41,12 +41,12 @@ MAX_HYPOTHESES: int = 5
 # ---------------------------------------------------------------------------
 # Scoring thresholds (Execution Rule)
 # ---------------------------------------------------------------------------
-MIN_BUSINESS_IMPACT: float = float(os.environ.get("MIN_BUSINESS_IMPACT", "7.0"))
-MAX_TECHNICAL_RISK: float = float(os.environ.get("MAX_TECHNICAL_RISK", "4.0"))
-MIN_MAINTAINABILITY: float = float(os.environ.get("MIN_MAINTAINABILITY", "5.0"))
-MIN_SCALABILITY: float = float(os.environ.get("MIN_SCALABILITY", "5.0"))
-MIN_COMPOSITE_SCORE: float = float(os.environ.get("MIN_COMPOSITE_SCORE", "6.5"))
-MAX_COMPLEXITY: float = float(os.environ.get("MAX_COMPLEXITY", "7.0"))
+MIN_BUSINESS_IMPACT: float = config("MIN_BUSINESS_IMPACT", cast=float, default=7.0)
+MAX_TECHNICAL_RISK: float = config("MAX_TECHNICAL_RISK", cast=float, default=4.0)
+MIN_MAINTAINABILITY: float = config("MIN_MAINTAINABILITY", cast=float, default=5.0)
+MIN_SCALABILITY: float = config("MIN_SCALABILITY", cast=float, default=5.0)
+MIN_COMPOSITE_SCORE: float = config("MIN_COMPOSITE_SCORE", cast=float, default=6.5)
+MAX_COMPLEXITY: float = config("MAX_COMPLEXITY", cast=float, default=7.0)
 
 # ---------------------------------------------------------------------------
 # Branch naming
@@ -56,8 +56,8 @@ BRANCH_PREFIX: str = "ai-factory/"
 # ---------------------------------------------------------------------------
 # Supabase (optional — set both vars to enable remote persistence)
 # ---------------------------------------------------------------------------
-SUPABASE_URL: str = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY: str = os.environ.get("SUPABASE_KEY", "")
+SUPABASE_URL: str = config("SUPABASE_URL", default="")
+SUPABASE_KEY: str = config("SUPABASE_KEY", default="")
 
 # ---------------------------------------------------------------------------
 # Learning registry
