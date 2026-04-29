@@ -94,3 +94,9 @@ jobs:
           name: ai-factory-cycle-reports-${{ github.run_id }}
           path: ai-factory-v2/output/cycles/
           if-no-files-found: ignore
+
+      # ── 7. Run tests ────────────────────────────────────────────────
+      - name: Run tests
+        run: |
+          cd ai-factory-v2
+          pytest
