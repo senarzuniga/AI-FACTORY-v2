@@ -8,6 +8,7 @@ sys.path.insert(0, str(APP_DIR))
 import config
 from agents.evaluator import EvaluatorAgent
 from agents.executor import ExecutorAgent
+from agents.generator import GeneratorAgent
 from models.hypothesis import (
     CycleResult,
     Hypothesis,
@@ -95,6 +96,31 @@ class SuccessExecutor:
 
 
 class OrchestrationTaxonomyTests(unittest.TestCase):
+    def test_generator_hardens_plan_with_validation_and_files(self):
+        generator = GeneratorAgent(openai_client=object())
+        problem = Problem(
+            id="p1",
+            title="Improve reliability",
+            description="desc",
+            category="maintainability",
+            affected_files=["src/app.tsx"],
+        )
+        hypothesis = Hypothesis(
+            id="h1",
+            problem_id="p1",
+            title="Minimal fix",
+            description="desc",
+            approach="logic simplification",
+            implementation_plan="1. Make a small fix",
+            files_to_modify=[],
+        )
+
+        hardened = generator._harden_hypothesis(problem, hypothesis)
+
+        self.assertIn("validation", hardened.implementation_plan.lower())
+        self.assertIn("rollback", hardened.implementation_plan.lower())
+        self.assertEqual(hardened.files_to_modify, ["src/app.tsx"])
+
     def test_problem_fields_are_normalized_to_taxonomy(self):
         problem = Problem(
             id="p1",

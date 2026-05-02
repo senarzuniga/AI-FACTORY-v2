@@ -1,0 +1,85 @@
+orchestrator:
+  name: "AI-FACTORY-v2"
+  version: "2.0.0"
+  mode: "production"
+  data_dir: ".ai-factory"
+
+protocols:
+  epoch:
+    enabled: true
+    max_rounds: 10
+    baseline_threshold: 0.85
+    auto_rollback: true
+    optimization_tracking: true
+
+  imcts:
+    enabled: true
+    max_depth: 5
+    exploration_constant: 1.414
+    introspection_budget: 3
+    max_iterations: 100
+
+  escher_loop:
+    enabled: true
+    evolution_rate: 0.1
+    mutation_probability: 0.3
+    crossover_enabled: true
+
+  gnap:
+    enabled: true
+    git_based: true
+    coordination_path: "./gnap"
+
+  coepg:
+    enabled: true
+    grpo_batch_size: 32
+    planning_weight: 0.4
+    grounding_weight: 0.6
+    reward_decay: 0.95
+
+agents:
+  planning:
+    model: "gpt-4-turbo-preview"
+    temperature: 0.7
+    max_tokens: 4000
+
+  grounding:
+    model: "claude-3-opus-20240229"
+    temperature: 0.2
+    max_tokens: 8000
+
+  critic:
+    model: "gpt-4-turbo-preview"
+    temperature: 0.3
+    enabled_validators:
+      - security
+      - performance
+      - maintainability
+      - scalability
+
+  optimizer:
+    model: "gpt-4-turbo-preview"
+    temperature: 0.8
+    learning_rate: 0.01
+
+memory:
+  vector_store:
+    type: "faiss"
+    dimension: 1536
+    similarity_threshold: 0.75
+
+  experience_replay:
+    capacity: 10000
+    batch_size: 64
+    priority: true
+
+github:
+  api_version: "2022-11-28"
+  retry_attempts: 3
+  retry_delay: 5
+  max_prs_per_run: 10
+
+monitoring:
+  prometheus_enabled: true
+  metrics_port: 9090
+  log_level: "INFO"

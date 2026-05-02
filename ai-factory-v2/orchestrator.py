@@ -183,6 +183,7 @@ class Orchestrator:
 
             # Step 6: Critical validation
             log_section(logger, "STEP 6 — Critical Validation")
+            selected = self.generator._harden_hypothesis(problem, selected)
             selected = self.critic.validate(problem, selected)
 
             if selected.status != HypothesisStatus.APPROVED:
