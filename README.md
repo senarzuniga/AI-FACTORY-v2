@@ -116,6 +116,33 @@ cd ai-factory-v2
 .\launch.ps1
 ```
 
+## Collaborative hub (Ingercart)
+
+This repository now includes a full local collaborative hub with:
+
+- FastAPI hub endpoints (`api/routes/hub_api.py`)
+- Technical Streamlit dashboard (`dashboard/streamlit/hub_dashboard.py`)
+- Human Interaction portal (`dashboard/streamlit/human_interaction_portal.py`)
+- End-to-end setup script (`create_collaborative_hub.ps1`)
+- Service launcher (`start-collaborative-hub.ps1`)
+
+Quick start:
+
+```powershell
+.\create_collaborative_hub.ps1
+.\start-collaborative-hub.ps1
+```
+
+Individual services:
+
+```powershell
+.\start-collaborative-hub.ps1 -StartAPI
+.\start-collaborative-hub.ps1 -StartDashboard
+.\start-collaborative-hub.ps1 -StartHumanPortal
+```
+
+If your workspace path has spaces, Git operations are handled through quoted `git -C` calls by the setup script.
+
 ## Configuration
 
 All advanced-stack settings live in `config.yaml`:

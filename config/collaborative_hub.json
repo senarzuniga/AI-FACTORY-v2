@@ -1,0 +1,26 @@
+{
+  "client": "Ingercart",
+  "workspace_path": "C:/Users/Inaki Senar/Documents/GitHub/AI-FACTORY-v2",
+  "users": {
+    "admin": "isenar.cta@gmail.com",
+    "manager": "sales@ingecart.es",
+    "admin_chief": "administracion@ingecart.es"
+  },
+  "ports": {
+    "api": 8000,
+    "dashboard": 8501,
+    "human_portal": 8502
+  },
+  "urls": {
+    "sharepoint": "https://ingecart.sharepoint.com/sites/Adaptive-Sales-Core",
+    "teams": "https://teams.microsoft.com/l/team/19:ingecart_core"
+  },
+  "features": {
+    "fix_git_spaces": true,
+    "create_sharepoint_hub": true,
+    "create_teams_core": true,
+    "create_agent_ecosystem": true,
+    "create_human_interaction_env": true,
+    "deploy": false
+  }
+}
