@@ -31,25 +31,37 @@ New top-level package implementing the full v2 protocol suite:
 
 Original orchestrator with critic, generator, evaluator, executor, and analyzer agents. Preserved and untouched. Uses `launch.ps1` for Windows execution.
 
-## Capabilities
+## Capacidades y funcionalidades
 
-**Legacy system (`ai-factory-v2/`)**
-- Full repository analysis with structured summary and opportunity detection
-- Multi-hypothesis generation with structural-diversity enforcement
-- Scoring gates based on business impact, risk, complexity, maintainability, and scalability
-- Critic validation with explicit risk tracking
-- Safe execution guardrails for minimal, validated changes only
-- Automatic fallback to the next safe hypothesis when a better-ranked one is blocked
-- Automatic branch and pull-request creation with retry support for transient API failures
-- Learning history and per-cycle audit reports
+### Capacidades del sistema legacy (`ai-factory-v2/`)
 
-**Advanced stack (`orchestrator/`)**
-- EPOCH-based rollback protection with baseline snapshotting
-- I-MCTS for intelligent exploration of the hypothesis space with introspective failure analysis
-- Escher-Loop mutual evolution: planning and grounding agents iteratively improve each other
-- GNAP Git-native async job dispatch and distributed worker coordination
-- Co-EPG co-training of planning vs. grounding quality signals
-- FAISS-backed semantic memory with prioritized experience replay
+- Analisis completo del repositorio con resumen estructurado y deteccion de oportunidades
+- Generacion de multiples hipotesis con diversidad estructural
+- Scoring por impacto de negocio, riesgo, complejidad, mantenibilidad y escalabilidad
+- Validacion critica con trazabilidad explicita de riesgos
+- Ejecucion segura con guardrails para cambios minimos y validados
+- Fallback automatico a la siguiente hipotesis segura cuando la mejor opcion queda bloqueada
+- Creacion automatica de branch y pull request con reintentos ante fallos transitorios de API
+- Historial de aprendizaje y reportes auditables por ciclo
+
+### Capacidades del stack avanzado (`orchestrator/`)
+
+- Proteccion con EPOCH: snapshot de baseline, control por rondas y rollback seguro
+- Exploracion inteligente con I-MCTS: busqueda de estrategias y analisis introspectivo de fallo
+- Co-evolucion con Escher-Loop: mejora iterativa entre planning agent y grounding agent
+- Coordinacion distribuida con GNAP: cola de trabajo asincrona y sincronizacion git-native
+- Entrenamiento conjunto con Co-EPG: feedback cruzado entre planificacion y grounding
+- Memoria semantica con VectorStore (FAISS/numpy fallback) y Experience Replay priorizado
+
+### Funcionalidades operativas actuales
+
+- Configuracion centralizada en `config.yaml` para protocolos, agentes, memoria, GitHub y monitoreo
+- Ejecucion principal desde `main.py` para el pipeline avanzado completo
+- Modo de ejecucion legacy disponible via `ai-factory-v2/launch.ps1`
+- Integracion con GitHub mediante cliente dedicado y soporte de modo offline/fallback
+- Trazabilidad por logs estructurados y artefactos de ejecucion por ciclo
+- Soporte de automatizacion Forge con assets de orquestacion en `.forge/`
+- Scripts operativos para optimizacion e integracion: `optimize-agents.ps1` e `integrate-5-discoveries.ps1`
 
 ## Repository structure
 
