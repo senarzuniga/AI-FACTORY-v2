@@ -1,0 +1,45 @@
+﻿====================================================================================================
+ACTUALIZACION FORZADA - TODOS LOS PANELES Y AGENTES EN CASCADA
+====================================================================================================
+Fecha: 2026-05-04 11:20:33
+
+[1] force_sync_data.py
+======================================================================
+FORCED DATA SYNC
+======================================================================
+Offers synced: 0
+Customers synced: 1
+Pending requests synced: 1
+Data folder: C:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2\data
+
+[2] cascade_agents.py
+======================================================================
+CASCADE EXECUTION COMPLETE
+======================================================================
+Dynamic pricing items: 0
+Cross-selling items: 0
+Request management items: 1
+Actions generated: 3
+Errors: 0
+
+[3] update_all_panels.py
+======================================================================
+PANELS UPDATED
+======================================================================
+action_dashboard.total_actions: 3
+offers_panel.total_offers: 0
+kam_dashboard.kams: 0
+action_pool_panel.roles: 2
+
+[4] verify_all.py
+======================================================================
+VERIFICATION
+======================================================================
+status: OK
+offers_count: 0
+actions_total: 3
+errors: 0
+
+====================================================================================================
+FIN
+====================================================================================================

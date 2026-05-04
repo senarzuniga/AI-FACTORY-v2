@@ -1,0 +1,45 @@
+{
+  "status": "OK",
+  "timestamp": "2026-05-04T09:20:35.226344+00:00",
+  "components": {
+    "synced_offers.json": {
+      "status": "OK",
+      "size": 2
+    },
+    "synced_customers.json": {
+      "status": "OK",
+      "size": 5407
+    },
+    "synced_requests.json": {
+      "status": "OK",
+      "size": 175
+    },
+    "cascade_results.json": {
+      "status": "OK",
+      "size": 3102
+    },
+    "action_dashboard.json": {
+      "status": "OK",
+      "size": 1763
+    },
+    "offers_panel.json": {
+      "status": "OK",
+      "size": 168
+    },
+    "kam_dashboard.json": {
+      "status": "OK",
+      "size": 2
+    },
+    "action_pool_panel.json": {
+      "status": "OK",
+      "size": 1272
+    }
+  },
+  "errors": [],
+  "metrics": {
+    "offers_count": 0,
+    "actions_total": 3,
+    "actions_pending": 3,
+    "actions_completed": 0
+  }
+}

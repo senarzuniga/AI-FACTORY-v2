@@ -1,0 +1,20 @@
+{
+  "sync_status": "completed",
+  "source": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\adaptive-sales-engine",
+  "supabase_url_detected": true,
+  "service_key_detected": true,
+  "tables": {
+    "offers": {
+      "state": "fallback_existing_file",
+      "count": 0
+    },
+    "companies": {
+      "state": "ok",
+      "count": 1
+    },
+    "ingestion_contradictions": {
+      "state": "ok",
+      "count": 0
+    }
+  }
+}

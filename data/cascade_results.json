@@ -1,0 +1,126 @@
+{
+  "dynamic_pricing": [],
+  "cross_selling": [],
+  "request_management": [
+    {
+      "request_id": "REQ_20260504_112034",
+      "type": "offer_creation",
+      "actions_generated": 2
+    }
+  ],
+  "actions_generated": {
+    "actions": [
+      {
+        "id": "ACT_20260504112034_0001",
+        "title": "Procesar nueva solicitud de cliente",
+        "priority": "CRITICAL",
+        "role": "comercial",
+        "score": 78.0
+      },
+      {
+        "id": "ACT_20260504112034_0002",
+        "title": "Investigacion de empresa",
+        "priority": "HIGH",
+        "role": "comercial",
+        "score": 61.1
+      },
+      {
+        "id": "ACT_20260504112034_0003",
+        "title": "Evaluacion tecnica requerida",
+        "priority": "HIGH",
+        "role": "ingenieria",
+        "score": 67.4
+      }
+    ],
+    "dashboard": {
+      "administracion": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "gestion_proyecto": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "ingenieria": {
+        "total_pending": 1,
+        "critical": 0,
+        "high": 1,
+        "actions": [
+          {
+            "id": "ACT_20260504112034_0003",
+            "title": "Evaluacion tecnica requerida",
+            "priority": "HIGH",
+            "score": 67.4,
+            "due_date": "2026-05-07T11:20:34.755149"
+          }
+        ]
+      },
+      "postventa": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "comercial": {
+        "total_pending": 2,
+        "critical": 1,
+        "high": 1,
+        "actions": [
+          {
+            "id": "ACT_20260504112034_0001",
+            "title": "Procesar nueva solicitud de cliente",
+            "priority": "CRITICAL",
+            "score": 78.0,
+            "due_date": "2026-05-05T11:20:34.755097"
+          },
+          {
+            "id": "ACT_20260504112034_0002",
+            "title": "Investigacion de empresa",
+            "priority": "HIGH",
+            "score": 61.1,
+            "due_date": "2026-05-06T11:20:34.755125"
+          }
+        ]
+      },
+      "gerencia": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "calidad": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "logistica": {
+        "total_pending": 0,
+        "critical": 0,
+        "high": 0,
+        "actions": []
+      },
+      "statistics": {
+        "total_actions": 3,
+        "pending": 3,
+        "completed": 0,
+        "completion_rate": 0.0,
+        "by_role": {
+          "ingenieria": 1,
+          "comercial": 2
+        },
+        "by_priority": {
+          "CRITICAL": 1,
+          "HIGH": 2
+        }
+      }
+    }
+  },
+  "errors": [],
+  "started_at": "2026-05-04T09:20:34.708361+00:00",
+  "completed_at": "2026-05-04T09:20:34.755314+00:00"
+}
