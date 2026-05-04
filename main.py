@@ -86,6 +86,11 @@ async def _run_agentic_system() -> int:
 # ──────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    if "--cascade" in sys.argv:
+        from cascade_orchestrator import run_cli_async
+
+        cascade_args = [a for a in sys.argv[1:] if a != "--cascade"]
+        raise SystemExit(asyncio.run(run_cli_async(cascade_args)))
     if "--agentic" in sys.argv:
         raise SystemExit(asyncio.run(_run_agentic_system()))
     raise SystemExit(asyncio.run(_run_protocol_orchestrator()))

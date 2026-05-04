@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "adaptive-sales-engine",
+      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target adaptive-sales-engine"
+    },
+    {
+      "name": "collaborative-hub-api",
+      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target collaborative-hub-api"
+    }
+  ]
+}
