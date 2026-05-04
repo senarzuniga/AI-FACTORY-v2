@@ -1,0 +1,7 @@
+# Action Engine V2 - execution quickstart
+
+cd "C:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2"
+python tests/test_action_system.py
+
+# Example: instantiate request manager and generate actions
+python -c "import asyncio; from agents.request_management.request_management_agent import RequestManagementAgent; async def m():\n a=RequestManagementAgent('url','key','http://localhost:5173'); await a.initialize(); r=await a.process_request('Empresa: Demo SA. Solicito oferta'); print(r.id, len(r.generated_actions)); await a.close();\nasyncio.run(m())"
