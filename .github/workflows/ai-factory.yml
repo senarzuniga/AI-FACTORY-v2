@@ -64,6 +64,8 @@ jobs:
           MAX_REPOS_PER_RUN: ${{ vars.MAX_REPOS_PER_RUN || '0' }}
           SKIP_FORKS: ${{ vars.SKIP_FORKS || 'true' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           cd ai-factory-v2
           python orchestrator.py
@@ -94,3 +96,9 @@ jobs:
           name: ai-factory-cycle-reports-${{ github.run_id }}
           path: ai-factory-v2/output/cycles/
           if-no-files-found: ignore
+
+      # ── 7. Run tests ────────────────────────────────────────────────
+      - name: Run tests
+        run: |
+          cd ai-factory-v2
+          pytest
