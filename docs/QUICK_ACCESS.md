@@ -15,5 +15,5 @@
 `
 
 ## External URLs
-- SharePoint: https://ingecart.sharepoint.com/sites/Adaptive-Sales-Core
-- Teams: https://teams.microsoft.com/l/team/19:ingecart_core
+- Teams Community (File Hub): https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI
+- Teams: https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI

@@ -4,5 +4,11 @@
     "field_name": "company_profile_refresh",
     "notes": "Revisar y activar acciones para Ingecart",
     "status": "pending"
+  },
+  {
+    "entity_name": "test 1",
+    "field_name": "company_profile_refresh",
+    "notes": "Revisar y activar acciones para test 1",
+    "status": "pending"
   }
 ]

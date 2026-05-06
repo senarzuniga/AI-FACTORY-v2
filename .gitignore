@@ -32,6 +32,7 @@ Thumbs.db
 
 # Local secrets — never commit
 .env
+.openai-master-key.json
 
 # Runtime artifacts
 ai-factory-v2/output/

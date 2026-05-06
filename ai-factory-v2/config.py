@@ -7,6 +7,24 @@ import os
 from pathlib import Path
 
 
+def _resolve_openai_api_key() -> str:
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    if api_key:
+        return api_key
+
+    try:
+        from openai_key_manager import setup_openai_env
+    except Exception:
+        return ""
+
+    try:
+        setup_openai_env()
+    except Exception:
+        return ""
+
+    return os.environ.get("OPENAI_API_KEY", "").strip()
+
+
 # ---------------------------------------------------------------------------
 # GitHub
 # ---------------------------------------------------------------------------
@@ -34,7 +52,7 @@ SKIP_FORKS: bool = os.environ.get("SKIP_FORKS", "true").lower() == "true"
 # ---------------------------------------------------------------------------
 # AI / LLM
 # ---------------------------------------------------------------------------
-OPENAI_API_KEY: str = os.environ.get("OPENAI_API_KEY", "")
+OPENAI_API_KEY: str = _resolve_openai_api_key()
 OPENAI_MODEL: str = os.environ.get("AI_MODEL", "gpt-4o")
 OPENAI_MAX_TOKENS: int = int(os.environ.get("AI_MAX_TOKENS", "4096"))
 OPENAI_TEMPERATURE: float = float(os.environ.get("AI_TEMPERATURE", "0.3"))

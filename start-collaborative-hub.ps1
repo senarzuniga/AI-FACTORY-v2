@@ -61,7 +61,25 @@ if ($FixGit) {
 }
 
 if ($TestSharePoint) {
-    Write-Step "SharePoint target URL: https://ingecart.sharepoint.com/sites/Adaptive-Sales-Core" Yellow
+    $configPath = Join-Path $HubPath "config\collaborative_hub.json"
+    $sharepointUrl = "https://ingecart.sharepoint.com/sites/Adaptive-Sales-Core"
+    if (Test-Path $configPath) {
+        try {
+            $cfg = Get-Content -Path $configPath -Raw | ConvertFrom-Json
+            if ($cfg.urls.sharepoint) { $sharepointUrl = $cfg.urls.sharepoint }
+        } catch {
+            Write-Step "Could not parse config/collaborative_hub.json; using default SharePoint URL" Yellow
+        }
+    }
+
+    Write-Step "SharePoint target URL: $sharepointUrl" Yellow
+    try {
+        $hostName = ([System.Uri]$sharepointUrl).Host
+        Resolve-DnsName $hostName -ErrorAction Stop | Out-Null
+        Write-Step "DNS OK for $hostName" Green
+    } catch {
+        Write-Step "DNS FAIL for SharePoint host. Tenant may not exist or URL is wrong." Red
+    }
 }
 
 $singleMode = $StartAPI -or $StartDashboard -or $StartHumanPortal

@@ -118,18 +118,18 @@ class ContextManager:
 
     def _get_data_sources(self, client: str, role: UserRole) -> List[str]:
         base: List[str] = [
-            f"sharepoint://client_{client}/01_INPUT_DATA",
-            f"sharepoint://client_{client}/02_ANALYSIS",
+            f"teams_community://client_{client}/01_INPUT_DATA",
+            f"teams_community://client_{client}/02_ANALYSIS",
         ]
         if role == UserRole.ADMIN:
             base += [
-                "sharepoint://core/00_ADMIN",
-                "sharepoint://core/02_INTERNAL_OPERATIONS",
+                "teams_community://core/00_ADMIN",
+                "teams_community://core/02_INTERNAL_OPERATIONS",
             ]
         elif role == UserRole.MANAGER:
-            base.append(f"sharepoint://client_{client}/03_PROJECTS")
+            base.append(f"teams_community://client_{client}/03_PROJECTS")
         elif role == UserRole.ADMIN_CHIEF:
-            base.append(f"sharepoint://client_{client}/00_GOVERNANCE")
+            base.append(f"teams_community://client_{client}/00_GOVERNANCE")
         return base
 
     def _get_permissions(self, role: UserRole) -> Dict[str, bool]:

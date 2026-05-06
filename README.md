@@ -141,6 +141,29 @@ Individual services:
 .\start-collaborative-hub.ps1 -StartHumanPortal
 ```
 
+## Architecture reorganization launcher
+
+This repository can act as the orchestration hub for an external working app (for example `adaptive-sales-engine`).
+
+Key files:
+
+- `dashboard/orchestrator_panel.html` - central browser panel for health and metrics
+- `scripts/fix_connections.py` - validates app, API, data artifacts, and writes `data/connection_status.json`
+- `start_ecosystem.ps1` - launches orchestrator services, app, panel, and optional data pipeline
+- `reorganize_architecture.ps1` - executes validation and writes `architecture_reorganization_report.txt`
+
+Run the full reorganization check:
+
+```powershell
+.\reorganize_architecture.ps1 -AppPath "C:\Users\Inaki Senar\Documents\GitHub\adaptive-sales-engine"
+```
+
+Start the full local ecosystem:
+
+```powershell
+.\start_ecosystem.ps1 -AppPath "C:\Users\Inaki Senar\Documents\GitHub\adaptive-sales-engine" -RunDataPipeline
+```
+
 If your workspace path has spaces, Git operations are handled through quoted `git -C` calls by the setup script.
 
 ## Configuration

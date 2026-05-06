@@ -1,6 +1,6 @@
 """
 DELIVERY AGENT
-Publica en Teams y SharePoint con control de permisos via Context Layer.
+Publica en Teams Community con control de permisos via Context Layer.
 """
 
 from __future__ import annotations
@@ -39,16 +39,16 @@ class DeliveryAgent:
         client = context.get("client", "client")
         mapping: Dict[str, List[str]] = {
             "proposal": [
-                f"sharepoint://client_{client}/04_DELIVERABLES/Proposals",
+                f"teams_community://client_{client}/04_DELIVERABLES/Proposals",
                 "teams://channel=deliverables",
             ],
-            "report": [f"sharepoint://client_{client}/02_ANALYSIS/Reports"],
+            "report": [f"teams_community://client_{client}/02_ANALYSIS/Reports"],
             "presentation": [
-                f"sharepoint://client_{client}/04_DELIVERABLES/Presentations"
+                f"teams_community://client_{client}/04_DELIVERABLES/Presentations"
             ],
         }
-        return mapping.get(content_type, [f"sharepoint://client_{client}/04_DELIVERABLES"])
+        return mapping.get(content_type, [f"teams_community://client_{client}/04_DELIVERABLES"])
 
     def _generate_url(self, destination: str, content: Dict[str, Any]) -> str:  # noqa: ARG002
-        path = destination.replace("sharepoint://", "").replace("teams://", "teams/")
-        return f"https://ingecart.sharepoint.com/{path}"
+        path = destination.replace("teams_community://", "").replace("teams://", "teams/")
+        return f"https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI/{path}"

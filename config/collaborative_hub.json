@@ -12,12 +12,12 @@
     "human_portal": 8502
   },
   "urls": {
-    "sharepoint": "https://ingecart.sharepoint.com/sites/Adaptive-Sales-Core",
-    "teams": "https://teams.microsoft.com/l/team/19:ingecart_core"
+    "teams_community": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI",
+    "teams": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI"
   },
   "features": {
     "fix_git_spaces": true,
-    "create_sharepoint_hub": true,
+    "create_sharepoint_hub": false,
     "create_teams_core": true,
     "create_agent_ecosystem": true,
     "create_human_interaction_env": true,
