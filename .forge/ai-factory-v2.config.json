@@ -1,0 +1,27 @@
+{
+  "orchestrator_config": {
+    "repository_path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2",
+    "agent_repositories": [
+      "AI-FACTORY-v2",
+      "AI-FACTORY-agents",
+      "agent-performance-metrics",
+      "vector-memory-bank"
+    ],
+    "performance_targets": {
+      "response_time_ms": 100,
+      "token_efficiency": 0.85,
+      "parallel_execution": true,
+      "cache_hit_rate": 0.9
+    },
+    "optimization_frequency": "continuous",
+    "auto_remediation": true,
+    "learning_rate": 0.95,
+    "feedback_loop_depth": "full_cascade"
+  },
+  "agent_interaction_map": {
+    "discovery_method": "automatic",
+    "propagation_strategy": "broadcast",
+    "sync_protocol": "websocket",
+    "fallback": "http_polling"
+  }
+}

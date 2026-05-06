@@ -162,10 +162,10 @@ class Orchestrator:
         log_section(logger, "STEP 4 — Evaluation & Scoring")
         hypotheses = self.evaluator.evaluate(problem, hypotheses)
 
-        # Step 5: Select best
+        # Step 5: Select best safe option(s)
         log_section(logger, "STEP 5 — Selection")
-        selected = self._pick_selected(hypotheses)
-        if not selected:
+        candidates = self._rank_safe_hypotheses(hypotheses)
+        if not candidates:
             logger.warning(
                 "No hypothesis met the scoring thresholds for '%s'.", problem.title
             )
@@ -175,38 +175,62 @@ class Orchestrator:
             result.decision_log[-1]["status"] = "no-safe-selection"
             return False
 
-        result.selected_hypothesis = selected
-        logger.info("Selected: '%s' (composite=%.2f)", selected.title, selected.score.composite)  # type: ignore[union-attr]
+        result.decision_log[-1]["candidates_considered"] = [h.title for h in candidates]
 
-        # Step 6: Critical validation
-        log_section(logger, "STEP 6 — Critical Validation")
-        selected = self.critic.validate(problem, selected)
+        for index, selected in enumerate(candidates, start=1):
+            result.selected_hypothesis = selected
+            logger.info(
+                "Selected candidate %d/%d: '%s' (composite=%.2f)",
+                index,
+                len(candidates),
+                selected.title,
+                selected.score.composite,
+            )  # type: ignore[union-attr]
 
-        if selected.status != HypothesisStatus.APPROVED:
-            result.rejection_reason = (
-                f"Critic blocked hypothesis '{selected.title}': {selected.critic_feedback}"
+            # Step 6: Critical validation
+            log_section(logger, "STEP 6 — Critical Validation")
+            selected = self.generator._harden_hypothesis(problem, selected)
+            selected = self.critic.validate(problem, selected)
+
+            if selected.status != HypothesisStatus.APPROVED:
+                result.rejection_reason = (
+                    f"Critic blocked hypothesis '{selected.title}': {selected.critic_feedback}"
+                )
+                result.decision_log[-1].setdefault("blocked_candidates", []).append(
+                    {
+                        "title": selected.title,
+                        "reason": selected.critic_feedback,
+                    }
+                )
+                logger.warning("Execution BLOCKED by Critic Agent for '%s'.", selected.title)
+                continue
+
+            # Step 7–8: Execute and create PR
+            log_section(logger, "STEP 7-8 — Execution & PR Creation")
+            if config.DRY_RUN:
+                logger.info("DRY_RUN=true — skipping execution and PR creation.")
+                result.rejected = True
+                result.rejection_reason = "Execution skipped because DRY_RUN=true."
+                result.decision_log[-1]["status"] = "dry-run"
+                result.decision_log[-1]["selected_candidate"] = selected.title
+                return False
+
+            result = self.executor.execute(result, selected, problem, hypotheses)
+            if result.pr_url:
+                result.decision_log[-1]["status"] = "executed"
+                result.decision_log[-1]["selected_candidate"] = selected.title
+                result.decision_log[-1]["pr_url"] = result.pr_url
+                logger.info("PR created: %s", result.pr_url)
+                return True
+
+            result.decision_log[-1].setdefault("blocked_candidates", []).append(
+                {
+                    "title": selected.title,
+                    "reason": result.rejection_reason or "Execution safety gate blocked the change.",
+                }
             )
-            result.decision_log[-1]["status"] = "critic-blocked"
-            logger.warning("Execution BLOCKED by Critic Agent.")
-            return False
 
-        # Step 7–8: Execute and create PR
-        log_section(logger, "STEP 7-8 — Execution & PR Creation")
-        if config.DRY_RUN:
-            logger.info("DRY_RUN=true — skipping execution and PR creation.")
-            result.rejected = True
-            result.rejection_reason = "Execution skipped because DRY_RUN=true."
-            result.decision_log[-1]["status"] = "dry-run"
-            return False
-        result = self.executor.execute(result, selected, problem, hypotheses)
-
-        if result.pr_url:
-            result.decision_log[-1]["status"] = "executed"
-            result.decision_log[-1]["pr_url"] = result.pr_url
-            logger.info("PR created: %s", result.pr_url)
-            return True
-
-        result.decision_log[-1]["status"] = "execution-blocked"
+        result.decision_log[-1]["status"] = "all-candidates-blocked"
         return False
 
     def _step_learn(self, result: CycleResult) -> None:
@@ -259,6 +283,19 @@ class Orchestrator:
             (h for h in hypotheses if h.status == HypothesisStatus.SELECTED), None
         )
 
+    @staticmethod
+    def _rank_safe_hypotheses(hypotheses: list[Hypothesis]) -> list[Hypothesis]:
+        """Return all execution-eligible hypotheses ranked by composite score."""
+        ranked = [
+            h for h in hypotheses
+            if h.score is not None and EvaluatorAgent._meets_execution_gate(h.score)
+        ]
+        return sorted(
+            ranked,
+            key=lambda h: h.score.composite if h.score else 0.0,
+            reverse=True,
+        )
+
     def _log_cycle_summary(self, result: CycleResult) -> None:
         logger.info("Cycle ID:            %s", result.cycle_id)
         logger.info("Repository:          %s", result.repository)
@@ -304,6 +341,8 @@ def _run_all_repos() -> int:
         all_repos = GitHubClient.discover_repos(
             config.GITHUB_TOKEN,
             skip_forks=config.SKIP_FORKS,
+            allowed_owners=config.TARGET_OWNERS,
+            max_repos=config.MAX_REPOS_PER_RUN,
         )
     except Exception as exc:  # noqa: BLE001
         logger.error("Failed to discover repositories: %s", exc)

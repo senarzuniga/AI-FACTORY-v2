@@ -1,0 +1,125 @@
+{
+  "started_at": "2026-05-04T20:57:39.090914+00:00",
+  "completed_at": "2026-05-04T21:01:32.935498+00:00",
+  "virtual_minutes_simulated": 420,
+  "total_runs": 420,
+  "total_failures": 0,
+  "average_duration_seconds": 0.4774,
+  "max_duration_seconds": 22.1136,
+  "average_quality": 0.964,
+  "linked_deploy_runs": 7,
+  "wall_clock_seconds": 233.84,
+  "failures": [],
+  "sample_runs": [
+    {
+      "minute": 0,
+      "cascade_id": "5dccd7a55dbd899d",
+      "status": "success",
+      "trigger": "harden deployment safety checks",
+      "duration_seconds": 13.197705,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": true,
+      "errors": []
+    },
+    {
+      "minute": 1,
+      "cascade_id": "28e052abc08b80db",
+      "status": "success",
+      "trigger": "improve code quality and resilience",
+      "duration_seconds": 0.059761,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 2,
+      "cascade_id": "55eda65606533b4d",
+      "status": "success",
+      "trigger": "improve code quality and resilience",
+      "duration_seconds": 0.057475,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 3,
+      "cascade_id": "2d36dd53f2873200",
+      "status": "success",
+      "trigger": "harden deployment safety checks",
+      "duration_seconds": 0.050649,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 4,
+      "cascade_id": "e9c768038bca80e2",
+      "status": "success",
+      "trigger": "add feature instrumentation for monitoring",
+      "duration_seconds": 0.062079,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 5,
+      "cascade_id": "0c37fbe03e893f1a",
+      "status": "success",
+      "trigger": "fix security validation edge cases",
+      "duration_seconds": 0.046618,
+      "quality": 0.95,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 6,
+      "cascade_id": "8854c16ec74c5e46",
+      "status": "success",
+      "trigger": "fix security validation edge cases",
+      "duration_seconds": 0.048912,
+      "quality": 0.95,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 7,
+      "cascade_id": "d575abb10b0dae3c",
+      "status": "success",
+      "trigger": "fix security validation edge cases",
+      "duration_seconds": 0.05034,
+      "quality": 0.95,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 8,
+      "cascade_id": "9f0571ec890d8c67",
+      "status": "success",
+      "trigger": "harden deployment safety checks",
+      "duration_seconds": 0.051873,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    },
+    {
+      "minute": 9,
+      "cascade_id": "5ea539dcad514037",
+      "status": "success",
+      "trigger": "improve code quality and resilience",
+      "duration_seconds": 0.065762,
+      "quality": 0.9667,
+      "deployments": 1,
+      "linked_deploy": false,
+      "errors": []
+    }
+  ]
+}

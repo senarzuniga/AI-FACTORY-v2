@@ -1,0 +1,25 @@
+{
+  "sales_engine": {
+    "health_candidates": [
+      "http://localhost:5173/api/health",
+      "http://localhost:3000/api/health",
+      "http://localhost:8081/api/health",
+      "http://localhost:8082/api/health",
+      "http://localhost:5173/health",
+      "http://localhost:3000/health",
+      "http://localhost:8081/health",
+      "http://localhost:8082/health",
+      "http://localhost:5173/",
+      "http://localhost:8082/"
+    ]
+  },
+  "orchestrator": {
+    "panel": "http://localhost:8080/dashboard/orchestrator_panel.html",
+    "hub_api": "http://localhost:8000/hub/status",
+    "technical_dashboard": "http://localhost:8501",
+    "human_portal": "http://localhost:8502"
+  },
+  "teams": {
+    "channel": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI"
+  }
+}

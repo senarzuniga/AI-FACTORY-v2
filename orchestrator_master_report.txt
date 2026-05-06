@@ -1,0 +1,36 @@
+AI-FACTORY-v2 ORCHESTRATOR - MASTER RELIABILITY REPORT
+2026-05-06 07:54:05
+
+Total applications: 13
+Health summary: PERFECT=0 | DEGRADED=13 | CRITICAL=0
+Scheduler: Distributed healing scheduled every 6 hours
+
+Application status:
+- AI-Agent-Doc-Platform: DEGRADED (failed=0, warnings=7)
+- AI-Mind-Map-CRM: DEGRADED (failed=0, warnings=7)
+- CTA ALFARO: DEGRADED (failed=0, warnings=6)
+- Company-Research-: DEGRADED (failed=0, warnings=5)
+- Copilot-ready-instruction-packs: DEGRADED (failed=0, warnings=5)
+- CustomerQualification: DEGRADED (failed=0, warnings=5)
+- Digital-Ecosystem-Platform: DEGRADED (failed=0, warnings=6)
+- Factoty-Simulator: DEGRADED (failed=0, warnings=5)
+- IS-BACKOFFICE: DEGRADED (failed=0, warnings=7)
+- LEAD-INTEL-PLATFORM: DEGRADED (failed=0, warnings=5)
+- adaptive-sales-engine: DEGRADED (failed=0, warnings=6)
+- apex-intelligence: DEGRADED (failed=0, warnings=5)
+- commercial-ai-platform: DEGRADED (failed=0, warnings=6)
+
+Healing actions:
+- HEALED AI-Agent-Doc-Platform: dependency refresh queued, agent connectivity requires follow-up, code smells logged
+- HEALED commercial-ai-platform: dependency refresh queued, agent connectivity requires follow-up, code smells logged
+- HEALED AI-Mind-Map-CRM: dependency refresh queued, agent connectivity requires follow-up, code smells logged
+- HEALED Copilot-ready-instruction-packs: dependency refresh queued, agent connectivity requires follow-up
+- HEALED Factoty-Simulator: dependency refresh queued, agent connectivity requires follow-up
+- HEALED CTA ALFARO: dependency refresh queued, agent connectivity requires follow-up
+- HEALED Company-Research-: dependency refresh queued, agent connectivity requires follow-up
+- HEALED apex-intelligence: agent connectivity requires follow-up, code smells logged
+- HEALED IS-BACKOFFICE: dependency refresh queued, agent connectivity requires follow-up, code smells logged
+- HEALED CustomerQualification: dependency refresh queued, agent connectivity requires follow-up
+- HEALED Digital-Ecosystem-Platform: dependency refresh queued, agent connectivity requires follow-up
+- HEALED LEAD-INTEL-PLATFORM: dependency refresh queued, agent connectivity requires follow-up
+- HEALED adaptive-sales-engine: dependency refresh queued, agent connectivity requires follow-up, code smells logged

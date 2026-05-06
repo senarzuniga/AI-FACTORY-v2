@@ -1,0 +1,66 @@
+﻿==========================================================================================
+ARCHITECTURE REORGANIZATION REPORT
+==========================================================================================
+Timestamp: 2026-05-04 16:29:57
+Orchestrator: c:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2
+Main app: c:\Users\Inaki Senar\Documents\GitHub\adaptive-sales-engine
+
+[1] Artifact validation
+  OK  dashboard/orchestrator_panel.html
+  OK  scripts/fix_connections.py
+  OK  start_ecosystem.ps1
+
+[2] Connection repair
+  ======================================================================
+  CONNECTION CHECK
+  ======================================================================
+  sales_engine: connected
+  hub_api: connected
+  agents_detected: 9
+  data_files_status: ready
+  report: C:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2\data\connection_status.json
+
+[3] Data pipeline execution
+  > python scripts/force_sync_data.py
+    ======================================================================
+    FORCED DATA SYNC
+    ======================================================================
+    Offers synced: 0
+    Customers synced: 1
+    Pending requests synced: 1
+    Data folder: C:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2\data
+  > python scripts/cascade_agents.py
+    ======================================================================
+    CASCADE EXECUTION COMPLETE
+    ======================================================================
+    Dynamic pricing items: 0
+    Cross-selling items: 0
+    Request management items: 1
+    Actions generated: 3
+    Errors: 0
+  > python scripts/update_all_panels.py
+    ======================================================================
+    PANELS UPDATED
+    ======================================================================
+    action_dashboard.total_actions: 3
+    offers_panel.total_offers: 0
+    kam_dashboard.kams: 0
+    action_pool_panel.roles: 2
+  > python scripts/verify_all.py
+    ======================================================================
+    VERIFICATION
+    ======================================================================
+    status: OK
+    offers_count: 0
+    actions_total: 3
+    errors: 0
+
+[4] Architecture roles
+  - AI-FACTORY-v2: orchestrator and coordination hub
+  - adaptive-sales-engine: main daily business application
+  - Teams integration: enabled
+  - Launcher panel: dashboard/orchestrator_panel.html
+
+[5] Start command
+  ./start_ecosystem.ps1 -OrchestratorPath "c:\Users\Inaki Senar\Documents\GitHub\AI-FACTORY-v2" -AppPath "c:\Users\Inaki Senar\Documents\GitHub\adaptive-sales-engine" -RunDataPipeline
+

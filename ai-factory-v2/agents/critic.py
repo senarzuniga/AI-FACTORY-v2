@@ -49,6 +49,7 @@ APPROVE only if ALL of the following hold:
 - The risk of breaking production is low.
 - The change is incremental (not a full rewrite).
 - The affected files are clearly identified.
+- The plan includes validation or tests and a rollback path.
 
 BLOCK if ANY of the following hold:
 - The plan is vague or incomplete.

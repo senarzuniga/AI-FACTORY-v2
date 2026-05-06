@@ -1,0 +1,75 @@
+{
+  "by_role": {
+    "ingenieria": {
+      "pending": 2,
+      "critical": 0,
+      "high": 2,
+      "top_actions": [
+        {
+          "id": "ACT_20260504230057_0003",
+          "title": "Evaluacion tecnica requerida",
+          "priority": "HIGH",
+          "score": 67.4,
+          "due_date": "2026-05-07T23:00:57.886442"
+        },
+        {
+          "id": "ACT_20260504230057_0006",
+          "title": "Evaluacion tecnica requerida",
+          "priority": "HIGH",
+          "score": 67.4,
+          "due_date": "2026-05-07T23:00:57.886529"
+        }
+      ]
+    },
+    "comercial": {
+      "pending": 4,
+      "critical": 2,
+      "high": 2,
+      "top_actions": [
+        {
+          "id": "ACT_20260504230057_0001",
+          "title": "Procesar nueva solicitud de cliente",
+          "priority": "CRITICAL",
+          "score": 78.0,
+          "due_date": "2026-05-05T23:00:57.886396"
+        },
+        {
+          "id": "ACT_20260504230057_0004",
+          "title": "Procesar nueva solicitud de cliente",
+          "priority": "CRITICAL",
+          "score": 78.0,
+          "due_date": "2026-05-05T23:00:57.886479"
+        },
+        {
+          "id": "ACT_20260504230057_0002",
+          "title": "Investigacion de empresa",
+          "priority": "HIGH",
+          "score": 61.1,
+          "due_date": "2026-05-06T23:00:57.886420"
+        },
+        {
+          "id": "ACT_20260504230057_0005",
+          "title": "Investigacion de empresa",
+          "priority": "HIGH",
+          "score": 61.1,
+          "due_date": "2026-05-06T23:00:57.886503"
+        }
+      ]
+    }
+  },
+  "statistics": {
+    "total_actions": 6,
+    "pending": 6,
+    "completed": 0,
+    "completion_rate": 0.0,
+    "by_role": {
+      "ingenieria": 2,
+      "comercial": 4
+    },
+    "by_priority": {
+      "CRITICAL": 2,
+      "HIGH": 4
+    }
+  },
+  "last_updated": "2026-05-04T21:00:58.906517+00:00"
+}

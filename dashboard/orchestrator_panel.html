@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-FACTORY-v2 | Orquestador Central</title>
+  <style>
+    :root {
+      --bg-1: #091826;
+      --bg-2: #112d44;
+      --accent: #2ec4b6;
+      --accent-2: #ff9f1c;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #f4f8fb;
+      --muted: #adc0cf;
+      --ok: #45d483;
+      --warn: #f0b429;
+      --bad: #f05d5e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 700px at 85% -20%, rgba(46, 196, 182, 0.15), transparent),
+        radial-gradient(900px 600px at -10% 120%, rgba(255, 159, 28, 0.17), transparent),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2));
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0; font-size: 2rem; }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      padding: 16px;
+      backdrop-filter: blur(5px);
+    }
+
+    .apps { grid-column: 1 / -1; }
+
+    .app-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .app-item {
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .app-title { font-weight: 700; margin-bottom: 6px; }
+
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px solid transparent;
+    }
+
+    .status.ok { color: var(--ok); border-color: var(--ok); }
+    .status.warn { color: var(--warn); border-color: var(--warn); }
+    .status.bad { color: var(--bad); border-color: var(--bad); }
+
+    .metrics {
+      grid-column: 1 / span 7;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 12px;
+    }
+
+    .metric-value { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+    .metric-label { color: var(--muted); font-size: 0.84rem; }
+
+    .actions {
+      grid-column: 8 / -1;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      color: #07213a;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), #67d0c6);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(90deg, var(--accent-2), #ffc16e);
+    }
+
+    .agents, .connections { grid-column: 1 / -1; }
+
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    .mono {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .metrics, .actions {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="header">
+      <h1>AI-FACTORY-v2 - Orquestador Central</h1>
+      <div class="subtitle">Coordinacion de agentes, estado del ecosistema y accesos rapidos a la app principal.</div>
+    </section>
+
+    <section class="grid">
+      <article class="card apps">
+        <h2>Aplicaciones</h2>
+        <div class="app-grid">
+          <div class="app-item">
+            <div class="app-title">Adaptive Sales Engine</div>
+            <p class="subtitle">Aplicacion principal de trabajo comercial.</p>
+            <div id="sales-status" class="status warn">Verificando...</div>
+            <p><a id="sales-open-link" href="http://localhost:5173" target="_blank" rel="noreferrer">Abrir App</a></p>
+          </div>
+          <div class="app-item">
+            <div class="app-title">Hub API</div>
+            <p class="subtitle">API operativa del orquestador.</p>
+            <div id="api-status" class="status warn">Verificando...</div>
+            <p><a href="http://localhost:8000/hub/status" target="_blank" rel="noreferrer">Abrir estado</a></p>
+          </div>
+          <div class="app-item">
+            <div class="app-title">Microsoft Teams</div>
+            <p class="subtitle">Canal colaborativo de notificacion y archivo.</p>
+            <div class="status ok">Integrado</div>
+            <p><a href="https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI" target="_blank" rel="noreferrer">Abrir Teams</a></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card metrics">
+        <div>
+          <div id="metric-active-agents" class="metric-value">0</div>
+          <div class="metric-label">Agentes detectados</div>
+        </div>
+        <div>
+          <div id="metric-pending" class="metric-value">0</div>
+          <div class="metric-label">Acciones pendientes</div>
+        </div>
+        <div>
+          <div id="metric-offers" class="metric-value">0</div>
+          <div class="metric-label">Ofertas sincronizadas</div>
+        </div>
+        <div>
+          <div id="metric-updated" class="metric-value">--</div>
+          <div class="metric-label">Ultima actualizacion</div>
+        </div>
+      </article>
+
+      <article class="card actions">
+        <h2>Acciones rapidas</h2>
+        <button class="btn" onclick="window.open('http://localhost:8501','_blank')">Abrir dashboard tecnico</button>
+        <button class="btn" onclick="window.open('http://localhost:8502','_blank')">Abrir portal humano</button>
+        <button class="btn secondary" onclick="refreshAll()">Refrescar estado</button>
+        <button class="btn secondary" onclick="copyPipelineCommand()">Copiar comando de pipeline</button>
+      </article>
+
+      <article class="card agents">
+        <h2>Agentes orquestador</h2>
+        <ul class="list" id="agent-list"></ul>
+      </article>
+
+      <article class="card connections">
+        <h2>Conexiones</h2>
+        <ul class="list">
+          <li><span>Panel Orquestador</span><span class="mono">http://localhost:8080/dashboard/orchestrator_panel.html</span></li>
+          <li><span>App principal</span><span class="mono">http://localhost:5173</span></li>
+          <li><span>API Hub</span><span class="mono">http://localhost:8000/hub/status</span></li>
+          <li><span>Teams</span><span class="mono">teams.live.com/.../FEA5JSTpd_3FAKh9gI</span></li>
+        </ul>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    const AGENTS = [
+      "analysis_agent.py",
+      "generation_agent.py",
+      "judge_agent.py",
+      "validation_agent.py",
+      "delivery_agent.py",
+      "action_engine.py",
+      "request_management_agent.py"
+    ];
+
+    function fmtTime(value) {
+      if (!value) return "--";
+      try {
+        return new Date(value).toLocaleTimeString();
+      } catch (_) {
+        return "--";
+      }
+    }
+
+    async function probe(url, ms = 1600) {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), ms);
+      try {
+        const res = await fetch(url, { signal: ctrl.signal });
+        return res.ok;
+      } catch (_) {
+        return false;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    function setStatus(id, ok, badText, okText) {
+      const el = document.getElementById(id);
+      el.className = "status " + (ok ? "ok" : "bad");
+      el.textContent = ok ? okText : badText;
+    }
+
+    async function loadJson(path, fallback) {
+      try {
+        const r = await fetch(path);
+        if (!r.ok) return fallback;
+        return await r.json();
+      } catch (_) {
+        return fallback;
+      }
+    }
+
+    async function detectSalesEngine() {
+      const candidates = [
+        "http://localhost:5173/api/health",
+        "http://localhost:3000/api/health",
+        "http://localhost:8081/api/health",
+        "http://localhost:8082/api/health",
+        "http://localhost:5173/",
+        "http://localhost:3000/",
+        "http://localhost:8081/",
+        "http://localhost:8082/",
+        "http://localhost:5000/"
+      ];
+
+      for (const url of candidates) {
+        if (await probe(url)) {
+          return url;
+        }
+      }
+      return null;
+    }
+
+    async function refreshAll() {
+      const [salesUrl, apiOk] = await Promise.all([
+        detectSalesEngine(),
+        probe("http://localhost:8000/hub/status")
+      ]);
+      const salesOk = !!salesUrl;
+      setStatus("sales-status", salesOk, "No disponible", salesUrl ? `Activo (${new URL(salesUrl).port})` : "Activo");
+      setStatus("api-status", apiOk, "No disponible", "Activo");
+
+      const salesLink = document.getElementById("sales-open-link");
+      if (salesOk && salesUrl && salesLink) {
+        const base = new URL(salesUrl);
+        salesLink.href = `${base.protocol}//${base.host}`;
+      }
+
+      const [actionDashboard, offers, connStatus] = await Promise.all([
+        loadJson("/data/action_dashboard.json", {}),
+        loadJson("/data/synced_offers.json", []),
+        loadJson("/data/connection_status.json", {})
+      ]);
+
+      const stats = actionDashboard.statistics || {};
+      document.getElementById("metric-pending").textContent = String(stats.pending || 0);
+      document.getElementById("metric-offers").textContent = String(Array.isArray(offers) ? offers.length : 0);
+      document.getElementById("metric-updated").textContent = fmtTime(connStatus.timestamp || Date.now());
+
+      const list = document.getElementById("agent-list");
+      list.innerHTML = "";
+      const detected = Array.isArray(connStatus.agents) ? connStatus.agents : AGENTS;
+      document.getElementById("metric-active-agents").textContent = String(detected.length);
+
+      detected.forEach((name) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<span>${name}</span><span class="status ok">detectado</span>`;
+        list.appendChild(li);
+      });
+    }
+
+    async function copyPipelineCommand() {
+      const cmd = 'python scripts/force_sync_data.py ; python scripts/cascade_agents.py ; python scripts/update_all_panels.py ; python scripts/verify_all.py';
+      try {
+        await navigator.clipboard.writeText(cmd);
+        alert("Comando copiado al portapapeles.");
+      } catch (_) {
+        alert("No se pudo copiar automaticamente.\n" + cmd);
+      }
+    }
+
+    refreshAll();
+    setInterval(refreshAll, 20000);
+  </script>
+</body>
+</html>

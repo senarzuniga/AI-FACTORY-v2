@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI FACTORY v2 · Acceso Directo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      color: #a0a0c0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    .card {
+      background: #16213e;
+      border: 1px solid #0f3460;
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .card .icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .card h2 { font-size: 1.05rem; font-weight: 600; color: #ffffff; margin-bottom: 0.3rem; }
+    .card p  { font-size: 0.82rem; color: #8a8aaa; margin-bottom: 1rem; min-height: 2.4rem; }
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #ffffff;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-portal    { background: #6c63ff; }
+    .btn-dashboard { background: #0078d4; }
+    .btn-api       { background: #107c41; }
+    .btn-teams     { background: #5059c9; }
+    .divider {
+      width: 100%;
+      max-width: 900px;
+      margin: 2rem 0 1.2rem;
+      border: none;
+      border-top: 1px solid #0f3460;
+    }
+    .users {
+      width: 100%;
+      max-width: 900px;
+      background: #16213e;
+      border: 1px solid #0f3460;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+    }
+    .users h3 { font-size: 0.95rem; font-weight: 600; color: #a0a0c0; margin-bottom: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; }
+    .user-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #0f3460;
+    }
+    .user-row:last-child { border-bottom: none; }
+    .user-row .avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; flex-shrink: 0;
+    }
+    .avatar-admin  { background: #6c63ff; }
+    .avatar-mgr    { background: #0078d4; }
+    .avatar-chief  { background: #107c41; }
+    .user-info { flex: 1; }
+    .user-info .name  { font-size: 0.9rem; color: #e0e0e0; }
+    .user-info .email { font-size: 0.76rem; color: #7070a0; }
+    .badge {
+      font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem;
+      border-radius: 20px; color: #fff;
+    }
+    .badge-admin  { background: #6c63ff33; color: #a99fff; border: 1px solid #6c63ff55; }
+    .badge-mgr    { background: #0078d433; color: #70b8ff; border: 1px solid #0078d455; }
+    .badge-chief  { background: #107c4133; color: #6fdb9c; border: 1px solid #107c4155; }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: #555577;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏭 AI FACTORY v2</h1>
+  <p>Adaptive Sales Engine · Ingercart · Acceso directo a las herramientas del canal</p>
+</header>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="icon">🧑‍💼</div>
+    <h2>Human Interaction Portal</h2>
+    <p>Entorno de interacción humana con el motor de ventas adaptativo.</p>
+    <a class="btn btn-portal" href="http://localhost:8502" target="_blank">Abrir Portal</a>
+  </div>
+
+  <div class="card">
+    <div class="icon">📊</div>
+    <h2>Technical Dashboard</h2>
+    <p>Panel técnico con métricas de agentes, ciclos y estado del sistema.</p>
+    <a class="btn btn-dashboard" href="http://localhost:8501" target="_blank">Abrir Dashboard</a>
+  </div>
+
+  <div class="card">
+    <div class="icon">⚙️</div>
+    <h2>Hub API</h2>
+    <p>Endpoints REST del sistema. Consulta el estado en <code>/hub/status</code>.</p>
+    <a class="btn btn-api" href="http://localhost:8000/hub/status" target="_blank">Ver API</a>
+  </div>
+
+  <div class="card">
+    <div class="icon">💬</div>
+    <h2>Teams Community</h2>
+    <p>Espacio común de archivos y gestión documental del canal.</p>
+    <a class="btn btn-teams" href="https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI" target="_blank">Abrir Comunidad</a>
+  </div>
+
+</div>
+
+<hr class="divider" />
+
+<div class="users">
+  <h3>Usuarios con acceso</h3>
+
+  <div class="user-row">
+    <div class="avatar avatar-admin">IS</div>
+    <div class="user-info">
+      <div class="name">Inaki Senar</div>
+      <div class="email">isenar.cta@gmail.com</div>
+    </div>
+    <span class="badge badge-admin">Administrator</span>
+  </div>
+
+  <div class="user-row">
+    <div class="avatar avatar-mgr">SM</div>
+    <div class="user-info">
+      <div class="name">Sales Manager</div>
+      <div class="email">sales@ingecart.es</div>
+    </div>
+    <span class="badge badge-mgr">Manager</span>
+  </div>
+
+  <div class="user-row">
+    <div class="avatar avatar-chief">AC</div>
+    <div class="user-info">
+      <div class="name">Administration Chief</div>
+      <div class="email">administracion@ingecart.es</div>
+    </div>
+    <span class="badge badge-chief">Admin Chief</span>
+  </div>
+
+</div>
+
+<footer>
+  Generado automáticamente · AI FACTORY v2 · Para añadir usuarios edita <code>config/collaborative_hub.json</code>
+</footer>
+
+</body>
+</html>

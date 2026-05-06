@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-04T21:01:53.553951+00:00",
+  "paths": {
+    "orchestrator": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2",
+    "app": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\adaptive-sales-engine"
+  },
+  "sales_engine": {
+    "status": "connected",
+    "url": "http://localhost:8081",
+    "port": 8081,
+    "http_code": null,
+    "last_check": "2026-05-04T21:01:54.959248+00:00",
+    "detection": "tcp_port_open"
+  },
+  "hub_api": {
+    "status": "connected",
+    "url": "http://localhost:8000/hub/status",
+    "http_code": 200,
+    "last_check": "2026-05-04T21:01:57.384428+00:00"
+  },
+  "teams": {
+    "status": "configured",
+    "url": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI",
+    "last_check": "2026-05-04T21:01:57.384461+00:00"
+  },
+  "data_files": {
+    "required": [
+      "synced_offers.json",
+      "synced_customers.json",
+      "synced_requests.json",
+      "action_dashboard.json",
+      "offers_panel.json",
+      "kam_dashboard.json",
+      "action_pool_panel.json"
+    ],
+    "missing_before_fix": [],
+    "status": "ready",
+    "last_check": "2026-05-04T21:01:57.385548+00:00"
+  },
+  "agents": {
+    "status": "detected",
+    "count": 9,
+    "agents": [
+      "analysis_agent.py",
+      "data_intelligence_agent.py",
+      "delivery_agent.py",
+      "generation_agent.py",
+      "judge_agent.py",
+      "memory_agent.py",
+      "request_management_agent.py",
+      "supervisor_agent.py",
+      "validation_agent.py"
+    ],
+    "last_check": "2026-05-04T21:01:57.387219+00:00"
+  },
+  "artifacts": {
+    "api_routes": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2\\config\\api_routes.json",
+    "start_all": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2\\start_all.ps1"
+  },
+  "status": "ok"
+}

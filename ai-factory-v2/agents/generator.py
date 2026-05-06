@@ -36,13 +36,15 @@ Rules:
 - Do NOT generate minor variations of the same idea (e.g., rename variable → rename method).
 - Valid approaches: architecture refactor, algorithm optimisation, logic simplification,
   design pattern adoption, dependency replacement, caching strategy, etc.
+- Every implementation plan must be concrete enough for production review.
+- Every plan must include: exact file targets, validation/tests, rollback criteria, and minimal incremental scope.
 
 Return a JSON array where each element has:
 {{
   "title":               "<short title>",
   "description":         "<detailed description of what this solution does>",
   "approach":            "<one-line structural approach label>",
-  "implementation_plan": "<numbered step-by-step plan to implement>",
+  "implementation_plan": "<numbered step-by-step plan with implementation, validation, and rollback>",
   "files_to_modify":     ["<path>", ...]
 }}
 
@@ -66,6 +68,7 @@ Return ONLY a valid JSON array. No extra text.
         for attempt in range(1, 3):
             raw = self._call_llm(problem, repo_context)
             hypotheses = self._ensure_structural_diversity(self._parse(raw, problem))
+            hypotheses = [self._harden_hypothesis(problem, h) for h in hypotheses]
             if len(hypotheses) >= config.MIN_HYPOTHESES:
                 break
             logger.warning(
@@ -158,6 +161,38 @@ Return ONLY a valid JSON array. No extra text.
             except Exception as exc:  # noqa: BLE001
                 logger.warning("GeneratorAgent — skipping malformed hypothesis: %s", exc)
         return hypotheses
+
+    def _harden_hypothesis(self, problem: Problem, hypothesis: Hypothesis) -> Hypothesis:
+        """Add deterministic execution detail so critic review is based on a concrete plan."""
+        if not hypothesis.files_to_modify and problem.affected_files:
+            hypothesis.files_to_modify = list(dict.fromkeys(problem.affected_files[:5]))
+
+        plan = (hypothesis.implementation_plan or "").strip()
+        if not plan:
+            plan = "1. Inspect the current implementation and isolate the smallest safe change."
+
+        additions: list[str] = []
+        lowered = plan.lower()
+        if "test" not in lowered and "validation" not in lowered:
+            additions.append(
+                "Validation: add or update focused regression coverage for the affected behavior before changing logic."
+            )
+        if "rollback" not in lowered and "revert" not in lowered:
+            additions.append(
+                "Rollback: revert the branch changes immediately if tests, lint, build, or smoke checks fail."
+            )
+        if "files" not in lowered and hypothesis.files_to_modify:
+            additions.append(
+                f"File scope: limit the change to {', '.join(hypothesis.files_to_modify)} unless new evidence requires less risk."
+            )
+
+        if additions:
+            start = len([line for line in plan.splitlines() if line.strip()]) + 1
+            for offset, addition in enumerate(additions, start=start):
+                plan += f"\n{offset}. {addition}"
+
+        hypothesis.implementation_plan = plan
+        return hypothesis
 
     def _ensure_structural_diversity(self, hypotheses: list[Hypothesis]) -> list[Hypothesis]:
         """Keep only one hypothesis per normalized structural approach."""

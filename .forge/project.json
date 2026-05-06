@@ -1,0 +1,9 @@
+{
+  "name": "AI-FACTORY-v2",
+  "description": "",
+  "type": "opensource",
+  "metadata_path": ".forge",
+  "code_path": ".",
+  "github_url": "https://github.com/owner/AI-FACTORY-v2",
+  "github_board": "https://github.com/orgs/owner/projects/1"
+}
