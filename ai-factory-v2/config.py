@@ -55,14 +55,17 @@ SKIP_FORKS: bool = os.environ.get("SKIP_FORKS", "true").lower() == "true"
 # ---------------------------------------------------------------------------
 OPENAI_API_KEY: str = _resolve_openai_api_key()
 OPENAI_MODEL: str = os.environ.get("AI_MODEL", "gpt-4o")
-OPENAI_MAX_TOKENS: int = int(os.environ.get("AI_MAX_TOKENS", "4096"))
+# Reduced default: shorter responses → faster LLM round-trips.
+OPENAI_MAX_TOKENS: int = int(os.environ.get("AI_MAX_TOKENS", "2048"))
 OPENAI_TEMPERATURE: float = float(os.environ.get("AI_TEMPERATURE", "0.3"))
 
 # ---------------------------------------------------------------------------
 # Hypothesis Engineering
+# Fast mode: MIN=MAX=2 to produce the fewest LLM calls while still satisfying
+# the mandatory diversity gate.  Override with MAX_HYPOTHESES env var.
 # ---------------------------------------------------------------------------
 MIN_HYPOTHESES: int = 2
-MAX_HYPOTHESES: int = 5
+MAX_HYPOTHESES: int = int(os.environ.get("MAX_HYPOTHESES", "2"))
 
 # ---------------------------------------------------------------------------
 # Scoring thresholds (Execution Rule)
@@ -91,7 +94,8 @@ MAX_FILES_PER_EXECUTION: int = int(os.environ.get("MAX_FILES_PER_EXECUTION", "5"
 MAX_FILE_CHANGE_SIZE: int = int(os.environ.get("MAX_FILE_CHANGE_SIZE", "20000"))
 MAX_TOTAL_CHANGE_SIZE: int = int(os.environ.get("MAX_TOTAL_CHANGE_SIZE", "60000"))
 API_RETRY_ATTEMPTS: int = int(os.environ.get("API_RETRY_ATTEMPTS", "3"))
-API_RETRY_BACKOFF_SECONDS: float = float(os.environ.get("API_RETRY_BACKOFF_SECONDS", "1.0"))
+# Shorter backoff between retries — still safe for 429/5xx handling.
+API_RETRY_BACKOFF_SECONDS: float = float(os.environ.get("API_RETRY_BACKOFF_SECONDS", "0.3"))
 
 # ---------------------------------------------------------------------------
 # Learning registry
@@ -140,8 +144,6 @@ SKIP_DIRS: tuple[str, ...] = (
     ".coverage",
 )
 
-# Maximum characters of file content sent to the AI (per file)
-MAX_FILE_CHARS: int = 8_000
-
-# Maximum total characters for the repository snapshot
-MAX_REPO_CHARS: int = 60_000
+# Reduced per-file and total snapshot sizes → smaller prompts → faster LLM responses.
+MAX_FILE_CHARS: int = int(os.environ.get("MAX_FILE_CHARS", "4_000"))
+MAX_REPO_CHARS: int = int(os.environ.get("MAX_REPO_CHARS", "30_000"))

@@ -1,20 +1,16 @@
 {
   "AI-Agent-Doc-Platform": {
     "app_name": "AI-Agent-Doc-Platform",
-    "timestamp": "2026-05-06T13:54:11.056415",
+    "timestamp": "2026-05-07T14:57:07.910590",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -26,8 +22,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -61,7 +57,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 355.95,
+        "response_ms": 157.21,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -79,24 +75,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 6
+    "warning_checks": 5
   },
   "commercial-ai-platform": {
     "app_name": "commercial-ai-platform",
-    "timestamp": "2026-05-06T13:54:52.919947",
+    "timestamp": "2026-05-07T14:57:11.356186",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -108,8 +100,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -146,8 +138,8 @@
         "recent_errors": []
       },
       "performance_baseline": {
-        "status": "WARN",
-        "response_ms": 1078.99,
+        "status": "PASS",
+        "response_ms": 140.08,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -165,24 +157,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 8
+    "warning_checks": 6
   },
   "Copilot-ready-instruction-packs": {
     "app_name": "Copilot-ready-instruction-packs",
-    "timestamp": "2026-05-06T13:55:12.853901",
+    "timestamp": "2026-05-07T14:57:16.391544",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -194,8 +182,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -229,7 +217,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 275.11,
+        "response_ms": 126.5,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -247,24 +235,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 6
+    "warning_checks": 5
   },
   "Factoty-Simulator": {
     "app_name": "Factoty-Simulator",
-    "timestamp": "2026-05-06T13:55:17.016224",
+    "timestamp": "2026-05-07T14:57:18.300704",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -276,8 +260,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -311,7 +295,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 364.43,
+        "response_ms": 182.95,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -329,24 +313,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 6
+    "warning_checks": 5
   },
   "CTA ALFARO": {
     "app_name": "CTA ALFARO",
-    "timestamp": "2026-05-06T13:55:19.871136",
+    "timestamp": "2026-05-07T14:57:21.033323",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -358,8 +338,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -393,7 +373,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 264.6,
+        "response_ms": 190.19,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -411,24 +391,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 6
+    "warning_checks": 5
   },
   "AI-Mind-Map-CRM": {
     "app_name": "AI-Mind-Map-CRM",
-    "timestamp": "2026-05-06T13:55:32.173176",
+    "timestamp": "2026-05-07T14:57:29.266051",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -440,8 +416,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -483,7 +459,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 266.64,
+        "response_ms": 495.05,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -511,24 +487,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 8
+    "warning_checks": 7
   },
   "Company-Research-": {
     "app_name": "Company-Research-",
-    "timestamp": "2026-05-06T13:55:37.141695",
+    "timestamp": "2026-05-07T14:57:33.308902",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -540,8 +512,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -574,8 +546,8 @@
         "recent_errors": []
       },
       "performance_baseline": {
-        "status": "PASS",
-        "response_ms": 335.1,
+        "status": "WARN",
+        "response_ms": 870.07,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -597,20 +569,16 @@
   },
   "CustomerQualification": {
     "app_name": "CustomerQualification",
-    "timestamp": "2026-05-06T13:55:47.073930",
+    "timestamp": "2026-05-07T14:57:35.094085",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -622,8 +590,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -657,7 +625,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 367.35,
+        "response_ms": 394.1,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -675,24 +643,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 6
+    "warning_checks": 5
   },
-  "apex-intelligence": {
-    "app_name": "apex-intelligence",
-    "timestamp": "2026-05-06T13:55:54.190207",
+  "IS-BACKOFFICE": {
+    "app_name": "IS-BACKOFFICE",
+    "timestamp": "2026-05-07T14:57:35.843620",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -704,8 +668,88 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
+      },
+      "dependency_freshness": {
+        "status": "WARN",
+        "outdated_count": 0,
+        "outdated_packages": [],
+        "message": "Dependency freshness skipped in quick mode"
+      },
+      "code_smells": {
+        "status": "PASS",
+        "issue_count": 0,
+        "issues": []
+      },
+      "api_keys_valid": {
+        "status": "PASS",
+        "key_present": true
+      },
+      "data_integrity": {
+        "status": "PASS",
+        "total_files": 0,
+        "corrupted_files": 0
+      },
+      "agent_connectivity": {
+        "status": "WARN",
+        "caamp_healthy": false,
+        "error": "CAAMP doctor skipped in quick mode"
+      },
+      "log_errors": {
+        "status": "PASS",
+        "error_count": 0,
+        "recent_errors": []
+      },
+      "performance_baseline": {
+        "status": "PASS",
+        "response_ms": 139.45,
+        "python_ok": true
+      },
+      "security_vulnerabilities": {
+        "status": "WARN",
+        "vulnerabilities": [
+          "main.py: possible hardcoded secret"
+        ]
+      },
+      "feature_availability": {
+        "status": "ACTIVE",
+        "feature_count": 94
+      },
+      "orchestrator_sync": {
+        "status": "PASS",
+        "synced": true
+      }
+    },
+    "overall_status": "DEGRADED",
+    "failed_checks": 0,
+    "warning_checks": 6
+  },
+  "apex-intelligence": {
+    "app_name": "apex-intelligence",
+    "timestamp": "2026-05-07T14:57:37.020938",
+    "checks": {
+      "process_health": {
+        "status": "WARN",
+        "message": "psutil not installed"
+      },
+      "port_availability": {
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
+      },
+      "memory_usage": {
+        "status": "WARN",
+        "message": "psutil not installed"
+      },
+      "cpu_usage": {
+        "status": "WARN",
+        "message": "psutil not installed"
+      },
+      "disk_space": {
+        "status": "PASS",
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "PASS",
@@ -739,8 +783,8 @@
         "recent_errors": []
       },
       "performance_baseline": {
-        "status": "WARN",
-        "response_ms": 1147.67,
+        "status": "PASS",
+        "response_ms": 169.05,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -758,108 +802,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 7
-  },
-  "IS-BACKOFFICE": {
-    "app_name": "IS-BACKOFFICE",
-    "timestamp": "2026-05-06T13:55:57.240281",
-    "checks": {
-      "process_health": {
-        "status": "WARN",
-        "message": "psutil not installed"
-      },
-      "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
-      },
-      "memory_usage": {
-        "status": "WARN",
-        "message": "psutil not installed"
-      },
-      "cpu_usage": {
-        "status": "WARN",
-        "message": "psutil not installed"
-      },
-      "disk_space": {
-        "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
-      },
-      "dependency_freshness": {
-        "status": "WARN",
-        "outdated_count": 0,
-        "outdated_packages": [],
-        "message": "Dependency freshness skipped in quick mode"
-      },
-      "code_smells": {
-        "status": "PASS",
-        "issue_count": 0,
-        "issues": []
-      },
-      "api_keys_valid": {
-        "status": "PASS",
-        "key_present": true
-      },
-      "data_integrity": {
-        "status": "PASS",
-        "total_files": 0,
-        "corrupted_files": 0
-      },
-      "agent_connectivity": {
-        "status": "WARN",
-        "caamp_healthy": false,
-        "error": "CAAMP doctor skipped in quick mode"
-      },
-      "log_errors": {
-        "status": "PASS",
-        "error_count": 0,
-        "recent_errors": []
-      },
-      "performance_baseline": {
-        "status": "WARN",
-        "response_ms": 513.53,
-        "python_ok": true
-      },
-      "security_vulnerabilities": {
-        "status": "WARN",
-        "vulnerabilities": [
-          "main.py: possible hardcoded secret"
-        ]
-      },
-      "feature_availability": {
-        "status": "ACTIVE",
-        "feature_count": 94
-      },
-      "orchestrator_sync": {
-        "status": "PASS",
-        "synced": true
-      }
-    },
-    "overall_status": "DEGRADED",
-    "failed_checks": 0,
-    "warning_checks": 8
+    "warning_checks": 5
   },
   "Digital-Ecosystem-Platform": {
     "app_name": "Digital-Ecosystem-Platform",
-    "timestamp": "2026-05-06T13:56:00.386026",
+    "timestamp": "2026-05-07T14:57:38.097648",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -871,8 +827,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -906,7 +862,7 @@
       },
       "performance_baseline": {
         "status": "PASS",
-        "response_ms": 336.47,
+        "response_ms": 464.51,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -932,24 +888,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 7
+    "warning_checks": 6
   },
   "LEAD-INTEL-PLATFORM": {
     "app_name": "LEAD-INTEL-PLATFORM",
-    "timestamp": "2026-05-06T13:56:05.364431",
+    "timestamp": "2026-05-07T14:57:40.006715",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -961,8 +913,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -995,8 +947,8 @@
         "recent_errors": []
       },
       "performance_baseline": {
-        "status": "WARN",
-        "response_ms": 583.06,
+        "status": "PASS",
+        "response_ms": 147.26,
         "python_ok": true
       },
       "security_vulnerabilities": {
@@ -1014,24 +966,20 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 7
+    "warning_checks": 5
   },
   "adaptive-sales-engine": {
     "app_name": "adaptive-sales-engine",
-    "timestamp": "2026-05-06T13:56:45.151610",
+    "timestamp": "2026-05-07T14:57:48.498931",
     "checks": {
       "process_health": {
         "status": "WARN",
         "message": "psutil not installed"
       },
       "port_availability": {
-        "status": "WARN",
-        "conflicts": [
-          8080
-        ],
-        "sample_listening_ports": [
-          8080
-        ]
+        "status": "PASS",
+        "conflicts": [],
+        "sample_listening_ports": []
       },
       "memory_usage": {
         "status": "WARN",
@@ -1043,8 +991,8 @@
       },
       "disk_space": {
         "status": "PASS",
-        "free_gb": 74.48,
-        "percent_used": 68.6
+        "free_gb": 73.49,
+        "percent_used": 69.02
       },
       "dependency_freshness": {
         "status": "WARN",
@@ -1059,7 +1007,7 @@
           "orchestrator.py:3 TODO/FIXME",
           "orchestrator.py:26 TODO/FIXME",
           "orchestrator.py:145 TODO/FIXME",
-          "streamlit_app.py:1212 TODO/FIXME",
+          "streamlit_app.py:1312 TODO/FIXME",
           "flatted.py:81 bare except",
           "flatted.py:81 bare except"
         ]
@@ -1084,17 +1032,19 @@
         "recent_errors": []
       },
       "performance_baseline": {
-        "status": "WARN",
-        "response_ms": 766.03,
+        "status": "PASS",
+        "response_ms": 116.31,
         "python_ok": true
       },
       "security_vulnerabilities": {
-        "status": "PASS",
-        "vulnerabilities": []
+        "status": "WARN",
+        "vulnerabilities": [
+          "users_storage.py: possible hardcoded secret"
+        ]
       },
       "feature_availability": {
         "status": "ACTIVE",
-        "feature_count": 67
+        "feature_count": 68
       },
       "orchestrator_sync": {
         "status": "PASS",
@@ -1103,6 +1053,6 @@
     },
     "overall_status": "DEGRADED",
     "failed_checks": 0,
-    "warning_checks": 8
+    "warning_checks": 7
   }
 }

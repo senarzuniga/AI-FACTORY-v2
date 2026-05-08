@@ -18,7 +18,9 @@ from __future__ import annotations
 
 import json
 import sys
+import threading
 import uuid
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -87,14 +89,31 @@ class Orchestrator:
         if not problems:
             return self._finish(result, rejected=True, reason="No improvement opportunities detected.")
 
-        # ── Steps 2–9: Process each problem, stop after first PR ─────
-        for problem in problems:
+        # ── Steps 2–9: Process problems concurrently, stop after first PR ────
+        #
+        # Each problem generates hypotheses, evaluates, and tries to create a PR
+        # concurrently.  As soon as any one succeeds the cycle is done.  We cap
+        # workers at 3 to stay within OpenAI rate limits.
+        _result_lock = threading.Lock()
+        _first_pr_event = threading.Event()
+        _workers = min(len(problems), 3)
+
+        def _process_with_guard(problem: "Problem") -> bool:
+            if _first_pr_event.is_set():
+                return False  # another thread already created a PR
             log_section(logger, f"STEP 2-9 — Processing problem: {problem.title}")
-            pr_created = self._process_problem(result, problem, analysis)
+            pr_created = self._process_problem(result, problem, analysis, _result_lock)
             if pr_created:
-                result.rejected = False
-                result.rejection_reason = None
-                break  # one PR per cycle (incremental changes)
+                _first_pr_event.set()  # signal remaining workers to skip
+            return pr_created
+
+        with ThreadPoolExecutor(max_workers=_workers) as pool:
+            futures = {pool.submit(_process_with_guard, p): p for p in problems}
+            for fut in as_completed(futures):
+                if fut.result():
+                    result.rejected = False
+                    result.rejection_reason = None
+                    break  # one PR per cycle (incremental changes)
 
         if not result.pr_url:
             result.rejected = True
@@ -130,21 +149,36 @@ class Orchestrator:
             logger.info("  [%s] %s (%s priority)", p.category, p.title, p.priority)
         return analysis
 
-    def _process_problem(self, result: CycleResult, problem: Problem, analysis: RepositoryAnalysis) -> bool:
+    def _process_problem(
+        self,
+        result: CycleResult,
+        problem: Problem,
+        analysis: RepositoryAnalysis,
+        lock: Optional[threading.Lock] = None,
+    ) -> bool:
         """
         Run steps 3–8 for a single problem.
         Returns True if a PR was successfully created.
+
+        *lock* protects mutations of the shared *result* object when this method
+        is called concurrently from a ThreadPoolExecutor.
         """
-        result.decision_log.append({
+        _lock = lock or threading.Lock()
+
+        # ── local accumulator for this problem ───────────────────────
+        log_entry: dict = {
             "problem_id": problem.id,
             "problem_title": problem.title,
             "status": "under-review",
-        })
+        }
+        with _lock:
+            result.decision_log.append(log_entry)
 
         # Step 3: Generate hypotheses
         log_section(logger, "STEP 3 — Hypothesis Generation")
         hypotheses = self.generator.generate(problem, repo_context=analysis.repo_context)
-        result.hypotheses.extend(hypotheses)
+        with _lock:
+            result.hypotheses.extend(hypotheses)
 
         if len(hypotheses) < config.MIN_HYPOTHESES:
             logger.warning(
@@ -152,10 +186,11 @@ class Orchestrator:
                 problem.title,
                 config.MIN_HYPOTHESES,
             )
-            result.rejection_reason = (
-                f"Problem '{problem.title}' did not yield enough structurally distinct hypotheses."
-            )
-            result.decision_log[-1]["status"] = "insufficient-hypotheses"
+            with _lock:
+                log_entry["status"] = "insufficient-hypotheses"
+                result.rejection_reason = (
+                    f"Problem '{problem.title}' did not yield enough structurally distinct hypotheses."
+                )
             return False
 
         # Step 4: Evaluate and score
@@ -169,16 +204,19 @@ class Orchestrator:
             logger.warning(
                 "No hypothesis met the scoring thresholds for '%s'.", problem.title
             )
-            result.rejection_reason = (
-                f"No safe high-scoring hypothesis was found for '{problem.title}'."
-            )
-            result.decision_log[-1]["status"] = "no-safe-selection"
+            with _lock:
+                log_entry["status"] = "no-safe-selection"
+                result.rejection_reason = (
+                    f"No safe high-scoring hypothesis was found for '{problem.title}'."
+                )
             return False
 
-        result.decision_log[-1]["candidates_considered"] = [h.title for h in candidates]
+        with _lock:
+            log_entry["candidates_considered"] = [h.title for h in candidates]
 
         for index, selected in enumerate(candidates, start=1):
-            result.selected_hypothesis = selected
+            with _lock:
+                result.selected_hypothesis = selected
             logger.info(
                 "Selected candidate %d/%d: '%s' (composite=%.2f)",
                 index,
@@ -193,15 +231,16 @@ class Orchestrator:
             selected = self.critic.validate(problem, selected)
 
             if selected.status != HypothesisStatus.APPROVED:
-                result.rejection_reason = (
-                    f"Critic blocked hypothesis '{selected.title}': {selected.critic_feedback}"
-                )
-                result.decision_log[-1].setdefault("blocked_candidates", []).append(
-                    {
-                        "title": selected.title,
-                        "reason": selected.critic_feedback,
-                    }
-                )
+                with _lock:
+                    result.rejection_reason = (
+                        f"Critic blocked hypothesis '{selected.title}': {selected.critic_feedback}"
+                    )
+                    log_entry.setdefault("blocked_candidates", []).append(
+                        {
+                            "title": selected.title,
+                            "reason": selected.critic_feedback,
+                        }
+                    )
                 logger.warning("Execution BLOCKED by Critic Agent for '%s'.", selected.title)
                 continue
 
@@ -209,28 +248,32 @@ class Orchestrator:
             log_section(logger, "STEP 7-8 — Execution & PR Creation")
             if config.DRY_RUN:
                 logger.info("DRY_RUN=true — skipping execution and PR creation.")
-                result.rejected = True
-                result.rejection_reason = "Execution skipped because DRY_RUN=true."
-                result.decision_log[-1]["status"] = "dry-run"
-                result.decision_log[-1]["selected_candidate"] = selected.title
+                with _lock:
+                    result.rejected = True
+                    result.rejection_reason = "Execution skipped because DRY_RUN=true."
+                    log_entry["status"] = "dry-run"
+                    log_entry["selected_candidate"] = selected.title
                 return False
 
             result = self.executor.execute(result, selected, problem, hypotheses)
             if result.pr_url:
-                result.decision_log[-1]["status"] = "executed"
-                result.decision_log[-1]["selected_candidate"] = selected.title
-                result.decision_log[-1]["pr_url"] = result.pr_url
+                with _lock:
+                    log_entry["status"] = "executed"
+                    log_entry["selected_candidate"] = selected.title
+                    log_entry["pr_url"] = result.pr_url
                 logger.info("PR created: %s", result.pr_url)
                 return True
 
-            result.decision_log[-1].setdefault("blocked_candidates", []).append(
-                {
-                    "title": selected.title,
-                    "reason": result.rejection_reason or "Execution safety gate blocked the change.",
-                }
-            )
+            with _lock:
+                log_entry.setdefault("blocked_candidates", []).append(
+                    {
+                        "title": selected.title,
+                        "reason": result.rejection_reason or "Execution safety gate blocked the change.",
+                    }
+                )
 
-        result.decision_log[-1]["status"] = "all-candidates-blocked"
+        with _lock:
+            log_entry["status"] = "all-candidates-blocked"
         return False
 
     def _step_learn(self, result: CycleResult) -> None:
