@@ -1,7 +1,28 @@
 {
   "version": "1.0",
   "protocol": "GNAP",
-  "agents": [],
+  "agents": [
+    {
+      "agent_id": "gnap-worker-1",
+      "capabilities": [
+        "apply_improvement",
+        "analyze_repository"
+      ],
+      "endpoint": "local",
+      "registered_at": "2026-05-13T07:04:17.757516",
+      "status": "active"
+    },
+    {
+      "agent_id": "gnap-worker-2",
+      "capabilities": [
+        "apply_improvement",
+        "analyze_repository"
+      ],
+      "endpoint": "local",
+      "registered_at": "2026-05-13T07:04:17.757784",
+      "status": "active"
+    }
+  ],
   "jobs": {},
   "created_at": "1970-01-01T00:00:00"
 }
