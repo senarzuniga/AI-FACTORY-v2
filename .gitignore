@@ -36,3 +36,4 @@ Thumbs.db
 
 # Runtime artifacts
 ai-factory-v2/output/
+.ai-factory/

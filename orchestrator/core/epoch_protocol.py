@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 import json
+from numbers import Real
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -100,6 +101,8 @@ class EpochProtocol:
         performance_delta: Dict[str, float] = {}
         for metric, final_value in final_metrics.items():
             baseline_value = round_data.baseline_metrics.get(metric, final_value)
+            if not isinstance(final_value, Real) or not isinstance(baseline_value, Real):
+                continue
             performance_delta[metric] = (final_value - baseline_value) / baseline_value if baseline_value > 0 else 0.0
 
         regressed = any(delta < -0.1 for delta in performance_delta.values())
