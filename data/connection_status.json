@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-08T15:50:18.406538+00:00",
+  "timestamp": "2026-07-27T15:31:13.558893+00:00",
   "paths": {
     "orchestrator": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2",
     "app": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\adaptive-sales-engine"
@@ -9,18 +9,18 @@
     "url": null,
     "port": null,
     "http_code": null,
-    "last_check": "2026-05-08T15:51:10.911343+00:00"
+    "last_check": "2026-07-27T15:32:13.961124+00:00"
   },
   "hub_api": {
-    "status": "disconnected",
+    "status": "connected",
     "url": "http://localhost:8000/hub/status",
-    "http_code": 404,
-    "last_check": "2026-05-08T15:51:13.218784+00:00"
+    "http_code": 200,
+    "last_check": "2026-07-27T15:32:16.488020+00:00"
   },
   "teams": {
     "status": "configured",
     "url": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI",
-    "last_check": "2026-05-08T15:51:13.218961+00:00"
+    "last_check": "2026-07-27T15:32:16.488056+00:00"
   },
   "data_files": {
     "required": [
@@ -34,7 +34,7 @@
     ],
     "missing_before_fix": [],
     "status": "ready",
-    "last_check": "2026-05-08T15:51:13.227968+00:00"
+    "last_check": "2026-07-27T15:32:16.491783+00:00"
   },
   "agents": {
     "status": "detected",
@@ -50,7 +50,7 @@
       "supervisor_agent.py",
       "validation_agent.py"
     ],
-    "last_check": "2026-05-08T15:51:13.234199+00:00"
+    "last_check": "2026-07-27T15:32:16.494255+00:00"
   },
   "artifacts": {
     "api_routes": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2\\config\\api_routes.json",

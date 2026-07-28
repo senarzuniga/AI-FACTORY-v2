@@ -10,6 +10,7 @@ from fastapi import FastAPI
 
 from agents.action_engine import ActionPool
 from api.action_dashboard import create_action_router
+from api.routes.cognitive_os_api import router as cognitive_os_router
 
 APP_STARTED_AT = datetime.now(timezone.utc)
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -19,6 +20,7 @@ app = FastAPI(title="Ingercart Collaborative Hub API", version="1.0.0")
 # Optional enhancement: shared in-memory action pool for dashboard endpoints.
 _action_pool = ActionPool()
 app.include_router(create_action_router(_action_pool))
+app.include_router(cognitive_os_router)
 
 
 @app.get("/")

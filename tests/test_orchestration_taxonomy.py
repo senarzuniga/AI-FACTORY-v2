@@ -5,6 +5,13 @@ from pathlib import Path
 APP_DIR = Path(__file__).resolve().parents[1] / "ai-factory-v2"
 sys.path.insert(0, str(APP_DIR))
 
+# Ensure legacy package imports are not shadowed by root-level `agents` package.
+for mod_name in list(sys.modules):
+    if mod_name == "agents" or mod_name.startswith("agents."):
+        sys.modules.pop(mod_name, None)
+    if mod_name == "orchestrator" or mod_name.startswith("orchestrator."):
+        sys.modules.pop(mod_name, None)
+
 import config
 from agents.evaluator import EvaluatorAgent
 from agents.executor import ExecutorAgent

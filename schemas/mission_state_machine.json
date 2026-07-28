@@ -1,0 +1,23 @@
+{
+  "name": "CanonicalMissionLifecycle",
+  "initial_state": "draft",
+  "terminal_states": ["completed", "archived"],
+  "states": [
+    "draft",
+    "planned",
+    "active",
+    "blocked",
+    "validation",
+    "completed",
+    "archived"
+  ],
+  "transitions": [
+    {"from": "draft", "to": "planned", "trigger": "mission_approved"},
+    {"from": "planned", "to": "active", "trigger": "dependencies_satisfied"},
+    {"from": "active", "to": "validation", "trigger": "work_packages_completed"},
+    {"from": "validation", "to": "completed", "trigger": "governance_and_scoring_pass"},
+    {"from": "active", "to": "blocked", "trigger": "critical_dependency_failed"},
+    {"from": "blocked", "to": "active", "trigger": "blocker_removed"},
+    {"from": "completed", "to": "archived", "trigger": "retention_policy_applied"}
+  ]
+}

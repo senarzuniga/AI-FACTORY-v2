@@ -1,0 +1,76 @@
+"""Composition root for AI-FACTORY Cognitive Operating System services."""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+from cognitive_os.autonomous import AutonomousExecutionFramework
+from cognitive_os.governance import Governance
+from cognitive_os.knowledge_core import KnowledgeCoreAPIs
+from cognitive_os.memory_core import EnterpriseMemoryCore
+from cognitive_os.mission_core import MissionManagerCore
+from cognitive_os.mission_model_selection import MissionModelSelector
+from cognitive_os.registries import AICoordinator, AgentRegistry, CapabilityGraph, MissionGraph, MissionRegistry, PlatformRegistry
+from cognitive_os.runtimes import EvidenceRuntime, HypothesisEngine, ScoringEngine, TruthRuntime, ValidationEngine
+
+
+class CognitiveOperatingSystem:
+    def __init__(self, memory_file: str | None = None) -> None:
+        self.coordinator = AICoordinator()
+        self.agent_registry = AgentRegistry()
+        self.platform_registry = PlatformRegistry()
+        self.capability_graph = CapabilityGraph()
+        self.mission_graph = MissionGraph()
+        self.mission_registry = MissionRegistry()
+        self.mission_model_selector = MissionModelSelector()
+
+        persistence = memory_file or str(Path("data") / "cognitive_os_memory.json")
+        self.memory_core = EnterpriseMemoryCore(persistence_file=persistence)
+
+        self.evidence_runtime = EvidenceRuntime()
+        self.truth_runtime = TruthRuntime(self.evidence_runtime)
+        self.hypothesis_engine = HypothesisEngine()
+        self.scoring_engine = ScoringEngine()
+        self.validation_engine = ValidationEngine()
+        self.governance = Governance()
+
+        self.knowledge_core = KnowledgeCoreAPIs(
+            memory_core=self.memory_core,
+            evidence_runtime=self.evidence_runtime,
+            truth_runtime=self.truth_runtime,
+        )
+
+        self.mission_core = MissionManagerCore(
+            mission_graph=self.mission_graph,
+            hypothesis_engine=self.hypothesis_engine,
+            scoring_engine=self.scoring_engine,
+            validation_engine=self.validation_engine,
+            governance=self.governance,
+            mission_registry=self.mission_registry,
+        )
+
+        self.autonomous = AutonomousExecutionFramework(self.mission_core)
+
+    def evaluate_mission_model(self) -> dict:
+        result = self.mission_model_selector.select_best()
+        self.memory_core.put("mission_model", "selection", result)
+        self.memory_core.put("mission_model", "production_ready", result["production_ready"])
+        return result
+
+    def mission_model_production_ready(self) -> bool:
+        value = self.memory_core.get("mission_model", "production_ready")
+        return bool(value)
+
+    def export_state(self) -> dict:
+        return {
+            "agents": [a.__dict__ for a in self.agent_registry.list()],
+            "platforms": [p.__dict__ for p in self.platform_registry.list()],
+            "capabilities": [c.__dict__ for c in self.capability_graph.list_nodes()],
+            "missions": [m.__dict__ for m in self.mission_core.list_missions()],
+            "mission_registry": self.mission_registry.snapshot(),
+            "platform_registry_contract": self.platform_registry.contract_version(),
+            "capability_registry_schema": self.capability_graph.schema_version(),
+            "knowledge": self.knowledge_core.export_snapshot(),
+            "events": self.coordinator.recent_events(),
+            "mission_model": self.memory_core.get("mission_model", "selection"),
+        }

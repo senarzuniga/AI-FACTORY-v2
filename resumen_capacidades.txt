@@ -36,3 +36,24 @@ Operaciones administrativas:
 
 Resumen final:
 - AI-FACTORY-v2 es una plataforma modular y scriptable para construir, ejecutar y monitorizar pipelines multi-agente de IA, con capacidades de generación, análisis, validación, memoria y entrega, junto con utilidades operativas para despliegue, monitorización e integración empresarial.
+
+Actualización — Cognitive Operating System Core (2026-07-24):
+- Se incorpora una capa reusable en `cognitive_os/` para consolidar AI-FACTORY como sistema operativo cognitivo modular.
+- Responsabilidades cubiertas por servicios neutrales (sin módulos industriales de negocio):
+	- AI Coordinator
+	- Agent Registry
+	- Mission Manager Core
+	- Capability Graph
+	- Mission Graph
+	- Platform Registry
+	- Evidence Runtime
+	- Truth Runtime
+	- Hypothesis Engine
+	- Scoring Engine
+	- Enterprise Memory Core
+	- Knowledge Core APIs
+	- Governance
+	- SDK
+	- Autonomous Execution Framework
+- La API reusable queda expuesta en `api/routes/cognitive_os_api.py` bajo `/api/cognitive-os/*` para consumo por plataformas como IS_BACKOFFICE / ING_DIGHUB.
+- El ciclo autónomo implementado sigue el flujo: Hypothesis -> Scoring -> Selection -> Validation, iterando hasta no detectar acciones positivas de ingeniería.

@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Industrial Layout Intelligence Workbench</title>
+  <style>
+    :root {
+      --bg-0: #0a1510;
+      --bg-1: #12291f;
+      --bg-2: #1e3d2f;
+      --line: rgba(204, 255, 225, 0.28);
+      --card: rgba(18, 41, 31, 0.7);
+      --ink: #eefcf4;
+      --muted: #b7d7c4;
+      --mint: #7ad8a8;
+      --amber: #ffbd59;
+      --red: #ff7f7f;
+      --cyan: #8fe7df;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 600px at 90% -10%, rgba(122, 216, 168, 0.17), transparent 60%),
+        radial-gradient(1100px 700px at -20% 120%, rgba(143, 231, 223, 0.12), transparent 60%),
+        linear-gradient(152deg, var(--bg-0), var(--bg-1) 46%, var(--bg-2));
+    }
+
+    .app {
+      max-width: 1700px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+
+    .titlebar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(8, 22, 16, 0.6);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.1rem, 2.2vw, 1.75rem);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 5px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(12, 28, 21, 0.65);
+    }
+
+    .grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 270px 1fr 320px;
+      gap: 12px;
+      min-height: calc(100vh - 120px);
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      backdrop-filter: blur(4px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
+      background: rgba(10, 25, 18, 0.7);
+    }
+
+    .panel-body {
+      padding: 10px;
+      overflow: auto;
+    }
+
+    .left-list,
+    .task-list,
+    .status-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .left-item,
+    .task-item,
+    .status-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(6, 17, 13, 0.45);
+      padding: 8px 10px;
+      font-size: 0.88rem;
+    }
+
+    .left-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .left-item .tag {
+      font-size: 0.72rem;
+      color: var(--amber);
+      border: 1px solid rgba(255, 189, 89, 0.4);
+      border-radius: 99px;
+      padding: 1px 7px;
+    }
+
+    .viewer {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--ink);
+      background: rgba(12, 29, 22, 0.8);
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: rgba(23, 49, 38, 0.85); }
+
+    .viewer-canvas {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background:
+        linear-gradient(transparent 23px, rgba(143, 231, 223, 0.08) 24px),
+        linear-gradient(90deg, transparent 23px, rgba(143, 231, 223, 0.08) 24px),
+        radial-gradient(circle at 20% 20%, rgba(122, 216, 168, 0.15), transparent 40%),
+        #0c1e16;
+      background-size: 24px 24px, 24px 24px, 100% 100%, auto;
+      position: relative;
+      min-height: 440px;
+      overflow: hidden;
+    }
+
+    .machine,
+    .flow,
+    .wip,
+    .amr {
+      position: absolute;
+      border-radius: 8px;
+      border: 1px solid;
+      font-size: 0.72rem;
+      padding: 4px 6px;
+      animation: reveal 700ms ease both;
+    }
+
+    .machine {
+      border-color: rgba(122, 216, 168, 0.7);
+      background: rgba(122, 216, 168, 0.15);
+    }
+
+    .flow {
+      border-color: rgba(143, 231, 223, 0.7);
+      background: rgba(143, 231, 223, 0.15);
+    }
+
+    .wip {
+      border-color: rgba(255, 189, 89, 0.7);
+      background: rgba(255, 189, 89, 0.15);
+    }
+
+    .amr {
+      border-color: rgba(255, 127, 127, 0.7);
+      background: rgba(255, 127, 127, 0.15);
+    }
+
+    .viewer-footer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      background: rgba(6, 17, 13, 0.5);
+    }
+
+    .kpi strong {
+      color: var(--mint);
+      font-size: 1.15rem;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: 0.73rem;
+      border-radius: 99px;
+      padding: 2px 8px;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+
+    .chip.impl { color: var(--mint); border-color: var(--mint); }
+    .chip.partial { color: var(--amber); border-color: var(--amber); }
+    .chip.missing { color: var(--red); border-color: var(--red); }
+
+    .links {
+      margin-top: 8px;
+      border-top: 1px dashed var(--line);
+      padding-top: 8px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.82rem;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1260px) {
+      .grid { grid-template-columns: 230px 1fr; }
+      .right-panel { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 880px) {
+      .grid { grid-template-columns: 1fr; }
+      .titlebar { flex-direction: column; align-items: flex-start; }
+      .viewer-canvas { min-height: 320px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="titlebar">
+      <div>
+        <h1>Industrial Layout Intelligence Workbench</h1>
+        <div class="subtitle">AI-FACTORY layout engineering application for ING_DIGHUB integration.</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span id="global-maturity" class="pill">Maturity: loading...</span>
+        <span class="pill">Under Development</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel">
+        <div class="panel-header">Project Scope</div>
+        <div class="panel-body left-list" id="left-sidebar"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">Drawing Viewer</div>
+        <div class="panel-body viewer">
+          <div class="toolbar" id="toolbar"></div>
+          <div class="viewer-canvas" id="viewer-canvas"></div>
+          <div class="viewer-footer" id="kpi-strip"></div>
+        </div>
+      </section>
+
+      <section class="panel right-panel">
+        <div class="panel-header">Engineering Tasks</div>
+        <div class="panel-body">
+          <div class="task-list" id="task-list"></div>
+          <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">Ask AI Coordinator and mission actions are connected through cognitive OS APIs.</div>
+
+          <h3 style="margin:14px 0 8px; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.03em;">Implementation Status</h3>
+          <div class="status-list" id="status-list"></div>
+
+          <div class="links">
+            <a href="/api/cognitive-os/layout-workbench/status" target="_blank" rel="noreferrer">API: Workbench Status</a>
+            <a href="/api/cognitive-os/layout-workbench/dependency-map" target="_blank" rel="noreferrer">API: Dependency Map</a>
+            <a href="/api/cognitive-os/layout-workbench/missions" target="_blank" rel="noreferrer">API: Layout Missions</a>
+            <a href="/LAYOUT_WORKBENCH_STATUS.html" target="_blank" rel="noreferrer">Executive HTML Status Report</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const sidebarItems = [
+      "Project",
+      "Plant",
+      "Customer",
+      "DWG Upload",
+      "DXF Upload",
+      "Factory Graph",
+      "Mission",
+      "Knowledge Sources",
+      "Simulation",
+      "Engineering Objects",
+      "AMR Library",
+      "Product Library"
+    ];
+
+    const centerTools = [
+      "Zoom",
+      "Layers",
+      "Object Detection",
+      "Machine Detection",
+      "Flow Detection",
+      "Conveyor Detection",
+      "Transfer Detection",
+      "AMR Routes",
+      "Waste Lines",
+      "WIP Areas",
+      "Warehouse",
+      "Measurements",
+      "Annotations"
+    ];
+
+    const tasks = [
+      "Analyze bottlenecks",
+      "Optimize layout",
+      "Estimate OEE",
+      "Estimate ROI",
+      "Generate WIP cells",
+      "Optimize AMRs",
+      "Optimize Ingetrans",
+      "Reduce forklifts",
+      "Improve safety",
+      "Generate proposal",
+      "Generate Executive Report",
+      "Compare scenarios",
+      "Ask AI Coordinator"
+    ];
+
+    const kpis = [
+      { label: "Detected Machines", value: "24" },
+      { label: "Flow Segments", value: "18" },
+      { label: "AMR Routes", value: "7" },
+      { label: "WIP Areas", value: "5" },
+      { label: "Annotations", value: "14" }
+    ];
+
+    function renderStaticSections() {
+      const left = document.getElementById("left-sidebar");
+      left.innerHTML = sidebarItems.map((name) => {
+        const isUpload = name.includes("Upload");
+        return `<div class="left-item"><span>${name}</span>${isUpload ? '<span class="tag">Under Dev</span>' : '<span class="tag">Connected</span>'}</div>`;
+      }).join("");
+
+      const toolbar = document.getElementById("toolbar");
+      toolbar.innerHTML = centerTools.map((tool) => `<button class="btn" type="button">${tool}</button>`).join("");
+
+      const taskList = document.getElementById("task-list");
+      taskList.innerHTML = tasks.map((task) => `<div class="task-item">${task}</div>`).join("");
+
+      const kpiStrip = document.getElementById("kpi-strip");
+      kpiStrip.innerHTML = kpis.map((item) => `<div class="kpi"><div>${item.label}</div><strong>${item.value}</strong></div>`).join("");
+    }
+
+    function renderViewerMock() {
+      const canvas = document.getElementById("viewer-canvas");
+      canvas.innerHTML = [
+        '<div class="machine" style="left:8%;top:12%;">Press #1</div>',
+        '<div class="machine" style="left:33%;top:17%;">Cutter #2</div>',
+        '<div class="machine" style="left:62%;top:22%;">Reel Loader</div>',
+        '<div class="flow" style="left:17%;top:46%;">Flow A -> B</div>',
+        '<div class="flow" style="left:53%;top:52%;">Flow B -> C</div>',
+        '<div class="wip" style="left:24%;top:69%;">WIP Cell North</div>',
+        '<div class="wip" style="left:70%;top:65%;">Warehouse Buffer</div>',
+        '<div class="amr" style="left:43%;top:78%;">AMR Route R-07</div>'
+      ].join("");
+    }
+
+    function statusChip(status) {
+      const normalized = String(status || "").toLowerCase();
+      if (normalized.includes("implemented")) {
+        return { klass: "impl", label: "Implemented" };
+      }
+      if (normalized.includes("missing")) {
+        return { klass: "missing", label: "Missing" };
+      }
+      return { klass: "partial", label: "Under Development" };
+    }
+
+    async function fetchJson(url) {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      return response.json();
+    }
+
+    function renderStatus(data) {
+      const list = document.getElementById("status-list");
+      const maturity = data.maturity || {};
+      const rows = Object.keys(maturity).map((name) => {
+        const item = maturity[name] || {};
+        const chip = statusChip(item.status || "partial");
+        const percent = Number(item.percent || 0);
+        return `<div class="status-item"><span>${name} <small style="color:var(--muted)">(${percent}%)</small></span><span class="chip ${chip.klass}">${chip.label}</span></div>`;
+      });
+
+      list.innerHTML = rows.join("");
+      const implementation = Number(data.implementation_percent || 0);
+      document.getElementById("global-maturity").textContent = `Maturity: ${implementation}%`;
+    }
+
+    async function init() {
+      renderStaticSections();
+      renderViewerMock();
+
+      try {
+        const data = await fetchJson("/api/cognitive-os/layout-workbench/status");
+        renderStatus(data);
+      } catch (error) {
+        renderStatus({
+          implementation_percent: 42,
+          maturity: {
+            "DWG parser": { status: "missing", percent: 0 },
+            "DXF parser": { status: "missing", percent: 0 },
+            "Geometry Engine": { status: "partial", percent: 35 },
+            "Factory Graph": { status: "partial", percent: 45 },
+            "Knowledge Graph": { status: "partial", percent: 55 },
+            "Simulation": { status: "partial", percent: 40 },
+            "Mission Manager": { status: "implemented", percent: 80 },
+            "Digital Twin": { status: "partial", percent: 35 },
+            "Engineering Optimizer": { status: "partial", percent: 45 }
+          }
+        });
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

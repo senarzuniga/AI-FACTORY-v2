@@ -1,0 +1,52 @@
+{
+  "mission_model": {
+    "selection": {
+      "hypotheses": [
+        {
+          "id": "H5",
+          "title": "Dual-Layer Canonical + Compatibility",
+          "description": "Canonical normalized aggregate with compatibility adapters for legacy mission formats.",
+          "score": 0.9122
+        },
+        {
+          "id": "H2",
+          "title": "Normalized Mission Aggregate",
+          "description": "Mission aggregate with structured sub-entities and explicit lifecycle state machine.",
+          "score": 0.8712
+        },
+        {
+          "id": "H3",
+          "title": "Event-Sourced Mission Ledger",
+          "description": "Mission as append-only events with projection views.",
+          "score": 0.8317
+        },
+        {
+          "id": "H6",
+          "title": "Domain-Split Mission Microtypes",
+          "description": "Separate mission records by domain with orchestration-level federation.",
+          "score": 0.7989
+        },
+        {
+          "id": "H4",
+          "title": "Graph-Only Mission Semantics",
+          "description": "All mission semantics encoded as graph nodes/edges without canonical aggregate.",
+          "score": 0.7187
+        },
+        {
+          "id": "H1",
+          "title": "Flat Mission Record",
+          "description": "Single flat mission entity with denormalized lifecycle fields.",
+          "score": 0.6764
+        }
+      ],
+      "selected": {
+        "id": "H5",
+        "title": "Dual-Layer Canonical + Compatibility",
+        "description": "Canonical normalized aggregate with compatibility adapters for legacy mission formats.",
+        "score": 0.9122
+      },
+      "production_ready": true
+    },
+    "production_ready": true
+  }
+}

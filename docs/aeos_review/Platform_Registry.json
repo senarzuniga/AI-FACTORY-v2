@@ -1,0 +1,93 @@
+{
+  "registry_date": "2026-07-23",
+  "platform": "AI-FACTORY-v2",
+  "assessment_scope": "Repository-wide autonomous discovery",
+  "applications": [
+    {
+      "name": "AI-FACTORY-v2 advanced stack",
+      "entrypoints": ["main.py", "orchestrator/main.py"],
+      "status": "active"
+    },
+    {
+      "name": "AI-FACTORY-v2 legacy stack",
+      "entrypoints": ["ai-factory-v2/orchestrator.py", "ai-factory-v2/launch.ps1"],
+      "status": "active_legacy"
+    },
+    {
+      "name": "Collaborative hub",
+      "entrypoints": ["api/routes/hub_api.py", "dashboard/streamlit/hub_dashboard.py", "dashboard/streamlit/human_interaction_portal.py"],
+      "status": "active_mvp"
+    }
+  ],
+  "services": [
+    {"name": "FastAPI Hub", "path": "api/routes/hub_api.py", "status": "active"},
+    {"name": "Action Dashboard API", "path": "api/action_dashboard.py", "status": "active"}
+  ],
+  "orchestrators": [
+    {"name": "AIFactoryV2", "path": "orchestrator/main.py", "status": "active_partial"},
+    {"name": "HybridOrchestrator", "path": "orchestrator/hybrid_orchestrator.py", "status": "active_mvp"},
+    {"name": "CascadeOrchestrator", "path": "cascade_orchestrator.py", "status": "active_partial"},
+    {"name": "UltimateOrchestrator", "path": "ultimate_orchestrator.py", "status": "active_ops"}
+  ],
+  "agents": {
+    "advanced": ["planning_agent", "grounding_agent", "critic_agent", "optimizer_agent"],
+    "hybrid": ["supervisor_agent", "data_intelligence_agent", "analysis_agent", "generation_agent", "judge_agent", "validation_agent", "memory_agent", "delivery_agent"],
+    "legacy": ["analyzer", "generator", "evaluator", "critic", "executor"]
+  },
+  "knowledge_memory_components": [
+    {"name": "VectorStore", "path": "orchestrator/memory/vector_store.py", "status": "active_local"},
+    {"name": "ExperienceReplay", "path": "orchestrator/memory/experience_replay.py", "status": "active_local"},
+    {"name": "Client Memory", "path": "agents/memory_agent.py", "status": "active_file_based"}
+  ],
+  "dashboards_ui": [
+    "orchestrator_dashboard.html",
+    "dashboard/orchestrator_panel.html",
+    "dashboard/streamlit/hub_dashboard.py",
+    "dashboard/streamlit/human_interaction_portal.py"
+  ],
+  "scripts": {
+    "operations": ["start_all.ps1", "restart_services.ps1", "start_ecosystem.ps1", "orchestrator_healing.ps1"],
+    "setup": ["setup.sh", "setup_cascade.ps1", "setup_cascade.sh", "ai-factory-v2/setup_windows.ps1"],
+    "data_pipeline": ["scripts/force_sync_data.py", "scripts/cascade_agents.py", "scripts/update_all_panels.py", "scripts/verify_all.py"]
+  },
+  "configuration": ["config.yaml", "config/*.json", "schemas/mission_graph_schema.json"],
+  "testing": {
+    "files": [
+      "tests/test_cascade_orchestrator.py",
+      "tests/test_action_system.py",
+      "tests/test_learning_registry.py",
+      "tests/test_orchestration_taxonomy.py"
+    ],
+    "status": "mixed"
+  },
+  "reports": [
+    "architecture_reorganization_report.txt",
+    "orchestrator_master_report.txt",
+    "implementation_complete_v2_report.txt",
+    "TODO_REPORT.md"
+  ],
+  "shared_reusable_components": [
+    {"name": "Mission portfolio generator", "path": "tools/mission_portfolio/generate_portfolio.py", "status": "active"},
+    {"name": "Context layer", "path": "context/context_layer.py", "status": "active_mvp"}
+  ],
+  "portfolio_optimization": {
+    "mode": "parallel_mission_portfolio",
+    "active_portfolio_id": "MP-003-AEOS-PARALLEL-30D",
+    "active_mission_graph": "docs/aeos_review/Mission_Graph.json",
+    "investment_portfolio": "docs/aeos_review/Engineering_Investment_Portfolio_30d.json",
+    "updated_capability_registry": "docs/aeos_review/Capability_Registry.json"
+  },
+  "autonomous_cycle_status": {
+    "cycle_id": "2026-07-23-cycle2",
+    "executive_status": "docs/aeos_review/Executive_Platform_Status_2026-07-23_cycle2.json",
+    "hypothesis_evaluation": "docs/aeos_review/Hypothesis_Evaluation_2026-07-23_cycle2.json",
+    "final_report": "docs/aeos_review/Executive_Engineering_Report_2026-07-23_cycle2.md",
+    "active_missions": ["NXT-001", "NXT-002", "M-001", "M-009"],
+    "blocked_missions": ["M-006"],
+    "current_blockers": [
+      "M-004 runtime completion dependency",
+      "Mission Manager service implementation gap",
+      "Enterprise Digital Twin execution gap"
+    ]
+  }
+}

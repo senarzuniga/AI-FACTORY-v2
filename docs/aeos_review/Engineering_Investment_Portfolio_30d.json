@@ -1,0 +1,141 @@
+{
+  "portfolio_id": "EIP-30D-2026-07-23",
+  "horizon_days": 30,
+  "total_capacity_units": 100,
+  "allocation": {
+    "critical_path": 45,
+    "parallel_high_value": 35,
+    "low_risk_optional": 12,
+    "risk_buffer": 8
+  },
+  "investments": [
+    {
+      "work_package": "NXT-001.WP-TEST-01",
+      "capacity_units": 14,
+      "expected_return": {
+        "engineering": 93,
+        "knowledge": 58,
+        "maturity": 84
+      }
+    },
+    {
+      "work_package": "NXT-001.WP-GOV-01",
+      "capacity_units": 11,
+      "expected_return": {
+        "engineering": 88,
+        "knowledge": 66,
+        "maturity": 80
+      }
+    },
+    {
+      "work_package": "NXT-002.WP-RUNTIME-01",
+      "capacity_units": 12,
+      "expected_return": {
+        "engineering": 86,
+        "knowledge": 71,
+        "maturity": 82
+      }
+    },
+    {
+      "work_package": "M-001.WS1",
+      "capacity_units": 10,
+      "expected_return": {
+        "engineering": 80,
+        "knowledge": 84,
+        "maturity": 76
+      }
+    },
+    {
+      "work_package": "M-001.WS2",
+      "capacity_units": 9,
+      "expected_return": {
+        "engineering": 78,
+        "knowledge": 74,
+        "maturity": 74
+      }
+    },
+    {
+      "work_package": "M-001.WS3",
+      "capacity_units": 8,
+      "expected_return": {
+        "engineering": 79,
+        "knowledge": 76,
+        "maturity": 75
+      }
+    },
+    {
+      "work_package": "M-001.WS4",
+      "capacity_units": 7,
+      "expected_return": {
+        "engineering": 75,
+        "knowledge": 70,
+        "maturity": 71
+      }
+    },
+    {
+      "work_package": "M-009.WP-CONTROL-01",
+      "capacity_units": 8,
+      "expected_return": {
+        "engineering": 77,
+        "knowledge": 63,
+        "maturity": 72
+      }
+    },
+    {
+      "work_package": "M-009.WP-METRICS-01",
+      "capacity_units": 6,
+      "expected_return": {
+        "engineering": 73,
+        "knowledge": 61,
+        "maturity": 68
+      }
+    },
+    {
+      "work_package": "M-004.WP-KNOWLEDGE-MODEL-01",
+      "capacity_units": 5,
+      "expected_return": {
+        "engineering": 70,
+        "knowledge": 78,
+        "maturity": 66
+      }
+    },
+    {
+      "work_package": "M-006.WP-CALC-ENGINE-01",
+      "capacity_units": 4,
+      "expected_return": {
+        "engineering": 71,
+        "knowledge": 62,
+        "maturity": 64
+      }
+    },
+    {
+      "work_package": "NXT-001.WP-DOC-01",
+      "capacity_units": 3,
+      "expected_return": {
+        "engineering": 62,
+        "knowledge": 69,
+        "maturity": 60
+      }
+    },
+    {
+      "work_package": "NXT-001.WP-UI-01",
+      "capacity_units": 3,
+      "expected_return": {
+        "engineering": 60,
+        "knowledge": 52,
+        "maturity": 57
+      }
+    }
+  ],
+  "risk_policy": {
+    "max_high_risk_parallel_packages": 2,
+    "blocked_mission_credit_reallocation": true,
+    "quality_gate_required_before_runtime_cutover": true
+  },
+  "expected_portfolio_outcome": {
+    "global_engineering_score": 81.4,
+    "engineering_throughput_increase_pct": 38,
+    "idle_time_reduction_pct": 72,
+    "critical_path_compression_pct": 26
+  }
+}

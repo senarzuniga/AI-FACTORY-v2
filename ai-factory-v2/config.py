@@ -4,6 +4,7 @@ AI Factory v2 — Configuration
 """
 from __future__ import annotations
 
+import os
 from decouple import config
 from pathlib import Path
 

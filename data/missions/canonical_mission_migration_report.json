@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "missions_migrated": 11,
+  "sources": [
+    "mission_portfolio_001.json",
+    "mission_portfolio_002_aeos.json",
+    "mission_portfolio_003_parallel_30d.json",
+    "Mission_Graph.json"
+  ],
+  "lossless_archive": "data/missions/canonical_missions_legacy_archive.json",
+  "output": "data/missions/canonical_missions_v1.json"
+}

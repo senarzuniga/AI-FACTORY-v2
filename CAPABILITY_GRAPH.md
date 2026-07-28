@@ -3,6 +3,12 @@
 **Date:** 2026-07-21  
 **Purpose:** Visual representation of capabilities, strategic dependencies, and maturity progression
 
+**Parallel Portfolio Addendum (2026-07-23):**
+- Mission execution is now optimized by parallel work packages (critical path + independent high-value tracks).
+- Blocked missions must spawn low-risk parallel deliverables (architecture, knowledge, documentation, models, UI mockups).
+- Throughput-first policy: no idle engineering capacity while positive-value packages exist.
+- Updated execution artifacts: `docs/aeos_review/Mission_Graph.json`, `mission_portfolio/mission_portfolio_003_parallel_30d.json`, `docs/aeos_review/Engineering_Investment_Portfolio_30d.json`.
+
 ---
 
 ## 1. CAPABILITY DEPENDENCY GRAPH

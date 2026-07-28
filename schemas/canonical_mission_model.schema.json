@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-factory.local/schemas/canonical_mission_model.schema.json",
+  "title": "CanonicalMissionModel",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "objective",
+    "objectives",
+    "strategic_alignment",
+    "value",
+    "hypothesis_portfolio_ids",
+    "scoring_matrix",
+    "work_packages",
+    "dependencies",
+    "capabilities",
+    "evidence_ids",
+    "deliverables",
+    "risks",
+    "kpis",
+    "milestones",
+    "lessons_learned",
+    "mission_state",
+    "mission_history",
+    "mission_evolution",
+    "mission_score",
+    "mission_roi",
+    "mission_confidence",
+    "mission_traceability",
+    "mission_knowledge_assets",
+    "status",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "objective": {"type": "string"},
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement"],
+        "properties": {
+          "id": {"type": "string"},
+          "statement": {"type": "string"},
+          "owner": {"type": "string"},
+          "priority": {"type": "integer", "minimum": 1, "maximum": 5}
+        }
+      }
+    },
+    "strategic_alignment": {
+      "type": "object",
+      "required": ["themes", "target_platforms", "rationale"],
+      "properties": {
+        "themes": {"type": "array", "items": {"type": "string"}},
+        "target_platforms": {"type": "array", "items": {"type": "string"}},
+        "rationale": {"type": "string"}
+      }
+    },
+    "value": {
+      "type": "object",
+      "required": ["business_value", "engineering_value", "knowledge_value"],
+      "properties": {
+        "business_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "engineering_value": {"type": "number", "minimum": 0, "maximum": 1},
+        "knowledge_value": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "hypothesis_portfolio_ids": {"type": "array", "items": {"type": "string"}},
+    "scoring_matrix": {
+      "type": "object",
+      "required": ["architecture", "maintainability", "scalability", "performance", "interoperability", "governance"],
+      "properties": {
+        "architecture": {"type": "number", "minimum": 0, "maximum": 1},
+        "maintainability": {"type": "number", "minimum": 0, "maximum": 1},
+        "scalability": {"type": "number", "minimum": 0, "maximum": 1},
+        "performance": {"type": "number", "minimum": 0, "maximum": 1},
+        "interoperability": {"type": "number", "minimum": 0, "maximum": 1},
+        "governance": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "work_packages": {"type": "array", "items": {"type": "object"}},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "deliverables": {"type": "array", "items": {"type": "string"}},
+    "risks": {"type": "array", "items": {"type": "object"}},
+    "kpis": {"type": "array", "items": {"type": "object"}},
+    "milestones": {"type": "array", "items": {"type": "object"}},
+    "lessons_learned": {"type": "array", "items": {"type": "string"}},
+    "mission_state": {"type": "string"},
+    "mission_history": {"type": "array", "items": {"type": "object"}},
+    "mission_evolution": {"type": "array", "items": {"type": "object"}},
+    "mission_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "mission_roi": {"type": "number", "minimum": 0, "maximum": 1},
+    "mission_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "mission_traceability": {
+      "type": "object",
+      "required": ["source_documents", "evidence_ids", "dependency_links"],
+      "properties": {
+        "source_documents": {"type": "array", "items": {"type": "string"}},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "dependency_links": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "mission_knowledge_assets": {"type": "array", "items": {"type": "object"}},
+    "status": {
+      "type": "string",
+      "enum": ["draft", "planned", "active", "blocked", "validation", "completed", "archived"]
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

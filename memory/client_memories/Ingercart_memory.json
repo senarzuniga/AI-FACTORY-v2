@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2026-07-23T15:49:07.138358",
+    "session_id": "Ingercart_qa.user@example.com_1784814547",
+    "user": "qa.user@example.com",
+    "output_type": "proposal",
+    "output_summary": "Propuesta comercial generada para Ingercart.",
+    "metadata": {
+      "client": "Ingercart"
+    }
+  },
+  {
+    "timestamp": "2026-07-23T15:53:43.611781",
+    "session_id": "Ingercart_qa.user@example.com_1784814823",
+    "user": "qa.user@example.com",
+    "output_type": "proposal",
+    "output_summary": "Propuesta comercial generada para Ingercart.",
+    "metadata": {
+      "client": "Ingercart"
+    }
+  }
+]

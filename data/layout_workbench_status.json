@@ -1,0 +1,316 @@
+{
+  "generated_at": "2026-07-27T14:15:50.731514+00:00",
+  "keywords": [
+    "dwg",
+    "dxf",
+    "layout",
+    "plant",
+    "factory",
+    "geometry",
+    "cad",
+    "simulation",
+    "factory graph",
+    "knowledge graph",
+    "mission manager",
+    "workbench",
+    "plant simulator",
+    "reel loading",
+    "flow analysis",
+    "amr",
+    "ingetrans",
+    "wip",
+    "digital twin",
+    "geometry engine"
+  ],
+  "keyword_hits": {
+    "dwg": 13,
+    "dxf": 14,
+    "layout": 17,
+    "plant": 16,
+    "factory": 111,
+    "geometry": 14,
+    "cad": 49,
+    "simulation": 22,
+    "factory graph": 13,
+    "knowledge graph": 14,
+    "mission manager": 23,
+    "workbench": 8,
+    "plant simulator": 1,
+    "reel loading": 1,
+    "flow analysis": 4,
+    "amr": 12,
+    "ingetrans": 12,
+    "wip": 14,
+    "digital twin": 15,
+    "geometry engine": 3
+  },
+  "discovery": {
+    "pages": [
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "orchestrator_dashboard.html",
+      "teams-channel-access.html"
+    ],
+    "unfinished_pages": [
+      "dashboard/layout_workbench.html"
+    ],
+    "backend_services": [
+      "README.md",
+      "api/routes/cognitive_os_api.py",
+      "docs/aeos_review/Platform_Registry.json",
+      "scripts/generate_layout_workbench_status.py",
+      "start-collaborative-hub.ps1",
+      "start_ecosystem.ps1"
+    ],
+    "parsers": [
+      ".forge/ai-factory-v2.config.json",
+      "CAPABILITY_GRAPH.md",
+      "EXECUTABLE_ROADMAP.md",
+      "INDUSTRIAL_MATURITY_MODEL.md",
+      "M001_IMPLEMENTATION_CHARTER.md",
+      "README.md",
+      "README_CASCADE.md",
+      "STRATEGIC_REFOUNDATION.md",
+      "TODO_REPORT.md",
+      "agents/action_engine.py",
+      "ai-factory-v2/specification.md",
+      "api/routes/cognitive_os_api.py",
+      "architecture_reorganization_report.txt",
+      "cascade_orchestrator.py",
+      "cognitive_os/knowledge_core.py",
+      "cognitive_os/sdk.py",
+      "context/context_layer.py",
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "data/cascade_results.json",
+      "data/learning/cascade_results.json",
+      "data/missions/canonical_missions_legacy_archive.json",
+      "data/missions/canonical_missions_v1.json",
+      "data/simulation_7h_report.json",
+      "data/sync_summary.json",
+      "data/synced_customers.json",
+      "data/verification_report.json",
+      "docs/IS_BACKOFFICE_AUDIT.md",
+      "docs/aeos_review/Capability_Registry.json",
+      "docs/aeos_review/Executive_Engineering_Report_2026-07-23_cycle2.md",
+      "docs/aeos_review/NXT-001_Implementation_Charter.md",
+      "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+      "docs/aeos_review/Platform_Registry.json",
+      "docs/cognitive_os_services.md",
+      "docs/engineering_scoring.md",
+      "force_update_panels_report.txt",
+      "knowledge/industrial_knowledge_map_template.md",
+      "main.py",
+      "mission_portfolio/mission_portfolio_001.json",
+      "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+      "monitor_cascade.py",
+      "reorganize_architecture.ps1",
+      "resumen_capacidades.txt",
+      "scripts/cascade_agents.py",
+      "scripts/deploy_linked_apps.ps1",
+      "scripts/force_sync_data.py",
+      "scripts/generate_layout_workbench_status.py",
+      "scripts/simulate_7h_autonomous.py",
+      "scripts/update_all_panels.py",
+      "scripts/verify_all.py",
+      "setup_cascade.ps1",
+      "setup_cascade.sh",
+      "specs/factory_intelligence_workbench.md",
+      "start_ecosystem.ps1",
+      "tests/test_cascade_orchestrator.py",
+      "tools/mission_portfolio/generate_portfolio.py"
+    ],
+    "models_schemas": [
+      "schemas/canonical_mission_model.schema.json",
+      "schemas/mission_graph_schema.json",
+      "schemas/mission_state_machine.json"
+    ],
+    "ui_components": [
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "dashboard/streamlit/hub_dashboard.py",
+      "dashboard/streamlit/human_interaction_portal.py"
+    ],
+    "knowledge_assets": [
+      ".forge/knowledge_map.json",
+      ".forge/schemas/vision.schema.json",
+      ".forge/skill_registry.json",
+      ".forge/vision.json",
+      ".github/workflows/ai-factory.yml",
+      "AI-FACTORY = Sistema Operativo de I.txt",
+      "CAPABILITY_GRAPH.md",
+      "EXECUTABLE_ROADMAP.md",
+      "INDUSTRIAL_MATURITY_MODEL.md",
+      "M001_IMPLEMENTATION_CHARTER.md",
+      "SHAREPOINT_HUB_INSTRUCTIONS.md",
+      "STRATEGIC_REFOUNDATION.md",
+      "agents/action_engine.py",
+      "agents/delivery_agent.py",
+      "agents/validation_agent.py",
+      "ai-factory-v2/agents/generator.py",
+      "ai-factory-v2/models/hypothesis.py",
+      "api/routes/cognitive_os_api.py",
+      "cascade_orchestrator.py",
+      "cognitive_os/autonomous.py",
+      "cognitive_os/knowledge_core.py",
+      "cognitive_os/mission_core.py",
+      "cognitive_os/mission_model_selection.py",
+      "cognitive_os/models.py",
+      "cognitive_os/registries.py",
+      "cognitive_os/runtimes.py",
+      "cognitive_os/sdk.py",
+      "cognitive_os/system.py",
+      "config/api_routes.json",
+      "context/__init__.py",
+      "context/context_layer.py",
+      "dashboard/layout_workbench.html",
+      "data/cognitive_os_memory.json",
+      "data/missions/canonical_mission_migration_report.json",
+      "data/missions/canonical_missions_legacy_archive.json",
+      "data/missions/canonical_missions_v1.json",
+      "docs/IS_BACKOFFICE_AUDIT.md",
+      "docs/SHAREPOINT_SETUP_RECIPE.md",
+      "docs/aeos_review/ADR-2026-07-23-next-mission-selection.md",
+      "docs/aeos_review/Capability_Registry.json",
+      "docs/aeos_review/Engineering_Investment_Portfolio_30d.json",
+      "docs/aeos_review/Enterprise_Digital_Twin_Status.json",
+      "docs/aeos_review/Executive_Engineering_Report_2026-07-23_cycle2.md",
+      "docs/aeos_review/Executive_Engineering_Review_2026-07-23.md",
+      "docs/aeos_review/Executive_Platform_Status_2026-07-23_cycle2.json",
+      "docs/aeos_review/Hypothesis_Evaluation_2026-07-23_cycle2.json",
+      "docs/aeos_review/Knowledge_Hub_Status.json",
+      "docs/aeos_review/Mission_Graph.json",
+      "docs/aeos_review/NXT-001_Implementation_Charter.md",
+      "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+      "docs/aeos_review/Platform_Registry.json",
+      "docs/cognitive_os_services.md",
+      "docs/engineering_scoring.md",
+      "docs/mission_manager.md",
+      "docs/mission_model_consolidation_report.md",
+      "docs/mission_model_specification.md",
+      "knowledge/industrial_knowledge_map_template.md",
+      "mission_portfolio/mission_portfolio_001.json",
+      "mission_portfolio/mission_portfolio_002_aeos.json",
+      "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+      "resumen_capacidades.txt",
+      "schemas/canonical_mission_model.schema.json",
+      "schemas/mission_graph_schema.json",
+      "schemas/mission_state_machine.json",
+      "scripts/generate_layout_workbench_status.py",
+      "scripts/migrate_mission_model.py",
+      "specs/factory_intelligence_workbench.md",
+      "tools/mission_portfolio/generate_portfolio.py",
+      "ultimate_orchestrator.py"
+    ]
+  },
+  "dependency_map": {
+    "ui_pages": [
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "dashboard/streamlit/hub_dashboard.py"
+    ],
+    "api_services": [
+      "api/routes/hub_api.py",
+      "api/routes/cognitive_os_api.py"
+    ],
+    "mission_manager": [
+      "cognitive_os/mission_core.py",
+      "cognitive_os/system.py",
+      "cognitive_os/registries.py"
+    ],
+    "schemas_and_models": [
+      "schemas/mission_graph_schema.json",
+      "schemas/canonical_mission_model.schema.json",
+      "cognitive_os/models.py"
+    ],
+    "knowledge_assets": [
+      "specs/factory_intelligence_workbench.md",
+      "docs/mission_manager.md",
+      "mission_portfolio/mission_portfolio_001.json",
+      "data/missions/canonical_missions_v1.json"
+    ],
+    "ops_scripts": [
+      "start_ecosystem.ps1",
+      "start-collaborative-hub.ps1",
+      "scripts/generate_layout_workbench_status.py"
+    ]
+  },
+  "maturity": {
+    "DWG parser": {
+      "status": "missing",
+      "percent": 0
+    },
+    "DXF parser": {
+      "status": "missing",
+      "percent": 0
+    },
+    "Geometry Engine": {
+      "status": "missing",
+      "percent": 0
+    },
+    "Factory Graph": {
+      "status": "partial",
+      "percent": 55
+    },
+    "Knowledge Graph": {
+      "status": "partial",
+      "percent": 60
+    },
+    "Simulation": {
+      "status": "missing",
+      "percent": 0
+    },
+    "Mission Manager": {
+      "status": "implemented",
+      "percent": 85
+    },
+    "Digital Twin": {
+      "status": "missing",
+      "percent": 0
+    },
+    "Engineering Optimizer": {
+      "status": "partial",
+      "percent": 50
+    }
+  },
+  "implementation_percent": 28,
+  "pending_functionality": [
+    "DWG parser production implementation",
+    "DXF parser production implementation",
+    "CAD object detection runtime",
+    "Factory Graph persistence adapter",
+    "Knowledge Hub auto-link to external catalogs",
+    "Digital twin simulation synchronization",
+    "Engineering Optimizer execution engine"
+  ],
+  "recommended_next_missions": [
+    "M-LAYOUT-02: DWG ingestion productionization and converter hardening",
+    "M-LAYOUT-03: DXF entity extraction and object mapper",
+    "M-LAYOUT-04: Scenario runner integration with ingetrans and plant simulator",
+    "M-LAYOUT-05: Digital twin synchronization and realtime telemetry",
+    "M-LAYOUT-06: Engineering optimizer for AMR, WIP, ROI, and OEE"
+  ],
+  "self_audit": {
+    "broken_imports": [],
+    "broken_routes": [],
+    "missing_assets": [],
+    "duplicate_pages": [
+      "openai_key_manager.py | ai-factory-v2/openai_key_manager.py",
+      "main.py | orchestrator/main.py | ultimate_orchestrator.py"
+    ],
+    "missing_parsers": [
+      "DWG parser implementation",
+      "DXF parser implementation"
+    ],
+    "missing_backend": [],
+    "missing_services": [],
+    "quality_gates": {
+      "layout_workbench_accessible": true,
+      "platform_registry_registered": true,
+      "capability_registry_registered": true,
+      "mission_manager_reachable": true,
+      "status_documented": true,
+      "executive_html_generated": true
+    }
+  }
+}

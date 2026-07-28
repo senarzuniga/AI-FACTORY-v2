@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-07-23T16:05:00Z",
+  "evaluation_scope": "engineering opportunities cycle 2",
+  "metrics": [
+    "strategic_alignment", "architecture_quality", "engineering_quality", "knowledge_gain", "reuse_potential", "automation", "scalability", "maintainability", "industrial_applicability", "mission_portfolio_impact", "capability_graph_impact", "enterprise_digital_twin_impact", "coordinator_integration", "technical_debt_reduction", "testing_improvement", "documentation_improvement", "future_unlock_value", "business_value", "confidence", "risk_inverse"
+  ],
+  "opportunities": [
+    {
+      "id": "OPP-01",
+      "name": "Governance-safe human approval in production",
+      "hypotheses": [
+        {"id": "A", "name": "Environment policy gate in hybrid orchestrator", "global_engineering_score": 88, "engineering_return_score": 86, "platform_evolution_score": 84, "status": "selected_and_executed"},
+        {"id": "B", "name": "External approval microservice first", "global_engineering_score": 69, "engineering_return_score": 63, "platform_evolution_score": 71, "status": "not_selected"},
+        {"id": "C", "name": "Hard-disable all automation", "global_engineering_score": 51, "engineering_return_score": 40, "platform_evolution_score": 48, "status": "rejected_low_value"},
+        {"id": "D", "name": "Role-only approval gate", "global_engineering_score": 73, "engineering_return_score": 68, "platform_evolution_score": 70, "status": "not_selected"},
+        {"id": "E", "name": "Time-window approval heuristics", "global_engineering_score": 58, "engineering_return_score": 55, "platform_evolution_score": 54, "status": "not_selected"}
+      ]
+    },
+    {
+      "id": "OPP-02",
+      "name": "Legacy test dependency reliability",
+      "hypotheses": [
+        {"id": "A", "name": "Align dependencies and repair config imports", "global_engineering_score": 85, "engineering_return_score": 83, "platform_evolution_score": 78, "status": "selected_and_executed"},
+        {"id": "B", "name": "Skip legacy tests temporarily", "global_engineering_score": 34, "engineering_return_score": 25, "platform_evolution_score": 30, "status": "rejected"},
+        {"id": "C", "name": "Fork legacy stack into isolated repo", "global_engineering_score": 61, "engineering_return_score": 57, "platform_evolution_score": 64, "status": "not_selected"},
+        {"id": "D", "name": "Mock heavy imports at runtime", "global_engineering_score": 56, "engineering_return_score": 49, "platform_evolution_score": 52, "status": "not_selected"},
+        {"id": "E", "name": "Freeze dependencies with lockfile only", "global_engineering_score": 66, "engineering_return_score": 62, "platform_evolution_score": 61, "status": "not_selected"}
+      ]
+    },
+    {
+      "id": "OPP-03",
+      "name": "Legacy orchestrator fallback robustness",
+      "hypotheses": [
+        {"id": "A", "name": "Graceful optional hardening call", "global_engineering_score": 82, "engineering_return_score": 80, "platform_evolution_score": 74, "status": "selected_and_executed"},
+        {"id": "B", "name": "Rewrite fallback selection pipeline", "global_engineering_score": 57, "engineering_return_score": 52, "platform_evolution_score": 59, "status": "not_selected"},
+        {"id": "C", "name": "Disable critic fallback in tests", "global_engineering_score": 21, "engineering_return_score": 15, "platform_evolution_score": 19, "status": "rejected"},
+        {"id": "D", "name": "Inject hardening adapter abstraction", "global_engineering_score": 71, "engineering_return_score": 68, "platform_evolution_score": 69, "status": "not_selected"},
+        {"id": "E", "name": "Serializer-level workaround", "global_engineering_score": 39, "engineering_return_score": 34, "platform_evolution_score": 37, "status": "not_selected"}
+      ]
+    },
+    {
+      "id": "OPP-04",
+      "name": "Cross-stack test execution determinism",
+      "hypotheses": [
+        {"id": "A", "name": "Clean conflicting module cache in legacy test", "global_engineering_score": 81, "engineering_return_score": 79, "platform_evolution_score": 73, "status": "selected_and_executed"},
+        {"id": "B", "name": "Rename all root packages", "global_engineering_score": 54, "engineering_return_score": 49, "platform_evolution_score": 58, "status": "not_selected"},
+        {"id": "C", "name": "Split test runners permanently", "global_engineering_score": 46, "engineering_return_score": 42, "platform_evolution_score": 44, "status": "not_selected"},
+        {"id": "D", "name": "Global import hook shim", "global_engineering_score": 52, "engineering_return_score": 45, "platform_evolution_score": 50, "status": "not_selected"},
+        {"id": "E", "name": "Force subprocess per module", "global_engineering_score": 63, "engineering_return_score": 61, "platform_evolution_score": 60, "status": "not_selected"}
+      ]
+    },
+    {
+      "id": "OPP-05",
+      "name": "Coordinator observability and KPI closure",
+      "hypotheses": [
+        {"id": "A", "name": "Persist cycle KPI and deltas in executive artifacts", "global_engineering_score": 77, "engineering_return_score": 75, "platform_evolution_score": 79, "status": "selected_and_executed"},
+        {"id": "B", "name": "Create full telemetry service before KPI update", "global_engineering_score": 60, "engineering_return_score": 56, "platform_evolution_score": 64, "status": "not_selected"},
+        {"id": "C", "name": "Manual KPI notes only", "global_engineering_score": 41, "engineering_return_score": 35, "platform_evolution_score": 43, "status": "rejected"},
+        {"id": "D", "name": "Dashboard-only updates", "global_engineering_score": 58, "engineering_return_score": 54, "platform_evolution_score": 59, "status": "not_selected"},
+        {"id": "E", "name": "Weekly batch-only scoring", "global_engineering_score": 62, "engineering_return_score": 60, "platform_evolution_score": 61, "status": "not_selected"}
+      ]
+    }
+  ],
+  "portfolio_decision": {
+    "strategy": "parallel_compatible_selection",
+    "selected_hypotheses": ["OPP-01.A", "OPP-02.A", "OPP-03.A", "OPP-04.A", "OPP-05.A"],
+    "global_engineering_score": 82.6,
+    "engineering_return_score": 80.6,
+    "platform_evolution_score": 77.6
+  }
+}

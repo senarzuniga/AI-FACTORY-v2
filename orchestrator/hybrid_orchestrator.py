@@ -10,6 +10,7 @@ Pipeline flexible con:
 from __future__ import annotations
 
 import asyncio
+import os
 from typing import Any, Dict
 
 from context.context_layer import ContextManager, UserRole
@@ -41,6 +42,13 @@ class HybridOrchestrator:
         self.memory = MemoryAgent()
         self.delivery = DeliveryAgent()
         self.context_manager = ContextManager()
+        self.environment = os.getenv("AI_FACTORY_ENV", "development").strip().lower()
+        auto_env = os.getenv("AI_FACTORY_ALLOW_AUTO_APPROVAL", "")
+        if auto_env:
+            self.allow_auto_approval = auto_env.strip().lower() in {"1", "true", "yes", "on"}
+        else:
+            # Default policy: allow automation in non-production, require explicit approval in production.
+            self.allow_auto_approval = self.environment != "production"
 
     async def run(
         self,
@@ -51,7 +59,7 @@ class HybridOrchestrator:
     ) -> Dict[str, Any]:
         """Punto de entrada principal del sistema agentico."""
 
-        # 1. Crear contexto - TODO pasa por aqui
+        # 1. Crear contexto: toda lectura de datos se enruta por la capa de contexto.
         ctx_obj = self.context_manager.create_context(
             client=client, user_id=user_id, role=role
         )
@@ -135,6 +143,13 @@ class HybridOrchestrator:
             f"issues={validation.get('issues', [])}\n"
             f"  Preview: {str(draft.get('content', ''))[:120]}"
         )
-        # Auto-aprobacion para entorno de desarrollo.
-        # En produccion: implementar flujo async de aprobacion real.
-        return {"approved": True, "reviewer": "system_auto"}
+        if self.allow_auto_approval:
+            return {"approved": True, "reviewer": "system_auto", "mode": self.environment}
+
+        # En produccion, bloquear hasta aprobacion humana explicita.
+        return {
+            "approved": False,
+            "reviewer": "pending_human",
+            "mode": self.environment,
+            "reason": "human_approval_required",
+        }

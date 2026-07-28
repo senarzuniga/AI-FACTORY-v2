@@ -1,0 +1,66 @@
+{
+  "date": "2026-07-23",
+  "readiness_level": "L1-L2 concept",
+  "score": 27,
+  "status": "not operational",
+  "implemented_components": [
+    "Mission references and roadmap definitions",
+    "External simulator reuse analysis"
+  ],
+  "missing_components": [
+    "Factory geometry graph schema implementation",
+    "Material flow graph runtime",
+    "Machine graph runtime",
+    "Live synchronization with plant state",
+    "Cross-domain reasoning engine"
+  ],
+  "evidence": [
+    "M001_IMPLEMENTATION_CHARTER.md",
+    "INDUSTRIAL_MATURITY_MODEL.md",
+    "schemas/mission_graph_schema.json"
+  ],
+  "next_actions": [
+    "Complete NXT-001 reliability/governance stabilization",
+    "Deliver mission manager runtime baseline",
+    "Start M-001 week-1 schema execution with acceptance gates"
+  ],
+  "parallel_30d_workpackages": [
+    {
+      "id": "EDT-WP-01",
+      "name": "Factory Geometry Data Contract",
+      "type": "architecture",
+      "risk": "low",
+      "depends_on": ["NXT-001.WP-TEST-01"],
+      "value": "high"
+    },
+    {
+      "id": "EDT-WP-02",
+      "name": "Material Flow Canonical Model",
+      "type": "industrial_model",
+      "risk": "low",
+      "depends_on": [],
+      "value": "high"
+    },
+    {
+      "id": "EDT-WP-03",
+      "name": "Machine Capability Schema Draft",
+      "type": "knowledge_graph_model",
+      "risk": "low",
+      "depends_on": [],
+      "value": "medium_high"
+    },
+    {
+      "id": "EDT-WP-04",
+      "name": "Simulation Benchmark Pack",
+      "type": "industrial_benchmark",
+      "risk": "low",
+      "depends_on": ["M-001.WS3"],
+      "value": "high"
+    }
+  ],
+  "expected_30d_outcome": {
+    "score_target": 35,
+    "readiness_target": "L2 execution baseline",
+    "unlocks": ["M-003", "M-007"]
+  }
+}

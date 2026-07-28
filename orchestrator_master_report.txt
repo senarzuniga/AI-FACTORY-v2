@@ -1,5 +1,5 @@
 AI-FACTORY-v2 ORCHESTRATOR - MASTER RELIABILITY REPORT
-2026-07-23 09:09:28
+2026-07-27 16:37:18
 
 Total applications: 20
 Health summary: PERFECT=0 | DEGRADED=20 | CRITICAL=0
@@ -7,20 +7,20 @@ Scheduler: Distributed healing scheduled every 6 hours
 
 Application status:
 - ACS: DEGRADED (failed=0, warnings=7)
-- AI-Agent-Doc-Platform: DEGRADED (failed=0, warnings=6)
+- AI-Agent-Doc-Platform: DEGRADED (failed=0, warnings=7)
 - AI-Mind-Map-CRM: DEGRADED (failed=0, warnings=9)
-- CTA ALFARO: DEGRADED (failed=0, warnings=6)
-- Company-Research-: DEGRADED (failed=0, warnings=6)
+- CTA ALFARO: DEGRADED (failed=0, warnings=7)
+- Company-Research-: DEGRADED (failed=0, warnings=7)
 - Copilot-ready-instruction-packs: DEGRADED (failed=0, warnings=6)
-- CustomerQualification: DEGRADED (failed=0, warnings=6)
-- Digital-Ecosystem-Platform: DEGRADED (failed=0, warnings=7)
-- Factoty-Simulator: DEGRADED (failed=0, warnings=6)
+- CustomerQualification: DEGRADED (failed=0, warnings=7)
+- Digital-Ecosystem-Platform: DEGRADED (failed=0, warnings=8)
+- Factoty-Simulator: DEGRADED (failed=0, warnings=7)
 - IS-BACKOFFICE: DEGRADED (failed=0, warnings=9)
 - LEAD-INTEL-PLATFORM: DEGRADED (failed=0, warnings=6)
 - adaptive-sales-engine: DEGRADED (failed=0, warnings=10)
-- apex-intelligence: DEGRADED (failed=0, warnings=6)
+- apex-intelligence: DEGRADED (failed=0, warnings=7)
 - com-evolution-hub: DEGRADED (failed=0, warnings=8)
-- commercial-ai-platform: DEGRADED (failed=0, warnings=7)
+- commercial-ai-platform: DEGRADED (failed=0, warnings=8)
 - ingesite.github.io: DEGRADED (failed=0, warnings=8)
 - ingesite.github.io OLD: DEGRADED (failed=0, warnings=7)
 - ingesite.github.io_BACKUP_20260525_101226: DEGRADED (failed=0, warnings=7)
@@ -34,15 +34,15 @@ Healing actions:
 - HEALED Copilot-ready-instruction-packs: dependency refresh queued, agent connectivity requires follow-up
 - HEALED AI-Mind-Map-CRM: dependency refresh queued, agent connectivity requires follow-up, code smells logged
 - HEALED CTA ALFARO: dependency refresh queued, agent connectivity requires follow-up
-- HEALED Company-Research-: dependency refresh queued, agent connectivity requires follow-up
 - HEALED ingesite.github.io: dependency refresh queued, agent connectivity requires follow-up
-- HEALED Factoty-Simulator: dependency refresh queued, agent connectivity requires follow-up
 - HEALED CustomerQualification: dependency refresh queued, agent connectivity requires follow-up
-- HEALED ingesite.github.io OLD: agent connectivity requires follow-up, code smells logged
+- HEALED Company-Research-: dependency refresh queued, agent connectivity requires follow-up
+- HEALED Factoty-Simulator: dependency refresh queued, agent connectivity requires follow-up
 - HEALED Digital-Ecosystem-Platform: dependency refresh queued, agent connectivity requires follow-up
+- HEALED ingesite.github.io OLD: agent connectivity requires follow-up, code smells logged
 - HEALED ingesite.github.io_BACKUP_20260525_101226: agent connectivity requires follow-up, code smells logged
-- HEALED apex-intelligence: agent connectivity requires follow-up, code smells logged
 - HEALED ingesite.github.io_REACT_BACKUP_20260525_103832: agent connectivity requires follow-up, code smells logged
+- HEALED apex-intelligence: agent connectivity requires follow-up, code smells logged
 - HEALED com-evolution-hub: agent connectivity requires follow-up, code smells logged
 - HEALED senarzuniga.github.io: agent connectivity requires follow-up, code smells logged
 - HEALED LEAD-INTEL-PLATFORM: dependency refresh queued, agent connectivity requires follow-up
