@@ -48,5 +48,430 @@
       "production_ready": true
     },
     "production_ready": true
+  },
+  "industrial_intelligence": {
+    "m010_registration": {
+      "mission_id": "M010",
+      "components": [
+        {
+          "id": "industrial-geometry-engine",
+          "name": "Industrial Geometry Engine",
+          "mission_ref": "M010",
+          "dependencies": [],
+          "capabilities": [
+            "geometry_extraction",
+            "spatial_metrics",
+            "layout_normalization"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-geometry-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "stage": "foundation"
+          },
+          "health": {
+            "component_id": "industrial-geometry-engine",
+            "status": "ok",
+            "dependencies": [],
+            "timestamp": "2026-07-31T15:49:02.839892+00:00"
+          }
+        },
+        {
+          "id": "dwg-intelligence-parser",
+          "name": "DWG Intelligence Parser",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-geometry-engine"
+          ],
+          "capabilities": [
+            "dwg_parsing",
+            "entity_tokenization",
+            "geometry_mapping"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "format": "DWG"
+          },
+          "health": {
+            "component_id": "dwg-intelligence-parser",
+            "status": "ok",
+            "dependencies": [
+              "industrial-geometry-engine"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839903+00:00"
+          }
+        },
+        {
+          "id": "dxf-intelligence-parser",
+          "name": "DXF Intelligence Parser",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-geometry-engine"
+          ],
+          "capabilities": [
+            "dxf_parsing",
+            "entity_tokenization",
+            "geometry_mapping"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "format": "DXF"
+          },
+          "health": {
+            "component_id": "dxf-intelligence-parser",
+            "status": "ok",
+            "dependencies": [
+              "industrial-geometry-engine"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839910+00:00"
+          }
+        },
+        {
+          "id": "factory-graph-runtime-m001",
+          "name": "Factory Graph Runtime",
+          "mission_ref": "M001",
+          "dependencies": [
+            "dwg-intelligence-parser",
+            "dxf-intelligence-parser"
+          ],
+          "capabilities": [
+            "graph_construction",
+            "asset_connectivity",
+            "topology_indexing"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/factory-graph-runtime-m001/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M001"
+          },
+          "health": {
+            "component_id": "factory-graph-runtime-m001",
+            "status": "ok",
+            "dependencies": [
+              "dwg-intelligence-parser",
+              "dxf-intelligence-parser"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839919+00:00"
+          }
+        },
+        {
+          "id": "knowledge-graph-runtime",
+          "name": "Knowledge Graph Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "factory-graph-runtime-m001"
+          ],
+          "capabilities": [
+            "semantic_relations",
+            "knowledge_fusion",
+            "traceability_links"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/knowledge-graph-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "domain": "industrial_knowledge"
+          },
+          "health": {
+            "component_id": "knowledge-graph-runtime",
+            "status": "ok",
+            "dependencies": [
+              "factory-graph-runtime-m001"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839928+00:00"
+          }
+        },
+        {
+          "id": "evidence-runtime-m004",
+          "name": "Evidence Runtime",
+          "mission_ref": "M004",
+          "dependencies": [
+            "knowledge-graph-runtime"
+          ],
+          "capabilities": [
+            "evidence_tracking",
+            "confidence_scoring",
+            "source_traceability"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/evidence-runtime-m004/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M004"
+          },
+          "health": {
+            "component_id": "evidence-runtime-m004",
+            "status": "ok",
+            "dependencies": [
+              "knowledge-graph-runtime"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839938+00:00"
+          }
+        },
+        {
+          "id": "digital-twin-runtime",
+          "name": "Digital Twin Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "evidence-runtime-m004"
+          ],
+          "capabilities": [
+            "twin_synchronization",
+            "state_projection",
+            "asset_digitalization"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/digital-twin-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "single_executable_representation": true
+          },
+          "health": {
+            "component_id": "digital-twin-runtime",
+            "status": "ok",
+            "dependencies": [
+              "evidence-runtime-m004"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839946+00:00"
+          }
+        },
+        {
+          "id": "industrial-simulation-runtime",
+          "name": "Industrial Simulation Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "digital-twin-runtime"
+          ],
+          "capabilities": [
+            "scenario_simulation",
+            "capacity_analysis",
+            "kpi_projection"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-simulation-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "simulation_domains": [
+              "flow",
+              "oee",
+              "roi",
+              "energy"
+            ]
+          },
+          "health": {
+            "component_id": "industrial-simulation-runtime",
+            "status": "ok",
+            "dependencies": [
+              "digital-twin-runtime"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839954+00:00"
+          }
+        },
+        {
+          "id": "bottleneck-analyzer-m007",
+          "name": "Bottleneck Analyzer",
+          "mission_ref": "M007",
+          "dependencies": [
+            "industrial-simulation-runtime"
+          ],
+          "capabilities": [
+            "bottleneck_detection",
+            "constraint_ranking",
+            "throughput_impact"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/bottleneck-analyzer-m007/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M007"
+          },
+          "health": {
+            "component_id": "bottleneck-analyzer-m007",
+            "status": "ok",
+            "dependencies": [
+              "industrial-simulation-runtime"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839962+00:00"
+          }
+        },
+        {
+          "id": "industrial-flow-analyzer",
+          "name": "Industrial Flow Analyzer",
+          "mission_ref": "M010",
+          "dependencies": [
+            "bottleneck-analyzer-m007"
+          ],
+          "capabilities": [
+            "flow_balance",
+            "wip_dynamics",
+            "warehouse_throughput"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-flow-analyzer/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "industrial-flow-analyzer",
+            "status": "ok",
+            "dependencies": [
+              "bottleneck-analyzer-m007"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839968+00:00"
+          }
+        },
+        {
+          "id": "amr-optimization-engine",
+          "name": "AMR Optimization Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-flow-analyzer"
+          ],
+          "capabilities": [
+            "amr_routing",
+            "fleet_balancing",
+            "collision_risk_reduction"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/amr-optimization-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "amr-optimization-engine",
+            "status": "ok",
+            "dependencies": [
+              "industrial-flow-analyzer"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839975+00:00"
+          }
+        },
+        {
+          "id": "oee-prediction-engine",
+          "name": "OEE Prediction Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "amr-optimization-engine"
+          ],
+          "capabilities": [
+            "oee_forecasting",
+            "availability_prediction",
+            "performance_loss_detection"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/oee-prediction-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "oee-prediction-engine",
+            "status": "ok",
+            "dependencies": [
+              "amr-optimization-engine"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839981+00:00"
+          }
+        },
+        {
+          "id": "roi-engine",
+          "name": "ROI Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "oee-prediction-engine"
+          ],
+          "capabilities": [
+            "investment_analysis",
+            "payback_estimation",
+            "risk_adjusted_roi"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/roi-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "roi-engine",
+            "status": "ok",
+            "dependencies": [
+              "oee-prediction-engine"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839989+00:00"
+          }
+        },
+        {
+          "id": "smart-proposal-intelligence-runtime",
+          "name": "Smart Proposal Intelligence Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "roi-engine"
+          ],
+          "capabilities": [
+            "proposal_generation",
+            "executive_reporting",
+            "evidence_citation"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/smart-proposal-intelligence-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "output": "executive_report"
+          },
+          "health": {
+            "component_id": "smart-proposal-intelligence-runtime",
+            "status": "ok",
+            "dependencies": [
+              "roi-engine"
+            ],
+            "timestamp": "2026-07-31T15:49:02.839996+00:00"
+          }
+        }
+      ],
+      "dependency_chain": [
+        "industrial-geometry-engine",
+        "dwg-intelligence-parser",
+        "dxf-intelligence-parser",
+        "factory-graph-runtime-m001",
+        "knowledge-graph-runtime",
+        "evidence-runtime-m004",
+        "digital-twin-runtime",
+        "industrial-simulation-runtime",
+        "bottleneck-analyzer-m007",
+        "industrial-flow-analyzer",
+        "amr-optimization-engine",
+        "oee-prediction-engine",
+        "roi-engine",
+        "smart-proposal-intelligence-runtime"
+      ],
+      "ahde_policy": "enabled",
+      "timestamp": "2026-07-31T15:49:02.840003+00:00"
+    },
+    "ahde_policy": {
+      "enabled": true,
+      "timestamp": "2026-07-31T15:49:02.850946+00:00"
+    },
+    "governance": {
+      "approved": true,
+      "reason": "Approved by governance policy",
+      "policy_violations": []
+    }
   }
 }

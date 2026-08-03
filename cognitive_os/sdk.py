@@ -47,5 +47,35 @@ class CognitiveOSSDK:
     def mission_model_production_ready(self) -> bool:
         return self._system.mission_model_production_ready()
 
+    def industrial_intelligence_status(self) -> dict:
+        return self._system.industrial_intelligence.health()
+
+    def industrial_intelligence_components(self) -> list[dict]:
+        return self._system.industrial_intelligence.list_components()
+
+    def industrial_intelligence_component(self, component_id: str) -> dict:
+        return self._system.industrial_intelligence.component(component_id)
+
+    def industrial_intelligence_execute(self, component_id: str, payload: dict) -> dict:
+        result = self._system.industrial_intelligence.execute_component(component_id, payload)
+        ts = str(result.get("timestamp", "")).replace(":", "-").replace(".", "-")
+        evidence_payload = {
+            "id": f"evidence-{component_id}-{ts}",
+            "source": component_id,
+            "payload": result,
+            "mission_id": "M010",
+        }
+        self.ingest_evidence(evidence_payload)
+        return result
+
+    def industrial_intelligence_ahde(self, mission_id: str, uncertainty: str, context: dict) -> dict:
+        decision = self._system.industrial_intelligence.ahde_decide(
+            mission_id=mission_id,
+            uncertainty=uncertainty,
+            context=context,
+        )
+        self._system.memory_core.put("industrial_intelligence", "last_ahde_decision", decision)
+        return decision
+
     def export_state(self) -> dict:
         return self._system.export_state()

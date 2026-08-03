@@ -56,6 +56,16 @@ class RunRequest(BaseModel):
     max_cycles: int = Field(default=100, ge=1, le=1000)
 
 
+class IndustrialComponentExecuteRequest(BaseModel):
+    payload: dict[str, Any] = Field(default_factory=dict)
+
+
+class AHDERunRequest(BaseModel):
+    mission_id: str = "M010"
+    uncertainty: str
+    context: dict[str, Any] = Field(default_factory=dict)
+
+
 _system = CognitiveOperatingSystem()
 _sdk = CognitiveOSSDK(_system)
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -214,6 +224,52 @@ async def mission_model_production_ready() -> dict[str, bool]:
 @router.get("/state")
 async def export_state() -> dict[str, Any]:
     return _sdk.export_state()
+
+
+@router.get("/industrial-intelligence/status")
+async def industrial_intelligence_status() -> dict[str, Any]:
+    return {
+        "mission_id": "M010",
+        "ahde_policy": "enabled",
+        "health": _sdk.industrial_intelligence_status(),
+    }
+
+
+@router.get("/industrial-intelligence/components")
+async def industrial_intelligence_components() -> dict[str, Any]:
+    components = _sdk.industrial_intelligence_components()
+    return {
+        "mission_id": "M010",
+        "count": len(components),
+        "components": components,
+    }
+
+
+@router.get("/industrial-intelligence/components/{component_id}")
+async def industrial_intelligence_component(component_id: str) -> dict[str, Any]:
+    return _sdk.industrial_intelligence_component(component_id)
+
+
+@router.post("/industrial-intelligence/components/{component_id}/execute")
+async def industrial_intelligence_execute(
+    component_id: str,
+    request: IndustrialComponentExecuteRequest,
+) -> dict[str, Any]:
+    result = _sdk.industrial_intelligence_execute(component_id, request.payload)
+    return {
+        "mission_id": "M010",
+        "component_id": component_id,
+        "result": result,
+    }
+
+
+@router.post("/industrial-intelligence/ahde/decide")
+async def industrial_intelligence_ahde_decide(request: AHDERunRequest) -> dict[str, Any]:
+    return _sdk.industrial_intelligence_ahde(
+        mission_id=request.mission_id,
+        uncertainty=request.uncertainty,
+        context=request.context,
+    )
 
 
 @router.post("/layout-workbench/register")

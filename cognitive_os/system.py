@@ -6,6 +6,7 @@ from pathlib import Path
 
 from cognitive_os.autonomous import AutonomousExecutionFramework
 from cognitive_os.governance import Governance
+from cognitive_os.industrial_intelligence import bootstrap_industrial_intelligence
 from cognitive_os.knowledge_core import KnowledgeCoreAPIs
 from cognitive_os.memory_core import EnterpriseMemoryCore
 from cognitive_os.mission_core import MissionManagerCore
@@ -49,6 +50,8 @@ class CognitiveOperatingSystem:
             mission_registry=self.mission_registry,
         )
 
+        self.industrial_intelligence = bootstrap_industrial_intelligence(self)
+
         self.autonomous = AutonomousExecutionFramework(self.mission_core)
 
     def evaluate_mission_model(self) -> dict:
@@ -73,4 +76,5 @@ class CognitiveOperatingSystem:
             "knowledge": self.knowledge_core.export_snapshot(),
             "events": self.coordinator.recent_events(),
             "mission_model": self.memory_core.get("mission_model", "selection"),
+            "industrial_intelligence": self.industrial_intelligence.registration_summary(),
         }
