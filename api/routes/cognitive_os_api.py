@@ -10,6 +10,8 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from cognitive_os import CognitiveOSSDK, CognitiveOperatingSystem
+from cognitive_os.layout_import_framework import LayoutImportFramework
+from cognitive_os.layout_versioning import LayoutVersionStore
 
 
 class GenericPayload(BaseModel):
@@ -66,8 +68,16 @@ class AHDERunRequest(BaseModel):
     context: dict[str, Any] = Field(default_factory=dict)
 
 
+class LayoutRevisionCompareRequest(BaseModel):
+    layout_name: str
+    revision_a: str
+    revision_b: str
+
+
 _system = CognitiveOperatingSystem()
 _sdk = CognitiveOSSDK(_system)
+_layout_import_framework = LayoutImportFramework()
+_layout_version_store = LayoutVersionStore()
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 LAYOUT_PLATFORM = {
@@ -371,3 +381,34 @@ async def layout_workbench_missions() -> dict[str, Any]:
         or "layout" in mission.get("title", "").lower()
     ]
     return {"missions": missions, "count": len(missions)}
+
+
+@router.post("/layout-workbench/import/discover-providers")
+async def layout_import_discover_providers(request: GenericPayload) -> dict[str, Any]:
+    providers = _layout_import_framework.discover_available_providers(request.payload)
+    return {
+        "providers": providers,
+        "count": len(providers),
+    }
+
+
+@router.get("/layout-workbench/versioning/{layout_name}")
+async def layout_versioning_history(layout_name: str) -> dict[str, Any]:
+    return _layout_version_store.list_history(layout_name)
+
+
+@router.post("/layout-workbench/versioning/compare")
+async def layout_versioning_compare(request: LayoutRevisionCompareRequest) -> dict[str, Any]:
+    return _layout_version_store.compare_revisions(
+        layout_name=request.layout_name,
+        revision_a=request.revision_a,
+        revision_b=request.revision_b,
+    )
+
+
+@router.post("/continuous-improvement/refresh")
+async def continuous_improvement_refresh(request: GenericPayload) -> dict[str, Any]:
+    return _system.continuous_improvement.refresh(
+        state=_sdk.export_state(),
+        mission_event=request.payload,
+    )

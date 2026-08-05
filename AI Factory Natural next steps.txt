@@ -1,0 +1,5 @@
+AI Factory Natural next steps
+
+Add concrete deployment profiles for converter commands and health checks per provider.
+Add integration tests that execute real converter binaries in CI with fixture layouts.
+Extend API with explicit branch compare/rollback endpoints and mission-triggered automatic self-healing mission creation from detected gaps.

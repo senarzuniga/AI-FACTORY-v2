@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from cognitive_os.autonomous import AutonomousExecutionFramework
+from cognitive_os.continuous_improvement import ContinuousImprovementRepository
 from cognitive_os.governance import Governance
 from cognitive_os.industrial_intelligence import bootstrap_industrial_intelligence
 from cognitive_os.knowledge_core import KnowledgeCoreAPIs
@@ -51,6 +52,8 @@ class CognitiveOperatingSystem:
         )
 
         self.industrial_intelligence = bootstrap_industrial_intelligence(self)
+        self.continuous_improvement = ContinuousImprovementRepository()
+        self.continuous_improvement.ensure_repository()
 
         self.autonomous = AutonomousExecutionFramework(self.mission_core)
 
@@ -65,6 +68,7 @@ class CognitiveOperatingSystem:
         return bool(value)
 
     def export_state(self) -> dict:
+        continuous_root = self.continuous_improvement.repository_path()
         return {
             "agents": [a.__dict__ for a in self.agent_registry.list()],
             "platforms": [p.__dict__ for p in self.platform_registry.list()],
@@ -77,4 +81,7 @@ class CognitiveOperatingSystem:
             "events": self.coordinator.recent_events(),
             "mission_model": self.memory_core.get("mission_model", "selection"),
             "industrial_intelligence": self.industrial_intelligence.registration_summary(),
+            "continuous_improvement": {
+                "repository": continuous_root,
+            },
         }
