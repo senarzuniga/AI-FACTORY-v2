@@ -74,7 +74,7 @@
             "component_id": "industrial-geometry-engine",
             "status": "ok",
             "dependencies": [],
-            "timestamp": "2026-07-31T15:49:02.839892+00:00"
+            "timestamp": "2026-08-05T08:17:12.994546+00:00"
           }
         },
         {
@@ -102,7 +102,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-07-31T15:49:02.839903+00:00"
+            "timestamp": "2026-08-05T08:17:12.994554+00:00"
           }
         },
         {
@@ -130,7 +130,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-07-31T15:49:02.839910+00:00"
+            "timestamp": "2026-08-05T08:17:12.994561+00:00"
           }
         },
         {
@@ -160,7 +160,7 @@
               "dwg-intelligence-parser",
               "dxf-intelligence-parser"
             ],
-            "timestamp": "2026-07-31T15:49:02.839919+00:00"
+            "timestamp": "2026-08-05T08:17:12.994568+00:00"
           }
         },
         {
@@ -188,7 +188,7 @@
             "dependencies": [
               "factory-graph-runtime-m001"
             ],
-            "timestamp": "2026-07-31T15:49:02.839928+00:00"
+            "timestamp": "2026-08-05T08:17:12.994575+00:00"
           }
         },
         {
@@ -216,7 +216,7 @@
             "dependencies": [
               "knowledge-graph-runtime"
             ],
-            "timestamp": "2026-07-31T15:49:02.839938+00:00"
+            "timestamp": "2026-08-05T08:17:12.994582+00:00"
           }
         },
         {
@@ -244,7 +244,7 @@
             "dependencies": [
               "evidence-runtime-m004"
             ],
-            "timestamp": "2026-07-31T15:49:02.839946+00:00"
+            "timestamp": "2026-08-05T08:17:12.994588+00:00"
           }
         },
         {
@@ -277,7 +277,7 @@
             "dependencies": [
               "digital-twin-runtime"
             ],
-            "timestamp": "2026-07-31T15:49:02.839954+00:00"
+            "timestamp": "2026-08-05T08:17:12.994595+00:00"
           }
         },
         {
@@ -305,7 +305,7 @@
             "dependencies": [
               "industrial-simulation-runtime"
             ],
-            "timestamp": "2026-07-31T15:49:02.839962+00:00"
+            "timestamp": "2026-08-05T08:17:12.994603+00:00"
           }
         },
         {
@@ -332,7 +332,7 @@
             "dependencies": [
               "bottleneck-analyzer-m007"
             ],
-            "timestamp": "2026-07-31T15:49:02.839968+00:00"
+            "timestamp": "2026-08-05T08:17:12.994610+00:00"
           }
         },
         {
@@ -359,7 +359,7 @@
             "dependencies": [
               "industrial-flow-analyzer"
             ],
-            "timestamp": "2026-07-31T15:49:02.839975+00:00"
+            "timestamp": "2026-08-05T08:17:12.994616+00:00"
           }
         },
         {
@@ -386,7 +386,7 @@
             "dependencies": [
               "amr-optimization-engine"
             ],
-            "timestamp": "2026-07-31T15:49:02.839981+00:00"
+            "timestamp": "2026-08-05T08:17:12.994621+00:00"
           }
         },
         {
@@ -413,7 +413,7 @@
             "dependencies": [
               "oee-prediction-engine"
             ],
-            "timestamp": "2026-07-31T15:49:02.839989+00:00"
+            "timestamp": "2026-08-05T08:17:12.994627+00:00"
           }
         },
         {
@@ -441,7 +441,7 @@
             "dependencies": [
               "roi-engine"
             ],
-            "timestamp": "2026-07-31T15:49:02.839996+00:00"
+            "timestamp": "2026-08-05T08:17:12.994634+00:00"
           }
         }
       ],
@@ -462,11 +462,11 @@
         "smart-proposal-intelligence-runtime"
       ],
       "ahde_policy": "enabled",
-      "timestamp": "2026-07-31T15:49:02.840003+00:00"
+      "timestamp": "2026-08-05T08:17:12.994639+00:00"
     },
     "ahde_policy": {
       "enabled": true,
-      "timestamp": "2026-07-31T15:49:02.850946+00:00"
+      "timestamp": "2026-08-05T08:17:13.041199+00:00"
     },
     "governance": {
       "approved": true,

@@ -6,6 +6,8 @@ from dataclasses import dataclass, field
 from hashlib import sha256
 from typing import Any
 
+from cognitive_os.industrial_layout import IndustrialLayoutInterpreter
+from cognitive_os.layout_versioning import LayoutVersionStore
 from cognitive_os.models import CapabilityNode, EvidenceRecord, MissionNode, PlatformConsumer, TruthAssertion, utc_now_iso
 
 
@@ -39,6 +41,20 @@ class IndustrialComponent:
 
 class GeometryEngine(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
+        layout_result = payload.get("layout_result") or payload.get("interpretation")
+        if isinstance(layout_result, dict):
+            graph = layout_result.get("factory_graph", {})
+            simulation = layout_result.get("simulation", {})
+            analysis = layout_result.get("engineering_analysis", {})
+            return {
+                "component_id": self.id,
+                "status": "completed",
+                "geometry_entities": len(layout_result.get("entities", [])),
+                "area_estimate": round(float(graph.get("node_count", 0)) * 9.5, 3),
+                "layout_quality": analysis.get("layout_quality", {}),
+                "simulation_readiness": simulation.get("production_capacity", 0.0),
+                "timestamp": utc_now_iso(),
+            }
         points = payload.get("points", [])
         area_estimate = 0.0
         if isinstance(points, list) and len(points) >= 3:
@@ -54,41 +70,67 @@ class GeometryEngine(IndustrialComponent):
 
 class CADParser(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
-        source = str(payload.get("source", ""))
-        entities = max(1, len(source) // 8) if source else 0
+        interpreter = IndustrialLayoutInterpreter()
+        layout_result = interpreter.interpret(payload)
+        version_store = LayoutVersionStore()
+        version_info = version_store.create_snapshot(
+            layout_name=str(layout_result.get("layout_name") or payload.get("layout_name") or "industrial-layout"),
+            source_hash=str(layout_result.get("source_hash", "")),
+            snapshot=layout_result,
+            scenario=str(payload.get("scenario") or "baseline"),
+            revision_note=str(payload.get("revision_note") or "automated import snapshot"),
+            branch=str(payload.get("branch") or "main"),
+            set_baseline=bool(payload.get("set_baseline", False)),
+        )
+        entities = len(layout_result.get("entities", []))
         return {
             "component_id": self.id,
             "status": "completed",
-            "source_length": len(source),
+            "source_length": len(str(payload.get("source", ""))),
             "parsed_entities": entities,
+            "layout_result": layout_result,
+            "factory_graph": layout_result.get("factory_graph", {}),
+            "knowledge_graph": layout_result.get("knowledge_graph", {}),
+            "digital_twin": layout_result.get("digital_twin", {}),
+            "simulation": layout_result.get("simulation", {}),
+            "engineering_analysis": layout_result.get("engineering_analysis", {}),
+            "executive_report": layout_result.get("executive_report", ""),
+            "confidence": layout_result.get("confidence", 0.0),
+            "version_info": version_info,
             "timestamp": utc_now_iso(),
         }
 
 
 class FactoryGraphRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
-        assets = payload.get("assets", [])
-        links = payload.get("links", [])
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        graph = layout_result.get("factory_graph", {}) if isinstance(layout_result, dict) else {}
+        assets = payload.get("assets", graph.get("nodes", []))
+        links = payload.get("links", graph.get("edges", []))
         return {
             "component_id": self.id,
             "status": "completed",
             "nodes": len(assets),
             "edges": len(links),
             "graph_density": round((len(links) / max(len(assets), 1)), 4),
+            "factory_graph": graph,
             "timestamp": utc_now_iso(),
         }
 
 
 class KnowledgeGraphRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
-        assertions = payload.get("assertions", [])
-        relations = payload.get("relations", [])
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        graph = layout_result.get("knowledge_graph", {}) if isinstance(layout_result, dict) else {}
+        assertions = payload.get("assertions", graph.get("assertions", []))
+        relations = payload.get("relations", graph.get("relations", []))
         return {
             "component_id": self.id,
             "status": "completed",
             "assertions": len(assertions),
             "relations": len(relations),
             "knowledge_coverage": round(min(1.0, (len(assertions) + len(relations)) / 100.0), 4),
+            "knowledge_graph": graph,
             "timestamp": utc_now_iso(),
         }
 
@@ -106,49 +148,64 @@ class EvidenceRuntimeM004(IndustrialComponent):
 
 class DigitalTwinRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        twin = layout_result.get("digital_twin", {}) if isinstance(layout_result, dict) else {}
         sync_targets = payload.get(
             "sync_targets",
-            [
-                "factory_graph",
-                "knowledge_graph",
-                "assets",
-                "layouts",
-                "production",
-                "amrs",
-                "warehouse",
-                "wip",
-                "events",
-            ],
+            twin.get(
+                "state",
+                {},
+            ).get(
+                "sync_targets",
+                [
+                    "factory_graph",
+                    "knowledge_graph",
+                    "assets",
+                    "layouts",
+                    "production",
+                    "amrs",
+                    "warehouse",
+                    "wip",
+                    "events",
+                ],
+            ),
         )
         return {
             "component_id": self.id,
             "status": "completed",
             "synced_targets": sync_targets,
             "sync_count": len(sync_targets),
+            "digital_twin": twin,
             "timestamp": utc_now_iso(),
         }
 
 
 class SimulationRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
-        scenarios = payload.get("scenarios", ["baseline"])
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        simulation = layout_result.get("simulation", {}) if isinstance(layout_result, dict) else {}
+        scenarios = payload.get("scenarios", simulation.get("digital_twin_scenarios", ["baseline"]))
         scenario_count = max(1, len(scenarios))
+        simulated_kpis = simulation if simulation else {
+            "oee": round(0.72 + scenario_count * 0.01, 4),
+            "roi": round(1.1 + scenario_count * 0.03, 4),
+            "throughput": round(100 + scenario_count * 7.5, 2),
+        }
         return {
             "component_id": self.id,
             "status": "completed",
             "scenarios": scenarios,
             "scenario_count": scenario_count,
-            "simulated_kpis": {
-                "oee": round(0.72 + scenario_count * 0.01, 4),
-                "roi": round(1.1 + scenario_count * 0.03, 4),
-                "throughput": round(100 + scenario_count * 7.5, 2),
-            },
+            "simulated_kpis": simulated_kpis,
+            "simulation": simulation,
             "timestamp": utc_now_iso(),
         }
 
 
 class OptimizationRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        analysis = layout_result.get("engineering_analysis", {}) if isinstance(layout_result, dict) else {}
         baseline = float(payload.get("baseline", 1.0))
         return {
             "component_id": self.id,
@@ -156,19 +213,25 @@ class OptimizationRuntime(IndustrialComponent):
             "baseline": baseline,
             "improvement": round(baseline * 0.12, 4),
             "confidence": 0.78,
+            "engineering_analysis": analysis,
             "timestamp": utc_now_iso(),
         }
 
 
 class ProposalIntelligenceRuntime(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
+        layout_result = payload.get("layout_result") or payload.get("interpretation") or {}
+        analysis = layout_result.get("engineering_analysis", {}) if isinstance(layout_result, dict) else {}
         recommendations = payload.get("recommendations", [])
+        if not recommendations and isinstance(analysis, dict):
+            recommendations = analysis.get("executive_recommendations", [])
         return {
             "component_id": self.id,
             "status": "completed",
             "executive_summary": "Industrial optimization proposal generated",
             "recommendations": recommendations,
             "proposal_quality": round(min(1.0, 0.65 + len(recommendations) * 0.05), 4),
+            "engineering_analysis": analysis,
             "timestamp": utc_now_iso(),
         }
 
