@@ -86,6 +86,7 @@ class CADParser(IndustrialComponent):
         return {
             "component_id": self.id,
             "status": "completed",
+            "layout_name": layout_result.get("layout_name"),
             "source_length": len(str(payload.get("source", ""))),
             "parsed_entities": entities,
             "layout_result": layout_result,
@@ -94,6 +95,7 @@ class CADParser(IndustrialComponent):
             "digital_twin": layout_result.get("digital_twin", {}),
             "simulation": layout_result.get("simulation", {}),
             "engineering_analysis": layout_result.get("engineering_analysis", {}),
+            "plant_state_report": layout_result.get("plant_state_report", {}),
             "executive_report": layout_result.get("executive_report", ""),
             "confidence": layout_result.get("confidence", 0.0),
             "version_info": version_info,

@@ -180,6 +180,7 @@ class LayoutInterpretationResult:
     digital_twin: DigitalTwinSnapshot
     simulation: SimulationResult
     engineering_analysis: EngineeringAnalysis
+    plant_state_report: dict[str, Any]
     executive_report: str
     confidence: float
     trace: dict[str, Any]
@@ -197,6 +198,7 @@ class LayoutInterpretationResult:
             "digital_twin": asdict(self.digital_twin),
             "simulation": asdict(self.simulation),
             "engineering_analysis": asdict(self.engineering_analysis),
+            "plant_state_report": self.plant_state_report,
             "executive_report": self.executive_report,
             "confidence": self.confidence,
             "trace": self.trace,
@@ -248,7 +250,7 @@ class IndustrialLayoutInterpreter:
 
     def _interpret_payload(self, payload: dict[str, Any]) -> LayoutInterpretationResult:
         import_summary = self._import_universal(payload)
-        if import_summary is not None:
+        if import_summary is not None and isinstance(import_summary, dict) and "model" in import_summary:
             model = import_summary["model"]
             source_format = str(model.get("source_format", "json"))
             layout_name = _normalize_text(payload.get("layout_name") or model.get("source_name") or "industrial-layout")
@@ -268,7 +270,15 @@ class IndustrialLayoutInterpreter:
         digital_twin = self._build_digital_twin(layout_name, entities, connections, source_hash)
         simulation = self._build_simulation(entities, connections, knowledge_graph)
         analysis = self._build_engineering_analysis(entities, connections, factory_graph, simulation)
-        executive_report = self._build_executive_report(layout_name, factory_graph, knowledge_graph, simulation, analysis)
+        plant_state_report = self._build_plant_state_report(factory_graph, simulation, analysis)
+        executive_report = self._build_executive_report(
+            layout_name,
+            factory_graph,
+            knowledge_graph,
+            simulation,
+            analysis,
+            plant_state_report,
+        )
         confidence = round(self._confidence_score(entities, connections, knowledge_graph), 4)
         object_evidence = self._build_object_evidence(layout_name, source_format, entities)
 
@@ -294,6 +304,7 @@ class IndustrialLayoutInterpreter:
             digital_twin=digital_twin,
             simulation=simulation,
             engineering_analysis=analysis,
+            plant_state_report=plant_state_report,
             executive_report=executive_report,
             confidence=confidence,
             trace=trace,
@@ -816,23 +827,58 @@ class IndustrialLayoutInterpreter:
         buffer_count = sum(1 for entity in entities if entity.kind == "buffer")
         warehouse_count = sum(1 for entity in entities if entity.kind == "warehouse")
         amr_route_count = sum(1 for entity in entities if entity.kind == "amr_route")
-        bottleneck_count = sum(1 for entity in entities if entity.kind in {"buffer", "warehouse"})
-
         travel_distance = round(sum(connection.distance for connection in connections), 3)
-        production_capacity = round(machine_count * 18.0 + conveyor_count * 6.0 + amr_route_count * 4.0, 3)
-        oee = round(min(0.97, 0.52 + machine_count * 0.03 + conveyor_count * 0.01 - bottleneck_count * 0.02), 4)
-        roi = round(max(0.0, 1.0 + production_capacity / 150.0 - travel_distance / 2000.0), 4)
+        flow_edges = len(connections)
+        machine_cluster_factor = self._machine_cluster_factor(entities)
+        amr_coverage = amr_route_count / max(1, machine_count + buffer_count + warehouse_count)
+        buffer_to_machine_ratio = buffer_count / max(1, machine_count)
+        logistics_pressure = min(1.0, (travel_distance / max(1, flow_edges * 35.0)) + max(0.0, buffer_to_machine_ratio - 0.9) * 0.25)
+
+        base_machine_capacity = machine_count * 18.0
+        conveyor_gain = conveyor_count * 6.0
+        amr_gain = amr_route_count * 5.5
+        cluster_gain = machine_cluster_factor * 7.5
+        production_capacity = round(base_machine_capacity + conveyor_gain + amr_gain + cluster_gain, 3)
+
         bottlenecks = self._find_bottlenecks(entities, connections)
+        bottleneck_pressure = min(1.0, len(bottlenecks) / max(1, machine_count + buffer_count))
+        starvation_risk = round(min(1.0, max(0.02, logistics_pressure * 0.62 + bottleneck_pressure * 0.38)), 4)
+
+        jit_readiness = round(min(1.0, max(0.0, 0.45 + amr_coverage * 0.35 + machine_cluster_factor * 0.2 - logistics_pressure * 0.18)), 4)
+        wip_policy_score = round(min(1.0, max(0.0, 0.4 + amr_coverage * 0.25 + (1.0 - min(1.0, buffer_to_machine_ratio)) * 0.35)), 4)
+
+        oee = round(
+            min(
+                0.97,
+                max(
+                    0.5,
+                    0.58
+                    + machine_count * 0.022
+                    + conveyor_count * 0.008
+                    + amr_coverage * 0.06
+                    - bottleneck_pressure * 0.08
+                    - logistics_pressure * 0.05,
+                ),
+            ),
+            4,
+        )
+        roi = round(max(0.0, 0.9 + production_capacity / 155.0 + oee * 0.6 - logistics_pressure * 0.45), 4)
 
         return SimulationResult(
             material_flow={
-                "flow_edges": len(connections),
-                "flow_intensity": round(len(connections) / max(len(entities), 1), 4),
+                "flow_edges": flow_edges,
+                "flow_intensity": round(flow_edges / max(len(entities), 1), 4),
+                "flow_edges_per_machine": round(flow_edges / max(1, machine_count), 4),
+                "logistics_pressure_index": round(logistics_pressure, 4),
+                "starvation_risk_index": starvation_risk,
                 "knowledge_coverage": knowledge_graph.get("confidence", 0.0),
             },
             amr_routing={
                 "routes": amr_route_count,
-                "coverage": round(min(1.0, amr_route_count * 0.2 + len(connections) / 50.0), 4),
+                "coverage": round(min(1.0, amr_route_count * 0.2 + flow_edges / 50.0), 4),
+                "amr_layout_coverage": round(amr_coverage, 4),
+                "fleet_recommendation": self._recommend_amr_fleet(machine_count, warehouse_count, flow_edges),
+                "wip_cell_strategy": self._recommend_wip_cell_strategy(wip_policy_score, buffer_to_machine_ratio),
             },
             travel_distance=travel_distance,
             production_capacity=production_capacity,
@@ -841,15 +887,20 @@ class IndustrialLayoutInterpreter:
             bottlenecks=bottlenecks,
             buffer_occupancy={
                 "buffers": buffer_count,
-                "estimated_occupancy": round(min(1.0, 0.25 + buffer_count * 0.12 + len(bottlenecks) * 0.05), 4),
+                "estimated_occupancy": round(min(1.0, 0.22 + buffer_count * 0.1 + len(bottlenecks) * 0.07), 4),
+                "buffer_to_machine_ratio": round(buffer_to_machine_ratio, 4),
+                "jit_readiness": jit_readiness,
+                "wip_policy_score": wip_policy_score,
             },
             warehouse_capacity={
                 "warehouses": warehouse_count,
                 "estimated_capacity_units": warehouse_count * 1000,
+                "recommended_near_line_wip_cells": max(2, machine_count // 2),
             },
             cycle_times={
-                "baseline_seconds": round(45.0 + travel_distance * 0.35 + len(bottlenecks) * 4.0, 3),
-                "variance_seconds": round(5.0 + len(connections) * 0.2, 3),
+                "baseline_seconds": round(42.0 + travel_distance * 0.32 + len(bottlenecks) * 4.2, 3),
+                "variance_seconds": round(4.5 + flow_edges * 0.22 + logistics_pressure * 3.5, 3),
+                "estimated_changeover_loss_minutes": round(max(0.0, 8.0 + bottleneck_pressure * 15.0 + logistics_pressure * 10.0), 3),
             },
         )
 
@@ -862,16 +913,20 @@ class IndustrialLayoutInterpreter:
         bottlenecks: list[dict[str, Any]] = []
         for entity in entities:
             if entity.kind in {"buffer", "warehouse"} or degree.get(entity.id, 0) <= 1:
+                severity = round(min(1.0, 0.45 + (2 - min(degree.get(entity.id, 0), 2)) * 0.18), 4)
                 bottlenecks.append(
                     {
                         "id": entity.id,
                         "kind": entity.kind,
                         "label": entity.label,
-                        "severity": round(min(1.0, 0.45 + (2 - min(degree.get(entity.id, 0), 2)) * 0.18), 4),
+                        "severity": severity,
+                        "degree": degree.get(entity.id, 0),
+                        "root_cause": self._bottleneck_root_cause(entity.kind, degree.get(entity.id, 0)),
+                        "recommended_action": self._bottleneck_action(entity.kind, severity),
                     }
                 )
 
-        return bottlenecks[:6]
+        return sorted(bottlenecks, key=lambda item: item["severity"], reverse=True)[:8]
 
     def _build_engineering_analysis(
         self,
@@ -885,31 +940,51 @@ class IndustrialLayoutInterpreter:
         warehouse_count = factory_graph["kind_counts"].get("warehouse", 0)
         safety_count = factory_graph["kind_counts"].get("safety_zone", 0)
         amr_route_count = factory_graph["kind_counts"].get("amr_route", 0)
+        bottleneck_pressure = round(min(1.0, len(simulation.bottlenecks) / max(1, machine_count + buffer_count)), 4)
+        starvation_risk = float(simulation.material_flow.get("starvation_risk_index", 0.0))
+        jit_readiness = float(simulation.buffer_occupancy.get("jit_readiness", 0.0))
+        wip_policy_score = float(simulation.buffer_occupancy.get("wip_policy_score", 0.0))
 
         layout_quality_score = round(min(1.0, 0.4 + len(entities) * 0.03 + len(connections) * 0.015), 4)
-        flow_balance = round(min(1.0, 0.5 + machine_count * 0.04 + amr_route_count * 0.05 - buffer_count * 0.03), 4)
+        flow_balance = round(
+            min(
+                1.0,
+                max(
+                    0.0,
+                    0.5 + machine_count * 0.04 + amr_route_count * 0.05 - buffer_count * 0.03 - starvation_risk * 0.15,
+                ),
+            ),
+            4,
+        )
 
         constraint_analysis = {
             "safety_zones": safety_count,
             "constraints_found": safety_count + buffer_count + warehouse_count,
             "constraint_density": round((safety_count + buffer_count + warehouse_count) / max(len(entities), 1), 4),
+            "bottleneck_pressure": bottleneck_pressure,
+            "starvation_risk": starvation_risk,
+            "jit_readiness": jit_readiness,
+            "wip_policy_score": wip_policy_score,
         }
 
         amr_recommendations = []
         if amr_route_count == 0:
-            amr_recommendations.append("Add AMR routes to connect production, buffer, and storage areas.")
+            amr_recommendations.append("Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.")
         else:
-            amr_recommendations.append("Validate AMR lane width and travel distance against peak traffic.")
+            amr_recommendations.append("Validate AMR lane width, peak-hour route occupancy, and dispatch priority by starvation risk.")
+        amr_recommendations.append(f"Target AMR coverage >= 0.55. Current estimated coverage: {simulation.amr_routing.get('amr_layout_coverage', 0.0)}")
 
         warehouse_optimisation = []
         if warehouse_count:
-            warehouse_optimisation.append("Balance warehouse ingress and egress to reduce re-handling.")
+            warehouse_optimisation.append("Balance warehouse ingress/egress and convert long staging lanes into near-line WIP cells.")
         else:
             warehouse_optimisation.append("Introduce storage zoning when material staging is required.")
+        warehouse_optimisation.append("For corrugated WIP without height storage, deploy low-height sequencing cells near converters.")
 
         production_optimisation = [
             "Use conveyor adjacency to remove avoidable material handoffs.",
             "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+            "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
         ]
         if machine_count:
             production_optimisation.append("Sequence machine clusters into production cells for shorter internal flows.")
@@ -917,6 +992,7 @@ class IndustrialLayoutInterpreter:
         risk_analysis = [
             f"Bottleneck pressure identified on {len(simulation.bottlenecks)} layout nodes.",
             f"Travel distance accumulation is {simulation.travel_distance} units; watch for excess AMR path length.",
+            f"Starvation risk index is {starvation_risk}; prioritize feed continuity actions above 0.35.",
         ]
         if safety_count:
             risk_analysis.append("Safety zones require explicit routing validation.")
@@ -930,6 +1006,8 @@ class IndustrialLayoutInterpreter:
             "Proceed with digital twin synchronization after validating route constraints.",
             "Prioritize bottleneck mitigation around buffers and warehouses.",
             "Use simulation results to rank AMR and conveyor investments.",
+            "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+            "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
         ]
 
         return EngineeringAnalysis(
@@ -942,6 +1020,8 @@ class IndustrialLayoutInterpreter:
                 "score": flow_balance,
                 "material_flow_health": self._status_for_score(flow_balance),
                 "travel_distance": simulation.travel_distance,
+                "starvation_risk": starvation_risk,
+                "bottleneck_pressure": bottleneck_pressure,
             },
             constraint_analysis=constraint_analysis,
             amr_recommendations=amr_recommendations,
@@ -959,6 +1039,7 @@ class IndustrialLayoutInterpreter:
         knowledge_graph: dict[str, Any],
         simulation: SimulationResult,
         analysis: EngineeringAnalysis,
+        plant_state_report: dict[str, Any],
     ) -> str:
         lines = [
             f"# Executive Engineering Report: {layout_name}",
@@ -978,12 +1059,146 @@ class IndustrialLayoutInterpreter:
             f"- ROI: {simulation.roi}",
             f"- Travel distance: {simulation.travel_distance}",
             f"- Bottlenecks: {len(simulation.bottlenecks)}",
+            f"- Starvation risk index: {simulation.material_flow.get('starvation_risk_index', 0.0)}",
+            f"- AMR layout coverage: {simulation.amr_routing.get('amr_layout_coverage', 0.0)}",
+            f"- JIT readiness: {simulation.buffer_occupancy.get('jit_readiness', 0.0)}",
             "",
-            "## Engineering Recommendations",
+            "## Plant State (Problems and Opportunities)",
         ]
+
+        for item in plant_state_report["problems"]:
+            lines.append(f"- Problem: {item}")
+        for item in plant_state_report["opportunities"]:
+            lines.append(f"- Opportunity: {item}")
+        for item in plant_state_report["priority_actions"]:
+            lines.append(f"- Priority Action: {item}")
+
+        lines.extend(
+            [
+                "",
+            "## Engineering Recommendations",
+            ]
+        )
         for recommendation in analysis.executive_recommendations:
             lines.append(f"- {recommendation}")
         return "\n".join(lines)
+
+    def _machine_cluster_factor(self, entities: list[LayoutEntity]) -> float:
+        machines = [entity for entity in entities if entity.kind == "machine"]
+        if len(machines) < 2:
+            return 0.0
+        distances: list[float] = []
+        for index, machine in enumerate(machines):
+            for other in machines[index + 1 :]:
+                distances.append(_distance(machine.center, other.center))
+        if not distances:
+            return 0.0
+        avg_distance = sum(distances) / len(distances)
+        return round(min(1.0, max(0.0, 1.0 - avg_distance / 120.0)), 4)
+
+    def _recommend_amr_fleet(self, machine_count: int, warehouse_count: int, flow_edges: int) -> dict[str, Any]:
+        baseline = max(2, (machine_count // 2) + warehouse_count)
+        peak = max(baseline + 1, baseline + flow_edges // 10)
+        return {
+            "baseline_units": baseline,
+            "peak_units": peak,
+            "dispatch_policy": "priority_by_starvation_risk",
+        }
+
+    def _recommend_wip_cell_strategy(self, wip_policy_score: float, buffer_to_machine_ratio: float) -> dict[str, Any]:
+        proximity = "near_converter" if buffer_to_machine_ratio <= 1.0 else "redistribute_buffers"
+        return {
+            "strategy": "jit_proximity_cells",
+            "proximity_policy": proximity,
+            "score": round(wip_policy_score, 4),
+            "notes": [
+                "Use low-height WIP cells when height storage is constrained.",
+                "Eliminate forklift aisles where AMR-only operation is feasible.",
+            ],
+        }
+
+    def _bottleneck_root_cause(self, kind: str, degree: int) -> str:
+        if kind == "buffer":
+            return "wip_accumulation_or_pull_mismatch"
+        if kind == "warehouse":
+            return "dispatch_ingress_imbalance"
+        if degree <= 1:
+            return "low_connectivity_or_isolated_flow_node"
+        return "multi_factor"
+
+    def _bottleneck_action(self, kind: str, severity: float) -> str:
+        if kind == "buffer":
+            return "rebalance_wip_release_and_add_jit_sequencing"
+        if kind == "warehouse":
+            return "separate_inbound_outbound_lanes_and_schedule_dispatch_windows"
+        if severity >= 0.75:
+            return "increase_path_redundancy_and_priority_dispatch"
+        return "monitor_and_validate_with_scenario_comparison"
+
+    def _build_plant_state_report(
+        self,
+        factory_graph: dict[str, Any],
+        simulation: SimulationResult,
+        analysis: EngineeringAnalysis,
+    ) -> dict[str, Any]:
+        problems: list[str] = []
+        opportunities: list[str] = []
+        actions: list[str] = []
+
+        starvation_risk = float(simulation.material_flow.get("starvation_risk_index", 0.0))
+        jit_readiness = float(simulation.buffer_occupancy.get("jit_readiness", 0.0))
+        amr_coverage = float(simulation.amr_routing.get("amr_layout_coverage", 0.0))
+
+        if starvation_risk >= 0.35:
+            problems.append("High starvation risk on converter/corrugator feed loops.")
+            actions.append("Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.")
+        if simulation.travel_distance >= 900:
+            problems.append("Excessive intralogistics travel distance increases response delays.")
+            actions.append("Re-layout near-line WIP cells and shorten route loops around high-demand machines.")
+        if len(simulation.bottlenecks) >= 3:
+            problems.append("Multiple bottleneck nodes detected across buffer/warehouse topology.")
+            actions.append("Run A/B/C scenario tests for buffer sizing and route segmentation.")
+
+        if amr_coverage < 0.45:
+            opportunities.append("AMR route coverage can be expanded for higher logistics stability.")
+        else:
+            opportunities.append("AMR route coverage is sufficient for advanced dispatch optimization.")
+
+        if jit_readiness < 0.65:
+            opportunities.append("JIT readiness can improve by aligning WIP cells to converter cadence.")
+        else:
+            opportunities.append("JIT readiness indicates strong potential for pull-based flow control.")
+
+        opportunities.append("Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.")
+
+        state_score = round(
+            min(
+                1.0,
+                max(
+                    0.0,
+                    (analysis.layout_quality.get("score", 0.0) * 0.35)
+                    + (analysis.flow_analysis.get("score", 0.0) * 0.35)
+                    + ((1.0 - starvation_risk) * 0.3),
+                ),
+            ),
+            4,
+        )
+
+        return {
+            "state_score": state_score,
+            "state_status": self._status_for_score(state_score),
+            "problems": problems,
+            "opportunities": opportunities,
+            "priority_actions": actions,
+            "kpi_snapshot": {
+                "oee": simulation.oee,
+                "roi": simulation.roi,
+                "travel_distance": simulation.travel_distance,
+                "starvation_risk": starvation_risk,
+                "amr_coverage": amr_coverage,
+                "jit_readiness": jit_readiness,
+            },
+        }
 
     def _confidence_score(
         self,

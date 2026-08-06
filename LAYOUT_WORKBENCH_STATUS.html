@@ -19,15 +19,15 @@
 </head>
 <body>
   <h1>Industrial Layout Analysis Workbench Status</h1>
-  <p>Generated: 2026-07-27T14:15:50.731514+00:00</p>
+  <p>Generated: 2026-08-06T15:10:17.213258+00:00</p>
 
   <section class="box">
     <h2>Implementation KPI</h2>
     <div class="kpi">
-      <div><strong>Implementation</strong><br>28%</div>
-      <div><strong>Pending</strong><br>7 items</div>
-      <div><strong>Keyword Coverage</strong><br>376 hits</div>
-      <div><strong>Estimated Completion</strong><br>72% remaining</div>
+      <div><strong>Implementation</strong><br>70%</div>
+      <div><strong>Pending</strong><br>9 items</div>
+      <div><strong>Keyword Coverage</strong><br>610 hits</div>
+      <div><strong>Estimated Completion</strong><br>30% remaining</div>
     </div>
   </section>
 
@@ -35,23 +35,26 @@
     <h2>Maturity Matrix</h2>
     <table>
       <thead><tr><th>Component</th><th>Status</th><th>Percent</th></tr></thead>
-      <tbody><tr><td>DWG parser</td><td>missing</td><td>0%</td></tr><tr><td>DXF parser</td><td>missing</td><td>0%</td></tr><tr><td>Geometry Engine</td><td>missing</td><td>0%</td></tr><tr><td>Factory Graph</td><td>partial</td><td>55%</td></tr><tr><td>Knowledge Graph</td><td>partial</td><td>60%</td></tr><tr><td>Simulation</td><td>missing</td><td>0%</td></tr><tr><td>Mission Manager</td><td>implemented</td><td>85%</td></tr><tr><td>Digital Twin</td><td>missing</td><td>0%</td></tr><tr><td>Engineering Optimizer</td><td>partial</td><td>50%</td></tr></tbody>
+      <tbody><tr><td>Mission Manager</td><td>partial</td><td>70%</td></tr><tr><td>DWG parser</td><td>partial</td><td>70%</td></tr><tr><td>DXF parser</td><td>partial</td><td>70%</td></tr><tr><td>Geometry Engine</td><td>partial</td><td>70%</td></tr><tr><td>Factory Graph</td><td>partial</td><td>70%</td></tr><tr><td>Knowledge Graph</td><td>partial</td><td>70%</td></tr><tr><td>Simulation Runtime</td><td>partial</td><td>70%</td></tr><tr><td>Digital Twin</td><td>partial</td><td>70%</td></tr><tr><td>Engineering Optimizer</td><td>partial</td><td>70%</td></tr></tbody>
     </table>
   </section>
 
   <section class="box">
-    <h2>Implemented Functionality</h2>
-    <ul><li>Industrial Layout Intelligence Workbench UI</li><li>Cognitive OS API registration endpoints</li><li>Mission registration in Mission Manager</li><li>Capability and platform registry bootstrap</li><li>Auto-generated dependency map and maturity report</li></ul>
+    <h2>Automatic Scoring Weights</h2>
+    <table>
+      <thead><tr><th>Criterion</th><th>Weight</th></tr></thead>
+      <tbody><tr><td>functionality</td><td>30%</td></tr><tr><td>integration</td><td>20%</td></tr><tr><td>tests</td><td>15%</td></tr><tr><td>documentation</td><td>10%</td></tr><tr><td>code_quality</td><td>10%</td></tr><tr><td>knowledge_sync</td><td>10%</td></tr><tr><td>end_to_end</td><td>5%</td></tr></tbody>
+    </table>
   </section>
 
   <section class="box">
     <h2>Pending Functionality</h2>
-    <ul><li>DWG parser production implementation</li><li>DXF parser production implementation</li><li>CAD object detection runtime</li><li>Factory Graph persistence adapter</li><li>Knowledge Hub auto-link to external catalogs</li><li>Digital twin simulation synchronization</li><li>Engineering Optimizer execution engine</li></ul>
+    <ul><li>Mission Manager remains at 70% and requires completion to reach production-ready target</li><li>DWG parser remains at 70% and requires completion to reach production-ready target</li><li>DXF parser remains at 70% and requires completion to reach production-ready target</li><li>Geometry Engine remains at 70% and requires completion to reach production-ready target</li><li>Factory Graph remains at 70% and requires completion to reach production-ready target</li><li>Knowledge Graph remains at 70% and requires completion to reach production-ready target</li><li>Simulation Runtime remains at 70% and requires completion to reach production-ready target</li><li>Digital Twin remains at 70% and requires completion to reach production-ready target</li><li>Engineering Optimizer remains at 70% and requires completion to reach production-ready target</li></ul>
   </section>
 
   <section class="box">
     <h2>Dependency Map</h2>
-    <h3>ui_pages</h3><ul><li>dashboard/layout_workbench.html</li><li>dashboard/orchestrator_panel.html</li><li>dashboard/streamlit/hub_dashboard.py</li></ul><h3>api_services</h3><ul><li>api/routes/hub_api.py</li><li>api/routes/cognitive_os_api.py</li></ul><h3>mission_manager</h3><ul><li>cognitive_os/mission_core.py</li><li>cognitive_os/system.py</li><li>cognitive_os/registries.py</li></ul><h3>schemas_and_models</h3><ul><li>schemas/mission_graph_schema.json</li><li>schemas/canonical_mission_model.schema.json</li><li>cognitive_os/models.py</li></ul><h3>knowledge_assets</h3><ul><li>specs/factory_intelligence_workbench.md</li><li>docs/mission_manager.md</li><li>mission_portfolio/mission_portfolio_001.json</li><li>data/missions/canonical_missions_v1.json</li></ul><h3>ops_scripts</h3><ul><li>start_ecosystem.ps1</li><li>start-collaborative-hub.ps1</li><li>scripts/generate_layout_workbench_status.py</li></ul>
+    <h3>mandatory_module_order</h3><ul><li>Mission Manager</li><li>DWG parser</li><li>DXF parser</li><li>Geometry Engine</li><li>Factory Graph</li><li>Knowledge Graph</li><li>Simulation Runtime</li><li>Digital Twin</li><li>Engineering Optimizer</li></ul><h3>ui_pages</h3><ul><li>dashboard/layout_workbench.html</li><li>dashboard/orchestrator_panel.html</li><li>dashboard/streamlit/hub_dashboard.py</li></ul><h3>api_services</h3><ul><li>api/routes/hub_api.py</li><li>api/routes/cognitive_os_api.py</li></ul><h3>mission_manager</h3><ul><li>cognitive_os/mission_core.py</li><li>cognitive_os/system.py</li><li>cognitive_os/registries.py</li></ul><h3>schemas_and_models</h3><ul><li>schemas/mission_graph_schema.json</li><li>schemas/canonical_mission_model.schema.json</li><li>cognitive_os/models.py</li></ul><h3>knowledge_assets</h3><ul><li>specs/factory_intelligence_workbench.md</li><li>docs/mission_manager.md</li><li>mission_portfolio/mission_portfolio_001.json</li><li>data/missions/canonical_missions_v1.json</li></ul><h3>ops_scripts</h3><ul><li>start_ecosystem.ps1</li><li>start-collaborative-hub.ps1</li><li>scripts/generate_layout_workbench_status.py</li></ul>
   </section>
 
   <section class="box">
@@ -61,7 +64,7 @@
     <h3>Duplicate Pages/Modules</h3>
     <ul><li>openai_key_manager.py | ai-factory-v2/openai_key_manager.py</li><li>main.py | orchestrator/main.py | ultimate_orchestrator.py</li></ul>
     <h3>Missing Parsers</h3>
-    <ul><li>DWG parser implementation</li><li>DXF parser implementation</li></ul>
+    <ul><li>DWG parser implementation not complete</li><li>DXF parser implementation not complete</li></ul>
     <h3>Missing Backend</h3>
     <ul><li>None</li></ul>
     <h3>Missing Services</h3>
@@ -72,13 +75,13 @@
     <h2>Quality Gates</h2>
     <table>
       <thead><tr><th>Gate</th><th>Status</th></tr></thead>
-      <tbody><tr><td>layout_workbench_accessible</td><td>PASS</td></tr><tr><td>platform_registry_registered</td><td>PASS</td></tr><tr><td>capability_registry_registered</td><td>PASS</td></tr><tr><td>mission_manager_reachable</td><td>PASS</td></tr><tr><td>status_documented</td><td>PASS</td></tr><tr><td>executive_html_generated</td><td>PASS</td></tr></tbody>
+      <tbody><tr><td>layout_workbench_accessible</td><td>PASS</td></tr><tr><td>platform_registry_registered</td><td>PASS</td></tr><tr><td>capability_registry_registered</td><td>PASS</td></tr><tr><td>mission_manager_reachable</td><td>PASS</td></tr><tr><td>status_documented</td><td>PASS</td></tr><tr><td>executive_html_generated</td><td>PASS</td></tr><tr><td>dependency_chain_enforced</td><td>PASS</td></tr><tr><td>scoring_model_automatic</td><td>PASS</td></tr></tbody>
     </table>
   </section>
 
   <section class="box">
     <h2>Recommended Next Missions</h2>
-    <ul><li>M-LAYOUT-02: DWG ingestion productionization and converter hardening</li><li>M-LAYOUT-03: DXF entity extraction and object mapper</li><li>M-LAYOUT-04: Scenario runner integration with ingetrans and plant simulator</li><li>M-LAYOUT-05: Digital twin synchronization and realtime telemetry</li><li>M-LAYOUT-06: Engineering optimizer for AMR, WIP, ROI, and OEE</li></ul>
+    <ul><li>M014-MISSION-MANAGER: Close critical gaps for Mission Manager and validate integration with predecessor</li><li>M014-DWG-PARSER: Close critical gaps for DWG parser and validate integration with predecessor</li><li>M014-DXF-PARSER: Close critical gaps for DXF parser and validate integration with predecessor</li><li>M014-GEOMETRY-ENGINE: Close critical gaps for Geometry Engine and validate integration with predecessor</li><li>M014-FACTORY-GRAPH: Close critical gaps for Factory Graph and validate integration with predecessor</li></ul>
   </section>
 </body>
 </html>

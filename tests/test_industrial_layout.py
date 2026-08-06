@@ -69,6 +69,8 @@ def test_layout_interpreter_produces_factory_graph_and_analysis() -> None:
     assert result["digital_twin"]["nodes"] == 6
     assert result["simulation"]["production_capacity"] > 0
     assert result["engineering_analysis"]["layout_quality"]["status"] in {"good", "excellent", "acceptable"}
+    assert result["plant_state_report"]["state_status"] in {"good", "excellent", "acceptable", "needs_improvement"}
+    assert "kpi_snapshot" in result["plant_state_report"]
     assert "Executive Engineering Report" in result["executive_report"]
     assert result["object_evidence"]
     assert result["trace"]["import"] is not None
@@ -141,4 +143,5 @@ def test_industrial_intelligence_parser_uses_layout_interpreter() -> None:
     assert result["knowledge_graph"]["fact_count"] >= 3
     assert result["digital_twin"]["nodes"] >= 3
     assert result["simulation"]["production_capacity"] > 0
+    assert "plant_state_report" in result
     assert result["version_info"]["revision"]["revision_id"].startswith("rev-")

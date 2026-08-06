@@ -392,6 +392,19 @@ async def layout_import_discover_providers(request: GenericPayload) -> dict[str,
     }
 
 
+@router.post("/layout-workbench/plant-state/analyze")
+async def layout_workbench_plant_state_analyze(request: IndustrialComponentExecuteRequest) -> dict[str, Any]:
+    result = _sdk.industrial_intelligence_execute("dxf-intelligence-parser", request.payload)
+    return {
+        "mission_id": "M010",
+        "component_id": "dxf-intelligence-parser",
+        "layout_name": result.get("layout_name"),
+        "plant_state_report": result.get("plant_state_report", {}),
+        "simulation": result.get("simulation", {}),
+        "engineering_analysis": result.get("engineering_analysis", {}),
+    }
+
+
 @router.get("/layout-workbench/versioning/{layout_name}")
 async def layout_versioning_history(layout_name: str) -> dict[str, Any]:
     return _layout_version_store.list_history(layout_name)

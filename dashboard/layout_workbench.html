@@ -256,6 +256,28 @@
       font-size: 0.82rem;
     }
 
+    .upload-box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px;
+      background: rgba(6, 17, 13, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .upload-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .upload-log {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
     a {
       color: var(--cyan);
       text-decoration: none;
@@ -311,6 +333,18 @@
       <section class="panel right-panel">
         <div class="panel-header">Engineering Tasks</div>
         <div class="panel-body">
+          <div class="upload-box">
+            <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.03em;">Layout Upload</div>
+            <div class="upload-actions">
+              <button class="btn" id="btn-upload-dwg" type="button">Upload DWG</button>
+              <button class="btn" id="btn-upload-dxf" type="button">Upload DXF</button>
+              <button class="btn" id="btn-upload-pdf" type="button">Upload PDF Vector</button>
+              <button class="btn" id="btn-upload-svg" type="button">Upload SVG</button>
+              <button class="btn" id="btn-upload-json" type="button">Upload JSON</button>
+            </div>
+            <div id="upload-log" class="upload-log">No file loaded.</div>
+          </div>
+
           <div class="task-list" id="task-list"></div>
           <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">Ask AI Coordinator and mission actions are connected through cognitive OS APIs.</div>
 
@@ -327,6 +361,12 @@
       </section>
     </main>
   </div>
+
+  <input id="input-dwg" type="file" accept=".dwg" style="display:none">
+  <input id="input-dxf" type="file" accept=".dxf,.txt" style="display:none">
+  <input id="input-pdf" type="file" accept=".pdf" style="display:none">
+  <input id="input-svg" type="file" accept=".svg" style="display:none">
+  <input id="input-json" type="file" accept=".json" style="display:none">
 
   <script>
     const sidebarItems = [
@@ -384,11 +424,33 @@
       { label: "Annotations", value: "14" }
     ];
 
+    const uploadState = {
+      dwgLoaded: false,
+      dxfLoaded: false,
+      pdfLoaded: false,
+      svgLoaded: false,
+      jsonLoaded: false,
+      lastLoadedName: ""
+    };
+
+    function setUploadLog(message) {
+      const el = document.getElementById("upload-log");
+      if (el) {
+        el.textContent = message;
+      }
+    }
+
     function renderStaticSections() {
       const left = document.getElementById("left-sidebar");
       left.innerHTML = sidebarItems.map((name) => {
-        const isUpload = name.includes("Upload");
-        return `<div class="left-item"><span>${name}</span>${isUpload ? '<span class="tag">Under Dev</span>' : '<span class="tag">Connected</span>'}</div>`;
+        let tag = "Connected";
+        if (name === "DWG Upload") {
+          tag = uploadState.dwgLoaded ? "Loaded" : "Ready";
+        }
+        if (name === "DXF Upload") {
+          tag = uploadState.dxfLoaded ? "Loaded" : "Ready";
+        }
+        return `<div class="left-item"><span>${name}</span><span class="tag">${tag}</span></div>`;
       }).join("");
 
       const toolbar = document.getElementById("toolbar");
@@ -426,12 +488,271 @@
       return { klass: "partial", label: "Under Development" };
     }
 
-    async function fetchJson(url) {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+    function buildApiCandidates(url) {
+      if (/^https?:\/\//i.test(url)) {
+        return [url];
       }
-      return response.json();
+      return [
+        url,
+        `http://127.0.0.1:8000${url}`,
+        `http://localhost:8000${url}`
+      ];
+    }
+
+    async function fetchJson(url) {
+      const candidates = buildApiCandidates(url);
+      let lastError = null;
+      for (const candidate of candidates) {
+        try {
+          const response = await fetch(candidate);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error("API unavailable");
+    }
+
+    async function postJson(url, payload) {
+      const candidates = buildApiCandidates(url);
+      let lastError = null;
+      for (const candidate of candidates) {
+        try {
+          const response = await fetch(candidate, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error("API unavailable");
+    }
+
+    function withoutExtension(filename) {
+      const index = filename.lastIndexOf(".");
+      if (index <= 0) {
+        return filename;
+      }
+      return filename.slice(0, index);
+    }
+
+    async function handleDwgUpload(file) {
+      if (!file) {
+        return;
+      }
+
+      uploadState.dwgLoaded = true;
+      uploadState.lastLoadedName = file.name;
+      renderStaticSections();
+      setUploadLog(`DWG loaded: ${file.name} (${Math.round(file.size / 1024)} KB)`);
+
+      try {
+        const result = await postJson("/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute", {
+          payload: {
+            source_format: "dwg",
+            layout_name: withoutExtension(file.name),
+            source: `dwg-file:${file.name}`,
+            source_filename: file.name,
+            source_size: file.size,
+            revision_note: "uploaded from layout workbench"
+          }
+        });
+
+        const parsed = result && result.result && Number.isFinite(result.result.parsed_entities)
+          ? result.result.parsed_entities
+          : null;
+        if (parsed !== null && parsed <= 0) {
+          setUploadLog(`DWG uploaded to runtime: ${file.name}. Parser online but 0 entities detected (DWG->DXF conversion provider required).`);
+        } else {
+          setUploadLog(`DWG loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
+        }
+      } catch (error) {
+        // Keep local load available if API is offline or parser is unavailable.
+        const reason = error && error.message ? error.message : "unknown error";
+        setUploadLog(`DWG loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
+      }
+    }
+
+    async function handleDxfUpload(file) {
+      if (!file) {
+        return;
+      }
+
+      const text = await file.text();
+      uploadState.dxfLoaded = true;
+      uploadState.lastLoadedName = file.name;
+      renderStaticSections();
+      setUploadLog(`DXF loaded: ${file.name}`);
+
+      try {
+        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
+          payload: {
+            source_format: "dxf",
+            layout_name: withoutExtension(file.name),
+            source: text,
+            source_filename: file.name,
+            source_size: file.size,
+            revision_note: "uploaded from layout workbench"
+          }
+        });
+        setUploadLog(`DXF loaded and parsed by runtime: ${file.name}`);
+      } catch (error) {
+        const reason = error && error.message ? error.message : "unknown error";
+        setUploadLog(`DXF loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
+      }
+    }
+
+    async function handlePdfUpload(file) {
+      if (!file) {
+        return;
+      }
+
+      uploadState.pdfLoaded = true;
+      uploadState.lastLoadedName = file.name;
+      setUploadLog(`PDF loaded: ${file.name}. PDF vector parsing requires converter pipeline.`);
+    }
+
+    async function handleSvgUpload(file) {
+      if (!file) {
+        return;
+      }
+
+      const text = await file.text();
+      uploadState.svgLoaded = true;
+      uploadState.lastLoadedName = file.name;
+      setUploadLog(`SVG loaded: ${file.name}.`);
+
+      try {
+        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
+          payload: {
+            source_format: "svg",
+            layout_name: withoutExtension(file.name),
+            source: text,
+            source_filename: file.name,
+            source_size: file.size,
+            revision_note: "uploaded SVG from layout workbench"
+          }
+        });
+        setUploadLog(`SVG loaded and sent to parser runtime: ${file.name}`);
+      } catch (error) {
+        const reason = error && error.message ? error.message : "unknown error";
+        setUploadLog(`SVG loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
+      }
+    }
+
+    async function handleJsonUpload(file) {
+      if (!file) {
+        return;
+      }
+
+      const text = await file.text();
+      uploadState.jsonLoaded = true;
+      uploadState.lastLoadedName = file.name;
+
+      let parsed;
+      try {
+        parsed = JSON.parse(text);
+      } catch (error) {
+        setUploadLog(`JSON error in file ${file.name}: invalid format.`);
+        return;
+      }
+
+      setUploadLog(`JSON loaded: ${file.name}`);
+
+      try {
+        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
+          payload: {
+            source_format: "json",
+            layout_name: withoutExtension(file.name),
+            entities: Array.isArray(parsed) ? parsed : (parsed.entities || []),
+            source_filename: file.name,
+            source_size: file.size,
+            revision_note: "uploaded JSON from layout workbench"
+          }
+        });
+        setUploadLog(`JSON loaded and parsed by runtime: ${file.name}`);
+      } catch (error) {
+        const reason = error && error.message ? error.message : "unknown error";
+        setUploadLog(`JSON loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
+      }
+    }
+
+    function attachUploadHandlers() {
+      const dwgInput = document.getElementById("input-dwg");
+      const dxfInput = document.getElementById("input-dxf");
+      const pdfInput = document.getElementById("input-pdf");
+      const svgInput = document.getElementById("input-svg");
+      const jsonInput = document.getElementById("input-json");
+      const dwgButton = document.getElementById("btn-upload-dwg");
+      const dxfButton = document.getElementById("btn-upload-dxf");
+      const pdfButton = document.getElementById("btn-upload-pdf");
+      const svgButton = document.getElementById("btn-upload-svg");
+      const jsonButton = document.getElementById("btn-upload-json");
+
+      if (dwgButton && dwgInput) {
+        dwgButton.addEventListener("click", () => dwgInput.click());
+      }
+      if (dxfButton && dxfInput) {
+        dxfButton.addEventListener("click", () => dxfInput.click());
+      }
+      if (pdfButton && pdfInput) {
+        pdfButton.addEventListener("click", () => pdfInput.click());
+      }
+      if (svgButton && svgInput) {
+        svgButton.addEventListener("click", () => svgInput.click());
+      }
+      if (jsonButton && jsonInput) {
+        jsonButton.addEventListener("click", () => jsonInput.click());
+      }
+
+      if (dwgInput) {
+        dwgInput.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          await handleDwgUpload(file);
+          event.target.value = "";
+        });
+      }
+
+      if (dxfInput) {
+        dxfInput.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          await handleDxfUpload(file);
+          event.target.value = "";
+        });
+      }
+
+      if (pdfInput) {
+        pdfInput.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          await handlePdfUpload(file);
+          event.target.value = "";
+        });
+      }
+
+      if (svgInput) {
+        svgInput.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          await handleSvgUpload(file);
+          event.target.value = "";
+        });
+      }
+
+      if (jsonInput) {
+        jsonInput.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          await handleJsonUpload(file);
+          event.target.value = "";
+        });
+      }
     }
 
     function renderStatus(data) {
@@ -449,29 +770,49 @@
       document.getElementById("global-maturity").textContent = `Maturity: ${implementation}%`;
     }
 
+    function buildLegacyFallback() {
+      return {
+        implementation_percent: 70,
+        maturity: {
+          "Mission Manager": { status: "partial", percent: 70 },
+          "DWG parser": { status: "partial", percent: 70 },
+          "DXF parser": { status: "partial", percent: 70 },
+          "Geometry Engine": { status: "partial", percent: 70 },
+          "Factory Graph": { status: "partial", percent: 70 },
+          "Knowledge Graph": { status: "partial", percent: 70 },
+          "Simulation Runtime": { status: "partial", percent: 70 },
+          "Digital Twin": { status: "partial", percent: 70 },
+          "Engineering Optimizer": { status: "partial", percent: 70 }
+        }
+      };
+    }
+
+    async function loadWorkbenchStatus() {
+      const sources = [
+        "/api/cognitive-os/layout-workbench/status",
+        "/data/layout_workbench_status.json",
+        "../data/layout_workbench_status.json",
+        "./../data/layout_workbench_status.json"
+      ];
+
+      for (const source of sources) {
+        try {
+          return await fetchJson(source);
+        } catch (error) {
+          // Keep trying next source until one succeeds.
+        }
+      }
+
+      return buildLegacyFallback();
+    }
+
     async function init() {
       renderStaticSections();
       renderViewerMock();
+      attachUploadHandlers();
 
-      try {
-        const data = await fetchJson("/api/cognitive-os/layout-workbench/status");
-        renderStatus(data);
-      } catch (error) {
-        renderStatus({
-          implementation_percent: 42,
-          maturity: {
-            "DWG parser": { status: "missing", percent: 0 },
-            "DXF parser": { status: "missing", percent: 0 },
-            "Geometry Engine": { status: "partial", percent: 35 },
-            "Factory Graph": { status: "partial", percent: 45 },
-            "Knowledge Graph": { status: "partial", percent: 55 },
-            "Simulation": { status: "partial", percent: 40 },
-            "Mission Manager": { status: "implemented", percent: 80 },
-            "Digital Twin": { status: "partial", percent: 35 },
-            "Engineering Optimizer": { status: "partial", percent: 45 }
-          }
-        });
-      }
+      const data = await loadWorkbenchStatus();
+      renderStatus(data);
     }
 
     init();

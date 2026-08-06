@@ -74,7 +74,7 @@
             "component_id": "industrial-geometry-engine",
             "status": "ok",
             "dependencies": [],
-            "timestamp": "2026-08-05T08:17:12.994546+00:00"
+            "timestamp": "2026-08-06T16:20:36.885656+00:00"
           }
         },
         {
@@ -102,7 +102,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-05T08:17:12.994554+00:00"
+            "timestamp": "2026-08-06T16:20:36.885666+00:00"
           }
         },
         {
@@ -130,7 +130,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-05T08:17:12.994561+00:00"
+            "timestamp": "2026-08-06T16:20:36.885674+00:00"
           }
         },
         {
@@ -160,7 +160,7 @@
               "dwg-intelligence-parser",
               "dxf-intelligence-parser"
             ],
-            "timestamp": "2026-08-05T08:17:12.994568+00:00"
+            "timestamp": "2026-08-06T16:20:36.885682+00:00"
           }
         },
         {
@@ -188,7 +188,7 @@
             "dependencies": [
               "factory-graph-runtime-m001"
             ],
-            "timestamp": "2026-08-05T08:17:12.994575+00:00"
+            "timestamp": "2026-08-06T16:20:36.885690+00:00"
           }
         },
         {
@@ -216,7 +216,7 @@
             "dependencies": [
               "knowledge-graph-runtime"
             ],
-            "timestamp": "2026-08-05T08:17:12.994582+00:00"
+            "timestamp": "2026-08-06T16:20:36.885698+00:00"
           }
         },
         {
@@ -244,7 +244,7 @@
             "dependencies": [
               "evidence-runtime-m004"
             ],
-            "timestamp": "2026-08-05T08:17:12.994588+00:00"
+            "timestamp": "2026-08-06T16:20:36.885708+00:00"
           }
         },
         {
@@ -277,7 +277,7 @@
             "dependencies": [
               "digital-twin-runtime"
             ],
-            "timestamp": "2026-08-05T08:17:12.994595+00:00"
+            "timestamp": "2026-08-06T16:20:36.885716+00:00"
           }
         },
         {
@@ -305,7 +305,7 @@
             "dependencies": [
               "industrial-simulation-runtime"
             ],
-            "timestamp": "2026-08-05T08:17:12.994603+00:00"
+            "timestamp": "2026-08-06T16:20:36.885725+00:00"
           }
         },
         {
@@ -332,7 +332,7 @@
             "dependencies": [
               "bottleneck-analyzer-m007"
             ],
-            "timestamp": "2026-08-05T08:17:12.994610+00:00"
+            "timestamp": "2026-08-06T16:20:36.885733+00:00"
           }
         },
         {
@@ -359,7 +359,7 @@
             "dependencies": [
               "industrial-flow-analyzer"
             ],
-            "timestamp": "2026-08-05T08:17:12.994616+00:00"
+            "timestamp": "2026-08-06T16:20:36.885740+00:00"
           }
         },
         {
@@ -386,7 +386,7 @@
             "dependencies": [
               "amr-optimization-engine"
             ],
-            "timestamp": "2026-08-05T08:17:12.994621+00:00"
+            "timestamp": "2026-08-06T16:20:36.885753+00:00"
           }
         },
         {
@@ -413,7 +413,7 @@
             "dependencies": [
               "oee-prediction-engine"
             ],
-            "timestamp": "2026-08-05T08:17:12.994627+00:00"
+            "timestamp": "2026-08-06T16:20:36.885763+00:00"
           }
         },
         {
@@ -441,7 +441,7 @@
             "dependencies": [
               "roi-engine"
             ],
-            "timestamp": "2026-08-05T08:17:12.994634+00:00"
+            "timestamp": "2026-08-06T16:20:36.885771+00:00"
           }
         }
       ],
@@ -462,16 +462,220 @@
         "smart-proposal-intelligence-runtime"
       ],
       "ahde_policy": "enabled",
-      "timestamp": "2026-08-05T08:17:12.994639+00:00"
+      "timestamp": "2026-08-06T16:20:36.885782+00:00"
     },
     "ahde_policy": {
       "enabled": true,
-      "timestamp": "2026-08-05T08:17:13.041199+00:00"
+      "timestamp": "2026-08-06T16:20:36.894016+00:00"
     },
     "governance": {
       "approved": true,
       "reason": "Approved by governance policy",
       "policy_violations": []
+    }
+  },
+  "factory_graph": {
+    "latest": {
+      "layout_name": "Plan Projet Cognac",
+      "source_format": "dwg",
+      "source_hash": "382efeec7954",
+      "node_count": 0,
+      "edge_count": 0,
+      "kind_counts": {},
+      "nodes": [],
+      "edges": [],
+      "objectives": [
+        "machines",
+        "conveyors",
+        "buffers",
+        "warehouses",
+        "amrs",
+        "operators",
+        "processes",
+        "flows",
+        "resources",
+        "connections",
+        "constraints",
+        "production_areas",
+        "safety_areas",
+        "storage_areas",
+        "logistic_routes"
+      ]
+    }
+  },
+  "knowledge_graph": {
+    "latest": {
+      "layout_name": "Plan Projet Cognac",
+      "fact_count": 0,
+      "relation_count": 0,
+      "assertions": [],
+      "relations": [],
+      "sources": [
+        "Knowledge Hub",
+        "Enterprise Memory",
+        "Historical Projects",
+        "Industrial Rules",
+        "Previous Decisions",
+        "Lessons Learned"
+      ],
+      "confidence": 0.55
+    }
+  },
+  "digital_twin": {
+    "latest": {
+      "version": "twin-382efeec7954",
+      "layout_name": "Plan Projet Cognac",
+      "live_sync": false,
+      "nodes": 0,
+      "edges": 0,
+      "scenarios": [
+        "baseline",
+        "high_demand",
+        "maintenance",
+        "amr_reconfiguration"
+      ],
+      "simulation_inputs": {
+        "node_count": 0,
+        "edge_count": 0,
+        "machine_count": 0,
+        "conveyor_count": 0,
+        "buffer_count": 0,
+        "warehouse_count": 0,
+        "amr_route_count": 0,
+        "layout_signature": "382efeec7954"
+      },
+      "state": {
+        "snapshots": [
+          "snapshot-382efeec7954"
+        ],
+        "versions": [
+          1
+        ],
+        "scenarios": [
+          "baseline",
+          "high_demand",
+          "maintenance",
+          "amr_reconfiguration"
+        ],
+        "live_sync": false,
+        "simulation_inputs": {
+          "node_count": 0,
+          "edge_count": 0,
+          "machine_count": 0,
+          "conveyor_count": 0,
+          "buffer_count": 0,
+          "warehouse_count": 0,
+          "amr_route_count": 0,
+          "layout_signature": "382efeec7954"
+        }
+      }
+    }
+  },
+  "simulation": {
+    "latest": {
+      "material_flow": {
+        "flow_edges": 0,
+        "flow_intensity": 0.0,
+        "flow_edges_per_machine": 0.0,
+        "logistics_pressure_index": 0.0,
+        "starvation_risk_index": 0.02,
+        "knowledge_coverage": 0.55
+      },
+      "amr_routing": {
+        "routes": 0,
+        "coverage": 0.0,
+        "amr_layout_coverage": 0.0,
+        "fleet_recommendation": {
+          "baseline_units": 2,
+          "peak_units": 3,
+          "dispatch_policy": "priority_by_starvation_risk"
+        },
+        "wip_cell_strategy": {
+          "strategy": "jit_proximity_cells",
+          "proximity_policy": "near_converter",
+          "score": 0.75,
+          "notes": [
+            "Use low-height WIP cells when height storage is constrained.",
+            "Eliminate forklift aisles where AMR-only operation is feasible."
+          ]
+        }
+      },
+      "travel_distance": 0,
+      "production_capacity": 0.0,
+      "oee": 0.58,
+      "roi": 1.248,
+      "bottlenecks": [],
+      "buffer_occupancy": {
+        "buffers": 0,
+        "estimated_occupancy": 0.22,
+        "buffer_to_machine_ratio": 0.0,
+        "jit_readiness": 0.45,
+        "wip_policy_score": 0.75
+      },
+      "warehouse_capacity": {
+        "warehouses": 0,
+        "estimated_capacity_units": 0,
+        "recommended_near_line_wip_cells": 2
+      },
+      "cycle_times": {
+        "baseline_seconds": 42.0,
+        "variance_seconds": 4.5,
+        "estimated_changeover_loss_minutes": 8.0
+      }
+    }
+  },
+  "engineering_analysis": {
+    "latest": {
+      "layout_quality": {
+        "score": 0.4,
+        "status": "needs_improvement",
+        "entity_coverage": 0
+      },
+      "flow_analysis": {
+        "score": 0.497,
+        "material_flow_health": "needs_improvement",
+        "travel_distance": 0,
+        "starvation_risk": 0.02,
+        "bottleneck_pressure": 0.0
+      },
+      "constraint_analysis": {
+        "safety_zones": 0,
+        "constraints_found": 0,
+        "constraint_density": 0.0,
+        "bottleneck_pressure": 0.0,
+        "starvation_risk": 0.02,
+        "jit_readiness": 0.45,
+        "wip_policy_score": 0.75
+      },
+      "amr_recommendations": [
+        "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+        "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+      ],
+      "warehouse_optimisation": [
+        "Introduce storage zoning when material staging is required.",
+        "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+      ],
+      "production_optimisation": [
+        "Use conveyor adjacency to remove avoidable material handoffs.",
+        "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+        "Apply JIT release windows by converter and slot to reduce changeover-loss minutes."
+      ],
+      "risk_analysis": [
+        "Bottleneck pressure identified on 0 layout nodes.",
+        "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+        "Starvation risk index is 0.02; prioritize feed continuity actions above 0.35."
+      ],
+      "safety_analysis": [
+        "Check path intersections with safety zones before live synchronization.",
+        "Confirm restricted areas are preserved as non-traversable constraints."
+      ],
+      "executive_recommendations": [
+        "Proceed with digital twin synchronization after validating route constraints.",
+        "Prioritize bottleneck mitigation around buffers and warehouses.",
+        "Use simulation results to rank AMR and conveyor investments.",
+        "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+        "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+      ]
     }
   }
 }

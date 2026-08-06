@@ -1,0 +1,28 @@
+IA FACTORY
+
+Resultado:
+
+El fallo ya no es “runtime caído”:
+Antes, DWG podía lanzar 500 por un bug en backend.
+Lo corregí en industrial_layout.py para que no rompa cuando el importador universal no devuelve modelo.
+El frontend ahora intenta API también en 8000:
+Añadí fallback de endpoints en layout_workbench.html, así si abres en 8765 o file:// también prueba:
+http://127.0.0.1:8000
+http://localhost:8000
+El mensaje de DWG ahora es preciso:
+Si API está activa pero no puede extraer geometría, verás:
+“Parser online but 0 entities detected (DWG->DXF conversion provider required)”
+Si la API realmente no está disponible, verás el motivo HTTP.
+Validación hecha:
+API health OK en /api/cognitive-os/health.
+Endpoint DWG responde sin crash (ya no 500 por KeyError).
+tests OK: 2 passed en test_industrial_layout.py.
+Qué significa tu mensaje actual:
+
+“DWG loaded locally … Runtime parsing unavailable …” ya no debería aparecer por rutas relativas rotas.
+Si vuelve a aparecer, será por API no levantada o CORS/red.
+Si aparece “0 entities detected”, la API está bien y falta la parte de conversión real DWG->DXF (capacidad funcional pendiente, no caída del sistema).
+Siguiente paso natural:
+
+Si quieres, te implemento ahora el proveedor de conversión DWG->DXF (detectando herramienta instalada) para que ese DWG ya no quede en 0 entidades.
+Starting: Implement DWG runtime analysis fallback (2/2)
