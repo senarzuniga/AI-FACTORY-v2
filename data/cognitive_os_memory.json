@@ -74,7 +74,7 @@
             "component_id": "industrial-geometry-engine",
             "status": "ok",
             "dependencies": [],
-            "timestamp": "2026-08-06T20:31:18.054641+00:00"
+            "timestamp": "2026-08-07T07:57:17.956528+00:00"
           }
         },
         {
@@ -102,7 +102,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-06T20:31:18.055456+00:00"
+            "timestamp": "2026-08-07T07:57:17.956541+00:00"
           }
         },
         {
@@ -130,7 +130,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-06T20:31:18.055502+00:00"
+            "timestamp": "2026-08-07T07:57:17.956549+00:00"
           }
         },
         {
@@ -160,7 +160,7 @@
               "dwg-intelligence-parser",
               "dxf-intelligence-parser"
             ],
-            "timestamp": "2026-08-06T20:31:18.055515+00:00"
+            "timestamp": "2026-08-07T07:57:17.956558+00:00"
           }
         },
         {
@@ -188,7 +188,7 @@
             "dependencies": [
               "factory-graph-runtime-m001"
             ],
-            "timestamp": "2026-08-06T20:31:18.055527+00:00"
+            "timestamp": "2026-08-07T07:57:17.956566+00:00"
           }
         },
         {
@@ -216,7 +216,7 @@
             "dependencies": [
               "knowledge-graph-runtime"
             ],
-            "timestamp": "2026-08-06T20:31:18.055537+00:00"
+            "timestamp": "2026-08-07T07:57:17.956574+00:00"
           }
         },
         {
@@ -244,7 +244,7 @@
             "dependencies": [
               "evidence-runtime-m004"
             ],
-            "timestamp": "2026-08-06T20:31:18.055546+00:00"
+            "timestamp": "2026-08-07T07:57:17.956582+00:00"
           }
         },
         {
@@ -277,7 +277,7 @@
             "dependencies": [
               "digital-twin-runtime"
             ],
-            "timestamp": "2026-08-06T20:31:18.055557+00:00"
+            "timestamp": "2026-08-07T07:57:17.956589+00:00"
           }
         },
         {
@@ -305,7 +305,7 @@
             "dependencies": [
               "industrial-simulation-runtime"
             ],
-            "timestamp": "2026-08-06T20:31:18.055567+00:00"
+            "timestamp": "2026-08-07T07:57:17.956598+00:00"
           }
         },
         {
@@ -332,7 +332,7 @@
             "dependencies": [
               "bottleneck-analyzer-m007"
             ],
-            "timestamp": "2026-08-06T20:31:18.055576+00:00"
+            "timestamp": "2026-08-07T07:57:17.956606+00:00"
           }
         },
         {
@@ -359,7 +359,7 @@
             "dependencies": [
               "industrial-flow-analyzer"
             ],
-            "timestamp": "2026-08-06T20:31:18.055585+00:00"
+            "timestamp": "2026-08-07T07:57:17.956622+00:00"
           }
         },
         {
@@ -386,7 +386,7 @@
             "dependencies": [
               "amr-optimization-engine"
             ],
-            "timestamp": "2026-08-06T20:31:18.055592+00:00"
+            "timestamp": "2026-08-07T07:57:17.956632+00:00"
           }
         },
         {
@@ -413,7 +413,7 @@
             "dependencies": [
               "oee-prediction-engine"
             ],
-            "timestamp": "2026-08-06T20:31:18.055601+00:00"
+            "timestamp": "2026-08-07T07:57:17.956651+00:00"
           }
         },
         {
@@ -441,7 +441,7 @@
             "dependencies": [
               "roi-engine"
             ],
-            "timestamp": "2026-08-06T20:31:18.055611+00:00"
+            "timestamp": "2026-08-07T07:57:17.956658+00:00"
           }
         }
       ],
@@ -462,11 +462,11 @@
         "smart-proposal-intelligence-runtime"
       ],
       "ahde_policy": "enabled",
-      "timestamp": "2026-08-06T20:31:18.055624+00:00"
+      "timestamp": "2026-08-07T07:57:17.956667+00:00"
     },
     "ahde_policy": {
       "enabled": true,
-      "timestamp": "2026-08-06T20:31:18.059382+00:00"
+      "timestamp": "2026-08-07T07:57:17.966742+00:00"
     },
     "governance": {
       "approved": true,
@@ -476,49 +476,19 @@
   },
   "factory_graph": {
     "latest": {
-      "layout_name": "Plan Projet Cognac",
-      "source_format": "dwg",
-      "source_hash": "382efeec7954",
-      "node_count": 0,
+      "node_count": 3,
       "edge_count": 0,
-      "kind_counts": {},
-      "nodes": [],
-      "edges": [],
-      "objectives": [
-        "machines",
-        "conveyors",
-        "buffers",
-        "warehouses",
-        "amrs",
-        "operators",
-        "processes",
-        "flows",
-        "resources",
-        "connections",
-        "constraints",
-        "production_areas",
-        "safety_areas",
-        "storage_areas",
-        "logistic_routes"
-      ]
+      "kind_counts": {
+        "machine": 1,
+        "resource": 2
+      }
     }
   },
   "knowledge_graph": {
     "latest": {
-      "layout_name": "Plan Projet Cognac",
-      "fact_count": 0,
-      "relation_count": 0,
-      "assertions": [],
-      "relations": [],
-      "sources": [
-        "Knowledge Hub",
-        "Enterprise Memory",
-        "Historical Projects",
-        "Industrial Rules",
-        "Previous Decisions",
-        "Lessons Learned"
-      ],
-      "confidence": 0.55
+      "fact_count": 3,
+      "relation_count": 3,
+      "confidence": 0.5875
     }
   },
   "digital_twin": {
@@ -578,8 +548,8 @@
         "flow_intensity": 0.0,
         "flow_edges_per_machine": 0.0,
         "logistics_pressure_index": 0.0,
-        "starvation_risk_index": 0.02,
-        "knowledge_coverage": 0.55
+        "starvation_risk_index": 0.38,
+        "knowledge_coverage": 0.5875
       },
       "amr_routing": {
         "routes": 0,
@@ -601,13 +571,41 @@
         }
       },
       "travel_distance": 0,
-      "production_capacity": 0.0,
-      "oee": 0.58,
-      "roi": 1.248,
-      "bottlenecks": [],
+      "production_capacity": 18.0,
+      "oee": 0.522,
+      "roi": 1.3293,
+      "bottlenecks": [
+        {
+          "id": "dxf-0-cce19aba8055",
+          "kind": "machine",
+          "label": "M-CHUNK",
+          "severity": 0.81,
+          "degree": 0,
+          "root_cause": "low_connectivity_or_isolated_flow_node",
+          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+        },
+        {
+          "id": "dxf-1-4c7ea65491cf",
+          "kind": "resource",
+          "label": "ENDSEC",
+          "severity": 0.81,
+          "degree": 0,
+          "root_cause": "low_connectivity_or_isolated_flow_node",
+          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+        },
+        {
+          "id": "dxf-2-aabae1f5e53c",
+          "kind": "resource",
+          "label": "EOF",
+          "severity": 0.81,
+          "degree": 0,
+          "root_cause": "low_connectivity_or_isolated_flow_node",
+          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+        }
+      ],
       "buffer_occupancy": {
         "buffers": 0,
-        "estimated_occupancy": 0.22,
+        "estimated_occupancy": 0.43,
         "buffer_to_machine_ratio": 0.0,
         "jit_readiness": 0.45,
         "wip_policy_score": 0.75
@@ -618,9 +616,9 @@
         "recommended_near_line_wip_cells": 2
       },
       "cycle_times": {
-        "baseline_seconds": 42.0,
+        "baseline_seconds": 54.6,
         "variance_seconds": 4.5,
-        "estimated_changeover_loss_minutes": 8.0
+        "estimated_changeover_loss_minutes": 23.0
       }
     }
   },

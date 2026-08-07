@@ -13096,6 +13096,1887 @@
               }
             ]
           }
+        },
+        {
+          "meta": {
+            "revision_id": "rev-sample-dxf-154c112c",
+            "layout_name": "sample-dxf",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "automated import snapshot",
+            "parent_revision_id": "rev-sample-dxf-154c112c",
+            "created_at": "2026-08-07T07:06:22.364765+00:00",
+            "source_hash": "539484177490",
+            "snapshot_hash": "154c112c774a3fa7"
+          },
+          "snapshot": {
+            "layout_name": "sample-dxf",
+            "source_format": "dxf",
+            "source_hash": "539484177490",
+            "entities": [
+              {
+                "id": "dxf-0-4df79b444078",
+                "kind": "resource",
+                "label": "ENTITIES",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "section",
+                "properties": {
+                  "dxf_fields": {
+                    "2": [
+                      "ENTITIES"
+                    ]
+                  },
+                  "source_type": "section",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-0-4df79b444078",
+                    "type": "section",
+                    "label": "ENTITIES",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "2": [
+                          "ENTITIES"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-1-fdc5f94b3bfb",
+                "kind": "machine",
+                "label": "CNC 01",
+                "layer": "MACHINES",
+                "center": [
+                  10.0,
+                  10.0
+                ],
+                "bounds": [
+                  10.0,
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "confidence": 0.94,
+                "source_type": "text",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "MACHINES"
+                    ],
+                    "1": [
+                      "CNC 01"
+                    ],
+                    "10": [
+                      "10"
+                    ],
+                    "20": [
+                      "10"
+                    ]
+                  },
+                  "source_type": "text",
+                  "classification_rationale": [
+                    "machine marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-1-fdc5f94b3bfb",
+                    "type": "text",
+                    "label": "CNC 01",
+                    "layer": "MACHINES",
+                    "points": [
+                      [
+                        10.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "MACHINES"
+                        ],
+                        "1": [
+                          "CNC 01"
+                        ],
+                        "10": [
+                          "10"
+                        ],
+                        "20": [
+                          "10"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-2-6ff8a5285c48",
+                "kind": "machine",
+                "label": "Palletizer",
+                "layer": "MACHINES",
+                "center": [
+                  18.0,
+                  10.0
+                ],
+                "bounds": [
+                  18.0,
+                  10.0,
+                  18.0,
+                  10.0
+                ],
+                "confidence": 0.94,
+                "source_type": "insert",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "MACHINES"
+                    ],
+                    "2": [
+                      "Palletizer"
+                    ],
+                    "10": [
+                      "18"
+                    ],
+                    "20": [
+                      "10"
+                    ]
+                  },
+                  "source_type": "insert",
+                  "classification_rationale": [
+                    "machine marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-2-6ff8a5285c48",
+                    "type": "insert",
+                    "label": "Palletizer",
+                    "layer": "MACHINES",
+                    "points": [
+                      [
+                        18.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "MACHINES"
+                        ],
+                        "2": [
+                          "Palletizer"
+                        ],
+                        "10": [
+                          "18"
+                        ],
+                        "20": [
+                          "10"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-3-8508df0792a7",
+                "kind": "production_area",
+                "label": "LINE",
+                "layer": "FLOW",
+                "center": [
+                  17.0,
+                  10.0
+                ],
+                "bounds": [
+                  12.0,
+                  10.0,
+                  22.0,
+                  10.0
+                ],
+                "confidence": 0.8,
+                "source_type": "line",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "FLOW"
+                    ],
+                    "10": [
+                      "12"
+                    ],
+                    "20": [
+                      "10"
+                    ],
+                    "11": [
+                      "22"
+                    ],
+                    "21": [
+                      "10"
+                    ]
+                  },
+                  "source_type": "line",
+                  "classification_rationale": [
+                    "production area marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-3-8508df0792a7",
+                    "type": "line",
+                    "label": "LINE",
+                    "layer": "FLOW",
+                    "points": [
+                      [
+                        12.0,
+                        10.0
+                      ],
+                      [
+                        22.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "FLOW"
+                        ],
+                        "10": [
+                          "12"
+                        ],
+                        "20": [
+                          "10"
+                        ],
+                        "11": [
+                          "22"
+                        ],
+                        "21": [
+                          "10"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-4-d3d2e0b09681",
+                "kind": "buffer",
+                "label": "CIRCLE",
+                "layer": "WIP",
+                "center": [
+                  26.0,
+                  10.0
+                ],
+                "bounds": [
+                  26.0,
+                  10.0,
+                  26.0,
+                  10.0
+                ],
+                "confidence": 0.88,
+                "source_type": "circle",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "WIP"
+                    ],
+                    "10": [
+                      "26"
+                    ],
+                    "20": [
+                      "10"
+                    ],
+                    "40": [
+                      "2"
+                    ]
+                  },
+                  "source_type": "circle",
+                  "classification_rationale": [
+                    "buffer/WIP marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-4-d3d2e0b09681",
+                    "type": "circle",
+                    "label": "CIRCLE",
+                    "layer": "WIP",
+                    "points": [
+                      [
+                        26.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "WIP"
+                        ],
+                        "10": [
+                          "26"
+                        ],
+                        "20": [
+                          "10"
+                        ],
+                        "40": [
+                          "2"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-5-4c7ea65491cf",
+                "kind": "resource",
+                "label": "ENDSEC",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "endsec",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "endsec",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-5-4c7ea65491cf",
+                    "type": "endsec",
+                    "label": "ENDSEC",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-6-aabae1f5e53c",
+                "kind": "resource",
+                "label": "EOF",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "eof",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "eof",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-6-aabae1f5e53c",
+                    "type": "eof",
+                    "label": "EOF",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              }
+            ],
+            "connections": [
+              {
+                "source": "dxf-1-fdc5f94b3bfb",
+                "target": "dxf-2-6ff8a5285c48",
+                "relation": "adjacent_to",
+                "distance": 8.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "machine",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-1-fdc5f94b3bfb",
+                "target": "dxf-3-8508df0792a7",
+                "relation": "contains",
+                "distance": 7.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "machine",
+                  "target_kind": "production_area"
+                }
+              },
+              {
+                "source": "dxf-2-6ff8a5285c48",
+                "target": "dxf-1-fdc5f94b3bfb",
+                "relation": "adjacent_to",
+                "distance": 8.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "machine",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-2-6ff8a5285c48",
+                "target": "dxf-3-8508df0792a7",
+                "relation": "contains",
+                "distance": 1.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "machine",
+                  "target_kind": "production_area"
+                }
+              },
+              {
+                "source": "dxf-2-6ff8a5285c48",
+                "target": "dxf-4-d3d2e0b09681",
+                "relation": "queues_to",
+                "distance": 8.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "machine",
+                  "target_kind": "buffer"
+                }
+              },
+              {
+                "source": "dxf-3-8508df0792a7",
+                "target": "dxf-1-fdc5f94b3bfb",
+                "relation": "contains",
+                "distance": 7.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "production_area",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-3-8508df0792a7",
+                "target": "dxf-2-6ff8a5285c48",
+                "relation": "contains",
+                "distance": 1.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "production_area",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-3-8508df0792a7",
+                "target": "dxf-4-d3d2e0b09681",
+                "relation": "contains",
+                "distance": 9.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "production_area",
+                  "target_kind": "buffer"
+                }
+              },
+              {
+                "source": "dxf-4-d3d2e0b09681",
+                "target": "dxf-1-fdc5f94b3bfb",
+                "relation": "buffers_for",
+                "distance": 16.0,
+                "confidence": 0.968,
+                "properties": {
+                  "source_kind": "buffer",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-4-d3d2e0b09681",
+                "target": "dxf-2-6ff8a5285c48",
+                "relation": "buffers_for",
+                "distance": 8.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "buffer",
+                  "target_kind": "machine"
+                }
+              },
+              {
+                "source": "dxf-4-d3d2e0b09681",
+                "target": "dxf-3-8508df0792a7",
+                "relation": "contains",
+                "distance": 9.0,
+                "confidence": 0.98,
+                "properties": {
+                  "source_kind": "buffer",
+                  "target_kind": "production_area"
+                }
+              }
+            ],
+            "factory_graph": {
+              "layout_name": "sample-dxf",
+              "source_format": "dxf",
+              "source_hash": "539484177490",
+              "node_count": 7,
+              "edge_count": 11,
+              "kind_counts": {
+                "resource": 3,
+                "machine": 2,
+                "production_area": 1,
+                "buffer": 1
+              },
+              "nodes": [
+                {
+                  "id": "dxf-0-4df79b444078",
+                  "kind": "resource",
+                  "label": "ENTITIES",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {
+                      "2": [
+                        "ENTITIES"
+                      ]
+                    },
+                    "source_type": "section",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-0-4df79b444078",
+                      "type": "section",
+                      "label": "ENTITIES",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "2": [
+                            "ENTITIES"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-1-fdc5f94b3bfb",
+                  "kind": "machine",
+                  "label": "CNC 01",
+                  "layer": "MACHINES",
+                  "center": [
+                    10.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    10.0,
+                    10.0,
+                    10.0,
+                    10.0
+                  ],
+                  "confidence": 0.94,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "MACHINES"
+                      ],
+                      "1": [
+                        "CNC 01"
+                      ],
+                      "10": [
+                        "10"
+                      ],
+                      "20": [
+                        "10"
+                      ]
+                    },
+                    "source_type": "text",
+                    "classification_rationale": [
+                      "machine marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-1-fdc5f94b3bfb",
+                      "type": "text",
+                      "label": "CNC 01",
+                      "layer": "MACHINES",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "CNC 01"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-2-6ff8a5285c48",
+                  "kind": "machine",
+                  "label": "Palletizer",
+                  "layer": "MACHINES",
+                  "center": [
+                    18.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    18.0,
+                    10.0,
+                    18.0,
+                    10.0
+                  ],
+                  "confidence": 0.94,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "MACHINES"
+                      ],
+                      "2": [
+                        "Palletizer"
+                      ],
+                      "10": [
+                        "18"
+                      ],
+                      "20": [
+                        "10"
+                      ]
+                    },
+                    "source_type": "insert",
+                    "classification_rationale": [
+                      "machine marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-2-6ff8a5285c48",
+                      "type": "insert",
+                      "label": "Palletizer",
+                      "layer": "MACHINES",
+                      "points": [
+                        [
+                          18.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "2": [
+                            "Palletizer"
+                          ],
+                          "10": [
+                            "18"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-3-8508df0792a7",
+                  "kind": "production_area",
+                  "label": "LINE",
+                  "layer": "FLOW",
+                  "center": [
+                    17.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    12.0,
+                    10.0,
+                    22.0,
+                    10.0
+                  ],
+                  "confidence": 0.8,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "FLOW"
+                      ],
+                      "10": [
+                        "12"
+                      ],
+                      "20": [
+                        "10"
+                      ],
+                      "11": [
+                        "22"
+                      ],
+                      "21": [
+                        "10"
+                      ]
+                    },
+                    "source_type": "line",
+                    "classification_rationale": [
+                      "production area marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-3-8508df0792a7",
+                      "type": "line",
+                      "label": "LINE",
+                      "layer": "FLOW",
+                      "points": [
+                        [
+                          12.0,
+                          10.0
+                        ],
+                        [
+                          22.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "FLOW"
+                          ],
+                          "10": [
+                            "12"
+                          ],
+                          "20": [
+                            "10"
+                          ],
+                          "11": [
+                            "22"
+                          ],
+                          "21": [
+                            "10"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-4-d3d2e0b09681",
+                  "kind": "buffer",
+                  "label": "CIRCLE",
+                  "layer": "WIP",
+                  "center": [
+                    26.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    26.0,
+                    10.0,
+                    26.0,
+                    10.0
+                  ],
+                  "confidence": 0.88,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "WIP"
+                      ],
+                      "10": [
+                        "26"
+                      ],
+                      "20": [
+                        "10"
+                      ],
+                      "40": [
+                        "2"
+                      ]
+                    },
+                    "source_type": "circle",
+                    "classification_rationale": [
+                      "buffer/WIP marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-4-d3d2e0b09681",
+                      "type": "circle",
+                      "label": "CIRCLE",
+                      "layer": "WIP",
+                      "points": [
+                        [
+                          26.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "WIP"
+                          ],
+                          "10": [
+                            "26"
+                          ],
+                          "20": [
+                            "10"
+                          ],
+                          "40": [
+                            "2"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-5-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "endsec",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-5-4c7ea65491cf",
+                      "type": "endsec",
+                      "label": "ENDSEC",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-6-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "eof",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-6-aabae1f5e53c",
+                      "type": "eof",
+                      "label": "EOF",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "source": "dxf-1-fdc5f94b3bfb",
+                  "target": "dxf-2-6ff8a5285c48",
+                  "relation": "adjacent_to",
+                  "distance": 8.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "machine",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-1-fdc5f94b3bfb",
+                  "target": "dxf-3-8508df0792a7",
+                  "relation": "contains",
+                  "distance": 7.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "machine",
+                    "target_kind": "production_area"
+                  }
+                },
+                {
+                  "source": "dxf-2-6ff8a5285c48",
+                  "target": "dxf-1-fdc5f94b3bfb",
+                  "relation": "adjacent_to",
+                  "distance": 8.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "machine",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-2-6ff8a5285c48",
+                  "target": "dxf-3-8508df0792a7",
+                  "relation": "contains",
+                  "distance": 1.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "machine",
+                    "target_kind": "production_area"
+                  }
+                },
+                {
+                  "source": "dxf-2-6ff8a5285c48",
+                  "target": "dxf-4-d3d2e0b09681",
+                  "relation": "queues_to",
+                  "distance": 8.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "machine",
+                    "target_kind": "buffer"
+                  }
+                },
+                {
+                  "source": "dxf-3-8508df0792a7",
+                  "target": "dxf-1-fdc5f94b3bfb",
+                  "relation": "contains",
+                  "distance": 7.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "production_area",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-3-8508df0792a7",
+                  "target": "dxf-2-6ff8a5285c48",
+                  "relation": "contains",
+                  "distance": 1.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "production_area",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-3-8508df0792a7",
+                  "target": "dxf-4-d3d2e0b09681",
+                  "relation": "contains",
+                  "distance": 9.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "production_area",
+                    "target_kind": "buffer"
+                  }
+                },
+                {
+                  "source": "dxf-4-d3d2e0b09681",
+                  "target": "dxf-1-fdc5f94b3bfb",
+                  "relation": "buffers_for",
+                  "distance": 16.0,
+                  "confidence": 0.968,
+                  "properties": {
+                    "source_kind": "buffer",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-4-d3d2e0b09681",
+                  "target": "dxf-2-6ff8a5285c48",
+                  "relation": "buffers_for",
+                  "distance": 8.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "buffer",
+                    "target_kind": "machine"
+                  }
+                },
+                {
+                  "source": "dxf-4-d3d2e0b09681",
+                  "target": "dxf-3-8508df0792a7",
+                  "relation": "contains",
+                  "distance": 9.0,
+                  "confidence": 0.98,
+                  "properties": {
+                    "source_kind": "buffer",
+                    "target_kind": "production_area"
+                  }
+                }
+              ],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "sample-dxf",
+              "fact_count": 7,
+              "relation_count": 18,
+              "assertions": [
+                {
+                  "subject": "dxf-0-4df79b444078",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-1-fdc5f94b3bfb",
+                  "predicate": "semantic_class",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-2-6ff8a5285c48",
+                  "predicate": "semantic_class",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-3-8508df0792a7",
+                  "predicate": "semantic_class",
+                  "object": "production_area",
+                  "confidence": 0.84,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-4-d3d2e0b09681",
+                  "predicate": "semantic_class",
+                  "object": "wip_buffer",
+                  "confidence": 0.92,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-5-4c7ea65491cf",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dxf:dxf"
+                },
+                {
+                  "subject": "dxf-6-aabae1f5e53c",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dxf:dxf"
+                }
+              ],
+              "relations": [
+                {
+                  "subject": "dxf-0-4df79b444078",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-1-fdc5f94b3bfb",
+                  "predicate": "has_role",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-2-6ff8a5285c48",
+                  "predicate": "has_role",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-3-8508df0792a7",
+                  "predicate": "has_role",
+                  "object": "production_area",
+                  "confidence": 0.84
+                },
+                {
+                  "subject": "dxf-4-d3d2e0b09681",
+                  "predicate": "has_role",
+                  "object": "wip_buffer",
+                  "confidence": 0.92
+                },
+                {
+                  "subject": "dxf-5-4c7ea65491cf",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-6-aabae1f5e53c",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-1-fdc5f94b3bfb",
+                  "predicate": "adjacent_to",
+                  "object": "dxf-2-6ff8a5285c48",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-1-fdc5f94b3bfb",
+                  "predicate": "contains",
+                  "object": "dxf-3-8508df0792a7",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-2-6ff8a5285c48",
+                  "predicate": "adjacent_to",
+                  "object": "dxf-1-fdc5f94b3bfb",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-2-6ff8a5285c48",
+                  "predicate": "contains",
+                  "object": "dxf-3-8508df0792a7",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-2-6ff8a5285c48",
+                  "predicate": "queues_to",
+                  "object": "dxf-4-d3d2e0b09681",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-3-8508df0792a7",
+                  "predicate": "contains",
+                  "object": "dxf-1-fdc5f94b3bfb",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-3-8508df0792a7",
+                  "predicate": "contains",
+                  "object": "dxf-2-6ff8a5285c48",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-3-8508df0792a7",
+                  "predicate": "contains",
+                  "object": "dxf-4-d3d2e0b09681",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-4-d3d2e0b09681",
+                  "predicate": "buffers_for",
+                  "object": "dxf-1-fdc5f94b3bfb",
+                  "confidence": 0.968
+                },
+                {
+                  "subject": "dxf-4-d3d2e0b09681",
+                  "predicate": "buffers_for",
+                  "object": "dxf-2-6ff8a5285c48",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-4-d3d2e0b09681",
+                  "predicate": "contains",
+                  "object": "dxf-3-8508df0792a7",
+                  "confidence": 0.98
+                }
+              ],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.6375
+            },
+            "digital_twin": {
+              "version": "twin-539484177490",
+              "layout_name": "sample-dxf",
+              "live_sync": false,
+              "nodes": 7,
+              "edges": 11,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 7,
+                "edge_count": 11,
+                "machine_count": 2,
+                "conveyor_count": 0,
+                "buffer_count": 1,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "539484177490"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-539484177490"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 7,
+                  "edge_count": 11,
+                  "machine_count": 2,
+                  "conveyor_count": 0,
+                  "buffer_count": 1,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "539484177490"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 11,
+                "flow_intensity": 1.5714,
+                "flow_edges_per_machine": 5.5,
+                "logistics_pressure_index": 0.213,
+                "starvation_risk_index": 0.5121,
+                "knowledge_coverage": 0.6375
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.22,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.575,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 82.0,
+              "production_capacity": 43.0,
+              "oee": 0.5334,
+              "roi": 1.4016,
+              "bottlenecks": [
+                {
+                  "id": "dxf-0-4df79b444078",
+                  "kind": "resource",
+                  "label": "ENTITIES",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-5-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-6-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-4-d3d2e0b09681",
+                  "kind": "buffer",
+                  "label": "CIRCLE",
+                  "severity": 0.45,
+                  "degree": 5,
+                  "root_cause": "wip_accumulation_or_pull_mismatch",
+                  "recommended_action": "rebalance_wip_release_and_add_jit_sequencing"
+                }
+              ],
+              "buffer_occupancy": {
+                "buffers": 1,
+                "estimated_occupancy": 0.6,
+                "buffer_to_machine_ratio": 0.5,
+                "jit_readiness": 0.5983,
+                "wip_policy_score": 0.575
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 85.04,
+                "variance_seconds": 7.665,
+                "estimated_changeover_loss_minutes": 25.13
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.775,
+                "status": "good",
+                "entity_coverage": 7
+              },
+              "flow_analysis": {
+                "score": 0.4732,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 82.0,
+                "starvation_risk": 0.5121,
+                "bottleneck_pressure": 1.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 1,
+                "constraint_density": 0.1429,
+                "bottleneck_pressure": 1.0,
+                "starvation_risk": 0.5121,
+                "jit_readiness": 0.5983,
+                "wip_policy_score": 0.575
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+                "Sequence machine clusters into production cells for shorter internal flows."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 4 layout nodes.",
+                "Travel distance accumulation is 82.0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.5121; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.5832,
+              "state_status": "acceptable",
+              "problems": [
+                "High starvation risk on converter/corrugator feed loops.",
+                "Multiple bottleneck nodes detected across buffer/warehouse topology."
+              ],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [
+                "Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.",
+                "Run A/B/C scenario tests for buffer sizing and route segmentation."
+              ],
+              "kpi_snapshot": {
+                "oee": 0.5334,
+                "roi": 1.4016,
+                "travel_distance": 82.0,
+                "starvation_risk": 0.5121,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.5983
+              }
+            },
+            "executive_report": "# Executive Engineering Report: sample-dxf\n\n## Factory Graph\n- Nodes: 7\n- Edges: 11\n- Dominant kinds: {'resource': 3, 'machine': 2, 'production_area': 1, 'buffer': 1}\n\n## Knowledge Graph\n- Facts: 7\n- Relations: 18\n- Confidence: 0.6375\n\n## Simulation\n- OEE: 0.5334\n- ROI: 1.4016\n- Travel distance: 82.0\n- Bottlenecks: 4\n- Starvation risk index: 0.5121\n- AMR layout coverage: 0.0\n- JIT readiness: 0.5983\n\n## Plant State (Problems and Opportunities)\n- Problem: High starvation risk on converter/corrugator feed loops.\n- Problem: Multiple bottleneck nodes detected across buffer/warehouse topology.\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n- Priority Action: Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.\n- Priority Action: Run A/B/C scenario tests for buffer sizing and route segmentation.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.5286,
+            "trace": {
+              "source_format": "dxf",
+              "layout_name": "sample-dxf",
+              "entity_count": 7,
+              "connection_count": 11,
+              "hypotheses": [
+                {
+                  "name": "geometry-first classification",
+                  "score": 1.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 1.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                },
+                {
+                  "name": "label-first classification",
+                  "score": 0.5714,
+                  "rationale": "Prefer explicit labels and layers when available."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "geometry-first classification",
+                "score": 1.0,
+                "rationale": "Use geometry and topology to infer route-like objects."
+              },
+              "selected_rules": [],
+              "import": {
+                "model": {
+                  "model_id": "igm-4f6d7c261b90",
+                  "source_format": "dxf",
+                  "source_name": "sample-dxf",
+                  "entities": [
+                    {
+                      "id": "dxf-0-4df79b444078",
+                      "primitive": "section",
+                      "layer": "default",
+                      "label": "ENTITIES",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "2": [
+                            "ENTITIES"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-1-fdc5f94b3bfb",
+                      "primitive": "text",
+                      "layer": "MACHINES",
+                      "label": "CNC 01",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "CNC 01"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-2-6ff8a5285c48",
+                      "primitive": "insert",
+                      "layer": "MACHINES",
+                      "label": "Palletizer",
+                      "points": [
+                        [
+                          18.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "2": [
+                            "Palletizer"
+                          ],
+                          "10": [
+                            "18"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-3-8508df0792a7",
+                      "primitive": "line",
+                      "layer": "FLOW",
+                      "label": "LINE",
+                      "points": [
+                        [
+                          12.0,
+                          10.0
+                        ],
+                        [
+                          22.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "FLOW"
+                          ],
+                          "10": [
+                            "12"
+                          ],
+                          "20": [
+                            "10"
+                          ],
+                          "11": [
+                            "22"
+                          ],
+                          "21": [
+                            "10"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-4-d3d2e0b09681",
+                      "primitive": "circle",
+                      "layer": "WIP",
+                      "label": "CIRCLE",
+                      "points": [
+                        [
+                          26.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "WIP"
+                          ],
+                          "10": [
+                            "26"
+                          ],
+                          "20": [
+                            "10"
+                          ],
+                          "40": [
+                            "2"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-5-4c7ea65491cf",
+                      "primitive": "endsec",
+                      "layer": "default",
+                      "label": "ENDSEC",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    },
+                    {
+                      "id": "dxf-6-aabae1f5e53c",
+                      "primitive": "eof",
+                      "layer": "default",
+                      "label": "EOF",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  ],
+                  "metadata": {
+                    "provider": "dxf-native",
+                    "source_format": "dxf",
+                    "provider_attempts": [
+                      {
+                        "provider_id": "dxf-native",
+                        "status": "success",
+                        "detail": "imported"
+                      }
+                    ]
+                  }
+                },
+                "attempts": [
+                  {
+                    "provider_id": "dxf-native",
+                    "status": "success",
+                    "detail": "imported"
+                  }
+                ],
+                "selected_provider": "dxf-native"
+              }
+            },
+            "object_evidence": [
+              {
+                "id": "evidence-sample-dxf-dxf-0-4df79b444078",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-0-4df79b444078",
+                  "entity_label": "ENTITIES",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:section"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-1-fdc5f94b3bfb",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-1-fdc5f94b3bfb",
+                  "entity_label": "CNC 01",
+                  "entity_kind": "machine",
+                  "source_format": "dxf",
+                  "confidence_score": 0.94,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:MACHINES",
+                    "type:text"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "machine marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-2-6ff8a5285c48",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-2-6ff8a5285c48",
+                  "entity_label": "Palletizer",
+                  "entity_kind": "machine",
+                  "source_format": "dxf",
+                  "confidence_score": 0.94,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:MACHINES",
+                    "type:insert"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "machine marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-3-8508df0792a7",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-3-8508df0792a7",
+                  "entity_label": "LINE",
+                  "entity_kind": "production_area",
+                  "source_format": "dxf",
+                  "confidence_score": 0.8,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "good",
+                  "source_references": [
+                    "layer:FLOW",
+                    "type:line"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "production area marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-4-d3d2e0b09681",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-4-d3d2e0b09681",
+                  "entity_label": "CIRCLE",
+                  "entity_kind": "buffer",
+                  "source_format": "dxf",
+                  "confidence_score": 0.88,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:WIP",
+                    "type:circle"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "buffer/WIP marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-5-4c7ea65491cf",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-5-4c7ea65491cf",
+                  "entity_label": "ENDSEC",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:endsec"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dxf-dxf-6-aabae1f5e53c",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dxf",
+                  "entity_id": "dxf-6-aabae1f5e53c",
+                  "entity_label": "EOF",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:eof"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              }
+            ]
+          }
         }
       ],
       "baseline_revision_id": "rev-sample-dxf-63294190"
@@ -14675,6 +16556,546 @@
             },
             "object_evidence": []
           }
+        },
+        {
+          "meta": {
+            "revision_id": "rev-plan-projet-cognac-667be4e0",
+            "layout_name": "Plan Projet Cognac",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "uploaded from layout workbench",
+            "parent_revision_id": "rev-plan-projet-cognac-667be4e0",
+            "created_at": "2026-08-07T06:24:33.505103+00:00",
+            "source_hash": "382efeec7954",
+            "snapshot_hash": "667be4e024b0c687"
+          },
+          "snapshot": {
+            "layout_name": "Plan Projet Cognac",
+            "source_format": "dwg",
+            "source_hash": "382efeec7954",
+            "entities": [],
+            "connections": [],
+            "factory_graph": {
+              "layout_name": "Plan Projet Cognac",
+              "source_format": "dwg",
+              "source_hash": "382efeec7954",
+              "node_count": 0,
+              "edge_count": 0,
+              "kind_counts": {},
+              "nodes": [],
+              "edges": [],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "Plan Projet Cognac",
+              "fact_count": 0,
+              "relation_count": 0,
+              "assertions": [],
+              "relations": [],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.55
+            },
+            "digital_twin": {
+              "version": "twin-382efeec7954",
+              "layout_name": "Plan Projet Cognac",
+              "live_sync": false,
+              "nodes": 0,
+              "edges": 0,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 0,
+                "edge_count": 0,
+                "machine_count": 0,
+                "conveyor_count": 0,
+                "buffer_count": 0,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "382efeec7954"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-382efeec7954"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 0,
+                  "edge_count": 0,
+                  "machine_count": 0,
+                  "conveyor_count": 0,
+                  "buffer_count": 0,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "382efeec7954"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 0,
+                "flow_intensity": 0.0,
+                "flow_edges_per_machine": 0.0,
+                "logistics_pressure_index": 0.0,
+                "starvation_risk_index": 0.02,
+                "knowledge_coverage": 0.55
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.0,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.75,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 0,
+              "production_capacity": 0.0,
+              "oee": 0.58,
+              "roi": 1.248,
+              "bottlenecks": [],
+              "buffer_occupancy": {
+                "buffers": 0,
+                "estimated_occupancy": 0.22,
+                "buffer_to_machine_ratio": 0.0,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 42.0,
+                "variance_seconds": 4.5,
+                "estimated_changeover_loss_minutes": 8.0
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.4,
+                "status": "needs_improvement",
+                "entity_coverage": 0
+              },
+              "flow_analysis": {
+                "score": 0.497,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 0,
+                "starvation_risk": 0.02,
+                "bottleneck_pressure": 0.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 0,
+                "constraint_density": 0.0,
+                "bottleneck_pressure": 0.0,
+                "starvation_risk": 0.02,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 0 layout nodes.",
+                "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.02; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.6079,
+              "state_status": "acceptable",
+              "problems": [],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [],
+              "kpi_snapshot": {
+                "oee": 0.58,
+                "roi": 1.248,
+                "travel_distance": 0,
+                "starvation_risk": 0.02,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.45
+              }
+            },
+            "executive_report": "# Executive Engineering Report: Plan Projet Cognac\n\n## Factory Graph\n- Nodes: 0\n- Edges: 0\n- Dominant kinds: {}\n\n## Knowledge Graph\n- Facts: 0\n- Relations: 0\n- Confidence: 0.55\n\n## Simulation\n- OEE: 0.58\n- ROI: 1.248\n- Travel distance: 0\n- Bottlenecks: 0\n- Starvation risk index: 0.02\n- AMR layout coverage: 0.0\n- JIT readiness: 0.45\n\n## Plant State (Problems and Opportunities)\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.22,
+            "trace": {
+              "source_format": "dwg",
+              "layout_name": "Plan Projet Cognac",
+              "entity_count": 0,
+              "connection_count": 0,
+              "hypotheses": [
+                {
+                  "name": "label-first classification",
+                  "score": 0.0,
+                  "rationale": "Prefer explicit labels and layers when available."
+                },
+                {
+                  "name": "geometry-first classification",
+                  "score": 0.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 0.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "label-first classification",
+                "score": 0.0,
+                "rationale": "Prefer explicit labels and layers when available."
+              },
+              "selected_rules": [],
+              "import": {
+                "status": "fallback",
+                "reason": "no provider available for source format 'dwg'",
+                "available_providers": []
+              }
+            },
+            "object_evidence": []
+          }
+        },
+        {
+          "meta": {
+            "revision_id": "rev-plan-projet-cognac-667be4e0",
+            "layout_name": "Plan Projet Cognac",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "uploaded from layout workbench",
+            "parent_revision_id": "rev-plan-projet-cognac-667be4e0",
+            "created_at": "2026-08-07T06:28:39.070212+00:00",
+            "source_hash": "382efeec7954",
+            "snapshot_hash": "667be4e024b0c687"
+          },
+          "snapshot": {
+            "layout_name": "Plan Projet Cognac",
+            "source_format": "dwg",
+            "source_hash": "382efeec7954",
+            "entities": [],
+            "connections": [],
+            "factory_graph": {
+              "layout_name": "Plan Projet Cognac",
+              "source_format": "dwg",
+              "source_hash": "382efeec7954",
+              "node_count": 0,
+              "edge_count": 0,
+              "kind_counts": {},
+              "nodes": [],
+              "edges": [],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "Plan Projet Cognac",
+              "fact_count": 0,
+              "relation_count": 0,
+              "assertions": [],
+              "relations": [],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.55
+            },
+            "digital_twin": {
+              "version": "twin-382efeec7954",
+              "layout_name": "Plan Projet Cognac",
+              "live_sync": false,
+              "nodes": 0,
+              "edges": 0,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 0,
+                "edge_count": 0,
+                "machine_count": 0,
+                "conveyor_count": 0,
+                "buffer_count": 0,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "382efeec7954"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-382efeec7954"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 0,
+                  "edge_count": 0,
+                  "machine_count": 0,
+                  "conveyor_count": 0,
+                  "buffer_count": 0,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "382efeec7954"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 0,
+                "flow_intensity": 0.0,
+                "flow_edges_per_machine": 0.0,
+                "logistics_pressure_index": 0.0,
+                "starvation_risk_index": 0.02,
+                "knowledge_coverage": 0.55
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.0,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.75,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 0,
+              "production_capacity": 0.0,
+              "oee": 0.58,
+              "roi": 1.248,
+              "bottlenecks": [],
+              "buffer_occupancy": {
+                "buffers": 0,
+                "estimated_occupancy": 0.22,
+                "buffer_to_machine_ratio": 0.0,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 42.0,
+                "variance_seconds": 4.5,
+                "estimated_changeover_loss_minutes": 8.0
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.4,
+                "status": "needs_improvement",
+                "entity_coverage": 0
+              },
+              "flow_analysis": {
+                "score": 0.497,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 0,
+                "starvation_risk": 0.02,
+                "bottleneck_pressure": 0.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 0,
+                "constraint_density": 0.0,
+                "bottleneck_pressure": 0.0,
+                "starvation_risk": 0.02,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 0 layout nodes.",
+                "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.02; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.6079,
+              "state_status": "acceptable",
+              "problems": [],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [],
+              "kpi_snapshot": {
+                "oee": 0.58,
+                "roi": 1.248,
+                "travel_distance": 0,
+                "starvation_risk": 0.02,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.45
+              }
+            },
+            "executive_report": "# Executive Engineering Report: Plan Projet Cognac\n\n## Factory Graph\n- Nodes: 0\n- Edges: 0\n- Dominant kinds: {}\n\n## Knowledge Graph\n- Facts: 0\n- Relations: 0\n- Confidence: 0.55\n\n## Simulation\n- OEE: 0.58\n- ROI: 1.248\n- Travel distance: 0\n- Bottlenecks: 0\n- Starvation risk index: 0.02\n- AMR layout coverage: 0.0\n- JIT readiness: 0.45\n\n## Plant State (Problems and Opportunities)\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.22,
+            "trace": {
+              "source_format": "dwg",
+              "layout_name": "Plan Projet Cognac",
+              "entity_count": 0,
+              "connection_count": 0,
+              "hypotheses": [
+                {
+                  "name": "label-first classification",
+                  "score": 0.0,
+                  "rationale": "Prefer explicit labels and layers when available."
+                },
+                {
+                  "name": "geometry-first classification",
+                  "score": 0.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 0.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "label-first classification",
+                "score": 0.0,
+                "rationale": "Prefer explicit labels and layers when available."
+              },
+              "selected_rules": [],
+              "import": {
+                "status": "fallback",
+                "reason": "no provider available for source format 'dwg'",
+                "available_providers": []
+              }
+            },
+            "object_evidence": []
+          }
         }
       ],
       "baseline_revision_id": "rev-plan-projet-cognac-667be4e0"
@@ -15634,9 +18055,2561 @@
               }
             ]
           }
+        },
+        {
+          "meta": {
+            "revision_id": "rev-sample-dwg-7ece8e32",
+            "layout_name": "sample-dwg",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "automated import snapshot",
+            "parent_revision_id": "rev-sample-dwg-7ece8e32",
+            "created_at": "2026-08-07T07:06:22.817167+00:00",
+            "source_hash": "2c179f2524ee",
+            "snapshot_hash": "7ece8e3243ce6bd5"
+          },
+          "snapshot": {
+            "layout_name": "sample-dwg",
+            "source_format": "dxf",
+            "source_hash": "2c179f2524ee",
+            "entities": [
+              {
+                "id": "dxf-0-4df79b444078",
+                "kind": "resource",
+                "label": "ENTITIES",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "section",
+                "properties": {
+                  "dxf_fields": {
+                    "2": [
+                      "ENTITIES"
+                    ]
+                  },
+                  "source_type": "section",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-0-4df79b444078",
+                    "type": "section",
+                    "label": "ENTITIES",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "2": [
+                          "ENTITIES"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-1-3b8ea3db0fd8",
+                "kind": "machine",
+                "label": "Robot Cell 01",
+                "layer": "MACHINES",
+                "center": [
+                  14.0,
+                  9.0
+                ],
+                "bounds": [
+                  14.0,
+                  9.0,
+                  14.0,
+                  9.0
+                ],
+                "confidence": 0.94,
+                "source_type": "text",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "MACHINES"
+                    ],
+                    "1": [
+                      "Robot Cell 01"
+                    ],
+                    "10": [
+                      "14"
+                    ],
+                    "20": [
+                      "9"
+                    ]
+                  },
+                  "source_type": "text",
+                  "classification_rationale": [
+                    "machine marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-1-3b8ea3db0fd8",
+                    "type": "text",
+                    "label": "Robot Cell 01",
+                    "layer": "MACHINES",
+                    "points": [
+                      [
+                        14.0,
+                        9.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "MACHINES"
+                        ],
+                        "1": [
+                          "Robot Cell 01"
+                        ],
+                        "10": [
+                          "14"
+                        ],
+                        "20": [
+                          "9"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-2-4c7ea65491cf",
+                "kind": "resource",
+                "label": "ENDSEC",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "endsec",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "endsec",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-2-4c7ea65491cf",
+                    "type": "endsec",
+                    "label": "ENDSEC",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-3-aabae1f5e53c",
+                "kind": "resource",
+                "label": "EOF",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "eof",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "eof",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-3-aabae1f5e53c",
+                    "type": "eof",
+                    "label": "EOF",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              }
+            ],
+            "connections": [],
+            "factory_graph": {
+              "layout_name": "sample-dwg",
+              "source_format": "dxf",
+              "source_hash": "2c179f2524ee",
+              "node_count": 4,
+              "edge_count": 0,
+              "kind_counts": {
+                "resource": 3,
+                "machine": 1
+              },
+              "nodes": [
+                {
+                  "id": "dxf-0-4df79b444078",
+                  "kind": "resource",
+                  "label": "ENTITIES",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {
+                      "2": [
+                        "ENTITIES"
+                      ]
+                    },
+                    "source_type": "section",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-0-4df79b444078",
+                      "type": "section",
+                      "label": "ENTITIES",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "2": [
+                            "ENTITIES"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-1-3b8ea3db0fd8",
+                  "kind": "machine",
+                  "label": "Robot Cell 01",
+                  "layer": "MACHINES",
+                  "center": [
+                    14.0,
+                    9.0
+                  ],
+                  "bounds": [
+                    14.0,
+                    9.0,
+                    14.0,
+                    9.0
+                  ],
+                  "confidence": 0.94,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "MACHINES"
+                      ],
+                      "1": [
+                        "Robot Cell 01"
+                      ],
+                      "10": [
+                        "14"
+                      ],
+                      "20": [
+                        "9"
+                      ]
+                    },
+                    "source_type": "text",
+                    "classification_rationale": [
+                      "machine marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-1-3b8ea3db0fd8",
+                      "type": "text",
+                      "label": "Robot Cell 01",
+                      "layer": "MACHINES",
+                      "points": [
+                        [
+                          14.0,
+                          9.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "Robot Cell 01"
+                          ],
+                          "10": [
+                            "14"
+                          ],
+                          "20": [
+                            "9"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-2-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "endsec",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-2-4c7ea65491cf",
+                      "type": "endsec",
+                      "label": "ENDSEC",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-3-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "eof",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-3-aabae1f5e53c",
+                      "type": "eof",
+                      "label": "EOF",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                }
+              ],
+              "edges": [],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "sample-dwg",
+              "fact_count": 4,
+              "relation_count": 4,
+              "assertions": [
+                {
+                  "subject": "dxf-0-4df79b444078",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dwg:dxf"
+                },
+                {
+                  "subject": "dxf-1-3b8ea3db0fd8",
+                  "predicate": "semantic_class",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98,
+                  "source": "sample-dwg:dxf"
+                },
+                {
+                  "subject": "dxf-2-4c7ea65491cf",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dwg:dxf"
+                },
+                {
+                  "subject": "dxf-3-aabae1f5e53c",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "sample-dwg:dxf"
+                }
+              ],
+              "relations": [
+                {
+                  "subject": "dxf-0-4df79b444078",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-1-3b8ea3db0fd8",
+                  "predicate": "has_role",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-2-4c7ea65491cf",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-3-aabae1f5e53c",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                }
+              ],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.6
+            },
+            "digital_twin": {
+              "version": "twin-2c179f2524ee",
+              "layout_name": "sample-dwg",
+              "live_sync": false,
+              "nodes": 4,
+              "edges": 0,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 4,
+                "edge_count": 0,
+                "machine_count": 1,
+                "conveyor_count": 0,
+                "buffer_count": 0,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "2c179f2524ee"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-2c179f2524ee"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 4,
+                  "edge_count": 0,
+                  "machine_count": 1,
+                  "conveyor_count": 0,
+                  "buffer_count": 0,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "2c179f2524ee"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 0,
+                "flow_intensity": 0.0,
+                "flow_edges_per_machine": 0.0,
+                "logistics_pressure_index": 0.0,
+                "starvation_risk_index": 0.38,
+                "knowledge_coverage": 0.6
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.0,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.75,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 0,
+              "production_capacity": 18.0,
+              "oee": 0.522,
+              "roi": 1.3293,
+              "bottlenecks": [
+                {
+                  "id": "dxf-0-4df79b444078",
+                  "kind": "resource",
+                  "label": "ENTITIES",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-1-3b8ea3db0fd8",
+                  "kind": "machine",
+                  "label": "Robot Cell 01",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-2-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-3-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                }
+              ],
+              "buffer_occupancy": {
+                "buffers": 0,
+                "estimated_occupancy": 0.5,
+                "buffer_to_machine_ratio": 0.0,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 58.8,
+                "variance_seconds": 4.5,
+                "estimated_changeover_loss_minutes": 23.0
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.52,
+                "status": "acceptable",
+                "entity_coverage": 4
+              },
+              "flow_analysis": {
+                "score": 0.483,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "bottleneck_pressure": 1.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 0,
+                "constraint_density": 0.0,
+                "bottleneck_pressure": 1.0,
+                "starvation_risk": 0.38,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+                "Sequence machine clusters into production cells for shorter internal flows."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 4 layout nodes.",
+                "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.38; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.5371,
+              "state_status": "acceptable",
+              "problems": [
+                "High starvation risk on converter/corrugator feed loops.",
+                "Multiple bottleneck nodes detected across buffer/warehouse topology."
+              ],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [
+                "Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.",
+                "Run A/B/C scenario tests for buffer sizing and route segmentation."
+              ],
+              "kpi_snapshot": {
+                "oee": 0.522,
+                "roi": 1.3293,
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.45
+              }
+            },
+            "executive_report": "# Executive Engineering Report: sample-dwg\n\n## Factory Graph\n- Nodes: 4\n- Edges: 0\n- Dominant kinds: {'resource': 3, 'machine': 1}\n\n## Knowledge Graph\n- Facts: 4\n- Relations: 4\n- Confidence: 0.6\n\n## Simulation\n- OEE: 0.522\n- ROI: 1.3293\n- Travel distance: 0\n- Bottlenecks: 4\n- Starvation risk index: 0.38\n- AMR layout coverage: 0.0\n- JIT readiness: 0.45\n\n## Plant State (Problems and Opportunities)\n- Problem: High starvation risk on converter/corrugator feed loops.\n- Problem: Multiple bottleneck nodes detected across buffer/warehouse topology.\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n- Priority Action: Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.\n- Priority Action: Run A/B/C scenario tests for buffer sizing and route segmentation.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.3178,
+            "trace": {
+              "source_format": "dxf",
+              "layout_name": "sample-dwg",
+              "entity_count": 4,
+              "connection_count": 0,
+              "hypotheses": [
+                {
+                  "name": "geometry-first classification",
+                  "score": 1.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 1.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                },
+                {
+                  "name": "label-first classification",
+                  "score": 0.25,
+                  "rationale": "Prefer explicit labels and layers when available."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "geometry-first classification",
+                "score": 1.0,
+                "rationale": "Use geometry and topology to infer route-like objects."
+              },
+              "selected_rules": [],
+              "import": {
+                "model": {
+                  "model_id": "igm-a02c4cf4fd3a",
+                  "source_format": "dxf",
+                  "source_name": "sample-dwg",
+                  "entities": [
+                    {
+                      "id": "dxf-0-4df79b444078",
+                      "primitive": "section",
+                      "layer": "default",
+                      "label": "ENTITIES",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "2": [
+                            "ENTITIES"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-1-3b8ea3db0fd8",
+                      "primitive": "text",
+                      "layer": "MACHINES",
+                      "label": "Robot Cell 01",
+                      "points": [
+                        [
+                          14.0,
+                          9.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "Robot Cell 01"
+                          ],
+                          "10": [
+                            "14"
+                          ],
+                          "20": [
+                            "9"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-2-4c7ea65491cf",
+                      "primitive": "endsec",
+                      "layer": "default",
+                      "label": "ENDSEC",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    },
+                    {
+                      "id": "dxf-3-aabae1f5e53c",
+                      "primitive": "eof",
+                      "layer": "default",
+                      "label": "EOF",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  ],
+                  "metadata": {
+                    "provider": "dxf-native",
+                    "source_format": "dwg",
+                    "provider_attempts": [
+                      {
+                        "provider_id": "dwg-oda",
+                        "status": "success",
+                        "detail": "imported"
+                      }
+                    ]
+                  }
+                },
+                "attempts": [
+                  {
+                    "provider_id": "dwg-oda",
+                    "status": "success",
+                    "detail": "imported"
+                  }
+                ],
+                "selected_provider": "dwg-oda"
+              }
+            },
+            "object_evidence": [
+              {
+                "id": "evidence-sample-dwg-dxf-0-4df79b444078",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dwg",
+                  "entity_id": "dxf-0-4df79b444078",
+                  "entity_label": "ENTITIES",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:section"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dwg-dxf-1-3b8ea3db0fd8",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dwg",
+                  "entity_id": "dxf-1-3b8ea3db0fd8",
+                  "entity_label": "Robot Cell 01",
+                  "entity_kind": "machine",
+                  "source_format": "dxf",
+                  "confidence_score": 0.94,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:MACHINES",
+                    "type:text"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "machine marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dwg-dxf-2-4c7ea65491cf",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dwg",
+                  "entity_id": "dxf-2-4c7ea65491cf",
+                  "entity_label": "ENDSEC",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:endsec"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-sample-dwg-dxf-3-aabae1f5e53c",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "sample-dwg",
+                  "entity_id": "dxf-3-aabae1f5e53c",
+                  "entity_label": "EOF",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:eof"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              }
+            ]
+          }
         }
       ],
       "baseline_revision_id": "rev-sample-dwg-7ece8e32"
+    },
+    "mini-upload-test": {
+      "revisions": [
+        {
+          "meta": {
+            "revision_id": "rev-mini-upload-test-ae541ef8",
+            "layout_name": "mini-upload-test",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "uploaded DXF from layout workbench",
+            "parent_revision_id": null,
+            "created_at": "2026-08-07T07:07:32.598106+00:00",
+            "source_hash": "8cd3fca17712",
+            "snapshot_hash": "ae541ef89f34748d"
+          },
+          "snapshot": {
+            "layout_name": "mini-upload-test",
+            "source_format": "dxf",
+            "source_hash": "8cd3fca17712",
+            "entities": [
+              {
+                "id": "dxf-0-69726fceeffd",
+                "kind": "machine",
+                "label": "M-01",
+                "layer": "MACHINES",
+                "center": [
+                  10.0,
+                  10.0
+                ],
+                "bounds": [
+                  10.0,
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "confidence": 0.94,
+                "source_type": "text",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "MACHINES"
+                    ],
+                    "1": [
+                      "M-01"
+                    ],
+                    "10": [
+                      "10"
+                    ],
+                    "20": [
+                      "10"
+                    ]
+                  },
+                  "source_type": "text",
+                  "classification_rationale": [
+                    "machine marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-0-69726fceeffd",
+                    "type": "text",
+                    "label": "M-01",
+                    "layer": "MACHINES",
+                    "points": [
+                      [
+                        10.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "MACHINES"
+                        ],
+                        "1": [
+                          "M-01"
+                        ],
+                        "10": [
+                          "10"
+                        ],
+                        "20": [
+                          "10"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-1-4c7ea65491cf",
+                "kind": "resource",
+                "label": "ENDSEC",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "endsec",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "endsec",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-1-4c7ea65491cf",
+                    "type": "endsec",
+                    "label": "ENDSEC",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-2-aabae1f5e53c",
+                "kind": "resource",
+                "label": "EOF",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "eof",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "eof",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-2-aabae1f5e53c",
+                    "type": "eof",
+                    "label": "EOF",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              }
+            ],
+            "connections": [],
+            "factory_graph": {
+              "layout_name": "mini-upload-test",
+              "source_format": "dxf",
+              "source_hash": "8cd3fca17712",
+              "node_count": 3,
+              "edge_count": 0,
+              "kind_counts": {
+                "machine": 1,
+                "resource": 2
+              },
+              "nodes": [
+                {
+                  "id": "dxf-0-69726fceeffd",
+                  "kind": "machine",
+                  "label": "M-01",
+                  "layer": "MACHINES",
+                  "center": [
+                    10.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    10.0,
+                    10.0,
+                    10.0,
+                    10.0
+                  ],
+                  "confidence": 0.94,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "MACHINES"
+                      ],
+                      "1": [
+                        "M-01"
+                      ],
+                      "10": [
+                        "10"
+                      ],
+                      "20": [
+                        "10"
+                      ]
+                    },
+                    "source_type": "text",
+                    "classification_rationale": [
+                      "machine marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-0-69726fceeffd",
+                      "type": "text",
+                      "label": "M-01",
+                      "layer": "MACHINES",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "M-01"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-1-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "endsec",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-1-4c7ea65491cf",
+                      "type": "endsec",
+                      "label": "ENDSEC",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-2-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "eof",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-2-aabae1f5e53c",
+                      "type": "eof",
+                      "label": "EOF",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                }
+              ],
+              "edges": [],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "mini-upload-test",
+              "fact_count": 3,
+              "relation_count": 3,
+              "assertions": [
+                {
+                  "subject": "dxf-0-69726fceeffd",
+                  "predicate": "semantic_class",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98,
+                  "source": "mini-upload-test:dxf"
+                },
+                {
+                  "subject": "dxf-1-4c7ea65491cf",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "mini-upload-test:dxf"
+                },
+                {
+                  "subject": "dxf-2-aabae1f5e53c",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "mini-upload-test:dxf"
+                }
+              ],
+              "relations": [
+                {
+                  "subject": "dxf-0-69726fceeffd",
+                  "predicate": "has_role",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-1-4c7ea65491cf",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-2-aabae1f5e53c",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                }
+              ],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.5875
+            },
+            "digital_twin": {
+              "version": "twin-8cd3fca17712",
+              "layout_name": "mini-upload-test",
+              "live_sync": false,
+              "nodes": 3,
+              "edges": 0,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 3,
+                "edge_count": 0,
+                "machine_count": 1,
+                "conveyor_count": 0,
+                "buffer_count": 0,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "8cd3fca17712"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-8cd3fca17712"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 3,
+                  "edge_count": 0,
+                  "machine_count": 1,
+                  "conveyor_count": 0,
+                  "buffer_count": 0,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "8cd3fca17712"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 0,
+                "flow_intensity": 0.0,
+                "flow_edges_per_machine": 0.0,
+                "logistics_pressure_index": 0.0,
+                "starvation_risk_index": 0.38,
+                "knowledge_coverage": 0.5875
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.0,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.75,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 0,
+              "production_capacity": 18.0,
+              "oee": 0.522,
+              "roi": 1.3293,
+              "bottlenecks": [
+                {
+                  "id": "dxf-0-69726fceeffd",
+                  "kind": "machine",
+                  "label": "M-01",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-1-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-2-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                }
+              ],
+              "buffer_occupancy": {
+                "buffers": 0,
+                "estimated_occupancy": 0.43,
+                "buffer_to_machine_ratio": 0.0,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 54.6,
+                "variance_seconds": 4.5,
+                "estimated_changeover_loss_minutes": 23.0
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.49,
+                "status": "needs_improvement",
+                "entity_coverage": 3
+              },
+              "flow_analysis": {
+                "score": 0.483,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "bottleneck_pressure": 1.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 0,
+                "constraint_density": 0.0,
+                "bottleneck_pressure": 1.0,
+                "starvation_risk": 0.38,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+                "Sequence machine clusters into production cells for shorter internal flows."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 3 layout nodes.",
+                "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.38; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.5265,
+              "state_status": "acceptable",
+              "problems": [
+                "High starvation risk on converter/corrugator feed loops.",
+                "Multiple bottleneck nodes detected across buffer/warehouse topology."
+              ],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [
+                "Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.",
+                "Run A/B/C scenario tests for buffer sizing and route segmentation."
+              ],
+              "kpi_snapshot": {
+                "oee": 0.522,
+                "roi": 1.3293,
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.45
+              }
+            },
+            "executive_report": "# Executive Engineering Report: mini-upload-test\n\n## Factory Graph\n- Nodes: 3\n- Edges: 0\n- Dominant kinds: {'machine': 1, 'resource': 2}\n\n## Knowledge Graph\n- Facts: 3\n- Relations: 3\n- Confidence: 0.5875\n\n## Simulation\n- OEE: 0.522\n- ROI: 1.3293\n- Travel distance: 0\n- Bottlenecks: 3\n- Starvation risk index: 0.38\n- AMR layout coverage: 0.0\n- JIT readiness: 0.45\n\n## Plant State (Problems and Opportunities)\n- Problem: High starvation risk on converter/corrugator feed loops.\n- Problem: Multiple bottleneck nodes detected across buffer/warehouse topology.\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n- Priority Action: Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.\n- Priority Action: Run A/B/C scenario tests for buffer sizing and route segmentation.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.2933,
+            "trace": {
+              "source_format": "dxf",
+              "layout_name": "mini-upload-test",
+              "entity_count": 3,
+              "connection_count": 0,
+              "hypotheses": [
+                {
+                  "name": "geometry-first classification",
+                  "score": 1.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 1.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                },
+                {
+                  "name": "label-first classification",
+                  "score": 0.3333,
+                  "rationale": "Prefer explicit labels and layers when available."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "geometry-first classification",
+                "score": 1.0,
+                "rationale": "Use geometry and topology to infer route-like objects."
+              },
+              "selected_rules": [],
+              "import": {
+                "model": {
+                  "model_id": "igm-9315279cae5c",
+                  "source_format": "dxf",
+                  "source_name": "mini-upload-test",
+                  "entities": [
+                    {
+                      "id": "dxf-0-69726fceeffd",
+                      "primitive": "text",
+                      "layer": "MACHINES",
+                      "label": "M-01",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "M-01"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-1-4c7ea65491cf",
+                      "primitive": "endsec",
+                      "layer": "default",
+                      "label": "ENDSEC",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    },
+                    {
+                      "id": "dxf-2-aabae1f5e53c",
+                      "primitive": "eof",
+                      "layer": "default",
+                      "label": "EOF",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  ],
+                  "metadata": {
+                    "provider": "dxf-native",
+                    "source_format": "dxf",
+                    "provider_attempts": [
+                      {
+                        "provider_id": "dxf-native",
+                        "status": "success",
+                        "detail": "imported"
+                      }
+                    ]
+                  }
+                },
+                "attempts": [
+                  {
+                    "provider_id": "dxf-native",
+                    "status": "success",
+                    "detail": "imported"
+                  }
+                ],
+                "selected_provider": "dxf-native"
+              }
+            },
+            "object_evidence": [
+              {
+                "id": "evidence-mini-upload-test-dxf-0-69726fceeffd",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "mini-upload-test",
+                  "entity_id": "dxf-0-69726fceeffd",
+                  "entity_label": "M-01",
+                  "entity_kind": "machine",
+                  "source_format": "dxf",
+                  "confidence_score": 0.94,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:MACHINES",
+                    "type:text"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "machine marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-mini-upload-test-dxf-1-4c7ea65491cf",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "mini-upload-test",
+                  "entity_id": "dxf-1-4c7ea65491cf",
+                  "entity_label": "ENDSEC",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:endsec"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-mini-upload-test-dxf-2-aabae1f5e53c",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "mini-upload-test",
+                  "entity_id": "dxf-2-aabae1f5e53c",
+                  "entity_label": "EOF",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:eof"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              }
+            ]
+          }
+        }
+      ],
+      "baseline_revision_id": "rev-mini-upload-test-ae541ef8"
+    },
+    "chunked-mini": {
+      "revisions": [
+        {
+          "meta": {
+            "revision_id": "rev-chunked-mini-192ded10",
+            "layout_name": "chunked-mini",
+            "branch": "main",
+            "scenario": "baseline",
+            "revision_note": "uploaded DXF from layout workbench (chunked)",
+            "parent_revision_id": null,
+            "created_at": "2026-08-07T07:57:27.423554+00:00",
+            "source_hash": "c680ee949d5d",
+            "snapshot_hash": "192ded101492ffb7"
+          },
+          "snapshot": {
+            "layout_name": "chunked-mini",
+            "source_format": "dxf",
+            "source_hash": "c680ee949d5d",
+            "entities": [
+              {
+                "id": "dxf-0-cce19aba8055",
+                "kind": "machine",
+                "label": "M-CHUNK",
+                "layer": "MACHINES",
+                "center": [
+                  10.0,
+                  10.0
+                ],
+                "bounds": [
+                  10.0,
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "confidence": 0.94,
+                "source_type": "text",
+                "properties": {
+                  "dxf_fields": {
+                    "8": [
+                      "MACHINES"
+                    ],
+                    "1": [
+                      "M-CHUNK"
+                    ],
+                    "10": [
+                      "10"
+                    ],
+                    "20": [
+                      "10"
+                    ]
+                  },
+                  "source_type": "text",
+                  "classification_rationale": [
+                    "machine marker"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-0-cce19aba8055",
+                    "type": "text",
+                    "label": "M-CHUNK",
+                    "layer": "MACHINES",
+                    "points": [
+                      [
+                        10.0,
+                        10.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {
+                        "8": [
+                          "MACHINES"
+                        ],
+                        "1": [
+                          "M-CHUNK"
+                        ],
+                        "10": [
+                          "10"
+                        ],
+                        "20": [
+                          "10"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-1-4c7ea65491cf",
+                "kind": "resource",
+                "label": "ENDSEC",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "endsec",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "endsec",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-1-4c7ea65491cf",
+                    "type": "endsec",
+                    "label": "ENDSEC",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              },
+              {
+                "id": "dxf-2-aabae1f5e53c",
+                "kind": "resource",
+                "label": "EOF",
+                "layer": "default",
+                "center": [
+                  0.0,
+                  0.0
+                ],
+                "bounds": [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "confidence": 0.5,
+                "source_type": "eof",
+                "properties": {
+                  "dxf_fields": {},
+                  "source_type": "eof",
+                  "classification_rationale": [
+                    "fallback generic resource inference"
+                  ],
+                  "raw_entity": {
+                    "id": "dxf-2-aabae1f5e53c",
+                    "type": "eof",
+                    "label": "EOF",
+                    "layer": "default",
+                    "points": [
+                      [
+                        0.0,
+                        0.0
+                      ]
+                    ],
+                    "properties": {
+                      "dxf_fields": {}
+                    }
+                  }
+                }
+              }
+            ],
+            "connections": [],
+            "factory_graph": {
+              "layout_name": "chunked-mini",
+              "source_format": "dxf",
+              "source_hash": "c680ee949d5d",
+              "node_count": 3,
+              "edge_count": 0,
+              "kind_counts": {
+                "machine": 1,
+                "resource": 2
+              },
+              "nodes": [
+                {
+                  "id": "dxf-0-cce19aba8055",
+                  "kind": "machine",
+                  "label": "M-CHUNK",
+                  "layer": "MACHINES",
+                  "center": [
+                    10.0,
+                    10.0
+                  ],
+                  "bounds": [
+                    10.0,
+                    10.0,
+                    10.0,
+                    10.0
+                  ],
+                  "confidence": 0.94,
+                  "properties": {
+                    "dxf_fields": {
+                      "8": [
+                        "MACHINES"
+                      ],
+                      "1": [
+                        "M-CHUNK"
+                      ],
+                      "10": [
+                        "10"
+                      ],
+                      "20": [
+                        "10"
+                      ]
+                    },
+                    "source_type": "text",
+                    "classification_rationale": [
+                      "machine marker"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-0-cce19aba8055",
+                      "type": "text",
+                      "label": "M-CHUNK",
+                      "layer": "MACHINES",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "M-CHUNK"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-1-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "endsec",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-1-4c7ea65491cf",
+                      "type": "endsec",
+                      "label": "ENDSEC",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "dxf-2-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "layer": "default",
+                  "center": [
+                    0.0,
+                    0.0
+                  ],
+                  "bounds": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "confidence": 0.5,
+                  "properties": {
+                    "dxf_fields": {},
+                    "source_type": "eof",
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ],
+                    "raw_entity": {
+                      "id": "dxf-2-aabae1f5e53c",
+                      "type": "eof",
+                      "label": "EOF",
+                      "layer": "default",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  }
+                }
+              ],
+              "edges": [],
+              "objectives": [
+                "machines",
+                "conveyors",
+                "buffers",
+                "warehouses",
+                "amrs",
+                "operators",
+                "processes",
+                "flows",
+                "resources",
+                "connections",
+                "constraints",
+                "production_areas",
+                "safety_areas",
+                "storage_areas",
+                "logistic_routes"
+              ]
+            },
+            "knowledge_graph": {
+              "layout_name": "chunked-mini",
+              "fact_count": 3,
+              "relation_count": 3,
+              "assertions": [
+                {
+                  "subject": "dxf-0-cce19aba8055",
+                  "predicate": "semantic_class",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98,
+                  "source": "chunked-mini:dxf"
+                },
+                {
+                  "subject": "dxf-1-4c7ea65491cf",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "chunked-mini:dxf"
+                },
+                {
+                  "subject": "dxf-2-aabae1f5e53c",
+                  "predicate": "semantic_class",
+                  "object": "generic_resource",
+                  "confidence": 0.54,
+                  "source": "chunked-mini:dxf"
+                }
+              ],
+              "relations": [
+                {
+                  "subject": "dxf-0-cce19aba8055",
+                  "predicate": "has_role",
+                  "object": "industrial_equipment",
+                  "confidence": 0.98
+                },
+                {
+                  "subject": "dxf-1-4c7ea65491cf",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                },
+                {
+                  "subject": "dxf-2-aabae1f5e53c",
+                  "predicate": "has_role",
+                  "object": "generic_resource",
+                  "confidence": 0.54
+                }
+              ],
+              "sources": [
+                "Knowledge Hub",
+                "Enterprise Memory",
+                "Historical Projects",
+                "Industrial Rules",
+                "Previous Decisions",
+                "Lessons Learned"
+              ],
+              "confidence": 0.5875
+            },
+            "digital_twin": {
+              "version": "twin-c680ee949d5d",
+              "layout_name": "chunked-mini",
+              "live_sync": false,
+              "nodes": 3,
+              "edges": 0,
+              "scenarios": [
+                "baseline",
+                "high_demand",
+                "maintenance",
+                "amr_reconfiguration"
+              ],
+              "simulation_inputs": {
+                "node_count": 3,
+                "edge_count": 0,
+                "machine_count": 1,
+                "conveyor_count": 0,
+                "buffer_count": 0,
+                "warehouse_count": 0,
+                "amr_route_count": 0,
+                "layout_signature": "c680ee949d5d"
+              },
+              "state": {
+                "snapshots": [
+                  "snapshot-c680ee949d5d"
+                ],
+                "versions": [
+                  1
+                ],
+                "scenarios": [
+                  "baseline",
+                  "high_demand",
+                  "maintenance",
+                  "amr_reconfiguration"
+                ],
+                "live_sync": false,
+                "simulation_inputs": {
+                  "node_count": 3,
+                  "edge_count": 0,
+                  "machine_count": 1,
+                  "conveyor_count": 0,
+                  "buffer_count": 0,
+                  "warehouse_count": 0,
+                  "amr_route_count": 0,
+                  "layout_signature": "c680ee949d5d"
+                }
+              }
+            },
+            "simulation": {
+              "material_flow": {
+                "flow_edges": 0,
+                "flow_intensity": 0.0,
+                "flow_edges_per_machine": 0.0,
+                "logistics_pressure_index": 0.0,
+                "starvation_risk_index": 0.38,
+                "knowledge_coverage": 0.5875
+              },
+              "amr_routing": {
+                "routes": 0,
+                "coverage": 0.0,
+                "amr_layout_coverage": 0.0,
+                "fleet_recommendation": {
+                  "baseline_units": 2,
+                  "peak_units": 3,
+                  "dispatch_policy": "priority_by_starvation_risk"
+                },
+                "wip_cell_strategy": {
+                  "strategy": "jit_proximity_cells",
+                  "proximity_policy": "near_converter",
+                  "score": 0.75,
+                  "notes": [
+                    "Use low-height WIP cells when height storage is constrained.",
+                    "Eliminate forklift aisles where AMR-only operation is feasible."
+                  ]
+                }
+              },
+              "travel_distance": 0,
+              "production_capacity": 18.0,
+              "oee": 0.522,
+              "roi": 1.3293,
+              "bottlenecks": [
+                {
+                  "id": "dxf-0-cce19aba8055",
+                  "kind": "machine",
+                  "label": "M-CHUNK",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-1-4c7ea65491cf",
+                  "kind": "resource",
+                  "label": "ENDSEC",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                },
+                {
+                  "id": "dxf-2-aabae1f5e53c",
+                  "kind": "resource",
+                  "label": "EOF",
+                  "severity": 0.81,
+                  "degree": 0,
+                  "root_cause": "low_connectivity_or_isolated_flow_node",
+                  "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+                }
+              ],
+              "buffer_occupancy": {
+                "buffers": 0,
+                "estimated_occupancy": 0.43,
+                "buffer_to_machine_ratio": 0.0,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "warehouse_capacity": {
+                "warehouses": 0,
+                "estimated_capacity_units": 0,
+                "recommended_near_line_wip_cells": 2
+              },
+              "cycle_times": {
+                "baseline_seconds": 54.6,
+                "variance_seconds": 4.5,
+                "estimated_changeover_loss_minutes": 23.0
+              }
+            },
+            "engineering_analysis": {
+              "layout_quality": {
+                "score": 0.49,
+                "status": "needs_improvement",
+                "entity_coverage": 3
+              },
+              "flow_analysis": {
+                "score": 0.483,
+                "material_flow_health": "needs_improvement",
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "bottleneck_pressure": 1.0
+              },
+              "constraint_analysis": {
+                "safety_zones": 0,
+                "constraints_found": 0,
+                "constraint_density": 0.0,
+                "bottleneck_pressure": 1.0,
+                "starvation_risk": 0.38,
+                "jit_readiness": 0.45,
+                "wip_policy_score": 0.75
+              },
+              "amr_recommendations": [
+                "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+                "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+              ],
+              "warehouse_optimisation": [
+                "Introduce storage zoning when material staging is required.",
+                "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+              ],
+              "production_optimisation": [
+                "Use conveyor adjacency to remove avoidable material handoffs.",
+                "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+                "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+                "Sequence machine clusters into production cells for shorter internal flows."
+              ],
+              "risk_analysis": [
+                "Bottleneck pressure identified on 3 layout nodes.",
+                "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+                "Starvation risk index is 0.38; prioritize feed continuity actions above 0.35."
+              ],
+              "safety_analysis": [
+                "Check path intersections with safety zones before live synchronization.",
+                "Confirm restricted areas are preserved as non-traversable constraints."
+              ],
+              "executive_recommendations": [
+                "Proceed with digital twin synchronization after validating route constraints.",
+                "Prioritize bottleneck mitigation around buffers and warehouses.",
+                "Use simulation results to rank AMR and conveyor investments.",
+                "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+                "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+              ]
+            },
+            "plant_state_report": {
+              "state_score": 0.5265,
+              "state_status": "acceptable",
+              "problems": [
+                "High starvation risk on converter/corrugator feed loops.",
+                "Multiple bottleneck nodes detected across buffer/warehouse topology."
+              ],
+              "opportunities": [
+                "AMR route coverage can be expanded for higher logistics stability.",
+                "JIT readiness can improve by aligning WIP cells to converter cadence.",
+                "Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions."
+              ],
+              "priority_actions": [
+                "Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.",
+                "Run A/B/C scenario tests for buffer sizing and route segmentation."
+              ],
+              "kpi_snapshot": {
+                "oee": 0.522,
+                "roi": 1.3293,
+                "travel_distance": 0,
+                "starvation_risk": 0.38,
+                "amr_coverage": 0.0,
+                "jit_readiness": 0.45
+              }
+            },
+            "executive_report": "# Executive Engineering Report: chunked-mini\n\n## Factory Graph\n- Nodes: 3\n- Edges: 0\n- Dominant kinds: {'machine': 1, 'resource': 2}\n\n## Knowledge Graph\n- Facts: 3\n- Relations: 3\n- Confidence: 0.5875\n\n## Simulation\n- OEE: 0.522\n- ROI: 1.3293\n- Travel distance: 0\n- Bottlenecks: 3\n- Starvation risk index: 0.38\n- AMR layout coverage: 0.0\n- JIT readiness: 0.45\n\n## Plant State (Problems and Opportunities)\n- Problem: High starvation risk on converter/corrugator feed loops.\n- Problem: Multiple bottleneck nodes detected across buffer/warehouse topology.\n- Opportunity: AMR route coverage can be expanded for higher logistics stability.\n- Opportunity: JIT readiness can improve by aligning WIP cells to converter cadence.\n- Opportunity: Use machine-aware scenario planning to compare ROI and OEE impact before capex decisions.\n- Priority Action: Prioritize AMR dispatch by starvation risk and enforce feed continuity windows.\n- Priority Action: Run A/B/C scenario tests for buffer sizing and route segmentation.\n\n## Engineering Recommendations\n- Proceed with digital twin synchronization after validating route constraints.\n- Prioritize bottleneck mitigation around buffers and warehouses.\n- Use simulation results to rank AMR and conveyor investments.\n- Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.\n- Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting.",
+            "confidence": 0.2933,
+            "trace": {
+              "source_format": "dxf",
+              "layout_name": "chunked-mini",
+              "entity_count": 3,
+              "connection_count": 0,
+              "hypotheses": [
+                {
+                  "name": "geometry-first classification",
+                  "score": 1.0,
+                  "rationale": "Use geometry and topology to infer route-like objects."
+                },
+                {
+                  "name": "layer-first classification",
+                  "score": 1.0,
+                  "rationale": "Use CAD layer semantics to bias the classifier."
+                },
+                {
+                  "name": "label-first classification",
+                  "score": 0.3333,
+                  "rationale": "Prefer explicit labels and layers when available."
+                }
+              ],
+              "selected_hypothesis": {
+                "name": "geometry-first classification",
+                "score": 1.0,
+                "rationale": "Use geometry and topology to infer route-like objects."
+              },
+              "selected_rules": [],
+              "import": {
+                "model": {
+                  "model_id": "igm-56b16d497752",
+                  "source_format": "dxf",
+                  "source_name": "chunked-mini",
+                  "entities": [
+                    {
+                      "id": "dxf-0-cce19aba8055",
+                      "primitive": "text",
+                      "layer": "MACHINES",
+                      "label": "M-CHUNK",
+                      "points": [
+                        [
+                          10.0,
+                          10.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {
+                          "8": [
+                            "MACHINES"
+                          ],
+                          "1": [
+                            "M-CHUNK"
+                          ],
+                          "10": [
+                            "10"
+                          ],
+                          "20": [
+                            "10"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "id": "dxf-1-4c7ea65491cf",
+                      "primitive": "endsec",
+                      "layer": "default",
+                      "label": "ENDSEC",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    },
+                    {
+                      "id": "dxf-2-aabae1f5e53c",
+                      "primitive": "eof",
+                      "layer": "default",
+                      "label": "EOF",
+                      "points": [
+                        [
+                          0.0,
+                          0.0
+                        ]
+                      ],
+                      "properties": {
+                        "dxf_fields": {}
+                      }
+                    }
+                  ],
+                  "metadata": {
+                    "provider": "dxf-native",
+                    "source_format": "dxf",
+                    "provider_attempts": [
+                      {
+                        "provider_id": "dxf-native",
+                        "status": "success",
+                        "detail": "imported"
+                      }
+                    ]
+                  }
+                },
+                "attempts": [
+                  {
+                    "provider_id": "dxf-native",
+                    "status": "success",
+                    "detail": "imported"
+                  }
+                ],
+                "selected_provider": "dxf-native"
+              }
+            },
+            "object_evidence": [
+              {
+                "id": "evidence-chunked-mini-dxf-0-cce19aba8055",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "chunked-mini",
+                  "entity_id": "dxf-0-cce19aba8055",
+                  "entity_label": "M-CHUNK",
+                  "entity_kind": "machine",
+                  "source_format": "dxf",
+                  "confidence_score": 0.94,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "excellent",
+                  "source_references": [
+                    "layer:MACHINES",
+                    "type:text"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "machine marker"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-chunked-mini-dxf-1-4c7ea65491cf",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "chunked-mini",
+                  "entity_id": "dxf-1-4c7ea65491cf",
+                  "entity_label": "ENDSEC",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:endsec"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              },
+              {
+                "id": "evidence-chunked-mini-dxf-2-aabae1f5e53c",
+                "source": "industrial_layout_interpreter",
+                "payload": {
+                  "layout_name": "chunked-mini",
+                  "entity_id": "dxf-2-aabae1f5e53c",
+                  "entity_label": "EOF",
+                  "entity_kind": "resource",
+                  "source_format": "dxf",
+                  "confidence_score": 0.5,
+                  "recognition_method": "marker_and_geometry_hybrid",
+                  "detection_quality": "acceptable",
+                  "source_references": [
+                    "layer:default",
+                    "type:eof"
+                  ],
+                  "traceability": {
+                    "classification_rationale": [
+                      "fallback generic resource inference"
+                    ]
+                  }
+                },
+                "mission_id": "M013"
+              }
+            ]
+          }
+        }
+      ],
+      "baseline_revision_id": "rev-chunked-mini-192ded10"
     }
   }
 }

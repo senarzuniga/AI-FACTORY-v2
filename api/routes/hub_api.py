@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from agents.action_engine import ActionPool
 from api.action_dashboard import create_action_router
@@ -16,6 +17,21 @@ APP_STARTED_AT = datetime.now(timezone.utc)
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 app = FastAPI(title="Ingercart Collaborative Hub API", version="1.0.0")
+
+# Allow the local layout workbench (file:// and localhost static servers) to call API endpoints.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://127.0.0.1:8765",
+        "http://localhost:8765",
+        "http://127.0.0.1:8080",
+        "http://localhost:8080",
+        "null",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Optional enhancement: shared in-memory action pool for dashboard endpoints.
 _action_pool = ActionPool()

@@ -83,6 +83,33 @@ class CADParser(IndustrialComponent):
             set_baseline=bool(payload.get("set_baseline", False)),
         )
         entities = len(layout_result.get("entities", []))
+        compact_response = bool(payload.get("compact_response", False))
+        if compact_response:
+            factory_graph = layout_result.get("factory_graph", {}) if isinstance(layout_result, dict) else {}
+            knowledge_graph = layout_result.get("knowledge_graph", {}) if isinstance(layout_result, dict) else {}
+            return {
+                "component_id": self.id,
+                "status": "completed",
+                "layout_name": layout_result.get("layout_name"),
+                "source_length": len(str(payload.get("source", ""))),
+                "parsed_entities": entities,
+                "factory_graph": {
+                    "node_count": factory_graph.get("node_count", 0),
+                    "edge_count": factory_graph.get("edge_count", 0),
+                    "kind_counts": factory_graph.get("kind_counts", {}),
+                },
+                "knowledge_graph": {
+                    "fact_count": knowledge_graph.get("fact_count", 0),
+                    "relation_count": knowledge_graph.get("relation_count", 0),
+                    "confidence": knowledge_graph.get("confidence", 0.0),
+                },
+                "simulation": layout_result.get("simulation", {}),
+                "plant_state_report": layout_result.get("plant_state_report", {}),
+                "confidence": layout_result.get("confidence", 0.0),
+                "version_info": version_info,
+                "timestamp": utc_now_iso(),
+            }
+
         return {
             "component_id": self.id,
             "status": "completed",

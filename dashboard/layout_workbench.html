@@ -537,6 +537,79 @@
       throw lastError || new Error("API unavailable");
     }
 
+    async function postFormData(url, formData) {
+      const candidates = buildApiCandidates(url);
+      let lastError = null;
+      for (const candidate of candidates) {
+        try {
+          const response = await fetch(candidate, {
+            method: "POST",
+            body: formData
+          });
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error("API unavailable");
+    }
+
+    async function postFormDataWithProgress(url, formData, onProgress) {
+      const candidates = buildApiCandidates(url);
+      let lastError = null;
+
+      for (const candidate of candidates) {
+        try {
+          const result = await new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", candidate, true);
+            xhr.responseType = "json";
+
+            xhr.upload.onprogress = (event) => {
+              if (!onProgress) {
+                return;
+              }
+              if (event.lengthComputable && event.total > 0) {
+                onProgress(Math.round((event.loaded / event.total) * 100));
+              } else {
+                onProgress(null);
+              }
+            };
+
+            xhr.onload = () => {
+              if (xhr.status >= 200 && xhr.status < 300) {
+                const payload = xhr.response || JSON.parse(xhr.responseText || "{}");
+                resolve(payload);
+                return;
+              }
+              let detail = "";
+              try {
+                const raw = xhr.responseText || "";
+                const parsed = raw ? JSON.parse(raw) : null;
+                if (parsed && parsed.detail) {
+                  detail = String(parsed.detail);
+                }
+              } catch (_) {
+                // Keep generic HTTP error when body is not JSON.
+              }
+              reject(new Error(detail ? `HTTP ${xhr.status}: ${detail}` : `HTTP ${xhr.status}`));
+            };
+
+            xhr.onerror = () => reject(new Error("Network error"));
+            xhr.send(formData);
+          });
+          return result;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+
+      throw lastError || new Error("API unavailable");
+    }
+
     function withoutExtension(filename) {
       const index = filename.lastIndexOf(".");
       if (index <= 0) {
@@ -569,6 +642,22 @@
       setUploadLog(`DWG loaded: ${file.name} (${Math.round(file.size / 1024)} KB)`);
 
       try {
+        const providerCheck = await postJson("/api/cognitive-os/layout-workbench/import/discover-providers", {
+          payload: {
+            source_format: "dwg",
+            layout_name: withoutExtension(file.name)
+          }
+        });
+        const providers = providerCheck && Array.isArray(providerCheck.providers) ? providerCheck.providers : [];
+        if (!providers.length) {
+          setUploadLog(
+            "DWG runtime is reachable but no DWG conversion provider is installed. " +
+            "The VS Code DWG Viewer extension is read-only and does not provide CLI DWG->DXF conversion. " +
+            "Install ODA File Converter or LibreDWG (dwg2dxf), then retry."
+          );
+          return;
+        }
+
         const sourceBytesB64 = await fileToBase64(file);
         const result = await postJson("/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute", {
           payload: {
@@ -585,8 +674,16 @@
         const parsed = result && result.result && Number.isFinite(result.result.parsed_entities)
           ? result.result.parsed_entities
           : null;
+
         if (parsed !== null && parsed <= 0) {
-          setUploadLog(`DWG uploaded to runtime: ${file.name}. Parser online but 0 entities detected (DWG->DXF conversion provider required).`);
+          const importInfo = result && result.result && result.result.layout_result && result.result.layout_result.trace
+            ? result.result.layout_result.trace.import
+            : null;
+          const reason = importInfo && importInfo.reason ? importInfo.reason : "DWG->DXF conversion provider required";
+          const providers = importInfo && Array.isArray(importInfo.available_providers)
+            ? importInfo.available_providers.join(", ")
+            : "none";
+          setUploadLog(`DWG uploaded to runtime: ${file.name}. Parser online but 0 entities detected (${reason}). Available providers: ${providers}.`);
         } else {
           setUploadLog(`DWG loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
         }
@@ -602,26 +699,81 @@
         return;
       }
 
-      const text = await file.text();
       uploadState.dxfLoaded = true;
       uploadState.lastLoadedName = file.name;
       renderStaticSections();
-      setUploadLog(`DXF loaded: ${file.name}`);
+      setUploadLog(`DXF loaded: ${file.name} (${Math.round(file.size / (1024 * 1024))} MB). Uploading to runtime...`);
 
       try {
-        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
-          payload: {
-            source_format: "dxf",
-            layout_name: withoutExtension(file.name),
-            source: text,
-            source_filename: file.name,
-            source_size: file.size,
-            revision_note: "uploaded from layout workbench"
+        const useChunkedUpload = file.size > 50 * 1024 * 1024;
+        if (useChunkedUpload) {
+          const initForm = new FormData();
+          initForm.append("filename", file.name);
+          initForm.append("layout_name", withoutExtension(file.name));
+          initForm.append("total_size", String(file.size));
+          const init = await postFormData("/api/cognitive-os/layout-workbench/upload/dxf/chunk/init", initForm);
+          const uploadId = init && init.upload_id ? String(init.upload_id) : "";
+          const chunkSize = init && Number.isFinite(init.chunk_size) ? Number(init.chunk_size) : (4 * 1024 * 1024);
+          if (!uploadId) {
+            throw new Error("Failed to initialize chunked DXF upload");
           }
-        });
-        setUploadLog(`DXF loaded and parsed by runtime: ${file.name}`);
+
+          const totalChunks = Math.ceil(file.size / chunkSize);
+          for (let chunkIndex = 0; chunkIndex < totalChunks; chunkIndex += 1) {
+            const start = chunkIndex * chunkSize;
+            const end = Math.min(start + chunkSize, file.size);
+            const chunkBlob = file.slice(start, end);
+            const chunkForm = new FormData();
+            chunkForm.append("upload_id", uploadId);
+            chunkForm.append("chunk_index", String(chunkIndex));
+            chunkForm.append("total_chunks", String(totalChunks));
+            chunkForm.append("file", chunkBlob, `${file.name}.part${chunkIndex}`);
+            await postFormData("/api/cognitive-os/layout-workbench/upload/dxf/chunk/append", chunkForm);
+            const percent = Math.round(((chunkIndex + 1) / totalChunks) * 100);
+            setUploadLog(`DXF uploading (chunked): ${file.name} (${percent}%)`);
+          }
+
+          setUploadLog(`DXF uploaded: ${file.name}. Processing in runtime...`);
+          const completeForm = new FormData();
+          completeForm.append("upload_id", uploadId);
+          const response = await postFormData("/api/cognitive-os/layout-workbench/upload/dxf/chunk/complete", completeForm);
+          const parsed = response && response.result && Number.isFinite(response.result.parsed_entities)
+            ? response.result.parsed_entities
+            : null;
+          setUploadLog(`DXF loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("file", file, file.name);
+        formData.append("layout_name", withoutExtension(file.name));
+
+        const response = await postFormDataWithProgress(
+          "/api/cognitive-os/layout-workbench/upload/dxf",
+          formData,
+          (percent) => {
+            if (percent === null) {
+              setUploadLog(`DXF uploading: ${file.name} (progress unavailable)`);
+              return;
+            }
+            if (percent < 100) {
+              setUploadLog(`DXF uploading: ${file.name} (${percent}%)`);
+              return;
+            }
+            setUploadLog(`DXF uploaded: ${file.name}. Processing in runtime...`);
+          }
+        );
+
+        const parsed = response && response.result && Number.isFinite(response.result.parsed_entities)
+          ? response.result.parsed_entities
+          : null;
+        setUploadLog(`DXF loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
       } catch (error) {
         const reason = error && error.message ? error.message : "unknown error";
+        if (reason.includes("HTTP 413")) {
+          setUploadLog(`DXF rejected: ${file.name}. File too large for runtime upload. For very large DXF, app switches to chunked upload automatically.`);
+          return;
+        }
         setUploadLog(`DXF loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
       }
     }
