@@ -610,6 +610,24 @@
       throw lastError || new Error("API unavailable");
     }
 
+    async function waitForDxfJob(jobId, fileName, timeoutMs = 30 * 60 * 1000) {
+      const startedAt = Date.now();
+      while (Date.now() - startedAt < timeoutMs) {
+        const status = await fetchJson(`/api/cognitive-os/layout-workbench/upload/dxf/job/${jobId}`);
+        const state = String(status && status.status ? status.status : "unknown");
+        if (state === "completed") {
+          return status;
+        }
+        if (state === "failed") {
+          const reason = status && status.error ? status.error : "unknown processing error";
+          throw new Error(`DXF processing failed: ${reason}`);
+        }
+        setUploadLog(`DXF uploaded: ${fileName}. Processing in runtime... (${state})`);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      }
+      throw new Error("DXF processing timeout");
+    }
+
     function withoutExtension(filename) {
       const index = filename.lastIndexOf(".");
       if (index <= 0) {
@@ -736,9 +754,14 @@
           setUploadLog(`DXF uploaded: ${file.name}. Processing in runtime...`);
           const completeForm = new FormData();
           completeForm.append("upload_id", uploadId);
-          const response = await postFormData("/api/cognitive-os/layout-workbench/upload/dxf/chunk/complete", completeForm);
-          const parsed = response && response.result && Number.isFinite(response.result.parsed_entities)
-            ? response.result.parsed_entities
+          const completeResponse = await postFormData("/api/cognitive-os/layout-workbench/upload/dxf/chunk/complete", completeForm);
+          const jobId = completeResponse && completeResponse.job_id ? String(completeResponse.job_id) : "";
+          if (!jobId) {
+            throw new Error("Chunked DXF completion did not return job_id");
+          }
+          const finalStatus = await waitForDxfJob(jobId, file.name);
+          const parsed = finalStatus && finalStatus.result && finalStatus.result.result && Number.isFinite(finalStatus.result.result.parsed_entities)
+            ? finalStatus.result.result.parsed_entities
             : null;
           setUploadLog(`DXF loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
           return;

@@ -74,7 +74,7 @@
             "component_id": "industrial-geometry-engine",
             "status": "ok",
             "dependencies": [],
-            "timestamp": "2026-08-07T07:57:17.956528+00:00"
+            "timestamp": "2026-08-07T09:36:52.250175+00:00"
           }
         },
         {
@@ -102,7 +102,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-07T07:57:17.956541+00:00"
+            "timestamp": "2026-08-07T09:36:52.250185+00:00"
           }
         },
         {
@@ -130,7 +130,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-07T07:57:17.956549+00:00"
+            "timestamp": "2026-08-07T09:36:52.250193+00:00"
           }
         },
         {
@@ -160,7 +160,7 @@
               "dwg-intelligence-parser",
               "dxf-intelligence-parser"
             ],
-            "timestamp": "2026-08-07T07:57:17.956558+00:00"
+            "timestamp": "2026-08-07T09:36:52.250202+00:00"
           }
         },
         {
@@ -188,7 +188,7 @@
             "dependencies": [
               "factory-graph-runtime-m001"
             ],
-            "timestamp": "2026-08-07T07:57:17.956566+00:00"
+            "timestamp": "2026-08-07T09:36:52.250210+00:00"
           }
         },
         {
@@ -216,7 +216,7 @@
             "dependencies": [
               "knowledge-graph-runtime"
             ],
-            "timestamp": "2026-08-07T07:57:17.956574+00:00"
+            "timestamp": "2026-08-07T09:36:52.250216+00:00"
           }
         },
         {
@@ -244,7 +244,7 @@
             "dependencies": [
               "evidence-runtime-m004"
             ],
-            "timestamp": "2026-08-07T07:57:17.956582+00:00"
+            "timestamp": "2026-08-07T09:36:52.250223+00:00"
           }
         },
         {
@@ -277,7 +277,7 @@
             "dependencies": [
               "digital-twin-runtime"
             ],
-            "timestamp": "2026-08-07T07:57:17.956589+00:00"
+            "timestamp": "2026-08-07T09:36:52.250231+00:00"
           }
         },
         {
@@ -305,7 +305,7 @@
             "dependencies": [
               "industrial-simulation-runtime"
             ],
-            "timestamp": "2026-08-07T07:57:17.956598+00:00"
+            "timestamp": "2026-08-07T09:36:52.250238+00:00"
           }
         },
         {
@@ -332,7 +332,7 @@
             "dependencies": [
               "bottleneck-analyzer-m007"
             ],
-            "timestamp": "2026-08-07T07:57:17.956606+00:00"
+            "timestamp": "2026-08-07T09:36:52.250244+00:00"
           }
         },
         {
@@ -359,7 +359,7 @@
             "dependencies": [
               "industrial-flow-analyzer"
             ],
-            "timestamp": "2026-08-07T07:57:17.956622+00:00"
+            "timestamp": "2026-08-07T09:36:52.250250+00:00"
           }
         },
         {
@@ -386,7 +386,7 @@
             "dependencies": [
               "amr-optimization-engine"
             ],
-            "timestamp": "2026-08-07T07:57:17.956632+00:00"
+            "timestamp": "2026-08-07T09:36:52.250256+00:00"
           }
         },
         {
@@ -413,7 +413,7 @@
             "dependencies": [
               "oee-prediction-engine"
             ],
-            "timestamp": "2026-08-07T07:57:17.956651+00:00"
+            "timestamp": "2026-08-07T09:36:52.250263+00:00"
           }
         },
         {
@@ -441,7 +441,7 @@
             "dependencies": [
               "roi-engine"
             ],
-            "timestamp": "2026-08-07T07:57:17.956658+00:00"
+            "timestamp": "2026-08-07T09:36:52.250270+00:00"
           }
         }
       ],
@@ -462,11 +462,11 @@
         "smart-proposal-intelligence-runtime"
       ],
       "ahde_policy": "enabled",
-      "timestamp": "2026-08-07T07:57:17.956667+00:00"
+      "timestamp": "2026-08-07T09:36:52.250277+00:00"
     },
     "ahde_policy": {
       "enabled": true,
-      "timestamp": "2026-08-07T07:57:17.966742+00:00"
+      "timestamp": "2026-08-07T09:36:52.267987+00:00"
     },
     "governance": {
       "approved": true,
@@ -576,9 +576,9 @@
       "roi": 1.3293,
       "bottlenecks": [
         {
-          "id": "dxf-0-cce19aba8055",
+          "id": "dxf-0-265125f2394c",
           "kind": "machine",
-          "label": "M-CHUNK",
+          "label": "M-JOB",
           "severity": 0.81,
           "degree": 0,
           "root_cause": "low_connectivity_or_isolated_flow_node",

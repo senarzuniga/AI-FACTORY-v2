@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 from pathlib import Path
 import tempfile
@@ -87,6 +88,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 MAX_DXF_UPLOAD_BYTES = 60 * 1024 * 1024
 MAX_DXF_CHUNK_TOTAL_BYTES = 700 * 1024 * 1024
 DXF_CHUNK_UPLOADS: dict[str, dict[str, Any]] = {}
+DXF_PROCESSING_JOBS: dict[str, dict[str, Any]] = {}
 
 
 def _prune_stale_chunk_uploads(max_age_seconds: int = 7200) -> None:
@@ -106,6 +108,56 @@ def _prune_stale_chunk_uploads(max_age_seconds: int = 7200) -> None:
             temp_path.unlink(missing_ok=True)
         if temp_dir.exists():
             temp_dir.rmdir()
+
+
+def _prune_stale_processing_jobs(max_age_seconds: int = 7200) -> None:
+    now = time.time()
+    stale_ids = [
+        job_id
+        for job_id, entry in DXF_PROCESSING_JOBS.items()
+        if now - float(entry.get("updated_at", now)) > max_age_seconds
+    ]
+    for job_id in stale_ids:
+        DXF_PROCESSING_JOBS.pop(job_id, None)
+
+
+def _run_dxf_processing_job(job_id: str) -> None:
+    entry = DXF_PROCESSING_JOBS.get(job_id)
+    if not entry:
+        return
+
+    entry["status"] = "running"
+    entry["updated_at"] = time.time()
+
+    temp_path = Path(str(entry["temp_path"]))
+    try:
+        payload = {
+            "source_format": "dxf",
+            "layout_name": entry.get("layout_name") or temp_path.stem,
+            "source_path": str(temp_path),
+            "source_filename": entry.get("source_filename") or temp_path.name,
+            "source_size": temp_path.stat().st_size,
+            "revision_note": "uploaded DXF from layout workbench (chunked)",
+            "compact_response": True,
+        }
+        result = _sdk.industrial_intelligence_execute("dxf-intelligence-parser", payload)
+        entry["status"] = "completed"
+        entry["result"] = {
+            "mission_id": "M010",
+            "component_id": "dxf-intelligence-parser",
+            "result": result,
+        }
+    except Exception as exc:
+        entry["status"] = "failed"
+        entry["error"] = str(exc)
+    finally:
+        entry["updated_at"] = time.time()
+        temp_dir = temp_path.parent
+        temp_path.unlink(missing_ok=True)
+        try:
+            temp_dir.rmdir()
+        except OSError:
+            pass
 
 LAYOUT_PLATFORM = {
     "id": "industrial-layout-workbench",
@@ -470,6 +522,7 @@ async def layout_workbench_upload_dxf_chunk_init(
     total_size: int = Form(default=0),
 ) -> dict[str, Any]:
     _prune_stale_chunk_uploads()
+    _prune_stale_processing_jobs()
     if total_size > MAX_DXF_CHUNK_TOTAL_BYTES:
         raise HTTPException(
             status_code=413,
@@ -546,29 +599,46 @@ async def layout_workbench_upload_dxf_chunk_complete(upload_id: str = Form(...))
     if not temp_path.exists() or temp_path.stat().st_size <= 0:
         raise HTTPException(status_code=400, detail="No DXF data received for chunked upload")
 
-    payload = {
-        "source_format": "dxf",
-        "layout_name": entry.get("layout_name") or temp_path.stem,
-        "source_path": str(temp_path),
-        "source_filename": entry.get("source_filename") or temp_path.name,
-        "source_size": temp_path.stat().st_size,
-        "revision_note": "uploaded DXF from layout workbench (chunked)",
-        "compact_response": True,
-    }
-    result = _sdk.industrial_intelligence_execute("dxf-intelligence-parser", payload)
-
     DXF_CHUNK_UPLOADS.pop(upload_id, None)
-    temp_dir = temp_path.parent
-    temp_path.unlink(missing_ok=True)
-    try:
-        temp_dir.rmdir()
-    except OSError:
-        pass
+    job_id = f"dxf-job-{uuid4()}"
+    DXF_PROCESSING_JOBS[job_id] = {
+        "status": "queued",
+        "layout_name": entry.get("layout_name") or temp_path.stem,
+        "source_filename": entry.get("source_filename") or temp_path.name,
+        "temp_path": str(temp_path),
+        "updated_at": time.time(),
+    }
+    asyncio.create_task(asyncio.to_thread(_run_dxf_processing_job, job_id))
 
     return {
         "mission_id": "M010",
         "component_id": "dxf-intelligence-parser",
-        "result": result,
+        "job_id": job_id,
+        "status": "queued",
+    }
+
+
+@router.get("/layout-workbench/upload/dxf/job/{job_id}")
+async def layout_workbench_upload_dxf_job_status(job_id: str) -> dict[str, Any]:
+    entry = DXF_PROCESSING_JOBS.get(job_id)
+    if not entry:
+        raise HTTPException(status_code=404, detail="Unknown DXF processing job")
+
+    status = str(entry.get("status", "unknown"))
+    response: dict[str, Any] = {
+        "job_id": job_id,
+        "status": status,
+        "layout_name": entry.get("layout_name"),
+        "updated_at": entry.get("updated_at"),
+    }
+    if status == "completed":
+        response["result"] = entry.get("result", {})
+    if status == "failed":
+        response["error"] = entry.get("error", "Unknown DXF processing error")
+    return {
+        "mission_id": "M010",
+        "component_id": "dxf-intelligence-parser",
+        **response,
     }
 
 
