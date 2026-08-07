@@ -8,12 +8,15 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from hashlib import sha256
+import base64
 import json
+import os
 from pathlib import Path
 import re
 import shlex
 import shutil
 import subprocess
+import tempfile
 from typing import Any, Protocol
 
 
@@ -127,6 +130,23 @@ def _payload_text(payload: dict[str, Any]) -> str:
         if path.exists():
             return path.read_text(encoding="utf-8", errors="ignore")
     return ""
+
+
+def _payload_bytes(payload: dict[str, Any]) -> bytes:
+    source = payload.get("source")
+    if isinstance(source, (bytes, bytearray)):
+        return bytes(source)
+
+    for key in ("source_bytes", "source_bytes_b64", "source_base64"):
+        raw = payload.get(key)
+        if isinstance(raw, (bytes, bytearray)):
+            return bytes(raw)
+        if isinstance(raw, str) and raw.strip():
+            try:
+                return base64.b64decode(raw)
+            except Exception:
+                continue
+    return b""
 
 
 def _entity_points(entity: dict[str, Any]) -> list[tuple[float, float]]:
@@ -264,22 +284,20 @@ class ExternalCommandProvider(BaseLayoutProvider):
 
     command_config_key = ""
     output_format = "json"
+    command_env_keys: tuple[str, ...] = tuple()
+    command_candidates: tuple[str, ...] = tuple()
 
     def can_handle(self, source_format: str, payload: dict[str, Any]) -> bool:
         if source_format not in self.supported_formats:
             return False
-        command = payload.get(self.command_config_key)
-        if not command:
-            return False
-        return self._command_available(command)
+        return self._resolve_command(payload) is not None
 
     def import_layout(self, source_format: str, payload: dict[str, Any]) -> IntermediateGeometryModel:
-        command = payload.get(self.command_config_key)
+        command = self._resolve_command(payload)
         if not command:
             raise ValueError(f"missing converter command for provider {self.provider_id}")
 
-        completed = self._run_command(command)
-        output_text = completed.stdout.strip()
+        output_text = self._convert_payload(command, source_format, payload).strip()
         if not output_text:
             raise ValueError(f"provider {self.provider_id} returned empty output")
 
@@ -288,6 +306,51 @@ class ExternalCommandProvider(BaseLayoutProvider):
         if self.output_format == "dxf":
             return DXFLayoutProvider().import_layout("dxf", converted_payload)
         return JSONLayoutProvider().import_layout("json", converted_payload)
+
+    def _resolve_command(self, payload: dict[str, Any]) -> Any | None:
+        command = payload.get(self.command_config_key)
+        if command and self._command_available(command):
+            return command
+
+        for env_key in self.command_env_keys:
+            env_command = os.environ.get(env_key)
+            if env_command and self._command_available(env_command):
+                return env_command
+
+        for candidate in self.command_candidates:
+            resolved = shutil.which(candidate)
+            if resolved:
+                return resolved
+
+        for discovered in self._discover_install_paths():
+            if self._command_available(discovered):
+                return discovered
+        return None
+
+    def _discover_install_paths(self) -> list[str]:
+        return []
+
+    def _convert_payload(self, command: Any, source_format: str, payload: dict[str, Any]) -> str:
+        completed = self._run_command(command)
+        return completed.stdout.strip()
+
+    def _materialize_source_file(self, payload: dict[str, Any], suffix: str) -> Path:
+        source_path = payload.get("source_path")
+        if source_path:
+            path = Path(str(source_path))
+            if path.exists():
+                return path
+
+        source_bytes = _payload_bytes(payload)
+        if not source_bytes:
+            raise ValueError(f"provider {self.provider_id} requires source_path or source_bytes_b64 for {suffix} conversion")
+
+        source_name = str(payload.get("source_filename") or payload.get("layout_name") or f"layout{suffix}")
+        extension = Path(source_name).suffix or suffix
+        temp_dir = Path(tempfile.mkdtemp(prefix=f"{self.provider_id}-src-"))
+        temp_path = temp_dir / f"source{extension}"
+        temp_path.write_bytes(source_bytes)
+        return temp_path
 
     def _command_available(self, command: Any) -> bool:
         if isinstance(command, str):
@@ -312,7 +375,59 @@ class DWGOdaProvider(ExternalCommandProvider):
     supported_formats = ("dwg",)
     priority = 10
     command_config_key = "dwg_oda_command"
+    command_env_keys = ("DWG_ODA_COMMAND", "ODA_FILE_CONVERTER")
+    command_candidates = ("ODAFileConverter", "TeighaFileConverter")
     output_format = "dxf"
+
+    def _discover_install_paths(self) -> list[str]:
+        candidates: list[str] = []
+        for root_key in ("ProgramFiles", "ProgramFiles(x86)", "LocalAppData"):
+            root = os.environ.get(root_key)
+            if not root:
+                continue
+            base = Path(root)
+            patterns = [
+                "ODA/ODAFileConverter*/ODAFileConverter.exe",
+                "ODA/ODAFileConverter*/TeighaFileConverter.exe",
+                "Open Design Alliance/*/ODAFileConverter.exe",
+                "Open Design Alliance/*/TeighaFileConverter.exe",
+            ]
+            for pattern in patterns:
+                candidates.extend(str(path) for path in base.glob(pattern))
+        return candidates
+
+    def _convert_payload(self, command: Any, source_format: str, payload: dict[str, Any]) -> str:
+        source_path = self._materialize_source_file(payload, ".dwg")
+        source_name = str(payload.get("source_filename") or source_path.name)
+        working_dir = Path(tempfile.mkdtemp(prefix="dwg-oda-"))
+        input_dir = working_dir / "input"
+        output_dir = working_dir / "output"
+        input_dir.mkdir(parents=True, exist_ok=True)
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        staged_input = input_dir / Path(source_name).name
+        staged_input.write_bytes(source_path.read_bytes())
+        command_parts = [
+            *self._command_parts(command),
+            str(input_dir),
+            str(output_dir),
+            "ACAD2018",
+            "DXF",
+            "0",
+            "1",
+            staged_input.name,
+        ]
+        self._run_command(command_parts)
+
+        dxf_files = sorted(output_dir.rglob("*.dxf"))
+        if not dxf_files:
+            raise ValueError(f"provider {self.provider_id} did not produce a DXF output file")
+        return dxf_files[0].read_text(encoding="utf-8", errors="ignore")
+
+    def _command_parts(self, command: Any) -> list[str]:
+        if isinstance(command, str):
+            return shlex.split(command)
+        return [str(part) for part in command]
 
 
 class DWGRealDwgProvider(ExternalCommandProvider):
@@ -328,7 +443,24 @@ class DWGLibreDwgProvider(ExternalCommandProvider):
     supported_formats = ("dwg",)
     priority = 30
     command_config_key = "dwg_libredwg_command"
+    command_env_keys = ("DWG_LIBREDWG_COMMAND", "LIBREDWG_DWG2DXF_COMMAND")
+    command_candidates = ("dwg2dxf",)
     output_format = "dxf"
+
+    def _convert_payload(self, command: Any, source_format: str, payload: dict[str, Any]) -> str:
+        source_path = self._materialize_source_file(payload, ".dwg")
+        working_dir = Path(tempfile.mkdtemp(prefix="dwg-libredwg-"))
+        output_path = working_dir / f"{source_path.stem}.dxf"
+        command_parts = [*self._command_parts(command), str(source_path), "-o", str(output_path)]
+        self._run_command(command_parts)
+        if not output_path.exists():
+            raise ValueError(f"provider {self.provider_id} did not produce {output_path.name}")
+        return output_path.read_text(encoding="utf-8", errors="ignore")
+
+    def _command_parts(self, command: Any) -> list[str]:
+        if isinstance(command, str):
+            return shlex.split(command)
+        return [str(part) for part in command]
 
 
 class DWGExternalProvider(ExternalCommandProvider):

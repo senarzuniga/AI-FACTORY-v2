@@ -545,6 +545,19 @@
       return filename.slice(0, index);
     }
 
+    async function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const result = typeof reader.result === "string" ? reader.result : "";
+          const [, encoded = ""] = result.split(",", 2);
+          resolve(encoded);
+        };
+        reader.onerror = () => reject(reader.error || new Error("FileReader failed"));
+        reader.readAsDataURL(file);
+      });
+    }
+
     async function handleDwgUpload(file) {
       if (!file) {
         return;
@@ -556,6 +569,7 @@
       setUploadLog(`DWG loaded: ${file.name} (${Math.round(file.size / 1024)} KB)`);
 
       try {
+        const sourceBytesB64 = await fileToBase64(file);
         const result = await postJson("/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute", {
           payload: {
             source_format: "dwg",
@@ -563,6 +577,7 @@
             source: `dwg-file:${file.name}`,
             source_filename: file.name,
             source_size: file.size,
+            source_bytes_b64: sourceBytesB64,
             revision_note: "uploaded from layout workbench"
           }
         });
