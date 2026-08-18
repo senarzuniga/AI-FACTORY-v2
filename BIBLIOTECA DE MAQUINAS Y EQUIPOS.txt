@@ -1,0 +1,365 @@
+BIBLIOTECA TECNICA DE MAQUINAS Y EQUIPOS DE CARTON CORRUGADO
+
+Fecha de actualizacion: 2026-08-17
+Proyecto: Calgary Cascades / PAIGE Conversion Plant
+Uso: AI_FACTORY, Machine Graph, Factory Graph, Layout Workbench, Digital Twin y simulacion
+Fuente estructurada canonica: knowledge/corrugated_equipment/converter_equipment_catalog_v1.json
+
+====================================================================
+1. OBJETIVO Y REGLA DE EVIDENCIA
+====================================================================
+
+Esta biblioteca consolida las maquinas detectadas o analizadas para Calgary Cascades y PAIGE.
+No todos los equipos disponen de la misma calidad de evidencia. Los datos se clasifican asi:
+
+- A: dato publicado por fabricante/OEM
+- B: documento tecnico fiable o distribuidor autorizado
+- C: evidencia de una maquina concreta o mercado de maquinaria usada
+- D: benchmark industrial
+- E: estimacion de ingenieria
+- H: hipotesis AHDE
+- U: dato desconocido o no verificado
+
+Una velocidad de catalogo no equivale al output real de planta. El calculo correcto es:
+
+capacidad mecanica
+x disponibilidad
+x rendimiento
+x calidad
+x factor de mix de producto
+x disponibilidad de WIP
+x disponibilidad de operador y transporte
+= output bueno restringido por planta
+
+Los valores C, D y E no deben utilizarse como garantia de produccion ni para una decision de
+inversion sin validar placa, numero de serie, ano, configuracion, estado y telemetria del sitio.
+
+====================================================================
+2. INVENTARIO RESUMIDO
+====================================================================
+
+01. Fosber S/LINE 370/420              Corrugadora completa             A/B
+02. Dong Fang Apstar HG2/HS2           Impresora flexo + RDC             B
+03. S&S ZLRF/F/G                       FFG modular legacy                U
+04. Latitude LMC 42 in FFG             Flexo Folder Gluer                C
+05. Curioni 2000 / 78 in               FFG/Inliner legacy                C
+06. Ward 66 x 115 in                   RDC heavy-duty                    C
+07. Young Shin Zenith 210S Plus        Troqueladora plana                A/B
+08. BOBST SPO 1575 / 1574              Troqueladora plana legacy         C
+09. Post 74 in FG/CORR                 Folder Gluer especial             C
+10. McKinley 66 x 130 in               RDC jumbo heavy-duty              C/U
+11. Koppers 49 in RDC                  RDC legacy, modelo pendiente      U
+12. ESTAR Two-Piece FGS                Folder Gluer + Stitcher           C
+13. EMBA 175 QS Ultima                 FFG de alta productividad         A
+14. EMBA 215 QS Ultima                 FFG de alta productividad         A
+15. EMBA 245 QS Ultima                 FFG grande / TwinFeed opcional    A
+16. EMBA 295 QS Ultima                 FFG gran formato                  A
+17. Transfer car para conveyors        Transporte transversal            E
+
+====================================================================
+3. FOSBER S/LINE 370 / S/LINE 420
+====================================================================
+
+Tipo: corrugadora completa de alta produccion.
+Funcion: transforma bobinas de papel en plancha corrugada mediante single facer, encolado,
+double backer, calentamiento, corte y apilado.
+
+Datos de referencia:
+- velocidad por denominacion de familia: 370 o 420 m/min [B]
+- ancho de banda de referencia: 2.500 o 2.800 mm [B]
+- fabricante y familia de corrugadoras completas: confirmado por Fosber [A]
+
+Variables para simulacion:
+- velocidad efectiva por composicion y gramaje
+- ancho util despues de trim
+- m2 buenos/hora y metros lineales buenos/hora
+- tiempos de cambio de pedido y empalme
+- merma, OEE, descarga a WIP y bloqueo de salida
+
+Pendiente: verificar configuracion instalada, ancho, modulos, garantia de velocidad por tipo de
+carton y la afirmacion de cambio de pedido en 15 segundos.
+
+====================================================================
+4. DONG FANG APSTAR HG2 / HS2
+====================================================================
+
+Tipo: impresora flexografica y troqueladora rotativa (RDC).
+Proceso posible: alimentacion, impresion, slotting, die-cut, limpieza y apilado.
+
+Datos de referencia [B]:
+- 12.000-13.000 hojas/h segun modelo/configuracion
+- formatos de familia 1624, 1628 y 1632
+- anchura maxima de referencia hasta aproximadamente 3.200 mm
+- hasta 7 colores y duplex en configuraciones que incorporen esas opciones
+
+Pendiente: modelo exacto, numero de colores instalado, opcion duplex, feeder, stacker, longitud
+minima/maxima de hoja y curva de velocidad por material.
+
+====================================================================
+5. S&S ZLRF/F/G
+====================================================================
+
+Clasificacion: FFG modular legacy, identificacion pendiente.
+La cadena ZLRF/F/G puede representar una transcripcion o combinacion de feeder, flexo, slotter,
+rotary die cutter, folder y gluer. No se asigna velocidad ni formato hasta verificar la placa.
+
+Estado: U. Deshabilitada para dimensionamiento automatico.
+Datos necesarios: fabricante, escritura exacta del modelo, ano, ancho, colores, feeder, slotter,
+RDC, folder/gluer, counter ejector y velocidad sostenida.
+
+====================================================================
+6. LATITUDE LMC 42 in FFG
+====================================================================
+
+Tipo: Flexo Folder Gluer de formato medio.
+Referencia dimensional [C]:
+- desarrollo nominal: 42 in / 1.066 mm
+- formatos comercializados de referencia: 42 x 98 in y 42 x 110 in
+- velocidad reportada: 350-400 hojas o cajas/min, no garantizada para todo producto
+
+El output depende de longitud de hoja, caja RSC, colores, calidad del carton, pegado, conteo,
+bundle y cambio de pedido. Confirmar feeder SUN y configuracion instalada antes de modelar.
+
+====================================================================
+7. CURIONI 2000 / 78 in
+====================================================================
+
+Tipo: FFG/Inliner industrial legacy.
+Datos de referencia [C]: ancho aproximado 2.000 mm / 78 in y desarrollo vertical de cilindro
+aproximado de 720 mm. Su valor industrial combina robustez, disponibilidad, mantenibilidad y
+capacidad para tiradas cortas/medias; no debe compararse solo por velocidad con una FFG actual.
+
+Pendiente: placa, ano, modulos, controles/retrofit, velocidad, repuestos, consumo y OEE real.
+
+====================================================================
+8. WARD 66 x 115 in RDC
+====================================================================
+
+Tipo: RDC pesada de gran formato.
+Datos de referencia [C]:
+- desarrollo de cilindro: 66 in / 1.676 mm
+- ancho maximo reportado: 113-115 in / hasta 2.921 mm
+- aplicacion: single, double y, segun configuracion, triple wall
+- feeder por borde de ataque reportado
+
+Su capacidad diferencial es formato + espesor + robustez mecanica. La velocidad queda U hasta
+identificar serie 15000/16000, ano, colores, feeder, stacker y estado del retrofit.
+
+====================================================================
+9. YOUNG SHIN ZENITH 210S PLUS
+====================================================================
+
+Tipo: troqueladora plana automatica de gran formato.
+Datos de referencia A/B:
+- formato maximo: 2.100 x 1.500 mm
+- output: hasta 5.000 hojas/h; rango de ingenieria 3.000-5.000 hojas/h
+- espesor de carton de referencia: 1,5-11 mm
+- fuerza de prensado de referencia: hasta 500 US tons
+- stripping automatico segun configuracion
+
+Aplicacion: cajas grandes, carton pesado, laminado/high graphics y trabajos donde interesa evitar
+el aplastamiento asociado a un proceso rotativo.
+
+====================================================================
+10. BOBST SPO 1575 EEG / SPO-1574 DC
+====================================================================
+
+Tipo: troqueladora plana automatica legacy premium.
+Datos de referencia [C]:
+- formato aproximado: 1.575 x 1.055 mm
+- velocidad: 3.600-4.500 hojas/h segun configuracion
+- fuerza: aproximadamente 350 t
+- espesor: hasta aproximadamente 9-11 mm
+
+Es candidata a retrofit mecanico/electrico, PLC, servo y vision. Confirmar variante, serie,
+electronica, stripping y estado antes de comparar TCO con una maquina nueva.
+
+====================================================================
+11. POST 74 in FG/CORR
+====================================================================
+
+Tipo: specialty corrugated Folder Gluer legacy.
+Datos de referencia [C]:
+- boca maxima: 74 in / aproximadamente 1.880 mm
+- minimo orientativo: aproximadamente 250 mm
+- materiales: E, B, C y dobles BC/EB segun configuracion
+- capacidades posibles: straight line, crash-lock, 4/6 corners, cold glue y compresion
+
+No se publica una velocidad unica. Deben verificarse modulos, ganchos, sistema de adhesivo,
+velocidad de banda, longitud de compresion, operadores y geometria de caja.
+
+====================================================================
+12. McKINLEY RDC 66 x 130 in
+====================================================================
+
+Tipo: RDC jumbo/heavy-duty legacy.
+Formato reportado [C]:
+- desarrollo: 66 in / 1.676 mm
+- ancho: 130 in / 3.302 mm
+
+Aplicaciones probables: cajas industriales/agricolas, double wall y triple wall segun maquina.
+No se ha localizado una ficha OEM contemporanea inequivoca para esta unidad. Velocidad U.
+Usar solo la restriccion dimensional hasta obtener placa, serie, ano, colores, feeder y stacker.
+
+====================================================================
+13. KOPPERS RDC 49 in
+====================================================================
+
+Interpretacion provisional: 49 in, no 49 unidades.
+Tipo: plataforma RDC legacy; serie exacta desconocida.
+Familias que deben discriminarse: NSL, CL, United/Koppers u otra configuracion.
+
+Estado: U. No usar capacidad en simulacion hasta confirmar placa, modelo, ano, colores, feeder,
+slotter, die-cut section, stacker y velocidad sostenida.
+
+====================================================================
+14. ESTAR AUTOMATIC TWO-PIECE FOLDER GLUER & STITCHER
+====================================================================
+
+Tipo: linea automatica para cajas de dos piezas con plegado, pegado y cosido.
+Flujo reportado: carga -> alimentacion -> alineacion -> plegado -> pegado/cosido -> conteo -> stack.
+
+Condicion de planta critica [C]:
+- carga a 90 grados
+- ajuste manual de cada paquete por el operario
+- interfaz humana entre WIP y alimentacion
+
+Por ello, el output debe incorporar tiempo de alineacion manual, disponibilidad del operario,
+tamano de paquete, ergonomia, microparadas y probabilidad de starvation. La velocidad de otras
+lineas ESTAR no se transfiere a esta maquina sin modelo exacto.
+
+Tecnologia reportada, pendiente de confirmar por modelo: vacuum belt transfer, feeding rollers,
+doble servo, ajuste lateral motorizado y tension independiente de correas.
+
+====================================================================
+15. EMBA QS ULTIMA
+====================================================================
+
+Tipo: familia actual de Flexo Folder Gluer de alta productividad.
+Fuente: pagina OEM EMBA Machines and Solutions, validada 2026-08-17 [A].
+
+Modelo             Velocidad OEM        Area maxima impresion   Hoja desplegada max.   Potencia
+175 QS Ultima      500 hojas/min        600 x 1.700 mm          1.450 mm                140 kVA
+215 QS Ultima      420 hojas/min        725 x 2.100 mm          1.600 mm                140 kVA
+245 QS Ultima      330 hojas/min        1.050 x 2.400 mm        1.850 mm                175 kVA
+295 QS Ultima      300 hojas/min        1.150 x 2.900 mm        1.850 mm                210 kVA
+
+Datos comunes:
+- espesor/caliper: 1,2-8 mm
+- Non-Crush Converting
+- Real Direct Drive y top-print
+- plataforma Ultima con setup orientado a multiples pedidos
+
+Modos opcionales:
+- EMBA 245 TwinFeed/DualBox: hasta 500 hojas/min o 30.000 hojas/h
+- EMBA 295 TwinFeed/DualBox: hasta 450 hojas/min o 27.000 hojas/h
+
+Consumo normal publicado:
+- 175: 60-80 kVA
+- 215: 65-80 kVA
+- 245: 75-95 kVA
+- 295: estimado 75-100 kVA, pendiente en la propia ficha OEM
+
+El simulador debe distinguir hojas/h, cajas/hoja, cajas/h, bundles/h, pallets/h y misiones AMR/h.
+
+====================================================================
+16. TRANSFER CAR PARA CONVEYORS
+====================================================================
+
+Tipo: carro transferidor transversal sobre rail con cama de rodillos.
+Los siguientes valores son rangos de ingenieria [E], no una ficha de proveedor:
+
+- carga: 3.000-5.000 kg
+- traslacion lateral: 1,5-2,5 m/s
+- rodillos superiores: 0,3-0,5 m/s
+- ancho util: 1.800-2.800 mm
+- longitud util: 3.000-5.500 mm
+- altura de transporte: 300-450 mm
+- precision de parada: +/-2 a +/-5 mm
+
+Entradas PLC tipicas:
+- carga centrada, carga en extremo delantero y carga en extremo trasero
+- zona de advertencia y zona de parada de emergencia del scanner
+- posicion continua del carro en milimetros
+- destino vacio/listo para recibir
+- origen con carga lista
+- finales de carrera, emergency stop y drive ready
+
+Salidas PLC tipicas:
+- direccion y consigna de velocidad de traslacion
+- rodillos en carga y descarga
+- freno electromecanico
+- baliza y alarma acustica
+- permiso de transferencia al conveyor fijo
+- disponible, ocupado, fallo y bateria baja si aplica
+
+Interlocks minimos:
+- carro alineado en estacion
+- ambos conveyors listos
+- envolvente de carga libre
+- zona de seguridad libre
+- estado de freno valido
+- capacidad confirmada en destino
+
+Interfaces habituales: PROFINET, EtherCAT y handshake industrial inalambrico u optico.
+La seleccion definitiva requiere vendor quote, caso de carga, longitud de rail, estaciones, duty
+cycle, evaluacion de riesgos, lista I/O y nivel de seguridad funcional requerido.
+
+====================================================================
+17. MODELO DE DATOS PARA MACHINE GRAPH Y DIGITAL TWIN
+====================================================================
+
+Campos minimos:
+- machine_id, manufacturer, model, family, generation, year y lifecycle
+- technology, process y subprocess
+- format_min/max, width, length, thickness, board_types y flute_types
+- maximum, nominal y sustained speed con unidad explicita
+- setup, changeover, availability, performance, quality y OEE
+- input/output type, buffers y capacidad de WIP
+- bundles/h, pallets/h, kg/h, m2/h y transport missions/h
+- operator requirement y automation level
+- power, compressed air, footprint, maintenance y critical spares
+- CAPEX new/used, retrofit, OPEX y TCO cuando exista evidencia
+- conveyor/AMR interface, upstream/downstream dependencies e interlocks
+- evidence level, source, confidence, last_validated y validation_required
+
+Cadena de conversion obligatoria para PAIGE:
+
+machine rated speed
+-> sustained speed by product
+-> good output after OEE
+-> bundles and pallets
+-> transfer/conveyor demand
+-> WIP occupancy
+-> plant-constrained output
+
+====================================================================
+18. DATOS DE CAMPO PRIORITARIOS
+====================================================================
+
+1. Fotografiar placa y numero de serie de McKinley, Koppers, S&S, Ward, Curioni y Post.
+2. Confirmar el significado de Koppers 49 y el modelo exacto.
+3. Cronometrar carga manual a 90 grados de ESTAR por tamano de paquete.
+4. Obtener curvas de velocidad por SKU, espesor y formato, no solo maximos.
+5. Medir setup, microparadas, scrap, disponibilidad y OEE por turno.
+6. Registrar dimensiones reales, zonas de mantenimiento y conexiones conveyor.
+7. Convertir salida en bundles, pallets y misiones logisticas por hora.
+8. Verificar transfer car mediante FAT/SAT, I/O list y evaluacion de seguridad funcional.
+
+====================================================================
+19. FUENTES VALIDADAS Y LIMITACIONES
+====================================================================
+
+- EMBA Machinery AB: https://emba.com/machines-and-solutions/
+- Fosber Group: https://www.fosbergroup.com/en/products/the-lines/
+- Young Shin USA: https://youngshinusa.com/zenith-210s-plus/
+- Informe tecnico aportado para Calgary Cascades / PAIGE, 2026-08-17
+
+La pagina de Fosber confirma la familia de corrugadoras, pero no todas las cifras de configuracion
+del informe. La pagina Young Shin enlaza la ficha OEM, pero los valores dimensionales se mantienen
+como A/B hasta validar la generacion instalada. Los equipos legacy y ESTAR requieren identificacion
+de maquina concreta. Los rangos del transfer car son estimaciones de ingenieria y deben sustituirse
+por datos de proveedor.
+
+====================================================================
+FIN DE LA BIBLIOTECA

@@ -1,0 +1,644 @@
+PLAN DE EJECUCIÓN REAL PARA INGECART: PROYECTOS CONCRETOS, AYUDAS, FINANCIACIÓN Y CTA DE CONSULTORÍA INTEGRADORA DE IA PARA PYMES
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Contexto: continuación del análisis realizado sobre gestión de ayudas, financiación, cartera de proyectos, innovación industrial, IS-BACKOFFICE y modelo de negocio para consultoría y IA aplicada a PYMEs.
+
+====================================================================
+1. CONTEXTO Y OBJETIVO DEL PLAN
+====================================================================
+El trabajo previo ya dejó claro que no basta con “identificar proyectos” o “buscar ayudas”.
+La verdadera ejecución exige pasar a una fase operativa en la que:
+- cada proyecto se convierta en una iniciativa gestionable con alcance, responsable, presupuesto, plazos y evidencias;
+- cada proyecto se evalúe frente a su potencial de innovación y financiación;
+- se cree un PMO para gestionar la cartera, la documentación y la liquidación;
+- se lance un CTA (Centro de Transformación y Aceleración) para vender consultoría, automatización e IA a PYMEs;
+- se cree una infraestructura de conocimiento y evidencia que permita justificar proyectos, ayudas y resultados.
+
+Este documento establece el punto de partida real para trabajar sobre los proyectos concretos referenciados por Ingecart, con un enfoque práctico y ejecutable.
+
+La idea principal es esta:
+- Proyecto 1: software industrial y control de INGETRANS
+- Proyecto 2: gestión de flujo productivo + integración ERP / periféricos
+- Proyecto 3: IA industrial / sistema operativo inteligente de planta
+- Proyecto 4: almacén inteligente / gestión de almacén GPS / RTWM
+
+Y al mismo tiempo:
+- CTA interno para vender consultoría a PYMEs con agentes IA
+- estructura de negocio, ventas, entregables y modelo de ingresos
+
+====================================================================
+2. BASE DE TRABAJO: LOS 4 PROYECTOS CONCRETOS DE INGECART
+====================================================================
+2.1 PROYECTO 1 - INGENIERIA DE SOFTWARE PARA EQUIPAMIENTO INDUSTRIAL
+Nombre propuesto: INGETRANS Intelligent Control Platform
+Objetivo:
+- desarrollar el software de control, integración y puesta en marcha del equipo industrial
+- garantizar el cumplimiento de tiempos, secuencias, sincronización y seguridad
+- coordinar la operación de bobinas, transfer, carriles, zonas de pesaje e intercambio de bobinas
+- crear una base de conocimiento para ciclos, rutas, tiempos y comportamiento del sistema
+
+Alcance base:
+- zona de pesaje e identificación de bobinas
+- zona de intercambio de bobinas entre almacén y transfer
+- gestión de movimientos INGETRANS y transfer con capacidad de dos bobinas
+- integración de carriles Fosber para control de secuencia
+- programas de control, gestión de prioridad, tiempos y coordinación con la corrugadora
+
+2.2 PROYECTO 2 - SOFTWARE Y PROGRAMA DE GESTIÓN DE FLUJO PRODUCTIVO + INTERFACE ERP
+Objetivo:
+- coordinar equipos de la planta con IA y flujo productivo
+- gestionar secuencias, colas, WIP, disponibilidad, prioridad y sincronización entre máquinas
+- interfaz con ERP y módulos de operación
+
+Alcance base:
+- corrugadora
+- RDCs
+- FG / finisher / conversion
+- FFG
+- paletizadores
+- transfer WIP
+- Ingetrans
+- almacenes FG / FFG / RDCI
+- integrador ERP y trazabilidad de orden
+
+2.3 PROYECTO 3 - IA INDUSTRIAL / SISTEMA OPERATIVO DE PLANTA
+Objetivo:
+- crear una capa de IA para planificación, priorización, flujo, diagnóstico de cuellos de botella y simulación
+- no sustituir al ERP, sino complementar la operación con un modelo de decisión inteligente
+
+Alcance base:
+- agente de planificación y secuenciación
+- agente de flujo y WIP
+- agente de almacén e inventario
+- agente de transporte y paletización
+- agente de calidad y mantenimiento
+- agente de simulación y optimización
+
+2.4 PROYECTO 4 - PROYECTO I+D GESTION DE ALMACEN / WAREHOUSE MANAGEMENT INTELIGENTE
+Objetivo:
+- desarrollar una plataforma de almacén inteligente con identificación, trazabilidad, GPS / localización y control en tiempo real
+- permitir la gestión visual y automatizada del almacenamiento, movimientos, reubicación y despacho
+
+Alcance base:
+- localización de stock por ubicación, SKU, prioridad, pedido y fecha
+- trazabilidad de pallets / bobinas / lotes
+- control de stock, rotación, emisión y prioridad
+- integración con ERP y flujo productivo
+
+====================================================================
+3. LA REALIDAD OPERATIVA: DE LA IDEA AL PROYECTO EJECUTABLE
+====================================================================
+La etapa actual es la de pasar del concepto al proyecto estructurado. Esto significa que cada uno de los cuatro proyectos debe tener:
+- objetivo concreto
+- alcance funcional claro
+- responsable técnico
+- responsable comercial
+- presupuesto base
+- criterio de innovación
+- mapa de ayuda compatible
+- cronograma de trabajo
+- entregables por fase
+- evidencias y documentos habilitantes
+
+No se pueden dejar como “ideas de producto”. Deben ser convertidos en iniciativas de trabajo con entregables reales.
+
+====================================================================
+4. FLUJO DE TRABAJO PARA CADA PROYECTO
+====================================================================
+4.1 Fase 0 - Aprobación interna y dirección
+Objetivo:
+- decidir si el proyecto entra en la cartera de innovación y desarrollo
+
+Acciones:
+- definir necesidad real del cliente/mercado
+- confirmar valor económico y técnico
+- validar si es un proyecto de producto, sistema industrial, software o consultoría
+- asignar sponsor interno
+- registrar el proyecto en la cartera
+
+Entregables:
+- ficha de proyecto
+- resumen ejecutivo
+- sponsor asignado
+- prioridad estratégica
+
+4.2 Fase 1 - Descubrimiento y definición del problema
+Objetivo:
+- convertir la idea en una necesidad concreta, medible y justificable
+
+Acciones:
+- identificar problema industrial o funcional
+- describir el proceso actual
+- definir el objetivo del nuevo sistema
+- detallar los equipos implicados, tramos, movimientos y restricciones
+- identificar KPI actuales y esperados
+- localizar datos y documentos de origen
+
+Entregables:
+- problema, caso de uso y objetivo
+- especificación funcional inicial
+- mapa de procesos
+- listado de equipos implicados
+- indicadores actuales y objetivo
+
+4.3 Fase 2 - Modelado técnico y de conocimiento
+Objetivo:
+- construir la capa de conocimiento del proyecto
+
+Acciones:
+- declarar entidades del sistema
+- crear modelos de datos
+- definir rutas, ciclos, tiempos y restricciones
+- definir Kinematic Parameters
+- definir route structure
+- definir step-by-step operational logic
+- incorporar documentación de origen y evidencias
+
+Para el caso del Proyecto 1 (INGETRANS), esto implica incorporar:
+- track speed
+- transfer speed
+- acceleration ramp
+- roll advance
+- elevation & closing
+- load & elevation
+- mission patterns
+- route distances
+- cycle times por escenario
+- evidencia documental por fuente
+
+Esto debe quedar organizado en una estructura tipo:
+
+INGETRANS CYCLE ENGINE
+- Plant
+- Corrugator
+- Roll Stand
+- Track
+- Home / Exchange Point
+- Transport Route
+- Kinematic Parameters
+- Handling Times
+- Cycle Pattern
+- Mission
+- Cycle Result
+- Benchmark
+- Source Evidence
+
+Entregables:
+- modelo de datos del sistema
+- estructura de rutas y ciclos
+- base documental y evidencia
+- tabla de tiempos y parámetros
+
+4.4 Fase 3 - Evaluación de elegibilidad y fuentes de financiación
+Objetivo:
+- decidir qué programa de ayuda o financiación es viable para cada proyecto
+
+Acciones:
+- revisar ayudas públicas nacionales / autonómicas / europeas
+- valorar I+D+i, digitalización, inversión industrial, sostenibilidad, innovación, logística
+- determinar si el proyecto necesita consorcio
+- revisar TRL, innovación, cuota tecnológica y alcance
+- seleccionar la mejor convocatoria
+- preparar matriz de elegibilidad
+
+Entregables:
+- matriz de ayuda por proyecto
+- shortlist de convocatorias
+- ventana de presentación
+- requisitos y riesgos
+
+4.5 Fase 4 - Definición técnica del proyecto y memoria
+Objetivo:
+- preparar la documentación que debe sostener la ayuda y la ejecución
+
+Acciones:
+- escribir memoria técnica
+- definir resultados esperados
+- describir innovación y diferenciación
+- crear plan de trabajo por packages
+- definir entregables, hitos y cronograma
+- preparar presupuesto por actividad
+- identificar costes elegibles y no elegibles
+
+Entregables:
+- memoria técnica
+- plan de trabajo / WBS
+- presupuesto y coste elegible
+- cronograma técnico y económico
+
+4.6 Fase 5 - Preparación del expediente financiero y administrativo
+Objetivo:
+- dejar el proyecto listo para solicitar ayuda o financiación
+
+Acciones:
+- separar costes directos e indirectos
+- justificar recursos humanos, subcontratación y software
+- incluir cofinanciación, aportación propia y detalle de recursos
+- preparar documentación legal y de empresa
+- revisar cumplimiento reglamentario
+- revisar la documentación antes de presentación
+
+Entregables:
+- expediente completo
+- checklist de presentación
+- documentación financiera
+- soporte técnico y económico
+
+4.7 Fase 6 - Ejecución y control del proyecto
+Objetivo:
+- llevar el proyecto a la práctica con control de hitos, entregables y costes
+
+Acciones:
+- formalizar equipo del proyecto
+- activar plan de trabajo
+- revisar avances semanales o mensuales
+- controlar calidad, costes, riesgo y entregables
+- preparar informes de avance
+- validar que la ejecución cumple la memoria
+
+Entregables:
+- hito 1, hito 2, hito 3…
+- informes de ejecución
+- avance económico
+- bitácora de riesgos
+
+4.8 Fase 7 - Liquidación final
+Objetivo:
+- cerrar la ayuda o financiación con trazabilidad y evidencia
+
+Acciones:
+- recopilar facturas, pagos, evidencias y documentación final
+- comparar ejecución real con proyecto aprobado
+- verificar que los costes son elegibles
+- entregar memoria final y liquidación
+- gestionar cierre con organismo o entidad financiera
+
+Entregables:
+- memoria final de ejecución
+- liquidación final
+- cierre administrativo y financiero
+
+====================================================================
+5. PROYECTO 1: GESTIÓN OPERATIVA CONCRETA PARA INGETRANS
+====================================================================
+5.1 Objetivo operativo
+Desarrollar un sistema de control para el transporte interno y la gestión de bobinas, con lógica de secuencia, tiempos, rutas, prioridad y coordinación con la corrugadora.
+
+5.2 Requisitos mínimos a trabajar
+- modelado de bobina, transfer, track, home position, exchange point
+- control de prioridad por pedido, cliente y urgencia
+- gestión de dos bobinas por carga/descarga
+- control de transporte con sincronización real con la corrugadora
+- división por rutas y escenarios de tiempo
+- gestión de seguridad y cumplimiento
+- registro de tiempos de ejecución para comparación real vs modelo
+
+5.3 Datos operativos que deben entrar al Knowledge Hub
+- track speed (18, 25, 40, 60, 70, 80 m/min)
+- acceleration ramp
+- roll advance
+- elevation & closing
+- load & elevation
+- scenario A: 5 delivery + 5 return
+- scenario B: 6 delivery + 8 return
+- scenario C: 5 delivery + 5 return
+- scenario D: 4 delivery + 3 return
+- tiempos por destino: Track 1, 3, 5, 7, 9, etc.
+- rollos por misión y ciclos por ruta
+- capacidad teórica y efectiva por hora
+
+5.4 Criterio de trabajo para el motor de cálculo
+El proyecto debe trabajar con un modelo de ciclo real, no con un único “time per roll”.
+Se debe construir:
+- route model
+- cycle pattern model
+- mission model
+- event model
+- result model
+
+El cálculo ideal será:
+Cycle Time = acceleration + travel out + handling + intermediate transfers + load/unload + return travel + return handling
+Effective Capacity = mission payload / cycle time
+
+5.5 Entregables de Proyecto 1
+- definición de rutas y escenarios
+- base de datos Kinematic Parameters
+- tabla de handling times
+- modelo de cycle patterns
+- scripts o lógica de cálculo del ciclo
+- validación con los escenarios documentados
+- prototipo de software de control y sincronización
+- documentación de operación y pruebas
+
+====================================================================
+6. PROYECTO 2: CONTROL DE FLUJO PRODUCTIVO + ERP
+====================================================================
+6.1 Objetivo operativo
+Crear un sistema de coordinación entre producción, transporte, WIP, almacén y ERP para evitar hambre, bloqueo, congestión, stock irracional y retrasos.
+
+6.2 Requisitos
+- ordenes, ruta, prioridad, due date, SLA
+- capacidad por máquina / línea / buffer
+- gestión de stock y WIP
+- planificación por prioridad y riesgo de retraso
+- coordinación de carga y descarga por paletizadores e Ingetrans
+- control de colas en transfer y almacenes
+- trazabilidad por lote, pallet, SKU y cliente
+
+6.3 Entregables
+- modelo de entidades: order, equipment, stock, WIP, route, transport
+- lógica de prioridad
+- panel de supervisión por máquina y zona
+- simulación de escenarios
+- integración con ERP (API/ETL)
+- alertas y reglas de excepción
+
+====================================================================
+7. PROYECTO 3: IA INDUSTRIAL / SISTEMA OPERATIVO DE PLANTA
+====================================================================
+7.1 Objetivo operativo
+Desarrollar una capa de IA orientada a decisión en tiempo real, con especial foco en:
+- secuenciación
+- flujo y cuellos de botella
+- gestión de WIP
+- transporte y paletización
+- mantenimiento y calidad
+- optimización y simulación
+
+7.2 Módulos mínimos
+- Agente de planificación y secuenciación
+- Agente de flujo y WIP
+- Agente de almacén e inventario
+- Agente de transporte e Ingetrans
+- Agente de mantenimiento y calidad
+- Agente de simulación y optimización
+
+7.3 Entregables
+- arquitectura de agentes por dominio
+- lógica de decisiones por zona
+- dashboard de KPI industrial
+- sistema de alarmas y recomendaciones
+- motor de ”what-if” para escenarios de operación
+
+====================================================================
+8. PROYECTO 4: GESTIÓN DE ALMACÉN INTELIGENTE
+====================================================================
+8.1 Objetivo operativo
+Crear una solución de Warehouse Management con control de ubicación, stock, movimientos, priorización de despacho y trazabilidad en tiempo real.
+
+8.2 Requisitos
+- localización exacta de stock
+- control de diferencias de inventario
+- trazabilidad por SKU / lote / pallet / entrega
+- reubicación por prioridad y urgencia
+- KPI de stock y movimiento
+- integración con flujo productivo y ERP
+
+8.3 Entregables
+- modelo de localización y stock
+- dashboard de almacén
+- reglas de priorización y reubicación
+- trazabilidad de movimientos
+- simulador de capacidad del almacén
+
+====================================================================
+9. ESTRUCTURA DE TRABAJO Y GOBERNANZA
+====================================================================
+9.1 Estructura mínima de proyecto
+- sponsor / dirección
+- responsable técnico general
+- responsable PMO / seguimiento
+- responsable de ayudas y financiación
+- responsable de documentación y evidencia
+- responsable de ERP / integración
+- responsable de IA y analítica
+- responsable de validación y pruebas
+
+9.2 Reglas de control
+- cada proyecto tiene una ficha con alcance, responsable, presupuesto y prioridad
+- todo coste debe tener trazabilidad y justificación
+- todo entregable debe ir acompañado de evidencia documental
+- todo proyecto debe tener una EVA (evidencia, validación, aprobación) antes de pasar a la fase siguiente
+- las ayudas y la ejecución deben fabricarse bajo el mismo diseño de PMO
+
+9.3 Revisión de nivel de madurez
+Cada proyecto debe pasar por una validación de tres niveles:
+- Conceptual / descubrimiento
+- Funcional / prototipo
+- Ejecutable / validado
+
+====================================================================
+10. MODELO DE AYUDAS Y FINANCIACIÓN PARA LOS 4 PROYECTOS
+====================================================================
+10.1 Tipos de ayuda más probables
+- I+D+i industrial
+- innovación tecnológica y software industrial
+- digitalización y transformación de procesos
+- automatización y logística
+- inversión productiva y tecnología aplicada
+- sostenibilidad y eficiencia
+- programas regionales o autonómicos
+
+10.2 Clasificación por proyecto
+Proyecto 1: I+D+i + digitalización industrial + innovación tecnológica
+Proyecto 2: I+D+i + automatización + software industrial
+Proyecto 3: IA industrial + digitalización + innovación tecnológica
+Proyecto 4: digitalización logística + almacén inteligente + inversión productiva
+
+10.3 Criterio de priorización para ayuda
+- alineación con el proyecto
+- oportunidad real de innovación
+- ratio de ayuda
+- complejidad administrativa
+- coste del expediente
+- tiempo de preparación
+- capacidad de ejecución
+- nivel de apoyo interno y externo
+
+10.4 Ejemplo de flujo de ayuda
+- identificación de convocatoria
+- evaluación de elegibilidad
+- diseño de memoria técnica
+- diseño de presupuesto
+- preparación documental
+- presentación
+- resolución
+- ejecución y control
+- liquidación
+
+====================================================================
+11. CTA INTERNO: VENTA DE CONSULTORÍA A PYMES CON AGENTES IA
+====================================================================
+La segunda parte del plan es crear dentro de la propia empresa un CTA (Centro de Transformación y Aceleración) para vender consultoría y soluciones a PYMEs españolas.
+
+11.1 Objetivo del CTA
+Acompañar a pequeñas y medianas empresas en:
+- transformación digital
+- gestión comercial
+- mejora de procesos
+- automatización y analítica
+- IA aplicada a negocio y operación
+- mejora de productividad y control
+
+11.2 No debe ser una consultora genérica
+El CTA debe estar especializado en:
+- consultoría comercial y organización
+- gestión de proyectos y PMO
+- automatización de procesos internos
+- IA aplicada a ventas, gestión, servicio y operaciones
+- análisis de KPI y diagnóstico empresarial
+
+11.3 Oferta de servicios
+A. Diagnóstico inicial
+- análisis del negocio y procesos
+- identificación de puntos de fricción
+- mapeo de oportunidades
+
+B. Diseño de transformación
+- estrategia, procesos, arquitectura y priorización
+
+C. Implementación modular
+- ventas, marketing, CRM, operación, logística, finanzas, servicio
+
+D. Acompañamiento gestionado
+- seguimiento, KPI, analítica, optimización continua
+
+11.4 Herramienta de agentes IA para la venta
+Debe configurarse como un sistema de apoyo comercial y operativo, no solo un chatbot.
+
+Módulos recomendados:
+- Agente de diagnóstico del cliente
+- Agente de análisis comercial y mercado
+- Agente de evaluación funcional y procesos
+- Agente de propuesta comercial
+- Agente de PMO para la ejecución del proyecto de consultoría
+- Agente de reporting y KPI
+- Agente de follow-up y cierre
+
+11.5 Modelo de valor del CTA
+- diagnóstico inicial
+- diseño y arquitectura
+- implementación modular
+- retainer mensual
+- seguimiento de resultados
+- servicios de mejora continua
+
+11.6 Modelo de ingresos sugerido
+- fee por diagnóstico
+- fee por diseño
+- fee por implementación por módulo
+- retainer mensual
+- precio por resultados o mejora medible
+- licencias o soporte para clientes con continuidad
+
+11.7 Beneficios para INGECART
+- genera negocio adicional fuera de la línea industrial
+- abre un mercado más amplio y comedido de PYMEs
+- crea experiencia y reputación como integrador y consultor
+- refuerza la lógica de agentes IA y transformación digital
+- convierte la tecnología en fuente de ingresos recurrentes
+
+====================================================================
+12. PLAN DE ACCIÓN INMEDIATO (PRÓXIMOS 90 DÍAS)
+====================================================================
+12.1 Primer bloque: 0 a 30 días
+Acciones:
+- crear ficha de cada proyecto con objetivo, alcance, responsable y prioridad
+- estructurar la cartera de 4 proyectos
+- definir el estado actual y el siguiente hito por proyecto
+- preparar la primera batería de convocatorias relevantes
+- elegir una conveniencia de ayuda por proyecto
+- validar el documento base y la evidencia documental de cada sistema
+- definir sponsor y PMO interno
+
+Entregables:
+- 4 fichas de proyecto
+- primera matriz de ayudas
+- lista de convocatorias relevantes
+- responsables asignados
+
+12.2 Segundo bloque: 30 a 60 días
+Acciones:
+- definir el modelo técnico y de conocimiento del Proyecto 1
+- construir tablas de rutas, tiempos, cycle patterns y handling times
+- redactar la primera memoria técnica de cada proyecto
+- preparar el presupuesto base por proyecto
+- hacer revisión interna de elegibilidad y compatibilidad
+- preparar checklist documental para cada ayuda
+- definir primera oferta del CTA para diagnóstico de PYMEs
+
+Entregables:
+- memoria técnica de proyecto 1 y 2
+- primer presupuesto de proyecto
+- primer package de documentación
+- primer diagnóstico CTA
+
+12.3 Tercer bloque: 60 a 90 días
+Acciones:
+- cerrar la primera versión del expediente para al menos 2 proyectos
+- preparar presentación y revisión final de la documentación
+- lanzar la primera campaña de prospección del CTA
+- definir el Plan de implementación del primer módulo IA/consultoría
+- preparar dashboard del PMO con proyectos, ayudas, hitos y riesgos
+- revisar la estructura de venta y servicios del CTA
+
+Entregables:
+- expedientes listos para envío
+- pipeline de CTA con 5-10 clientes potenciales
+- dashboard del PMO
+- plan de lanzamiento del CTA
+
+====================================================================
+13. KPI DE SEGUIMIENTO DEL PLAN
+====================================================================
+- proyectos con ficha completa
+- proyectos con matriz de elegibilidad
+- proyectos con memoria técnica
+- proyectos con presupuesto validado
+- proyectos listos para presentar
+- ayudas accionadas
+- ayudas en vía de resolución
+- ayudas concedidas
+- proyectos en ejecución
+- proyectos en liquidación
+- diagnósticos CTA vendidos
+- paisajes de clientes potenciales
+- número de módulos de consultoría en venta
+- nivel de margen estimado del CTA
+
+====================================================================
+14. PRINCIPALES RIESGOS Y CONTROLES
+====================================================================
+Riesgos:
+- ingeniería no documentada
+- falta de evidencia técnica y económica
+- proyecto demasiado amplio o sin alcance claro
+- ayuda elegida sin alineación real
+- no contar con responsable claro
+- retrasos de ejecución y liquidación
+- mala gestión de riesgos y documentación
+
+Controles:
+- checklist por proyecto y fase
+- PMO con revisión de hitos
+- evidencia documental por entregable
+- control de costes y elegibilidad
+- revisión técnica y económica antes de presentación
+- control de plazos de convocatoria y liquidación
+
+====================================================================
+15. CONCLUSIÓN EJECUTIVA
+====================================================================
+El punto de partida real no es un documento excesivamente teórico ni una lista de ideas para proyectos. The real starting point is: construir una operación estructurada que permita transformar los 4 proyectos de Ingecart en iniciativas ejecutables, financiables y medibles.
+
+La clave será desarrollar tres líneas paralelas y coordinadas:
+1. proyectos industriales con la lógica de ingeniería, KPI, trazabilidad y ayuda pública
+2. PMO de innovación y financiación para gestionar la cartera y la liquidación
+3. CTA empresarial para vender consultoría e IA a PYMEs con un modelo de servicios y agentes IA
+
+Si se hace bien, INGECART no solo construye tecnología industrial, sino que también crea una plataforma de negocio mucho más sólida: proyectos de innovación con financiación + consultoría de transformación digital para PYMEs + capacidad interna para vender soluciones inteligentes y medibles.
+
+Esto es lo que permitirá que los proyectos salgan adelante de forma real, con ayuda, ejecución y valor comercial.
+
+====================================================================
+FIN DEL DOCUMENTO

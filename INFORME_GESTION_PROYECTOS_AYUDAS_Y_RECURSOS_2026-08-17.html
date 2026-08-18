@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informe Gestión de Proyectos, Ayudas y Recursos I+D+i</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1180px;
+      margin: 28px auto;
+      padding: 0 18px 40px;
+    }
+    .header {
+      background: linear-gradient(135deg, #083b62, #1a6bb6);
+      color: #fff;
+      border-radius: 18px;
+      padding: 30px 32px;
+      box-shadow: 0 14px 28px rgba(8, 59, 98, 0.15);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+    .section {
+      background: #fff;
+      border: 1px solid #dfe7f1;
+      border-radius: 14px;
+      margin-top: 22px;
+      padding: 22px 24px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+    }
+    h2 {
+      margin-top: 0;
+      color: #0d4a74;
+      border-bottom: 2px solid #dfeefb;
+      padding-bottom: 8px;
+      font-size: 1.4rem;
+    }
+    h3 {
+      margin: 18px 0 10px;
+      color: #213b57;
+      font-size: 1.08rem;
+    }
+    p, li {
+      font-size: 0.99rem;
+    }
+    ul { padding-left: 20px; }
+    .quote {
+      background: #f2f8ff;
+      border-left: 4px solid #1b73c8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 16px 0;
+      font-weight: 700;
+      color: #123d63;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 14px 0 6px;
+    }
+    .kpi {
+      background: #f8fbff;
+      border: 1px solid #e2eaf7;
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .kpi strong {
+      display: block;
+      color: #0d4a74;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+    .kpi span {
+      font-size: 0.9rem;
+      color: #5e6c7b;
+    }
+    .toc {
+      background: #fafcff;
+      border: 1px solid #e6edf8;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    @media (max-width: 760px) {
+      .header { padding: 22px 18px; }
+      h1 { font-size: 1.8rem; }
+      .section { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Informe: Gestión de Proyectos, Ayudas y Recursos I+D+i</h1>
+      <div class="meta">
+        <span>Fecha: 2026-08-17</span>
+        <span>Proyecto: AI-FACTORY-v2</span>
+        <span>Enfoque: negocio, gobernanza, financiación e IA</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Resumen ejecutivo</h2>
+      <p>Este informe define el modelo de negocio, la gobernanza y la gestión de proyectos para una empresa o estructura profesional que gestione ayudas, subvenciones, innovación, I+D+i y proyectos de transformación industrial.</p>
+      <p>La prioridad no es la herramienta, sino la capacidad de convertir ideas complejas en proyectos viables, elegibles, documentados y ejecutables.</p>
+      <div class="quote">“Transformamos una idea o iniciativa industrial en un proyecto técnicamente viable, financieramente elegible, documentalmente sólido y ejecutable, con gobernanza profesional y trazabilidad completa.”</div>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>PMO</strong><span>gestión de cartera y gobernanza</span></div>
+        <div class="kpi"><strong>I+D+i</strong><span>elegibilidad y financiación</span></div>
+        <div class="kpi"><strong>Evidencia</strong><span>trazabilidad y cumplimiento</span></div>
+        <div class="kpi"><strong>IA</strong><span>soporte en ventas y operación</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Índice</h2>
+      <div class="toc">
+        <ul>
+          <li>1. Objetivo del informe</li>
+          <li>2. Visión del modelo de negocio</li>
+          <li>2.1 Producto/servicio: integración de aplicaciones basadas en agentes IA</li>
+          <li>3. Tipología de proyectos</li>
+          <li>4. Modelo de cartera</li>
+          <li>5. Estructura operativa</li>
+          <li>6. Gestión por fases</li>
+          <li>7. Gobernanza y roles</li>
+          <li>8. Priorización y KPI</li>
+          <li>9. Fuentes de información y evidencia</li>
+          <li>10. Modelo de negocio de la empresa gestora</li>
+          <li>11. Plan de trabajo</li>
+          <li>12. Riesgos y recomendación final</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>1. Objetivo del informe</h2>
+      <p>Este informe no pretende construir la aplicación. Pretende definir el modelo de negocio, la gobernanza y la gestión de proyectos para una empresa o estructura profesional que gestione ayudas, subvenciones, innovación, I+D+i, financiación industrial y ejecución de iniciativas tecnológicas.</p>
+      <p>El foco está en:</p>
+      <ul>
+        <li>definir qué tipos de proyectos se gestionan</li>
+        <li>cómo se estructuran y priorizan</li>
+        <li>cómo se gestiona la cartera</li>
+        <li>cómo se organiza la empresa que los gestiona</li>
+        <li>qué fuentes de información, evidencia y conocimiento se requieren</li>
+        <li>cómo se convierte un proyecto técnico en una oportunidad financiable y ejecutable</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Visión del modelo de negocio</h2>
+      <p>La empresa no debe ser una consultora genérica. Debe ser una firma especializada en preparación y gestión de proyectos I+D+i, identificación de ayudas y financiación, auditoría técnica y económica, trazabilidad documental y coordinación con clientes, socios y administraciones.</p>
+      <p>La propuesta de valor es clara: ayudamos a transformar una idea o iniciativa industrial en un proyecto técnicamente viable, financieramente elegible y ejecutable.</p>
+      <ul>
+        <li>PMO para proyectos de innovación</li>
+        <li>oficina de financiación y ayudas</li>
+        <li>centro de evidencia y documentación</li>
+        <li>gestor de cartera para innovación y desarrollo</li>
+        <li>partner de ejecución para proyectos industriales y tecnológicos</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2.1 Producto/servicio a incorporar: integración de aplicaciones basadas en agentes IA</h2>
+      <p>Además de la gestión de proyectos y ayudas, la empresa puede ofrecer un servicio de integración y transformación basada en agentes IA para PYMEs españolas, bajo un modelo orientado a resultados y mejora operativa real.</p>
+      <p>El producto no es una app aislada ni un chatbot aislado. Es una capa tecnológica y de gestión que integra agentes IA en los principales procesos de negocio y departamentos de la empresa.</p>
+      <h3>Concepto principal</h3>
+      <p>El modelo propuesto es el Adaptive Commercial System (ACS), entendido como un sistema de transformación comercial y operativa que combina estrategia, arquitectura comercial, analítica, IA y cambio de comportamiento humano.</p>
+      <div class="quote">“AI does not replace commercial organizations. It amplifies the performance of well-designed ones.”</div>
+      <h3>Alcance funcional por departamentos</h3>
+      <ul>
+        <li><strong>Ventas y dirección comercial:</strong> segmentación, cartera, forecast, priorización, cuentas clave, análisis de pipeline.</li>
+        <li><strong>Marketing y CRM:</strong> lead scoring, analítica de campañas y segmentación.</li>
+        <li><strong>Atención al cliente y postventa:</strong> priorización de incidencias, churn y expansión de base instalada.</li>
+        <li><strong>Operaciones y logística:</strong> planificación, cuellos de botella, lead time y coordinación del flujo.</li>
+        <li><strong>Finanzas:</strong> previsión, riesgo, rentabilidad y apoyo a decisiones.</li>
+        <li><strong>RRHH y organización:</strong> carga de trabajo, productividad y cambio organizativo.</li>
+        <li><strong>Producción y calidad:</strong> trazabilidad, cumplimiento y mejora de procesos.</li>
+      </ul>
+      <h3>Modelo de negocio recomendado</h3>
+      <ul>
+        <li>Fractional Advisor / Business Architect</li>
+        <li>Programa de transformación comercial y operativa</li>
+        <li>Implementación modular por departamento</li>
+        <li>Managed AI Operations / soporte continuo</li>
+      </ul>
+      <p>La lógica de ingresos puede combinar fee inicial, retainer mensual, coste por módulo y participación en resultados medidos.</p>
+      <h3>Por qué funciona bien en PYMEs españolas</h3>
+      <ul>
+        <li>no requieren gran inversión inicial</li>
+        <li>acceden a talento senior sin costear un perfil completo</li>
+        <li>reducen carga administrativa</li>
+        <li>mejoran ventas, productividad y control</li>
+        <li>mantienen agilidad sin perder capacidad de digitalización</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Tipología de proyectos que se gestionan</h2>
+      <ul>
+        <li><strong>Automatización industrial:</strong> logística, transporte interno, paletización, WMS y control de flujo.</li>
+        <li><strong>IA aplicada a procesos industriales:</strong> planificación, mantenimiento predictivo y gestión de WIP.</li>
+        <li><strong>Digitalización de procesos:</strong> ERP/CRM, dashboards, trazabilidad y control documental.</li>
+        <li><strong>I+D+i y innovación tecnológica:</strong> prototipos, TRL y validación de soluciones nuevas.</li>
+        <li><strong>Eficiencia energética y sostenibilidad:</strong> ahorro, ESG y reducción de consumo.</li>
+        <li><strong>Internacionalización y expansión:</strong> nuevos mercados, alianzas y desarrollo comercial global.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. Modelo de cartera de proyectos</h2>
+      <p>Cada proyecto debe equilibrar dos planos: el de gestión del proyecto y el de inteligencia del proyecto.</p>
+      <h3>Plano de gestión</h3>
+      <ul>
+        <li>qué se hace</li>
+        <li>quién es responsable</li>
+        <li>qué falta</li>
+        <li>cuándo se entrega</li>
+        <li>cuánto cuesta</li>
+        <li>qué riesgo existe</li>
+        <li>qué decisión requiere aprobación</li>
+      </ul>
+      <h3>Plano de inteligencia</h3>
+      <ul>
+        <li>problema que resuelve</li>
+        <li>innovación incorporada</li>
+        <li>estado técnico</li>
+        <li>evidencias disponibles</li>
+        <li>ayudas elegibles</li>
+        <li>documentos que validan la propuesta</li>
+        <li>TRL, presupuesto y riesgos</li>
+      </ul>
+      <p>La cartera debe gestionarse con estados como ACTIVO, WATCH, NO-GO, PILOT, READY FOR APPLICATION, EXECUTION y CLOSEOUT.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Estructura operativa de gestión de portfolio</h2>
+      <p>La empresa debe gestionar una cartera como un sistema dinámico de priorización, no como un inventario estático.</p>
+      <ul>
+        <li>inventario total de proyectos</li>
+        <li>estado por proyecto</li>
+        <li>tipo de proyecto</li>
+        <li>prioridad y riesgo</li>
+        <li>elegibilidad de ayudas</li>
+        <li>nivel de evidencia</li>
+        <li>nivel de avance</li>
+        <li>presupuesto identificado</li>
+        <li>financiación potencial</li>
+        <li>tiempo restante</li>
+        <li>decisiones requeridas</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. Modelo de gestión por fases del proyecto</h2>
+      <ul>
+        <li><strong>Discovery:</strong> validar la idea y su valor de negocio.</li>
+        <li><strong>Technical Characterisation:</strong> convertir la idea en propuesta técnica.</li>
+        <li><strong>I+D Assessment:</strong> valorar innovación, elegibilidad y financiación.</li>
+        <li><strong>Work Packages:</strong> plan operacional y WBS.</li>
+        <li><strong>Funding / Application / Compliance:</strong> preparar expediente y presentarlo.</li>
+        <li><strong>Execution / Reporting:</strong> controlar riesgo, hitos y entregas.</li>
+        <li><strong>Closeout:</strong> cerrar con evidencia final y aprendizaje.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>7. Gobernanza y roles clave</h2>
+      <h3>Nivel estratégico</h3>
+      <ul>
+        <li>dirección y consejo</li>
+        <li>priorizar la cartera</li>
+        <li>aprobar riesgo y estrategias</li>
+      </ul>
+      <h3>Nivel táctico</h3>
+      <ul>
+        <li>PMO y dirección de negocio</li>
+        <li>asignación de recursos</li>
+        <li>seguimiento y KPI</li>
+      </ul>
+      <h3>Nivel operativo</h3>
+      <ul>
+        <li>project managers</li>
+        <li>analistas</li>
+        <li>técnicos</li>
+        <li>legal y administración</li>
+      </ul>
+      <p>Roles esenciales: CEO, director de proyectos, director técnico, especialista en ayudas, analista de evidencia y responsable comercial.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Priorización y KPI</h2>
+      <p>La empresa debe usar un sistema de scoring para decidir GO, WATCH o NO-GO.</p>
+      <ul>
+        <li>valor estratégico</li>
+        <li>innovación y elegibilidad</li>
+        <li>complejidad técnica</li>
+        <li>plazo</li>
+        <li>financiación potencial</li>
+        <li>evidencia disponible</li>
+        <li>riesgo</li>
+        <li>capacidad interna</li>
+      </ul>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>GO</strong><span>0.75+</span></div>
+        <div class="kpi"><strong>WATCH</strong><span>0.60–0.75</span></div>
+        <div class="kpi"><strong>NO-GO</strong><span>&lt;0.60</span></div>
+      </div>
+      <ul>
+        <li>número de proyectos activos</li>
+        <li>proyectos en pipeline</li>
+        <li>tasas de éxito de financiación</li>
+        <li>cumplimiento de hitos</li>
+        <li>presupuesto gestionado</li>
+        <li>margen bruto</li>
+        <li>retención de clientes</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. Fuentes de información y evidencia</h2>
+      <p>La compañía debe operar con una capa de conocimiento y evidencia sólida. Esto requiere:</p>
+      <ul>
+        <li>clientes y proyectos</li>
+        <li>propuestas técnicas</li>
+        <li>presupuestos y cronogramas</li>
+        <li>documentación legal y técnica</li>
+        <li>informes de innovación, mercado y financiación</li>
+        <li>datos históricos de proyectos</li>
+      </ul>
+      <p>En este repositorio, la lógica de IS-BACKOFFICE aporta una referencia útil para construcción de conocimiento, evidence store, graph, analítica y reporting.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. Modelo de negocio de la empresa gestora</h2>
+      <p>El modelo de ingresos debe ser híbrido y orientado a la ejecución real:</p>
+      <ul>
+        <li>servicios de PMO y dirección de proyectos</li>
+        <li>servicios de ayudas y financiación</li>
+        <li>servicios de innovación y análisis técnico</li>
+        <li>servicios de evidencia, auditoría y cumplimiento</li>
+      </ul>
+      <p>La propuesta más madura combina fee fijo, retainer mensual, fee por módulo y fee por resultados medidos.</p>
+    </div>
+
+    <div class="section">
+      <h2>11. Plan de trabajo para lanzar la empresa</h2>
+      <h3>Fase 0 – Definición del negocio</h3>
+      <ul>
+        <li>definir nicho y clientes objetivo</li>
+        <li>oferta y modelo de servicio</li>
+        <li>estructura mínima</li>
+      </ul>
+      <h3>Fase 1 – Diseño del modelo operativo</h3>
+      <ul>
+        <li>metodología, fases y gates</li>
+        <li>plantillas de proyecto</li>
+        <li>documentación y evidencias</li>
+      </ul>
+      <h3>Fase 2 – Cartera base</h3>
+      <ul>
+        <li>catalogar proyectos iniciales</li>
+        <li>priorizar y preparar ayudas</li>
+      </ul>
+      <h3>Fase 3 – Ejecución</h3>
+      <ul>
+        <li>seguimiento real</li>
+        <li>dashboards y reporting ejecutivo</li>
+      </ul>
+      <h3>Fase 4 – Escala</h3>
+      <ul>
+        <li>mejorar cartera y conocimiento</li>
+        <li>automatizar y escalar</li>
+        <li>integrar IA y analítica</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>12. Riesgos, controles y recomendación final</h2>
+      <p>Los principales riesgos son:</p>
+      <ul>
+        <li>proyectos sin criterio de entrada</li>
+        <li>documentación dispersa</li>
+        <li>cartera no priorizada</li>
+        <li>ayudas no elegibles</li>
+        <li>proyectos sin responsable claro</li>
+        <li>cambios de alcance sin control</li>
+      </ul>
+      <p>Los controles esenciales son: gating, evidence hub, PMO, scoring, KPI y dashboard ejecutivo.</p>
+      <div class="quote">La estrategia más inteligente es empezar por la cartera de proyectos, normalizar la gestión, centralizar la evidencia y crear una gobernanza sólida. La tecnología debe llegar después como soporte, no como origen del modelo.</div>
+    </div>
+  </div>
+</body>
+</html>

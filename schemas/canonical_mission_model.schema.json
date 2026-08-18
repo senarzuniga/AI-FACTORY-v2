@@ -81,6 +81,14 @@
         "governance": {"type": "number", "minimum": 0, "maximum": 1}
       }
     },
+    "scoring_weights": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0}
+    },
+    "executive_scorecard": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+    },
     "work_packages": {"type": "array", "items": {"type": "object"}},
     "dependencies": {"type": "array", "items": {"type": "string"}},
     "capabilities": {"type": "array", "items": {"type": "string"}},
@@ -89,6 +97,9 @@
     "risks": {"type": "array", "items": {"type": "object"}},
     "kpis": {"type": "array", "items": {"type": "object"}},
     "milestones": {"type": "array", "items": {"type": "object"}},
+    "quality_gates": {"type": "array", "items": {"type": "object"}},
+    "gaps": {"type": "array", "items": {"type": "object"}},
+    "next_actions": {"type": "array", "items": {"type": "object"}},
     "lessons_learned": {"type": "array", "items": {"type": "string"}},
     "mission_state": {"type": "string"},
     "mission_history": {"type": "array", "items": {"type": "object"}},

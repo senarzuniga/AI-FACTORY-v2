@@ -72,27 +72,15 @@ class CADParser(IndustrialComponent):
     def execute(self, payload: dict[str, Any]) -> dict[str, Any]:
         interpreter = IndustrialLayoutInterpreter()
         layout_result = interpreter.interpret(payload)
-        version_store = LayoutVersionStore()
-        version_info = version_store.create_snapshot(
-            layout_name=str(layout_result.get("layout_name") or payload.get("layout_name") or "industrial-layout"),
-            source_hash=str(layout_result.get("source_hash", "")),
-            snapshot=layout_result,
-            scenario=str(payload.get("scenario") or "baseline"),
-            revision_note=str(payload.get("revision_note") or "automated import snapshot"),
-            branch=str(payload.get("branch") or "main"),
-            set_baseline=bool(payload.get("set_baseline", False)),
-        )
-        entities = len(layout_result.get("entities", []))
         compact_response = bool(payload.get("compact_response", False))
+        snapshot = layout_result
         if compact_response:
-            factory_graph = layout_result.get("factory_graph", {}) if isinstance(layout_result, dict) else {}
-            knowledge_graph = layout_result.get("knowledge_graph", {}) if isinstance(layout_result, dict) else {}
-            return {
-                "component_id": self.id,
-                "status": "completed",
+            factory_graph = layout_result.get("factory_graph", {})
+            knowledge_graph = layout_result.get("knowledge_graph", {})
+            snapshot = {
                 "layout_name": layout_result.get("layout_name"),
-                "source_length": len(str(payload.get("source", ""))),
-                "parsed_entities": entities,
+                "source_format": layout_result.get("source_format"),
+                "source_hash": layout_result.get("source_hash"),
                 "factory_graph": {
                     "node_count": factory_graph.get("node_count", 0),
                     "edge_count": factory_graph.get("edge_count", 0),
@@ -105,6 +93,67 @@ class CADParser(IndustrialComponent):
                 },
                 "simulation": layout_result.get("simulation", {}),
                 "plant_state_report": layout_result.get("plant_state_report", {}),
+                "operational_summary": layout_result.get("operational_summary", {}),
+                "confidence": layout_result.get("confidence", 0.0),
+                "trace": layout_result.get("trace", {}),
+            }
+        version_store = LayoutVersionStore()
+        version_info = version_store.create_snapshot(
+            layout_name=str(layout_result.get("layout_name") or payload.get("layout_name") or "industrial-layout"),
+            source_hash=str(layout_result.get("source_hash", "")),
+            snapshot=snapshot,
+            scenario=str(payload.get("scenario") or "baseline"),
+            revision_note=str(payload.get("revision_note") or "automated import snapshot"),
+            branch=str(payload.get("branch") or "main"),
+            set_baseline=bool(payload.get("set_baseline", False)),
+        )
+        entities = len(layout_result.get("entities", []))
+        if compact_response:
+            factory_graph = layout_result.get("factory_graph", {}) if isinstance(layout_result, dict) else {}
+            knowledge_graph = layout_result.get("knowledge_graph", {}) if isinstance(layout_result, dict) else {}
+            nodes = factory_graph.get("nodes", [])
+            nodes_by_kind: dict[str, list[dict[str, Any]]] = {}
+            if isinstance(nodes, list):
+                for node in nodes:
+                    if isinstance(node, dict):
+                        nodes_by_kind.setdefault(str(node.get("kind", "resource")), []).append(node)
+            node_sample: list[dict[str, Any]] = []
+            sample_index = 0
+            while len(node_sample) < 300 and any(sample_index < len(items) for items in nodes_by_kind.values()):
+                for items in nodes_by_kind.values():
+                    if sample_index < len(items):
+                        node_sample.append(items[sample_index])
+                        if len(node_sample) >= 300:
+                            break
+                sample_index += 1
+            sample_ids = {node.get("id") for node in node_sample if isinstance(node, dict)}
+            edges = factory_graph.get("edges", [])
+            edge_sample = [
+                edge for edge in edges
+                if isinstance(edge, dict) and edge.get("source") in sample_ids and edge.get("target") in sample_ids
+            ][:500] if isinstance(edges, list) else []
+            return {
+                "component_id": self.id,
+                "status": "completed",
+                "layout_name": layout_result.get("layout_name"),
+                "source_length": len(str(payload.get("source", ""))),
+                "parsed_entities": entities,
+                "factory_graph": {
+                    "node_count": factory_graph.get("node_count", 0),
+                    "edge_count": factory_graph.get("edge_count", 0),
+                    "kind_counts": factory_graph.get("kind_counts", {}),
+                    "nodes": node_sample,
+                    "edges": edge_sample,
+                },
+                "knowledge_graph": {
+                    "fact_count": knowledge_graph.get("fact_count", 0),
+                    "relation_count": knowledge_graph.get("relation_count", 0),
+                    "confidence": knowledge_graph.get("confidence", 0.0),
+                },
+                "simulation": layout_result.get("simulation", {}),
+                "plant_state_report": layout_result.get("plant_state_report", {}),
+                "engineering_analysis": layout_result.get("engineering_analysis", {}),
+                "operational_summary": layout_result.get("operational_summary", {}),
                 "confidence": layout_result.get("confidence", 0.0),
                 "version_info": version_info,
                 "timestamp": utc_now_iso(),

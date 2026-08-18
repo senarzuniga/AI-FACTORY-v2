@@ -89,6 +89,8 @@ MAX_DXF_UPLOAD_BYTES = 60 * 1024 * 1024
 MAX_DXF_CHUNK_TOTAL_BYTES = 700 * 1024 * 1024
 DXF_CHUNK_UPLOADS: dict[str, dict[str, Any]] = {}
 DXF_PROCESSING_JOBS: dict[str, dict[str, Any]] = {}
+DEMO_DXF_PATH = (REPO_ROOT / "Plan Projet Cognac.dxf").resolve()
+DEMO_DXF_JOB_CACHE: dict[tuple[int, int], str] = {}
 
 
 def _prune_stale_chunk_uploads(max_age_seconds: int = 7200) -> None:
@@ -129,15 +131,18 @@ def _run_dxf_processing_job(job_id: str) -> None:
     entry["status"] = "running"
     entry["updated_at"] = time.time()
 
-    temp_path = Path(str(entry["temp_path"]))
+    source_path = Path(str(entry["source_path"]))
     try:
+        source_size = source_path.stat().st_size
         payload = {
             "source_format": "dxf",
-            "layout_name": entry.get("layout_name") or temp_path.stem,
-            "source_path": str(temp_path),
-            "source_filename": entry.get("source_filename") or temp_path.name,
-            "source_size": temp_path.stat().st_size,
-            "revision_note": "uploaded DXF from layout workbench (chunked)",
+            "layout_name": entry.get("layout_name") or source_path.stem,
+            "source_path": str(source_path),
+            "source_filename": entry.get("source_filename") or source_path.name,
+            "source_size": source_size,
+            "max_entities": int(entry.get("max_entities") or (20_000 if source_size > MAX_DXF_UPLOAD_BYTES else 100_000)),
+            "max_group_values": int(entry.get("max_group_values") or 256),
+            "revision_note": entry.get("revision_note") or "uploaded DXF from layout workbench (chunked)",
             "compact_response": True,
         }
         result = _sdk.industrial_intelligence_execute("dxf-intelligence-parser", payload)
@@ -152,12 +157,13 @@ def _run_dxf_processing_job(job_id: str) -> None:
         entry["error"] = str(exc)
     finally:
         entry["updated_at"] = time.time()
-        temp_dir = temp_path.parent
-        temp_path.unlink(missing_ok=True)
-        try:
-            temp_dir.rmdir()
-        except OSError:
-            pass
+        if entry.get("delete_source_after_processing", False):
+            temp_dir = source_path.parent
+            source_path.unlink(missing_ok=True)
+            try:
+                temp_dir.rmdir()
+            except OSError:
+                pass
 
 LAYOUT_PLATFORM = {
     "id": "industrial-layout-workbench",
@@ -313,6 +319,16 @@ async def mission_model_production_ready() -> dict[str, bool]:
 @router.get("/state")
 async def export_state() -> dict[str, Any]:
     return _sdk.export_state()
+
+
+@router.post("/ecosystem/discover")
+async def discover_ecosystem() -> dict[str, Any]:
+    return _sdk.discover_ecosystem()
+
+
+@router.get("/mission-control/status")
+async def mission_control_status() -> dict[str, Any]:
+    return _sdk.mission_control_status()
 
 
 @router.get("/industrial-intelligence/status")
@@ -605,7 +621,8 @@ async def layout_workbench_upload_dxf_chunk_complete(upload_id: str = Form(...))
         "status": "queued",
         "layout_name": entry.get("layout_name") or temp_path.stem,
         "source_filename": entry.get("source_filename") or temp_path.name,
-        "temp_path": str(temp_path),
+        "source_path": str(temp_path),
+        "delete_source_after_processing": True,
         "updated_at": time.time(),
     }
     asyncio.create_task(asyncio.to_thread(_run_dxf_processing_job, job_id))
@@ -615,6 +632,53 @@ async def layout_workbench_upload_dxf_chunk_complete(upload_id: str = Form(...))
         "component_id": "dxf-intelligence-parser",
         "job_id": job_id,
         "status": "queued",
+    }
+
+
+@router.post("/layout-workbench/demo/analyze")
+async def layout_workbench_demo_analyze() -> dict[str, Any]:
+    demo_path = DEMO_DXF_PATH.resolve()
+    if not demo_path.is_relative_to(REPO_ROOT.resolve()) or demo_path.suffix.lower() != ".dxf":
+        raise HTTPException(status_code=500, detail="Invalid server demo DXF configuration")
+    if not demo_path.is_file():
+        raise HTTPException(status_code=404, detail=f"Demo DXF not found: {demo_path.name}")
+
+    stat = demo_path.stat()
+    cache_key = (stat.st_size, stat.st_mtime_ns)
+    cached_job_id = DEMO_DXF_JOB_CACHE.get(cache_key)
+    cached_job = DXF_PROCESSING_JOBS.get(cached_job_id or "")
+    if cached_job and cached_job.get("status") in {"queued", "running", "completed"}:
+        return {
+            "mission_id": "M010",
+            "component_id": "dxf-intelligence-parser",
+            "job_id": cached_job_id,
+            "status": cached_job["status"],
+            "cached": True,
+            "source_filename": demo_path.name,
+        }
+
+    job_id = f"dxf-demo-job-{uuid4()}"
+    DXF_PROCESSING_JOBS[job_id] = {
+        "status": "queued",
+        "layout_name": demo_path.stem,
+        "source_filename": demo_path.name,
+        "source_path": str(demo_path),
+        "max_entities": 5_000,
+        "max_group_values": 32,
+        "revision_note": "server-side demo DXF from layout workbench",
+        "delete_source_after_processing": False,
+        "updated_at": time.time(),
+    }
+    DEMO_DXF_JOB_CACHE.clear()
+    DEMO_DXF_JOB_CACHE[cache_key] = job_id
+    asyncio.create_task(asyncio.to_thread(_run_dxf_processing_job, job_id))
+    return {
+        "mission_id": "M010",
+        "component_id": "dxf-intelligence-parser",
+        "job_id": job_id,
+        "status": "queued",
+        "cached": False,
+        "source_filename": demo_path.name,
     }
 
 

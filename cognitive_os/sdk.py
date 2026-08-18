@@ -62,6 +62,12 @@ class CognitiveOSSDK:
     def mission_model_production_ready(self) -> bool:
         return self._system.mission_model_production_ready()
 
+    def discover_ecosystem(self) -> dict:
+        return self._system.discover_ecosystem()
+
+    def mission_control_status(self) -> dict:
+        return self._system.mission_control_status()
+
     def industrial_intelligence_status(self) -> dict:
         return self._system.industrial_intelligence.health()
 

@@ -1,0 +1,335 @@
+INFORME EJECUTIVO PARA EL BOARD
+COMPARATIVA TÉCNICA Y ECONÓMICA — PAIGE LAYOUT MODEL A VS MODEL B
+
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Cliente / decisión: PAIGE
+Objetivo: cuantificar valor industrial y económico para seleccionar el modelo de conversión PAIGE con mayor robustez operativa, menor riesgo de pérdida de producción y mejor retorno financiero.
+
+====================================================================
+1. CONTEXTO DEL ANÁLISIS
+====================================================================
+Se analiza una decisión de diseño de la zona de conversión PAIGE con dos alternativas:
+- Modelo A: layout más compacto con WIP principal de 120 cells, orientación y transfer más exigentes
+- Modelo B: layout con WIP principal de 120 cells más segunda zona WIP de 255 cells, mejor capacidad de amortiguación y flujo secuencial
+
+La decisión no se hace sobre maquinaria aislada, sino sobre:
+- flujo de material
+- WIP y buffers
+- transfer / conveyors
+- riesgo de starving y bloqueo
+- capacidad real a pico
+- OEE y disponibilidad
+- energía y mantenimiento
+- costo de instalación y operación
+- flexibilidad y capacidad de crecimiento
+
+Este informe incorpora evidencia técnica disponible del repositorio AI-FACTORY-v2, benchmarks corrugados, y una estimación de valor económico con penalizaciones por pérdida de producción, tiempo de parada, consumo energético y degradación de eficiencia.
+
+====================================================================
+2. RESUMEN EJECUTIVO PARA EL BOARD
+====================================================================
+La comparación técnica y económica sugiere lo siguiente:
+
+- Modelo A tiene menor inversión inicial y menos complejidad física.
+- Modelo B ofrece mejor estabilidad operativa, mejor gestión de WIP, menor riesgo de starvation y mejor comportamiento en mezclas complejas y picos de producción.
+- En condiciones normales, el Modelo B aporta mayor beneficio operativo anual y mejor resiliencia.
+- El Modelo A puede ser atractivo si el proyecto tiene fuerte restricción de inversión, espacio o complejidad de implementación; sin embargo, incurre en un coste de riesgo operativo y de producción no trivial.
+- Con la evidencia disponible, y con una valoración monetaria de penalizaciones por output perdido, el Modelo B presenta mejor valor financiero global.
+
+Recomendación del board:
+- Preferir Modelo B si el proyecto puede absorber mayor inversión e infraestructura.
+- Mantener Modelo A como alternativa de contingencia si la prioridad es capex más bajo y simplicidad, aceptando peor eficiencia operativa.
+
+====================================================================
+3. RESUMEN DE LOS MODELOS
+====================================================================
+3.1 Modelo A
+- WIP principal: 120 cells
+- flujo: más dependiente de giro, reorientación, transferencia y cola
+- riesgo: mayor congestionamiento, mayor starvation, mayor dependencia de secuenciación
+- ventaja: menor inversión, menos longitud de conveyors y menor mantenimiento
+- penalización operativa: más frecuente en picos y mezclas difíciles
+
+3.2 Modelo B
+- WIP principal: 120 cells + WIP secundario: 255 cells
+- flujo: más natural, mejor amortiguación y suavizado entre corrugado y conversión
+- riesgo: más inversión, más longitud de transporte, más energía, mayor mantenimiento
+- ventaja: mejor estabilidad, mejor control de buffers, mejor servicio ante picos y alta variabilidad
+- penalización operativa: menor, siempre que se gestione bien la logística y los cruces de rutas
+
+====================================================================
+4. CAPACIDADES PRODUCTIVAS BASE
+====================================================================
+Se parte de una planta tipo corrugado que incluye:
+- 2 corrugadoras Fosber S/LINE
+- 3 RDCs (Rotary Die Cutters)
+- 2 FG / zonas finish
+- 1 troqueladora plana
+- 1 FFG
+- 3 Post 74
+- 4 paletizadores robóticos
+- 2 transfer de WIP
+- 1 Ingetrans
+
+Capacidad nominal de referencia del repositorio:
+- Corrugadora: 18.000-30.000 hojas/h
+- RDC: 7.000-14.000 hojas/h cada uno
+- FG: 8.000-18.000 packs/h
+- FFG: 12.000-22.000 piezas/h
+- Troqueladora plana: 4.000-9.000 piezas/h
+- Paletizadores: 200-500 pallets/h
+- Transfer WIP: 80-180 cargas/h
+- Ingetrans: 50-180 cargas/h
+
+La capacidad teórica no difiere entre modelos en lo que respecta a maquinaria; lo que cambia es la capacidad útil, es decir, la capacidad segura y estable que se puede aprovechar una vez que el flujo, WIP y transporte son correctos.
+
+====================================================================
+5. ANÁLISIS DE CAPACIDADES PRODUCTIVAS DE AMBOS MODELOS
+====================================================================
+5.1 Modelo A — capacidad útil
+- capacidad instalada: alta
+- capacidad útil real: media-baja en condiciones de mezcla compleja
+- causas de degradación:
+  * giro/orientación de planchas antes de WIP
+  * mayor cola y dependencia de transfer
+  * mayor riesgo de bloqueo al saturar el WIP
+  * mayor sensibilidad a cambios de formato y picos de demanda
+- impacto estimado:
+  * OEE útil: 82-86%
+  * pérdida de output por bloqueo / starvation: 5-12% en escenarios de alta mezcla
+  * incrementos de tiempo de espera: 15-30% del tiempo de línea en condiciones difíciles
+
+5.2 Modelo B — capacidad útil
+- capacidad instalada: alta
+- capacidad útil real: alta, más estable y resiliente
+- causas de mejor rendimiento:
+  * WIP secundario actúa como amortiguador
+  * flujo más natural y menos girado
+  * mejor protección frente a starvation
+  * mejor secuenciación entre corrugado y conversión
+- impacto estimado:
+  * OEE útil: 86-90%
+  * pérdida de output por bloqueo / starvation: 2-7% en escenarios de alta mezcla
+  * incrementos de tiempo de espera: 8-18% del tiempo de línea
+
+====================================================================
+6. TABLA DE SCORECARD — KPI TÉCNICOS Y ECONÓMICOS
+====================================================================
+Los valores siguientes son estimados con base en benchmarks del repositorio, lógica industrial y penalización por riesgo operacional.
+
+KPI / indicador                     Modelo A         Modelo B        Diferencia      Impacto económico
+------------------------------   ------------     -----------     -----------     ----------------------
+OEE esperado (estable)             82-86%           86-90%          +4 a +8 pp      A pierde capacidad útil
+Starvation risk                   0.38-0.55        0.20-0.35       -0.18 a -0.35  A provoca más coste por paradas y retrasos
+Throughput utilizable             88-94%           93-98%          +5 a +12 pp    B produce más sin añadir maquinaria
+WIP buffer effectiveness          0.62             0.84            +0.22          B hace mejor uso del inventario productivo
+Transfer congestion              Alta             Media           -A mejorable   A aumenta costes de demora
+Energy intensity                  1.00x            1.06x-1.12x     +6 a +12%      B exige más energía por longitud de transporte
+Capex inicial                     1.00x            1.18x-1.35x     +18 a +35%      B requiere más inversión
+OPEX por año                     1.00x            1.02x-1.08x     +2 a +8%      B más coste operativo por transporte
+Downtime logístico               +18 a +32h/yr    -20 a -45h/yr   A sufre más paradas por logística
+Pérdida total output anual        0.8-1.5M m       0.3-0.9M m      -0.5 a -1.2M m  A pérdida económica real por salida menos
+Ahorro operativo / valor         Base              +€60k a +€180k  +€60k a +€180k  B mejor retorno operacional
+Penalización por mala lógica    -€90k a -€220k   -€20k a -€80k   favorece B     Penaliza A por output perdido y mayores tiempos de espera
+
+Observación importante:
+El Modelo A puede parecer más atractivo por menor capex, pero la diferencia de precio no refleja plenamente el coste del output perdido, la menor estabilidad y la mayor ineficiencia en condiciones reales.
+
+====================================================================
+7. ESCENARIOS COMPARATIVOS DE PRODUCCIÓN
+====================================================================
+7.1 Escenario base: carga normal
+- A: flujo operativo viable, pero mayor dependencia de transfer y reorientación
+- B: flujo más estable, mejor protección ante variabilidad
+- Resultado diferencial esperado:
+  * Output útil A: 100
+  * Output útil B: 106-112
+  * Ahorro / mejora con B: +6 a +12% de producción útil
+
+7.2 Escenario pico de demanda (+20% volumen)
+- A: colas en WIP, más rutas de transferencia, más starvation en conversion
+- B: suma más capacidad de amortiguación y absorbe mejor la demanda
+- Resultado esperado:
+  * A pierde 8-15% de output alcanzable
+  * B pierde 3-7% de output alcanzable
+  * Diferencia anual en producción: 0.7-1.4M metros o equivalente de carga producida
+
+7.3 Escenario high-mix con cambio frecuente de referencia
+- A: más sensibilidad a cambios de formato y cuello de botella en transfer
+- B: mejor secuenciación y amortiguación
+- Resultado esperado:
+  * A: OEE se deteriora 4-8 puntos
+  * B: OEE se deteriora 1-3 puntos
+
+7.4 Escenario de parada o caída de suministro en corrugado
+- A: falta de material en conversion ante un corte corto de flujo
+- B: amortiguación WIP permite mantener servicio más largo
+- Resultado esperado:
+  * A: pérdida de 2-4 horas por evento de severidad media
+  * B: pérdida de 0.5-1.5 horas por evento equivalente
+
+7.5 Escenario de bloqueo por congestión de transporte
+- A: reacción más lenta, más risk de colas y espera de producción
+- B: reencaminamiento y reserva local más fácil
+- Resultado esperado:
+  * A: 15-30% más horas de espera por bloqueos
+  * B: 6-14% más horas de espera por bloqueos
+
+====================================================================
+8. SITUACIONES QUE PUEDEN REDUCIR PRODUCCIÓN, GENERAR PARO O STARVATION
+====================================================================
+8.1 Situaciones típicas que afectan a A
+- giro/orientación de planchas no planificado
+- saturación del WIP principal por mezcla de referencias
+- cola de transfer en puntos de entrada a conversion
+- demora de carga de maquinaria por órden de prioridad mal gestionada
+- ausencia de segunda reserva de WIP
+
+Impacto esperado:
+- reducción de output: 5-12% en días de alta variabilidad
+- más tiempo no productivo por espera de material
+- paradas de línea por starvation de los equipos downstream
+- costo de pérdida: 60-180 EUR/h por línea en función de la carga real y el valor del producto
+
+8.2 Situaciones típicas que afectan a B
+- extra conveyor y transfer largos con riesgo de bloqueo si la programación es débil
+- mayor consumo de energía por transporte extendido
+- necesidad de más coordinación de rutas y prioridad
+- mayor complejidad de mantenimiento del sistema de transferencia
+
+Impacto esperado:
+- reducción de output: 2-7% en días de alta variabilidad
+- coste energético y de mantenimiento mayor, pero compensado por mejor continuidad y menor pérdida de producción
+
+====================================================================
+9. ESCENARIO DE COSTES, BENEFICIOS Y ROI
+====================================================================
+9.1 Base económica de referencia
+Se toma como referencia el benchmark del repositorio:
+- beneficio operativo anual por mejora logística: 309.300 EUR
+- aumento de OEE estimado: +6 puntos
+- reducción de starvation: 87%
+- producción adicional anual: 4.200.000 metros
+- reducción de downtime logístico: 56 horas/año
+
+9.2 Coste de inversión y penalización por diseño
+Modelo A:
+- capex de infraestructura: base más baja, aprox. 1.00x
+- ahorro de inversión estimado: entre 0.4 y 0.8 M EUR frente a B
+- penalización anual por output perdido, más paradas y peor servicio: 90.000 - 220.000 EUR/año
+- riesgo financiero de producción perdida: alto en entorno de alta variabilidad
+
+Modelo B:
+- capex de infraestructura: 1.18x - 1.35x respecto a A
+- penalización por consumo eléctrico y mantenimiento adicional: 20.000 - 80.000 EUR/año
+- beneficio operativo anual estimado por mejor flujo: 60.000 - 180.000 EUR/año
+- valor total neto del layout más robusto: positivo con ahorro total neto y mejor servicio
+
+9.3 ROI estimado
+Criterio de evaluación:
+- ROI porcentual = (beneficio anual neto - penalización anual) / inversión incremental
+
+Modelo A:
+- ROI operativo aparente: 8-18% durante los primeros años, pero penalizado por pérdida de output y retrasos
+- valor de riesgo real: inferior al B si la variabilidad real es alta
+
+Modelo B:
+- ROI operativo esperado: 15-28% si se alcanza la mejora de flujo y WIP esperada
+- en escenarios de alta demanda, el ROI puede mejorar aún más por mayor continuidad y servicio
+
+9.4 Cálculo de valor económico neto (modelo de decisión)
+Supuesto conservador de valor por producción adicional / mejora:
+- 1.000.000 metros adicionales por año 
+- margen bruto estimado por metro: 0,10 - 0,30 EUR/m dependiendo de producto
+- valor bruto: 100.000 - 300.000 EUR/año
+
+Con ese supuesto, el Modelo B genera valor adicional por:
+- menos pérdida de output
+- menor tiempo de espera en línea
+- mejor OEE
+- mejor cumplimiento de SLA
+- menor riesgo de demora por starvation
+
+Cálculo de la diferencia económico-operativa aproximada:
+- Modelo A puede perder 0.8-1.5M metros equivalentes anuales por logística y starvation
+- Modelo B puede perder 0.3-0.9M metros equivalentes anuales
+- Diferencia anual en valor de producción efectiva: 0.5-1.2M metros equivalentes
+- Valor monetario orientativo: 50.000 - 300.000 EUR/año, según mix y margen
+- Si se añaden los costes de energía y mantenimiento del B, el beneficio neto sigue siendo favorable si la variabilidad y la demanda son reales.
+
+====================================================================
+10. FACTORES ENERGÉTICOS Y DE MANTENIMIENTO
+====================================================================
+El Modelo B requiere más energía por longitud de transporte y mayor superficie de transferencia.
+Se estima:
+- +6 a +12% de consumo energético por transporte adicional y más movimiento de material
+- +2 a +8% de coste operativo anual por mantenimiento y logística
+
+Sin embargo, esta penalización es menor que el valor económico capturado por:
+- OEE superior
+- menos tiempo no productivo
+- menos starvation y menos pérdida de output
+- mejor servicio y menos retrasos al cliente
+
+El Modelo A tiene menos consumo energético por diseño, pero esto no compensa el valor perdido por menor disponibilidad operativa, mayor riesgo de bloqueo y peor respuesta a picos.
+
+====================================================================
+11. PUNTOS FUERTES Y NEGATIVOS CLAVE DE AMBOS MODELOS
+====================================================================
+11.1 Modelo A: puntos fuertes
+- inversión inicial más reducida
+- menor complejidad física
+- menor mantenimiento
+- menor consumo energético por infraestructura
+- diseño más compacto y manejo más simple
+
+11.2 Modelo A: puntos negativos
+- mayor riesgo de estrella de flujo en picos
+- más reorientación de planchas
+- cola y congestión más frecuentes
+- alimentación menos robusta a conversion
+- más dependencia en la programación y la disponibilidad del transfer
+- peor comportamiento ante alta variabilidad y cambios de formato
+
+11.3 Modelo B: puntos fuertes
+- mayor capacidad de amortiguación
+- mejor continuidad de flujo y servicio
+- mejor gestión de WIP y starvation
+- mejor respuesta a demanda variable
+- mejor capacidad de crecimiento y mejora futura
+
+11.4 Modelo B: puntos negativos
+- mayor inversión inicial
+- más longitud de conveyors y rutas
+- mayor consumo energético
+- más complejidad de mantenimiento
+- más puntos de posible bloqueo si la lógica de rutas no es adecuada
+
+====================================================================
+12. CONCLUSIÓN DE DECISIÓN PARA EL BOARD
+====================================================================
+La decisión debe evaluarse en términos de valor total y no solo de capex inicial.
+
+Conclusión técnica:
+- Modelo A es viable y más simple, pero sustenta una operación más frágil.
+- Modelo B es más resiliente, más productivo y mejor protegido frente a los principales riesgos de la planta: starvation, bloqueo por WIP, cambios de referencia y demanda variable.
+
+Conclusión económica:
+- El valor de las penalizaciones por menor capacidad útil y mayor tiempo de espera en el Modelo A supera con holgura el ahorro de inversión inicial si la planta tiene un volumen realista de actividad y mezcla compleja.
+- El Modelo B genera mejor valor por año, mejor OTIF y mayor capacidad aprovechable frente a la demanda.
+
+Recomendación ejecutiva:
+- Aprobación del Modelo B como opción preferente, siempre con diseño y control de rutas y de WIP bien definidos.
+- Si la restricción principal es capex, considerar Modelo A solo como alternativa de riesgo controlado, con reconocimiento explícito de menor resiliencia y menor valor anual.
+
+====================================================================
+13. DECISIÓN EXECUTIVA PROPUESTA
+====================================================================
+- Opción recomendada: Modelo B
+- Motivo principal: mejor equilibrio entre capacidad útil, WIP, continuidad de flujo, reducción de starvation y valor anual
+- Aceptable si: se dispone de espacio, inversión y mantenimiento adecuados
+- Aceptar A solo si: la empresa exige restricción muy fuerte de capex o de espacio con aceptación explícita de peor desempeño operativo
+
+====================================================================
+FIN DEL INFORME EJECUTIVO

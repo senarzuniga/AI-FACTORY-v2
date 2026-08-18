@@ -1,0 +1,923 @@
+INFORME: GESTION DE PROYECTOS, AYUDAS Y RECURSOS I+D+i
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Contexto: análisis basado en el documento "PROYECTOS PARA GESTION AYUDAS Y REC.txt" y en la arquitectura de reutilización de IS-BACKOFFICE documentada en docs/mission_manager.md y docs/IS_BACKOFFICE_AUDIT.md.
+
+====================================================================
+1. OBJETIVO DEL INFORME
+====================================================================
+Este informe no pretende construir la aplicación. Pretende definir el modelo de negocio, de gobernanza y de gestión de proyectos para una empresa o estructura profesional que gestione proyectos de ayudas, subvenciones, innovación, I+D+i, financiación industrial y ejecución de iniciativas tecnológicas.
+
+El foco está en:
+- definir qué tipos de proyectos se gestionan
+- cómo se estructuran y priorizan
+- cómo se gestiona la cartera de proyectos
+- cómo se organiza la empresa que los gestiona
+- qué fuentes de información, evidencia y conocimiento se requieren
+- cómo se convierte un proyecto técnico en una oportunidad financiable y ejecutable
+
+En otras palabras: la prioridad es el negocio de gestión, no la herramienta.
+
+====================================================================
+2. VISIÓN DEL MODELO DE NEGOCIO
+====================================================================
+La empresa no debe ser una consultora genérica. Debe ser una firma especializada en:
+- preparación y gestión de proyectos I+D+i
+- identificación de ayudas, subvenciones y financiación industrial
+- auditoría técnica y económica de proyectos
+- trazabilidad documental y cumplimiento regulatorio
+- gestión de cartera, riesgo, hitos, entregables y evidencia
+- coordinación con clientes, socios, proveedores, universidades, laboratorios y administraciones
+
+La propuesta de valor es clara:
+
+"Transformamos una idea o iniciativa industrial en un proyecto técnicamente viable, financieramente elegible, documentalmente sólido y ejecutable, con gobernanza profesional y trazabilidad completa."
+
+La empresa actúa como:
+- PMO para proyectos de innovación
+- oficina de financiación y ayudas
+- centro de evidencia y documentación
+- gestor de cartera para innovación y desarrollo
+- partner de ejecución para proyectos industriales y tecnológicos
+
+====================================================================
+2.1 PRODUCTO/SERVICIO A INCORPORAR: INTEGRACION DE APLICACIONES BASADAS EN AGENTES IA
+====================================================================
+Además de la gestión de proyectos de innovación y ayudas, la empresa puede ofrecer un servicio de integración y transformación basada en agentes IA para PYMEs españolas, bajo un modelo orientado a resultados y a la mejora operativa real.
+
+El producto no es una simple app ni un chatbot aislado. Es una capa tecnológica y de gestión que integra agentes IA en los principales procesos de negocio y departamentos de la empresa, con la lógica de un sistema adaptativo de ventas y operaciones.
+
+2.1.1 Concepto principal
+El modelo propuesto es el Adaptive Commercial System (ACS), entendido como un sistema de transformación comercial y operativa que combina:
+- estrategia comercial
+- arquitectura de ventas y procesos
+- diseño de organización y equipos
+- analítica y IA
+- cambio de comportamiento humano
+
+La tesis central es que la AI no sustituye la organización, sino que la mejora cuando se integra en los procesos, la estructura, la información y la decisión humana.
+
+2.1.2 Alineación científica y de mercado
+La evidencia disponible en los documentos analizados refuerza esta lógica:
+- MIT: la gran mayoría de pilotos de IA no generan impacto financiero porque no están integrados en procesos y personas.
+- McKinsey: solo un pequeño porcentaje de empresas alcanza alto rendimiento con IA; el problema no es la tecnología, sino el diseño del sistema y la etapa de operación.
+- Gartner: para 2028, gran parte del trabajo de ventas B2B será asistido por IA, pero la relación humana, la confianza y la negociación seguirán siendo esenciales.
+- Bain: los equipos comerciales dedican muy poco tiempo a vender; la mayor parte se pierde en CRM, coordinación interna, reporting y trabajo administrativo.
+- Salesforce / estudios sectoriales: las organizaciones que usan IA de forma disciplinada tienen mejor productividad y mejores resultados comerciales.
+
+Conclusión: el modelo de negocio debe vender transformación de procesos, no una herramienta puntual.
+
+2.1.3 Propuesta de valor para PYMES españolas
+Este servicio está especialmente orientado a pequeñas y medianas empresas españolas que necesitan:
+- mejorar ventas y captación de negocio
+- adaptar procesos sin crear mucha complejidad interna
+- reducir carga administrativa
+- potenciar gestión comercial y atención al cliente
+- disponer de analítica y apoyo de decisión
+- digitalizar sin perder la relación humana
+- mejorar la productividad de equipos pequeños
+
+El objetivo es captar clientes que no pueden incorporar un equipo de data, IT, transformación digital o dirección comercial senior de forma permanente, pero sí necesitan esa capacidad en forma modular y escalable.
+
+2.1.4 Scope funcional: agentes IA por departamentos
+El modelo debe cubrir todas las áreas y departamentos de la empresa, no solo ventas.
+
+A. Departamento comercial y ventas
+- arquitectura comercial global
+- segmentación y priorización de clientes
+- análisis de mercado y oportunidades
+- gestión de cartera de cuentas clave
+- inteligencia de cuentas
+- priorización de oportunidades
+- propuesta comercial y valor añadido
+- forecast y pipeline
+- análisis de portafolio y comportamiento de ventas
+- recomendaciones de acción por vendedor y gestor
+
+B. Dirección y estrategia
+- benchmarking y análisis de resultados históricos
+- comparación de rendimiento vs estrategia
+- evaluación de riesgo del portafolio
+- análisis de clientes, productos y mercados
+- diagnóstico estratégico de estructura comercial
+- decisiones de focalización, canal, segmento y rentabilidad
+
+C. Atención al cliente y postventa
+- gestión de incidencias
+- priorización de casos críticos
+- automatización de respuesta inicial
+- análisis de satisfacción y riesgo de churn
+- detección de oportunidades de expansión en base instalada
+- soporte para servicio técnico y continuidad comercial
+
+D. Marketing y CRM
+- scoring de leads
+- segmentación y personalización
+- análisis de campañas
+- cualificación de oportunidades
+- recomendaciones de acciones por canal
+- automatización de reportes y seguimiento
+
+E. Compras, aprovisionamiento y operaciones
+- control de pedidos y validación de necesidades
+- análisis de proveedores y costes
+- recomendaciones de reducción de ineficiencias
+- plan de compras y previsión de stock
+- coordinación con producción y logística
+
+F. Finanzas y dirección
+- previsión de ingresos y gastos
+- análisis de rentabilidad por línea, cliente o zona
+- alertas sobre variaciones y riesgo financiero
+- apoyo a la toma de decisiones de inversión
+- análisis de cash flow y decisional support
+
+G. Recursos Humanos y organización
+- análisis de capacidad y productividad
+- seguimiento de carga de trabajo
+- diagnóstico de procesal y comportamiento organizativo
+- apoyo en gestión de rendimiento y formación
+- identificación de fricción comercial y de operación
+
+H. Producción y logística
+- planificación y coordinación de carga
+- análisis de cuellos de botella
+- WIP, stock, lead time y eficiencia operativa
+- priorización de tareas y entregas
+- gestión de excepción y decisiones de despacho
+
+I. Calidad y cumplimiento
+- trazabilidad de incidencias
+- validación de procesos y requisitos
+- analítica de errores y causas
+- soporte documental y seguimiento de cumplimiento
+
+2.1.5 Modelo operativo del servicio: agentes IA como capa de ejecución
+La solución debe operar como una arquitectura de agentes IA integrada a la empresa, con estos componentes:
+
+- Agencia de estrategia y diagnóstico
+- Agencia de ventas y cuentas clave
+- Agencia de operaciones y procesos
+- Agencia de marketing y CRM
+- Agencia de atención y servicio
+- Agencia de analítica y forecast
+- Agencia de negocio y reporting
+- Agencia de ejecución y seguimiento
+
+Cada agente no sustituye la función humana, sino que aporta información, priorización, sugerencias, automatización administrativa y apoyo a la decisión.
+
+La lógica debe ser:
+- análisis del contexto
+- extracción de señales de negocio
+- comparación con objetivos y KPI
+- recomendación de acción
+- priorización de tareas
+- seguimiento de ejecución
+- aprendizaje y mejora continua
+
+2.1.6 Modelo de negocio recomendado
+La empresa no debe vender solo “consultoría” ni solo “software”. Debe vender un sistema de transformación con varios niveles de servicio.
+
+Modelo 1: Fractional Advisor / Business Architect
+- dirección comercial o estratégica a tiempo parcial
+- diseño de sistema de ventas y operación
+- diagnóstico, plan y acompañamiento ejecutivo
+- ideal para PYMEs que necesitan capacidad senior sin contratarlo a tiempo completo
+
+Modelo 2: Programa de transformación comercial y operativa
+- diagnóstico completo
+- arquitectura de proceso
+- diseño de agentes IA
+- cronograma de implementación
+- acompañamiento de adopción y cambio de conducta
+
+Modelo 3: Implementación modular por departamento
+- ventas
+- atención al cliente
+- marketing
+- operaciones
+- finanzas
+- servicio postventa
+- cada módulo puede implementarse por fases
+
+Modelo 4: Managed AI Operations / soporte continuo
+- monitorización
+- actualización de modelos
+- seguimiento de KPI
+- ajuste de workflows y alertas
+- soporte semanal o mensual
+
+Estructura de ingresos sugerida:
+- fee de diagnóstico inicial
+- fee de diseño e implementación
+- retainer mensual de acompañamiento
+- fee por módulos o departamentos
+- fee por rendimiento o resultados medidos
+- licencia o suscripción cuando la solución se ofrece en entorno gestionado
+
+2.1.7 Por qué funciona bien en PYMES españolas
+Este modelo es muy atractivo para PYMES por varias razones:
+- no requieren gran inversión inicial en estructura interna compleja
+- se accede a talento senior y experiencia sin coste fijo de nómina
+- las herramientas y agentes IA reducen tareas repetitivas
+- el impacto se ve en ventas, productividad, atención y control de procesos
+- permite transformar sin perder agilidad
+- encaja con la realidad de empresas con pocos recursos y mucha necesidad de eficiencia
+
+La clave es vender resultados y mejora de negocio, no solo “IA como tecnología”.
+
+2.1.8 Estructura mínima de oferta para la empresa
+La empresa puede posicionarse con una oferta tipo:
+
+"Transformamos la empresa con un sistema de ventas y operaciones apoyado en agentes IA, generando crecimiento, productividad y control, sin sustituir el criterio humano."
+
+O, más orientado a la práctica:
+
+"Ayudamos a PYMEs españolas a convertir su operación comercial y de negocio en un sistema inteligente, humano y medible, con IA aplicada a ventas, servicio, operaciones y dirección."
+
+2.1.9 Extensión del modelo de gestión de proyectos
+Si se aplica al modelo de gestión de proyectos, el mismo producto puede integrarse con el PMO de la empresa:
+- cartera de proyectos
+- scoring y priorización
+- diagnóstico de innovación y financiación
+- evaluación de oportunidades de ayudas
+- evidencia documental
+- dashboards ejecutivos
+- agentes de seguimiento y reporte
+
+En este sentido, el producto no solo ayuda a vender, sino a gestionar mejor la propia empresa y sus proyectos.
+
+2.1.10 Conclusión del bloque añadido
+El modelo Adaptive Sales Engine y la lógica del CTA aporta una pieza estratégica clave para la empresa: no es solo un conjunto de herramientas de IA, sino un sistema empresarial integrador que cubre ventas, atención, marketing, operaciones, finanzas, servicio y dirección.
+
+Su verdadero valor está en combinar:
+- estrategia comercial
+- diseño de procesos
+- agentes IA reutilizables
+- análisis de resultados
+- mejora del comportamiento humano
+- enfoque en resultados y no solo en tecnología
+
+Es, precisamente, una oferta ideal para PYMEs españolas que quieren modernizarse sin volverse organizaciones demasiado complejas ni dependientes de infraestructuras costosas.
+
+====================================================================
+3. TIPOLOGÍA DE PROYECTOS QUE SE GESTIONAN
+====================================================================
+La cartera debe dividirse por familias de proyecto, no como un conjunto homogéneo.
+
+3.1 Proyectos de automatización industrial
+Ejemplos:
+- sistemas de control, logística, transporte interno, paletización, WMS, control de flujo
+- Ingetrans, AMR, automatización de almacén
+- mejora de productividad industrial
+
+3.2 Proyectos de IA aplicada a procesos industriales
+Ejemplos:
+- AI operations para planificación y control
+- analítica predictiva
+- gestión de WIP, congestión, mantenimiento predictivo
+- agentes de decisión para producción, logística, calidad
+
+3.3 Proyectos de digitalización de procesos
+Ejemplos:
+- ERP/CRM integrados con contabilidad y producción
+- redes de conocimiento y gestión documental
+- digital twins y dashboards operativos
+- trazabilidad, inventario y control del flujo de fabricación
+
+3.4 Proyectos de I+D+i y innovación tecnológica
+Ejemplos:
+- prototipos, validación de tecnología, TRL 3 a 9
+- componentes o plataformas industriales nuevas
+- tecnologías con alta intensidad innovadora
+
+3.5 Proyectos de eficiencia energética, sostenibilidad y ESG
+Ejemplos:
+- reducción de consumo, mejora energética, huella de carbono
+- soluciones de eficiencia operativa con impacto ambiental
+
+3.6 Proyectos de internacionalización, escala y expansión comercial
+Ejemplos:
+- entrada a nuevos mercados
+- proyectos de cooperación internacional, clusters, consorcios e innovación abierta
+
+====================================================================
+4. MODELO DE CARPETA DE PROYECTOS
+====================================================================
+Cada proyecto debe ser tratado como una entidad de negocio con dos planos:
+
+1. Plano de gestión del proyecto
+2. Plano de inteligencia del proyecto
+
+4.1 Plano de gestión del proyecto
+Debe responder a:
+- ¿Qué estamos haciendo?
+- ¿Quién es responsable?
+- ¿Qué falta?
+- ¿Cuándo se entrega?
+- ¿Cuánto cuesta?
+- ¿Qué riesgo existe?
+- ¿Qué decisión necesitamos tomar?
+
+Elementos básicos:
+- nombre del proyecto
+- cliente o promotora
+- responsable del proyecto
+- equipo asignado
+- objetivo del proyecto
+- alcance
+- hitos
+- entregables
+- cronograma
+- presupuesto
+- riesgo
+- decisiones y aprobaciones
+
+4.2 Plano de inteligencia del proyecto
+Debe responder a:
+- ¿qué problema resuelve?
+- ¿qué innovaciones incorpora?
+- ¿cuál es su nivel tecnológico?
+- ¿qué evidencias tiene?
+- ¿qué ayudas son elegibles?
+- ¿qué documentos validan la propuesta?
+- ¿qué dato de la evidencia soporta la financiación?
+
+Elementos básicos:
+- problema industrial o de negocio
+- estado actual
+- estado objetivo
+- tecnología
+- incertidumbre técnica
+- innovación
+- TRL
+- I+D assessment
+- paquetes de trabajo
+- actividades
+- evidencia técnica y económica
+- documentos
+- mapa de financiación
+- strategy funding
+- due diligence
+
+====================================================================
+5. ESTRUCTURA OPERATIVA DE GESTION DE PORTFOLIO
+====================================================================
+La empresa debe gestionar una cartera con la lógica siguiente:
+
+PORTFOLIO VIEW
+- inventario total de proyectos
+- estado por proyecto
+- tipo de proyecto
+- prioridad
+- riesgo
+- elegibilidad de ayudas
+- nivel de evidencia
+- nivel de avance
+- presupuesto identificado
+- financiación potencial
+- tiempo restante
+- decisiones requeridas
+
+Formato de gestión tipo cartera:
+- ACTIVO
+- WATCH
+- NO-GO
+- PILOT
+- READY FOR APPLICATION
+- EXECUTION
+- CLOSEOUT
+
+La cartera no debe gestionarse como un listado estático. Debe vivir como un sistema dinámico de priorización.
+
+====================================================================
+6. MODELO DE GESTION POR FASES DEL PROYECTO
+====================================================================
+Todo proyecto debe pasar por un flujo claro, con gates de decisión.
+
+6.1 Fase 1: Discovery
+Objetivo: validar que la idea tiene valor y base de negocio.
+Contenidos:
+- problema
+- necesidad del cliente
+- oportunidad de mercado
+- impacto industrial
+- objetivos
+- datos relevantes
+- hipótesis inicial
+
+Salida:
+- project brief
+- id de proyecto
+- responsable
+- prioridad inicial
+
+6.2 Fase 2: Technical Characterisation
+Objetivo: transformar la idea en una propuesta técnica sólida.
+Contenidos:
+- solución propuesta
+- tecnologías implicadas
+- alcance técnico
+- límites y supuestos
+- riesgos tecnológicos
+- TRL
+- requisitos de validación
+
+Salida:
+- dossier técnico preliminar
+- matriz de incertidumbre
+- mapa de actividades
+
+6.3 Fase 3: I+D Assessment
+Objetivo: decidir si el proyecto es elegible y si tiene potencial de ayuda o subvención.
+Contenidos:
+- innovación
+- I+D+i
+- nivel de riesgo tecnológico
+- aplicabilidad industrial
+- subvención elegible
+- cronograma de ejecución
+- presupuesto
+- ratio de financiación
+
+Salida:
+- decision memo
+- funding match
+- GO / WATCH / NO-GO
+
+6.4 Fase 4: Work Packages y plan de ejecución
+Objetivo: convertir la idea en plan de trabajo real.
+Contenidos:
+- paquetes de trabajo
+- tareas
+- entregables
+- responsables
+- cronograma
+- coste
+- dependencias
+
+Salida:
+- plan del proyecto
+- cronograma base
+- WBS (Work Breakdown Structure)
+
+6.5 Fase 5: Funding / Application / Compliance
+Objetivo: preparar y presentar la solicitud con evidencia.
+Contenidos:
+- documentación legal
+- económica
+- técnica
+- de viabilidad
+- de impacto
+- de cumplimiento
+
+Salida:
+- expediente de ayuda
+- justificación técnica
+- justificación económica
+- validación final
+
+6.6 Fase 6: Execution y Reporting
+Objetivo: ejecutar y controlar el proyecto.
+Contenidos:
+- seguimiento de avance
+- indicadores
+- riesgo
+- decisiones de cambios
+- auditoría documental
+- entregables
+
+Salida:
+- follow-up report
+- control de hitos
+- métricas de ejecución
+
+6.7 Fase 7: Closeout / Justification / Learning
+Objetivo: cerrar la iniciativa con evidencia final.
+Contenidos:
+- resultados alcanzados
+- impactos reales
+- ejecución financiera
+- evidencias finales
+- lessons learned
+
+Salida:
+- dossier final
+- cierre administrativo
+- lecciones para la cartera
+
+====================================================================
+7. MODELO DE GOBERNANZA EMPRESARIAL
+====================================================================
+La empresa debe tener una estructura de gobierno con tres niveles:
+
+7.1 Nivel estratégico: Consejo / Dirección / accionistas
+Responsabilidades:
+- definir la estrategia de cartera
+- decidir priorización por clientes, tech, mercados y rentabilidad
+- aprobar riesgos importantes
+- validar inversiones en equipo, desarrollo y marketing
+
+7.2 Nivel táctico: Dirección de negocio / PMO / PMD
+Responsabilidades:
+- priorizar oportunidades y proyectos
+- asignar recursos
+- definir métricas de rendimiento
+- revisar riesgo y calidad
+- coordinar con clientes y socios
+
+7.3 Nivel operativo: project managers, analistas, técnicos, legales, administradores
+Responsabilidades:
+- ejecutar el proyecto
+- preparar documentos
+- gestionar hitos y entregables
+- controlar costes y evidencias
+- coordinar cumplimiento y comunicación
+
+====================================================================
+8. ROLES CLAVE DE LA EMPRESA
+====================================================================
+8.1 Director general / fundador
+- estrategia general
+- desarrollo de clientes
+- relación con administraciones y socios
+- visión de cartera
+
+8.2 Director de proyectos / PMO
+- gestión de cartera
+- priorización
+- gobernanza
+- procedimientos, KPI y reporting
+
+8.3 Director técnico / CTO / responsable de innovación
+- técnica del proyecto
+- TRL
+- solución tecnológica
+- validación de innovación
+
+8.4 Especialista en ayudas y financiación
+- maping de ayudas
+- elegibilidad
+- cumplimiento
+- preparación de solicitud
+- análisis de financiación
+
+8.5 Analista de documentación y evidencia
+- revisión, estructuración y normalización documental
+- soporte a ayudas, auditoría y justificación
+- clasificación de archivos y datos
+
+8.6 Responsable legal y cumplimiento
+- contratos
+- protección de IP
+- cumplimiento regulatorio
+- revisión de subcontratación y consorcios
+
+8.7 Responsable comercial / captación de proyectos
+- pipeline
+- prospección
+- relación con cliente
+- análisis de mercado
+
+8.8 Responsable de operaciones / delivery
+- coordinación de ejecución
+- seguimiento operational
+- entregables y tiempos
+
+====================================================================
+9. SISTEMA DE PRIORIZACION DE PROYECTOS
+====================================================================
+La empresa necesita un scoring claro para decidir qué proyectos entrar, qué esperar y qué descartar.
+
+Índice sugerido de decisión:
+- valor estratégico del proyecto
+- nivel de innovación y elegibilidad I+D
+- complejidad técnica
+- plazo de ejecución
+- volumen de financiación potencial
+- grado de evidencia disponible
+- riesgo de ejecución
+- relevancia para el negocio
+- capacidad interna disponible
+- vinculación con la cartera estratégica
+
+Escala sugerida:
+- GO: >0,75
+- WATCH: 0,60-0,75
+- NO-GO: <0,60
+
+Esto encaja directamente con la lógica propuesta en la arquitectura de ayuda y proyectos del documento base.
+
+====================================================================
+10. KPI DE GESTION DE LA EMPRESA Y DE LA CARTERA
+====================================================================
+10.1 KPIs de cartera
+- número de proyectos activos
+- proyectos en pipeline
+- proyectos GO / WATCH / NO-GO
+- financiación potencial identificada
+- ayudas solicitadas
+- ayudas concedidas
+- tasa de éxito de financiación
+- presupuesto total gestionado
+- nivel medio de TRL
+- evidencias pendientes
+- documentos analizados
+- cumplimiento de hitos
+
+10.2 KPIs de ejecución
+- % cumplimiento de cronograma
+- % cumplimiento de presupuesto
+- % entregables aprobados
+- % riesgo gestionado
+- % de proyectos sin incidencias
+- % de cambios de alcance aprobados
+- tasa de retrabajo
+- tiempo medio de respuesta
+
+10.3 KPI de negocio
+- cuota de ingresos por servicio
+- margen bruto por proyecto
+- rentabilidad por cartera
+- ratio de retención de clientes
+- número de nuevos clientes
+- conversión de pipeline a contrato
+
+====================================================================
+11. FUENTES DE INFROMACION Y EVIDENCIA REQUERIDAS
+====================================================================
+La compañía no puede operar con información dispersa. Debe construir una capa de evidencia y conocimiento.
+
+11.1 Fuentes primarias
+- clientes y proyectos
+- propuestas técnicas
+- presupuestos
+- cronogramas
+- documentación legal
+- informes de innovación
+- documento de ayudas y subvenciones
+- concursos públicos
+- documentos de validación comercial y técnica
+
+11.2 Fuentes de conocimiento
+- bibliografía técnica
+- estado del arte
+- comparativas sectoriales
+- informes de mercado
+- estudios de viabilidad
+- memoria de proyectos similares
+- datos de financiaciones previas
+- experiencias en proyectos I+D+i
+
+11.3 Fuentes del repositorio IS-BACKOFFICE
+Las referencias del repositorio son especialmente útiles para construir la capa de gestión de conocimiento y evidencia. Los módulos relevantes son:
+- knowledge_hub / competitive_intel
+- document_analysis
+- graph / graphstore
+- reporting
+- simulation
+- plant_simulator
+- backoffice analytics
+
+Esto permite crear un sistema que tenga:
+- inventario de proyectos
+- rastreo de evidencia
+- memoria de conocimiento
+- análisis de oportunidades de financiación
+- trazabilidad documental
+- motores de scoring y priorización
+- dashboards de cartera
+
+11.4 Recomendación de arquitectura de gestión
+- ERP para no sustituir el negocio real, sino administrar la operación
+- evidencia centralizada y versionada
+- knowledge graph por proyecto y entidad
+- data model unificado para clientes, proyectos, tareas, documentos, ayudas, evidencia
+- reporting ejecutivo por cartera y proyecto
+- flujo de aprobación con control de versiones
+
+====================================================================
+12. MODELO DE GESTION DE EVIDENCIA Y CONOCIMIENTO
+====================================================================
+La empresa debe gestionar la evidencia como activo estratégico. Sin evidencia no hay proyecto viable, no hay subvención y no hay justificación.
+
+Cada proyecto debe disponer de:
+- dossier técnico
+- dossier económico
+- dossier de innovación
+- expediente de subvención
+- registros de decisiones
+- trazabilidad de cambios
+- versiones documentales
+- análisis de riesgo
+- hitos firmados
+- evidencias de rendimientos y resultados
+
+La mejor práctica es usar una estructura tipo:
+
+PROJECT EVIDENCE HUB
+- Problem Statement
+- Discovery
+- Solution Design
+- TRL / Technical State
+- Budget & Costs
+- Funding Strategy
+- Due Diligence
+- Milestones
+- Deliverables
+- Execution Reports
+- Risk Register
+- Decisions Log
+- Lessons Learned
+
+La evidencia debe estar enlazada al proyecto, al responsable, a la fase, a la ayuda y a la fecha de control.
+
+====================================================================
+13. MODELO DE OPERACION DE LA EMPRESA GESTORA
+====================================================================
+La empresa puede operar con varios modelos de ingresos, pero el más robusto es una estructura híbrida:
+
+13.1 Servicios de gestión de proyectos
+- dirección de proyecto
+- PMO
+- seguimiento operativo
+- gestión de cronograma
+- coordinación de entregables
+- reporting ejecutivo
+
+13.2 Servicios de ayuda y financiación
+- análisis de elegibilidad
+- mapeo de ayudas
+- preparación de solicitud
+- justificación financiera y técnica
+- seguimiento de solicitud y cierre
+
+13.3 Servicios de innovación y asesoramiento técnico
+- validación de idea
+- preparación técnica
+- diseño de proyecto
+- evaluación de innovación y TRL
+- análisis de viabilidad
+
+13.4 Servicios de expediente y auditoría
+- evidencias
+- inventario documental
+- auditoría interna y de cumplimiento
+- preparación para revisión o inspección
+
+El modelo de negocio más maduro es combinar fee fijo + fee variable + porcentaje de éxito de financiación o ejecución del proyecto.
+
+====================================================================
+14. MODELO DE ORGANIZACION PARA UNA EMPRESA DE ESTE TIPO
+====================================================================
+Una estructura mínima de arranque sería:
+
+- CEO / Socio director
+- Director de proyectos / PMO
+- Director técnico / innovación
+- Responsable de ayudas y financiación
+- Analista de proyectos
+- Responsable comercial
+- Administrativo / soporte documental
+- Asesor legal / externo
+- Red de especialistas (ingenieros, consultores, fiscales, financieros, etc.)
+
+A medida que crece, se puede segmentar por:
+- cartera industrial
+- cartera de innovación tecnológica
+- cartera de ayudas y financiación
+- servicio de reporting y análisis
+
+====================================================================
+15. PLAN DE TRABAJO PARA LANZAR LA EMPRESA/GESTION DE PROYECTOS
+====================================================================
+15.1 Fase 0: definición del negocio (0-30 días)
+Objetivos:
+- definir tipo de proyecto, nicho y clientes objetivo
+- definir oferta y modelo de servicio
+- definir scope de clientes y mercados
+- definir reglas de contratación y gestión
+- definir estructura mínima de la entidad
+
+Entregables:
+- plan de negocio
+- cartera objetivo
+- matriz de servicios
+- esquema de costos y pricing
+- organigrama inicial
+
+15.2 Fase 1: diseño del modelo operativo (30-60 días)
+Objetivos:
+- definir la estructura de gestión de proyectos
+- establecer fases, gates, KPI y roles
+- construir plantillas de proyecto
+- definir documentación mínima
+- definir compliance y evidencia
+
+Entregables:
+- playbook PMO
+- matrice de fases
+- plantilla de proyecto
+- matriz de riesgo
+- flujo de ayuda y subvenciones
+
+15.3 Fase 2: creación de la cartera base (60-90 días)
+Objetivos:
+- catalogar proyectos iniciales
+- priorizar según valor e innovación
+- detectar oportunidades de financiación
+- preparar técnicos y actividades base
+
+Entregables:
+- cartera de proyectos inicial
+- panel de proyectos
+- scoring y priorización
+- pipeline de ayudas
+
+15.4 Fase 3: ejecución y control (90-180 días)
+Objetivos:
+- iniciar proyectos prioritarios
+- hacer seguimiento operativo real
+- controlar hitos, riesgo y evidencia
+- preparar reportes ejecutivos y financieros
+
+Entregables:
+- reportes semanales / mensuales
+- tablero de cartera
+- status de proyectos
+- plan de mitigación
+
+15.5 Fase 4: escala y madurez (180+ días)
+Objetivos:
+- mejorar la cartera con más volumen y especialización
+- crear conocimiento reutilizable
+- incorporar automatización y analítica para proyectos
+- definir business intelligence de innovación y financiación
+
+====================================================================
+16. MATRIZ DE RIESGOS Y CONTROLES
+====================================================================
+Riesgo: proyectos sin criterio de entrada
+Control: gating y scoring
+
+Riesgo: demasiada documentación y poca trazabilidad
+Control: evidencia centralizada y no dispersa
+
+Riesgo: fragmentación de la cartera
+Control: PMO y cartera única
+
+Riesgo: ayudas no elegibles
+Control: evaluación de elegibilidad antes de invertir tiempo
+
+Riesgo: proyectos sin responsable claro
+Control: RACI por proyecto
+
+Riesgo: cambios de alcance no controlados
+Control: gestión de cambios y aprobaciones
+
+Riesgo: baja calidad en la justificación técnica
+Control: revisiones técnicas y documentales
+
+Riesgo: ejecución sin KPIs y control
+Control: dashboard de proyecto semanal/mensual
+
+====================================================================
+17. RECOMENDACION ESTRATEGICA FINAL
+====================================================================
+La forma más inteligente de arrancar no es construir una app extensa. La mejor estrategia es crear primero una empresa o estructura profesional de gestión de proyectos con una metodología, un portafolio, un PMO, un modelo de evidencias, y un motor de análisis y financiación.
+
+El primer gran activo de la compañía no es la tecnología: es la capacidad de convertir ideas complejas en proyectos estructurados, financiables y ejecutables.
+
+Por tanto, la recomendación es esta:
+
+1. Empieza con la cartera de proyectos, no con la app.
+2. Define la metodología de cada proyecto y sus gates.
+3. Construye un sistema de evidencia y seguimiento.
+4. Prioriza según innovación, riesgo, financiación y capacidad real.
+5. Añade la capa tecnológica solo cuando la gestión ya esté estandarizada.
+
+La base documental y funcional ya existe en este repositorio y en IS-BACKOFFICE: es un buen punto de partida para la documentación, la evidencia, el grafado de proyectos, la gestión del conocimiento y la inteligencia sobre ayudas y oportunidades.
+
+====================================================================
+18. RESUMEN EJECUTIVO
+====================================================================
+La empresa gestora de ayudas y recursos para proyectos I+D+i debe operar como una PMO especializada en innovación y financiación industrial. Su valor no está en hacer software, sino en convertir proyectos técnicos complejos en iniciativas estructuradas, controladas, documentadas y financieramente viables.
+
+Debe gestionar:
+- cartera y priorización
+- análisis de oportunidades de financiación
+- proyecto técnico + proyecto económico + proyecto documental
+- evidencia y cumplimiento
+- ejecución y reporting
+- decisiones de GO / WATCH / NO-GO
+
+La gestión se sustenta en cuatro pilares:
+1. cartera de proyectos bien estructurada
+2. evidencia y documentación centralizada
+3. gobernanza con control de riesgos y hitos
+4. capacidad de decidir y ejecutar con criterio, no con intuición
+
+Con esa base, la empresa puede crecer con un modelo profesional, escalable y orientado a la innovación y la financiación industrial.
+
+====================================================================
+FIN DEL INFORME

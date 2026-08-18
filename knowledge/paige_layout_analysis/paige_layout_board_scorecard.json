@@ -1,0 +1,82 @@
+{
+  "mission_id": "PAIGE_LAYOUT_A_VS_B_BOARD_SCORECARD",
+  "date": "2026-08-17",
+  "decision_scope": "Board decision support for PAIGE conversion layout A vs B",
+  "status": "executive_quantified_assessment",
+  "methodology": {
+    "basis": [
+      "industrial benchmark from corrugated plant report",
+      "PAIGE mission A/B description",
+      "Factory Graph contract and simulation hypotheses",
+      "economic penalties for production loss, starvation, downtime and energy inefficiency"
+    ],
+    "assumptions": [
+      "Equipment is equivalent between models; layout is the differentiating factor",
+      "The production volume is high enough for WIP and flow stability to materially affect output",
+      "Operational loss has monetary consequence as output is lost, service slips, and energy increases"
+    ]
+  },
+  "scorecard": {
+    "model_a": {
+      "oee_estimated_range": [0.82, 0.86],
+      "utilizable_output_factor": [0.88, 0.94],
+      "starvation_risk_index": [0.38, 0.55],
+      "downtime_logistics_hours_per_year": [18, 32],
+      "output_penalty_percent": [5, 12],
+      "capex_index": 1.0,
+      "opex_index": 1.0,
+      "annual_penalty_cost_eur": [90000, 220000],
+      "strategic_label": "lower capex, higher operational risk"
+    },
+    "model_b": {
+      "oee_estimated_range": [0.86, 0.90],
+      "utilizable_output_factor": [0.93, 0.98],
+      "starvation_risk_index": [0.20, 0.35],
+      "downtime_logistics_hours_per_year": [0, 18],
+      "output_penalty_percent": [2, 7],
+      "capex_index": [1.18, 1.35],
+      "opex_index": [1.02, 1.08],
+      "annual_benefit_eur": [60000, 180000],
+      "strategic_label": "higher resilience and better flow stability"
+    }
+  },
+  "scenario_analysis": {
+    "base_case": {
+      "comment": "Model B produces 6-12% more usable output than A in normal operation.",
+      "differential_output_percent": [6, 12]
+    },
+    "peak_demand_case": {
+      "comment": "Under +20% demand, A loses 8-15% of reachable output and B loses 3-7%.",
+      "a_lost_output_percent": [8, 15],
+      "b_lost_output_percent": [3, 7],
+      "annual_equivalent_loss_meters": [700000, 1400000]
+    },
+    "high_mix_case": {
+      "comment": "In high-mix production with frequent changeovers, A suffers a stronger OEE drop.",
+      "a_oee_drop_pp": [4, 8],
+      "b_oee_drop_pp": [1, 3]
+    },
+    "supply_interruption_case": {
+      "comment": "Model B absorbs short interruptions better due to the second WIP buffer.",
+      "a_loss_hours_per_event": [2, 4],
+      "b_loss_hours_per_event": [0.5, 1.5]
+    }
+  },
+  "economic_model": {
+    "annual_benchmark_benefit_eur": 309300,
+    "annual_additional_production_meters": 4200000,
+    "annual_output_penalty_range_eur": [50000, 300000],
+    "incremental_capex_b_model_vs_a_percent": [18, 35],
+    "net_value_favoring_b": true,
+    "net_value_range_eur": [60000, 260000],
+    "roi_estimate_model_a_percent": [8, 18],
+    "roi_estimate_model_b_percent": [15, 28],
+    "decision_summary": "Model B is preferred when the project can absorb higher capex, because it generates greater operational value, better output continuity and stronger protection against flow disruptions."
+  },
+  "board_recommendation": {
+    "preferred_option": "MODEL_B",
+    "if_capex_is_strictly_constrained": "MODEL_A as contingency",
+    "confidence": "medium",
+    "reason": "The operational and economic penalties of Model A outweigh its initial simplicity for realistic mixed-demand corrugated production."
+  }
+}

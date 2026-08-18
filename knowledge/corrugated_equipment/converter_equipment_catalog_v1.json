@@ -1,6 +1,6 @@
 {
-  "catalog_version": "v1.0",
-  "generated_at": "2026-08-06",
+  "catalog_version": "v2.0",
+  "generated_at": "2026-08-17",
   "scope": {
     "industry": "corrugated_board",
     "plant_types": ["integrated_corrugator_plus_conversion", "conversion_only"],
@@ -8,10 +8,390 @@
     "currency": "EUR"
   },
   "data_quality": {
-    "note": "Indicative ranges for simulation hypotheses. Validate with OEM quotes and site telemetry before investment decisions.",
-    "confidence_scale": "low|medium|high"
+    "note": "OEM facts, machine-specific evidence, benchmarks and engineering estimates are kept separate. Validate configured machine plates, OEM quotations and site telemetry before investment or capacity decisions.",
+    "confidence_scale": "low|medium|high",
+    "evidence_levels": {
+      "A": "OEM or manufacturer-published data",
+      "B": "Reliable technical document or authorized distributor",
+      "C": "Machine-specific or used-equipment record",
+      "D": "Industrial benchmark",
+      "E": "Engineering estimate",
+      "H": "AHDE hypothesis",
+      "U": "Unknown or not yet verified"
+    },
+    "capacity_rule": "mechanical_capacity -> process_capacity -> operational_capacity -> OEE_effective_capacity -> plant_constrained_capacity"
   },
+  "source_register": [
+    {
+      "id": "SRC-EMBA-QS-ULTIMA",
+      "publisher": "EMBA Machinery AB",
+      "url": "https://emba.com/machines-and-solutions/",
+      "source_type": "OEM",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "SRC-FOSBER-PRODUCTS",
+      "publisher": "Fosber Group",
+      "url": "https://www.fosbergroup.com/en/products/the-lines/",
+      "source_type": "OEM",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "SRC-YOUNGSHIN-210S-PLUS",
+      "publisher": "Young Shin USA",
+      "url": "https://youngshinusa.com/zenith-210s-plus/",
+      "source_type": "OEM_division",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17",
+      "publisher": "AI_FACTORY engineering report",
+      "url": "BIBLIOTECA DE MAQUINAS Y EQUIPOS.txt",
+      "source_type": "project_report_and_engineering_estimate",
+      "last_validated": "2026-08-17"
+    }
+  ],
   "equipment": [
+    {
+      "id": "corr-fosber-sline-family",
+      "oem": "Fosber",
+      "model": "S/LINE 370 / S/LINE 420",
+      "family": "corrugator",
+      "category": "complete_corrugator_line",
+      "lifecycle": "current_family",
+      "mechanical_capacity": {"web_width_mm": [2500, 2800]},
+      "throughput": {"unit": "meters_per_minute", "model_reference": {"S_LINE_370": 370, "S_LINE_420": 420}},
+      "process": ["single_facing", "gluing", "double_backing", "heating", "cutoff", "stacking"],
+      "simulation_requirements": ["effective_speed_by_board_grade", "trim_loss", "order_change_loss", "oee", "good_board_m2_per_hour", "wip_discharge_rate"],
+      "evidence": [
+        {"level": "A", "source_id": "SRC-FOSBER-PRODUCTS", "fields": ["manufacturer", "complete_corrugator_product_family"]},
+        {"level": "B", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["model_speed", "web_width"]}
+      ],
+      "validation_required": ["configured_line_width", "installed_modules", "guaranteed_speed_by_board_grade", "order_change_time"],
+      "confidence": "medium",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "rdc-dongfang-apstar-hg2-hs2",
+      "oem": "Dong Fang Precision",
+      "model": "Apstar HG2 / HS2 family",
+      "family": "RDC",
+      "category": "flexographic_rotary_die_cutter",
+      "lifecycle": "current_or_recent_family",
+      "mechanical_capacity": {"format_codes": ["1624", "1628", "1632"], "max_sheet_width_mm_reference": 3200, "max_print_colors_reference": 7},
+      "throughput": {"unit": "sheets_per_hour", "reference_range": [12000, 13000]},
+      "process": ["lead_edge_feeding", "flexographic_printing", "slotting", "rotary_die_cutting", "stacking"],
+      "simulation_requirements": ["exact_model", "color_count", "board_grade", "sheet_length", "setup_time", "stacker_limit", "oee"],
+      "evidence": [{"level": "B", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["speed_range", "format_family", "print_configuration"]}],
+      "validation_required": ["machine_nameplate", "exact_model", "installed_print_units", "duplex_print_option"],
+      "confidence": "medium",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-ss-zlrf-fg-legacy",
+      "oem": "S&S Corrugated Paper Machinery Co. (attribution pending)",
+      "model": "ZLRF/F/G (transcription pending)",
+      "family": "FFG",
+      "category": "legacy_modular_conversion_line",
+      "lifecycle": "legacy_installed_base",
+      "process": ["feeding", "flexographic_printing_possible", "slotting", "folding", "gluing", "rotary_die_cutting_possible"],
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "evidence": [{"level": "U", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["exact_model", "speed", "format", "modules"]}],
+      "validation_required": ["nameplate_photo", "model_transcription", "year", "working_width", "installed_modules", "feeder", "counter_ejector"],
+      "simulation_use": "disabled_until_machine_identification",
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-latitude-lmc-42",
+      "oem": "Latitude Machinery Corp.",
+      "model": "LMC 42 inch FFG",
+      "family": "FFG",
+      "category": "flexo_folder_gluer",
+      "lifecycle": "installed_base",
+      "mechanical_capacity": {"print_cylinder_development_in": 42, "common_format_in_reference": [[42, 98], [42, 110]]},
+      "throughput": {"unit": "sheets_per_minute", "reference_range": [350, 400], "guaranteed": false},
+      "process": ["lead_edge_feeding", "flexographic_printing", "slotting", "folding", "gluing", "counting"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["format", "speed_range", "feeder"]}],
+      "validation_required": ["exact_model", "year", "color_count", "installed_feeder", "guaranteed_speed_by_box"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-curioni-2000-78",
+      "oem": "Curioni",
+      "model": "2000 / 78 inch",
+      "family": "FFG",
+      "category": "legacy_flexo_folder_gluer_inliner",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"working_width_mm_reference": 2000, "working_width_in_reference": 78, "vertical_cylinder_development_mm_reference": 720},
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["format", "construction_class"]}],
+      "validation_required": ["nameplate", "year", "configuration", "speed_curve", "controls_retrofit", "spares_status"],
+      "simulation_use": "benchmark_only_until_site_validation",
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "rdc-ward-66x115",
+      "oem": "Ward / MarquipWardUnited",
+      "model": "66 x 115 inch RDC (15000/16000 family reference)",
+      "family": "RDC",
+      "category": "heavy_duty_rotary_die_cutter",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"cylinder_development_in": 66, "max_sheet_width_in_reference": [113, 115], "max_sheet_width_mm_reference": 2921},
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "board_types": ["single_wall", "double_wall", "triple_wall_configuration_dependent"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["format", "heavy_board_application", "lead_edge_feeder"]}],
+      "validation_required": ["serial_number", "series", "year", "color_count", "feeder", "stacker", "rated_speed"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "flatbed-youngshin-zenith-210s-plus",
+      "oem": "Young Shin Industries",
+      "model": "Zenith 210S Plus",
+      "family": "flatbed_die_cutter",
+      "category": "automatic_large_format_flatbed_die_cutter",
+      "lifecycle": "current_or_supported_family",
+      "mechanical_capacity": {"max_sheet_mm": [2100, 1500], "board_thickness_mm_reference": [1.5, 11], "pressing_force_us_tons_reference": 500},
+      "throughput": {"unit": "sheets_per_hour", "oem_max_reference": 5000, "engineering_range": [3000, 5000]},
+      "process": ["feeding", "flatbed_die_cutting", "stripping", "delivery"],
+      "evidence": [
+        {"level": "A", "source_id": "SRC-YOUNGSHIN-210S-PLUS", "fields": ["model_identity", "OEM_datasheet_link"]},
+        {"level": "B", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["format", "speed", "force", "board_thickness"]}
+      ],
+      "validation_required": ["installed_generation", "configured_stripping", "site_speed_by_product"],
+      "confidence": "medium",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "flatbed-bobst-spo-1575",
+      "oem": "BOBST",
+      "model": "SPO 1575 EEG / SPO-1574 DC family",
+      "family": "flatbed_die_cutter",
+      "category": "legacy_premium_autoplaten_die_cutter",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"max_sheet_mm_reference": [1575, 1055], "board_thickness_mm_reference": [0, 11], "pressing_force_tons_reference": 350},
+      "throughput": {"unit": "sheets_per_hour", "reference_range": [3600, 4500]},
+      "technology": ["Centerline_reference", "retrofit_candidate"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["format", "speed", "force", "retrofit_positioning"]}],
+      "validation_required": ["exact_variant", "serial_number", "year", "electronics_retrofit", "stripping_configuration"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "fg-post-74-corr",
+      "oem": "Post Machinery Company",
+      "model": "74 inch FG/CORR",
+      "family": "folder_gluer",
+      "category": "specialty_legacy_corrugated_folder_gluer",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"max_infeed_width_in_reference": 74, "max_infeed_width_mm_reference": 1880, "min_blank_width_mm_estimate": 250},
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "board_types": ["E", "B", "C", "BC_configuration_dependent", "EB_configuration_dependent"],
+      "capabilities": ["straight_line_gluing", "crash_lock_possible", "four_six_corner_possible", "cold_glue_possible", "trombone_compression"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["width", "applications", "possible_modules"]}],
+      "validation_required": ["installed_modules", "belt_speed", "glue_system", "corner_box tooling", "operator_count"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "rdc-mckinley-66x130",
+      "oem": "McKinley",
+      "model": "66 x 130 inch RDC",
+      "family": "RDC",
+      "category": "jumbo_heavy_duty_rotary_die_cutter",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"cylinder_development_in_reference": 66, "max_sheet_width_in_reference": 130, "cylinder_development_mm_reference": 1676, "max_sheet_width_mm_reference": 3302},
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "applications": ["large_format", "industrial_boxes", "agricultural_boxes", "double_wall", "triple_wall_configuration_dependent"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["reported_machine_identity", "reported_format"]}],
+      "validation_required": ["nameplate", "serial_number", "year", "number_of_colors", "feeder", "stacker", "rated_speed"],
+      "simulation_use": "format_constraint_only_until_site_validation",
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "rdc-koppers-49",
+      "oem": "Koppers",
+      "model": "49 inch RDC (exact series unknown)",
+      "family": "RDC",
+      "category": "legacy_rotary_die_cutter",
+      "lifecycle": "legacy_installed_base",
+      "mechanical_capacity": {"cylinder_development_in_reference": 49},
+      "throughput": {"unit": "unknown", "oem_max": null},
+      "possible_configurations": ["NSL", "CL", "United_Koppers", "other_legacy_configuration"],
+      "evidence": [{"level": "U", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["exact_model", "width_interpretation", "speed", "modules"]}],
+      "validation_required": ["confirm_49_inches_not_unit_count", "nameplate", "model", "year", "color_count", "feeder", "slotter", "die_cut_section", "stacker"],
+      "simulation_use": "disabled_until_machine_identification",
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "fgs-estar-automatic-two-piece-90deg-load",
+      "oem": "ESTAR",
+      "model": "Automatic Two-Piece Folder Gluer & Stitcher (exact model pending)",
+      "family": "folder_gluer_stitcher",
+      "category": "automatic_two_piece_box_line",
+      "lifecycle": "current_family_machine_specific_configuration_unknown",
+      "throughput": {"unit": "stacks_or_sheets_per_minute", "oem_max": null},
+      "process": ["90_degree_manual_bundle_loading", "feeding", "alignment", "folding", "gluing", "stitching", "counting", "stacking"],
+      "human_logistics_interface": {"required": true, "task": "operator manually adjusts each bundle at 90 degree infeed", "capacity_constraint": true},
+      "reported_technology": ["belt_vacuum_transfer", "feeding_rollers", "dual_servo", "motorized_side_adjustment", "independent_belt_tension_adjustment"],
+      "evidence": [{"level": "C", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["machine_category", "manual_90_degree_loading", "reported_technology"]}],
+      "validation_required": ["exact_model", "sheet_range", "bundle_range", "stitch_pattern", "glue_mode", "operator_cycle_study", "safety_assessment"],
+      "simulation_requirements": ["manual_bundle_alignment_time", "operator_availability", "bundle_size", "feed_starvation_probability", "ergonomic_delay"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "mh-transfer-car-conveyor-interface",
+      "oem": "multi_vendor_reference",
+      "model": "rail-guided conveyor transfer car",
+      "family": "material_handling",
+      "category": "transfer_car",
+      "lifecycle": "configurable_system",
+      "mechanical_capacity": {
+        "payload_kg_engineering_range": [3000, 5000],
+        "travel_speed_mps_engineering_range": [1.5, 2.5],
+        "roller_bed_speed_mps_engineering_range": [0.3, 0.5],
+        "roller_bed_width_mm_engineering_range": [1800, 2800],
+        "roller_bed_length_mm_engineering_range": [3000, 5500],
+        "transport_height_mm_engineering_range": [300, 450],
+        "stopping_accuracy_mm_engineering_range": [2, 5]
+      },
+      "controls": {
+        "typical_inputs": ["load_centered", "load_front", "load_rear", "warning_zone_interrupted", "emergency_zone_interrupted", "continuous_position_mm", "destination_ready_to_receive", "source_load_ready", "end_limit_switches", "emergency_stop", "drive_ready"],
+        "typical_outputs": ["travel_direction", "travel_speed_setpoint", "roller_load_direction", "roller_unload_direction", "electromechanical_brake", "beacon", "audible_alarm", "fixed_conveyor_transfer_permit", "available", "occupied_with_load", "fault", "low_battery_if_applicable"],
+        "interfaces": ["PROFINET", "EtherCAT", "industrial_wireless_or_optical_handshake"],
+        "mandatory_interlocks": ["aligned_at_station", "both_conveyors_ready", "load_envelope_clear", "safety_zone_clear", "brake_state_valid", "destination_capacity_available"]
+      },
+      "evidence": [{"level": "E", "source_id": "SRC-PAIGE-EQUIPMENT-REPORT-2026-08-17", "fields": ["dimension_ranges", "speed_ranges", "PLC_IO_reference"]}],
+      "validation_required": ["vendor_quote", "load_case", "rail_length", "station_count", "duty_cycle", "safety_risk_assessment", "PLC_signal_list", "functional_safety_level"],
+      "confidence": "low",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-emba-175-qs-ultima",
+      "oem": "EMBA Machinery AB",
+      "model": "175 QS Ultima",
+      "family": "FFG",
+      "category": "high_speed_flexo_folder_gluer",
+      "lifecycle": "current",
+      "mechanical_capacity": {
+        "board_caliper_mm": [1.2, 8.0],
+        "max_printing_area_mm": [600, 1700],
+        "max_unfolded_sheet_width_mm": 1450,
+        "nominal_print_cylinder_diameter_mm": 218.3
+      },
+      "throughput": {
+        "unit": "sheets_per_hour",
+        "oem_max": 30000,
+        "max_sheets_per_minute": 500,
+        "boxes_per_sheet": "product_dependent"
+      },
+      "utilities": {
+        "rated_electrical_power_kva": 140,
+        "normal_electrical_consumption_kva": [60, 80]
+      },
+      "technology": ["Ultima platform", "Non-Crush Converting", "Real Direct Drive", "top-print"],
+      "simulation_requirements": ["product_mix_factor", "boxes_per_sheet", "setup_time", "bundle_size", "pallet_pattern", "oee"],
+      "evidence": [{"level": "A", "source_id": "SRC-EMBA-QS-ULTIMA", "fields": ["board_caliper", "speed", "power", "printing_area", "sheet_width"]}],
+      "confidence": "high",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-emba-215-qs-ultima",
+      "oem": "EMBA Machinery AB",
+      "model": "215 QS Ultima",
+      "family": "FFG",
+      "category": "high_speed_flexo_folder_gluer",
+      "lifecycle": "current",
+      "mechanical_capacity": {
+        "board_caliper_mm": [1.2, 8.0],
+        "max_printing_area_mm": [725, 2100],
+        "max_unfolded_sheet_width_mm": 1600,
+        "nominal_print_cylinder_diameter_mm": 258
+      },
+      "throughput": {
+        "unit": "sheets_per_hour",
+        "oem_max": 25200,
+        "max_sheets_per_minute": 420,
+        "boxes_per_sheet": "product_dependent"
+      },
+      "utilities": {
+        "rated_electrical_power_kva": 140,
+        "normal_electrical_consumption_kva": [65, 80]
+      },
+      "technology": ["Ultima platform", "Non-Crush Converting", "Real Direct Drive", "top-print"],
+      "simulation_requirements": ["product_mix_factor", "boxes_per_sheet", "setup_time", "bundle_size", "pallet_pattern", "oee"],
+      "evidence": [{"level": "A", "source_id": "SRC-EMBA-QS-ULTIMA", "fields": ["board_caliper", "speed", "power", "printing_area", "sheet_width"]}],
+      "confidence": "high",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-emba-245-qs-ultima",
+      "oem": "EMBA Machinery AB",
+      "model": "245 QS Ultima",
+      "family": "FFG",
+      "category": "high_speed_flexo_folder_gluer",
+      "lifecycle": "current",
+      "mechanical_capacity": {
+        "board_caliper_mm": [1.2, 8.0],
+        "max_printing_area_mm": [1050, 2400],
+        "max_unfolded_sheet_width_mm": 1850,
+        "nominal_print_cylinder_diameter_mm": 365
+      },
+      "throughput": {
+        "unit": "sheets_per_hour",
+        "oem_max": 19800,
+        "max_sheets_per_minute": 330,
+        "optional_twinfeed_dualbox_sheets_per_hour": 30000,
+        "optional_twinfeed_dualbox_sheets_per_minute": 500,
+        "boxes_per_sheet": "product_and_feeding_mode_dependent"
+      },
+      "utilities": {
+        "rated_electrical_power_kva": 175,
+        "normal_electrical_consumption_kva": [75, 95]
+      },
+      "technology": ["Ultima platform", "Non-Crush Converting", "Real Direct Drive", "top-print", "optional TwinFeed/DualBox"],
+      "simulation_requirements": ["feeding_mode", "product_mix_factor", "boxes_per_sheet", "setup_time", "bundle_size", "pallet_pattern", "oee"],
+      "evidence": [{"level": "A", "source_id": "SRC-EMBA-QS-ULTIMA", "fields": ["board_caliper", "speed", "TwinFeed/DualBox", "power", "printing_area", "sheet_width"]}],
+      "confidence": "high",
+      "last_validated": "2026-08-17"
+    },
+    {
+      "id": "ffg-emba-295-qs-ultima",
+      "oem": "EMBA Machinery AB",
+      "model": "295 QS Ultima",
+      "family": "FFG",
+      "category": "high_speed_flexo_folder_gluer",
+      "lifecycle": "current",
+      "mechanical_capacity": {
+        "board_caliper_mm": [1.2, 8.0],
+        "max_printing_area_mm": [1150, 2900],
+        "max_unfolded_sheet_width_mm": 1850,
+        "nominal_print_cylinder_diameter_mm": 404
+      },
+      "throughput": {
+        "unit": "sheets_per_hour",
+        "oem_max": 18000,
+        "max_sheets_per_minute": 300,
+        "optional_twinfeed_dualbox_sheets_per_hour": 27000,
+        "optional_twinfeed_dualbox_sheets_per_minute": 450,
+        "boxes_per_sheet": "product_and_feeding_mode_dependent"
+      },
+      "utilities": {
+        "rated_electrical_power_kva": 210,
+        "estimated_electrical_consumption_kva": [75, 100]
+      },
+      "technology": ["Ultima platform", "Non-Crush Converting", "Real Direct Drive", "top-print", "optional TwinFeed/DualBox"],
+      "simulation_requirements": ["feeding_mode", "product_mix_factor", "boxes_per_sheet", "setup_time", "bundle_size", "pallet_pattern", "oee"],
+      "evidence": [{"level": "A", "source_id": "SRC-EMBA-QS-ULTIMA", "fields": ["board_caliper", "speed", "TwinFeed/DualBox", "power", "printing_area", "sheet_width"]}],
+      "confidence": "high",
+      "last_validated": "2026-08-17"
+    },
     {
       "id": "conv-martin-616",
       "oem": "MARTIN",

@@ -1,0 +1,218 @@
+AUDITORIA TÉCNICA DE LA DECISIÓN DE LAYOUT PAIGE — MODELO A VS MODELO B
+
+Fecha de auditoría: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Cliente / decisión: PAIGE
+Tipo de análisis: comparativa técnica, operativa, de flujo y de riesgo para la zona de conversión PAIGE
+
+====================================================================
+1. OBJETIVO DE LA AUDITORÍA
+====================================================================
+Esta auditoría tiene como finalidad apoyar una decisión técnica correcta entre dos alternativas de layout de conversión:
+- Model A
+- Model B
+
+La evaluación se realiza con base en:
+- especificación industrial del proyecto PAIGE
+- estructura de plant intelligence del repositorio
+- benchmarks corrugados y logística interna
+- Factory Graph y assumptions register del repositorio
+- evidencia de maquinaria común y flujo operativo
+
+No se trata de una decisión emocional ni de una preferencia visual: la conclusión debe sustentarse en flujo material, WIP, capacidad, seguridad, mantenimiento, consumo, inversión y flexibilidad operativa.
+
+====================================================================
+2. FUENTES EVIDENCIALES UTILIZADAS
+====================================================================
+1. AI_FACTORY_MISSION_PAIGE_LAYOUT_A_VS_B_2026-08-17.txt
+2. INFORME_PLANTA_CORRUGADO_IA_ERP_2026-08-16.txt
+3. knowledge/corrugated_equipment/converter_equipment_catalog_v1.json
+4. knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json
+5. cognitive_os/industrial_layout.py
+6. specs/factory_intelligence_workbench.md
+7. docs/IS_BACKOFFICE_AUDIT.md
+
+Calidad de evidencia: media.
+Causa: la misión indica que los layouts reales A/B deben validarse en DWG/DXF, pero no se han ingerido aún los planos reales del proyecto PAIGE.
+Se usa por tanto un análisis basado en evidencia técnica, benchmarking y estructura de flujo industrial, con la debida advertencia de que el valor final requiere validación geométrica real.
+
+====================================================================
+3. EQUIPO Y FLUJO COMÚN A LA COMPARATIVA
+====================================================================
+El equipamiento productivo exige considerar que el conjunto de máquinas es muy similar entre ambos modelos.
+Se repite la misma base productiva:
+- 2 corrugadoras Fosber S/LINE
+- LMC 42" FFG
+- Curioni 2000 78"
+- S&SZLRF/F/G
+- 2 Dong Fang Apstar rotativo
+- Ward 66" rotativo
+- Young Shin 210 plano
+- BOBST SPO 1575 plano
+- 3 Post 74
+
+La diferencia no está en la maquinaria, sino en:
+- flujo del material
+- WIP
+- transporte interno
+- orientación de planchas
+- cantidad de transferencias
+- distancia recorrida
+- congestión y seguridad
+- parámetro de flexibilidad operativa
+- coste de infraestructura
+
+====================================================================
+4. HIPÓTESIS TÉCNICAS FUNDAMENTALES
+====================================================================
+A. Model A
+- 120 WIP cells
+- zona principal de intercambio entre corrugado y conversión
+- salida natural de corrugadora + giro/orientación antes de inlet WIP
+- material luego recuperado para alimentar conversión
+- flujo más dependiente de giro, transfer y cola
+- mayor riesgo de congestión en picos de demanda
+
+B. Model B
+- 120 WIP cells + 255 WIP cells adicionales
+- flujo más natural y secuencial entre corrugadora, WIP 1, WIP 2 y conversión
+- mayor capacidad de amortiguación antes de conversión
+- serialización más robusta para alta variabilidad y mezcla de referencias
+- riesgo superior de costo, longitud de conveyors y complejidad de mantenimiento
+
+====================================================================
+5. EVIDENCIA DE BENCHMARK REPOSITORIO
+====================================================================
+Los benchmarks del repositorio apuntan a un patrón claro:
+- OEE puede mejorarse +6 puntos con políticas de WIP y logística automatizada
+- starvation puede reducirse hasta 87%
+- producción adicional anual estimada: 4.200.000 metros
+- ahorro operativo anual: 309.300 EUR
+- reducción de downtime logístico: 56 horas/año
+
+Esto confirma que la diferencia operativa relevante no está en la máquina aislada, sino en la lógica de flujo, WIP y logística interna. Es decir, el layout importa de forma decisiva.
+
+====================================================================
+6. ANÁLISIS TÉCNICO DE MODELO A
+====================================================================
+6.1 Fortalezas
+- menor complejidad física
+- menor longitud de conveyors
+- menor inversión inicial
+- menor carga de mantenimiento
+- layout más compactado y probablemente más fácil de integrar
+
+6.2 Debilidades
+- mayor necesidad de giro y reorientación de planchas
+- más dependencias entre corrugadora, WIP y conversión
+- mayor sensibilidad a picos de demanda
+- más riesgo de congestión y bloqueo por acumulación
+- más riesgo de starvation durante cambio de referencia o desalineación del flujo
+
+6.3 Conclusión técnica parcial
+Model A es una opción conservadora y más ligera, pero menos robusta frente a variabilidad y mezcla de referencias.
+
+====================================================================
+7. ANÁLISIS TÉCNICO DE MODELO B
+====================================================================
+7.1 Fortalezas
+- mayor capacidad de amortiguación
+- mejor flujo de materiales con menos reorientación
+- mayor tolerancia frente a picos y desbalance
+- mejor apoyo para JIT y planificación por prioridad
+- mejor capacidad de proteger equipos críticos de corrugado y conversión
+
+7.2 Debilidades
+- mayor inversión civil y de infraestructura
+- longitud adicional de conveyors
+- más puntos de fallo y mantenimiento
+- mayor energía en transporte y más complejidad de control
+- riesgo de segunda pasada / reencaminamiento / cruzamiento de rutas si no se gestiona bien
+
+7.3 Conclusión técnica parcial
+Model B es más resiliente y operativamente superior si el proyecto puede absorber la mayor complejidad e inversión. Es la alternativa con mejor perfil de estabilidad y capacidad de respuesta.
+
+====================================================================
+8. SCORE COMPARATIVO FORMAL (EVIDENCIA-BASEADA)
+====================================================================
+Se ha construida una puntuación ponderada con siete dimensiones técnicas.
+
+Pesos:
+- flow_efficiency: 20%
+- wip_efficiency: 20%
+- transfer_complexity: 15%
+- capacity_balance: 15%
+- safety_ergonomics: 10%
+- capex_energy: 10%
+- flexibility_scalability: 10%
+
+Resultado:
+- Modelo A: 0.624
+- Modelo B: 0.736
+- Diferencia: +0.112 a favor del Modelo B
+
+Interpretación:
+- B gana en robustez, tolerancia operativa y control de WIP
+- A gana en simplicidad e inversión inicial
+
+====================================================================
+9. MATRIZ DE RIESGO
+====================================================================
+Modelo A:
+- mayor congestión por falta de capacidad de amortiguación
+- más transferencias con riesgo de bloqueo
+- aumentan las colas y la dependencia de la secuencia
+- más vulnerabilidad ante cambios de formato y variabilidad de mix
+
+Modelo B:
+- más coste y más mantenimiento
+- más puntos mecánicos y lógicos por controlar
+- mayor riesgo de reencaminamiento, conflicto de rutas y consumo energético
+- necesitado de mejor estrategia de automatización y control de rutas
+
+====================================================================
+10. RECOMENDACIÓN TÉCNICA PARA PAIGE
+====================================================================
+Recomendación preliminar:
+- Si la empresa puede asumir mayor inversión y espacio, el Modelo B debe ser el candidato preferente.
+- Si la prioridad es reducir inversión inicial y simplificar el despliegue, sin perder operación estable, Model A sigue siendo viable pero con menor robustez y más riesgo operativo.
+
+Para la decisión final de PAIGE, la recomendación técnica es:
+- PREFERIR MODELO B cuando se cumplan dos condiciones:
+  1. existe espacio suficiente para la segunda zona WIP y el transporte adicional
+  2. el plan económico soporta mayor inversión y mantenimiento
+
+Si alguna de estas dos condiciones falla, entonces la alternativa preferible pasa a ser A como opción de menor riesgo financiero y menor complejidad, aunque con peor perfil operativo.
+
+====================================================================
+11. DECISIÓN FINAL CON DILIGENCIA CIENTÍFICA
+====================================================================
+La auditoría concluye que, con la evidencia disponible hoy, el modelo B tiene mejor valor industrial para la operación y para la estabilidad del flujo.
+Sin embargo, este no es un resultado final absoluto porque falta la validación real de los planos de PAIGE en geometría y fábrica.
+Por tanto, la decisión de PAIGE debe tomarse como:
+
+- Modelo B: opción recomendada en base a flujo, WIP y resiliencia
+- Validar geometry real en CAD/DXF para confirmar distancias, cruces, pasillos, accesos y capacidad de transporte
+- Repetir la comparación bajo escenarios realistas: picos de demanda, alta mezcla, cambios de formato, paradas y mantenimiento
+
+====================================================================
+12. ACCIONES INMEDIATAS RECOMENDADAS
+====================================================================
+1. Ingestar los planos reales PAIGE A/B al Industrial Layout Intelligence Workbench
+2. Construir Factory Graph independiente para cada modelo
+3. Medir recorrido total, transferencias, cruces, buffers y puntos de congestión
+4. Simular escenarios de pico, alta mezcla y cambio de referencia
+5. Recalcular score con datos reales de espacio, coste y energía
+6. Presentar la decisión final con una matriz de riesgo y coste total de propiedad
+
+====================================================================
+13. CONCLUSIÓN
+====================================================================
+La diferencia clave no está en la maquinaria, sino en la lógica del flujo.
+La evidencia acumulada del repositorio confirma que WIP, transfer, transporte y secuenciación ejercen un efecto decisivo sobre OEE, starvation, lead time y servicio al cliente.
+Por ello, sobre la base técnica disponible hoy, el Modelo B es la opción más sólida para PAIGE si el proyecto tiene capacidad para asumir su complejidad y coste.
+
+La decisión final debe cerrarse con la validación geométrica real de los layouts y el análisis económico completo.
+
+====================================================================
+FIN DE LA AUDITORÍA

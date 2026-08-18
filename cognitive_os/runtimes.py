@@ -44,6 +44,10 @@ class HypothesisEngine:
     def list_for_mission(self, mission_id: str) -> list[Hypothesis]:
         return [h for h in self._items.values() if h.mission_id == mission_id]
 
+    def list_actionable_for_mission(self, mission_id: str) -> list[Hypothesis]:
+        terminal = {HypothesisStatus.VALIDATED, HypothesisStatus.REJECTED}
+        return [h for h in self.list_for_mission(mission_id) if h.status not in terminal]
+
     def update_status(self, hypothesis_id: str, status: HypothesisStatus) -> None:
         item = self._items.get(hypothesis_id)
         if item:
@@ -51,7 +55,7 @@ class HypothesisEngine:
 
 
 class ScoringEngine:
-    """Computes engineering score using weights that favor modularity and interoperability."""
+    """Computes global mission value with optional mission-specific weights."""
 
     def __init__(self) -> None:
         self._weights = {
@@ -61,18 +65,34 @@ class ScoringEngine:
             "performance": 1.0,
             "interoperability": 1.35,
             "governance": 1.15,
+            "mission_alignment": 1.40,
+            "engineering_quality": 1.10,
+            "business_value": 1.20,
+            "knowledge_value": 1.10,
+            "industrial_value": 1.20,
+            "roi": 1.05,
+            "risk_inverse": 1.25,
+            "reuse": 1.15,
+            "automation": 1.0,
+            "testing": 1.15,
+            "documentation": 0.75,
+            "evidence_quality": 1.30,
+            "confidence": 1.20,
+            "execution_cost_inverse": 0.85,
+            "execution_time_inverse": 0.80,
+            "technical_debt_inverse": 0.90,
+            "innovation": 0.65,
         }
 
-    def score(self, card: ScoreCard) -> float:
-        weighted_sum = (
-            card.architecture * self._weights["architecture"]
-            + card.maintainability * self._weights["maintainability"]
-            + card.scalability * self._weights["scalability"]
-            + card.performance * self._weights["performance"]
-            + card.interoperability * self._weights["interoperability"]
-            + card.governance * self._weights["governance"]
-        )
-        total_weight = sum(self._weights.values())
+    def score(self, card: ScoreCard, weights: dict[str, float] | None = None) -> float:
+        dimensions = card.dimensions()
+        effective_weights = dict(self._weights)
+        if weights:
+            effective_weights.update(
+                {key: max(0.0, float(value)) for key, value in weights.items() if key in dimensions}
+            )
+        weighted_sum = sum(dimensions[key] * effective_weights.get(key, 1.0) for key in dimensions)
+        total_weight = sum(effective_weights.get(key, 1.0) for key in dimensions)
         return round(weighted_sum / total_weight, 4)
 
 

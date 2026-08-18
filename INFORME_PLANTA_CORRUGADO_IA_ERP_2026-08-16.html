@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informe Planta Corrugado IA ERP</title>
+  <style>
+    :root {
+      --bg: #f3f7fb;
+      --panel: #ffffff;
+      --ink: #12263a;
+      --muted: #4f6477;
+      --line: #dfeaf3;
+      --primary: #0f4c81;
+      --primary-2: #1d6fa5;
+      --accent: #e7f1fa;
+      --success: #1c7c54;
+      --warning: #b86a19;
+      --danger: #9d2f39;
+      --shadow: 0 10px 25px rgba(15, 76, 129, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #edf4fb 0%, #f7fafc 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.15;
+    }
+
+    .header p {
+      margin: 0;
+      opacity: 0.96;
+      font-size: 1rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.84rem;
+      letter-spacing: 0.02em;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 22px 22px 18px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      color: var(--primary);
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      margin: 18px 0 10px;
+      color: var(--ink);
+      font-size: 1.12rem;
+    }
+
+    p, li {
+      font-size: 1rem;
+      color: #203548;
+    }
+
+    ul, ol {
+      margin: 10px 0 0 20px;
+      padding-left: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .metric {
+      background: var(--accent);
+      border: 1px solid #d6e7f7;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf5fc;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #ecf7f2;
+      color: var(--success);
+      border: 1px solid #cfead9;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .warning {
+      background: #fff7eb;
+      border: 1px solid #f0d8ab;
+      color: var(--warning);
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .danger {
+      background: #fff0f2;
+      border: 1px solid #e7c4ca;
+      color: var(--danger);
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 20px 14px 48px; }
+      .header { padding: 24px 18px; }
+      .card { padding: 18px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Informe completo: planta tipo corrugado, flujo, equipos, benchmarks, requisitos de control y modelo IA/ERP</h1>
+      <p>Base industrial tipo corrugado con integración de IA, ERP y capa operacional para análisis, simulación y optimización del flujo.</p>
+      <div class="meta">
+        <span class="badge">Fecha: 2026-08-16</span>
+        <span class="badge">Proyecto: AI-FACTORY-v2</span>
+        <span class="badge">Dominio: corrugado / WIP / transporte / ERP</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>1. Objetivo del informe</h2>
+      <p>Este documento tiene como objetivo definir un modelo operativo y de control para una planta de corrugado con:</p>
+      <ul>
+        <li>1 corrugadora</li>
+        <li>3 RDCs (Rotary Die Cutters)</li>
+        <li>2 FG</li>
+        <li>1 troqueladora plana</li>
+        <li>1 FFG</li>
+        <li>4 paletizadores robóticos</li>
+        <li>2 transfer de gestión de WIP</li>
+        <li>1 Ingetrans</li>
+        <li>almacenes, stocks, ubicaciones, WIP, FG, FFG, RDCI y flujo de expedición</li>
+      </ul>
+      <p>La finalidad es servir de base para especificación funcional, automatización con agentes IA, compatibilidad con ERP, análisis de capacidad, carga, velocidad, ciclos, congestiones, tiempos de espera, generación de escenarios de simulación y mejora de decisiones operativas.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Resumen ejecutivo</h2>
+      <p>Una planta de corrugado moderna no está formada por máquinas aisladas: es una red de flujo de materiales, inventario, procesos y decisiones. El control óptimo exige un modelo digital de la planta con trazabilidad por orden, SKU, lote, pallet, caja, bulto, ubicación, ruta y prioridad; sincronización temporal entre corrugadora, RDC, troqueladora, FFG y expedición; gestión de WIP como activo dinámico; control de buffers y capacidad por pieza, pallet, lote o código de cliente; equilibrio entre velocidad y calidad; cumplimiento del ERP como sistema de verdad de negocio; y IA como sistema de recomendación, optimización y gestión de excepción.</p>
+      <div class="warning">Arquitectura recomendada: ERP → capa de integración → capa de datos maestros → capa operacional → capa IA/Agentes → dashboards y decisiones.</div>
+    </section>
+
+    <section class="card">
+      <h2>3. Arquitectura típica de la planta</h2>
+      <ol>
+        <li>Recepción de materia prima</li>
+        <li>Corrugadora</li>
+        <li>Buffer / WIP intermedio</li>
+        <li>RDCs</li>
+        <li>Transfer / WIP loop / secuenciamiento</li>
+        <li>FG</li>
+        <li>Troqueladora plana</li>
+        <li>FFG</li>
+        <li>Paletizadores robóticos</li>
+        <li>Almacenes FG / FFG / RDCI / buffer de expedición</li>
+        <li>Ingetrans</li>
+        <li>Expedición</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>4. Definición de equipos y su rol operativo</h2>
+      <div class="two-col">
+        <div class="metric">
+          <strong>Corrugadora</strong>
+          <span>Centro de producción principal</span>
+          <p>Define el ritmo de la planta y genera la mayor parte del WIP.</p>
+        </div>
+        <div class="metric">
+          <strong>RDC</strong>
+          <span>Alta sensibilidad a sincronización</span>
+          <p>Cortan, perforan y troquelan de forma continua.</p>
+        </div>
+        <div class="metric">
+          <strong>FG</strong>
+          <span>Acabado / conversión final</span>
+          <p>Preparación, etiquetado, cierre o embalaje final.</p>
+        </div>
+        <div class="metric">
+          <strong>Troqueladora plana</strong>
+          <span>Piezas complejas o tiradas específicas</span>
+          <p>Ideal para geometrías complejas y configuraciones especiales.</p>
+        </div>
+        <div class="metric">
+          <strong>FFG</strong>
+          <span>Flexo Folder Gluer</span>
+          <p>Línea especializada en impresión, plegado y pegado de cajas terminadas.</p>
+        </div>
+        <div class="metric">
+          <strong>Paletizadores</strong>
+          <span>Preparación automática de salida</span>
+          <p>Reducen mano de obra y estabilizan la expedición.</p>
+        </div>
+        <div class="metric">
+          <strong>Transfers WIP</strong>
+          <span>Amortiguadores de flujo</span>
+          <p>Reducen starvation y bloqueos por falta de secuenciamiento.</p>
+        </div>
+        <div class="metric">
+          <strong>Ingetrans</strong>
+          <span>Transporte interno automatizado</span>
+          <p>Mueve pallets y cargas entre zonas con prioridad y control de colas.</p>
+        </div>
+      </div>
+
+      <h3>Benchmarks orientativos</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Rol</th>
+            <th>Benchmark típico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Corrugadora</td>
+            <td>Producción base</td>
+            <td>70-95% OEE; alta sensibilidad a starvation y cambio de referencia</td>
+          </tr>
+          <tr>
+            <td>RDC</td>
+            <td>Corte / perforación</td>
+            <td>7.000-14.000 hojas/hora; OEE 68-84%</td>
+          </tr>
+          <tr>
+            <td>FG</td>
+            <td>Acabado final</td>
+            <td>8.000-18.000 packs/h; OEE 72-88%</td>
+          </tr>
+          <tr>
+            <td>Troqueladora plana</td>
+            <td>Piezas complejas</td>
+            <td>4.000-9.000 piezas/h; OEE 65-80%</td>
+          </tr>
+          <tr>
+            <td>FFG</td>
+            <td>Caja terminada</td>
+            <td>12.000-22.000 piezas/h; OEE 74-90%</td>
+          </tr>
+          <tr>
+            <td>Paletizadores</td>
+            <td>Preparación y salida</td>
+            <td>200-500 pallets/h total; reducción 30-70% de mano de obra</td>
+          </tr>
+          <tr>
+            <td>Transfers</td>
+            <td>Gestión WIP</td>
+            <td>80-180 cargas/h; reducción 60-90% de starvation</td>
+          </tr>
+          <tr>
+            <td>Ingetrans</td>
+            <td>Transporte interno</td>
+            <td>50-180 cargas/h; mejora predictibilidad 20-50% en recorridos críticos</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>5. Benchmarks y referencia del repositorio IS-BACKOFFICE</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Aumento de OEE estimado</td><td>+6 puntos</td></tr>
+          <tr><td>Reducción de starvation</td><td>87%</td></tr>
+          <tr><td>Producción adicional anual</td><td>4.200.000 metros</td></tr>
+          <tr><td>Ahorro operativo anual</td><td>309.300 EUR</td></tr>
+          <tr><td>Reducción de downtime logístico</td><td>56 horas/año</td></tr>
+          <tr><td>Escala de decisión</td><td>GO ≥0.75, PILOT 0.60-0.75, HOLD <0.60</td></tr>
+        </tbody>
+      </table>
+      <p>La base de IS-BACKOFFICE es reutilizable para knowledge_hub, simulación industrial, análisis de documentos, GraphStore, reporting y plant simulator.</p>
+    </section>
+
+    <section class="card">
+      <h2>6. Modelo de planta asumida para simulación</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Capacidad nominal orientativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Corrugadora</td><td>18.000-30.000 hojas/h</td></tr>
+          <tr><td>RDC 1</td><td>8.000-12.000 hojas/h</td></tr>
+          <tr><td>RDC 2</td><td>9.000-13.000 hojas/h</td></tr>
+          <tr><td>RDC 3</td><td>7.000-11.000 hojas/h</td></tr>
+          <tr><td>FG 1</td><td>8.000-16.000 packs/h</td></tr>
+          <tr><td>FG 2</td><td>9.000-17.000 packs/h</td></tr>
+          <tr><td>FFG</td><td>12.000-22.000 piezas/h</td></tr>
+          <tr><td>Troqueladora plana</td><td>4.000-9.000 piezas/h</td></tr>
+          <tr><td>Paletizadores</td><td>200-500 pallets/h</td></tr>
+          <tr><td>Transfers</td><td>80-180 cargas/h</td></tr>
+          <tr><td>Ingetrans</td><td>50-180 cargas/h</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>7. Escenario operativo de ejemplo</h2>
+      <p>Ruta operativa tipo:</p>
+      <ul>
+        <li>Orden 1 → Corrugadora → RDC 2 → Transfer WIP → FG 1 → Paletizador 3 → Almacén FG</li>
+        <li>Orden 2 → Corrugadora → RDC 1 → FFG → Paletizador 2 → Almacén FFG</li>
+        <li>Orden 3 → Troqueladora plana → Buffer → Paletizador 1 → Almacén FG</li>
+        <li>Orden 4 → Corrugadora → RDC 3 → Transfer → FG 2 → Ingetrans → Almacén RDCI → Expedición</li>
+      </ul>
+      <p>Los desafíos reales son la subutilización de la corrugadora, el WIP acumulado en transfer, la saturación de paletizadores, la congestión del Ingetrans y la falta de decisiones inteligentes de ubicación y secuenciación.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Requisitos de control y optimización</h2>
+      <h3>Datos maestros requeridos</h3>
+      <ul>
+        <li>clientes, SKU, variantes, rutas de producto</li>
+        <li>materiales, plazos de entrega, ubicaciones físicas</li>
+        <li>capacidad por máquina, stock por ubicación</li>
+        <li>historial de producción, paradas, mantenimientos</li>
+        <li>prioridad por pedido, cliente, canal, restricciones de almacenamiento</li>
+      </ul>
+
+      <h3>Variables de control de cada equipo</h3>
+      <p>Debe existir una representación unificada del equipo con campos tales como:</p>
+      <ul>
+        <li>id_equipo, tipo_equipo, nombre, capacidad_nominal, capacidad_real</li>
+        <li>velocidad_trabajo, estado_operativo, disponibilidad, tiempo_setup_promedio</li>
+        <li>tiempo_ciclo_promedio, nivel_buffer_actual, nivel_buffer_maximo</li>
+        <li>capacidad_carga, prioridad_actual, tiempos de espera y cola</li>
+        <li>tasa_scrap, calidad_real, tiempo_parada_no_planificada, consumo_recurso</li>
+      </ul>
+
+      <h3>Reglas de control</h3>
+      <ul>
+        <li>evitar hambre de línea por falta de material</li>
+        <li>evitar bloqueo por acumulación excesiva de WIP</li>
+        <li>secuenciar según prioridad y vencimiento</li>
+        <li>equilibrar carga entre RDCs y FG</li>
+        <li>priorizar órdenes con mayor riesgo de retraso</li>
+        <li>reubicar WIP si hay congestión</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>9. Modelo de IA requerido</h2>
+      <div class="two-col">
+        <div class="metric">
+          <strong>Planificación</strong>
+          <span>Secuenciación</span>
+          <p>Ordena producción según prioridad, capacidad, entrega y tiempos de cambio.</p>
+        </div>
+        <div class="metric">
+          <strong>Flujo / WIP</strong>
+          <span>Bottlenecks</span>
+          <p>Detecta zonas con atasco, starvation y sugiere movimiento de inventario.</p>
+        </div>
+        <div class="metric">
+          <strong>Almacén</strong>
+          <span>Inventario</span>
+          <p>Controla stock, ubicaciones, FG, FFG, RDCI y rotación.</p>
+        </div>
+        <div class="metric">
+          <strong>Transporte</strong>
+          <span>Ingetrans y paletización</span>
+          <p>Equilibra rutas, colas y prioridades por cliente o pedido.</p>
+        </div>
+        <div class="metric">
+          <strong>Mantenimiento</strong>
+          <span>Calidad y prevención</span>
+          <p>Detecta señales tempranas de degradación y riesgo de avería.</p>
+        </div>
+        <div class="metric">
+          <strong>Simulación</strong>
+          <span>Optimización</span>
+          <p>Prueba escenarios hipotéticos y valida mejoras antes del despliegue real.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>10. KPIs recomendados</h2>
+      <ul>
+        <li>OEE total por máquina y línea</li>
+        <li>throughput real por hora/día</li>
+        <li>tiempo de ciclo real vs nominal</li>
+        <li>tiempo medio de setup</li>
+        <li>porcentaje de ocupación de buffer</li>
+        <li>WIP promedio por estación</li>
+        <li>días de stock por SKU</li>
+        <li>stock en tránsito</li>
+        <li>número de paradas no planificadas</li>
+        <li>tasa de scrap/rework</li>
+        <li>volumen de entregas a tiempo</li>
+        <li>carga por paletizador</li>
+        <li>saturación del Ingetrans</li>
+        <li>lead time total desde orden a expedición</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>11. Ejemplos prácticos de simulación</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>Suposición</th>
+            <th>Resultado estimado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>Operación base sin IA</td>
+            <td>OEE 72-78%; WIP excesivo; alta congestión; lead time elevado</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>IA de secuenciación + control de WIP</td>
+            <td>OEE +3 a +6; starvation -60 a -87%; WIP -10 a -30%</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>Ingetrans + paletizadores automatizados + transfer inteligentes</td>
+            <td>Transporte manual -30 a -60%; throughput +8 a +18%</td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>Replanificación dinámica por ERP + IA</td>
+            <td>Mayor cumplimiento SLA y mayor estabilidad de stock</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>12. Modelos de datos para el software</h2>
+      <h3>Modelo de orden</h3>
+      <ul>
+        <li>order_id, customer_id, sku_id, product_family, quantity</li>
+        <li>due_date, priority, route_id, plant_id, warehouse_id</li>
+        <li>current_status, ready_date, planned_start, actual_start, actual_finish</li>
+        <li>location_current, lot_id, pallet_id, route_stage</li>
+      </ul>
+
+      <h3>Modelo de equipo</h3>
+      <ul>
+        <li>equipment_id, equipment_type, line_id, nominal_capacity, current_capacity</li>
+        <li>speed, operating_state, buffer_level, buffer_max, planned_stoppage</li>
+        <li>unplanned_stoppage, oee, setup_time, last_maintenance</li>
+      </ul>
+
+      <h3>Modelo de stock / WIP</h3>
+      <ul>
+        <li>stock_id, sku_id, quantity, unit_type, warehouse_id, location_id</li>
+        <li>status (FG, FFG, WIP, buffer, transit, blocked), age_hours, last_move, order_id</li>
+      </ul>
+
+      <h3>Modelo de transporte</h3>
+      <ul>
+        <li>transport_id, route_id, origin_location, destination_location</li>
+        <li>load_type, load_quantity, assigned_priority, travel_time, status, queue_time</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>13. El papel del ERP</h2>
+      <p>El ERP debe ser la fuente autorizada de datos maestros, órdenes, clientes, almacenes, stock, ubicaciones, disponibilidad real, datos financieros y de costes, y pedidos de expedición.</p>
+      <p>La automatización con IA debe integrarse mediante una capa neutral de adaptadores y eventos, evitando que cada sistema tenga su propia lógica y permitiendo compatibilidad con SAP, Oracle, Dynamics, NetSuite, Odoo, Infor, etc.</p>
+      <div class="pill">API REST / GraphQL</div>
+      <div class="pill">ETL / Event bus</div>
+      <div class="pill">Sincronización en tiempo real</div>
+      <div class="pill">Replanificación 5/15/30 min</div>
+    </section>
+
+    <section class="card">
+      <h2>14. Principios de diseño para la solución de IA</h2>
+      <ul>
+        <li>consistencia de datos por encima de velocidad</li>
+        <li>trazabilidad total por orden, SKU, ubicación, lote y pallet</li>
+        <li>WIP gestionado como recurso crítico</li>
+        <li>decisiones basadas en evidencia</li>
+        <li>coordinación de varios equipos sin perder la visión global</li>
+        <li>simulación de escenarios antes de ejecutar cambios reales</li>
+        <li>planificar con restricciones y no solo con capacidad bruta</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>15. Recomendaciones de implementación inmediata</h2>
+      <ol>
+        <li>Definir el modelo de planta y sus entidades.</li>
+        <li>Mapear el ERP a un modelo neutral de integración.</li>
+        <li>Definir la capa de eventos: order_created, stock_updated, machine_status_changed, pallet_ready, route_assignment, dispatch, hold, alarm.</li>
+        <li>Implementar agentes IA por dominio: planificación, WIP, almacén, transporte, mantenimiento, análisis.</li>
+        <li>Diseñar dashboards de operación con KPIs reales por máquina, zona y pedido.</li>
+        <li>Construir motor de simulación para comparar escenarios antes del despliegue.</li>
+        <li>Definir política clara de priorización: due date, SLA, riesgo, stock crítico, capacidad disponible.</li>
+        <li>Estándar la nomenclatura: FG, FFG, RDC, RDCI, WIP, buffer, transfer, Ingetrans, etc.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>16. Conclusión</h2>
+      <p>Una planta de corrugado con corrugadora, 3 RDCs, 2 FG, troqueladora plana, FFG, 4 paletizadores, 2 transfers WIP y 1 Ingetrans no es meramente una secuencia de equipos: es un sistema de flujo, decisión y control. Para optimizarlo con Agentes IA y compatibilidad con ERP, es necesario modelar equipos y procesos con datos de capacidad, velocidad, buffers, colas y WIP, integrar con ERP de forma neutral, analizar stock y órdenes en tiempo real, utilizar IA para replanificar, priorizar, equilibrar y predecir, y simular escenarios antes del cambio real.</p>
+      <div class="danger">El repositorio IS-BACKOFFICE aporta una base muy útil para graph knowledge, simulación, extracción, reporting, analytics y reutilización.</div>
+    </section>
+
+    <section class="card">
+      <h2>17. Matriz de resumen operacional</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Función</th>
+            <th>Parámetro crítico</th>
+            <th>Benchmark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Corrugadora</td><td>Producción base</td><td>Velocidad, setup, OEE</td><td>70-95% OEE</td></tr>
+          <tr><td>RDC</td><td>Corte rotativo</td><td>Capacidad por hoja, registro, cambio de matriz</td><td>7.000-14.000 hojas/h</td></tr>
+          <tr><td>FG</td><td>Acabado</td><td>Línea, SKU, tiempos de cambio</td><td>8.000-18.000 packs/h</td></tr>
+          <tr><td>Troqueladora</td><td>Piezas complejas</td><td>Setup, scrap</td><td>4.000-9.000 piezas/h</td></tr>
+          <tr><td>FFG</td><td>Caja terminada</td><td>Velocidad, impresión, pegado</td><td>12.000-22.000 piezas/h</td></tr>
+          <tr><td>Paletizadores</td><td>Preparación salida</td><td>Pallets/h, patrones, carga</td><td>200-500 pallets/h total</td></tr>
+          <tr><td>Transfer WIP</td><td>Gestión de flujo</td><td>Buffer, cola, sincronización</td><td>80-180 cargas/h</td></tr>
+          <tr><td>Ingetrans</td><td>Transporte interno</td><td>Rutas, prioridad, congestión</td><td>50-180 cargas/h</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>18. Glosario del dominio industrial</h2>
+      <ul>
+        <li>FG = Finished Goods</li>
+        <li>FFG = Final Finished Goods / Flexo Folder Gluer</li>
+        <li>RDC = Rotary Die Cutter / Regional Distribution Center</li>
+        <li>RDCI = centro intermedio / entrada / distribución / nodo de inventario</li>
+        <li>WIP = Work In Progress</li>
+        <li>Buffer = área de amortiguación / stock intermedio</li>
+        <li>Transfer = desplazamiento entre etapas</li>
+        <li>Ingetrans = transporte automatizado interno</li>
+        <li>OEE = Overall Equipment Effectiveness</li>
+        <li>OTIF = On Time In Full</li>
+        <li>SLA = Service Level Agreement</li>
+        <li>Scrap = merma / material descartado</li>
+        <li>Lead time = tiempo total desde orden hasta entrega</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      Informe generado para visualización web y análisis operativo de planta corrugado con IA/ERP.
+    </footer>
+  </div>
+</body>
+</html>

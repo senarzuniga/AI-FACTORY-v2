@@ -1,0 +1,80 @@
+{
+  "layout_name": "PAIGE_MODEL_A",
+  "scenario_type": "layout_comparison",
+  "status": "step_1_factory_graph_contract",
+  "geometry_status": "pending_real_dwg_dxf_ingestion",
+  "assumptions": [
+    "One central WIP zone with 120 cells.",
+    "Material exits corrugators and must rotate/orient before entering the main WIP.",
+    "Converters are organized mainly right-to-left.",
+    "This layout is likely to generate more transfer and orientation movements than a more direct WIP architecture."
+  ],
+  "graph_summary": {
+    "node_count": 18,
+    "edge_count": 22,
+    "kind_counts": {
+      "machine": 11,
+      "wip": 1,
+      "conveyor": 3,
+      "transfer": 2,
+      "warehouse": 1,
+      "expedition": 1,
+      "safety_zone": 1
+    }
+  },
+  "nodes": [
+    {"id": "corrugator_01", "kind": "machine", "label": "Fosber S/LINE 01", "layer": "corrugating", "center": [0, 0], "bounds": [0, 0, 30, 18], "confidence": 0.6, "properties": {"family": "corrugator", "operating_mode": "continuous", "criticality": "high"}},
+    {"id": "corrugator_02", "kind": "machine", "label": "Fosber S/LINE 02", "layer": "corrugating", "center": [0, 20], "bounds": [0, 20, 30, 38], "confidence": 0.6, "properties": {"family": "corrugator", "operating_mode": "continuous", "criticality": "high"}},
+    {"id": "wip_primary_a", "kind": "wip", "label": "Main WIP A (120 cells)", "layer": "wip", "center": [60, 10], "bounds": [42, 0, 88, 20], "confidence": 0.7, "properties": {"cells": 120, "orientation_change_required": true, "role": "main_exchange_zone"}},
+    {"id": "converter_lmc_42", "kind": "machine", "label": "LMC 42\" FFG", "layer": "converting", "center": [110, 8], "bounds": [95, 0, 140, 16], "confidence": 0.7, "properties": {"family": "ffg", "criticality": "critical"}},
+    {"id": "converter_curioni_78", "kind": "machine", "label": "Curioni 2000 78\"", "layer": "converting", "center": [110, 24], "bounds": [95, 18, 140, 36], "confidence": 0.7, "properties": {"family": "conversion", "criticality": "high"}},
+    {"id": "converter_sszlrffg", "kind": "machine", "label": "S&SZLRF/F/G", "layer": "converting", "center": [110, 40], "bounds": [95, 34, 140, 52], "confidence": 0.7, "properties": {"family": "conversion", "criticality": "high"}},
+    {"id": "rotary_apstar_01", "kind": "machine", "label": "Dong Fang Apstar Rotativo 01", "layer": "printing_diecut", "center": [170, 8], "bounds": [150, 0, 194, 16], "confidence": 0.7, "properties": {"family": "rotary", "criticality": "high"}},
+    {"id": "rotary_apstar_02", "kind": "machine", "label": "Dong Fang Apstar Rotativo 02", "layer": "printing_diecut", "center": [170, 24], "bounds": [150, 18, 194, 36], "confidence": 0.7, "properties": {"family": "rotary", "criticality": "high"}},
+    {"id": "rotary_ward_66", "kind": "machine", "label": "Ward 66\" Rotativo", "layer": "printing_diecut", "center": [170, 40], "bounds": [150, 34, 194, 52], "confidence": 0.7, "properties": {"family": "rotary", "criticality": "high"}},
+    {"id": "flat_youngshin_210", "kind": "machine", "label": "Young Shin 210 Plano", "layer": "diecutting", "center": [230, 20], "bounds": [204, 2, 260, 38], "confidence": 0.7, "properties": {"family": "flat_diecut", "criticality": "high"}},
+    {"id": "flat_bobst_spo_1575", "kind": "machine", "label": "BOBST SPO 1575 Plano", "layer": "diecutting", "center": [230, 44], "bounds": [204, 38, 260, 62], "confidence": 0.7, "properties": {"family": "flat_diecut", "criticality": "high"}},
+    {"id": "post_74_01", "kind": "machine", "label": "Post 74\" 01", "layer": "finishing", "center": [285, 14], "bounds": [268, 0, 306, 24], "confidence": 0.7, "properties": {"family": "finishing", "criticality": "high"}},
+    {"id": "post_74_02", "kind": "machine", "label": "Post 74\" 02", "layer": "finishing", "center": [285, 28], "bounds": [268, 24, 306, 48], "confidence": 0.7, "properties": {"family": "finishing", "criticality": "high"}},
+    {"id": "post_74_03", "kind": "machine", "label": "Post 74\" 03", "layer": "finishing", "center": [285, 42], "bounds": [268, 38, 306, 62], "confidence": 0.7, "properties": {"family": "finishing", "criticality": "high"}},
+    {"id": "belt_to_conversion_a", "kind": "conveyor", "label": "Main conveyor to conversion A", "layer": "material_handling", "center": [90, 12], "bounds": [88, 8, 98, 16], "confidence": 0.6, "properties": {"direction": "south_to_north", "transfer_needed": true}},
+    {"id": "transfer_in_a", "kind": "transfer", "label": "Transfer-in A", "layer": "material_handling", "center": [110, 18], "bounds": [100, 16, 120, 24], "confidence": 0.6, "properties": {"function": "feed and orientation", "risk": "queueing"}},
+    {"id": "transfer_out_a", "kind": "transfer", "label": "Transfer-out A", "layer": "material_handling", "center": [245, 18], "bounds": [226, 16, 260, 24], "confidence": 0.6, "properties": {"function": "outfeed and expedition", "risk": "cross_traffic"}},
+    {"id": "fg_storage_a", "kind": "warehouse", "label": "FG / WIP storage A", "layer": "storage", "center": [330, 20], "bounds": [308, 0, 352, 40], "confidence": 0.6, "properties": {"role": "finished_goods_storage", "inventory_policy": "dynamic"}},
+    {"id": "expedition_a", "kind": "expedition", "label": "Expedition / outbound A", "layer": "expedition", "center": [356, 20], "bounds": [352, 8, 380, 32], "confidence": 0.6, "properties": {"role": "dispatch"}},
+    {"id": "safety_zone_a", "kind": "safety_zone", "label": "Safety / access zone A", "layer": "safety", "center": [150, 56], "bounds": [144, 54, 196, 66], "confidence": 0.5, "properties": {"type": "restricted_access"}}
+  ],
+  "edges": [
+    {"source": "corrugator_01", "target": "wip_primary_a", "relation": "feeds", "distance": 35.0, "confidence": 0.7, "properties": {"needs_orientation": true}},
+    {"source": "corrugator_02", "target": "wip_primary_a", "relation": "feeds", "distance": 35.0, "confidence": 0.7, "properties": {"needs_orientation": true}},
+    {"source": "wip_primary_a", "target": "transfer_in_a", "relation": "supplies", "distance": 18.0, "confidence": 0.7, "properties": {"risk": "queueing_approach"}},
+    {"source": "transfer_in_a", "target": "converter_lmc_42", "relation": "feeds", "distance": 15.0, "confidence": 0.7, "properties": {"route": "right_to_left"}},
+    {"source": "transfer_in_a", "target": "converter_curioni_78", "relation": "feeds", "distance": 18.0, "confidence": 0.7, "properties": {"route": "right_to_left"}},
+    {"source": "transfer_in_a", "target": "converter_sszlrffg", "relation": "feeds", "distance": 20.0, "confidence": 0.7, "properties": {"route": "right_to_left"}},
+    {"source": "converter_lmc_42", "target": "rotary_apstar_01", "relation": "feeds", "distance": 15.0, "confidence": 0.7},
+    {"source": "converter_curioni_78", "target": "rotary_apstar_02", "relation": "feeds", "distance": 16.0, "confidence": 0.7},
+    {"source": "converter_sszlrffg", "target": "rotary_ward_66", "relation": "feeds", "distance": 17.0, "confidence": 0.7},
+    {"source": "rotary_apstar_01", "target": "flat_youngshin_210", "relation": "feeds", "distance": 18.0, "confidence": 0.7},
+    {"source": "rotary_apstar_02", "target": "flat_bobst_spo_1575", "relation": "feeds", "distance": 19.0, "confidence": 0.7},
+    {"source": "rotary_ward_66", "target": "flat_youngshin_210", "relation": "feeds", "distance": 20.0, "confidence": 0.7},
+    {"source": "flat_youngshin_210", "target": "post_74_01", "relation": "feeds", "distance": 20.0, "confidence": 0.7},
+    {"source": "flat_bobst_spo_1575", "target": "post_74_02", "relation": "feeds", "distance": 22.0, "confidence": 0.7},
+    {"source": "post_74_01", "target": "transfer_out_a", "relation": "feeds", "distance": 18.0, "confidence": 0.7},
+    {"source": "post_74_02", "target": "transfer_out_a", "relation": "feeds", "distance": 18.0, "confidence": 0.7},
+    {"source": "post_74_03", "target": "transfer_out_a", "relation": "feeds", "distance": 18.0, "confidence": 0.7},
+    {"source": "transfer_out_a", "target": "fg_storage_a", "relation": "delivers_to", "distance": 18.0, "confidence": 0.7},
+    {"source": "fg_storage_a", "target": "expedition_a", "relation": "dispatches_to", "distance": 12.0, "confidence": 0.7},
+    {"source": "transfer_out_a", "target": "safety_zone_a", "relation": "crosses", "distance": 24.0, "confidence": 0.4, "properties": {"risk": "crossing"}},
+    {"source": "belt_to_conversion_a", "target": "wip_primary_a", "relation": "feeds", "distance": 12.0, "confidence": 0.6},
+    {"source": "wip_primary_a", "target": "belt_to_conversion_a", "relation": "returns_to", "distance": 12.0, "confidence": 0.6, "properties": {"orientation_change": true}}
+  ],
+  "objectives": [
+    "machine_feedability",
+    "wip_stability",
+    "material_flow_efficiency",
+    "capacity_balance",
+    "space_efficiency",
+    "safety_validation",
+    "expedition_readiness"
+  ]
+}

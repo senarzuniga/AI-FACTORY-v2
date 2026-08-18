@@ -17,7 +17,7 @@ import shlex
 import shutil
 import subprocess
 import tempfile
-from typing import Any, Protocol
+from typing import Any, Iterator, Protocol
 
 
 def _hash(value: str) -> str:
@@ -149,6 +149,32 @@ def _payload_bytes(payload: dict[str, Any]) -> bytes:
     return b""
 
 
+def _payload_line_pairs(payload: dict[str, Any]) -> Iterator[tuple[str, str]]:
+    source_path = payload.get("source_path")
+    if source_path:
+        path = Path(str(source_path))
+        if path.is_file():
+            with path.open("r", encoding="utf-8", errors="ignore") as handle:
+                while True:
+                    code = handle.readline()
+                    if not code:
+                        return
+                    value = handle.readline()
+                    if not value:
+                        return
+                    yield code.strip(), value.strip()
+            return
+
+    lines = iter(_payload_text(payload).splitlines())
+    while True:
+        try:
+            code = next(lines)
+            value = next(lines)
+        except StopIteration:
+            return
+        yield code.strip(), value.strip()
+
+
 def _entity_points(entity: dict[str, Any]) -> list[tuple[float, float]]:
     points: list[tuple[float, float]] = []
     for key in ("points", "vertices"):
@@ -213,28 +239,45 @@ class DXFLayoutProvider(BaseLayoutProvider):
     provider_id = "dxf-native"
     supported_formats = ("dxf",)
     priority = 10
+    relevant_group_codes = frozenset({"1", "2", "8", "10", "20", "11", "21"})
 
     def import_layout(self, source_format: str, payload: dict[str, Any]) -> IntermediateGeometryModel:
-        text = _payload_text(payload)
-        lines = [line.strip() for line in text.splitlines() if line.strip()]
-        pairs: list[tuple[str, str]] = []
-        index = 0
-        while index + 1 < len(lines):
-            pairs.append((lines[index], lines[index + 1]))
-            index += 2
-
+        max_entities = max(1, int(payload.get("max_entities") or 100_000))
+        max_group_values = max(1, int(payload.get("max_group_values") or 256))
         entities: list[IntermediateGeometryEntity] = []
+        in_entities_section = False
+        awaiting_section_name = False
+        truncated = False
         current_type: str | None = None
         current: dict[str, list[str]] = {}
-        for code, value in pairs:
+        for code, value in _payload_line_pairs(payload):
             if code == "0":
-                if current_type is not None:
+                if in_entities_section and current_type is not None:
                     entities.append(self._entity_from_record(current_type, current, len(entities)))
-                current_type = value.upper()
+                    if len(entities) >= max_entities:
+                        truncated = True
+                        break
+
+                record_type = value.upper()
+                current_type = None
                 current = {}
+                if record_type == "SECTION":
+                    awaiting_section_name = True
+                elif record_type == "ENDSEC":
+                    in_entities_section = False
+                    awaiting_section_name = False
+                elif in_entities_section:
+                    current_type = record_type
                 continue
-            current.setdefault(code, []).append(value)
-        if current_type is not None:
+            if awaiting_section_name and code == "2":
+                in_entities_section = value.upper() == "ENTITIES"
+                awaiting_section_name = False
+                continue
+            if in_entities_section and current_type is not None and code in self.relevant_group_codes:
+                values = current.setdefault(code, [])
+                if len(values) < max_group_values:
+                    values.append(value)
+        if not truncated and in_entities_section and current_type is not None and len(entities) < max_entities:
             entities.append(self._entity_from_record(current_type, current, len(entities)))
 
         source_name = str(payload.get("layout_name") or payload.get("name") or "layout-dxf")
@@ -243,7 +286,13 @@ class DXFLayoutProvider(BaseLayoutProvider):
             source_format="dxf",
             source_name=source_name,
             entities=entities,
-            metadata={"provider": self.provider_id},
+            metadata={
+                "provider": self.provider_id,
+                "streaming": bool(payload.get("source_path")),
+                "entity_limit": max_entities,
+                "group_value_limit": max_group_values,
+                "truncated": truncated,
+            },
         )
 
     def _entity_from_record(
@@ -275,7 +324,7 @@ class DXFLayoutProvider(BaseLayoutProvider):
             layer=layer,
             label=label,
             points=points,
-            properties={"dxf_fields": fields},
+            properties={},
         )
 
 

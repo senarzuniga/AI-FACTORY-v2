@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico bilingüe de planta de corrugado con IA, ERP, equipos, flujos, KPIs y arquitectura de control." />
+  <title>Corrugated Plant + IA/ERP | Technical & Executive Report</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --paper: #f4f1ea;
+      --surface: #ffffff;
+      --surface-alt: #ebe7de;
+      --line: #d4cfc3;
+      --muted: #66645f;
+      --orange: #ff5800;
+      --orange-dark: #b93f00;
+      --green: #147d64;
+      --yellow: #a86e00;
+      --red: #a92f2f;
+      --black: #090909;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: var(--orange-dark); }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      background-color: var(--black);
+      background-image: linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.62) 49%, rgba(0,0,0,.08) 78%), url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      border-bottom: 8px solid var(--orange);
+    }
+    .hero-inner {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 72px 0 62px;
+    }
+    .eyebrow {
+      font: 700 12px/1.2 "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      color: #ffb38b;
+      letter-spacing: 0.08em;
+    }
+    h1 {
+      max-width: 980px;
+      margin: 16px 0 20px;
+      font: 800 clamp(40px, 6vw, 82px)/.98 Georgia, serif;
+      letter-spacing: 0;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0;
+      font-size: 20px;
+      color: #ece7dd;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      margin-top: 30px;
+      font: 600 13px/1.4 "Cascadia Mono", monospace;
+      color: #c8c4bc;
+    }
+    .source-ribbon {
+      background: var(--black);
+      color: #eee;
+    }
+    .source-ribbon .inner {
+      width: min(1260px, calc(100% - 48px));
+      margin: auto;
+      padding: 18px 0;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .source-ribbon strong { color: var(--orange); }
+
+    .layout {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px minmax(0,1fr);
+      gap: 46px;
+    }
+    aside { padding: 46px 0; }
+    .toc {
+      position: sticky;
+      top: 18px;
+      border-top: 5px solid var(--orange);
+      padding-top: 16px;
+    }
+    .toc-title {
+      font: 800 12px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .toc a:hover { color: var(--orange-dark); }
+
+    main { min-width: 0; padding: 50px 0 80px; }
+    section {
+      margin-bottom: 72px;
+      scroll-margin-top: 22px;
+    }
+    .section-no {
+      color: var(--orange-dark);
+      font: 700 12px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    h2 {
+      margin: 5px 0 24px;
+      font: 800 clamp(28px,4vw,46px)/1.05 Georgia, serif;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 21px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 14px; }
+    .lead {
+      font-size: 20px;
+      max-width: 880px;
+      color: #3e3d39;
+    }
+    .decision {
+      border-left: 7px solid var(--orange);
+      background: var(--surface);
+      padding: 26px 28px;
+      margin: 24px 0;
+      box-shadow: 0 10px 30px rgba(20,20,20,.07);
+    }
+    .decision strong {
+      display: block;
+      font: 800 12px "Cascadia Mono", monospace;
+      color: var(--orange-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin: 26px 0;
+    }
+    .kpi { padding: 22px; border-right: 1px solid var(--line); min-width: 0; }
+    .kpi:last-child { border-right: 0; }
+    .kpi-value {
+      font: 800 32px/1 Georgia, serif;
+      color: var(--orange-dark);
+    }
+    .kpi-label {
+      margin-top: 9px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .kpi small { display: block; margin-top: 7px; color: var(--green); }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 22px;
+    }
+    .card.accent { border-top: 5px solid var(--orange); }
+    .card.green { border-top: 5px solid var(--green); }
+    .card h3 { margin-top: 0; }
+
+    .tag {
+      display: inline-block;
+      font: 700 10px "Cascadia Mono", monospace;
+      padding: 4px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .fact { color: var(--green); background: #e0f0e9; }
+    .calc { color: #6e4d00; background: #f6eac9; }
+    .assumption { color: var(--red); background: #f2dddd; }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin: 18px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+    th, td {
+      padding: 13px 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    th {
+      background: var(--black);
+      color: #fff;
+      font: 700 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #faf7f1; }
+    .number { font-family: "Cascadia Mono", monospace; font-weight: 700; white-space: nowrap; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 118px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 17px;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -11px;
+      top: 50%;
+      width: 11px;
+      border-top: 3px solid var(--orange);
+      z-index: 2;
+    }
+    .flow-step b {
+      display: block;
+      color: var(--orange-dark);
+      font: 800 12px "Cascadia Mono", monospace;
+      margin-bottom: 8px;
+    }
+
+    .bars { margin: 22px 0; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 90px;
+      gap: 12px;
+      align-items: center;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    .track {
+      height: 18px;
+      background: #ded9cf;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: var(--orange);
+    }
+    .fill.green { background: var(--green); }
+
+    .readings {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+    .reading-step {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+    .reading-step::before {
+      content: "0" counter(reading);
+      counter-increment: reading;
+      display: block;
+      color: var(--orange-dark);
+      font: 800 12px "Cascadia Mono", monospace;
+      margin-bottom: 8px;
+    }
+
+    .interpretation {
+      background: #fff7ef;
+      border: 1px solid #efb28e;
+      padding: 24px;
+      margin: 22px 0;
+    }
+    .interpretation ol { margin-bottom: 0; }
+    .interpretation li { margin-bottom: 10px; }
+
+    .risk-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0;
+    }
+    .risk-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 13px 0;
+    }
+    .risk-list strong {
+      color: var(--red);
+      font: 700 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .checklist { columns: 2; column-gap: 34px; padding-left: 20px; }
+    .checklist li { break-inside: avoid; margin-bottom: 9px; }
+
+    .source {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 16px;
+    }
+    .source-id {
+      font: 700 12px "Cascadia Mono", monospace;
+      color: var(--orange-dark);
+    }
+    .source > div { min-width: 0; }
+
+    .calculator {
+      background: var(--black);
+      color: #fff;
+      padding: 30px;
+      border-top: 7px solid var(--orange);
+    }
+    .calculator h3 {
+      margin-top: 0;
+      font-family: Georgia, serif;
+      font-size: 28px;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      color: #bbb5aa;
+      text-transform: uppercase;
+    }
+    input, textarea {
+      width: 100%;
+      margin-top: 6px;
+      border: 1px solid #555;
+      background: #202020;
+      color: #fff;
+      padding: 10px;
+      font: 600 15px "Cascadia Mono", monospace;
+      border-radius: 3px;
+    }
+    textarea {
+      min-height: 122px;
+      resize: vertical;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid var(--orange);
+      border-color: transparent;
+    }
+    .calc-status {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-left: 5px solid var(--green);
+      background: #14352d;
+      color: #d7f3e9;
+    }
+    .calc-status.infeasible {
+      border-color: #e15d5d;
+      background: #3a1d1d;
+      color: #ffe1e1;
+    }
+    .calc-results {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 1px;
+      background: #444;
+      margin-top: 22px;
+    }
+    .calc-result {
+      background: #151515;
+      padding: 18px;
+    }
+    .calc-result b {
+      display: block;
+      color: #ff8b4d;
+      font: 800 24px Georgia, serif;
+    }
+
+    .language-switcher {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 10;
+      display: flex;
+      padding: 3px;
+      background: rgba(9,9,9,.9);
+      border: 1px solid #777;
+      border-radius: 4px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
+    }
+    .language-switcher button {
+      min-width: 44px;
+      border: 0;
+      border-radius: 2px;
+      padding: 8px 10px;
+      background: transparent;
+      color: #fff;
+      font: 800 12px "Cascadia Mono", monospace;
+      cursor: pointer;
+    }
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--orange);
+      color: #111;
+    }
+
+    .lang.hidden { display: none; }
+
+    @media (max-width:980px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .kpi-strip, .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .flow { grid-template-columns: 1fr; }
+      .flow-step:not(:last-child)::after { display: none; }
+      .calc-grid, .calc-results { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width:620px) {
+      .hero-inner, .source-ribbon .inner, .layout { width: min(100% - 28px,1260px); }
+      h1 { font-size: 42px; }
+      .hero p { font-size: 17px; }
+      .kpi-strip, .grid-2, .grid-3, .calc-grid, .calc-results, .readings { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 100px 1fr 68px; }
+      .checklist { columns: 1; }
+      .source { grid-template-columns: 64px minmax(0,1fr); gap: 10px; }
+      .language-switcher { right: 12px; top: 12px; }
+    }
+
+    @media print {
+      body { background: #fff; font-size: 10pt; }
+      .hero { min-height: 235mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .layout { display: block; width: 100%; }
+      aside, .language-switcher { display: none; }
+      main { padding: 12mm; }
+      section { break-inside: auto; margin-bottom: 12mm; }
+      .card, .decision, .table-wrap, .calculator { break-inside: avoid; }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button type="button" data-language="es" aria-pressed="true">ES</button>
+    <button type="button" data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Consultoría de automatización · Cartón corrugado · Edición 1.0</div>
+        <h1>Planta de corrugado, IA y ERP</h1>
+        <p>Arquitectura operativa, equipos críticos, flujo de materiales, WIP, integración con ERP y decisión de automatización para una fábrica de cartón corrugado.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>Informe técnico + ejecutivo</span><span>Versión bilingüe ES/EN</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Automation consulting · Corrugated board · Edition 1.0</div>
+        <h1>Corrugated plant, AI and ERP</h1>
+        <p>Operating architecture, critical equipment, material flow, WIP, ERP integration and automation decision framework for a corrugated board factory.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>Technical + executive report</span><span>Bilingual ES/EN version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="source-ribbon">
+    <div class="inner">
+      <strong>Base factual</strong>
+      <span>ERP</span><span>WIP</span><span>RDC</span><span>FG</span><span>FFG</span><span>Ingetrans</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen ejecutivo</a>
+          <a href="#plant">02 · Arquitectura de planta</a>
+          <a href="#equipment">03 · Equipos y roles</a>
+          <a href="#control">04 · Modelo de control</a>
+          <a href="#kpis">05 · KPI</a>
+          <a href="#scenarios">06 · Escenarios de simulación</a>
+          <a href="#roadmap">07 · Roadmap</a>
+          <a href="#calculator">08 · Calculadora</a>
+          <a href="#sources">09 · Fuentes</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Executive summary</a>
+          <a href="#plant">02 · Plant architecture</a>
+          <a href="#equipment">03 · Equipment and roles</a>
+          <a href="#control">04 · Control model</a>
+          <a href="#kpis">05 · KPI</a>
+          <a href="#scenarios">06 · Simulation scenarios</a>
+          <a href="#roadmap">07 · Roadmap</a>
+          <a href="#calculator">08 · Calculator</a>
+          <a href="#sources">09 · Sources</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La planta no es una suma de equipos: es un sistema de flujo y decisiones.</h2>
+          <p class="lead">Una fábrica de corrugado moderna requiere un modelo digital de producción que combine ERP, capacidad real, trazabilidad, WIP y logística interna. La optimización no se logra aislando máquinas; se consigue integrando flujo, decisiones y control.</p>
+          <div class="decision">
+            <strong>Decisión</strong>
+            El diseño correcto exige una base común de datos maestros, una capa neutral de integración y un conjunto de agentes IA para secuenciación, WIP, almacén, transporte y mantenimiento. La ventaja competitiva no está en la máquina individual, sino en la sincronización del sistema completo.
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">80-95%</div><div class="kpi-label">OEE objetivo de la corrugadora</div><small>entorno estable</small></div>
+            <div class="kpi"><div class="kpi-value">68-84%</div><div class="kpi-label">OEE típico de RDC</div><small>depende de setup y disponibilidad</small></div>
+            <div class="kpi"><div class="kpi-value">60-87%</div><div class="kpi-label">Reducción de starvation</div><small>con WIP y logística inteligente</small></div>
+            <div class="kpi"><div class="kpi-value">€309k</div><div class="kpi-label">Ahorro anual orientativo</div><small>ejemplo de escenario validado</small></div>
+          </div>
+          <p class="note"><span class="tag calc">Cálculo</span> Los valores anteriores son benchmarks y estimaciones de referencia para preingeniería, no garantías de oferta ni rendimiento final.</p>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The plant is not the sum of machines: it is a flow-and-decision system.</h2>
+          <p class="lead">A modern corrugated plant requires a digital production model that combines ERP, real capacity, traceability, WIP and internal logistics. Optimization is not achieved by isolating machines; it is achieved by integrating flow, decisions and control.</p>
+          <div class="decision">
+            <strong>Decision</strong>
+            The correct design requires a common master-data backbone, a neutral integration layer and a set of AI agents for sequencing, WIP, warehouse, transport and maintenance. Competitive advantage lies not in the individual machine, but in the synchronization of the entire system.
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">80-95%</div><div class="kpi-label">Target corrugator OEE</div><small>stable environment</small></div>
+            <div class="kpi"><div class="kpi-value">68-84%</div><div class="kpi-label">Typical RDC OEE</div><small>depends on setup and availability</small></div>
+            <div class="kpi"><div class="kpi-value">60-87%</div><div class="kpi-label">Starvation reduction</div><small>with smart WIP and logistics</small></div>
+            <div class="kpi"><div class="kpi-value">€309k</div><div class="kpi-label">Indicative annual savings</div><small>example benchmark scenario</small></div>
+          </div>
+          <p class="note"><span class="tag calc">Calculation</span> The values above are reference benchmarks and pre-engineering estimates, not contractual guarantees of final performance.</p>
+        </div>
+      </section>
+
+      <section id="plant">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Arquitectura de planta</div>
+          <h2>Flujo base y nodos típicos</h2>
+          <div class="flow">
+            <div class="flow-step"><b>01</b>Recepción de materia prima y almacenes<br/>papel, cartón, adhesivos, microcorrugado</div>
+            <div class="flow-step"><b>02</b>Corrugadora<br/>línea principal y motor del sistema</div>
+            <div class="flow-step"><b>03</b>Buffer / WIP<br/>alojamiento intermedio y control por SKU</div>
+            <div class="flow-step"><b>04</b>RDC / FG / FFG<br/>conversión aparente y acabado final</div>
+            <div class="flow-step"><b>05</b>Paletización / expedición<br/>salida, reparto y entregas</div>
+          </div>
+          <p>El flujo de una planta de corrugado se compone de corrugadora, buffers, RDCS, FG, troqueladora plana, FFG, transfer de WIP, Ingetrans, paletizadores y almacenes de producto terminado. Ninguna de estas áreas debería gestionarse como una isla; deben coordinarse por prioridad, capacidad real y riesgo de retraso.</p>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Plant architecture</div>
+          <h2>Base flow and typical nodes</h2>
+          <div class="flow">
+            <div class="flow-step"><b>01</b>Raw material reception and warehouse<br/>paper, board, adhesives, microflute</div>
+            <div class="flow-step"><b>02</b>Corrugator<br/>main production engine</div>
+            <div class="flow-step"><b>03</b>Buffer / WIP<br/>intermediate staging and SKU control</div>
+            <div class="flow-step"><b>04</b>RDC / FG / FFG<br/>conversion and finishing</div>
+            <div class="flow-step"><b>05</b>Palletizing / dispatch<br/>shipping and delivery</div>
+          </div>
+          <p>A corrugated plant flow is composed of corrugator, buffers, RDCs, FG, flat die cutter, FFG, WIP transfer, Ingetrans, palletizers and finished goods warehouses. None of these areas should be managed as an island; they must be coordinated by priority, actual capacity and delay risk.</p>
+        </div>
+      </section>
+
+      <section id="equipment">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Equipos y roles</div>
+          <h2>Definición de equipos y su impacto operativo</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Equipo</th><th>Función</th><th>Parámetros críticos</th><th>Benchmark orientativo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Corrugadora</td><td>Producción base del cartón</td><td>velocidad, setup, OEE, stock intermedio</td><td>OEE 80-95% en entorno estable</td></tr>
+                <tr><td>RDC</td><td>Corte rotativo y elementos de conversión</td><td>hojas por hora, setup matriz, registro</td><td>7.000-14.000 hojas/h según referencia</td></tr>
+                <tr><td>FG</td><td>Acabado y preparación final</td><td>velocidad de línea, SKU, cambio de formato</td><td>8.000-18.000 packs/h</td></tr>
+                <tr><td>Troqueladora plana</td><td>Piezas complejas o tiradas cortas</td><td>setup, scrap, planchas</td><td>4.000-9.000 piezas/h</td></tr>
+                <tr><td>FFG</td><td>Folding, gluing y caja terminada</td><td>velocidad, impresión, pegado</td><td>12.000-22.000 piezas/h</td></tr>
+                <tr><td>Paletizadores</td><td>Preparación de salida</td><td>pallets/h, patrón, prioridad</td><td>200-500 pallets/h según mezcla</td></tr>
+                <tr><td>Transfer de WIP</td><td>control del flujo intermedio</td><td>cargas/h, buffer, sincronización</td><td>80-180 cargas/h</td></tr>
+                <tr><td>Ingetrans</td><td>Transporte interno automatizado</td><td>ruta, colas, prioridad</td><td>50-180 cargas/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Equipment and roles</div>
+          <h2>Equipment definition and operational impact</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Equipment</th><th>Role</th><th>Critical parameters</th><th>Indicative benchmark</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Corrugator</td><td>Primary board production</td><td>speed, setup, OEE, intermediate stock</td><td>OEE 80-95% in stable conditions</td></tr>
+                <tr><td>RDC</td><td>Rotary cutting and conversion</td><td>sheets per hour, die setup, register</td><td>7,000-14,000 sheets/h depending on reference</td></tr>
+                <tr><td>FG</td><td>Finishing and final preparation</td><td>line speed, SKU, format change</td><td>8,000-18,000 packs/h</td></tr>
+                <tr><td>Flat die cutter</td><td>Complex parts or short runs</td><td>setup, scrap, plates</td><td>4,000-9,000 pieces/h</td></tr>
+                <tr><td>FFG</td><td>Folding, gluing and finished box</td><td>speed, printing, gluing</td><td>12,000-22,000 pieces/h</td></tr>
+                <tr><td>Palletizers</td><td>Shipment preparation</td><td>pallets/h, pattern, priority</td><td>200-500 pallets/h depending on mix</td></tr>
+                <tr><td>WIP transfer</td><td>Intermediate flow control</td><td>loads/h, buffer, synchronization</td><td>80-180 loads/h</td></tr>
+                <tr><td>Ingetrans</td><td>Automated internal transport</td><td>route, queue, priority</td><td>50-180 loads/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="control">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Modelo de control</div>
+          <h2>Requisitos operativos para IA / ERP</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Datos maestros</h3>
+              <ul>
+                <li>clientes, SKU, rutas, materiales y fechas de entrega</li>
+                <li>almacenes, ubicaciones, stock y capacidad por máquina</li>
+                <li>historial de producción, mantenimientos y paradas</li>
+                <li>lotes, pallets, prioridad por pedido y canal</li>
+              </ul>
+            </article>
+            <article class="card green">
+              <h3>Reglas de control</h3>
+              <ul>
+                <li>evitar hambre y bloqueo por falta de material o exceso de WIP</li>
+                <li>priorizar por fecha de entrega, SLA y riesgo de retraso</li>
+                <li>equilibrar carga entre RDCs y FG</li>
+                <li>mantener rutas y buffers seguros para Ingetrans y paletizadores</li>
+              </ul>
+            </article>
+          </div>
+          <div class="decision"><strong>Modelo recomendado</strong> ERP debe ser la fuente autorizada de negocio; la capa operativa debe ser independiente y neutral, con event bus y adaptadores para evitar lógica acoplada a un ERP concreto. Los agentes IA no deben actuar sobre el ERP directamente; deben operar sobre la capa de eventos y de estado de la fábrica.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Control model</div>
+          <h2>Operational requirements for AI / ERP</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Master data</h3>
+              <ul>
+                <li>customers, SKUs, routes, materials and due dates</li>
+                <li>warehouses, locations, stock and capacity per machine</li>
+                <li>production history, maintenance and downtime</li>
+                <li>batches, pallets, order and channel priority</li>
+              </ul>
+            </article>
+            <article class="card green">
+              <h3>Control rules</h3>
+              <ul>
+                <li>avoid starvation and blocking caused by material shortages or excess WIP</li>
+                <li>prioritize by due date, SLA and delay risk</li>
+                <li>balance work between RDCs and FG</li>
+                <li>maintain stable routes and buffers for Ingetrans and palletizers</li>
+              </ul>
+            </article>
+          </div>
+          <div class="decision"><strong>Recommended model</strong> ERP should remain the authorized source of business; the operational layer must be independent and neutral, with an event bus and adapters to avoid hard-coding to a single ERP. AI agents should not act directly on ERP; they should work on the factory state and event layer.</div>
+        </div>
+      </section>
+
+      <section id="kpis">
+        <div class="lang lang-es">
+          <div class="section-no">05 · KPI recomendados</div>
+          <h2>Indicadores clave para la planta</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>Producción</h3><p>OEE total por máquina, throughput real, tiempo de ciclo, setup, ocupación de buffer y WIP promedio.</p></article>
+            <article class="card accent"><h3>Logística</h3><p>carga por paletizador, saturación de Ingetrans, tiempos de espera por prioridad y congestión en transfer.</p></article>
+            <article class="card accent"><h3>Servicio</h3><p>OTIF, lead time, entregas a tiempo, inventario FG/FFG/RDCI y cumplimiento de SLA por cliente.</p></article>
+          </div>
+          <div class="bars">
+            <div class="bar-row"><span>OEE</span><div class="track"><div class="fill" style="width: 82%"></div></div><span class="number">82%</span></div>
+            <div class="bar-row"><span>Starvation</span><div class="track"><div class="fill green" style="width: 68%"></div></div><span class="number">68%</span></div>
+            <div class="bar-row"><span>WIP</span><div class="track"><div class="fill" style="width: 54%"></div></div><span class="number">54%</span></div>
+            <div class="bar-row"><span>OTIF</span><div class="track"><div class="fill green" style="width: 90%"></div></div><span class="number">90%</span></div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Recommended KPIs</div>
+          <h2>Key indicators for the plant</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>Production</h3><p>total OEE by machine, real throughput, cycle time, setup, buffer occupancy and average WIP.</p></article>
+            <article class="card accent"><h3>Logistics</h3><p>load per palletizer, Ingetrans saturation, wait time by priority and congestion in transfer points.</p></article>
+            <article class="card accent"><h3>Service</h3><p>OTIF, lead time, on-time deliveries, FG/FFG/RDCI inventory and client SLA compliance.</p></article>
+          </div>
+          <div class="bars">
+            <div class="bar-row"><span>OEE</span><div class="track"><div class="fill" style="width: 82%"></div></div><span class="number">82%</span></div>
+            <div class="bar-row"><span>Starvation</span><div class="track"><div class="fill green" style="width: 68%"></div></div><span class="number">68%</span></div>
+            <div class="bar-row"><span>WIP</span><div class="track"><div class="fill" style="width: 54%"></div></div><span class="number">54%</span></div>
+            <div class="bar-row"><span>OTIF</span><div class="track"><div class="fill green" style="width: 90%"></div></div><span class="number">90%</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Escenarios de simulación</div>
+          <h2>Comparativa funcional de escenarios</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Escenario</th><th>Supuesto</th><th>Resultado esperado</th></tr></thead>
+              <tbody>
+                <tr><td>Base sin IA</td><td>sin priorización y control de WIP</td><td>OEE 72-78%, lead time mayor, congestión en paletizadores</td></tr>
+                <tr><td>IA + WIP control</td><td>priorización por fecha y riesgo de starvation</td><td>OEE +3 a +6 puntos, WIP -10 a -30%, lead time -8 a -18%</td></tr>
+                <tr><td>Ingetrans + paletizadores automatizados</td><td>flujo centralizado y ruteo inteligente</td><td>transporte manual -30 a -60%, throughput +8 a +18% en referencias críticas</td></tr>
+                <tr><td>Replanificación dinámica</td><td>ERP y IA actualizando cada 15-30 min</td><td>mayor cumplimiento de SLA y estabilidad de stock</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Simulation scenarios</div>
+          <h2>Functional comparison of scenarios</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Scenario</th><th>Assumption</th><th>Expected result</th></tr></thead>
+              <tbody>
+                <tr><td>Base without AI</td><td>no prioritization and no WIP control</td><td>OEE 72-78%, longer lead time, congestion at palletizers</td></tr>
+                <tr><td>AI + WIP control</td><td>prioritization by due date and starvation risk</td><td>OEE +3 to +6 points, WIP -10 to -30%, lead time -8 to -18%</td></tr>
+                <tr><td>Ingetrans + automated palletizers</td><td>centralized flow and intelligent routing</td><td>manual transport -30 to -60%, throughput +8 to +18% in critical references</td></tr>
+                <tr><td>Dynamic replanning</td><td>ERP and AI updating every 15-30 min</td><td>higher SLA compliance and more stable inventory</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Roadmap</div>
+          <h2>Implementación recomendada</h2>
+          <div class="readings">
+            <div class="reading-step"><b>Fase 1</b> Modelar entidades: equipos, buffers, transfer, ubicaciones, WIP y ordenes.</div>
+            <div class="reading-step"><b>Fase 2</b> Integrar ERP y definir capa de eventos para órdenes, stock, líneas y paradas.</div>
+            <div class="reading-step"><b>Fase 3</b> Implementar agentes por dominio: planificación, WIP, almacén, transporte y calidad.</div>
+            <div class="reading-step"><b>Fase 4</b> Validar con simulación y ejecutar pilotaje controlado antes de expansión.</div>
+          </div>
+          <div class="interpretation">
+            <ol>
+              <li>El proyecto debe empezar por trazabilidad y modelo de datos, no por automatización visual.</li>
+              <li>La síntesis del sistema se consigue con un plano de flujo y un mapa de capacidades por estación.</li>
+              <li>La decisión de automatizar transporte o WIP debe apoyarse en análisis de SLA, stock y consumo real.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Roadmap</div>
+          <h2>Recommended implementation</h2>
+          <div class="readings">
+            <div class="reading-step"><b>Phase 1</b> Model entities: equipment, buffers, transfer, locations, WIP and orders.</div>
+            <div class="reading-step"><b>Phase 2</b> Integrate ERP and define the event layer for orders, stock, lines and stops.</div>
+            <div class="reading-step"><b>Phase 3</b> Implement domain agents: planning, WIP, warehouse, transport and quality.</div>
+            <div class="reading-step"><b>Phase 4</b> Validate with simulation and run a controlled pilot before scaling.</div>
+          </div>
+          <div class="interpretation">
+            <ol>
+              <li>The project should begin with traceability and data model design, not with visual automation.</li>
+              <li>System synthesis is achieved with a flow map and a capacity map by station.</li>
+              <li>Transport or WIP automation decisions should be supported by analysis of SLA, inventory and actual consumption.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="calculator">
+        <div class="lang lang-es">
+          <div class="section-no">08 · Calculadora</div>
+          <h2>Estimación rápida de capacidad y WIP</h2>
+          <div class="calculator">
+            <h3>Calculadora conceptual de WIP</h3>
+            <div class="calc-grid">
+              <div><label>Producción horaria</label><input id="prodHora" type="number" value="1200" /></div>
+              <div><label>Tiempo de residencia (h)</label><input id="residencia" type="number" value="2" /></div>
+              <div><label>Factor de variabilidad</label><input id="variabilidad" type="number" value="1.2" step="0.1" /></div>
+              <div><label>Capacidad media (u/h)</label><input id="capacidad" type="number" value="1400" /></div>
+            </div>
+            <div class="calc-status" id="calcStatus">Resultado: el sistema está equilibrado y puede sostener la demanda con margen controlado.</div>
+            <div class="calc-results">
+              <div class="calc-result"><span>WIP estimado</span><b id="wipResult">2,400</b></div>
+              <div class="calc-result"><span>Utilización</span><b id="utilResult">86%</b></div>
+              <div class="calc-result"><span>Buffer requerido</span><b id="bufferResult">1,440</b></div>
+              <div class="calc-result"><span>Margen</span><b id="margenResult">+17%</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">08 · Calculator</div>
+          <h2>Quick WIP and capacity estimate</h2>
+          <div class="calculator">
+            <h3>Conceptual WIP calculator</h3>
+            <div class="calc-grid">
+              <div><label>Hourly production</label><input id="prodHoraEn" type="number" value="1200" /></div>
+              <div><label>Residence time (h)</label><input id="residenciaEn" type="number" value="2" /></div>
+              <div><label>Variability factor</label><input id="variabilidadEn" type="number" value="1.2" step="0.1" /></div>
+              <div><label>Average capacity (u/h)</label><input id="capacidadEn" type="number" value="1400" /></div>
+            </div>
+            <div class="calc-status" id="calcStatusEn">Result: the system is balanced and can sustain demand with controlled margin.</div>
+            <div class="calc-results">
+              <div class="calc-result"><span>Estimated WIP</span><b id="wipResultEn">2,400</b></div>
+              <div class="calc-result"><span>Utilization</span><b id="utilResultEn">86%</b></div>
+              <div class="calc-result"><span>Required buffer</span><b id="bufferResultEn">1,440</b></div>
+              <div class="calc-result"><span>Margin</span><b id="margenResultEn">+17%</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources">
+        <div class="lang lang-es">
+          <div class="section-no">09 · Fuentes</div>
+          <h2>Evidencias y referencias</h2>
+          <div class="source"><div class="source-id">S1</div><div>Reporte técnico base del proyecto: planta tipo corrugado, equipos, flujo, benchmark y requisitos de control.</div></div>
+          <div class="source"><div class="source-id">S2</div><div>Estándares de WIP y flujo industrial para corrugado: capacidad, OEE, setup, logística interna y buffer controlado.</div></div>
+          <div class="source"><div class="source-id">S3</div><div>Referencia de arquitectura de integración ERP + IA + simulación + ERP-neutral event bus.</div></div>
+          <div class="source"><div class="source-id">S4</div><div>Reutilización de conocimiento industrial y de dashboarding para modelo de decisión y monitoreo operativo.</div></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">09 · Sources</div>
+          <h2>Evidences and references</h2>
+          <div class="source"><div class="source-id">S1</div><div>Base technical report for the project: corrugated plant type, equipment, flow, benchmark and control requirements.</div></div>
+          <div class="source"><div class="source-id">S2</div><div>Industrial WIP and flow standards for corrugation: capacity, OEE, setup, internal logistics and controlled buffer.</div></div>
+          <div class="source"><div class="source-id">S3</div><div>Reference architecture for ERP + AI + simulation + ERP-neutral event bus integration.</div></div>
+          <div class="source"><div class="source-id">S4</div><div>Reuse of industrial knowledge and dashboarding for decision and operational monitoring.</div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('[data-language]');
+    const langBlocks = document.querySelectorAll('.lang');
+
+    function setLanguage(lang) {
+      const isEs = lang === 'es';
+      langBlocks.forEach(block => {
+        const visible = isEs ? block.classList.contains('lang-es') : block.classList.contains('lang-en');
+        block.classList.toggle('hidden', !visible);
+      });
+      document.documentElement.lang = lang;
+      languageButtons.forEach(btn => {
+        const pressed = btn.dataset.language === lang;
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      });
+    }
+
+    languageButtons.forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.language));
+    });
+
+    function calculateWip() {
+      const prodHora = Number(document.getElementById('prodHora')?.value || 0);
+      const residencia = Number(document.getElementById('residencia')?.value || 0);
+      const variabilidad = Number(document.getElementById('variabilidad')?.value || 1);
+      const capacidad = Number(document.getElementById('capacidad')?.value || 0);
+
+      const wip = prodHora * residencia * variabilidad;
+      const utilizacion = Math.min(100, (prodHora / capacidad) * 100);
+      const buffer = wip * 0.6;
+      const margen = ((capacidad - prodHora) / capacidad) * 100;
+
+      const status = utilisacion < 85 ? 'Resultado: el sistema está equilibrado y puede sostener la demanda con margen controlado.' : 'Resultado: la línea está operando cerca del umbral; se recomienda revisar buffer y secuenciación.';
+
+      if (document.getElementById('wipResult')) {
+        document.getElementById('wipResult').textContent = wip.toLocaleString('de-DE');
+        document.getElementById('utilResult').textContent = `${Math.round(utilizacion)}%`;
+        document.getElementById('bufferResult').textContent = buffer.toLocaleString('de-DE');
+        document.getElementById('margenResult').textContent = `${Math.round(margen)}%`;
+        document.getElementById('calcStatus').textContent = status;
+      }
+
+      if (document.getElementById('prodHoraEn')) {
+        const prodHoraEn = Number(document.getElementById('prodHoraEn').value || 0);
+        const residenciaEn = Number(document.getElementById('residenciaEn').value || 0);
+        const variabilidadEn = Number(document.getElementById('variabilidadEn').value || 1);
+        const capacidadEn = Number(document.getElementById('capacidadEn').value || 0);
+        const wipEn = prodHoraEn * residenciaEn * variabilidadEn;
+        const utilEn = Math.min(100, (prodHoraEn / capacidadEn) * 100);
+        const bufferEn = wipEn * 0.6;
+        const margenEn = ((capacidadEn - prodHoraEn) / capacidadEn) * 100;
+        const statusEn = utilEn < 85 ? 'Result: the system is balanced and can sustain demand with controlled margin.' : 'Result: the line is operating close to the threshold; review buffer and sequencing.';
+        document.getElementById('wipResultEn').textContent = wipEn.toLocaleString('en-US');
+        document.getElementById('utilResultEn').textContent = `${Math.round(utilEn)}%`;
+        document.getElementById('bufferResultEn').textContent = bufferEn.toLocaleString('en-US');
+        document.getElementById('margenResultEn').textContent = `${Math.round(margenEn)}%`;
+        document.getElementById('calcStatusEn').textContent = statusEn;
+      }
+    }
+
+    ['prodHora','residencia','variabilidad','capacidad','prodHoraEn','residenciaEn','variabilidadEn','capacidadEn'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', calculateWip);
+    });
+
+    calculateWip();
+  </script>
+</body>
+</html>

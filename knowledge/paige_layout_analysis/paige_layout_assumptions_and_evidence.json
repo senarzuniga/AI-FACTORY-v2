@@ -1,0 +1,86 @@
+{
+  "mission_id": "PAIGE_LAYOUT_A_VS_B_STEP_1",
+  "mission_name": "PAIGE conversion plant layout comparison",
+  "status": "step_1_complete",
+  "decision_rule": "No model is assumed superior. A and B must be compared on equivalent scenarios and evidence.",
+  "assumptions": [
+    {
+      "id": "A-01",
+      "category": "ASSUMPTION",
+      "statement": "MODEL A requires more orientation changes between corrugator output and conversion feed.",
+      "confidence": 0.74,
+      "source": "Mission specification: Model A description",
+      "risk": "Potentially underestimates local transfer optimization if geometry differs substantially."
+    },
+    {
+      "id": "A-02",
+      "category": "ASSUMPTION",
+      "statement": "MODEL A has a more compact WIP footprint but could generate more queueing and reorientation overhead.",
+      "confidence": 0.72,
+      "source": "Mission specification: Model A description",
+      "risk": "Needs real geometry to validate travel distance and bottlenecks."
+    },
+    {
+      "id": "B-01",
+      "category": "ASSUMPTION",
+      "statement": "MODEL B introduces a larger WIP capacity (120 + 255 cells) that may reduce starvation but increase inventory and space requirements.",
+      "confidence": 0.8,
+      "source": "Mission specification: Model B description",
+      "risk": "Possible capital and handling cost increase; must be tested by WIP efficiency analysis."
+    },
+    {
+      "id": "B-02",
+      "category": "ASSUMPTION",
+      "statement": "MODEL B can improve natural flow and reduce direct transfers if the conveyor network is well coordinated.",
+      "confidence": 0.7,
+      "source": "Mission specification: Model B description",
+      "risk": "Could worsen if the extra conveyor length and return path generate congestion."
+    }
+  ],
+  "benchmarks": [
+    {
+      "id": "BENCH-01",
+      "category": "BENCHMARK",
+      "statement": "Corrugator OEE in stable industrial conditions is typically in the 80-95% band.",
+      "confidence": 0.7,
+      "source": "AI_FACTORY corrugated equipment benchmark pack",
+      "risk": "Depends heavily on product mix and process stability."
+    },
+    {
+      "id": "BENCH-02",
+      "category": "BENCHMARK",
+      "statement": "A robust WIP control policy can reduce starvation by 60-87% when logistics is synchronized.",
+      "confidence": 0.75,
+      "source": "simulation_hypotheses_corrugated_v1.json",
+      "risk": "Applies to comparable plants; real plant variation may differ."
+    },
+    {
+      "id": "BENCH-03",
+      "category": "BENCHMARK",
+      "statement": "A typical Ingetrans / AMR logistics configuration can reduce logistically induced downtime by 20-50% in critical loops.",
+      "confidence": 0.68,
+      "source": "corrugated equipment benchmark pack",
+      "risk": "Depends on route, fleet size, and dispatch policy."
+    }
+  ],
+  "evidence_sources": [
+    "Mission specification for PAIGE layout A vs B",
+    "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+    "knowledge/corrugated_equipment/converter_equipment_catalog_v1.json",
+    "cognitive_os/industrial_layout.py",
+    "specs/factory_intelligence_workbench.md",
+    "docs/IS_BACKOFFICE_AUDIT.md"
+  ],
+  "comparison_dimensions": [
+    "flow_efficiency",
+    "wip_efficiency",
+    "capacity_balance",
+    "conveyor_transfer_complexity",
+    "space_efficiency",
+    "energy_consumption",
+    "maintenance_accessibility",
+    "safety_risk",
+    "flexibility",
+    "economic_value"
+  ]
+}

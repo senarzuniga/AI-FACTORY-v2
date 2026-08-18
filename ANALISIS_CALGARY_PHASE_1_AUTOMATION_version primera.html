@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe bilingüe técnico y económico de la Fase 1 de automatización de Cascades Calgary: transfer, conveyors, AMR, Plug & Play e Ingepack." />
+  <title>Cascades Calgary Phase 1 | Technical & Budgetary Analysis</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --paper: #f3f0ea;
+      --surface: #ffffff;
+      --surface-alt: #e9e4db;
+      --line: #d2cbc0;
+      --muted: #625f59;
+      --orange: #ff5a10;
+      --orange-dark: #b74900;
+      --green: #14735f;
+      --amber: #9b7100;
+      --red: #a33232;
+      --black: #0c0c0c;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    .hero {
+      min-height: 76vh;
+      display: flex;
+      align-items: flex-end;
+      background-color: var(--black);
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.68) 48%, rgba(0,0,0,.12) 82%),
+        url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      border-bottom: 8px solid var(--orange);
+    }
+    .hero-inner, .source-ribbon .inner, .layout {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .hero-inner { padding: 74px 0 62px; }
+    .eyebrow {
+      color: #ffb38b;
+      font: 700 12px/1.2 "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    h1 {
+      max-width: 1020px;
+      margin: 16px 0 20px;
+      font: 800 clamp(40px, 6vw, 80px)/.98 Georgia, serif;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+    .hero p { max-width: 800px; margin: 0; color: #ece7dd; font-size: 20px; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      margin-top: 30px;
+      color: #c8c4bc;
+      font: 600 13px/1.4 "Cascadia Mono", monospace;
+    }
+
+    .source-ribbon { background: var(--black); color: #eee; }
+    .source-ribbon .inner { display: flex; flex-wrap: wrap; gap: 28px; padding: 18px 0; }
+    .source-ribbon strong { color: var(--orange); }
+
+    .layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 46px; }
+    aside { padding: 46px 0; }
+    .toc { position: sticky; top: 20px; border-top: 5px solid var(--orange); padding-top: 16px; }
+    .toc-title { margin-bottom: 12px; font: 800 12px "Cascadia Mono", monospace; text-transform: uppercase; }
+    .toc a { display: block; padding: 7px 0; border-bottom: 1px solid var(--line); color: var(--muted); text-decoration: none; font-size: 13px; }
+    .toc a:hover { color: var(--orange-dark); }
+
+    main { min-width: 0; padding: 50px 0 80px; }
+    section { margin-bottom: 72px; scroll-margin-top: 20px; }
+    .section-no { color: var(--orange-dark); font: 700 12px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    h2 { margin: 5px 0 24px; font: 800 clamp(28px, 4vw, 46px)/1.05 Georgia, serif; letter-spacing: 0; overflow-wrap: anywhere; }
+    h3 { margin: 28px 0 12px; font-size: 21px; letter-spacing: 0; overflow-wrap: anywhere; }
+    p { margin: 0 0 14px; }
+    .lead { max-width: 920px; color: #393834; font-size: 20px; }
+
+    .decision { margin: 24px 0; padding: 26px 28px; border-left: 7px solid var(--orange); background: var(--surface); box-shadow: 0 10px 30px rgba(20,20,20,.07); }
+    .decision strong { display: block; margin-bottom: 8px; color: var(--orange-dark); font: 800 12px "Cascadia Mono", monospace; text-transform: uppercase; }
+    .decision.green { border-left-color: var(--green); }
+    .decision.green strong { color: var(--green); }
+
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 26px 0; border: 1px solid var(--line); background: var(--surface); }
+    .kpi { min-width: 0; padding: 22px; border-right: 1px solid var(--line); }
+    .kpi:last-child { border-right: 0; }
+    .kpi-value { color: var(--orange-dark); font: 800 30px/1 Georgia, serif; overflow-wrap: anywhere; }
+    .kpi-label { margin-top: 9px; color: var(--muted); font-size: 12px; }
+    .kpi small { display: block; margin-top: 7px; color: var(--green); }
+
+    .grid-2, .grid-3 { display: grid; gap: 18px; margin: 20px 0; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 22px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+    .card.accent { border-top: 5px solid var(--orange); }
+    .card.green { border-top: 5px solid var(--green); }
+    .card.amber { border-top: 5px solid var(--amber); }
+    .card.red { border-top: 5px solid var(--red); }
+    .card h3 { margin-top: 0; }
+
+    .tag { display: inline-block; padding: 4px 8px; border-radius: 3px; font: 700 10px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .04em; }
+    .fact { color: var(--green); background: #e0f0e9; }
+    .proposal { color: #6e4d00; background: #f6eac9; }
+    .risk { color: var(--red); background: #f2dddd; }
+
+    .table-wrap { overflow: auto; margin: 18px 0; border: 1px solid var(--line); background: var(--surface); }
+    table { width: 100%; min-width: 760px; border-collapse: collapse; }
+    th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
+    th { background: var(--black); color: #fff; font: 700 11px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #faf7f1; }
+    .number { white-space: nowrap; font-family: "Cascadia Mono", monospace; font-weight: 700; }
+    .total-row td { background: #eee7dc; font-weight: 800; }
+
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 24px 0; align-items: stretch; }
+    .flow-step { display: flex; min-height: 108px; align-items: center; justify-content: center; padding: 14px; border: 1px solid var(--line); background: var(--surface); text-align: center; font-weight: 700; }
+    .flow-step.control { border-color: var(--orange); background: #fff3eb; }
+
+    .risk-list { margin: 18px 0; padding: 0; list-style: none; }
+    .risk-list li { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .risk-list strong { color: var(--red); font: 700 11px "Cascadia Mono", monospace; text-transform: uppercase; }
+
+    .language-switcher { position: fixed; top: 18px; right: 18px; z-index: 10; display: flex; padding: 3px; border: 1px solid #777; border-radius: 4px; background: rgba(9,9,9,.92); box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .language-switcher button { min-width: 44px; padding: 8px 10px; border: 0; border-radius: 2px; background: transparent; color: #fff; font: 800 12px "Cascadia Mono", monospace; cursor: pointer; }
+    .language-switcher button[aria-pressed="true"] { background: var(--orange); color: #111; }
+    .lang.hidden { display: none; }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .kpi-strip, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .hero-inner, .source-ribbon .inner, .layout { width: min(100% - 28px, 1260px); }
+      h1 { font-size: 42px; }
+      .hero p { font-size: 17px; }
+      .kpi-strip, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .kpi { border-right: 0; border-bottom: 1px solid var(--line); }
+      .risk-list li { grid-template-columns: 1fr; gap: 5px; }
+    }
+    @media print {
+      body { background: #fff; font-size: 10pt; }
+      .hero { min-height: 220mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .layout { display: block; width: 100%; }
+      aside, .language-switcher { display: none; }
+      main { padding: 12mm; }
+      section { margin-bottom: 12mm; }
+      .card, .decision, .table-wrap, .kpi-strip { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button type="button" data-language="es" aria-pressed="true">ES</button>
+    <button type="button" data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Cascades Calgary · Automatización de conversión · Fase 1</div>
+        <h1>Flujo automático, capacidad recuperada</h1>
+        <p>Análisis técnico, productivo y económico de la propuesta budgetary INGECART para automatizar salidas RDC, transfer, AMR, tridentes y paletización final.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>ES / EN</span><span>Presupuesto preliminar</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Cascades Calgary · Conversion automation · Phase 1</div>
+        <h1>Automated flow, recovered capacity</h1>
+        <p>Technical, production and economic analysis of INGECART's budgetary proposal for RDC outfeeds, transfer, AMRs, trident stations and end-of-line palletizing.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>ES / EN</span><span>Preliminary budget</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="source-ribbon">
+    <div class="inner"><strong>Decision basis</strong><span>Flow</span><span>Throughput</span><span>Automation</span><span>Safety</span><span>Budget</span><span>Delivery</span></div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a><a href="#baseline">02 · Flujo actual</a><a href="#solution">03 · Solución</a><a href="#packages">04 · Paquetes</a><a href="#improvements">05 · Mejoras</a><a href="#controls">06 · Control</a><a href="#economics">07 · Economía</a><a href="#delivery">08 · Ejecución</a><a href="#risks">09 · Riesgos</a><a href="#recommendation">10 · Recomendación</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a><a href="#baseline">02 · Current flow</a><a href="#solution">03 · Solution</a><a href="#packages">04 · Packages</a><a href="#improvements">05 · Improvements</a><a href="#controls">06 · Control</a><a href="#economics">07 · Economics</a><a href="#delivery">08 · Execution</a><a href="#risks">09 · Risks</a><a href="#recommendation">10 · Recommendation</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>Automatizar la ejecución sin rediseñar el proceso.</h2>
+          <p class="lead">La Fase 1 mantiene el WIP al este, las convertidoras al oeste y las mismas alternativas de segunda pasada y expedición. El valor procede de retirar las cargas antes de bloquear las RDC, reservar destino por software y evacuar producto sin depender de empuje y decisión manual.</p>
+          <div class="decision"><strong>Conclusión técnica</strong>La propuesta está bien dirigida al cuello de botella compartido por McKinley, Koppers y Ward. Integra tres salidas automáticas, transfer norte-sur, estaciones tridente, AMR y paletización bajo una misma lógica de flujo, prioridad y trazabilidad.</div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">€1.765.782</div><div class="kpi-label">Subtotal Fase 1</div><small>tres paquetes budgetary</small></div>
+            <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">RDC coordinadas</div><small>McKinley, Koppers y Ward</small></div>
+            <div class="kpi"><div class="kpi-value">11–12 meses</div><div class="kpi-label">Hasta operación</div><small>estimación preliminar</small></div>
+            <div class="kpi"><div class="kpi-value">13</div><div class="kpi-label">Conexiones preservadas</div><small>sin cambiar el flujo</small></div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>Automate execution without redesigning the process.</h2>
+          <p class="lead">Phase 1 keeps WIP to the east, converting machines to the west, and the same second-pass and shipping alternatives. Value comes from clearing loads before RDCs block, reserving destinations in software and moving output without manual pushing and dispatch decisions.</p>
+          <div class="decision"><strong>Technical conclusion</strong>The proposal targets the bottleneck shared by McKinley, Koppers and Ward. It combines three automated outfeeds, a north-south transfer, trident stations, AMRs and palletizing under one flow, priority and traceability logic.</div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">€1,765,782</div><div class="kpi-label">Phase 1 subtotal</div><small>three budgetary packages</small></div>
+            <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">Coordinated RDCs</div><small>McKinley, Koppers and Ward</small></div>
+            <div class="kpi"><div class="kpi-value">11–12 months</div><div class="kpi-label">To operation</div><small>preliminary estimate</small></div>
+            <div class="kpi"><div class="kpi-value">13</div><div class="kpi-label">Preserved connections</div><small>no flow redesign</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="baseline">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Flujo actual</div><h2>La pérdida está en la interfaz de evacuación.</h2>
+          <div class="flow"><div class="flow-step">WIP este</div><div class="flow-step">Transfer de alimentación</div><div class="flow-step">3 RDC</div><div class="flow-step">Salidas + transfer manuales</div><div class="flow-step">2ª pasada / expedición</div></div>
+          <div class="grid-2">
+            <article class="card red"><span class="tag risk">Estado actual</span><h3>Dependencia manual</h3><ul><li>Tres conveyors metálicos no automáticos.</li><li>Transfer norte-sur empujado por operarios.</li><li>Routing decidido durante la operación.</li><li>Mayor exposición a espera, error y rehandling.</li></ul></article>
+            <article class="card amber"><span class="tag proposal">Pérdidas a medir</span><h3>Capacidad no utilizada</h3><ul><li>RDC bloqueada esperando liberar salida.</li><li>Starvation de FG y Two-Piece.</li><li>Tiempo de búsqueda y movimiento.</li><li>Daño de lámina y demora de expedición.</li></ul></article>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Current flow</div><h2>The loss sits at the output interface.</h2>
+          <div class="flow"><div class="flow-step">East WIP</div><div class="flow-step">Feed transfer</div><div class="flow-step">3 RDCs</div><div class="flow-step">Manual outfeeds + transfer</div><div class="flow-step">2nd pass / shipping</div></div>
+          <div class="grid-2">
+            <article class="card red"><span class="tag risk">Current state</span><h3>Manual dependency</h3><ul><li>Three non-automated metal roller conveyors.</li><li>Operator-pushed north-south transfer.</li><li>Routing decided during operation.</li><li>Higher exposure to waiting, error and rehandling.</li></ul></article>
+            <article class="card amber"><span class="tag proposal">Losses to measure</span><h3>Unused capacity</h3><ul><li>RDC blocked while waiting for clearance.</li><li>FG and Two-Piece starvation.</li><li>Search and movement time.</li><li>Sheet damage and shipping delay.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solution">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Solución propuesta</div><h2>Mismo flujo, ejecución automática y gobernada.</h2>
+          <div class="flow"><div class="flow-step">RDC termina carga</div><div class="flow-step control">Conveyor valida</div><div class="flow-step control">WCS reserva destino</div><div class="flow-step control">Transfer + handshake</div><div class="flow-step">FG / Two-Piece / expedición</div></div>
+          <div class="grid-3">
+            <article class="card accent"><h3>Salidas automáticas</h3><p>McKinley, Koppers y Ward liberan producto mediante conveyors coordinados, con detección de carga y petición de retirada.</p></article>
+            <article class="card green"><h3>Transfer automático</h3><p>El carro norte-sur alinea estaciones, ejecuta handshakes y mueve únicamente cuando origen y destino están autorizados.</p></article>
+            <article class="card amber"><h3>Routing flexible</h3><p>El WCS selecciona FG, Two-Piece, WIP intermedio o expedición según orden, prioridad, capacidad y estado.</p></article>
+          </div>
+          <div class="decision green"><strong>Principio de diseño</strong>Una carga no sale sin identidad, destino reservado y capacidad confirmada. La automatización convierte cada movimiento en un evento trazable y recuperable.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Proposed solution</div><h2>Same flow, automated and governed execution.</h2>
+          <div class="flow"><div class="flow-step">RDC completes load</div><div class="flow-step control">Conveyor validates</div><div class="flow-step control">WCS reserves destination</div><div class="flow-step control">Transfer + handshake</div><div class="flow-step">FG / Two-Piece / shipping</div></div>
+          <div class="grid-3">
+            <article class="card accent"><h3>Automated outfeeds</h3><p>McKinley, Koppers and Ward release product through coordinated conveyors with load detection and pickup requests.</p></article>
+            <article class="card green"><h3>Automated transfer</h3><p>The north-south car aligns stations, executes handshakes and moves only when origin and destination are authorized.</p></article>
+            <article class="card amber"><h3>Flexible routing</h3><p>The WCS selects FG, Two-Piece, intermediate WIP or shipping based on order, priority, capacity and state.</p></article>
+          </div>
+          <div class="decision green"><strong>Design principle</strong>No load moves without identity, a reserved destination and confirmed capacity. Automation turns each movement into a traceable, recoverable event.</div>
+        </div>
+      </section>
+
+      <section id="packages">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Paquetes INGECART</div><h2>Tres secciones coordinadas, una sola lógica de flujo.</h2>
+          <div class="grid-3">
+            <article class="card accent"><span class="tag fact">€476.059</span><h3>Transfer & Conveyor</h3><p>Tres salidas RDC automatizadas, transfer norte-sur, estaciones, sensores, drives, interlocks e integración de control.</p></article>
+            <article class="card green"><span class="tag fact">€541.228</span><h3>AMR</h3><p>Recursos móviles y tridentes para intercambio, expedición y WIP intermedio, con misiones y handshakes coordinados.</p></article>
+            <article class="card amber"><span class="tag fact">€748.495</span><h3>Plug & Play + Ingepack</h3><p>Automatización de conteo, preparación, pallet, interlayers y salida final de FG según matriz de producto.</p></article>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Paquete</th><th>Precio preliminar</th><th>% del subtotal</th><th>Incluye</th><th>No incluye</th></tr></thead><tbody>
+            <tr><td>Transfer & Conveyor</td><td class="number">€476.059</td><td>27,0%</td><td>Equipo, instalación y viajes</td><td>Impuestos, transporte y embalaje</td></tr>
+            <tr><td>AMR</td><td class="number">€541.228</td><td>30,6%</td><td>Equipo, instalación y viajes</td><td>Impuestos, transporte y embalaje</td></tr>
+            <tr><td>Plug & Play + Ingepack</td><td class="number">€748.495</td><td>42,4%</td><td>Equipo, instalación y viajes</td><td>Impuestos, transporte y embalaje</td></tr>
+            <tr class="total-row"><td>Subtotal Fase 1</td><td class="number">€1.765.782</td><td>100%</td><td colspan="2">Presupuesto budgetary; no constituye precio contractual final.</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · INGECART packages</div><h2>Three coordinated sections, one flow logic.</h2>
+          <div class="grid-3">
+            <article class="card accent"><span class="tag fact">€476,059</span><h3>Transfer & Conveyor</h3><p>Three automated RDC outfeeds, north-south transfer, stations, sensors, drives, interlocks and controls integration.</p></article>
+            <article class="card green"><span class="tag fact">€541,228</span><h3>AMR</h3><p>Mobile resources and tridents for exchange, shipping and intermediate WIP, with coordinated missions and handshakes.</p></article>
+            <article class="card amber"><span class="tag fact">€748,495</span><h3>Plug & Play + Ingepack</h3><p>Automated counting, preparation, pallet, interlayers and FG outfeed according to the product matrix.</p></article>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Package</th><th>Preliminary price</th><th>% of subtotal</th><th>Included</th><th>Excluded</th></tr></thead><tbody>
+            <tr><td>Transfer & Conveyor</td><td class="number">€476,059</td><td>27.0%</td><td>Equipment, installation and travel</td><td>Taxes, transportation and packaging</td></tr>
+            <tr><td>AMR</td><td class="number">€541,228</td><td>30.6%</td><td>Equipment, installation and travel</td><td>Taxes, transportation and packaging</td></tr>
+            <tr><td>Plug & Play + Ingepack</td><td class="number">€748,495</td><td>42.4%</td><td>Equipment, installation and travel</td><td>Taxes, transportation and packaging</td></tr>
+            <tr class="total-row"><td>Phase 1 subtotal</td><td class="number">€1,765,782</td><td>100%</td><td colspan="2">Budgetary proposal; not a final contractual price.</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="improvements">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Mejoras esperadas</div><h2>Más capacidad útil, menos variabilidad logística.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Producción</h3><ul><li>Menor blocked time en las tres RDC.</li><li>Mayor velocidad sostenible de primera pasada.</li><li>Menos starvation en FG y Two-Piece.</li><li>Evacuación final consistente con Ingepack.</li></ul></article>
+            <article class="card accent"><h3>Flujo</h3><ul><li>Prioridad por orden, due date y estado.</li><li>Destino reservado antes del movimiento.</li><li>WIP intermedio no lineal mediante tridentes/AMR.</li><li>Menos búsqueda, empuje y rehandling.</li></ul></article>
+            <article class="card amber"><h3>Calidad y trazabilidad</h3><ul><li>Menos manipulación y daño de lámina.</li><li>Identidad de carga de origen a destino.</li><li>Registro de tiempos, colas y excepciones.</li><li>Mejor consistencia de pallet.</li></ul></article>
+            <article class="card"><h3>Seguridad y mantenimiento</h3><ul><li>Menor empuje manual de cargas pesadas.</li><li>Interlocks y scanners en zonas de transferencia.</li><li>Diagnóstico de fallo y recuperación guiada.</li><li>Base modular para automatizaciones futuras.</li></ul></article>
+          </div>
+          <p><span class="tag proposal">Hipótesis</span> El +35% de producción FG y los ahorros laborales deben demostrarse con baseline, FAT y SAT. No son garantías de este presupuesto preliminar.</p>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Expected improvements</div><h2>More usable capacity, less logistics variability.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Production</h3><ul><li>Lower blocked time across all three RDCs.</li><li>Higher sustainable first-pass speed.</li><li>Less starvation at FG and Two-Piece.</li><li>Consistent end-of-line evacuation with Ingepack.</li></ul></article>
+            <article class="card accent"><h3>Flow</h3><ul><li>Priority by order, due date and state.</li><li>Destination reserved before movement.</li><li>Non-linear intermediate WIP using tridents/AMRs.</li><li>Less search, pushing and rehandling.</li></ul></article>
+            <article class="card amber"><h3>Quality and traceability</h3><ul><li>Less handling and sheet damage.</li><li>Load identity from origin to destination.</li><li>Recorded times, queues and exceptions.</li><li>More consistent pallets.</li></ul></article>
+            <article class="card"><h3>Safety and maintenance</h3><ul><li>Less manual pushing of heavy loads.</li><li>Interlocks and scanners at transfer zones.</li><li>Fault diagnostics and guided recovery.</li><li>Modular base for future automation.</li></ul></article>
+          </div>
+          <p><span class="tag proposal">Hypothesis</span> The proposed +35% FG production and labor savings require baseline, FAT and SAT validation. They are not guarantees under this preliminary budget.</p>
+        </div>
+      </section>
+
+      <section id="controls">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Software y control</div><h2>La integración es parte del equipo productivo.</h2>
+          <div class="table-wrap"><table><thead><tr><th>Capa</th><th>Responsabilidad</th><th>Dato crítico</th></tr></thead><tbody>
+            <tr><td>ERP / APS</td><td>Órdenes, fechas y prioridad comercial</td><td>order_id, due date, priority</td></tr>
+            <tr><td>MES / WMS</td><td>Identidad, cantidad, estado y ubicación</td><td>SKU, lot, load, location</td></tr>
+            <tr><td>INGECART WCS</td><td>Reservas, routing, colas y excepciones</td><td>origin, destination, route state</td></tr>
+            <tr><td>Fleet manager</td><td>Misiones AMR, tráfico y disponibilidad</td><td>mission, vehicle, battery, ETA</td></tr>
+            <tr><td>PLC / safety</td><td>Secuencia física e interlocks seguros</td><td>ready, aligned, clear, fault</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>Criterio FAT</strong>Probar peticiones simultáneas, cambio de prioridad, destino lleno, carga descentrada, pérdida de red/energía, E-stop, restart y reconciliación de inventario en modo degradado.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Software and control</div><h2>Integration is part of the production equipment.</h2>
+          <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Responsibility</th><th>Critical data</th></tr></thead><tbody>
+            <tr><td>ERP / APS</td><td>Orders, dates and commercial priority</td><td>order_id, due date, priority</td></tr>
+            <tr><td>MES / WMS</td><td>Identity, quantity, state and location</td><td>SKU, lot, load, location</td></tr>
+            <tr><td>INGECART WCS</td><td>Reservations, routing, queues and exceptions</td><td>origin, destination, route state</td></tr>
+            <tr><td>Fleet manager</td><td>AMR missions, traffic and availability</td><td>mission, vehicle, battery, ETA</td></tr>
+            <tr><td>PLC / safety</td><td>Physical sequence and safe interlocks</td><td>ready, aligned, clear, fault</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>FAT criterion</strong>Test simultaneous calls, priority change, full destination, off-center load, network/power loss, E-stop, restart and inventory reconciliation in degraded mode.</div>
+        </div>
+      </section>
+
+      <section id="economics">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Datos económicos</div><h2>Presupuesto definido; retorno todavía por reconciliar.</h2>
+          <div class="grid-2">
+            <article class="card green"><span class="tag fact">Email budgetary</span><h3>CAPEX preliminar</h3><p class="number">€1.765.782</p><p>Equipo, instalación y viajes para los tres paquetes de Fase 1.</p></article>
+            <article class="card amber"><span class="tag proposal">Business case</span><h3>Beneficio bruto indicado</h3><p class="number">CAD 1.120.000/año</p><p>CAD 320.000 transfer/conveyors + CAD 800.000 FG, antes de reconciliación.</p></article>
+          </div>
+          <div class="decision"><strong>Por qué no se publica ROI</strong>El CAPEX está en EUR y el ahorro en CAD; faltan tipo de cambio de decisión, impuestos, transporte, embalaje, OPEX, contingencia, ramp-up y validación de tareas realmente eliminadas. Convertir monedas sin fecha/tasa aprobada produciría un payback engañoso.</div>
+          <div class="table-wrap"><table><thead><tr><th>Dato requerido</th><th>Uso</th><th>Estado</th></tr></thead><tbody>
+            <tr><td>FX EUR/CAD y fecha de decisión</td><td>Base monetaria común</td><td><span class="tag risk">Pendiente</span></td></tr>
+            <tr><td>Taxes, transport, packaging</td><td>CAPEX landed</td><td><span class="tag risk">Excluidos</span></td></tr>
+            <tr><td>OPEX software/mantenimiento</td><td>Beneficio neto</td><td><span class="tag risk">Pendiente</span></td></tr>
+            <tr><td>Role-task matrix</td><td>Evitar doble conteo</td><td><span class="tag risk">Pendiente</span></td></tr>
+            <tr><td>Blocked/starvation baseline</td><td>Valor de capacidad recuperada</td><td><span class="tag risk">Pendiente</span></td></tr>
+          </tbody></table></div>
+          <p><strong>Almacén vertical:</strong> la referencia aproximada de €5 M para 3.000 rollos y 9,5 m de altura libre se mantiene fuera de Fase 1. Requiere aproximadamente tres meses de ingeniería y datos adicionales antes de una oferta firme.</p>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Economic data</div><h2>Budget defined; return still to be reconciled.</h2>
+          <div class="grid-2">
+            <article class="card green"><span class="tag fact">Budgetary email</span><h3>Preliminary CAPEX</h3><p class="number">€1,765,782</p><p>Equipment, installation and travel for all three Phase 1 packages.</p></article>
+            <article class="card amber"><span class="tag proposal">Business case</span><h3>Stated gross benefit</h3><p class="number">CAD 1,120,000/year</p><p>CAD 320,000 transfer/conveyors + CAD 800,000 FG, before reconciliation.</p></article>
+          </div>
+          <div class="decision"><strong>Why ROI is not published</strong>CAPEX is in EUR and savings are in CAD; the approved FX date/rate, taxes, freight, packaging, OPEX, contingency, ramp-up and validation of truly eliminated tasks are missing. Converting currencies without an approved basis would create a misleading payback.</div>
+          <div class="table-wrap"><table><thead><tr><th>Required data</th><th>Use</th><th>Status</th></tr></thead><tbody>
+            <tr><td>EUR/CAD FX and decision date</td><td>Common currency basis</td><td><span class="tag risk">Pending</span></td></tr>
+            <tr><td>Taxes, transport, packaging</td><td>Landed CAPEX</td><td><span class="tag risk">Excluded</span></td></tr>
+            <tr><td>Software/maintenance OPEX</td><td>Net benefit</td><td><span class="tag risk">Pending</span></td></tr>
+            <tr><td>Role-task matrix</td><td>Prevent double counting</td><td><span class="tag risk">Pending</span></td></tr>
+            <tr><td>Blocked/starvation baseline</td><td>Recovered capacity value</td><td><span class="tag risk">Pending</span></td></tr>
+          </tbody></table></div>
+          <p><strong>Vertical warehouse:</strong> the approximate €5 M reference for 3,000 rolls and 9.5 m clear height remains outside Phase 1. It requires about three months of engineering and additional data before a firm proposal.</p>
+        </div>
+      </section>
+
+      <section id="delivery">
+        <div class="lang lang-es">
+          <div class="section-no">08 · Plazo y ejecución</div><h2>De Barcelona a operación: 11–12 meses estimados.</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>Ingeniería y fabricación</h3><p>Lead time estimado desde INGECART Barcelona: aproximadamente 9 meses.</p></article>
+            <article class="card amber"><h3>Transporte e instalación</h3><p>Ventana adicional hasta completar instalación, integración y puesta en marcha.</p></article>
+            <article class="card green"><h3>Operación</h3><p>Total preliminar: 11–12 meses hasta sistema completamente instalado y operativo.</p></article>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Gate</th><th>Entregable</th><th>Criterio</th></tr></thead><tbody>
+            <tr><td>G0</td><td>Baseline Calgary</td><td>4 semanas representativas y tareas por turno</td></tr>
+            <tr><td>G1</td><td>Diseño congelado</td><td>Layout, interfaces, cargas y risk assessment</td></tr>
+            <tr><td>G2</td><td>FAT</td><td>SKU matrix, capacidad, interlocks y recuperación</td></tr>
+            <tr><td>G3</td><td>SAT</td><td>KPIs en planta y operación degradada</td></tr>
+            <tr><td>G4</td><td>Beneficios</td><td>Ledger aprobado y business case actualizado</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">08 · Schedule and execution</div><h2>From Barcelona to operation: estimated 11–12 months.</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>Engineering and manufacturing</h3><p>Estimated lead time from INGECART Barcelona: approximately 9 months.</p></article>
+            <article class="card amber"><h3>Freight and installation</h3><p>Additional window to complete installation, integration and commissioning.</p></article>
+            <article class="card green"><h3>Operation</h3><p>Preliminary total: 11–12 months to a fully installed and operational system.</p></article>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Gate</th><th>Deliverable</th><th>Criterion</th></tr></thead><tbody>
+            <tr><td>G0</td><td>Calgary baseline</td><td>4 representative weeks and shift task study</td></tr>
+            <tr><td>G1</td><td>Design freeze</td><td>Layout, interfaces, loads and risk assessment</td></tr>
+            <tr><td>G2</td><td>FAT</td><td>SKU matrix, capacity, interlocks and recovery</td></tr>
+            <tr><td>G3</td><td>SAT</td><td>Site KPIs and degraded operation</td></tr>
+            <tr><td>G4</td><td>Benefits</td><td>Approved ledger and updated business case</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="risks">
+        <div class="lang lang-es">
+          <div class="section-no">09 · Riesgos y condiciones</div><h2>La capacidad depende de integración, no solo de hardware.</h2>
+          <ul class="risk-list">
+            <li><strong>Simultaneidad</strong><span>Tres RDC pueden solicitar retirada a la vez. Simular colas, arbitraje y buffer antes de congelar diseño.</span></li>
+            <li><strong>Producto</strong><span>Validar peso, dimensiones, estabilidad y calidad de cada familia mediante SKU/load matrix.</span></li>
+            <li><strong>Seguridad</strong><span>Risk assessment integral de transfer, tridentes, AMR, accesos y recuperación manual.</span></li>
+            <li><strong>Integración</strong><span>Definir ownership de WCS, fleet manager, PLC, MES/WMS y ERP, con modos de fallo ensayados.</span></li>
+            <li><strong>Presupuesto</strong><span>Incluir impuestos, transporte, embalaje, contingencia, FX y OPEX para obtener CAPEX landed.</span></li>
+            <li><strong>Retorno</strong><span>No sumar personas teóricas; valorar tareas eliminadas y output vendible realmente recuperado.</span></li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">09 · Risks and conditions</div><h2>Capacity depends on integration, not hardware alone.</h2>
+          <ul class="risk-list">
+            <li><strong>Concurrency</strong><span>Three RDCs may request pickup simultaneously. Simulate queues, arbitration and buffers before design freeze.</span></li>
+            <li><strong>Product</strong><span>Validate weight, dimensions, stability and quality for each family through a SKU/load matrix.</span></li>
+            <li><strong>Safety</strong><span>Complete risk assessment for transfer, tridents, AMRs, access and manual recovery.</span></li>
+            <li><strong>Integration</strong><span>Define ownership across WCS, fleet manager, PLC, MES/WMS and ERP, with tested failure modes.</span></li>
+            <li><strong>Budget</strong><span>Add taxes, freight, packaging, contingency, FX and OPEX to obtain landed CAPEX.</span></li>
+            <li><strong>Return</strong><span>Do not sum theoretical headcount; value eliminated tasks and saleable output actually recovered.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="recommendation">
+        <div class="lang lang-es">
+          <div class="section-no">10 · Recomendación</div><h2>Aprobar ingeniería y baseline; contratar contra gates.</h2>
+          <div class="decision green"><strong>Recomendación ejecutiva</strong>La Fase 1 es técnicamente recomendable porque ataca el punto donde tres RDC comparten evacuación y decisión. Avanzar a diseño detallado, baseline y simulación; convertir el presupuesto de €1.765.782 en oferta landed; y vincular aceptación y pagos a FAT/SAT, capacidad sostenible, trazabilidad y recuperación de fallos.</div>
+          <div class="grid-2">
+            <article class="card green"><h3>Aprobar ahora</h3><ul><li>Baseline y estudio rol-tarea.</li><li>Survey de layout y load matrix.</li><li>Control narrative e interfaces.</li><li>Simulación de simultaneidad.</li><li>Risk assessment y plan FAT/SAT.</li></ul></article>
+            <article class="card amber"><h3>Condicionar contrato</h3><ul><li>CAPEX landed y OPEX.</li><li>Rendimiento por SKU.</li><li>Disponibilidad automática.</li><li>Modo degradado.</li><li>Beneficio sin doble conteo.</li></ul></article>
+          </div>
+          <p><span class="tag fact">Valor industrial</span> La solución no promete una nueva fábrica: hace gobernable la fábrica existente, recupera capacidad perdida en esperas y crea la infraestructura digital para las siguientes fases.</p>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">10 · Recommendation</div><h2>Approve engineering and baseline; contract against gates.</h2>
+          <div class="decision green"><strong>Executive recommendation</strong>Phase 1 is technically recommended because it addresses the point where three RDCs share clearance and dispatch. Advance into detailed design, baseline and simulation; convert the €1,765,782 budget into a landed offer; and link acceptance and payments to FAT/SAT, sustainable capacity, traceability and fault recovery.</div>
+          <div class="grid-2">
+            <article class="card green"><h3>Approve now</h3><ul><li>Baseline and role-task study.</li><li>Layout survey and load matrix.</li><li>Control narrative and interfaces.</li><li>Concurrency simulation.</li><li>Risk assessment and FAT/SAT plan.</li></ul></article>
+            <article class="card amber"><h3>Condition contract</h3><ul><li>Landed CAPEX and OPEX.</li><li>Performance by SKU.</li><li>Automatic availability.</li><li>Degraded mode.</li><li>Benefits without double counting.</li></ul></article>
+          </div>
+          <p><span class="tag fact">Industrial value</span> The solution does not promise a new factory: it makes the existing factory governable, recovers capacity lost to waiting and builds the digital infrastructure for subsequent phases.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('[data-language]');
+    const langBlocks = document.querySelectorAll('.lang');
+    function setLanguage(lang) {
+      const isEs = lang === 'es';
+      langBlocks.forEach(block => {
+        const visible = isEs ? block.classList.contains('lang-es') : block.classList.contains('lang-en');
+        block.classList.toggle('hidden', !visible);
+      });
+      document.documentElement.lang = lang;
+      languageButtons.forEach(button => button.setAttribute('aria-pressed', button.dataset.language === lang ? 'true' : 'false'));
+    }
+    languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+  </script>
+</body>
+</html>

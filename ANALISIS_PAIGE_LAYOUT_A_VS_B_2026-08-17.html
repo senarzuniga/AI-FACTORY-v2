@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe bilingüe de análisis de los modelos A y B para la zona PAIGE, con ventajas, inconvenientes, costes, beneficios, ROI y conclusión ejecutiva." />
+  <title>PAIGE Layout Model A vs Model B | Executive Technical Analysis</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --paper: #f5f1eb;
+      --surface: #ffffff;
+      --surface-alt: #ece6dc;
+      --line: #d7cfc3;
+      --muted: #625f5a;
+      --orange: #ff5a10;
+      --orange-dark: #b74900;
+      --green: #137a65;
+      --yellow: #b88a00;
+      --red: #a33232;
+      --black: #0c0c0c;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    a { color: var(--orange-dark); }
+
+    .hero {
+      min-height: 77vh;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      background-color: var(--black);
+      background-image: linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.62) 49%, rgba(0,0,0,.08) 78%), url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      border-bottom: 8px solid var(--orange);
+    }
+    .hero-inner {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 72px 0 62px;
+    }
+    .eyebrow {
+      font: 700 12px/1.2 "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      color: #ffb38b;
+      letter-spacing: .08em;
+    }
+    h1 {
+      max-width: 980px;
+      margin: 16px 0 20px;
+      font: 800 clamp(40px,6vw,82px)/.98 Georgia, serif;
+      letter-spacing: 0;
+    }
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      font-size: 20px;
+      color: #ece7dd;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      margin-top: 30px;
+      font: 600 13px/1.4 "Cascadia Mono", monospace;
+      color: #c8c4bc;
+    }
+
+    .source-ribbon {
+      background: var(--black);
+      color: #eee;
+    }
+    .source-ribbon .inner {
+      width: min(1260px, calc(100% - 48px));
+      margin: auto;
+      padding: 18px 0;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .source-ribbon strong { color: var(--orange); }
+
+    .layout {
+      width: min(1260px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px minmax(0,1fr);
+      gap: 46px;
+    }
+    aside { padding: 46px 0; }
+    .toc {
+      position: sticky;
+      top: 20px;
+      border-top: 5px solid var(--orange);
+      padding-top: 16px;
+    }
+    .toc-title {
+      font: 800 12px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .toc a:hover { color: var(--orange-dark); }
+
+    main { min-width: 0; padding: 50px 0 80px; }
+    section {
+      margin-bottom: 72px;
+      scroll-margin-top: 20px;
+    }
+    .section-no {
+      color: var(--orange-dark);
+      font: 700 12px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    h2 {
+      margin: 5px 0 24px;
+      font: 800 clamp(28px,4vw,46px)/1.05 Georgia, serif;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 21px;
+    }
+    p { margin: 0 0 14px; }
+    .lead {
+      font-size: 20px;
+      max-width: 900px;
+      color: #3a3935;
+    }
+    .decision {
+      border-left: 7px solid var(--orange);
+      background: var(--surface);
+      padding: 26px 28px;
+      margin: 24px 0;
+      box-shadow: 0 10px 30px rgba(20,20,20,.07);
+    }
+    .decision strong {
+      display: block;
+      font: 800 12px "Cascadia Mono", monospace;
+      color: var(--orange-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin: 26px 0;
+    }
+    .kpi { padding: 22px; border-right: 1px solid var(--line); min-width: 0; }
+    .kpi:last-child { border-right: 0; }
+    .kpi-value {
+      font: 800 32px/1 Georgia, serif;
+      color: var(--orange-dark);
+    }
+    .kpi-label {
+      margin-top: 9px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .kpi small { display: block; margin-top: 7px; color: var(--green); }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 22px;
+    }
+    .card.accent { border-top: 5px solid var(--orange); }
+    .card.green { border-top: 5px solid var(--green); }
+    .card.red { border-top: 5px solid var(--red); }
+    .card h3 { margin-top: 0; }
+
+    .tag {
+      display: inline-block;
+      font: 700 10px "Cascadia Mono", monospace;
+      padding: 4px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .fact { color: var(--green); background: #e0f0e9; }
+    .calc { color: #6e4d00; background: #f6eac9; }
+    .risk { color: var(--red); background: #f2dddd; }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin: 18px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+    th, td {
+      padding: 13px 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    th {
+      background: var(--black);
+      color: #fff;
+      font: 700 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #faf7f1; }
+    .number { font-family: "Cascadia Mono", monospace; font-weight: 700; white-space: nowrap; }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .score-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 22px;
+    }
+    .score-card .big {
+      font: 800 42px/1 Georgia, serif;
+      color: var(--orange-dark);
+      margin-bottom: 8px;
+    }
+
+    .bars { margin: 22px 0; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 90px;
+      gap: 12px;
+      align-items: center;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    .track {
+      height: 18px;
+      background: #ded9cf;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: var(--orange);
+    }
+    .fill.green { background: var(--green); }
+    .fill.red { background: var(--red); }
+
+    .risk-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0;
+    }
+    .risk-list li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 13px 0;
+    }
+    .risk-list strong {
+      color: var(--red);
+      font: 700 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .language-switcher {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 10;
+      display: flex;
+      padding: 3px;
+      background: rgba(9,9,9,.9);
+      border: 1px solid #777;
+      border-radius: 4px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
+    }
+    .language-switcher button {
+      min-width: 44px;
+      border: 0;
+      border-radius: 2px;
+      padding: 8px 10px;
+      background: transparent;
+      color: #fff;
+      font: 800 12px "Cascadia Mono", monospace;
+      cursor: pointer;
+    }
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--orange);
+      color: #111;
+    }
+
+    .lang.hidden { display: none; }
+
+    @media (max-width:980px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .kpi-strip, .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .score { grid-template-columns: 1fr; }
+    }
+    @media (max-width:620px) {
+      .hero-inner, .source-ribbon .inner, .layout { width: min(100% - 28px,1260px); }
+      h1 { font-size: 42px; }
+      .hero p { font-size: 17px; }
+      .kpi-strip, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 120px 1fr 70px; }
+      .language-switcher { right: 12px; top: 12px; }
+    }
+
+    @media print {
+      body { background: #fff; font-size: 10pt; }
+      .hero { min-height: 220mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .layout { display: block; width: 100%; }
+      aside, .language-switcher { display: none; }
+      main { padding: 12mm; }
+      section { break-inside: auto; margin-bottom: 12mm; }
+      .card, .decision, .table-wrap, .score-card { break-inside: avoid; }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button type="button" data-language="es" aria-pressed="true">ES</button>
+    <button type="button" data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Análisis de layouts · Comparativa técnica y económica</div>
+        <h1>Modelo A versus Modelo B</h1>
+        <p>Evaluación técnica, operativa y financiera de dos alternativas de layout para la zona de conversión PAIGE, con foco en flujo, WIP, capacidad, coste, beneficio y retorno de inversión.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>Versión bilingüe ES/EN</span><span>PAIGE / conversion area</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Layout analysis · Technical and economic comparison</div>
+        <h1>Model A versus Model B</h1>
+        <p>Technical, operational and financial evaluation of two layout alternatives for the PAIGE conversion area, with focus on flow, WIP, capacity, cost, benefit and return on investment.</p>
+        <div class="hero-meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>Bilingual ES/EN version</span><span>PAIGE / conversion area</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="source-ribbon">
+    <div class="inner">
+      <strong>Decision basis</strong>
+      <span>Flow</span><span>WIP</span><span>Capacity</span><span>Risk</span><span>Capex</span><span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#models">02 · Modelos</a>
+          <a href="#advantages">03 · Ventajas e inconvenientes</a>
+          <a href="#score">04 · Score técnico</a>
+          <a href="#costs">05 · Costes y beneficios</a>
+          <a href="#roi">06 · ROI</a>
+          <a href="#recomendation">07 · Conclusión</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#models">02 · Models</a>
+          <a href="#advantages">03 · Pros and cons</a>
+          <a href="#score">04 · Technical score</a>
+          <a href="#costs">05 · Costs and benefits</a>
+          <a href="#roi">06 · ROI</a>
+          <a href="#recomendation">07 · Conclusion</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La diferencia clave no está en la maquinaria, sino en la lógica del flujo.</h2>
+          <p class="lead">Con la evidencia disponible, el Modelo B ofrece mejor estabilidad operativa, mejor gestión de WIP y menor riesgo de starvation, mientras que el Modelo A presenta menor capex y menor complejidad inicial. La decisión no es solo financiera: depende también de la tolerancia del proyecto a la variabilidad, la congestión y la pérdida de producción.</p>
+          <div class="decision">
+            <strong>Decisión</strong>
+            El Modelo B es la opción técnicamente más sólida para PAIGE si el proyecto puede absorber mayor inversión, infraestructura y complejidad. El Modelo A sigue siendo viable como solución más compacta y económica, pero es más sensible a picos, mezcla de referencias y bloqueos operativos.
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">0.624</div><div class="kpi-label">Score técnico Modelo A</div><small>flujo más limitado</small></div>
+            <div class="kpi"><div class="kpi-value">0.736</div><div class="kpi-label">Score técnico Modelo B</div><small>mayor resiliencia</small></div>
+            <div class="kpi"><div class="kpi-value">+4 a +8 pp</div><div class="kpi-label">Diferencia de OEE</div><small>a favor del Modelo B</small></div>
+            <div class="kpi"><div class="kpi-value">€60k-€180k</div><div class="kpi-label">Beneficio anual estimado</div><small>por mejora de flujo</small></div>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The key difference is not the machine, but the logic of the flow.</h2>
+          <p class="lead">With the evidence available, Model B offers better operational stability, better WIP management and lower starvation risk, while Model A shows lower capex and lower initial complexity. The decision is not only financial: it also depends on the project’s tolerance to variability, congestion and production loss.</p>
+          <div class="decision">
+            <strong>Decision</strong>
+            Model B is the technically strongest option for PAIGE if the project can absorb higher investment, infrastructure and complexity. Model A remains viable as a more compact and economical solution, but it is more sensitive to peaks, mixed references and operational blockages.
+          </div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">0.624</div><div class="kpi-label">Technical score Model A</div><small>more limited flow</small></div>
+            <div class="kpi"><div class="kpi-value">0.736</div><div class="kpi-label">Technical score Model B</div><small>greater resilience</small></div>
+            <div class="kpi"><div class="kpi-value">+4 to +8 pp</div><div class="kpi-label">OEE difference</div><small>in favor of Model B</small></div>
+            <div class="kpi"><div class="kpi-value">€60k-€180k</div><div class="kpi-label">Estimated annual benefit</div><small>from flow improvement</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="models">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Modelos</div>
+          <h2>Resumen de cada alternativa</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Modelo A</h3>
+              <p><strong>Perfil:</strong> layout más compacto, menor inversión, menos infraestructura.</p>
+              <p><strong>Ventaja:</strong> menor capex, menor longitud de conveyors y menor carga de mantenimiento inicial.</p>
+              <p><strong>Debilidad:</strong> más reorientación de planchas, más dependencia de transfer, más congestión y mayor sensibilidad ante picos de demanda.</p>
+            </article>
+            <article class="card green">
+              <h3>Modelo B</h3>
+              <p><strong>Perfil:</strong> mayor.WIP de amortiguación y flujo secuencial más natural.</p>
+              <p><strong>Ventaja:</strong> mejor control del WIP, más robustez frente a mezcla de referencias y mayor continuidad de servicio.</p>
+              <p><strong>Debilidad:</strong> requiere más inversión, más longitud de transporte, mayor consumo de energía y más complejidad de mantenimiento.</p>
+            </article>
+          </div>
+          <div class="decision"><strong>Conclusión preliminar</strong>Model A es la opción más simple y económica; Model B es la opción más fuerte operativamente. La elección depende de cuánto valor asigne la empresa a resiliencia, continuidad y peor caso de demanda.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Models</div>
+          <h2>Summary of each alternative</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Model A</h3>
+              <p><strong>Profile:</strong> more compact layout, lower investment, less infrastructure.</p>
+              <p><strong>Advantage:</strong> lower capex, shorter conveyor length and lower initial maintenance burden.</p>
+              <p><strong>Weakness:</strong> more sheet reorientation, higher dependence on transfer, more congestion and greater sensitivity to demand peaks.</p>
+            </article>
+            <article class="card green">
+              <h3>Model B</h3>
+              <p><strong>Profile:</strong> higher buffering and a more natural, sequential flow.</p>
+              <p><strong>Advantage:</strong> better WIP control, greater robustness against mixed references and more continuity of service.</p>
+              <p><strong>Weakness:</strong> requires more investment, longer transport, more energy use and higher control complexity.</p>
+            </article>
+          </div>
+          <div class="decision"><strong>Preliminary conclusion</strong>Model A is the simplest and cheaper option; Model B is the stronger operational option. The choice depends on how much value the business assigns to resilience, continuity and worst-case demand scenarios.</div>
+        </div>
+      </section>
+
+      <section id="advantages">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Ventajas e inconvenientes</div>
+          <h2>Comparativa operativa</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Modelo A</h3>
+              <ul>
+                <li>Menor complejidad física</li>
+                <li>Menor longitud de conveyors</li>
+                <li>Menor inversión inicial</li>
+                <li>Menor carga de mantenimiento</li>
+                <li>Más fácil de integrar si el espacio es muy limitado</li>
+              </ul>
+            </article>
+            <article class="card red">
+              <h3>Inconvenientes de A</h3>
+              <ul>
+                <li>Mayor necesidad de giro y reorientación</li>
+                <li>Más congestión y mayores colas</li>
+                <li>Más sensibilidad a picos y alta mezcla</li>
+                <li>Mayor riesgo de starvation y bloqueo</li>
+                <li>Menor flexibilidad ante cambios de formato</li>
+              </ul>
+            </article>
+            <article class="card green">
+              <h3>Modelo B</h3>
+              <ul>
+                <li>Mayor capacidad de amortiguación</li>
+                <li>Mejor flujo secuencial y menos reorientación</li>
+                <li>Más robustez frente a variabilidad</li>
+                <li>Mejor protección de corrugado y conversión</li>
+                <li>Mejor apoyo para priorización y JIT</li>
+              </ul>
+            </article>
+            <article class="card red">
+              <h3>Inconvenientes de B</h3>
+              <ul>
+                <li>Mayor inversión civil y de infraestructura</li>
+                <li>Más longitud de conveyors y más puntos de control</li>
+                <li>Mayor consumo energético</li>
+                <li>Más complejidad de mantenimiento</li>
+                <li>Mayor riesgo de reencaminamiento si no se controla la ruta</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Pros and cons</div>
+          <h2>Operational comparison</h2>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Model A</h3>
+              <ul>
+                <li>Lower physical complexity</li>
+                <li>Shorter conveyor length</li>
+                <li>Lower initial investment</li>
+                <li>Lower initial maintenance load</li>
+                <li>Easy to integrate where space is very limited</li>
+              </ul>
+            </article>
+            <article class="card red">
+              <h3>Disadvantages of A</h3>
+              <ul>
+                <li>More need for sheet rotation and reorientation</li>
+                <li>More congestion and longer queues</li>
+                <li>Greater sensitivity to peaks and high mix</li>
+                <li>Higher starvation and blocking risk</li>
+                <li>Lower flexibility under format changes</li>
+              </ul>
+            </article>
+            <article class="card green">
+              <h3>Model B</h3>
+              <ul>
+                <li>Greater buffering capacity</li>
+                <li>Better sequential flow and less reorientation</li>
+                <li>Greater robustness to variability</li>
+                <li>Better protection of corrugator and conversion</li>
+                <li>Better support for prioritization and JIT</li>
+              </ul>
+            </article>
+            <article class="card red">
+              <h3>Disadvantages of B</h3>
+              <ul>
+                <li>Higher civil and infrastructure investment</li>
+                <li>Longer conveyor runs and more control points</li>
+                <li>Higher energy consumption</li>
+                <li>Greater maintenance complexity</li>
+                <li>Higher re-routing risk if paths are not controlled</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="score">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Score técnico</div>
+          <h2>Puntuación ponderada</h2>
+          <div class="score">
+            <div class="score-card">
+              <div class="big">0.624</div>
+              <strong>Modelo A</strong>
+              <p>Mejor simplicidad y menor capex, pero peor estabilidad y mayor vulnerabilidad en condiciones reales.</p>
+            </div>
+            <div class="score-card">
+              <div class="big">0.736</div>
+              <strong>Modelo B</strong>
+              <p>Mejor robustez, mejor flujo y mejor respuesta a la variabilidad operacional.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Criterio</th>
+                  <th>Peso</th>
+                  <th>Modelo A</th>
+                  <th>Modelo B</th>
+                  <th>Comentario</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Flow efficiency</td><td>20%</td><td>0.61</td><td>0.80</td><td>B mejora flujo y reduce fricción</td></tr>
+                <tr><td>WIP efficiency</td><td>20%</td><td>0.58</td><td>0.85</td><td>B gestiona mejor amortiguación</td></tr>
+                <tr><td>Transfer complexity</td><td>15%</td><td>0.68</td><td>0.62</td><td>A simplifica hardware, B complica logística</td></tr>
+                <tr><td>Capacity balance</td><td>15%</td><td>0.60</td><td>0.81</td><td>B absorbe mejor las variaciones</td></tr>
+                <tr><td>Safety and ergonomics</td><td>10%</td><td>0.66</td><td>0.72</td><td>B mejor control, pero más caminos</td></tr>
+                <tr><td>Capex and energy</td><td>10%</td><td>0.82</td><td>0.62</td><td>A es más barato en inversión</td></tr>
+                <tr><td>Flexibility and scalability</td><td>10%</td><td>0.60</td><td>0.82</td><td>B tiene mejor crecimiento operacional</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Technical score</div>
+          <h2>Weighted score</h2>
+          <div class="score">
+            <div class="score-card">
+              <div class="big">0.624</div>
+              <strong>Model A</strong>
+              <p>Better simplicity and lower capex, but weaker stability and higher vulnerability under real conditions.</p>
+            </div>
+            <div class="score-card">
+              <div class="big">0.736</div>
+              <strong>Model B</strong>
+              <p>Better robustness, flow and response to operational variability.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>Weight</th>
+                  <th>Model A</th>
+                  <th>Model B</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Flow efficiency</td><td>20%</td><td>0.61</td><td>0.80</td><td>B improves flow and reduces friction</td></tr>
+                <tr><td>WIP efficiency</td><td>20%</td><td>0.58</td><td>0.85</td><td>B manages buffering better</td></tr>
+                <tr><td>Transfer complexity</td><td>15%</td><td>0.68</td><td>0.62</td><td>A is simpler, B is more logistically complex</td></tr>
+                <tr><td>Capacity balance</td><td>15%</td><td>0.60</td><td>0.81</td><td>B absorbs variation better</td></tr>
+                <tr><td>Safety and ergonomics</td><td>10%</td><td>0.66</td><td>0.72</td><td>B is better controlled, but more paths</td></tr>
+                <tr><td>Capex and energy</td><td>10%</td><td>0.82</td><td>0.62</td><td>A is cheaper upfront</td></tr>
+                <tr><td>Flexibility and scalability</td><td>10%</td><td>0.60</td><td>0.82</td><td>B has better operational growth</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="costs">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Costes y beneficios</div>
+          <h2>Impacto económico</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Indicador</th>
+                  <th>Modelo A</th>
+                  <th>Modelo B</th>
+                  <th>Conclusión</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Capex inicial</td><td>1.00x</td><td>1.18x-1.35x</td><td>A es más barato</td></tr>
+                <tr><td>OPEX anual</td><td>1.00x</td><td>1.02x-1.08x</td><td>B tiene más coste operativo</td></tr>
+                <tr><td>Starvation risk</td><td>0.38-0.55</td><td>0.20-0.35</td><td>B es más robusto</td></tr>
+                <tr><td>Pérdida anual de output</td><td>0.8-1.5M m</td><td>0.3-0.9M m</td><td>B pierde menos producción</td></tr>
+                <tr><td>Penalización por paradas</td><td>€90k-€220k</td><td>€20k-€80k</td><td>B reduce mucho el coste por riesgo</td></tr>
+                <tr><td>Beneficio operativo anual</td><td>Base</td><td>€60k-€180k</td><td>B crea valor operativo</td></tr>
+                <tr><td>Producción adicional anual</td><td>Base</td><td>4.2M m referencia</td><td>Mejor rendimiento real</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="decision"><strong>Carácter económico</strong> La diferencia de capex de B no debe evaluarse aislada: si el coste de output no producido, la congestión, los retrasos y la menor capacidad útil se internalizan, el Modelo B puede ser más rentable a medio plazo.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Costs and benefits</div>
+          <h2>Economic impact</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Indicator</th>
+                  <th>Model A</th>
+                  <th>Model B</th>
+                  <th>Conclusion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Initial capex</td><td>1.00x</td><td>1.18x-1.35x</td><td>A is cheaper</td></tr>
+                <tr><td>Annual OPEX</td><td>1.00x</td><td>1.02x-1.08x</td><td>B has higher operating cost</td></tr>
+                <tr><td>Starvation risk</td><td>0.38-0.55</td><td>0.20-0.35</td><td>B is more robust</td></tr>
+                <tr><td>Annual output loss</td><td>0.8-1.5M m</td><td>0.3-0.9M m</td><td>B loses less production</td></tr>
+                <tr><td>Downtime penalty</td><td>€90k-€220k</td><td>€20k-€80k</td><td>B greatly reduces risk cost</td></tr>
+                <tr><td>Annual operating benefit</td><td>Base</td><td>€60k-€180k</td><td>B creates operating value</td></tr>
+                <tr><td>Additional annual production</td><td>Base</td><td>4.2M m reference</td><td>Better real performance</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="decision"><strong>Economic character</strong> The extra capex of B should not be assessed in isolation: if the cost of unproduced output, congestion, delays and reduced effective capacity is internalized, Model B can be more profitable over the medium term.</div>
+        </div>
+      </section>
+
+      <section id="roi">
+        <div class="lang lang-es">
+          <div class="section-no">06 · ROI</div>
+          <h2>Retorno esperado</h2>
+          <div class="bars">
+            <div class="bar-row"><span>ROI Modelo A</span><div class="track"><div class="fill" style="width: 42%"></div></div><span class="number">8-18%</span></div>
+            <div class="bar-row"><span>ROI Modelo B</span><div class="track"><div class="fill green" style="width: 68%"></div></div><span class="number">15-28%</span></div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Modelo A</h3>
+              <p>Más barato al inicio, pero peor tolerancia a variabilidad y mezcla. El ROI aparente puede verse penalizado por bajas de output y tiempos de espera.</p>
+            </article>
+            <article class="card green">
+              <h3>Modelo B</h3>
+              <p>Mayor inversión y más infraestructura, pero mejor valor por flujo, continuidad y capacidad útil. Suele ofrecer mejor retorno cuando la demanda es variada o con picos reales.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · ROI</div>
+          <h2>Expected return</h2>
+          <div class="bars">
+            <div class="bar-row"><span>ROI Model A</span><div class="track"><div class="fill" style="width: 42%"></div></div><span class="number">8-18%</span></div>
+            <div class="bar-row"><span>ROI Model B</span><div class="track"><div class="fill green" style="width: 68%"></div></div><span class="number">15-28%</span></div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent">
+              <h3>Model A</h3>
+              <p>Cheaper at the start, but worse tolerance to variability and mix. Apparent ROI may be penalized by output loss and waiting time.</p>
+            </article>
+            <article class="card green">
+              <h3>Model B</h3>
+              <p>Higher investment and more infrastructure, but better value through flow continuity and usable capacity. It usually offers better return when demand is varied or includes real peaks.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="recomendation">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Conclusión</div>
+          <h2>Recomendación final</h2>
+          <div class="decision">
+            <strong>Recomendación</strong>
+            Sobre la base técnica y económica disponible, el Modelo B debe ser la opción preferente cuando el proyecto puede asumir mayor inversión, infraestructura y complejidad. El Modelo A puede ser una alternativa real si el principal criterio es reducir capex y mantener un diseño más compacto, aunque con mayor riesgo operativo y menor capacidad útil.
+          </div>
+          <ul class="risk-list">
+            <li><strong>Prioridad A</strong><span>Si la estrategia es maximizar estabilidad, continuidad y ataque al riesgo operativo, elegir B.</span></li>
+            <li><strong>Prioridad B</strong><span>Si la prioridad es minimizar inversión inmediata y simplificar el despliegue, elegir A con control de riesgo.</span></li>
+            <li><strong>Validación final</strong><span>Falta confirmar geometría real de los layouts en CAD/DXF para validar distancias, cruces, pasillos y capacidad de transporte.</span></li>
+          </ul>
+          <div class="decision"><strong>Conclusión final</strong>La diferencia clave no está en la maquinaria aislada, sino en el diseño del flujo. El Modelo B tiene mejor valor industrial y financiero cuando la operación real requiere tolerancia a la variabilidad.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Conclusion</div>
+          <h2>Final recommendation</h2>
+          <div class="decision">
+            <strong>Recommendation</strong>
+            Based on the technical and economic evidence available, Model B should be the preferred option when the project can absorb greater investment, infrastructure and complexity. Model A can be a real alternative if the main criterion is to reduce capex and maintain a more compact design, although with higher operational risk and lower usable capacity.
+          </div>
+          <ul class="risk-list">
+            <li><strong>Priority A</strong><span>If the strategy is to maximize stability, continuity and risk reduction, choose B.</span></li>
+            <li><strong>Priority B</strong><span>If the priority is to minimize immediate investment and simplify deployment, choose A with controlled risk.</span></li>
+            <li><strong>Final validation</strong><span>Real layout geometry still needs to be confirmed in CAD/DXF to validate distances, crossings, aisles and transport capacity.</span></li>
+          </ul>
+          <div class="decision"><strong>Final conclusion</strong>The key difference is not isolated machinery, but the design of the flow. Model B delivers better industrial and financial value when the real operation requires tolerance to variability.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const languageButtons = document.querySelectorAll('[data-language]');
+    const langBlocks = document.querySelectorAll('.lang');
+
+    function setLanguage(lang) {
+      const isEs = lang === 'es';
+      langBlocks.forEach(block => {
+        const visible = isEs ? block.classList.contains('lang-es') : block.classList.contains('lang-en');
+        block.classList.toggle('hidden', !visible);
+      });
+      document.documentElement.lang = lang;
+      languageButtons.forEach(btn => {
+        const pressed = btn.dataset.language === lang;
+        btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      });
+    }
+
+    languageButtons.forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.language));
+    });
+  </script>
+</body>
+</html>

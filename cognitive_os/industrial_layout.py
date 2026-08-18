@@ -10,6 +10,9 @@ requiring external CAD tooling.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
+from collections import defaultdict
+from bisect import bisect_left
+from functools import lru_cache
 from hashlib import sha256
 import json
 import math
@@ -23,6 +26,7 @@ from cognitive_os.layout_import_framework import LayoutImportFramework
 
 
 Point = tuple[float, float]
+KNOWLEDGE_ROOT = Path(__file__).resolve().parents[1] / "knowledge" / "corrugated_equipment"
 
 
 def _utc_hash(value: str) -> str:
@@ -95,6 +99,25 @@ def _normalize_text(value: Any) -> str:
     if isinstance(value, str):
         return value.strip()
     return str(value).strip()
+
+
+@lru_cache(maxsize=1)
+def _load_consulting_benchmarks() -> dict[str, Any]:
+    catalog_path = KNOWLEDGE_ROOT / "converter_equipment_catalog_v1.json"
+    hypotheses_path = KNOWLEDGE_ROOT / "simulation_hypotheses_corrugated_v1.json"
+    try:
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+        hypotheses = json.loads(hypotheses_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {"catalog": {}, "hypotheses": {}, "evidence": []}
+    return {
+        "catalog": catalog,
+        "hypotheses": hypotheses,
+        "evidence": [
+            "knowledge/corrugated_equipment/converter_equipment_catalog_v1.json",
+            "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+        ],
+    }
 
 
 @dataclass(slots=True)
@@ -181,6 +204,7 @@ class LayoutInterpretationResult:
     simulation: SimulationResult
     engineering_analysis: EngineeringAnalysis
     plant_state_report: dict[str, Any]
+    operational_summary: dict[str, Any]
     executive_report: str
     confidence: float
     trace: dict[str, Any]
@@ -199,6 +223,7 @@ class LayoutInterpretationResult:
             "simulation": asdict(self.simulation),
             "engineering_analysis": asdict(self.engineering_analysis),
             "plant_state_report": self.plant_state_report,
+            "operational_summary": self.operational_summary,
             "executive_report": self.executive_report,
             "confidence": self.confidence,
             "trace": self.trace,
@@ -212,6 +237,8 @@ class IndustrialLayoutInterpreter:
     ENTITY_MARKERS: dict[str, list[str]] = {
         "machine": ["machine", "cnc", "press", "robot", "welder", "assembler", "palletizer", "station"],
         "conveyor": ["conveyor", "belt", "roller", "infeed", "outfeed", "transport"],
+        "transfer": ["transfer", "turntable", "lift table", "shuttle", "cross transfer"],
+        "waste_line": ["waste", "scrap", "trim", "broke", "reject line"],
         "warehouse": ["warehouse", "storage", "rack", "aisle", "shelf", "stock"],
         "wip": ["wip", "buffer", "queue", "staging", "accumulation"],
         "safety_zone": ["safety", "restricted", "hazard", "no-go", "exclusion"],
@@ -271,6 +298,7 @@ class IndustrialLayoutInterpreter:
         simulation = self._build_simulation(entities, connections, knowledge_graph)
         analysis = self._build_engineering_analysis(entities, connections, factory_graph, simulation)
         plant_state_report = self._build_plant_state_report(factory_graph, simulation, analysis)
+        operational_summary = self._build_operational_summary(entities, connections, factory_graph, simulation, analysis)
         executive_report = self._build_executive_report(
             layout_name,
             factory_graph,
@@ -305,6 +333,7 @@ class IndustrialLayoutInterpreter:
             simulation=simulation,
             engineering_analysis=analysis,
             plant_state_report=plant_state_report,
+            operational_summary=operational_summary,
             executive_report=executive_report,
             confidence=confidence,
             trace=trace,
@@ -328,6 +357,7 @@ class IndustrialLayoutInterpreter:
             if not isinstance(item, dict):
                 continue
             points = item.get("points") if isinstance(item.get("points"), list) else []
+            properties = item.get("properties", {}) if isinstance(item.get("properties"), dict) else {}
             normalized.append(
                 {
                     "id": item.get("id"),
@@ -335,7 +365,9 @@ class IndustrialLayoutInterpreter:
                     "label": item.get("label", "entity"),
                     "layer": item.get("layer", "default"),
                     "points": points,
-                    "properties": item.get("properties", {}),
+                    "center": properties.get("center"),
+                    "bounds": properties.get("bounds"),
+                    "properties": properties,
                 }
             )
         return normalized
@@ -548,12 +580,15 @@ class IndustrialLayoutInterpreter:
         if not entity_id:
             entity_id = f"entity-{index}-{_utc_hash(f'{kind}|{label}|{layer}|{center}') }"
 
-        properties = dict(raw_entity.get("properties") or {})
+        properties = {
+            key: value
+            for key, value in dict(raw_entity.get("properties") or {}).items()
+            if key != "dxf_fields"
+        }
         properties.update(
             {
                 "source_type": source_type,
                 "classification_rationale": rationale,
-                "raw_entity": raw_entity,
             }
         )
 
@@ -589,6 +624,10 @@ class IndustrialLayoutInterpreter:
             return "machine", 0.94, ["machine marker"]
         if _contains_any(haystack, self.ENTITY_MARKERS["conveyor"]):
             return "conveyor", 0.92, ["conveyor marker"]
+        if _contains_any(haystack, self.ENTITY_MARKERS["transfer"]):
+            return "transfer", 0.9, ["transfer marker"]
+        if _contains_any(haystack, self.ENTITY_MARKERS["waste_line"]):
+            return "waste_line", 0.88, ["waste line marker"]
         if _contains_any(haystack, self.ENTITY_MARKERS["warehouse"]):
             return "warehouse", 0.91, ["warehouse marker"]
         if _contains_any(haystack, self.ENTITY_MARKERS["wip"]):
@@ -625,10 +664,39 @@ class IndustrialLayoutInterpreter:
         if len(entities) < 2:
             return []
 
+        entity_count = len(entities)
+        xs = [entity.center[0] for entity in entities]
+        ys = [entity.center[1] for entity in entities]
+        coordinate_span = max(max(xs) - min(xs), max(ys) - min(ys), 1.0)
+        cell_size = max(coordinate_span / max(math.sqrt(entity_count), 1.0), 1e-6)
+        buckets: dict[tuple[int, int], list[int]] = defaultdict(list)
+        for index, entity in enumerate(entities):
+            cell = (math.floor(entity.center[0] / cell_size), math.floor(entity.center[1] / cell_size))
+            buckets[cell].append(index)
+
+        x_order = sorted(range(entity_count), key=lambda index: entities[index].center[0])
+        x_positions = {entity_index: position for position, entity_index in enumerate(x_order)}
+
         connections: list[LayoutConnection] = []
-        for source in entities:
+        for source_index, source in enumerate(entities):
+            candidate_indexes: set[int] = set()
+            source_cell = (
+                math.floor(source.center[0] / cell_size),
+                math.floor(source.center[1] / cell_size),
+            )
+            for cell_x in range(source_cell[0] - 2, source_cell[0] + 3):
+                for cell_y in range(source_cell[1] - 2, source_cell[1] + 3):
+                    bucket = buckets.get((cell_x, cell_y), [])
+                    if not bucket:
+                        continue
+                    position = bisect_left(bucket, source_index)
+                    candidate_indexes.update(bucket[max(0, position - 24):position + 25])
+
+            x_position = x_positions[source_index]
+            candidate_indexes.update(x_order[max(0, x_position - 24):x_position + 25])
+            candidate_indexes.discard(source_index)
             nearest = sorted(
-                (target for target in entities if target.id != source.id),
+                (entities[index] for index in candidate_indexes),
                 key=lambda candidate: _distance(source.center, candidate.center),
             )[:3]
             for target in nearest:
@@ -779,6 +847,8 @@ class IndustrialLayoutInterpreter:
         mapping = {
             "machine": "industrial_equipment",
             "conveyor": "material_handling_asset",
+            "transfer": "material_transfer_asset",
+            "waste_line": "waste_handling_route",
             "warehouse": "storage_asset",
             "buffer": "wip_buffer",
             "safety_zone": "safety_constraint",
@@ -1082,6 +1152,351 @@ class IndustrialLayoutInterpreter:
         for recommendation in analysis.executive_recommendations:
             lines.append(f"- {recommendation}")
         return "\n".join(lines)
+
+    def _build_operational_summary(
+        self,
+        entities: list[LayoutEntity],
+        connections: list[LayoutConnection],
+        factory_graph: dict[str, Any],
+        simulation: SimulationResult,
+        analysis: EngineeringAnalysis,
+    ) -> dict[str, Any]:
+        def entity_area(entity: LayoutEntity) -> float:
+            return round(abs(entity.bounds[2] - entity.bounds[0]) * abs(entity.bounds[3] - entity.bounds[1]), 3)
+
+        def entity_length(entity: LayoutEntity) -> float:
+            width = abs(entity.bounds[2] - entity.bounds[0])
+            height = abs(entity.bounds[3] - entity.bounds[1])
+            return round(math.hypot(width, height), 3)
+
+        machines = [entity for entity in entities if entity.kind == "machine"]
+        processes = [entity for entity in entities if entity.kind == "process"]
+        conveyors = [entity for entity in entities if entity.kind == "conveyor"]
+        transfers = [entity for entity in entities if entity.kind == "transfer"]
+        waste_lines = [entity for entity in entities if entity.kind == "waste_line"]
+        buffers = [entity for entity in entities if entity.kind == "buffer"]
+        warehouses = [entity for entity in entities if entity.kind == "warehouse"]
+        routes = [entity for entity in entities if entity.kind in {"logistic_route", "amr_route"}]
+        capacity_per_machine = round(simulation.production_capacity / max(1, len(machines)), 3)
+
+        equipment = [
+            {
+                "id": entity.id,
+                "label": entity.label,
+                "layer": entity.layer,
+                "confidence": entity.confidence,
+                "estimated_capacity_units_per_hour": capacity_per_machine,
+                "maintenance": "Inspect safety, alignment, wear parts and controls; validate OEM interval.",
+            }
+            for entity in machines[:100]
+        ]
+        process_steps = [
+            {"id": entity.id, "label": entity.label, "layer": entity.layer, "confidence": entity.confidence, "basis": "explicit_label"}
+            for entity in processes[:100]
+        ]
+        if not process_steps:
+            process_steps = [
+                {
+                    "id": f"process-{entity.id}",
+                    "label": f"Operation at {entity.label}",
+                    "layer": entity.layer,
+                    "confidence": round(min(entity.confidence, 0.6), 3),
+                    "basis": "inferred_from_equipment_sequence",
+                }
+                for entity in machines[:30]
+            ]
+        flow_relations = [
+            {
+                "source": connection.source,
+                "target": connection.target,
+                "relation": connection.relation,
+                "distance": connection.distance,
+                "confidence": connection.confidence,
+            }
+            for connection in connections[:200]
+        ]
+        amr_coverage = float(simulation.amr_routing.get("amr_layout_coverage", 0.0))
+        starvation = float(simulation.material_flow.get("starvation_risk_index", 0.0))
+        amr_decision = "recommended" if amr_coverage < 0.55 and (len(routes) > 0 or starvation >= 0.35) else "validate_with_scenario"
+
+        return {
+            "overview": {
+                "total_entities": len(entities),
+                "total_connections": len(connections),
+                "detected_kinds": factory_graph.get("kind_counts", {}),
+                "production_capacity_units_per_hour": simulation.production_capacity,
+                "oee": simulation.oee,
+                "roi_index": simulation.roi,
+            },
+            "equipment": equipment,
+            "processes": process_steps,
+            "flows": {
+                "relations": flow_relations,
+                "travel_distance": simulation.travel_distance,
+                "flow_edges": simulation.material_flow.get("flow_edges", 0),
+                "starvation_risk": starvation,
+                "management_policy": "JIT pull windows with dispatch priority by starvation risk and constrained route occupancy.",
+            },
+            "measurements": {
+                "wip_area_square_units": round(sum(entity_area(entity) for entity in buffers), 3),
+                "warehouse_area_square_units": round(sum(entity_area(entity) for entity in warehouses), 3),
+                "conveyor_length_units": round(sum(entity_length(entity) for entity in conveyors), 3),
+                "transfer_area_square_units": round(sum(entity_area(entity) for entity in transfers), 3),
+                "waste_line_length_units": round(sum(entity_length(entity) for entity in waste_lines), 3),
+                "logistics_route_length_units": round(sum(entity_length(entity) for entity in routes), 3),
+                "coordinate_units": "drawing_units",
+            },
+            "maintenance": {
+                "detected_assets": len(machines) + len(conveyors) + len(transfers),
+                "preventive_actions": [
+                    "Validate OEM preventive intervals for every identified machine.",
+                    "Inspect conveyor tracking, rollers, guards and transfer alignment.",
+                    "Create condition-monitoring points for critical bottleneck assets.",
+                ],
+            },
+            "problems": analysis.risk_analysis,
+            "improvements": [
+                *analysis.production_optimisation,
+                *analysis.warehouse_optimisation,
+                *analysis.executive_recommendations,
+            ],
+            "amr_assessment": {
+                "decision": amr_decision,
+                "coverage": amr_coverage,
+                "fleet": simulation.amr_routing.get("fleet_recommendation", {}),
+                "recommendations": analysis.amr_recommendations,
+            },
+            "consulting_report": self._build_consulting_report(
+                entities,
+                simulation,
+                analysis,
+                amr_decision,
+            ),
+        }
+
+    def _build_consulting_report(
+        self,
+        entities: list[LayoutEntity],
+        simulation: SimulationResult,
+        analysis: EngineeringAnalysis,
+        amr_decision: str,
+    ) -> dict[str, Any]:
+        knowledge = _load_consulting_benchmarks()
+        equipment_catalog = knowledge.get("catalog", {}).get("equipment", [])
+        hypotheses = knowledge.get("hypotheses", {})
+        benchmark = hypotheses.get("ingetrans_benchmark_reference", {})
+        hypothesis_by_id = {item.get("id"): item for item in hypotheses.get("hypotheses", []) if isinstance(item, dict)}
+
+        oee_percent = round(simulation.oee * 100.0, 2)
+        catalog_oee_midpoints: list[float] = []
+        quality_midpoints: list[float] = []
+        preventive_hours: list[float] = []
+        for item in equipment_catalog:
+            operations = item.get("operations", {})
+            oee_range = operations.get("oee_typical_percent", [])
+            quality_range = operations.get("quality_loss_percent", [])
+            maintenance = item.get("maintenance", {})
+            if len(oee_range) >= 2:
+                catalog_oee_midpoints.append((float(oee_range[0]) + float(oee_range[1])) / 2.0)
+            if len(quality_range) >= 2:
+                quality_midpoints.append((float(quality_range[0]) + float(quality_range[1])) / 2.0)
+            if maintenance.get("preventive_hours_per_month") is not None:
+                preventive_hours.append(float(maintenance["preventive_hours_per_month"]))
+
+        benchmark_oee = round(sum(catalog_oee_midpoints) / max(1, len(catalog_oee_midpoints)), 2)
+        assumed_scrap = round(sum(quality_midpoints) / max(1, len(quality_midpoints)), 2)
+        pm_hours = round(sum(preventive_hours) / max(1, len(preventive_hours)), 1)
+        oee_target = round(min(92.0, max(benchmark_oee, oee_percent + 3.0)), 2)
+        oee_delta = round(max(0.0, oee_target - oee_percent), 2)
+        throughput_gain_percent = round(oee_delta / max(oee_percent, 1.0) * 100.0, 2)
+        capacity_target = round(simulation.production_capacity * (1.0 + throughput_gain_percent / 100.0), 2)
+        scrap_target = round(max(0.5, assumed_scrap * 0.75), 2)
+        starvation = float(simulation.material_flow.get("starvation_risk_index", 0.0))
+
+        proposals = [
+            {
+                "id": "CONS-OEE-01",
+                "domain": "oee",
+                "priority": "P0" if oee_percent < benchmark_oee else "P1",
+                "title": "Recover OEE through loss Pareto, SMED and constraint control",
+                "problem": f"Estimated OEE {oee_percent}% versus catalog midpoint {benchmark_oee}%.",
+                "root_causes": ["changeover loss", "micro-stops and availability loss", "feed starvation", "unvalidated speed-quality trade-off"],
+                "baseline": {"oee_percent": oee_percent},
+                "target": {"oee_percent": oee_target, "oee_delta_points": oee_delta},
+                "expected_impact": {"throughput_gain_percent": throughput_gain_percent, "capacity_target_units_per_hour": capacity_target},
+                "actions": [
+                    "Build a weekly OEE loss Pareto by availability, performance and quality.",
+                    "Run SMED observation on the top two changeovers and externalize preparation.",
+                    "Set centerline parameters and escalation limits for speed, quality and jams.",
+                    "Review the bottleneck every shift and protect it from starvation and blockage.",
+                ],
+                "kpis": ["oee_percent", "availability_percent", "performance_percent", "quality_percent", "changeover_minutes", "microstop_minutes"],
+                "horizon": "0-90 days",
+                "confidence": 0.72,
+                "decision_gate": "Pilot when two weeks of machine-state and production counts are available.",
+            },
+            {
+                "id": "CONS-SCRAP-01",
+                "domain": "scrap",
+                "priority": "P0",
+                "title": "Reduce quality loss and trim waste with defect-at-source control",
+                "problem": f"No live scrap telemetry is connected; catalog quality-loss midpoint is {assumed_scrap}% and must be validated.",
+                "root_causes": ["setup instability", "registration or feed drift", "late defect detection", "unsegmented trim and reject flows"],
+                "baseline": {"assumed_quality_loss_percent": assumed_scrap, "basis": "catalog_midpoint_not_site_measurement"},
+                "target": {"quality_loss_percent": scrap_target, "relative_reduction_percent": 25.0},
+                "expected_impact": {"saleable_output_gain_percent": round(assumed_scrap - scrap_target, 2)},
+                "actions": [
+                    "Measure scrap by machine, order, SKU, defect and shift at the point of generation.",
+                    "Introduce first-piece approval and parameter recipe lock before full-speed production.",
+                    "Run daily top-three defect Pareto with containment owner and due date.",
+                    "Separate trim, startup waste and quality rejects to avoid masking root causes.",
+                ],
+                "kpis": ["scrap_percent", "startup_waste_kg", "trim_waste_kg", "rejects_per_1000_sheets", "first_pass_yield_percent"],
+                "horizon": "0-60 days",
+                "confidence": 0.58,
+                "decision_gate": "Replace benchmark assumption after four weeks of weighed site scrap data.",
+            },
+            {
+                "id": "CONS-MAINT-01",
+                "domain": "maintenance",
+                "priority": "P1",
+                "title": "Move critical equipment from reactive to condition-based maintenance",
+                "problem": "Layout identifies maintainable assets but no failure history or condition telemetry is connected.",
+                "root_causes": ["reactive work mix", "critical-spares exposure", "repeat failure modes", "no condition thresholds"],
+                "baseline": {"catalog_pm_hours_per_machine_month": pm_hours},
+                "target": {"planned_work_percent": 80, "repeat_failure_reduction_percent": 30},
+                "expected_impact": {"availability_risk": "reduced", "unplanned_stop_reduction_percent_range": [10, 25]},
+                "actions": [
+                    "Rank assets by bottleneck role, safety, downtime cost and spare lead time.",
+                    "Create PM standards for alignment, wear, lubrication, controls and guarding.",
+                    "Add vibration, thermal or current checks to the top critical assets.",
+                    "Run bad-actor review and RCA for every repeat failure above the downtime threshold.",
+                ],
+                "kpis": ["planned_work_percent", "mtbf_hours", "mttr_minutes", "pm_compliance_percent", "repeat_failure_count"],
+                "horizon": "30-120 days",
+                "confidence": 0.68,
+                "decision_gate": "Approve criticality matrix with maintenance and production owners.",
+            },
+            {
+                "id": "CONS-FLOW-01",
+                "domain": "intralogistics",
+                "priority": "P0" if starvation >= 0.35 else "P1",
+                "title": "Stabilize WIP and machine feed with JIT dispatch rules",
+                "problem": f"Starvation risk index is {round(starvation, 3)} and route coverage requires operational validation.",
+                "root_causes": ["dispatch without starvation priority", "WIP too far from point of use", "uncontrolled release windows", "shared-route congestion"],
+                "baseline": {"starvation_risk_index": round(starvation, 3), "travel_distance_units": simulation.travel_distance},
+                "target": {"starvation_reduction_percent_range": [60, 90], "travel_distance_reduction_percent_range": [20, 45]},
+                "expected_impact": {"oee_points_range": [1.0, 3.5], "schedule_adherence_gain_percent_range": [4, 12]},
+                "actions": [
+                    "Define near-line WIP cells by converter cadence and maximum stock age.",
+                    "Dispatch replenishment by starvation risk, due date and route occupancy.",
+                    "Use 30-45 minute JIT release windows and replan every 15-30 minutes.",
+                    "Separate inbound and outbound flows at bottleneck intersections.",
+                ],
+                "kpis": ["starvation_events", "feed_sla_percent", "transport_response_seconds", "wip_age_hours", "schedule_adherence_percent"],
+                "horizon": "30-120 days",
+                "confidence": 0.74,
+                "decision_gate": "Pilot one converter loop before plant-wide rollout.",
+            },
+            {
+                "id": "CONS-SAFETY-01",
+                "domain": "safety",
+                "priority": "P0",
+                "title": "Validate pedestrian, forklift and automated-flow segregation",
+                "problem": "CAD topology can identify candidate conflicts, but it cannot prove safe clearances or regulatory compliance without calibrated scale and a site walkdown.",
+                "root_causes": ["mixed traffic", "blind intersections", "uncalibrated aisle width", "undefined emergency and recovery zones"],
+                "baseline": {"layout_risk_status": "unvalidated", "cad_scale_calibrated": False},
+                "target": {"critical_conflicts_closed_percent": 100, "validated_emergency_routes_percent": 100},
+                "expected_impact": {"traffic_conflict_risk": "reduced", "automation_readiness": "improved"},
+                "actions": [
+                    "Calibrate CAD units and verify aisle, doorway and turning-envelope dimensions on site.",
+                    "Map pedestrian crossings, forklift lanes, blind corners, fire routes and exclusion zones.",
+                    "Run task-based risk assessment for loading, charging, recovery and maintenance modes.",
+                    "Require EHS sign-off before changing traffic rules or deploying AMRs.",
+                ],
+                "kpis": ["open_traffic_conflicts", "near_miss_count", "validated_crossings_percent", "emergency_route_compliance_percent"],
+                "horizon": "0-60 days",
+                "confidence": 0.62,
+                "decision_gate": "No layout or AMR GO decision without calibrated geometry, site walkdown and EHS approval.",
+            },
+            {
+                "id": "CONS-AMR-01",
+                "domain": "amr",
+                "priority": "P1",
+                "title": "Evaluate AMR only where flow stability and safety justify automation",
+                "problem": f"Current AMR assessment is {amr_decision}; no live mission, traffic or charging data is connected.",
+                "root_causes": ["forklift dependency", "variable response time", "unsequenced transport requests", "layout conflict risk"],
+                "baseline": {"amr_coverage": simulation.amr_routing.get("amr_layout_coverage", 0.0)},
+                "target": {"forklift_reduction_percent_range": [35, 65], "starvation_reduction_percent_range": [60, 90]},
+                "expected_impact": {
+                    "oee_points_range": [2.0, float(benchmark.get("oee_delta_points", 6))],
+                    "annual_additional_production_meters_reference": benchmark.get("annual_additional_production_meters"),
+                    "annual_operating_savings_eur_reference": benchmark.get("annual_operating_savings_eur"),
+                },
+                "actions": [
+                    "Build an origin-destination matrix with peak transport demand and service SLA.",
+                    "Simulate fleet sizes 4/6/8 with charging, blocked aisles and priority dispatch.",
+                    "Validate lane width, crossings, fire routes, pedestrian segregation and recovery modes.",
+                    "Run a time-boxed pilot and approve scale-up only against OEE, safety and response KPIs.",
+                ],
+                "kpis": hypothesis_by_id.get("H-AMR-01", {}).get("kpis", []),
+                "horizon": "60-180 days",
+                "confidence": 0.64,
+                "decision_gate": "GO only after scenario score >= 0.75 and safety validation; PILOT at 0.60-0.74.",
+            },
+        ]
+
+        priority_weight = {"P0": 3, "P1": 2, "P2": 1}
+        proposals.sort(key=lambda item: (priority_weight.get(item["priority"], 0), item["confidence"]), reverse=True)
+        scenarios = [
+            {
+                "id": "A",
+                "name": "Baseline",
+                "investment": "none",
+                "oee_percent": oee_percent,
+                "capacity_units_per_hour": simulation.production_capacity,
+                "scrap_percent": assumed_scrap,
+                "risk": "current",
+            },
+            {
+                "id": "B",
+                "name": "Operational excellence",
+                "investment": "low-medium",
+                "oee_percent": oee_target,
+                "capacity_units_per_hour": capacity_target,
+                "scrap_percent": scrap_target,
+                "risk": "low",
+            },
+            {
+                "id": "C",
+                "name": "JIT WIP + AMR pilot",
+                "investment": "medium-high",
+                "oee_percent_range": [round(oee_percent + 2.0, 2), round(min(96.0, oee_percent + 6.0), 2)],
+                "forklift_reduction_percent_range": [35, 65],
+                "starvation_reduction_percent_range": [60, 90],
+                "risk": "medium_pending_simulation",
+            },
+        ]
+        return {
+            "status": "hypothesis_based_requires_site_validation",
+            "executive_diagnosis": (
+                "Prioritize measured OEE and scrap loss recovery before major CAPEX; "
+                "pilot JIT/AMR only after flow demand, safety and baseline telemetry are validated."
+            ),
+            "proposals": proposals,
+            "scenarios": scenarios,
+            "required_site_data": [
+                "machine states and downtime reasons",
+                "good count and total count by order",
+                "scrap weight by machine, defect and shift",
+                "changeover start/end and first-good-piece timestamps",
+                "transport requests, response times and origin-destination pairs",
+                "maintenance work orders, failure modes, MTBF and MTTR",
+                "CAD unit calibration and safety route constraints",
+            ],
+            "evidence_refs": knowledge.get("evidence", []),
+            "governance_note": "All impacts are hypotheses until calibrated with site telemetry, OEM data and validated simulation.",
+        }
 
     def _machine_cluster_factor(self, entities: list[LayoutEntity]) -> float:
         machines = [entity for entity in entities if entity.kind == "machine"]

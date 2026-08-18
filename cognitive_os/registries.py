@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from dataclasses import asdict
 
-from cognitive_os.models import AgentProfile, CapabilityNode, MissionNode, PlatformConsumer
+from cognitive_os.models import AgentProfile, CapabilityNode, KnowledgeNode, MissionNode, PlatformConsumer, RepositoryNode
 
 
 class AICoordinator:
@@ -48,6 +48,31 @@ class PlatformRegistry:
 
     def contract_version(self) -> str:
         return self._contract_version
+
+
+class RepositoryRegistry:
+    def __init__(self) -> None:
+        self._repositories: dict[str, RepositoryNode] = {}
+
+    def upsert(self, repository: RepositoryNode) -> None:
+        self._repositories[repository.id] = repository
+
+    def get(self, repository_id: str) -> RepositoryNode | None:
+        return self._repositories.get(repository_id)
+
+    def list(self) -> list[RepositoryNode]:
+        return list(self._repositories.values())
+
+
+class KnowledgeRegistry:
+    def __init__(self) -> None:
+        self._knowledge: dict[str, KnowledgeNode] = {}
+
+    def upsert(self, knowledge: KnowledgeNode) -> None:
+        self._knowledge[knowledge.id] = knowledge
+
+    def list(self) -> list[KnowledgeNode]:
+        return list(self._knowledge.values())
 
 
 class CapabilityGraph:

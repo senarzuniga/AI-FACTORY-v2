@@ -1,0 +1,1083 @@
+AI_FACTORY MISSION
+PAIGE CONVERSION PLANT — LAYOUT A vs LAYOUT B
+Industrial Layout Intelligence + Factory Graph + Simulation + Engineering Optimization
+
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Repositorio base: AI-FACTORY-v2
+Integración objetivo: IS_BACKOFFICE + Layout Workbench + Factory Graph + Knowledge Hub + Plant Simulator + Digital Twin + Engineering Optimizer + Mission Manager + AI Coordinator + AHDE + Autonomous Knowledge Cascade
+
+====================================================================
+1. MISSION STATEMENT
+====================================================================
+Ejecutar un análisis industrial integral, basado en evidencia, para comparar dos alternativas de diseño de la futura zona de conversión de la planta PAIGE:
+
+- MODEL A
+- MODEL B
+
+El objetivo NO es describir ambos layouts superficialmente.
+El objetivo es determinar cuál alternativa ofrece mayor valor industrial, operativo y económico considerando restricciones reales de planta, resultados de flujo, WIP, capacidad, energía, seguridad, mantenimiento, flexibilidad y coste total de propiedad.
+
+AI_FACTORY debe utilizar todas las capacidades disponibles de:
+- Industrial Layout Intelligence Workbench
+- DWG/DXF ingestion
+- Geometry Engine
+- Factory Graph
+- Knowledge Graph
+- Knowledge Hub
+- Evidence Runtime
+- Enterprise Memory
+- Plant Simulator
+- Digital Twin
+- Engineering Optimizer
+- Mission Manager
+- AI Coordinator
+- AHDE
+- Autonomous Knowledge Cascade
+- IS_BACKOFFICE
+
+====================================================================
+2. REGLA FUNDAMENTAL
+====================================================================
+No se asumirá previamente que:
+- MODEL A > MODEL B
+ni que:
+- MODEL B > MODEL A
+
+La conclusión debe surgir del análisis técnico y económico real.
+
+La optimización debe dirigirse hacia:
+"La alternativa con mayor valor industrial, operacional y económico, considerando las restricciones reales de la planta."
+
+Si faltan datos:
+- NO detener el análisis.
+- Aplicar AHDE + Knowledge Cascade + Benchmarking + Engineering Estimation + Sensitivity Analysis.
+- Cada hipótesis se identificará como hipótesis y no como hecho.
+
+====================================================================
+3. CONTEXTO DE PLANTA
+====================================================================
+La planta contará con dos corrugadoras en paralelo:
+
+- FOSBER S/LINE
+- 2 CORRUGADORAS
+
+La producción de ambas corrugadoras alimentará principalmente la zona de conversión.
+Una pequeña proporción podrá destinarse directamente a venta de plancha.
+
+Las máquinas de conversión son idénticas en ambos modelos.
+
+====================================================================
+4. EQUIPAMIENTO COMÚN A LOS DOS MODELOS
+====================================================================
+Fase 1 — Corrugado
+- 2 × Fosber S/LINE
+
+Fase 2 — Conversión en línea
+- LMC 42" FFG
+- Curioni 2000 78"
+- S&SZLRF/F/G
+
+Fase 3 — Impresión / Troquelado
+- 2 × Dong Fang Apstar Rotativo
+- Ward 66" Rotativo
+- Young Shin 210 Plano
+- BOBST SPO 1575 Plano
+
+Fase 4 — Acabado / Pegado
+- 3 × Post 74"
+
+El equipamiento productivo debe considerarse idéntico en A y B.
+
+Por lo tanto, la comparación se concentra especialmente en:
+- layout
+- flujo
+- WIP
+- conveyors / transferencias
+- movimientos
+- almacenamiento
+- alimentación de máquinas
+- expedición
+- espacio
+- productividad
+- congestión
+- energía
+- desperdicio
+- coste de instalación
+- coste operacional
+- flexibilidad
+- escalabilidad
+
+====================================================================
+5. MODEL A — DESCRIPCIÓN OPERATIVA
+====================================================================
+El modelo A dispone de:
+- 120 WIP cells
+
+El WIP actúa como zona de intercambio entre:
+CORRUGATING ↕ CONVERTING
+
+La salida de las corrugadoras se produce siguiendo su dirección natural de producción.
+
+Para acceder al WIP principal, las planchas deben:
+1. salir de corrugadora
+2. cambiar orientación
+3. ser introducidas en WIP
+4. ser recuperadas posteriormente
+5. alimentar conversión
+
+Las máquinas de conversión están organizadas principalmente en dirección:
+RIGHT → LEFT
+
+Análisis específico requerido:
+- necesidad de giro
+- transferencias
+- conveyors
+- acumulaciones
+- movimientos adicionales
+- cruces
+- tiempos de transferencia
+- puntos de congestión
+- accesibilidad
+- mantenimiento
+- seguridad
+- impacto de cambios de formato
+
+====================================================================
+6. MODEL B — DESCRIPCIÓN OPERATIVA
+====================================================================
+El modelo B mantiene
+- 120 WIP cells
+
+pero añade una segunda zona WIP:
+- 255 WIP cells adicionales / nueva configuración
+
+La capacidad y geometría exactas deberán verificarse mediante Layout Workbench.
+
+La salida de corrugadoras mantiene orientación más natural.
+La plancha puede seguir:
+CORRUGADORA ↓ WIP 1 ↓ WIP 2
+según destino y disponibilidad.
+
+El WIP principal se sitúa hacia el sur.
+Existe un conveyor/transfer hacia la zona de conversión.
+Las máquinas pueden recibir material desde este sistema.
+
+En el extremo opuesto existe otro conveyor/transfer que permite:
+- reenvíos
+- segunda pasada
+- salida
+- expedición
+
+Análisis específico requerido:
+- reducción de giros
+- reducción de movimientos
+- reducción de transporte
+- reducción de interferencias
+- reducción de cruces
+- reducción de congestión
+- aumento de distancia
+- aumento de longitud de conveyors
+- aumento de inversión
+- aumento de consumo
+- mayor complejidad
+- mayor mantenimiento
+- mayor redundancia
+- puntos únicos de fallo
+
+====================================================================
+7. PRIORIDAD 1 — RECUPERAR LOS LAYOUTS REALES
+====================================================================
+Antes de realizar conclusiones:
+
+Debe localizarse en los repositorios todos los:
+- DWG
+- DXF
+- PDF
+- PNG
+- JPG
+- CAD exports
+- layout documents
+- engineering drawings
+
+relacionados con PAIGE y los modelos A/B.
+
+Debe utilizarse:
+- Industrial Layout Intelligence Workbench
+
+como herramienta principal.
+
+Debe crearse:
+- PAIGE_MODEL_A
+- PAIGE_MODEL_B
+
+como dos escenarios independientes.
+
+No mezclar geometría ni elementos de ambos modelos.
+
+====================================================================
+8. GEOMETRY ENGINE
+====================================================================
+Extraer y validar:
+- dimensiones
+- superficies
+- posiciones
+- orientación
+- distancias
+- pasillos
+- accesos
+- conveyors
+- buffers
+- WIP
+- máquinas
+- zonas de seguridad
+- zonas de mantenimiento
+- entradas
+- salidas
+- expedición
+- almacenes
+
+Calcular automáticamente:
+- Total Area
+- Production Area
+- WIP Area
+- Storage Area
+- Transport Area
+- Aisle Area
+- Unused Area
+- Maintenance Area
+- Safety Area
+
+====================================================================
+9. FACTORY GRAPH
+====================================================================
+Construir un Factory Graph independiente para:
+- MODEL A
+- MODEL B
+
+Cada modelo debe representar:
+- Machines
+- Corrugators
+- Converters
+- WIP
+- Buffers
+- Conveyors
+- Transfers
+- Material Flows
+- Production Flows
+- Storage Locations
+- Expedition
+- Maintenance
+- Safety
+
+El Factory Graph debe permitir comparar ambos modelos matemáticamente.
+
+====================================================================
+10. PRODUCTION MODEL
+====================================================================
+Construir un modelo de producción común para A y B.
+
+Determinar, utilizando documentación existente y benchmarks:
+- velocidades
+- capacidades
+- formatos
+- producción horaria
+- producción por turno
+- turnos
+- OEE
+- disponibilidad
+- cambios de pedido
+- setup
+- batch size
+- scrap
+- WIP generation
+- WIP consumption
+
+Si faltan datos específicos:
+- generar hipótesis. 
+
+Cada hipótesis debe incluir:
+- Value
+- Source
+- Confidence
+- Reasoning
+- Sensitivity
+
+====================================================================
+11. MATERIAL FLOW MODEL
+====================================================================
+Modelar todos los flujos, como mínimo:
+
+Corrugator ↓ WIP ↓ Converter ↓ Printing ↓ Die Cutting ↓ Finishing ↓ Expedition
+
+Incluir:
+- flujo normal
+- flujo de segunda pasada
+- rework
+- material rechazado
+- material pendiente
+- producto terminado
+- expedición
+
+====================================================================
+12. CAPACITY ANALYSIS
+====================================================================
+Para cada modelo determinar:
+- ¿Puede el sistema WIP alimentar todos los conversores?
+- ¿Pueden los conveyors manejar la producción máxima?
+- ¿Pueden los transfer manejar movimientos simultáneos?
+- ¿Puede el WIP absorber la variabilidad de producción?
+- ¿Pueden las máquinas downstream consumir producción lo bastante rápido?
+
+Analizar:
+- Average
+- Peak
+- Worst Case
+- Changeover Scenario
+- High Mix Scenario
+- Low Demand Scenario
+
+====================================================================
+13. BOTTLENECK ANALYSIS
+====================================================================
+Utilizar Engineering Optimizer y Simulation.
+
+Identificar:
+- Physical Bottlenecks
+- Transport Bottlenecks
+- WIP Bottlenecks
+- Machine Bottlenecks
+- Conveyor Bottlenecks
+- Transfer Bottlenecks
+- Storage Bottlenecks
+- Human Interaction Bottlenecks
+
+Calcular:
+- Utilization
+- Queue Time
+- Waiting Time
+- Starvation
+- Blocking
+- WIP Accumulation
+- Throughput Loss
+
+====================================================================
+14. WIP ANALYSIS
+====================================================================
+Comparar:
+- MODEL A: 120 cells
+- MODEL B: 120 + 255 cells
+
+Pero NO considerar la capacidad WIP como ventaja automática.
+
+Determinar:
+- Required WIP
+- Peak WIP
+- Average WIP
+- Safety WIP
+- Maximum WIP
+- WIP turnover
+- WIP aging
+
+Calcular el valor real de las posiciones adicionales.
+
+Determinar si 255 additional cells son realmente necesarias o si producen:
+- exceso de inventario
+- mayor espacio
+- mayor capital inmovilizado
+- mayor manipulación
+
+====================================================================
+15. JUST-IN-TIME ANALYSIS
+====================================================================
+Analizar si una arquitectura más eficiente permite reducir WIP mediante:
+- JIT
+- Dynamic Buffering
+- Demand-driven WIP
+- Smart Allocation
+- Production Synchronization
+
+Comparar:
+- Large Central WIP vs Smaller Dynamic WIP
+
+Determinar:
+- Required Capacity
+- Service Level
+- Risk
+- Response Time
+- Space
+- Cost
+
+====================================================================
+16. CONVEYOR / TRANSFER ANALYSIS
+====================================================================
+Punto crítico.
+
+Comparar A y B respecto a:
+- Total conveyor length
+- Number of transfers
+- Number of direction changes
+- Number of crossings
+- Number of merges
+- Number of diverters
+- Number of accumulation points
+- Number of transfer stations
+
+Calcular:
+- CAPEX
+- OPEX
+- Energy
+- Maintenance
+- Failure points
+- Availability
+- Throughput
+
+====================================================================
+17. ENERGY ANALYSIS
+====================================================================
+Comparar:
+- Conveyor Energy
+- Transfer Energy
+- Machine Energy
+- AMR Energy if applicable
+- Compressed Air
+- Ventilation
+- Auxiliary Systems
+
+Determinar:
+- kWh / sheet
+- kWh / pallet
+- kWh / ton
+- Annual kWh
+- Annual Energy Cost
+
+No afirmar mejoras energéticas sin demostrar la causa.
+
+====================================================================
+18. WASTE / SCRAP ANALYSIS
+====================================================================
+Determinar si alguno de los modelos puede provocar diferencias en:
+- daño de planchas
+- doble manipulación
+- esperas
+- humedad
+- deformación
+- errores de secuencia
+- producto envejecido
+- movimientos adicionales
+- rework
+
+Estimar:
+- Waste %
+- Annual Waste
+- Economic Impact
+
+====================================================================
+19. SPACE OPTIMIZATION
+====================================================================
+Comparar:
+- m² total
+- m² productivos
+- m² WIP
+- m² transporte
+- m² pasillos
+- m² no productivos
+
+Calcular:
+- Production density
+- WIP density
+- Storage density
+- m² / machine
+- m² / production capacity
+
+Determinar cuál modelo aporta mayor valor por m².
+
+====================================================================
+20. PRODUCTIVITY ANALYSIS
+====================================================================
+Comparar:
+- Throughput
+- OEE
+- Availability
+- Performance
+- Quality
+- Machine starvation
+- Machine blocking
+- WIP waiting
+- Transport waiting
+
+Determinar si cualquiera de los layouts limita la capacidad máxima de las máquinas.
+
+Pregunta crítica:
+"¿Puede la zona de conversión operar a la capacidad máxima técnicamente disponible de las máquinas sin que el layout se convierta en el cuello de botella?"
+
+====================================================================
+21. MACHINE FEEDABILITY
+====================================================================
+Para cada máquina:
+- LMC 42"
+- Curioni 2000
+- S&SZLRF/F/G
+- Dong Fang Apstar #1
+- Dong Fang Apstar #2
+- Ward 66"
+- Young Shin 210
+- BOBST SPO 1575
+- Post 74" #1
+- Post 74" #2
+- Post 74" #3
+
+Determinar:
+- Input capacity
+- Required feed rate
+- WIP requirement
+- Buffer requirement
+- Transport distance
+- Transport frequency
+- Peak demand
+- Potential starvation
+- Potential blocking
+
+Generar matriz:
+- Machine
+- Required Feed
+- Available Feed
+- Capacity Utilization
+- Starvation Risk
+- Blocking Risk
+- Layout A
+- Layout B
+
+====================================================================
+22. SECOND PASS / REWORK
+====================================================================
+Modelar especialmente el flujo de:
+First Pass ↓ Conversion ↓ Second Pass
+
+Comparar A y B en:
+- distancia
+- transferencias
+- tiempo
+- congestión
+- interferencias
+- coste
+
+====================================================================
+23. EXPEDITION FLOW
+====================================================================
+Analizar:
+Conversion ↓ Finished Product ↓ Expedition
+
+Determinar si cualquiera de los layouts genera:
+- cruces
+- retrocesos
+- tráfico
+- interferencias
+- recorridos excesivos
+
+====================================================================
+24. SAFETY
+====================================================================
+Analizar:
+- circulación
+- cruces
+- separación
+- accesos
+- evacuación
+- mantenimiento
+- interacción operador/máquina
+- interacción logística/producción
+
+No realizar certificaciones legales.
+
+Identificar riesgos de diseño que deban ser revisados por ingeniería especializada.
+
+====================================================================
+25. MAINTENANCE
+====================================================================
+Comparar:
+- Machine accessibility
+- Conveyor accessibility
+- Transfer accessibility
+- Maintenance routes
+- Spare access
+- Isolation zones
+- Emergency access
+
+Determinar impacto operacional.
+
+====================================================================
+26. FLEXIBILITY
+====================================================================
+Comparar capacidad del modelo para soportar:
+- More SKUs
+- More production
+- More converters
+- More shifts
+- More product variants
+- Future AMR
+- Future automation
+- Additional WIP
+- Additional machines
+
+====================================================================
+27. FUTURE AMR COMPATIBILITY
+====================================================================
+Aunque A/B puedan diseñarse inicialmente con conveyors, evaluar:
+- AMR integration
+- AMR routes
+- AMR docking
+- AMR buffers
+- AMR charging
+- Human/AMR coexistence
+
+Determinar qué modelo presenta mejor arquitectura para una futura automatización.
+
+====================================================================
+28. SIMULATION
+====================================================================
+Crear como mínimo:
+- Scenario A — Base
+- Scenario B — Base
+- Scenario A — Peak
+- Scenario B — Peak
+- Scenario A — High Mix
+- Scenario B — High Mix
+- Scenario A — Reduced WIP
+- Scenario B — Reduced WIP
+- Scenario A — Maximum Machine Capacity
+- Scenario B — Maximum Machine Capacity
+
+Si los datos lo permiten:
+- Monte Carlo
+- Sensitivity Analysis
+- Stress Testing
+
+====================================================================
+29. ECONOMIC MODEL
+====================================================================
+Comparar:
+
+CAPEX
+- WIP infrastructure
+- Conveyors
+- Transfers
+- Storage
+- Structural modifications
+- Automation
+- Controls
+- Safety
+- Installation
+- Engineering
+
+OPEX
+- Energy
+- Maintenance
+- Labor
+- Downtime
+- Waste
+- Handling
+
+INDIRECT COST
+- Lost capacity
+- Starvation
+- Blocking
+- Additional WIP
+- Capital tied in inventory
+- Future expansion
+
+Calcular:
+- Total Cost of Ownership
+- 5 years
+- 10 years
+
+====================================================================
+30. EXECUTIVE SCORE
+====================================================================
+Cada modelo deberá recibir una puntuación según:
+
+- Production Capacity 20%
+- Flow Efficiency 15%
+- WIP Efficiency 10%
+- Space Efficiency 10%
+- CAPEX 10%
+- OPEX 10%
+- Energy 5%
+- Waste 5%
+- Flexibility 5%
+- Maintenance 5%
+- Safety 5%
+
+Los pesos pueden modificarse solo si el análisis demuestra una ponderación más adecuada.
+Documentar cualquier cambio.
+
+====================================================================
+31. SENSITIVITY ANALYSIS
+====================================================================
+Determinar cuándo cambia la decisión.
+
+Ejemplos:
+- If production increases +10%
+- If production increases +20%
+- If OEE decreases
+- If changeovers increase
+- If WIP demand increases
+- If energy price increases
+- If labor cost increases
+- If AMR is introduced
+- If machine capacity increases
+
+Determinar:
+"¿En qué condiciones A pasa a ser mejor que B y viceversa?"
+
+====================================================================
+32. AHDE
+====================================================================
+Si aparecen incertidumbres:
+- Generate Hypotheses
+- Simulate
+- Calculate KPI
+- Score
+- Select best hypothesis
+- Continue
+
+No detenerse por falta de información.
+
+====================================================================
+33. KNOWLEDGE CASCADE
+====================================================================
+Cada dato validado debe provocar automáticamente:
+- Identify dependencies
+- Identify missing information
+- Generate complementary searches
+- Validate
+- Update Knowledge Graph
+- Update Factory Graph
+- Update Models
+- Recalculate scenarios
+
+Las búsquedas deberán utilizar:
+- IS_BACKOFFICE
+- Knowledge Hub
+- documentos existentes
+- informes anteriores
+- datos de proyectos
+- benchmarks sectoriales
+- documentación técnica
+- información de fabricantes
+- conocimiento industrial validado
+
+====================================================================
+34. EVIDENCE
+====================================================================
+Todo dato crítico deberá registrar:
+- Source
+- Evidence
+- Confidence
+- Date
+- Applicability
+- Assumption / Fact
+
+Clasificación: FACT / BENCHMARK / ENGINEERING ESTIMATE / ASSUMPTION / HYPOTHESIS / UNKNOWN
+
+====================================================================
+35. DELIVERABLES
+====================================================================
+Generar:
+- PAIGE_LAYOUT_A_VS_B_EXECUTIVE_REPORT.html
+- PAIGE_LAYOUT_A_VS_B_ENGINEERING_REPORT.html
+- PAIGE_LAYOUT_A_VS_B_ECONOMIC_ANALYSIS.html
+- PAIGE_LAYOUT_A_VS_B_SIMULATION_REPORT.html
+- PAIGE_LAYOUT_A_VS_B_EVIDENCE_REGISTER.md
+- PAIGE_LAYOUT_A_VS_B_ASSUMPTIONS.md
+- PAIGE_LAYOUT_A_VS_B_DECISION_REGISTER.md
+
+Y actualizar:
+- Knowledge Hub
+- Enterprise Memory
+- Knowledge Graph
+- Factory Graph
+- Mission Manager
+
+====================================================================
+36. RESULTADO FINAL
+====================================================================
+El informe debe responder claramente:
+1. ¿Cuál de los dos layouts es técnicamente superior?
+2. ¿Cuál proporciona mayor capacidad productiva?
+3. ¿Cuál alimenta mejor las máquinas?
+4. ¿Cuál tiene menor riesgo de cuello de botella?
+5. ¿Cuál necesita menos WIP real?
+6. ¿Cuál utiliza mejor el espacio?
+7. ¿Cuál tiene menor CAPEX?
+8. ¿Cuál tiene menor OPEX?
+9. ¿Cuál consume menos energía?
+10. ¿Cuál genera menor desperdicio?
+11. ¿Cuál tiene mejor mantenimiento?
+12. ¿Cuál tiene mayor flexibilidad?
+13. ¿Cuál tiene mejor potencial de automatización?
+14. ¿Cuál tiene mejor arquitectura para AMR?
+15. ¿Cuál tiene mejor ROI/TCO?
+16. ¿Cuál es más robusto ante crecimiento?
+17. ¿Qué riesgos presenta cada alternativa?
+18. ¿Qué modificaciones mejorarían cada modelo?
+19. ¿En qué condiciones cambiaría la recomendación?
+20. ¿Cuál recomienda AI_FACTORY y por qué?
+
+====================================================================
+37. REGLA FINAL
+====================================================================
+No entregar simplemente:
+- A is better
+ni:
+- B is better
+
+Entregar:
+- RECOMMENDATION
+- EVIDENCE
+- CALCULATIONS
+- SIMULATION
+- ASSUMPTIONS
+- RISKS
+- SENSITIVITY
+- ECONOMIC IMPACT
+- ENGINEERING RATIONALE
+
+Si los datos actuales no permiten una conclusión robusta:
+- DO NOT STOP
+- identificar el dato que falta
+- generar la búsqueda
+- validarlo
+- actualizar el modelo
+- recalcular
+- continuar
+
+====================================================================
+38. COMPLETION CRITERIA
+====================================================================
+La misión solo podrá considerarse completada cuando:
+- ambos layouts hayan sido reconstruidos/validados en Layout Workbench
+- ambos estén representados en Factory Graph
+- los flujos principales estén modelados
+- las máquinas estén identificadas
+- la capacidad WIP haya sido modelada
+- la alimentación de máquinas haya sido simulada
+- los principales cuellos de botella hayan sido identificados
+- A y B hayan sido comparados bajo escenarios equivalentes
+- CAPEX/OPEX/TCO hayan sido comparados
+- energía y desperdicio hayan sido analizados
+- espacio y densidad hayan sido cuantificados
+- flexibilidad y escalabilidad hayan sido evaluadas
+- los principales riesgos hayan sido identificados
+- las hipótesis estén documentadas
+- la evidencia esté registrada
+- los resultados estén almacenados en Knowledge Hub / Enterprise Memory
+- los Quality Gates hayan sido superados
+- AI_FACTORY haya emitido una recomendación basada en evidencia
+
+En cada acción:
+UPDATE CURRENT STATE ↓ UPDATE GAP ↓ GENERATE NEW KNOWLEDGE GAPS ↓ UPDATE MISSION ↓ CONTINUE
+
+No entrar en estado idle mientras existan acciones ejecutables relacionadas con esta misión.
+
+====================================================================
+39. CATALOG OF MACHINE DATA FOR KNOWLEDGE HUB / LAYOUT WORKBENCH
+====================================================================
+A continuación se documenta el catálogo técnico de máquinas del proyecto, pensado para ser cargado en Knowledge Hub, Knowledge Graph, Enterprise Memory y bases de conocimiento del Layout Workbench.
+
+39.1 FOSBER S/LINE (2 unidades)
+- Tipo: Corrugadora / corrugado principal
+- Familia: Corrugado
+- Modelo base: Fosber S/LINE
+- Unidades: 2
+- Función: producir cartón corrugado base para conversión y venta de plancha
+- Capacidad requerida: alta, dependiente de ancho, gramaje, velocidad y formato final
+- Alimentación: rollos de papel / cartón base y flujo continuo por línea
+- Salida: planchas o corrugado intermedio para WIP / conversión
+- Restricciones: sincronización entre corrugadoras y zona de conversión; riesgo de starvation/blocaje por WIP y transporte
+- Indicadores críticos: velocidad, OEE, setup, disponibilidad, flujo de rollos, calidad del corrugado
+- Layout impact: define la tasa de generación de WIP, la carga del transfer y la capacidad del sistema de alimentación a conversión
+- Relevance: nodo crítico del sistema; cuellos de botella físicos y logísticos
+
+39.2 LMC 42" FFG
+- Tipo: Flexo Folder Gluer / conversión final
+- Familia: FFG
+- Función: impresión, plegado, formado y pegado de cajas finales
+- Capacidad esperada: dependerá de formato, ancho y nivel de calidad requerido
+- Entrada: material corrugado y/o planchas en flujo continuo
+- Salida: cajas formadas y preparadas para paletizado/expeición
+- Indicadores críticos: velocidad de línea, setup, calidad de impresión/pegado, OEE, tasa de scrap
+- Layout impact: debe recibir material desde WIP o conveyor sin saturar / bloquear flujo de corrugado
+- Relevance: nodo crítico para entrega final y secuenciación por cliente y prioridad
+
+39.3 Curioni 2000 78"
+- Tipo: conversión / máquina de corte/forma/finishing especializado
+- Familia: conversión lineal
+- Función: procesamiento de planchas y cajas para conversión final o intermedia
+- Carga esperada: alta, y muy condicionada por la secuencia de formatos y calendario de producción
+- Indicadores críticos: OEE, setup, tasa de bloqueo por falta de material, capacidad por hoja/formato
+- Layout impact: requiere flujo ordenado y soporte logístico continuo desde WIP
+
+39.4 S&SZLRF/F/G
+- Tipo: sistema de conversión / línea de corte y acabado ligado a procesos de caja o plancha
+- Familia: conversion line / finishing
+- Función: apoyar procesos de sala de conversión con alto volumen y trazabilidad
+- Indicadores críticos: tiempo de ciclo, disponibilidad, defectos, colas, prioridad por SKU
+- Layout impact: hay que evaluar si su alimentación es directa desde WIP fijo o desde transfer automático
+
+39.5 Dong Fang Apstar Rotativo (2 unidades)
+- Tipo: rotativo / impresión / troquelado continuo
+- Familia: rotary converting
+- Unidades: 2
+- Función: impresión / corte rotativo / troquelado continuo de planchas y piezas
+- Capacidad esperada: importante, especialmente en alta frecuencia y tiradas medias/altas
+- Indicadores críticos: velocidad, registro, setup, disponibilidad, mantenimiento de cilindros, defectos por alineación
+- Layout impact: requiere flujo de planchas estable, coordinación con WIP, y evaluación de desviaciones por cuellos de botella intermedios
+
+39.6 Ward 66" Rotativo
+- Tipo: rotativo / impresión y corte continuo
+- Familia: rotary converting
+- Función: producir piezas y planchas con ciclos de alta velocidad, muy dependiente de formato y alineación
+- Indicadores críticos: registro, patrón de alimentación, mantenimiento de rodillos y cilindros, OEE
+- Layout impact: necesita flujo continuo y robusto; susceptible a starvation/blocaje si el layout tiene cruces o transfer lentos
+
+39.7 Young Shin 210 Plano
+- Tipo: troqueladora plana / conversión de piezas complejas
+- Familia: flat die cutting
+- Función: troquelado/forma de piezas complejas, tiradas específicas o productos de alto valor añadido
+- Indicadores críticos: setup, tiempo de cambio, mantenimiento de cuchillas, scrap, tolerancias, capacidad por formato
+- Layout impact: especialmente sensible a stock intermedio, rework y desplazamientos de material; ideal para estudiar WIP y flujo de segunda pasada
+
+39.8 BOBST SPO 1575 Plano
+- Tipo: troqueladora plana / conversión final especializada
+- Familia: flat die cutting / finishing
+- Función: troquelado superior, cortes complejos, producción de piezas con alta precisión
+- Indicadores críticos: velocidad de pase, setup, precisión de corte, mantenimiento del troquel, calidad, limpieza y scrap
+- Layout impact: carece de valor si el flujo logístico no alimenta la máquina de forma estable y sin bloqueos
+
+39.9 Post 74" (3 unidades)
+- Tipo: acabado / pegado / cierre / finalización
+- Familia: finishing / post processing
+- Unidades: 3
+- Función: acabado, montaje, pegado y preparación final antes de expedición
+- Indicadores críticos: velocidad de producto terminado, calidad de pegado, OEE, flujo de salida, paletización y expedición
+- Layout impact: refleja la capacidad de salida de la zona; si se restringe la salida, el sistema se vuelve cuello de botella
+
+====================================================================
+40. CRITERIA DE CLASIFICACIÓN PARA LAYOUT WORKBENCH
+====================================================================
+Cada máquina debe registrarse en el conocimiento del Layout Workbench con la siguiente estructura:
+
+- machine_id
+- equipment_name
+- family
+- subfamily
+- function
+- process_stage
+- area
+- x_position
+- y_position
+- orientation
+- upstream_dependency
+- downstream_dependency
+- required_feed_rate
+- nominal_capacity
+- theoretical_capacity
+- practical_capacity
+- oee_target
+- average_setup_time_min
+- average_changeover_min
+- required_buffer_units
+- safety_zone_m
+- maintenance_zone_m
+- conveyor_connection_required
+- transfer_required
+- material_type_handled
+- product_family
+- sku_family
+- plays_role_in_second_pass
+- critical_for_delivery
+- critical_for_wip
+- risk_of_starvation
+- risk_of_blocking
+- data_confidence
+- source_type
+- source_reference
+
+====================================================================
+41. REQUISITOS PARA SABER SI EL LAYOUT ES VIABLE
+====================================================================
+El modelo A o B será viable solo si cumple todas estas condiciones:
+- alimentación continua a todas las máquinas
+- WIP suficiente para absorver variabilidad sin bloquear el proceso
+- transfer y conveyors capaces de sostener picos de demanda
+- no existen cruces críticos entre flujos productivos y de expedición
+- no existen zonas de bloqueo por cambios de orientación o transfer innecesarios
+- la capacidad de conversión no queda limitada por logística
+- el flujo de segunda pasada no interrumpe la producción de primera pasada
+- se mantienen accesos de mantenimiento y seguridad
+- el diseño no exige más WIP del estrictamente necesario
+- la solución sigue siendo escalable y compatible con automatización futura
+
+====================================================================
+42. CATEGORÍA DE HIPÓTESIS PARA LA DECISIÓN FINAL
+====================================================================
+Cada hipótesis deberá quedar clasificada en una de estas categorías:
+- FACT
+- BENCHMARK
+- ENGINEERING ESTIMATE
+- ASSUMPTION
+- HYPOTHESIS
+- UNKNOWN
+
+Ejemplos de hipótesis relevantes:
+- B reduce giros y transferencias, pero aumenta distancia total y longitud de transporte.
+- A tiene menor capacidad WIP, pero requiere más manipulación y mayores tiempos de giro.
+- B necesita más espacio y más inversión, pero ofrece mejor flujo de salida y expedición.
+- A podría ser superior e n entornos de producción estática y baja variabilidad.
+- B podría ser superior en escenarios de alto mix, mayor demanda y mayor necesidad de flexibilidad.
+
+====================================================================
+43. OUTPUT FINAL ESPERADO DE LA MISIÓN
+====================================================================
+AI_FACTORY debe producir una recomendación final con esta lógica:
+
+RECOMMENDATION
++ EVIDENCE
++ CALCULATIONS
++ SIMULATION
++ ASSUMPTIONS
++ RISKS
++ SENSITIVITY
++ ECONOMIC IMPACT
++ ENGINEERING RATIONALE
+
+Con esta estructura mínima:
+1. Layout recomendado
+2. Por qué
+3. Bajas / altas / riesgos
+4. Impacto de WIP
+5. Impacto de transport / conveyors / transfer
+6. Impacto de flujo y capacidad
+7. CAPEX/OPEX/TCO
+8. Sensibilidad ante crecimiento y cambios de producto
+9. Criterio final de decisión
+
+====================================================================
+44. CONCLUSIÓN PRÁCTICA
+====================================================================
+La decisión entre MODEL A y MODEL B no debe basarse en la intuición de que “más WIP es mejor” o “menos WIP es siempre mejor”.
+La decisión correcta se obtiene analizando:
+- flujo real del material
+- capacidad de la zona de conversión
+- WIP mínimo necesario para un servicio robusto
+- riesgo de congestionamiento
+- coste total del diseño
+- mantenimiento y seguridad
+- facilidad para distribuir la producción y la expedición
+- capacidad para la automatización futura
+
+La misión de AI_FACTORY es demostrar, con evidencia y análisis, cuál modelo es superior para PAIGE bajo condiciones reales de operación y crecimiento futuro.
+
+====================================================================
+FIN DEL INFORME DE MISIÓN

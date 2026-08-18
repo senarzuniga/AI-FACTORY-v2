@@ -123,6 +123,9 @@
       font-size: 0.88rem;
     }
 
+    button.task-item { color: var(--ink); text-align: left; cursor: pointer; width: 100%; }
+    button.task-item:hover, button.task-item.active { border-color: var(--cyan); color: var(--cyan); }
+
     .left-item {
       display: flex;
       justify-content: space-between;
@@ -161,6 +164,15 @@
     }
 
     .btn:hover { background: rgba(23, 49, 38, 0.85); }
+    .btn.active { border-color: var(--cyan); color: var(--cyan); background: rgba(143, 231, 223, 0.12); }
+    .btn.primary {
+      border-color: var(--mint);
+      background: var(--mint);
+      color: #07150f;
+      font-weight: 700;
+    }
+    .btn.primary:hover { background: #a2efd0; }
+    .btn:disabled { cursor: wait; opacity: 0.65; }
 
     .viewer-canvas {
       border: 1px solid var(--line);
@@ -175,6 +187,58 @@
       min-height: 440px;
       overflow: hidden;
     }
+
+    .viewer-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    .viewer-node {
+      position: absolute;
+      min-width: 8px;
+      min-height: 8px;
+      max-width: 150px;
+      border: 1px solid var(--mint);
+      background: rgba(122, 216, 168, 0.24);
+      color: var(--ink);
+      padding: 2px 4px;
+      font-size: 0.65rem;
+      overflow: hidden;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .viewer-node[data-kind="buffer"] { border-color: var(--amber); background: rgba(255, 189, 89, 0.22); }
+    .viewer-node[data-kind="warehouse"] { border-color: #d8b4fe; background: rgba(216, 180, 254, 0.18); }
+    .viewer-node[data-kind="amr_route"] { border-color: var(--red); background: rgba(255, 127, 127, 0.2); }
+    .viewer-node[data-kind="logistic_route"],
+    .viewer-node[data-kind="conveyor"],
+    .viewer-node[data-kind="transfer"],
+    .viewer-node[data-kind="waste_line"] { border-color: var(--cyan); background: rgba(143, 231, 223, 0.18); }
+
+    .viewer-edge {
+      position: absolute;
+      height: 1px;
+      background: rgba(143, 231, 223, 0.34);
+      transform-origin: left center;
+      z-index: 1;
+    }
+
+    .viewer-empty,
+    .viewer-legend {
+      position: absolute;
+      z-index: 4;
+      border: 1px solid var(--line);
+      background: rgba(6, 17, 13, 0.9);
+      padding: 8px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .viewer-empty { inset: 40% auto auto 50%; transform: translate(-50%, -50%); }
+    .viewer-legend { right: 8px; top: 8px; display: grid; gap: 3px; }
 
     .machine,
     .flow,
@@ -278,6 +342,62 @@
       min-height: 18px;
     }
 
+    .analysis-summary,
+    .analysis-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(6, 17, 13, 0.5);
+      padding: 9px;
+    }
+
+    .analysis-grid,
+    .analysis-lists {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .operational-report { display: grid; gap: 8px; margin-top: 10px; }
+    .report-table { width: 100%; border-collapse: collapse; font-size: 0.76rem; }
+    .report-table th, .report-table td { text-align: left; padding: 5px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .report-table th { color: var(--cyan); }
+    .report-meta { color: var(--muted); font-size: 0.76rem; margin-top: 5px; }
+    .consulting-card { border-left: 3px solid var(--cyan); }
+    .consulting-card[data-priority="P0"] { border-left-color: var(--red); }
+    .consulting-card[data-priority="P1"] { border-left-color: var(--amber); }
+    .consulting-head { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+    .consulting-domain { color: var(--cyan); font-size: 0.72rem; text-transform: uppercase; }
+
+    .analysis-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .analysis-card strong {
+      display: block;
+      color: var(--mint);
+      font-size: 1.05rem;
+      margin-top: 4px;
+    }
+
+    .analysis-list-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+
+    .analysis-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .analysis-list li + li {
+      margin-top: 4px;
+    }
+
     a {
       color: var(--cyan);
       text-decoration: none;
@@ -336,6 +456,7 @@
           <div class="upload-box">
             <div style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.03em;">Layout Upload</div>
             <div class="upload-actions">
+              <button class="btn primary" id="btn-load-demo" type="button">Load Demo Layout</button>
               <button class="btn" id="btn-upload-dwg" type="button">Upload DWG</button>
               <button class="btn" id="btn-upload-dxf" type="button">Upload DXF</button>
               <button class="btn" id="btn-upload-pdf" type="button">Upload PDF Vector</button>
@@ -344,6 +465,12 @@
             </div>
             <div id="upload-log" class="upload-log">No file loaded.</div>
           </div>
+
+          <h3 style="margin:0 0 8px; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.03em;">Plant State</h3>
+          <div id="analysis-summary" class="analysis-summary">No runtime analysis yet. Upload a DXF, DWG, SVG, or JSON layout to populate direct plant-state diagnostics.</div>
+          <div id="analysis-grid" class="analysis-grid"></div>
+          <div id="analysis-lists" class="analysis-lists"></div>
+          <div id="operational-report" class="operational-report"></div>
 
           <div class="task-list" id="task-list"></div>
           <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">Ask AI Coordinator and mission actions are connected through cognitive OS APIs.</div>
@@ -416,13 +543,20 @@
       "Ask AI Coordinator"
     ];
 
-    const kpis = [
+    let runtimeKpis = [
       { label: "Detected Machines", value: "24" },
       { label: "Flow Segments", value: "18" },
       { label: "AMR Routes", value: "7" },
       { label: "WIP Areas", value: "5" },
       { label: "Annotations", value: "14" }
     ];
+
+    let analysisState = null;
+    let viewerFilter = "all";
+    let viewerZoom = 1;
+    let viewerShowLabels = true;
+    let viewerShowLegend = false;
+    let consultingFilter = null;
 
     const uploadState = {
       dwgLoaded: false,
@@ -454,27 +588,88 @@
       }).join("");
 
       const toolbar = document.getElementById("toolbar");
-      toolbar.innerHTML = centerTools.map((tool) => `<button class="btn" type="button">${tool}</button>`).join("");
+      const activeToolByFilter = { all: "Object Detection", machine: "Machine Detection", flow: "Flow Detection", conveyor: "Conveyor Detection", transfer: "Transfer Detection", amr: "AMR Routes", waste: "Waste Lines", wip: "WIP Areas", warehouse: "Warehouse" };
+      toolbar.innerHTML = centerTools.map((tool) => `<button class="btn${activeToolByFilter[viewerFilter] === tool ? " active" : ""}" data-viewer-tool="${escapeHtml(tool)}" type="button">${escapeHtml(tool)}</button>`).join("");
 
       const taskList = document.getElementById("task-list");
-      taskList.innerHTML = tasks.map((task) => `<div class="task-item">${task}</div>`).join("");
+      const taskDomains = {
+        "Analyze bottlenecks": "intralogistics", "Optimize layout": "intralogistics", "Estimate OEE": "oee",
+        "Estimate ROI": "amr", "Generate WIP cells": "intralogistics", "Optimize AMRs": "amr",
+        "Optimize Ingetrans": "amr", "Reduce forklifts": "amr", "Improve safety": "safety",
+        "Generate proposal": "all", "Generate Executive Report": "all", "Compare scenarios": "scenarios",
+        "Ask AI Coordinator": "all"
+      };
+      taskList.innerHTML = tasks.map((task) => `<button class="task-item${consultingFilter === taskDomains[task] ? " active" : ""}" data-consulting-domain="${escapeHtml(taskDomains[task] || "all")}" type="button">${escapeHtml(task)}</button>`).join("");
 
       const kpiStrip = document.getElementById("kpi-strip");
-      kpiStrip.innerHTML = kpis.map((item) => `<div class="kpi"><div>${item.label}</div><strong>${item.value}</strong></div>`).join("");
+      kpiStrip.innerHTML = runtimeKpis.map((item) => `<div class="kpi"><div>${item.label}</div><strong>${item.value}</strong></div>`).join("");
     }
 
     function renderViewerMock() {
       const canvas = document.getElementById("viewer-canvas");
-      canvas.innerHTML = [
-        '<div class="machine" style="left:8%;top:12%;">Press #1</div>',
-        '<div class="machine" style="left:33%;top:17%;">Cutter #2</div>',
-        '<div class="machine" style="left:62%;top:22%;">Reel Loader</div>',
-        '<div class="flow" style="left:17%;top:46%;">Flow A -> B</div>',
-        '<div class="flow" style="left:53%;top:52%;">Flow B -> C</div>',
-        '<div class="wip" style="left:24%;top:69%;">WIP Cell North</div>',
-        '<div class="wip" style="left:70%;top:65%;">Warehouse Buffer</div>',
-        '<div class="amr" style="left:43%;top:78%;">AMR Route R-07</div>'
-      ].join("");
+      if (!analysisState) {
+        canvas.innerHTML = '<div class="viewer-empty">Load a layout to display detected objects and flows.</div>';
+        return;
+      }
+      const graph = analysisState.factory_graph || {};
+      const allNodes = Array.isArray(graph.nodes) ? graph.nodes : [];
+      const filterKinds = {
+        machine: ["machine"], flow: ["logistic_route", "process"], conveyor: ["conveyor"],
+        transfer: ["transfer"], amr: ["amr_route"], waste: ["waste_line"],
+        wip: ["buffer"], warehouse: ["warehouse"]
+      };
+      const allowed = filterKinds[viewerFilter] || null;
+      const nodes = allowed ? allNodes.filter((node) => allowed.includes(node.kind)) : allNodes;
+      if (!nodes.length) {
+        canvas.innerHTML = `<div class="viewer-empty">No ${escapeHtml(viewerFilter)} objects detected in the viewer sample.</div>`;
+        return;
+      }
+      const centers = nodes.map((node) => Array.isArray(node.center) ? node.center : [0, 0]);
+      const xs = centers.map((point) => Number(point[0]) || 0);
+      const ys = centers.map((point) => Number(point[1]) || 0);
+      const minX = Math.min(...xs); const maxX = Math.max(...xs); const spanX = Math.max(maxX - minX, 1);
+      const minY = Math.min(...ys); const maxY = Math.max(...ys); const spanY = Math.max(maxY - minY, 1);
+      const positions = new Map(nodes.map((node) => {
+        const center = Array.isArray(node.center) ? node.center : [0, 0];
+        return [node.id, { x: 4 + ((Number(center[0]) - minX) / spanX) * 90, y: 4 + ((Number(center[1]) - minY) / spanY) * 88 }];
+      }));
+      const edges = (Array.isArray(graph.edges) ? graph.edges : []).filter((edge) => positions.has(edge.source) && positions.has(edge.target));
+      const edgeHtml = edges.map((edge) => {
+        const source = positions.get(edge.source); const target = positions.get(edge.target);
+        const dx = target.x - source.x; const dy = target.y - source.y;
+        const length = Math.sqrt(dx * dx + dy * dy); const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+        return `<div class="viewer-edge" title="${escapeHtml(edge.relation)}" style="left:${source.x}%;top:${source.y}%;width:${length}%;transform:rotate(${angle}deg)"></div>`;
+      }).join("");
+      const nodeHtml = nodes.map((node) => {
+        const position = positions.get(node.id);
+        const label = viewerShowLabels ? escapeHtml(node.label || node.kind) : "";
+        return `<div class="viewer-node" data-kind="${escapeHtml(node.kind)}" title="${escapeHtml(node.label)} | ${escapeHtml(node.layer)} | confidence ${escapeHtml(node.confidence)}" style="left:${position.x}%;top:${position.y}%">${label}</div>`;
+      }).join("");
+      const legend = viewerShowLegend
+        ? `<div class="viewer-legend">${Object.entries(graph.kind_counts || {}).map(([kind, count]) => `<div>${escapeHtml(kind)}: <strong>${escapeHtml(count)}</strong></div>`).join("")}</div>`
+        : "";
+      canvas.innerHTML = `<div class="viewer-stage" style="transform:scale(${viewerZoom})">${edgeHtml}${nodeHtml}</div>${legend}`;
+    }
+
+    function handleViewerTool(tool) {
+      const mapping = {
+        "Object Detection": "all", "Machine Detection": "machine", "Flow Detection": "flow",
+        "Conveyor Detection": "conveyor", "Transfer Detection": "transfer", "AMR Routes": "amr",
+        "Waste Lines": "waste", "WIP Areas": "wip", "Warehouse": "warehouse"
+      };
+      if (tool === "Zoom") {
+        viewerZoom = viewerZoom >= 1.6 ? 1 : Number((viewerZoom + 0.2).toFixed(1));
+      } else if (tool === "Layers") {
+        viewerShowLegend = !viewerShowLegend;
+      } else if (tool === "Annotations") {
+        viewerShowLabels = !viewerShowLabels;
+      } else if (tool === "Measurements") {
+        document.getElementById("operational-report")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (mapping[tool]) {
+        viewerFilter = mapping[tool];
+        document.querySelectorAll("[data-viewer-tool]").forEach((button) => button.classList.toggle("active", button.dataset.viewerTool === tool));
+      }
+      renderViewerMock();
     }
 
     function statusChip(status) {
@@ -488,15 +683,198 @@
       return { klass: "partial", label: "Under Development" };
     }
 
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function formatMetric(value, digits = 2) {
+      if (!Number.isFinite(Number(value))) {
+        return "n/a";
+      }
+      return Number(value).toFixed(digits);
+    }
+
+    function extractLayoutAnalysis(payload) {
+      if (!payload || typeof payload !== "object") {
+        return null;
+      }
+      if (payload.result && payload.result.result && Number.isFinite(payload.result.result.parsed_entities)) {
+        return payload.result.result;
+      }
+      if (payload.result && Number.isFinite(payload.result.parsed_entities)) {
+        return payload.result;
+      }
+      if (Number.isFinite(payload.parsed_entities)) {
+        return payload;
+      }
+      return null;
+    }
+
+    function renderAnalysisPanel() {
+      const summary = document.getElementById("analysis-summary");
+      const grid = document.getElementById("analysis-grid");
+      const lists = document.getElementById("analysis-lists");
+      const report = document.getElementById("operational-report");
+
+      if (!analysisState) {
+        summary.textContent = "No runtime analysis yet. Upload a DXF, DWG, SVG, or JSON layout to populate direct plant-state diagnostics.";
+        grid.innerHTML = "";
+        lists.innerHTML = "";
+        report.innerHTML = "";
+        return;
+      }
+
+      const plant = analysisState.plant_state_report || {};
+      const simulation = analysisState.simulation || {};
+      const graph = analysisState.factory_graph || {};
+      const status = String(plant.state_status || "unknown").replaceAll("_", " ");
+      const score = formatMetric(plant.state_score, 2);
+      const bottlenecks = Array.isArray(simulation.bottlenecks) ? simulation.bottlenecks.length : 0;
+
+      summary.innerHTML = `State: <strong>${escapeHtml(status)}</strong> | score ${escapeHtml(score)} | nodes ${escapeHtml(graph.node_count ?? 0)} | entities ${escapeHtml(analysisState.parsed_entities ?? 0)}`;
+
+      const snapshot = plant.kpi_snapshot || {};
+      grid.innerHTML = [
+        { label: "OEE", value: formatMetric(snapshot.oee, 3) },
+        { label: "ROI", value: formatMetric(snapshot.roi, 3) },
+        { label: "Starvation Risk", value: formatMetric(snapshot.starvation_risk, 3) },
+        { label: "JIT Readiness", value: formatMetric(snapshot.jit_readiness, 3) },
+        { label: "AMR Coverage", value: formatMetric(snapshot.amr_coverage, 3) },
+        { label: "Bottlenecks", value: String(bottlenecks) },
+      ].map((item) => `<div class="analysis-card"><div>${escapeHtml(item.label)}</div><strong>${escapeHtml(item.value)}</strong></div>`).join("");
+
+      const sections = [
+        { title: "Problems", items: plant.problems || [] },
+        { title: "Opportunities", items: plant.opportunities || [] },
+        { title: "Priority Actions", items: plant.priority_actions || [] },
+        { title: "AMR Recommendations", items: (analysisState.engineering_analysis || {}).amr_recommendations || [] },
+      ];
+
+      lists.innerHTML = sections.map((section) => {
+        const items = Array.isArray(section.items) && section.items.length
+          ? section.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+          : "<li>No items</li>";
+        return `<div class="analysis-card"><div class="analysis-list-title">${escapeHtml(section.title)}</div><ul class="analysis-list">${items}</ul></div>`;
+      }).join("");
+
+      renderOperationalReport(report);
+    }
+
+    function renderOperationalReport(report) {
+      const operational = analysisState.operational_summary || {};
+      const overview = operational.overview || {};
+      const measurements = operational.measurements || {};
+      const flows = operational.flows || {};
+      const amr = operational.amr_assessment || {};
+      const equipment = Array.isArray(operational.equipment) ? operational.equipment : [];
+      const processes = Array.isArray(operational.processes) ? operational.processes : [];
+      const maintenance = operational.maintenance || {};
+      const improvements = Array.isArray(operational.improvements) ? operational.improvements : [];
+      const problems = Array.isArray(operational.problems) ? operational.problems : [];
+      const consulting = operational.consulting_report || {};
+      const list = (items) => items.length ? items.map((item) => `<li>${escapeHtml(item)}</li>`).join("") : "<li>No specific items detected.</li>";
+      const equipmentRows = equipment.slice(0, 30).map((item) => `<tr><td>${escapeHtml(item.label)}</td><td>${escapeHtml(item.layer)}</td><td>${escapeHtml(formatMetric(item.estimated_capacity_units_per_hour, 1))}</td><td>${escapeHtml(formatMetric(item.confidence, 2))}</td></tr>`).join("");
+      const processRows = processes.slice(0, 30).map((item) => `<tr><td>${escapeHtml(item.label)}</td><td>${escapeHtml(item.layer)}</td><td>${escapeHtml(item.basis || "unknown")}</td><td>${escapeHtml(formatMetric(item.confidence, 2))}</td></tr>`).join("");
+      report.innerHTML = `
+        <div class="analysis-card"><div class="analysis-list-title">Layout Summary</div><div class="report-meta">${escapeHtml(overview.total_entities || 0)} entities | ${escapeHtml(overview.total_connections || 0)} connections | estimated capacity ${escapeHtml(formatMetric(overview.production_capacity_units_per_hour, 1))} units/h. Capacity requires OEM and site validation.</div></div>
+        <div class="analysis-card"><div class="analysis-list-title">Measurements</div><table class="report-table"><tbody>
+          <tr><td>WIP area</td><td>${escapeHtml(formatMetric(measurements.wip_area_square_units, 2))} drawing units²</td></tr>
+          <tr><td>Transfer area</td><td>${escapeHtml(formatMetric(measurements.transfer_area_square_units, 2))} drawing units²</td></tr>
+          <tr><td>Warehouse area</td><td>${escapeHtml(formatMetric(measurements.warehouse_area_square_units, 2))} drawing units²</td></tr>
+          <tr><td>Conveyor length</td><td>${escapeHtml(formatMetric(measurements.conveyor_length_units, 2))} drawing units</td></tr>
+          <tr><td>Waste line length</td><td>${escapeHtml(formatMetric(measurements.waste_line_length_units, 2))} drawing units</td></tr>
+          <tr><td>Logistics routes</td><td>${escapeHtml(formatMetric(measurements.logistics_route_length_units, 2))} drawing units</td></tr>
+        </tbody></table><div class="report-meta">Drawing units are not yet calibrated to metres; validate CAD scale before engineering use.</div></div>
+        <div class="analysis-card"><div class="analysis-list-title">Equipment and Estimated Capacity</div><table class="report-table"><thead><tr><th>Equipment</th><th>Layer</th><th>Units/h</th><th>Confidence</th></tr></thead><tbody>${equipmentRows || '<tr><td colspan="4">No machines identified.</td></tr>'}</tbody></table></div>
+        <div class="analysis-card"><div class="analysis-list-title">Processes</div><table class="report-table"><thead><tr><th>Step</th><th>Layer</th><th>Basis</th><th>Confidence</th></tr></thead><tbody>${processRows || '<tr><td colspan="4">No process labels identified.</td></tr>'}</tbody></table></div>
+        <div class="analysis-card"><div class="analysis-list-title">Flow Management</div><div class="report-meta">${escapeHtml(flows.management_policy || "Not available")} Travel: ${escapeHtml(formatMetric(flows.travel_distance, 1))}; starvation risk: ${escapeHtml(formatMetric(flows.starvation_risk, 3))}.</div></div>
+        <div class="analysis-card"><div class="analysis-list-title">AMR Assessment: ${escapeHtml(amr.decision || "not assessed")}</div><div class="report-meta">Coverage ${escapeHtml(formatMetric(amr.coverage, 3))}; baseline fleet ${escapeHtml((amr.fleet || {}).baseline_units ?? "n/a")}; peak fleet ${escapeHtml((amr.fleet || {}).peak_units ?? "n/a")}.</div><ul class="analysis-list">${list(amr.recommendations || [])}</ul></div>
+        <div class="analysis-card"><div class="analysis-list-title">Maintenance</div><div class="report-meta">${escapeHtml(maintenance.detected_assets || 0)} maintainable assets detected.</div><ul class="analysis-list">${list(maintenance.preventive_actions || [])}</ul></div>
+        <div class="analysis-card"><div class="analysis-list-title">Problems</div><ul class="analysis-list">${list(problems)}</ul></div>
+        <div class="analysis-card"><div class="analysis-list-title">Improvement Proposals</div><ul class="analysis-list">${list(improvements)}</ul></div>
+        ${renderConsultingPortfolio(consulting)}`;
+    }
+
+    function renderKeyValues(value) {
+      if (!value || typeof value !== "object") {
+        return escapeHtml(value ?? "n/a");
+      }
+      return Object.entries(value).map(([key, item]) => `${escapeHtml(key.replaceAll("_", " "))}: <strong>${escapeHtml(Array.isArray(item) ? item.join(" - ") : item)}</strong>`).join(" | ");
+    }
+
+    function renderConsultingPortfolio(consulting) {
+      const proposals = Array.isArray(consulting.proposals) ? consulting.proposals : [];
+      const scenarios = Array.isArray(consulting.scenarios) ? consulting.scenarios : [];
+      const requiredData = Array.isArray(consulting.required_site_data) ? consulting.required_site_data : [];
+      const visibleProposals = consultingFilter && !["all", "scenarios"].includes(consultingFilter)
+        ? proposals.filter((item) => item.domain === consultingFilter)
+        : proposals;
+      const proposalHtml = consultingFilter === "scenarios" ? "" : visibleProposals.map((item) => `
+        <div class="analysis-card consulting-card" data-priority="${escapeHtml(item.priority)}" data-consulting-proposal="${escapeHtml(item.domain)}">
+          <div class="consulting-head"><div><div class="consulting-domain">${escapeHtml(item.domain)} | ${escapeHtml(item.priority)} | confidence ${escapeHtml(formatMetric(item.confidence, 2))}</div><div class="analysis-list-title">${escapeHtml(item.title)}</div></div><span class="chip partial">${escapeHtml(item.horizon)}</span></div>
+          <div class="report-meta"><strong>Problem:</strong> ${escapeHtml(item.problem)}</div>
+          <div class="report-meta"><strong>Baseline:</strong> ${renderKeyValues(item.baseline)}</div>
+          <div class="report-meta"><strong>Target:</strong> ${renderKeyValues(item.target)}</div>
+          <div class="report-meta"><strong>Expected impact:</strong> ${renderKeyValues(item.expected_impact)}</div>
+          <div class="report-meta"><strong>Root causes:</strong> ${escapeHtml((item.root_causes || []).join("; "))}</div>
+          <ol class="analysis-list">${(item.actions || []).map((action) => `<li>${escapeHtml(action)}</li>`).join("")}</ol>
+          <div class="report-meta"><strong>KPIs:</strong> ${escapeHtml((item.kpis || []).join(", "))}</div>
+          <div class="report-meta"><strong>Decision gate:</strong> ${escapeHtml(item.decision_gate)}</div>
+        </div>`).join("");
+      const scenarioRows = scenarios.map((item) => `<tr><td>${escapeHtml(item.id)}</td><td>${escapeHtml(item.name)}</td><td>${escapeHtml(item.investment)}</td><td>${escapeHtml(item.oee_percent ?? (item.oee_percent_range || []).join(" - "))}</td><td>${escapeHtml(item.capacity_units_per_hour ?? "scenario")}</td><td>${escapeHtml(item.risk)}</td></tr>`).join("");
+      return `
+        <div class="analysis-card"><div class="analysis-list-title">Process Engineering Consultant</div><div class="report-meta">${escapeHtml(consulting.executive_diagnosis || "Consulting assessment unavailable.")}</div><div class="report-meta">${escapeHtml(consulting.governance_note || "")}</div></div>
+        ${proposalHtml || (consultingFilter !== "scenarios" ? '<div class="analysis-card">No proposals for this domain.</div>' : "")}
+        <div class="analysis-card" id="scenario-comparison"><div class="analysis-list-title">Scenario Comparison A/B/C</div><table class="report-table"><thead><tr><th>ID</th><th>Scenario</th><th>Investment</th><th>OEE %</th><th>Capacity/h</th><th>Risk</th></tr></thead><tbody>${scenarioRows}</tbody></table></div>
+        <div class="analysis-card"><div class="analysis-list-title">Required Site Data Before Approval</div><ul class="analysis-list">${requiredData.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul><div class="report-meta">Evidence: ${escapeHtml((consulting.evidence_refs || []).join(", "))}</div></div>`;
+    }
+
+    function applyRuntimeAnalysis(payload) {
+      const analysis = extractLayoutAnalysis(payload);
+      if (!analysis) {
+        return;
+      }
+      analysisState = analysis;
+
+      const graph = analysis.factory_graph || {};
+      const kindCounts = graph.kind_counts || {};
+      const simulation = analysis.simulation || {};
+      const plant = analysis.plant_state_report || {};
+      runtimeKpis = [
+        { label: "Parsed Entities", value: String(analysis.parsed_entities ?? 0) },
+        { label: "Graph Nodes", value: String(graph.node_count ?? 0) },
+        { label: "Machines", value: String(kindCounts.machine ?? 0) },
+        { label: "AMR Routes", value: String((simulation.amr_routing || {}).routes ?? 0) },
+        { label: "WIP Areas", value: String(kindCounts.buffer ?? 0) },
+        { label: "Plant State", value: String(plant.state_status || "n/a").replaceAll("_", " ") },
+      ];
+
+      renderStaticSections();
+      renderAnalysisPanel();
+      renderViewerMock();
+    }
+
     function buildApiCandidates(url) {
       if (/^https?:\/\//i.test(url)) {
         return [url];
       }
-      return [
-        url,
+      const localApiCandidates = [
+        `http://${location.hostname || "127.0.0.1"}:8000${url}`,
         `http://127.0.0.1:8000${url}`,
         `http://localhost:8000${url}`
       ];
+      if (location.port === "8765") {
+        return [...new Set(localApiCandidates)];
+      }
+      return [...new Set([
+        url,
+        ...localApiCandidates
+      ])];
     }
 
     async function fetchJson(url) {
@@ -628,6 +1006,39 @@
       throw new Error("DXF processing timeout");
     }
 
+    async function handleDemoLayout() {
+      const fileName = "Plan Projet Cognac.dxf";
+      const button = document.getElementById("btn-load-demo");
+      if (button) {
+        button.disabled = true;
+      }
+      uploadState.dxfLoaded = true;
+      uploadState.lastLoadedName = fileName;
+      renderStaticSections();
+      setUploadLog(`Loading server demo: ${fileName}. No browser upload required.`);
+
+      try {
+        const response = await postJson("/api/cognitive-os/layout-workbench/demo/analyze", {});
+        const jobId = response && response.job_id ? String(response.job_id) : "";
+        if (!jobId) {
+          throw new Error("Demo analysis did not return job_id");
+        }
+        const finalStatus = await waitForDxfJob(jobId, fileName);
+        const parsed = finalStatus && finalStatus.result && finalStatus.result.result && Number.isFinite(finalStatus.result.result.parsed_entities)
+          ? finalStatus.result.result.parsed_entities
+          : null;
+        setUploadLog(`Demo layout ready: ${fileName}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
+        applyRuntimeAnalysis(finalStatus);
+      } catch (error) {
+        const reason = error && error.message ? error.message : "unknown error";
+        setUploadLog(`Demo layout unavailable (${reason}).`);
+      } finally {
+        if (button) {
+          button.disabled = false;
+        }
+      }
+    }
+
     function withoutExtension(filename) {
       const index = filename.lastIndexOf(".");
       if (index <= 0) {
@@ -705,6 +1116,7 @@
         } else {
           setUploadLog(`DWG loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
         }
+        applyRuntimeAnalysis(result);
       } catch (error) {
         // Keep local load available if API is offline or parser is unavailable.
         const reason = error && error.message ? error.message : "unknown error";
@@ -764,6 +1176,7 @@
             ? finalStatus.result.result.parsed_entities
             : null;
           setUploadLog(`DXF loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
+          applyRuntimeAnalysis(finalStatus);
           return;
         }
 
@@ -791,6 +1204,7 @@
           ? response.result.parsed_entities
           : null;
         setUploadLog(`DXF loaded and parsed by runtime: ${file.name}${parsed !== null ? ` (${parsed} entities)` : ""}.`);
+        applyRuntimeAnalysis(response);
       } catch (error) {
         const reason = error && error.message ? error.message : "unknown error";
         if (reason.includes("HTTP 413")) {
@@ -822,7 +1236,7 @@
       setUploadLog(`SVG loaded: ${file.name}.`);
 
       try {
-        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
+        const response = await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
           payload: {
             source_format: "svg",
             layout_name: withoutExtension(file.name),
@@ -833,6 +1247,7 @@
           }
         });
         setUploadLog(`SVG loaded and sent to parser runtime: ${file.name}`);
+        applyRuntimeAnalysis(response);
       } catch (error) {
         const reason = error && error.message ? error.message : "unknown error";
         setUploadLog(`SVG loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
@@ -859,7 +1274,7 @@
       setUploadLog(`JSON loaded: ${file.name}`);
 
       try {
-        await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
+        const response = await postJson("/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute", {
           payload: {
             source_format: "json",
             layout_name: withoutExtension(file.name),
@@ -870,6 +1285,7 @@
           }
         });
         setUploadLog(`JSON loaded and parsed by runtime: ${file.name}`);
+        applyRuntimeAnalysis(response);
       } catch (error) {
         const reason = error && error.message ? error.message : "unknown error";
         setUploadLog(`JSON loaded locally: ${file.name}. Runtime parsing unavailable (${reason}).`);
@@ -877,6 +1293,9 @@
     }
 
     function attachUploadHandlers() {
+      const toolbar = document.getElementById("toolbar");
+      const taskList = document.getElementById("task-list");
+      const demoButton = document.getElementById("btn-load-demo");
       const dwgInput = document.getElementById("input-dwg");
       const dxfInput = document.getElementById("input-dxf");
       const pdfInput = document.getElementById("input-pdf");
@@ -887,6 +1306,34 @@
       const pdfButton = document.getElementById("btn-upload-pdf");
       const svgButton = document.getElementById("btn-upload-svg");
       const jsonButton = document.getElementById("btn-upload-json");
+
+      if (toolbar) {
+        toolbar.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-viewer-tool]");
+          if (button) {
+            handleViewerTool(button.dataset.viewerTool || "");
+          }
+        });
+      }
+
+      if (taskList) {
+        taskList.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-consulting-domain]");
+          if (!button || !analysisState) {
+            setUploadLog("Load a layout before running an engineering task.");
+            return;
+          }
+          consultingFilter = button.dataset.consultingDomain || "all";
+          renderStaticSections();
+          renderAnalysisPanel();
+          const targetId = consultingFilter === "scenarios" ? "scenario-comparison" : "operational-report";
+          requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+        });
+      }
+
+      if (demoButton) {
+        demoButton.addEventListener("click", handleDemoLayout);
+      }
 
       if (dwgButton && dwgInput) {
         dwgButton.addEventListener("click", () => dwgInput.click());
@@ -999,6 +1446,7 @@
     async function init() {
       renderStaticSections();
       renderViewerMock();
+      renderAnalysisPanel();
       attachUploadHandlers();
 
       const data = await loadWorkbenchStatus();

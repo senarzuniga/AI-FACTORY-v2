@@ -77,6 +77,8 @@ class AutonomousExecutionFramework:
                         "score": outcome.score,
                         "reason": outcome.reason,
                         "executed_steps": outcome.executed_steps,
+                        "mission_complete": outcome.mission_complete,
+                        "next_actions": outcome.next_actions,
                     }
                 )
 

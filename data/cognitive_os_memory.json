@@ -74,7 +74,7 @@
             "component_id": "industrial-geometry-engine",
             "status": "ok",
             "dependencies": [],
-            "timestamp": "2026-08-07T09:36:52.250175+00:00"
+            "timestamp": "2026-08-17T12:46:38.321613+00:00"
           }
         },
         {
@@ -102,7 +102,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-07T09:36:52.250185+00:00"
+            "timestamp": "2026-08-17T12:46:38.321621+00:00"
           }
         },
         {
@@ -130,7 +130,7 @@
             "dependencies": [
               "industrial-geometry-engine"
             ],
-            "timestamp": "2026-08-07T09:36:52.250193+00:00"
+            "timestamp": "2026-08-17T12:46:38.321627+00:00"
           }
         },
         {
@@ -160,7 +160,7 @@
               "dwg-intelligence-parser",
               "dxf-intelligence-parser"
             ],
-            "timestamp": "2026-08-07T09:36:52.250202+00:00"
+            "timestamp": "2026-08-17T12:46:38.321633+00:00"
           }
         },
         {
@@ -188,7 +188,7 @@
             "dependencies": [
               "factory-graph-runtime-m001"
             ],
-            "timestamp": "2026-08-07T09:36:52.250210+00:00"
+            "timestamp": "2026-08-17T12:46:38.321639+00:00"
           }
         },
         {
@@ -216,7 +216,7 @@
             "dependencies": [
               "knowledge-graph-runtime"
             ],
-            "timestamp": "2026-08-07T09:36:52.250216+00:00"
+            "timestamp": "2026-08-17T12:46:38.321644+00:00"
           }
         },
         {
@@ -244,7 +244,7 @@
             "dependencies": [
               "evidence-runtime-m004"
             ],
-            "timestamp": "2026-08-07T09:36:52.250223+00:00"
+            "timestamp": "2026-08-17T12:46:38.321650+00:00"
           }
         },
         {
@@ -277,7 +277,7 @@
             "dependencies": [
               "digital-twin-runtime"
             ],
-            "timestamp": "2026-08-07T09:36:52.250231+00:00"
+            "timestamp": "2026-08-17T12:46:38.321656+00:00"
           }
         },
         {
@@ -305,7 +305,7 @@
             "dependencies": [
               "industrial-simulation-runtime"
             ],
-            "timestamp": "2026-08-07T09:36:52.250238+00:00"
+            "timestamp": "2026-08-17T12:46:38.321661+00:00"
           }
         },
         {
@@ -332,7 +332,7 @@
             "dependencies": [
               "bottleneck-analyzer-m007"
             ],
-            "timestamp": "2026-08-07T09:36:52.250244+00:00"
+            "timestamp": "2026-08-17T12:46:38.321667+00:00"
           }
         },
         {
@@ -359,7 +359,7 @@
             "dependencies": [
               "industrial-flow-analyzer"
             ],
-            "timestamp": "2026-08-07T09:36:52.250250+00:00"
+            "timestamp": "2026-08-17T12:46:38.321673+00:00"
           }
         },
         {
@@ -386,7 +386,7 @@
             "dependencies": [
               "amr-optimization-engine"
             ],
-            "timestamp": "2026-08-07T09:36:52.250256+00:00"
+            "timestamp": "2026-08-17T12:46:38.321678+00:00"
           }
         },
         {
@@ -413,7 +413,7 @@
             "dependencies": [
               "oee-prediction-engine"
             ],
-            "timestamp": "2026-08-07T09:36:52.250263+00:00"
+            "timestamp": "2026-08-17T12:46:38.321684+00:00"
           }
         },
         {
@@ -441,7 +441,7 @@
             "dependencies": [
               "roi-engine"
             ],
-            "timestamp": "2026-08-07T09:36:52.250270+00:00"
+            "timestamp": "2026-08-17T12:46:38.321689+00:00"
           }
         }
       ],
@@ -462,11 +462,11 @@
         "smart-proposal-intelligence-runtime"
       ],
       "ahde_policy": "enabled",
-      "timestamp": "2026-08-07T09:36:52.250277+00:00"
+      "timestamp": "2026-08-17T12:46:38.321695+00:00"
     },
     "ahde_policy": {
       "enabled": true,
-      "timestamp": "2026-08-07T09:36:52.267987+00:00"
+      "timestamp": "2026-08-17T12:46:38.324286+00:00"
     },
     "governance": {
       "approved": true,
@@ -476,19 +476,44 @@
   },
   "factory_graph": {
     "latest": {
-      "node_count": 3,
+      "node_count": 1,
       "edge_count": 0,
       "kind_counts": {
-        "machine": 1,
-        "resource": 2
-      }
+        "machine": 1
+      },
+      "nodes": [
+        {
+          "id": "dxf-0-d1a8f61bad6b",
+          "kind": "machine",
+          "label": "Demo Cell 01",
+          "layer": "MACHINES",
+          "center": [
+            6.0,
+            4.5
+          ],
+          "bounds": [
+            0.0,
+            0.0,
+            12.0,
+            9.0
+          ],
+          "confidence": 0.94,
+          "properties": {
+            "source_type": "text",
+            "classification_rationale": [
+              "machine marker"
+            ]
+          }
+        }
+      ],
+      "edges": []
     }
   },
   "knowledge_graph": {
     "latest": {
-      "fact_count": 3,
-      "relation_count": 3,
-      "confidence": 0.5875
+      "fact_count": 1,
+      "relation_count": 1,
+      "confidence": 0.5625
     }
   },
   "digital_twin": {
@@ -549,7 +574,7 @@
         "flow_edges_per_machine": 0.0,
         "logistics_pressure_index": 0.0,
         "starvation_risk_index": 0.38,
-        "knowledge_coverage": 0.5875
+        "knowledge_coverage": 0.5625
       },
       "amr_routing": {
         "routes": 0,
@@ -576,27 +601,9 @@
       "roi": 1.3293,
       "bottlenecks": [
         {
-          "id": "dxf-0-265125f2394c",
+          "id": "dxf-0-d1a8f61bad6b",
           "kind": "machine",
-          "label": "M-JOB",
-          "severity": 0.81,
-          "degree": 0,
-          "root_cause": "low_connectivity_or_isolated_flow_node",
-          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
-        },
-        {
-          "id": "dxf-1-4c7ea65491cf",
-          "kind": "resource",
-          "label": "ENDSEC",
-          "severity": 0.81,
-          "degree": 0,
-          "root_cause": "low_connectivity_or_isolated_flow_node",
-          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
-        },
-        {
-          "id": "dxf-2-aabae1f5e53c",
-          "kind": "resource",
-          "label": "EOF",
+          "label": "Demo Cell 01",
           "severity": 0.81,
           "degree": 0,
           "root_cause": "low_connectivity_or_isolated_flow_node",
@@ -605,7 +612,7 @@
       ],
       "buffer_occupancy": {
         "buffers": 0,
-        "estimated_occupancy": 0.43,
+        "estimated_occupancy": 0.29,
         "buffer_to_machine_ratio": 0.0,
         "jit_readiness": 0.45,
         "wip_policy_score": 0.75
@@ -616,7 +623,7 @@
         "recommended_near_line_wip_cells": 2
       },
       "cycle_times": {
-        "baseline_seconds": 54.6,
+        "baseline_seconds": 46.2,
         "variance_seconds": 4.5,
         "estimated_changeover_loss_minutes": 23.0
       }
@@ -625,23 +632,23 @@
   "engineering_analysis": {
     "latest": {
       "layout_quality": {
-        "score": 0.4,
+        "score": 0.43,
         "status": "needs_improvement",
-        "entity_coverage": 0
+        "entity_coverage": 1
       },
       "flow_analysis": {
-        "score": 0.497,
+        "score": 0.483,
         "material_flow_health": "needs_improvement",
         "travel_distance": 0,
-        "starvation_risk": 0.02,
-        "bottleneck_pressure": 0.0
+        "starvation_risk": 0.38,
+        "bottleneck_pressure": 1.0
       },
       "constraint_analysis": {
         "safety_zones": 0,
         "constraints_found": 0,
         "constraint_density": 0.0,
-        "bottleneck_pressure": 0.0,
-        "starvation_risk": 0.02,
+        "bottleneck_pressure": 1.0,
+        "starvation_risk": 0.38,
         "jit_readiness": 0.45,
         "wip_policy_score": 0.75
       },
@@ -656,12 +663,13 @@
       "production_optimisation": [
         "Use conveyor adjacency to remove avoidable material handoffs.",
         "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
-        "Apply JIT release windows by converter and slot to reduce changeover-loss minutes."
+        "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+        "Sequence machine clusters into production cells for shorter internal flows."
       ],
       "risk_analysis": [
-        "Bottleneck pressure identified on 0 layout nodes.",
+        "Bottleneck pressure identified on 1 layout nodes.",
         "Travel distance accumulation is 0 units; watch for excess AMR path length.",
-        "Starvation risk index is 0.02; prioritize feed continuity actions above 0.35."
+        "Starvation risk index is 0.38; prioritize feed continuity actions above 0.35."
       ],
       "safety_analysis": [
         "Check path intersections with safety zones before live synchronization.",
@@ -674,6 +682,18 @@
         "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
         "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
       ]
+    }
+  },
+  "ecosystem": {
+    "discovery": {
+      "discovered_at": "2026-08-09T11:57:12.878698+00:00",
+      "repositories": 6,
+      "available_repositories": 6,
+      "platforms": 7,
+      "capabilities": 31,
+      "agents": 82,
+      "knowledge_records": 17,
+      "missing_repositories": []
     }
   }
 }

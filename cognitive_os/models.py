@@ -48,6 +48,36 @@ class PlatformConsumer:
 
 
 @dataclass
+class RepositoryNode:
+    id: str
+    path: str
+    status: str
+    purpose: str = ""
+    capabilities: list[str] = field(default_factory=list)
+    entrypoints: list[str] = field(default_factory=list)
+    apis: list[str] = field(default_factory=list)
+    agents: list[str] = field(default_factory=list)
+    tests: list[str] = field(default_factory=list)
+    instructions: list[str] = field(default_factory=list)
+    dependencies: list[str] = field(default_factory=list)
+    known_gaps: list[str] = field(default_factory=list)
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class KnowledgeNode:
+    id: str
+    topic: str
+    statement: str
+    classification: str
+    source: str
+    evidence: list[str] = field(default_factory=list)
+    confidence: float = 0.0
+    validation_status: str = "provisional"
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
 class CapabilityNode:
     id: str
     description: str
@@ -114,6 +144,35 @@ class Milestone:
 
 
 @dataclass
+class QualityGate:
+    id: str
+    description: str
+    status: str = "pending"
+    mandatory: bool = True
+    evidence_ids: list[str] = field(default_factory=list)
+
+
+@dataclass
+class MissionGap:
+    id: str
+    statement: str
+    priority: int = 3
+    status: str = "open"
+    executable: bool = True
+    required_capability: str = ""
+
+
+@dataclass
+class CascadeAction:
+    id: str
+    description: str
+    gap_id: str = ""
+    capability_id: str = ""
+    status: str = "planned"
+    priority_score: float = 0.0
+
+
+@dataclass
 class MissionHistoryEvent:
     timestamp: str
     event_type: str
@@ -175,6 +234,8 @@ class MissionNode:
     value: MissionValue = field(default_factory=MissionValue)
     hypothesis_portfolio_ids: list[str] = field(default_factory=list)
     scoring_matrix: MissionScoringMatrix = field(default_factory=MissionScoringMatrix)
+    scoring_weights: dict[str, float] = field(default_factory=dict)
+    executive_scorecard: dict[str, float] = field(default_factory=dict)
     work_packages: list[WorkPackage] = field(default_factory=list)
     dependencies: list[str] = field(default_factory=list)
     capabilities: list[str] = field(default_factory=list)
@@ -183,6 +244,9 @@ class MissionNode:
     risks: list[MissionRisk] = field(default_factory=list)
     kpis: list[KPI] = field(default_factory=list)
     milestones: list[Milestone] = field(default_factory=list)
+    quality_gates: list[QualityGate] = field(default_factory=list)
+    gaps: list[MissionGap] = field(default_factory=list)
+    next_actions: list[CascadeAction] = field(default_factory=list)
     lessons_learned: list[str] = field(default_factory=list)
     mission_state: str = "initialized"
     mission_history: list[MissionHistoryEvent] = field(default_factory=list)
@@ -223,6 +287,15 @@ class MissionNode:
         self.milestones = [
             milestone if isinstance(milestone, Milestone) else Milestone(**milestone)
             for milestone in self.milestones
+        ]
+        self.quality_gates = [
+            gate if isinstance(gate, QualityGate) else QualityGate(**gate)
+            for gate in self.quality_gates
+        ]
+        self.gaps = [gap if isinstance(gap, MissionGap) else MissionGap(**gap) for gap in self.gaps]
+        self.next_actions = [
+            action if isinstance(action, CascadeAction) else CascadeAction(**action)
+            for action in self.next_actions
         ]
         self.mission_history = [
             event if isinstance(event, MissionHistoryEvent) else MissionHistoryEvent(**event)
@@ -269,6 +342,7 @@ class Hypothesis:
     score: float = 0.0
     status: HypothesisStatus = HypothesisStatus.PROPOSED
     rationale: str = ""
+    metrics: dict[str, float] = field(default_factory=dict)
     created_at: str = field(default_factory=utc_now_iso)
 
 
@@ -281,16 +355,33 @@ class ScoreCard:
     interoperability: float
     governance: float
 
+    mission_alignment: float = 0.0
+    engineering_quality: float = 0.0
+    business_value: float = 0.0
+    knowledge_value: float = 0.0
+    industrial_value: float = 0.0
+    roi: float = 0.0
+    risk_inverse: float = 0.0
+    reuse: float = 0.0
+    automation: float = 0.0
+    testing: float = 0.0
+    documentation: float = 0.0
+    evidence_quality: float = 0.0
+    confidence: float = 0.0
+    execution_cost_inverse: float = 0.0
+    execution_time_inverse: float = 0.0
+    technical_debt_inverse: float = 0.0
+    innovation: float = 0.0
+
     def composite(self) -> float:
-        values = [
-            self.architecture,
-            self.maintainability,
-            self.scalability,
-            self.performance,
-            self.interoperability,
-            self.governance,
-        ]
+        values = list(self.dimensions().values())
         return sum(values) / len(values)
+
+    def dimensions(self) -> dict[str, float]:
+        return {
+            key: max(0.0, min(1.0, float(value)))
+            for key, value in self.__dict__.items()
+        }
 
 
 @dataclass
@@ -307,3 +398,5 @@ class ExecutionResult:
     score: float
     reason: str
     executed_steps: list[str] = field(default_factory=list)
+    mission_complete: bool = False
+    next_actions: list[dict[str, Any]] = field(default_factory=list)
