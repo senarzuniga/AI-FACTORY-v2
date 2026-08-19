@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe resumen del programa de automatización Ingecart para Calgary: Fase 1, Fase 2 y Fase 3." />
+  <title>Calgary · Ingecart · Informe resumen</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(12,12,12,.92) 0%, rgba(12,12,12,.72) 46%, rgba(12,12,12,.22) 100%); }
+    .kpi-slab { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+    .summary-card { border:1px solid var(--line); background:#fff; padding:18px; border-radius:10px; }
+    .summary-card h3 { margin-top:0; }
+    @media (max-width:980px) { .kpi-slab { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .kpi-slab { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Calgary · Automatización integral · Resumen ejecutivo</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Fase 1 + Fase 2 + Fase 3: continuidad, capacidad y control del flujo</h1>
+        <p>El valor del programa no es la suma aislada de equipos, sino la conversión de un sistema reactivo en un flujo controlado por prioridad, trazabilidad y capacidad útil recuperada.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Resumen</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Calgary · Integrated automation · Executive summary</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Phase 1 + Phase 2 + Phase 3: continuity, capacity and flow control</h1>
+        <p>The value of the program is not the isolated sum of equipment, but the conversion of a reactive system into a flow governed by priority, traceability and recovered useful capacity.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Summary</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Summary logic</strong>
+      <span>Fase 1</span>
+      <span>Fase 2</span>
+      <span>Fase 3</span>
+      <span>Flow</span>
+      <span>Capacity</span>
+      <span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#phase1">02 · Fase 1</a>
+          <a href="#phase2">03 · Fase 2</a>
+          <a href="#phase3">04 · Fase 3</a>
+          <a href="#impact">05 · Impacto</a>
+          <a href="#conclusion">06 · Conclusiones</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#phase1">02 · Phase 1</a>
+          <a href="#phase2">03 · Phase 2</a>
+          <a href="#phase3">04 · Phase 3</a>
+          <a href="#impact">05 · Impact</a>
+          <a href="#conclusion">06 · Conclusions</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>El programa completo de Calgary no busca sustituir máquinas por equipos más modernos, sino hacer que cada tramo del flujo responda a la lógica del proceso.</h2>
+          <p class="lead">La Fase 1 elimina la dependencia del transfer manual y evita que la salida de la RDC se convierta en el punto más frágil del sistema. La Fase 2 estabiliza la paletización final y la salida hacia logística. La Fase 3 convierte el WIP y la flota de movimiento en una capa operativa y trazable que sirve a la producción. Cuando se ven en conjunto, las tres fases no comparten un solo equipo: comparten una lógica común de flujo, prioridad, disponibilidad y capacidad útil recuperada.</p>
+          <div class="kpi-slab">
+            <div class="card green"><div class="metric">+3 a +6 pp</div><div class="metric-label">OEE útil del tramo</div></div>
+            <div class="card accent"><div class="metric">-60% a -87%</div><div class="metric-label">Starvation</div></div>
+            <div class="card amber"><div class="metric">+4,2M m</div><div class="metric-label">Producción extra</div></div>
+            <div class="card"><div class="metric">~€309k</div><div class="metric-label">Ahorro operativo</div></div>
+          </div>
+          <div class="decision"><strong>Conclusión base</strong>La creación de valor real no nace de la automatización aislada, sino de la liberación de capacidad que se pierde por bloqueos, espera, desplazamientos improductivos y falta de coordinación entre flujo principal y flujo de apoyo.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The full Calgary program does not seek to replace machines with more modern equipment, but to make each flow segment respond to the real logic of the process.</h2>
+          <p class="lead">Phase 1 removes dependence on manual transfer and prevents the RDC outfeed from becoming the most fragile point of the system. Phase 2 stabilizes final palletizing and the outfeed to logistics. Phase 3 turns WIP and the mobile fleet into an operational and traceable layer that serves production. Together, the three phases do not share a single equipment: they share a common logic of flow, priority, availability and recovered useful capacity.</p>
+          <div class="kpi-slab">
+            <div class="card green"><div class="metric">+3 to +6 pp</div><div class="metric-label">Useful OEE range</div></div>
+            <div class="card accent"><div class="metric">-60% to -87%</div><div class="metric-label">Starvation</div></div>
+            <div class="card amber"><div class="metric">+4.2M m</div><div class="metric-label">Extra output</div></div>
+            <div class="card"><div class="metric">~€309k</div><div class="metric-label">Operating savings</div></div>
+          </div>
+          <div class="decision"><strong>Core conclusion</strong>Real value is not created by isolated automation, but by releasing capacity lost to blockages, waiting, non-productive movement and lack of coordination between the main flow and the support flow.</div>
+        </div>
+      </section>
+
+      <section id="phase1">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Fase 1</div>
+          <h2>Fase 1: la salida de la RDC ya no depende del operador.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Automatiza la transferencia y la reserva de destino para eliminar la dependencia manual del flow entre la RDC y las estaciones de segunda pasada o FG. La ventaja no es solo mover material, sino coordinar el flujo y evitar que el sistema espere a un operador para liberar capacidad.</p>
+            <ul><li>reduce bloqueo de salida</li><li>recupera continuidad del tramo</li><li>reduce starvation y rehandling</li><li>mejora disponibilidad y trazabilidad</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Phase 1</div>
+          <h2>Phase 1: the RDC outfeed no longer depends on the operator.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It automates transfer and destination reservation to eliminate manual dependence in the flow between the RDC and second-pass or FG stations. The advantage is not only moving material, but coordinating flow and avoiding a system waiting for an operator to release capacity.</p>
+            <ul><li>reduces outlet blocking</li><li>recovers continuity of the segment</li><li>reduces starvation and rehandling</li><li>improves availability and traceability</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="phase2">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Fase 2</div>
+          <h2>Fase 2: la salida final gana estabilidad y capacidad útil.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Estabiliza paletización, interlayers e integración con la logística final. La salida no es un simple “último paso”; es una barrera crítica para la continuidad del flujo, y la Fase 2 la vuelve predecible y más eficiente.</p>
+            <ul><li>reduce bloqueo por salida final</li><li>mejora pallet quality y consistencia</li><li>reduce rework y manipulación</li><li>mejora la disponibilidad del tramo final</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Phase 2</div>
+          <h2>Phase 2: the final outfeed gains stability and useful capacity.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It stabilizes palletizing, interlayers and integration with final logistics. The final outfeed is not a simple “last step”; it is a critical barrier to flow continuity, and Phase 2 makes it predictable and more efficient.</p>
+            <ul><li>reduces final outfeed blocking</li><li>improves pallet quality and consistency</li><li>reduces rework and manipulation</li><li>improves availability of the final segment</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="phase3">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Fase 3</div>
+          <h2>Fase 3: la logística de apoyo se vuelve un servicio productivo y trazable.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Coordina WIP móvil, AMR, prioridad y reserva de destino para mantener el flujo de materiales sin que el almacenamiento intermedio se convierta en un cuello de botella. Aquí la ventaja no es mover más material, sino moverlo con sentido, en el momento correcto y con trazabilidad.</p>
+            <ul><li>reduce starvation logístico</li><li>mejora control de WIP</li><li>reduce tiempo de búsqueda y espera</li><li>recupera continuidad por prioridad dinámica</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Phase 3</div>
+          <h2>Phase 3: support logistics becomes a productive and traceable service.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It coordinates mobile WIP, AMR, priority and destination reservation to keep the material flow without allowing intermediate storage to become a new bottleneck. The advantage is not moving more material, but moving it with purpose, at the right time and with traceability.</p>
+            <ul><li>reduces logistics starvation</li><li>improves WIP control</li><li>reduces search time and waiting</li><li>recovers continuity through dynamic priority</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Impacto conjunto</div>
+          <h2>La mejora no es lineal: es multiplicadora porque cada fase reduce el efecto de bloqueo sobre la siguiente.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fase 1</h3><p>eliminación del cuello de salida manual y disminución del bloqueo inicial.</p></article>
+            <article class="card accent"><h3>Fase 2</h3><p>estabilización del final del flujo y mejor calidad del pallet final.</p></article>
+            <article class="card amber"><h3>Fase 3</h3><p>orquestación del WIP y la flota para sostener prioridad y continuidad.</p></article>
+            <article class="card"><h3>Resultado</h3><p>capacidad útil recuperada, menos espera, menos rehandling y mayor OEE global.</p></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Combined impact</div>
+          <h2>The improvement is not linear: it is multiplicative because each phase reduces the blocking effect on the next one.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Phase 1</h3><p>removes the manual outfeed bottleneck and reduces the initial blockage.</p></article>
+            <article class="card accent"><h3>Phase 2</h3><p>stabilizes the end of the flow and improves the quality of the final pallet.</p></article>
+            <article class="card amber"><h3>Phase 3</h3><p>orchestrates WIP and the fleet to maintain priority and continuity.</p></article>
+            <article class="card"><h3>Result</h3><p>recovered useful capacity, less waiting, less rehandling and higher global OEE.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Conclusiones</div>
+          <h2>La conclusión más importante es que la automatización genera valor cuando elimina fricción del flujo y convierte la logística en un servicio productivo.</h2>
+          <p>La Fase 1 corrige el cuello más cercano a la RDC, la Fase 2 estabiliza la salida final y la Fase 3 hace que el almacenamiento intermedio y la movilidad interna sirvan a la línea en vez de bloquearla. El programa completo es viable cuando se entiende como un sistema integrado, y no como tres automatizaciones independientes. En ese marco, Ingecart funciona como integrador del flujo total, no solo como proveedor de equipos.</p>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Conclusions</div>
+          <h2>The most important conclusion is that automation creates value when it removes friction from the flow and turns logistics into a productive service.</h2>
+          <p>Phase 1 corrects the bottleneck closest to the RDC, Phase 2 stabilizes the final outfeed and Phase 3 makes the intermediate storage and internal mobility serve the line rather than block it. The complete program is viable when understood as one integrated system, not as three independent automations. In that sense, Ingecart acts as integrator of the total flow, not just as a supplier of machines.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="hero-inner" style="padding:0">
+      <div class="lang lang-es"><strong>INGECART · Calgary · Informe resumen</strong><br>Fase 1 + Fase 2 + Fase 3 · 2026-08-18</div>
+      <div class="lang lang-en hidden"><strong>INGECART · Calgary · Summary report</strong><br>Phase 1 + Phase 2 + Phase 3 · 2026-08-18</div>
+    </div>
+  </footer>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

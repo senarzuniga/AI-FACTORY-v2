@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico de la Fase 3 de Ingetrans, WIP automatizado y AMR para Calgary." />
+  <title>Calgary · Ingecart · Fase 3</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(12,12,12,.94) 0%, rgba(12,12,12,.72) 46%, rgba(12,12,12,.18) 100%); }
+    .product-spotlight { display:grid; grid-template-columns:260px minmax(0,1fr); gap:18px; align-items:stretch; margin:18px 0; }
+    .product-spotlight img { width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); }
+    .product-copy { padding:18px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(20,115,95,.04), rgba(0,0,0,.01)); border-radius:12px; }
+    .product-copy strong { display:block; color:var(--muted); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+    .product-copy h3 { margin:8px 0; }
+    .formula { border-left:5px solid var(--green); background:#f5faf8; padding:18px 20px; margin:16px 0; font-family:'Cascadia Mono', Consolas, monospace; font-weight:700; }
+    .diagram { margin:16px 0; padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    .diagram img { width:100%; height:auto; border-radius:10px; display:block; }
+    @media (max-width:980px) { .product-spotlight { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Calgary · Automatización · Fase 3</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Flujo integral, prioridad dinámica y WIP orquestado</h1>
+        <p>La Fase 3 transforma la logística de apoyo en un sistema productivo: WIP móvil, AMR, reservas de destino y decisiones por prioridad y trazabilidad.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Fase 3</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Calgary · Automation · Phase 3</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Integrated flow, dynamic priority and orchestrated WIP</h1>
+        <p>Phase 3 transforms support logistics into a productive system: mobile WIP, AMR, destination reservation and decisions driven by priority and traceability.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Phase 3</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Core concept</strong>
+      <span>WIP</span>
+      <span>AMR</span>
+      <span>Priority</span>
+      <span>Traceability</span>
+      <span>Availability</span>
+      <span>OEE</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#architecture">02 · Arquitectura</a>
+          <a href="#wip">03 · WIP</a>
+          <a href="#fleet">04 · Flota</a>
+          <a href="#diagram">05 · Diagrama</a>
+          <a href="#kpis">06 · KPI</a>
+          <a href="#economics">07 · Economía</a>
+          <a href="#conclusion">08 · Conclusión</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#architecture">02 · Architecture</a>
+          <a href="#wip">03 · WIP</a>
+          <a href="#fleet">04 · Fleet</a>
+          <a href="#diagram">05 · Diagram</a>
+          <a href="#kpis">06 · KPI</a>
+          <a href="#economics">07 · Economics</a>
+          <a href="#conclusion">08 · Conclusion</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La Fase 3 asegura que la logística deje de bloquear la producción y pase a servirla.</h2>
+          <p class="lead">La lógica de la Fase 3 es sencilla: si la planta quiere operar con continuidad, el flujo intermedio y el WIP no pueden depender de la experiencia o del empuje manual. Deben ser gestionados por prioridad, capacidad y trazabilidad.</p>
+          <div class="decision"><strong>Tesis</strong>En Calgary, la Fase 3 no aporta un “equipo auxiliar”; aporta la capa de control que permite que el sistema responda antes del bloqueo, evitando que el almacenamiento intermedio se convierta en una nueva constricción del proceso principal.</div>
+          <div class="grid-4">
+            <article class="card accent"><div class="metric">-60%</div><div class="metric-label">Starvation</div><small>orientativo</small></article>
+            <article class="card green"><div class="metric">+30%</div><div class="metric-label">capacidad WIP</div><small>equivalente</small></article>
+            <article class="card amber"><div class="metric">+6 pp</div><div class="metric-label">OEE</div><small>indicativo</small></article>
+            <article class="card"><div class="metric">-80%</div><div class="metric-label">tiempo de búsqueda</div><small>orientativo</small></article>
+          </div>
+          <div class="formula">Continuidad productiva ≈ sin bloqueo por posición vacía + prioridad dinámica + flujo móvil + trazabilidad real</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>Phase 3 ensures logistics stops blocking production and starts serving it.</h2>
+          <p class="lead">The logic of Phase 3 is simple: if the plant wants to operate with continuity, the intermediate flow and WIP cannot depend on experience or manual pushing. They must be governed by priority, capacity and traceability.</p>
+          <div class="decision"><strong>Thesis</strong>In Calgary, Phase 3 does not add a “supporting equipment”; it adds the control layer that allows the system to react before blocking, preventing the intermediate storage area from becoming a new constraint for the main process.</div>
+          <div class="grid-4">
+            <article class="card accent"><div class="metric">-60%</div><div class="metric-label">Starvation</div><small>indicative</small></article>
+            <article class="card green"><div class="metric">+30%</div><div class="metric-label">WIP capacity</div><small>equivalent</small></article>
+            <article class="card amber"><div class="metric">+6 pp</div><div class="metric-label">OEE</div><small>indicative</small></article>
+            <article class="card"><div class="metric">-80%</div><div class="metric-label">search time</div><small>indicative</small></article>
+          </div>
+          <div class="formula">Production continuity ≈ no blocking by empty position + dynamic priority + mobile flow + real traceability</div>
+        </div>
+      </section>
+
+      <section id="architecture">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Arquitectura del sistema</div>
+          <h2>Una orden digital gobierna cada movimiento del WIP.</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>WCS / Ingetrans</h3><p>reserva destino, coordina demanda y define prioridad por orden, urgencia y disponibilidad.</p></article>
+            <article class="card green"><h3>Fleet manager</h3><p>asigna AMR, evalúa tráfico, carga, batería y rutas alternativas.</p></article>
+            <article class="card amber"><h3>Estaciones + PLC</h3><p>validan presencia, secuencia, estado de destino y seguridad del handoff.</p></article>
+          </div>
+          <div class="decision"><strong>Regla técnica</strong>El beneficio no está en mover material por sí mismo, sino en conservar la capacidad útil de la línea evitando espera, bloqueo y desconexión entre operación y logística.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · System architecture</div>
+          <h2>A digital order governs every WIP movement.</h2>
+          <div class="grid-3">
+            <article class="card accent"><h3>WCS / Ingetrans</h3><p>reserves destination, coordinates demand and defines priority by order, urgency and availability.</p></article>
+            <article class="card green"><h3>Fleet manager</h3><p>assigns AMR, assesses traffic, load, battery and alternative routes.</p></article>
+            <article class="card amber"><h3>Stations + PLC</h3><p>validate presence, sequence, destination state and handoff safety.</p></article>
+          </div>
+          <div class="decision"><strong>Technical rule</strong>The benefit is not in moving material by itself, but in preserving useful line capacity by avoiding waits, blockage and disconnect between operation and logistics.</div>
+        </div>
+      </section>
+
+      <section id="wip">
+        <div class="lang lang-es">
+          <div class="section-no">03 · WIP automatizado</div>
+          <h2>El flujo intermedio deja de ser un almacén estático y pasa a ser un servicio productivo.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fortalezas del sistema</h3><ul><li>WIP móvil y trazable.</li><li>menos reubicación manual.</li><li>mejor capacidad de almacenamiento.</li><li>prioridad por urgencia y destino.</li><li>reducción de movimientos no productivos.</li></ul></article>
+            <article class="card accent"><h3>Riesgos que evita</h3><ul><li>posiciones vacías y bloqueo por espera.</li><li>busca manual y reorden de cargas.</li><li>línea detenida por falta de destino.</li><li>material que se queda “fuera del sistema”.</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Automated WIP</div>
+          <h2>The intermediate flow stops being a static warehouse and becomes a productive service.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>System strengths</h3><ul><li>mobile and traceable WIP.</li><li>less manual relocation.</li><li>better storage capacity.</li><li>priority by urgency and destination.</li><li>reduction of non-productive movements.</li></ul></article>
+            <article class="card accent"><h3>Risks it avoids</h3><ul><li>empty positions and blockage by waiting.</li><li>manual searching and reordering.</li><li>line stopped by lack of destination.</li><li>material left “outside the system”.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="fleet">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Flota AMR</div>
+          <h2>La flota no es un aire acondicionado de logística: es un motor de servicio a la línea.</h2>
+          <div class="product-spotlight">
+            <img src="./AMR WIP.png"
+                 alt="AMR WIP diagram"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+            <div class="product-copy">
+              <strong>Producto</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>Gestión de WIP con AMR para reasignar palets, materiales auxiliares, interlayers, cores y soportes de flujo entre procesos sin saturar la línea principal. El valor se concentra en la continuidad del flujo y en la eliminación de bloqueo por posición vacía.</p>
+              <p style="margin-top:8px;"><a href="#solutions" target="_self" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent"><h3>Ventajas</h3><ul><li>ruta dinámica según demanda real.</li><li>mobiliario de flujo más flexible.</li><li>menos dependencia del transporte fijo.</li><li>respuesta inmediata a picos y cambios de prioridad.</li></ul></article>
+            <article class="card green"><h3>Condiciones para éxito</h3><ul><li>simulación de flota y charging.</li><li>buffers dimensionados por p50/p95.</li><li>reconciliación de inventario por WCS.</li><li>procedimientos degradados citados y validados.</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · AMR fleet</div>
+          <h2>The fleet is not a logistics add-on: it is a service engine for the line.</h2>
+          <div class="product-spotlight">
+            <img src="./AMR WIP.png"
+                 alt="AMR WIP diagram"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+            <div class="product-copy">
+              <strong>Product</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>AMR-based WIP management to reassign pallets, auxiliary materials, interlayers, cores and support flow between processes without saturating the main line. The value is focused on flow continuity and elimination of blockage caused by empty positions.</p>
+              <p style="margin-top:8px;"><a href="#solutions" target="_self" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent"><h3>Advantages</h3><ul><li>dynamic route according to real demand.</li><li>more flexible flow furniture.</li><li>less dependence on fixed transport.</li><li>rapid response to peaks and priority shifts.</li></ul></article>
+            <article class="card green"><h3>Success conditions</h3><ul><li>fleet and charging simulation.</li><li>buffers sized by p50/p95.</li><li>inventory reconciliation by WCS.</li><li>degraded procedures cited and validated.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagram">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Diagrama adicional de WIP con AMR</div>
+          <h2>El diagrama de flujo es clave para explicar la lógica del sistema.</h2>
+          <div class="diagram">
+            <img src="./AMR WIP.png"
+                 alt="Diagrama de WIP con AMR"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+          </div>
+          <p>Este diagrama ilustra el principio de servicio productivo del WIP móvil: la planta no trabaja “por acumulación”, sino por asignación racional, reserva de destino y misión guiada por prioridad y estado de flujo.</p>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Additional WIP with AMR diagram</div>
+          <h2>The flow diagram is key to explaining the system logic.</h2>
+          <div class="diagram">
+            <img src="./AMR WIP.png"
+                 alt="AMR WIP flow diagram"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+          </div>
+          <p>This diagram illustrates the principle of productive service from mobile WIP: the plant does not run “by accumulation”, but by rational assignment, destination reservation and mission control by priority and flow state.</p>
+        </div>
+      </section>
+
+      <section id="kpis">
+        <div class="lang lang-es">
+          <div class="section-no">06 · KPI objetivo</div>
+          <h2>La fase 3 se valida por continuidad real, no por un dato nominal aislado.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicador</th><th>Objetivo</th><th>Valor</th></tr></thead>
+              <tbody>
+                <tr><td>Starvation logístico</td><td>-60% a -87%</td><td>evita espera por material o destino</td></tr>
+                <tr><td>Tiempo de búsqueda</td><td>-50% a -80%</td><td>reduce desplazamiento no productivo</td></tr>
+                <tr><td>Capacidad WIP</td><td>+30%</td><td>mejor buffer dinámico</td></tr>
+                <tr><td>OEE total</td><td>+6 pp</td><td>recuperación sostenida de capacidad</td></tr>
+                <tr><td>Disponibilidad de flota</td><td>alto y predecible</td><td>ruedaje y charging validado</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Target KPI</div>
+          <h2>Phase 3 is validated by real continuity, not by an isolated nominal figure.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicator</th><th>Target</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Logistics starvation</td><td>-60% to -87%</td><td>avoids waiting for material or destination</td></tr>
+                <tr><td>Search time</td><td>-50% to -80%</td><td>reduces non-productive movement</td></tr>
+                <tr><td>WIP capacity</td><td>+30%</td><td>better dynamic buffer</td></tr>
+                <tr><td>Total OEE</td><td>+6 pp</td><td>sustained capacity recovery</td></tr>
+                <tr><td>Fleet availability</td><td>high and predictable</td><td>traffic and charging validated</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="economics">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Economía</div>
+          <h2>El valor más fuerte está en eliminar bloqueos y recuperar capacidad útil.</h2>
+          <div class="grid-3">
+            <article class="card amber"><span class="tag proposal">Labor</span><h3>ahorro indirecto</h3><p>menos movimientos manuales y mejor servicio a línea.</p></article>
+            <article class="card green"><span class="tag proposal">Capacidad</span><h3>output recuperado</h3><p>menor esperar y mejor continuidad del sistema.</p></article>
+            <article class="card accent"><span class="tag proposal">Calidad</span><h3>menos daño</h3><p>menos manejo, menos golpes, mejor trazabilidad.</p></article>
+          </div>
+          <div class="decision"><strong>Guardrail</strong>La Fase 3 debe valorarse con datos reales de disponibilidad, charging, p50/p95 y prioridad. No se puede aceptar como “ahorro por AMR” si no demuestra estabilidad del flujo en momentos de máxima carga.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Economics</div>
+          <h2>The strongest value is reducing blockages and recovering useful capacity.</h2>
+          <div class="grid-3">
+            <article class="card amber"><span class="tag proposal">Labor</span><h3>indirect saving</h3><p>less manual movement and better line service.</p></article>
+            <article class="card green"><span class="tag proposal">Capacity</span><h3>recovered output</h3><p>less waiting and better system continuity.</p></article>
+            <article class="card accent"><span class="tag proposal">Quality</span><h3>less damage</h3><p>less handling, fewer hits and better traceability.</p></article>
+          </div>
+          <div class="decision"><strong>Guardrail</strong>Phase 3 should be valued with real data on availability, charging, p50/p95 and priority. It cannot be accepted as “savings by AMR” unless it proves flow stability during peak loads.</div>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="lang lang-es">
+          <div class="section-no">08 · Conclusión</div>
+          <h2>La Fase 3 da a la planta una lógica de control sostenible.</h2>
+          <p>La decisión clave no es si el AMR es “muy moderno” o si el WIP es más grande. La decisión clave es si la planta gana continuidad, menos bloqueo, mejor respuesta ante picos y una operación de apoyo gestionada por software. Si esto se cumple, la Fase 3 es la que conecta las tres capas del sistema: la línea, el WIP y la logística. La Fase 3 es la base para convertir un sistema reactivo en un sistema productivo y trazable.</p>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">08 · Conclusion</div>
+          <h2>Phase 3 gives the plant a sustainable control logic.</h2>
+          <p>The key decision is not whether the AMR is “very modern” or whether WIP is larger. The key decision is whether the plant gains continuity, less blocking, better response to peaks and a support operation regulated by software. If this is true, Phase 3 is the one that connects the three layers of the system: the line, the WIP and logistics. Phase 3 is the foundation for converting a reactive system into a productive and traceable one.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="hero-inner" style="padding:0">
+      <div class="lang lang-es"><strong>INGECART · Calgary · Fase 3</strong><br>Informe técnico de WIP, Ingetrans y AMR · 2026-08-18</div>
+      <div class="lang lang-en hidden"><strong>INGECART · Calgary · Phase 3</strong><br>WIP, Ingetrans and AMR technical report · 2026-08-18</div>
+    </div>
+  </footer>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

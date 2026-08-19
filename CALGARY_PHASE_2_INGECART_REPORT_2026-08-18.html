@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico de la Fase 2 de automatización de paletización Ingecart para Calgary." />
+  <title>Calgary · Ingecart · Fase 2</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(12,12,12,.92) 0%, rgba(12,12,12,.72) 46%, rgba(12,12,12,.2) 100%); }
+    .product-spotlight { display:grid; grid-template-columns:260px minmax(0,1fr); gap:18px; align-items:stretch; margin:18px 0; }
+    .product-spotlight img { width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); }
+    .product-copy { padding:18px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(20,115,95,.04), rgba(0,0,0,.01)); border-radius:12px; }
+    .product-copy strong { display:block; color:var(--muted); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+    .product-copy h3 { margin:8px 0; }
+    .formula { border-left:5px solid var(--green); background:#f5faf8; padding:18px 20px; margin:16px 0; font-family:'Cascadia Mono', Consolas, monospace; font-weight:700; }
+    @media (max-width:980px) { .product-spotlight { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Calgary · Automatización · Fase 2</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Salida estable, pallet repetible y capacidad recuperada</h1>
+        <p>La Fase 2 no es solo una mejora de paletización: es la medida que convierte la salida de línea en un sistema gestionado, estable y preparado para la logística automática.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Fase 2</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Calgary · Automation · Phase 2</div>
+        <div class="brand-mark"><img src="./simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Stable outfeed, repeatable pallet and recovered capacity</h1>
+        <p>Phase 2 is not only a palletizing improvement: it is the step that turns the line outfeed into a managed, stable and logistics-ready system.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Phase 2</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Core concept</strong>
+      <span>Outfeed</span>
+      <span>Stability</span>
+      <span>Pallet quality</span>
+      <span>WCS</span>
+      <span>Throughput</span>
+      <span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#scope">02 · Alcance</a>
+          <a href="#value">03 · Valor</a>
+          <a href="#operating">04 · Operación</a>
+          <a href="#kpis">05 · KPI</a>
+          <a href="#economics">06 · Economía</a>
+          <a href="#conclusion">07 · Conclusión</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#scope">02 · Scope</a>
+          <a href="#value">03 · Value</a>
+          <a href="#operating">04 · Operation</a>
+          <a href="#kpis">05 · KPI</a>
+          <a href="#economics">06 · Economics</a>
+          <a href="#conclusion">07 · Conclusion</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La Fase 2 protege la producción útil y evita que la descarga termine dictando el ritmo.</h2>
+          <p class="lead">Cuando la línea pierde la capacidad de evacuar de modo estable, el sistema entra en un ciclo de bloqueo, espera y sobreacumulación. En Calgary, la Fase 2 se convierte en la barrera necesaria para que la salida de la línea deje de depender de decisiones manuales, patrones inestables y reubicaciones improductivas.</p>
+          <div class="decision"><strong>Tesis</strong>La paletización automatizada no debe medirse solo por velocidad nominal. Su valor real aparece cuando protege la producción en la zona final, estabiliza la calidad del pallet, reduce rehandling y elimina fricción operativa entre la línea y la salida logística.</div>
+          <div class="grid-4">
+            <article class="card green"><div class="metric">+20%</div><div class="metric-label">Producción FG</div><small>orientativo</small></article>
+            <article class="card accent"><div class="metric">-30%</div><div class="metric-label">Rework</div><small>orientativo</small></article>
+            <article class="card amber"><div class="metric">-1</div><div class="metric-label">Operador / turno</div><small>por línea</small></article>
+            <article class="card"><div class="metric">+10%</div><div class="metric-label">Disponibilidad</div><small>de salida</small></article>
+          </div>
+          <div class="formula">Capacidad útil recuperada ≈ minutos evitados de bloqueo × bundles buenos/minuto × margen de contribución</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>Phase 2 protects useful production and prevents discharge from deciding the pace.</h2>
+          <p class="lead">When the line loses the ability to evacuate in a stable way, the system falls into a cycle of blocking, waiting and over-accumulation. In Calgary, Phase 2 becomes the necessary barrier so the line outfeed no longer depends on manual decisions, unstable patterns and unproductive relocations.</p>
+          <div class="decision"><strong>Thesis</strong>Automated palletizing should not be measured only by nominal speed. Its real value appears when it protects production at the final zone, stabilizes pallet quality, reduces rehandling and removes operational friction between the line and the logistics outfeed.</div>
+          <div class="grid-4">
+            <article class="card green"><div class="metric">+20%</div><div class="metric-label">FG output</div><small>indicative</small></article>
+            <article class="card accent"><div class="metric">-30%</div><div class="metric-label">Rework</div><small>indicative</small></article>
+            <article class="card amber"><div class="metric">-1</div><div class="metric-label">Operator / shift</div><small>per line</small></article>
+            <article class="card"><div class="metric">+10%</div><div class="metric-label">Outfeed availability</div><small>indicative</small></article>
+          </div>
+          <div class="formula">Recovered useful capacity ≈ avoided blocked minutes × good bundles/minute × contribution margin</div>
+        </div>
+      </section>
+
+      <section id="scope">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Alcance</div>
+          <h2>La última zona del flujo deja de ser un cuello de botella y pasa a ser una salida controlada.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Base actual</h3><ul><li>Salida en cadena con dependencia manual.</li><li>Patrones de pallet variables.</li><li>rehandling y doble manipulación.</li><li>uso subóptimo del buffer final.</li><li>trazabilidad limitada en la descarga.</li></ul></article>
+            <article class="card accent"><h3>Diseño objetivo</h3><ul><li>paletizado automático con interlayers.</li><li>salida programada y estable.</li><li>mejor calidad y consistencia de pallet.</li><li>pickup coordinado con WCS/fleet.</li><li>menos manipulación y menos espera.</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Scope</div>
+          <h2>The final zone of the flow stops being a bottleneck and becomes a controlled outfeed.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Current base</h3><ul><li>Manual-dependent line outfeed.</li><li>Variable pallet patterns.</li><li>rehandling and double manipulation.</li><li>suboptimal use of final buffer.</li><li>limited traceability at discharge.</li></ul></article>
+            <article class="card accent"><h3>Target design</h3><ul><li>automatic palletizing with interlayers.</li><li>scheduled and stable outfeed.</li><li>better pallet consistency and quality.</li><li>pickup coordinated with WCS/fleet.</li><li>less manipulation and less waiting.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="value">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Valor industrial</div>
+          <h2>La mejora es sistémica: estabiliza el último tramo, no solo la última máquina.</h2>
+          <div class="product-spotlight">
+            <img src="./AMR WIP.png"
+                 alt="Plug & Play palletizer"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+            <div class="product-copy">
+              <strong>Producto</strong>
+              <h3>Plug & Play EasyPack + Palletizer</h3>
+              <p>Solución compacta de paletizado final diseñada para recuperar capacidad sin requerir grandes obras civiles, aportando rapidez de instalación, estabilidad de salida y menor dependencia operacional.</p>
+              <p style="margin-top:8px;"><a href="#solutions" target="_self" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent"><h3>Ventajas del equipo</h3><ul><li>capacidad de salida estable y repetible.</li><li>interlayers y formación del pallet controlada.</li><li>transición rápida entre formatos y recetas.</li><li>menor exposición del operario al manejo del pallet.</li></ul></article>
+            <article class="card green"><h3>Impacto directo</h3><ul><li>disminuye bloqueo por salida final.</li><li>reduce rework y daño en pallet.</li><li>mejora servicio a expedición y segunda pasada.</li><li>deja el buffer más útil y menos saturado.</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Industrial value</div>
+          <h2>The improvement is systemic: it stabilizes the last segment, not just the last machine.</h2>
+          <div class="product-spotlight">
+            <img src="./AMR WIP.png"
+                 alt="Plug & Play palletizer fallback"
+                 onerror="this.onerror=null;this.src='./AMR WIP.png';" />
+            <div class="product-copy">
+              <strong>Product</strong>
+              <h3>Plug & Play EasyPack + Palletizer</h3>
+              <p>Compact end-of-line palletizing solution designed to recover capacity without large civil works, offering fast installation, stable outfeed and lower operational dependence.</p>
+              <p style="margin-top:8px;"><a href="#solutions" target="_self" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="grid-2">
+            <article class="card accent"><h3>Equipment advantages</h3><ul><li>stable and repeatable outfeed capacity.</li><li>controlled interlayers and pallet formation.</li><li>fast transition between formats and recipes.</li><li>less operator exposure to pallet handling.</li></ul></article>
+            <article class="card green"><h3>Direct impact</h3><ul><li>reduces blocking at the final outfeed.</li><li>reduces rework and pallet damage.</li><li>improves service to shipping and second-pass.</li><li>leaves the buffer more useful and less saturated.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="operating">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Operación</div>
+          <h2>La célula trabaja con recetas, patrón y prioridad, no con improvisación.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Requisitos de operación</h3><ul><li>patrón aceptado por SKU.</li><li>interlayer y estabilidad de pallet.</li><li>control de conteo y salida.</li><li>recepción y pickup coordinado.</li></ul></article>
+            <article class="card accent"><h3>Condiciones para liberar</h3><ul><li>cadencia sostenida por familia SKU.</li><li>cambio de receta sin bloqueo.</li><li>integración con WCS y logística.</li><li>modo degradado probado.</li></ul></article>
+          </div>
+          <div class="decision"><strong>Conclusión operativa</strong>Si la última zona del flujo no puede absorber la cadencia de línea, la planta no gana capacidad. La Fase 2 responde precisamente a ese problema: convierte la salida en un proceso medible y estable.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Operation</div>
+          <h2>The cell works with recipes, pattern and priority, not improvisation.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Operating requirements</h3><ul><li>accepted pattern by SKU.</li><li>interlayer and pallet stability.</li><li>count and outfeed control.</li><li>coordinated receipt and pickup.</li></ul></article>
+            <article class="card accent"><h3>Release conditions</h3><ul><li>sustained cadence by SKU family.</li><li>recipe change without blockage.</li><li>integration with WCS and logistics.</li><li>degraded mode tested.</li></ul></article>
+          </div>
+          <div class="decision"><strong>Operational conclusion</strong>If the last flow zone cannot absorb line cadence, the plant does not gain capacity. Phase 2 addresses that exact problem: it turns the outfeed into a measurable and stable process.</div>
+        </div>
+      </section>
+
+      <section id="kpis">
+        <div class="lang lang-es">
+          <div class="section-no">05 · KPI objetivo</div>
+          <h2>Se mide por flujo útil y no por velocidad nominal.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicador</th><th>Objetivo</th><th>Valor de negocio</th></tr></thead>
+              <tbody>
+                <tr><td>Producción FG</td><td>+20% a +35%</td><td>recupera capacidad útil sin ampliar línea</td></tr>
+                <tr><td>Rework</td><td>-30% a -50%</td><td>menos pallet defectuoso y menos corrección</td></tr>
+                <tr><td>Disponibilidad de salida</td><td>+10% a +20%</td><td>menos bloqueo final</td></tr>
+                <tr><td>Operadores directos</td><td>-1/turno por línea</td><td>libera trabajo manual no valorado</td></tr>
+                <tr><td>Calidad de pallet</td><td>estabilidad y repetibilidad</td><td>menor daño y mejor servicio</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Target KPI</div>
+          <h2>It is measured by useful flow, not by nominal speed.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicator</th><th>Target</th><th>Business value</th></tr></thead>
+              <tbody>
+                <tr><td>FG output</td><td>+20% to +35%</td><td>recovers useful capacity without expanding the line</td></tr>
+                <tr><td>Rework</td><td>-30% to -50%</td><td>less defective pallet and less correction</td></tr>
+                <tr><td>Outfeed availability</td><td>+10% to +20%</td><td>less final blocking</td></tr>
+                <tr><td>Direct operators</td><td>-1/shift per line</td><td>frees manual work without value added</td></tr>
+                <tr><td>Pallet quality</td><td>stability and repeatability</td><td>less damage and better service</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="economics">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Economía</div>
+          <h2>El valor financiero aparece cuando se recupera capacidad y se elimina manipulación.</h2>
+          <div class="grid-3">
+            <article class="card amber"><span class="tag proposal">Labor</span><h3>ahorro directo</h3><p>se valora por tareas reales que desaparecen del proceso y por asignación por turno.</p></article>
+            <article class="card green"><span class="tag proposal">Capacidad</span><h3>output recuperado</h3><p>la mayor parte del valor está en minutos no perdidos de la línea, no en la velocidad del robot únicamente.</p></article>
+            <article class="card accent"><span class="tag proposal">Calidad</span><h3>rework evitado</h3><p>reducción de daño, corrección y rechazo mejora el coste total por unidad.</p></article>
+          </div>
+          <div class="decision"><strong>Guardrail financiero</strong>La Fase 2 solo debe sumarse a las otras decisiones si se reconciliaba tarea, turno, línea y capacidad efectiva. La evidencia del valor real sale del flujo útil, no del valor nominal del equipo.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Economics</div>
+          <h2>Financial value appears when capacity is recovered and handling is eliminated.</h2>
+          <div class="grid-3">
+            <article class="card amber"><span class="tag proposal">Labor</span><h3>direct saving</h3><p>valued by real tasks that disappear from the process and by assignment per shift.</p></article>
+            <article class="card green"><span class="tag proposal">Capacity</span><h3>recovered output</h3><p>most of the value lies in minutes not lost on the line, not in robot speed alone.</p></article>
+            <article class="card accent"><span class="tag proposal">Quality</span><h3>avoided rework</h3><p>less damage, correction and rejection improves total cost per unit.</p></article>
+          </div>
+          <div class="decision"><strong>Financial guardrail</strong>Phase 2 only makes sense when task, shift, line and effective capacity are reconciled. Real value comes from useful flow, not the nominal value of the equipment.</div>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Conclusión</div>
+          <h2>La Fase 2 es una inversión de flujo, no un equipamiento aislado.</h2>
+          <p>La conclusión clave es que la salida final del sistema no puede seguir funcionando como un punto débil. Cuando la paletización estabiliza la evacuación, la línea gana continuidad, la calidad del pallet mejora y la planta entra en un modelo más predecible, más seguro y más escalable. En esta lógica, el sistema de paletización no reemplaza solo trabajo manual, sino que protege la capacidad útil del proceso total.</p>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Conclusion</div>
+          <h2>Phase 2 is a flow investment, not an isolated machine.</h2>
+          <p>The key conclusion is that the final output of the system cannot continue functioning as a weak point. When palletizing stabilizes evacuation, the line gains continuity, pallet quality improves and the plant enters a more predictable, safer and more scalable model. In this logic, the palletizing system does not merely replace manual work; it protects the useful capacity of the whole process.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="hero-inner" style="padding:0">
+      <div class="lang lang-es"><strong>INGECART · Calgary · Fase 2</strong><br>Informe técnico de paletización automatizada · 2026-08-18</div>
+      <div class="lang lang-en hidden"><strong>INGECART · Calgary · Phase 2</strong><br>Automated palletizing technical report · 2026-08-18</div>
+    </div>
+  </footer>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

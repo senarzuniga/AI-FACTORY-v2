@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico y económico ampliado de Calgary para Fase 1, Fase 2 y Fase 3 con automatización Ingecart." />
+  <title>Calgary · Ingecart · Fase 1 / 2 / 3</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    :root { --bg:#f3efe9; --ink:#121212; --muted:#5d5a56; --line:#d9d1c3; --green:#14735f; --orange:#f26b20; --amber:#b77a17; --wine:#7d2f2f; --panel:#fff; }
+    body { background: linear-gradient(180deg,#f5f0e8, #efebe3); }
+    .hero { background: linear-gradient(90deg, rgba(12,12,12,.92), rgba(12,12,12,.72)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .kpi-slab { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+    .product-spotlight { display:grid; grid-template-columns:260px minmax(0,1fr); gap:18px; align-items:stretch; margin:18px 0; }
+    .product-spotlight img { width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); }
+    .product-copy { padding:18px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(20,115,95,.04), rgba(0,0,0,.01)); border-radius:12px; }
+    .product-copy strong { display:block; color:var(--muted); font-size:11px; letter-spacing:.14em; text-transform:uppercase; }
+    .product-copy h3 { margin:8px 0; }
+    .product-copy p { margin:0; }
+    .formula { border-left:5px solid var(--green); background:#f5faf8; padding:18px 20px; margin:16px 0; font-family:'Cascadia Mono', Consolas, monospace; font-weight:700; }
+    .status { display:inline-block; padding:5px 9px; border-radius:4px; background:#eaf4ee; color:var(--green); font-weight:700; }
+    @media (max-width: 980px) { .kpi-slab { grid-template-columns:repeat(2,minmax(0,1fr)); } .product-spotlight { grid-template-columns:1fr; } }
+    @media (max-width: 620px) { .kpi-slab { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Cascades Calgary · Automatización de conversión · Fase 1 / 2 / 3</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Flujo automático, capacidad recuperada y control del sistema</h1>
+        <p>El valor de la automatización Ingecart en Calgary no es solo sustituir un transfer manual; es liberar capacidad real al convertir un sistema sensible a bloqueo en un sistema controlado por software, trazabilidad y sincronización.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Informe ampliado</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Cascades Calgary · Conversion automation · Phase 1 / 2 / 3</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Automated flow, recovered capacity and system control</h1>
+        <p>The value of Ingecart automation in Calgary is not just replacing a manual transfer; it is releasing real capacity by turning a blocking-sensitive system into a software-controlled, traceable and synchronized flow.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Expanded report</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Core concept</strong>
+      <span>Transfer</span>
+      <span>AMR</span>
+      <span>WIP</span>
+      <span>Ingetrans</span>
+      <span>Plug & Play</span>
+      <span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#scope">02 · Alcance</a>
+          <a href="#phase1">03 · Fase 1</a>
+          <a href="#phase2">04 · Fase 2</a>
+          <a href="#phase3">05 · Fase 3</a>
+          <a href="#kpis">06 · KPIs</a>
+          <a href="#econ">07 · Business case</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#scope">02 · Scope</a>
+          <a href="#phase1">03 · Phase 1</a>
+          <a href="#phase2">04 · Phase 2</a>
+          <a href="#phase3">05 · Phase 3</a>
+          <a href="#kpis">06 · KPIs</a>
+          <a href="#econ">07 · Business case</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La automatización mejora el flujo antes de que aparezca el bloqueo.</h2>
+          <p class="lead">La zona de conversión de Calgary tiene un cuello de botella claro: la salida manual de las tres RDC y el transfer de salida que alimenta FG, segunda pasada y expedición. La diferencia real de Ingecart no es solo sustituir trabajo manual: es evitar que la capacidad útil se destruya por la falta de reserva, coordinación y prioridad.</p>
+          <div class="decision"><strong>Tesis</strong>La propuesta Ingecart ofrece tres niveles de valor simultáneos: estabilizar la salida de la RDC, liberar capacidad de segunda pasada y convertir el WIP y la logística en un servicio productivo controlado y trazable. Esa es la base para mejorar OEE, productividad y ROI.</div>
+          <div class="kpi-slab">
+            <div class="kpi"><div class="kpi-value">+6 pp</div><div class="kpi-label">OEE orientativo</div><small>benchmark de referencia</small></div>
+            <div class="kpi"><div class="kpi-value">-60 a -87%</div><div class="kpi-label">Starvation</div><small>con WIP inteligente</small></div>
+            <div class="kpi"><div class="kpi-value">+4,2M m</div><div class="kpi-label">Producción extra</div><small>anual</small></div>
+            <div class="kpi"><div class="kpi-value">~€309k</div><div class="kpi-label">Ahorro operativo</div><small>anual orientativo</small></div>
+          </div>
+          <div class="formula">Producción ganada ≈ minutos evitados de bloqueo × hojas/minuto útiles × margen de contribución</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>Automation improves the flow before the blockage appears.</h2>
+          <p class="lead">The Calgary conversion area has a clear bottleneck: the manual output of the three RDCs and the outfeed transfer feeding FG, second-pass and shipping. The real difference of Ingecart is not just replacing manual work: it is preventing usable capacity from being destroyed by lack of reservation, coordination and priority.</p>
+          <div class="decision"><strong>Thesis</strong>The Ingecart proposal creates three levels of value at once: stabilizing the RDC outfeed, freeing second-pass capacity, and turning WIP and logistics into a controlled, traceable and productive service. That is the basis for improving OEE, productivity and ROI.</div>
+          <div class="kpi-slab">
+            <div class="kpi"><div class="kpi-value">+6 pp</div><div class="kpi-label">Indicative OEE</div><small>reference benchmark</small></div>
+            <div class="kpi"><div class="kpi-value">-60 to -87%</div><div class="kpi-label">Starvation</div><small>with smart WIP</small></div>
+            <div class="kpi"><div class="kpi-value">+4.2M m</div><div class="kpi-label">Extra output</div><small>per year</small></div>
+            <div class="kpi"><div class="kpi-value">~€309k</div><div class="kpi-label">Operating savings</div><small>annual indicative</small></div>
+          </div>
+          <div class="formula">Output gain ≈ avoided blocked minutes × useful sheets/minute × contribution margin</div>
+        </div>
+      </section>
+
+      <section id="scope">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Alcance del proyecto</div>
+          <h2>El flujo base se mantiene, pero la operación gana reglas, trazabilidad y sincronización.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Base actual</h3><ul><li>WIP a la derecha</li><li>Convertidoras a la izquierda</li><li>Transfer vertical de sur a norte</li><li>RDC McKinley, Koppers y Ward</li><li>Salidas manuales y transfer manual</li><li>FG / Two-Piece / Expedición</li></ul></article>
+            <article class="card accent"><h3>Diseño objetivo</h3><ul><li>3 salidas automáticas con software común</li><li>transfer car automático</li><li>tridentes para AGV/AMR</li><li>WIP intermedio para 2ª y 3ª operación</li><li>Plug & Play en FG o paletizado</li><li>Ingetrans + AMR + fleet control</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Project scope</div>
+          <h2>The base flow remains, but the operation gains rules, traceability and synchronization.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Current base</h3><ul><li>WIP on the right</li><li>Converters on the left</li><li>Vertical transfer south-north</li><li>RDC McKinley, Koppers and Ward</li><li>Manual outfeeds and manual transfer</li><li>FG / Two-Piece / Shipping</li></ul></article>
+            <article class="card accent"><h3>Target design</h3><ul><li>3 automatic coordinated outputs with common software</li><li>automatic transfer car</li><li>tridents for AGV/AMR</li><li>intermediate WIP for 2nd and 3rd operations</li><li>Plug & Play at FG or palletizing</li><li>Ingetrans + AMR + fleet control</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="phase1">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Fase 1</div>
+          <h2>Transfer automático + conveyors + tridentes + control de salida</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fortalezas del equipo</h3><ul><li>Elimina dependencia operacional del transfer manual.</li><li>Reserva destino antes de mover la carga.</li><li>Desacopla la velocidad útil de la RDC del empuje manual.</li><li>Reduce bloqueos y starvation en FG / Two-Piece.</li><li>Facilita WIP intermedio y salida coordinada.</li></ul></article>
+            <article class="card accent"><h3>Indicadores objetivo</h3><ul><li>Bloqueo de salida: -40% a -65%</li><li>Starvation de segunda pasada: -50% a -80%</li><li>Rehandling: -30% a -50%</li><li>Dependencia manual: -60% a -80%</li><li>Disponibilidad: +8% a +15%</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/INGECART%20TRANSFER.jpeg"
+                 alt="Automatic transfer system"
+                 onerror="this.onerror=null;this.src='https://senarzuniga.github.io/ingesite.github.io/assets/images/ingecart-world.png';" />
+            <div class="product-copy">
+              <strong>Producto</strong>
+              <h3>Automatic transfer / in-line conveyor transfer</h3>
+              <p>Transfer automático para mover cargas entre salidas de RDC, zonas de WIP y estaciones de segunda pasada con precisión, control de posición y reserva de destino por software.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/solutions/intralogistics-automatic-transfer.html" target="_blank" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Impacto</strong> La Fase 1 no es un “upgrade de transporte”; es la forma de sacar el sistema del modo reactivo y ponerlo en modo predictivo. En Calgary, eso significa que la RDC deja de esperar al operador para poder liberar su carga.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Phase 1</div>
+          <h2>Automatic transfer + conveyors + tridents + output control</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Equipment strengths</h3><ul><li>Eliminates operational dependence on the manual transfer.</li><li>Reserves destination before moving the load.</li><li>Decouples RDC sustainable speed from manual pushing.</li><li>Reduces blockages and starvation at FG / Two-Piece.</li><li>Enables intermediate WIP and coordinated output.</li></ul></article>
+            <article class="card accent"><h3>Target indicators</h3><ul><li>Output blockage: -40% to -65%</li><li>Second-pass starvation: -50% to -80%</li><li>Rehandling: -30% to -50%</li><li>Manual dependence: -60% to -80%</li><li>Availability: +8% to +15%</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/ingecart-world.png"
+                 alt="INGETRANS system"
+                 onerror="this.onerror=null;this.src='https://senarzuniga.github.io/ingesite.github.io/assets/images/industrial-network.svg';" />
+            <div class="product-copy">
+              <strong>Product</strong>
+              <h3>Transfer car / shuttle transfer</h3>
+              <p>Transfer car for moving loads between RDC outputs, WIP zones and second-pass stations with software-controlled precision and destination reservation.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/#solutions" target="_blank" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Impact</strong>Phase 1 is not a transport upgrade; it is the way to move the system from reactive mode into predictive mode. In Calgary, that means the RDC stops waiting for the operator to release its load.</div>
+        </div>
+      </section>
+
+      <section id="phase2">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Fase 2</div>
+          <h2>Plug & Play para paletización compacta y salida estable</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fortalezas del producto</h3><ul><li>12 bundles/min stable con interlayers y salida automática</li><li>pallet 1200 x 1200 x 2300 mm</li><li>compact footprint 3 x 3 m</li><li>genera estabilidad de salida</li><li>sustituye trabajo manual en paletización y flejado</li></ul></article>
+            <article class="card accent"><h3>Impacto esperado</h3><ul><li>Producción FG: +20% a +35%</li><li>Operadores directos: -1/turno por línea</li><li>Rework: -30% a -50%</li><li>Disponibilidad de salida: +10% a +20%</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/Plug%20and%20Play%20Palletizer.png"
+                 alt="Plug and Play palletizer"
+                 onerror="this.onerror=null;this.src='https://senarzuniga.github.io/ingesite.github.io/assets/images/industrial-network.svg';" />
+            <div class="product-copy">
+              <strong>Producto</strong>
+              <h3>Plug & Play palletizer</h3>
+              <p>Compact palletizing solution with automatic exit, interlayers and controlled bundle formation to stabilize the final output of the converting line.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/#solutions" target="_blank" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Valor</strong>La Fase 2 no solo mejora la paletización; evita que la última sección del flujo convierta la planta en un “cuello de botella final”.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Phase 2</div>
+          <h2>Plug & Play for compact palletizing and stable output</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Product strengths</h3><ul><li>12 bundles/min stable with interlayers and automatic exit</li><li>pallet up to 1200 x 1200 x 2300 mm</li><li>compact footprint 3 x 3 m</li><li>creates stable outfeed</li><li>replaces manual palletizing and strapping</li></ul></article>
+            <article class="card accent"><h3>Expected impact</h3><ul><li>FG production: +20% to +35%</li><li>Direct operators: -1/shift per line</li><li>Rework: -30% to -50%</li><li>Outfeed availability: +10% to +20%</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/indus-trial-network.svg" alt="Plug and Play palletizer" onerror="this.onerror=null;this.src='https://senarzuniga.github.io/ingesite.github.io/assets/images/industrial-network.svg';" />
+            <div class="product-copy">
+              <strong>Product</strong>
+              <h3>Plug & Play palletizer</h3>
+              <p>Compact palletizing solution with automatic exit, interlayers and controlled bundle formation to stabilize the final output of the converting line.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/#solutions" target="_blank" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Value</strong>Phase 2 is not just a palletizer upgrade; it prevents the final section of the process from becoming a final bottleneck.</div>
+        </div>
+      </section>
+
+      <section id="phase3">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Fase 3</div>
+          <h2>Ingetrans + AMR + WIP automatizado como sistema integrado</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fortalezas del sistema</h3><ul><li>WIP móvil y trazable</li><li>menos MTO y menos reubicación</li><li>mayor capacidad de almacenamiento</li><li>control de prioridad dinámico</li><li>reducción de movimientos no productivos</li></ul></article>
+            <article class="card accent"><h3>KPIs clave</h3><ul><li>capacidad de almacenamiento: +30%</li><li>altura de palets: +25%</li><li>starvation logístico: -60% a -87%</li><li>tiempo de búsqueda: -50% a -80%</li><li>OEE total: +6 pp orientativo</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png"
+                 alt="AMR WIP management"
+                 onerror="this.onerror=null;this.src='file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png';" />
+            <div class="product-copy">
+              <strong>Producto</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>Gestión de WIP con AMR para reasignar pallets, materiales auxiliares, interlayers, cores y soportes de flujo entre procesos sin saturar la línea principal. El valor no es solo mover material, sino estabilizar la ruta productiva y mantener la prioridad en cada punto.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/#solutions" target="_blank" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Impacto</strong> La Fase 3 convierte el flujo de apoyo en un sistema de servicio productivo; es donde la planta deja de responder “manualmente” y empieza a gestionarse por prioridad, capacidad y trazabilidad. En este punto, el AMR WIP no es un sistema auxiliar: es la capa de control que evita que el almacenamiento intermedio se convierta en un bloqueador del proceso principal. La lógica de gestión de WIP con AMR se alinea con la base técnica del informe de KUKA AMR WIP Corrugated Technical Report: prioridad dinámica, evitación de esperas, reducción de bloqueo por posición vacía, mejor reutilización del buffer y mantenimiento de OEE en zonas de alta variabilidad.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Phase 3</div>
+          <h2>Ingetrans + AMR + automated WIP as an integrated system</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>System strengths</h3><ul><li>Mobile and traceable WIP</li><li>less MTO and less relocation</li><li>greater storage capacity</li><li>dynamic priority control</li><li>less non-productive movement</li></ul></article>
+            <article class="card accent"><h3>Key KPIs</h3><ul><li>storage capacity: +30%</li><li>pallet height: +25%</li><li>logistics starvation: -60% to -87%</li><li>search time: -50% to -80%</li><li>total OEE: +6 pp indicative</li></ul></article>
+          </div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/industrial-network.svg" alt="AMR intralogistics" onerror="this.onerror=null;this.src='https://senarzuniga.github.io/ingesite.github.io/assets/images/ingecart-world.png';" />
+            <div class="product-copy">
+              <strong>Product</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>Automated transport for WIP, pallet handling, waste and support logistics, allowing non-linear flow and better plant flexibility.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/#solutions" target="_blank" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="decision"><strong>Impact</strong>Phase 3 turns support flow into a productive service system; this is where the plant stops responding manually and starts operating by priority, capacity and traceability.</div>
+        </div>
+      </section>
+
+      <section id="kpis">
+        <div class="lang lang-es">
+          <div class="section-no">06 · KPIs y objetivos</div>
+          <h2>La mejora real se mide en capacidad útil, no en velocidad nominal.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicador</th><th>Fase 1</th><th>Fase 2</th><th>Fase 3</th></tr></thead>
+              <tbody>
+                <tr><td>OEE útil</td><td>+3 a +6 pp</td><td>+2 a +5 pp</td><td>+6 pp benchmark</td></tr>
+                <tr><td>Starvation</td><td>-50% a -80%</td><td>-30% a -50%</td><td>-60% a -87%</td></tr>
+                <tr><td>Producción</td><td>+10% a +20%</td><td>+20% a +35%</td><td>+5% a +12%</td></tr>
+                <tr><td>Operarios directos</td><td>-4 personas</td><td>-4 personas por línea</td><td>-9 personas equivalentes</td></tr>
+                <tr><td>Desperdicio</td><td>-10% a -20%</td><td>-20% a -30%</td><td>-25% a -40%</td></tr>
+                <tr><td>Disponibilidad</td><td>+8% a +15%</td><td>+10% a +20%</td><td>+12% a +18%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · KPIs and objectives</div>
+          <h2>Real improvement is measured in usable capacity, not nominal speed.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Indicator</th><th>Phase 1</th><th>Phase 2</th><th>Phase 3</th></tr></thead>
+              <tbody>
+                <tr><td>Useful OEE</td><td>+3 to +6 pp</td><td>+2 to +5 pp</td><td>+6 pp benchmark</td></tr>
+                <tr><td>Starvation</td><td>-50% to -80%</td><td>-30% to -50%</td><td>-60% to -87%</td></tr>
+                <tr><td>Production</td><td>+10% to +20%</td><td>+20% to +35%</td><td>+5% to +12%</td></tr>
+                <tr><td>Direct operators</td><td>-4 people</td><td>-4 persons per line</td><td>-9 equivalent persons</td></tr>
+                <tr><td>Waste</td><td>-10% to -20%</td><td>-20% to -30%</td><td>-25% to -40%</td></tr>
+                <tr><td>Availability</td><td>+8% to +15%</td><td>+10% to +20%</td><td>+12% to +18%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="econ">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Business case</div>
+          <h2>El valor económico sale de la capacidad recuperada, no de la velocidad nominal.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Concepto</th><th>Estimación</th><th>Comentario</th></tr></thead>
+              <tbody>
+                <tr><td>Transfer car + conveyors</td><td>1.000.000-1.500.000 USD</td><td>depende de longitud y número de puntos</td></tr>
+                <tr><td>Tridentes / AGV interchange</td><td>250.000-500.000 USD</td><td>integración y control</td></tr>
+                <tr><td>Plug & Play FG</td><td>200.000 USD</td><td>presupuesto orientativo</td></tr>
+                <tr><td>AMR WIP</td><td>950.000-1.100.000 USD</td><td>valor de sistema</td></tr>
+                <tr><td>Ingetrans</td><td>1.350.000 USD</td><td>flujo y trazabilidad</td></tr>
+                <tr><td>Ahorro bruto anual</td><td>320.000-1.120.000 USD</td><td>fase 1 + 2 + 3 no siempre sumable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="decision"><strong>Regla financiera</strong>Los ahorros de mano de obra y de producción no pueden sumarse sin reconciliar puesto, turno, fase y tarea. El ROI debe validarse con capex real, mantenimiento, software y modelos de operación, pero la dirección general es clara: el proyecto tiene sentido si se evalúa por capacidad útil recuperada. En términos de retorno, la mejora más tangible no llega solo del ahorro de personal, sino de la recuperación de capacidad productiva por menos bloqueos, menos espera de material, menos rehandling y más continuidad del flujo. Un sistema con OEE mejorado en +3 a +6 puntos y con starvation reducido entre 60% y 87% produce un retorno económico múltiple: menos horas perdidas en la máquina, mayor servicio a FG/segunda pasada, menos pérdida por material dañado y mejor utilización del área de WIP. Por tanto, el valor real aparece como mezcla de productividad, OEE, continuidad y reducción de mano de obra indirecta, no solo como sustitución del operario. Las tablas recogen el conjunto de mejoras del sistema: flujo, logística, carga de trabajo, trazabilidad, disponibilidad, calidad y productividad, no solo un KPI aislado.</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Resultado de negocio</th><th>Hito orientativo</th><th>Impacto</th></tr></thead>
+              <tbody>
+                <tr><td>OEE útil del tramo</td><td>+3 a +6 pp</td><td>mejor utilización de la capacidad instalada</td></tr>
+                <tr><td>Reducción de starvation</td><td>-60% a -87%</td><td>evita paradas por falta de material y falta de destino</td></tr>
+                <tr><td>Producción extra anual</td><td>+4,2M m</td><td>capacidad recuperada sin ampliar líneas</td></tr>
+                <tr><td>Ahorro operativo anual</td><td>~€309k / año</td><td>aproximación de referencia para flujo mejorado</td></tr>
+                <tr><td>Retorno estimado</td><td>12-24 meses</td><td>según alcance, integración y validación de tareas</td></tr>
+                <tr><td>Mejora de flujo</td><td>reducción de bloqueos</td><td>las ganancias de rendimiento surgen antes de la máquina, en la logística</td></tr>
+                <tr><td>Reducción de rehandling</td><td>-30% a -50%</td><td>menos movimiento manual, menos doble manipulación y menos riesgo de daño</td></tr>
+                <tr><td>Disponibilidad del sistema</td><td>+8% a +15%</td><td>mejor servicio a FG, segunda pasada y expedición con menos contratiempos</td></tr>
+                <tr><td>Utilización del WIP</td><td>+20% a +35%</td><td>más buffer útil, menos congestión y mayor capacidad de absorción de picos</td></tr>
+                <tr><td>Trazabilidad y priorización</td><td>mejor control por destino</td><td>se evita la espera por posición vacía y se mejora la secuencia del material</td></tr>
+                <tr><td>Dependencia manual</td><td>-60% a -80%</td><td>se libera trabajo directo para actividades con valor añadido y se reducen errores operativos</td></tr>
+                <tr><td>Calidad y merma</td><td>-10% a -25%</td><td>menos golpes, menos daño de manipulación y mejor continuidad del proceso</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Business case</div>
+          <h2>Economic value comes from recovered capacity, not nominal speed.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Concept</th><th>Estimate</th><th>Comment</th></tr></thead>
+              <tbody>
+                <tr><td>Transfer car + conveyors</td><td>1.000.000-1.500.000 USD</td><td>depends on length and number of points</td></tr>
+                <tr><td>Tridents / AGV interchange</td><td>250.000-500.000 USD</td><td>integration and controls</td></tr>
+                <tr><td>Plug & Play FG</td><td>200.000 USD</td><td>indicative budget</td></tr>
+                <tr><td>AMR WIP</td><td>950.000-1.100.000 USD</td><td>system value</td></tr>
+                <tr><td>Ingetrans</td><td>1.350.000 USD</td><td>flow and traceability</td></tr>
+                <tr><td>Gross annual savings</td><td>320.000-1.120.000 USD</td><td>phase 1 + 2 + 3 not always additive</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="decision"><strong>Financial rule</strong>Labor and production savings cannot be simply added without reconciling position, shift, phase and task. ROI must be validated with real capex, maintenance, software and operating model, but the direction is clear: the project makes sense when evaluated by recovered usable capacity. In return terms, the most tangible gain does not come only from labor savings but from the recovery of productive capacity through fewer blockages, less waiting for material, less rehandling and more flow continuity. A system with OEE improved by +3 to +6 points and starvation reduced by 60% to 87% creates a multiple economic return: fewer machine hours lost, better service to FG / second pass, less damage and better utilization of the WIP area. So the true value is a blend of productivity, OEE, continuity and indirect labor reduction, not just operator replacement.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="lang lang-es"><p>Informe técnico ampliado Calgary · automatización Ingecart · Fase 1 / Fase 2 / Fase 3</p></div>
+      <div class="lang lang-en hidden"><p>Expanded Calgary technical report · Ingecart automation · Phase 1 / Phase 2 / Phase 3</p></div>
+    </div>
+  </footer>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

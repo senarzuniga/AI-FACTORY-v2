@@ -263,7 +263,86 @@ Consumo normal publicado:
 El simulador debe distinguir hojas/h, cajas/hoja, cajas/h, bundles/h, pallets/h y misiones AMR/h.
 
 ====================================================================
-16. TRANSFER CAR PARA CONVEYORS
+16. FLEJADORA FINAL DE LINEA: REISOPACK 2905/2906 VS MOSCA SONIXS KCK-131-26
+====================================================================
+
+Para contrastar el salto tecnologico en el final de linea, se analizan dos ejemplos concretos de
+fabricantes lideres globales en la industria del carton corrugado: Reisopack y Mosca.
+
+Ejemplo 1: Gama Alta (Sin ser la tope de gama del mercado)
+
+Reisopack 2905 / 2906 (Flejadora Horizontal Automatica con Insertador de Cantoneras)
+
+Este equipo representa el estandar de oro para plantas de tamano mediano-alto que buscan automatizacion
+total, confiabilidad mecanica y un retorno de inversion rapido sin necesidad de adquirir software de
+ultra-alta velocidad.
+
+Caracteristicas de trabajo:
+- Ciclo mecanico autonomo: el palet avanza por el conveyor, la maquina lo detecta y baja un marco con
+  4 brazos pneumaticos de ventosas que toman las cantoneras desde almacenes verticales integrados y las
+  posicionan a presion contra las esquinas del palet.
+- Flejado secuencial: cuenta con un solo cabezal de flejado horizontal de alta tension. El cabezal se
+  desplaza verticalmente y va aplicando los flejes de arriba hacia abajo (o viceversa) a la altura exacta
+  que determine el programa del PLC.
+- Ajuste de formatos: se adapta mecanicamente a variaciones de tamano de palet estandar, detectando la
+  altura de la carga mediante fotocelulas.
+
+Ratios de salida (rendimiento real):
+- Rendimiento: 60 a 70 palets por hora aplicando una configuracion estandar de 3 a 4 flejes horizontales
+  por palet junto con las 4 cantoneras.
+- Tiempo por ciclo: aproximadamente 50 a 60 segundos por palet completo.
+
+Ejemplo 2: El Tope de Gama del Mercado actual
+
+Mosca Sonixs KCK-131-26 (Linea de Flejado Vertical de Ultra Alta Velocidad con Insertador de Cantoneras Robótico)
+
+Esta es la "bestia" de fin de linea diseñada para plantas masivas ("Super Plantas") como la de President
+Container. Esta construida para procesar la salida simultanea de multiples convertidoras de alta velocidad
+(como las Mitsubishi EVOL) sin pestañear.
+
+Caracteristicas de trabajo:
+- Tecnologia de sellado por ultrasonido (Sonixs): a diferencia de las tradicionales que funden el fleje
+  por calor emitiendo humo y acumulando residuos, Mosca utiliza soldadura ultrasonica. Esto elimina el
+  tiempo de calentamiento del cabezal y garantiza un sellado con la maxima resistencia del mercado de
+  manera inmediata.
+- Doble cabezal de flejado en tandem: la maquina cuenta con dos cabezales verticales gemelos operando en
+  paralelo. Puede aplicar dos flejes verticales al mismo tiempo.
+- Insertador inteligente de cantoneras de alta velocidad: brazos servo-asistidos de respuesta ultra-rapida
+  clavan los esquineros en las cuatro esquinas simultaneamente en milisegundos mientras un plato prensa
+  motorizado compacta la pila de carton aplicando fuerzas de hasta 30.000 N para eliminar el aire residual
+  entre las planchas.
+
+Ratios de salida (rendimiento real):
+- Rendimiento: hasta 150 a 170 palets por hora aplicando 2 flejes paralelos cruzados con sus respectivas
+  4 cantoneras.
+- Tiempo por ciclo: 18 a 22 segundos por palet completo.
+
+Comparativa directa de ratios y eficiencia
+
+Variable tecnica                              Gama Alta (Reisopack 2905)                 Tope de Gama (Mosca Sonixs KCK)
+-------------------------                    -------------------------------        ------------------------------
+Palets por hora (con cantoneras)             60 - 70 palets / hora                     150 - 170 palets / hora
+Tiempo de ciclo por palet                   ~55 segundos                              ~20 segundos
+Tipo de sellado del fleje                   Resistencia termica tradicional            Ultrasonido (Sonixs / cero humos)
+Numero de cabezales activos                  1 cabezal movil                           2 cabezales gemelos en tandem
+Compactacion de carga                       Estandar por presion lateral               Prensa hidraulica/servo de alta presion
+Autonomia de cantoneras                     Almacen estandar (~80 pzs)                 Cargadores jumbo de alta capacidad
+
+Interpretacion para simulacion y layout:
+- La diferencia de productividad es aproximadamente 2,2x a 2,7x en favor de la Mosca en ciclo puro.
+- El salto no es solo de velocidad; incluye ademas soldadura ultrasonica, doble cabeza y compactacion
+  activa de la carga, lo que reduce riesgo de paletado incompleto y mejora la estabilidad del producto en
+  transporte.
+- Para una planta de escala media, la Reisopack 2905/2906 resulta una opcion muy competitiva cuando se
+  busca automatizacion completa sin entrar en la categoria de ultra alta velocidad.
+- Para una planta de escala alta o superplanta, la Mosca Sonixs representa una capacidad de salida que
+  compensa la inversion adicional con menor numero de equipos por linea, menos restricciones de WIP y mejor
+  rendimiento frente a picos de demanda.
+- En ambos casos, el consumo de fleje, de cantoneras y de aire comprimido debe incorporarse como variables
+  operativas de planta y no solo como datos de velocidad nominal del fabricante.
+
+====================================================================
+17. TRANSFER CAR PARA CONVEYORS
 ====================================================================
 
 Tipo: carro transferidor transversal sobre rail con cama de rodillos.
@@ -306,7 +385,7 @@ La seleccion definitiva requiere vendor quote, caso de carga, longitud de rail, 
 cycle, evaluacion de riesgos, lista I/O y nivel de seguridad funcional requerido.
 
 ====================================================================
-17. MODELO DE DATOS PARA MACHINE GRAPH Y DIGITAL TWIN
+18. MODELO DE DATOS PARA MACHINE GRAPH Y DIGITAL TWIN
 ====================================================================
 
 Campos minimos:
@@ -334,7 +413,7 @@ machine rated speed
 -> plant-constrained output
 
 ====================================================================
-18. DATOS DE CAMPO PRIORITARIOS
+19. DATOS DE CAMPO PRIORITARIOS
 ====================================================================
 
 1. Fotografiar placa y numero de serie de McKinley, Koppers, S&S, Ward, Curioni y Post.
@@ -347,7 +426,7 @@ machine rated speed
 8. Verificar transfer car mediante FAT/SAT, I/O list y evaluacion de seguridad funcional.
 
 ====================================================================
-19. FUENTES VALIDADAS Y LIMITACIONES
+20. FUENTES VALIDADAS Y LIMITACIONES
 ====================================================================
 
 - EMBA Machinery AB: https://emba.com/machines-and-solutions/
