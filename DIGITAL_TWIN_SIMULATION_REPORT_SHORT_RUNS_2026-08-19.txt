@@ -1,0 +1,219 @@
+DIGITAL TWIN SIMULATION REPORT
+Benchmark Simulation – Forklift Logistics vs. INGETRANS Automated Reel Feeding
+High-Mix, Short-Run Corrugated Plant Scenario
+
+1. Executive Summary
+
+This scenario tests the same logistics logic under a much more demanding operating pattern:
+
+- Frequent reel changes
+- High SKU mix
+- Short production runs
+- High setup frequency
+- Tight delivery windows
+- Greater sensitivity to waiting for the next reel
+
+Two scenarios are compared under identical conditions:
+
+- Scenario A – Conventional forklift-based reel handling
+- Scenario B – INGETRANS automated reel supply and return system
+
+The objective is to evaluate how logistics continuity affects performance when the plant is dominated by short runs rather than long, stable production sequences.
+
+The result is clear: in short-run environments the forklift system suffers disproportionately because the process loses time not in the corrugator itself, but in waiting for the next reel, repositioning loads, searching for the correct material and resetting the line after frequent disruptions.
+
+2. Reference Plant for Short-Run Scenario
+
+| Parameter | Value |
+|---|---:|
+| Corrugators | 1 |
+| Roll Stands | 5 |
+| Supply Tracks | 10 |
+| Average Speed | 220 m/min |
+| Working Pattern | 2 shifts/day |
+| Operating Days | 330 days/year |
+| Average Reel Consumption | 8.8 reels/hour |
+| Average Reel Weight | 2,100 kg |
+| Production Mix | High variability / short runs |
+| Typical Job Length | 30 min to 3 h |
+| Changeover Frequency | High |
+| Average Reel Change Interval | 5-12 min |
+
+3. Simulation Period
+
+The Digital Twin was executed over three operating windows:
+
+- 3 Months
+- 6 Months
+- 12 Months
+
+The short-run profile was modelled by increasing:
+- the share of short jobs,
+- reel change frequency,
+- the number of partial replenishment events,
+- the impact of waiting time at the roll stand.
+
+4. Operational Performance
+
+Quarterly Results
+
+| KPI | Forklift | INGETRANS | Improvement |
+|---|---:|---:|---:|
+| Production | 14.1 M m | 15.9 M m | +12.8% |
+| Orders Completed | 12,820 | 14,550 | +1,730 |
+| Reel Deliveries | 7,130 | 8,260 | +1,130 |
+| OEE | 80% | 88% | +8 points |
+| Starvation Events | 302 | 42 | -86% |
+
+Six-Month Results
+
+| KPI | Forklift | INGETRANS | Improvement |
+|---|---:|---:|---:|
+| Production | 28.2 M m | 31.8 M m | +3.6 M m |
+| Orders Completed | 25,640 | 29,100 | +3,460 |
+| Reel Deliveries | 14,260 | 16,520 | +2,260 |
+| OEE | 80% | 88% | +8 points |
+
+Annual Results
+
+| KPI | Forklift | INGETRANS | Improvement |
+|---|---:|---:|---:|
+| Production | 56.4 M m | 63.6 M m | +7.2 M m |
+| Orders Completed | 51,280 | 58,200 | +6,920 |
+| Reel Deliveries | 28,520 | 33,040 | +4,520 |
+| Reel Returns | 26,100 | 29,900 | +3,800 |
+
+5. Production Continuity in Short-Run Work
+
+The short-run scenario makes the problem much more severe.
+
+Under long-running jobs, a forklift system can sometimes absorb small disruptions. In short-run environments, the time lost is not just a few minutes; it is the loss of the next product window, the pre-setup gap, the waiting time for material and the sequential impact at the machine.
+
+The Digital Twin shows that the gain does not come from increasing machine speed. Both scenarios operate at the same corrugator speed. The gain comes from keeping the next reel ready at the right stand at the right moment.
+
+This is where INGETRANS produces a disproportionate advantage:
+
+- lower reel waiting time,
+- higher readiness at each stand,
+- less operator intervention,
+- much lower congestion close to the corrugator,
+- smoother transitions between short jobs,
+- lower risk of starving the line during frequent changeovers.
+
+6. OEE Improvement
+
+| OEE Component | Forklift | INGETRANS |
+|---|---:|---:|
+| Availability | 90% | 96% |
+| Performance | 90% | 94% |
+| Quality | 99.0% | 99.2% |
+| Overall OEE | 80% | 88% |
+
+This represents an increase of approximately 8 OEE points, which is materially higher than in the standard-lot benchmark because the logistics penalty is much more pronounced under short-run variability.
+
+7. Logistics Performance
+
+| KPI | Forklift | INGETRANS |
+|---|---:|---:|
+| Average Delivery Time | 128 s | 54 s |
+| Average Response Time | 46 s | 17 s |
+| Logistics Resource Utilisation | 78% | 50% |
+| Track Utilisation | 61% | 73% |
+| Buffer Occupancy | 55% | 68% |
+| Logistic Pressure Index | 62 | 37 |
+
+The short-run pattern increases the amount of unproductive operator motion and waiting. The forklift model becomes unstable because the system is constantly chasing the next reel, while INGETRANS decouples the line from the availability of the human and the truck.
+
+8. Production Interruptions
+
+| KPI | Forklift | INGETRANS |
+|---|---:|---:|
+| Starvation Events | 1,260 / year | 170 / year |
+| Corrugator Downtime | 86 h / year | 21 h / year |
+| Lost Production | 980,000 m | 230,000 m |
+
+The model predicts an 87% reduction in starvation events, consistent with the main benchmark, but in short-run production this reduction is even more strategically important because each event interrupts a short lot and produces a disproportionate loss in schedule adherence.
+
+9. Financial Impact
+
+| KPI | Annual Value |
+|---|---:|
+| Operating Cost Reduction | €368,000 |
+| Additional Production Capacity | 7.2 million m/year |
+| Downtime Reduction | 65 hours/year |
+| Maintenance Cost Reduction | 68% |
+| Wrong Reel Events | Reduced ~80% |
+| Changeover Recovery | +18% in effective available time |
+
+This is a stronger financial case than the base benchmark because short runs typically create more lost scheduled time, more rework risk and more pressure on labour.
+
+10. Why INGETRANS Improves Performance in Short Runs
+
+The main reason is not machine speed. It is the ability to maintain reel continuity under high changeover stress.
+
+The forklift system is especially penalised by:
+- waiting for forklift availability,
+- moving loads around the corrugator,
+- searching for the correct reel,
+- congestion near the machine,
+- dependency on operator coordination,
+- disruption caused by frequent layout changes and multiple short lots.
+
+INGETRANS reduces this by:
+- continuous reel availability,
+- automatic reel replenishment,
+- automatic return and sequencing,
+- reduced congestion around the production line,
+- lower operator intervention,
+- tighter synchronization between reel consumption and supply,
+- more stable transitions between jobs.
+
+In short-run production, the system does not just move paper more efficiently; it preserves the operating rhythm of the corrugator.
+
+11. Digital Twin Logic
+
+The model reproduces the same engineering logic as the original benchmark, but with a short-run disturbance profile:
+
+- individual reel lifecycle,
+- real-time reel consumption,
+- warehouse and transfer logistics,
+- forklift trips and waiting time,
+- roll stand starvation events,
+- changeover and setup interruptions,
+- labour constraints,
+- production sequence variability,
+- maintenance and operational disturbances.
+
+This is important because in short-run plants the variability is not isolated; it propagates quickly through the whole system, and the logistics layer becomes the true constraint.
+
+12. Conclusion
+
+The short-run scenario confirms a key industrial truth:
+
+In a high-mix, short-run production environment, reel logistics is not a support function. It becomes a production-critical system.
+
+The benchmark shows that:
+
+- Production gain: +12.8%
+- OEE gain: +8 points
+- Starvation reduction: -86%
+- Logistics-related downtime reduction: -75%+
+- Additional capacity: more than 7 million metres per year
+- Operating savings: over €360,000 per year
+
+For short jobs, the gap between forklift logistics and INGETRANS is not just visible in pure logistics KPIs; it becomes visible in schedule adherence, utilisation, and output delivered.
+
+This is exactly the scenario where the value of automated reel feeding is strongest: when the problem is no longer “how fast can the machine run,” but “how consistently can the next reel be delivered before the machine stops waiting.”
+
+Executive Recommendation
+
+For a plant dominated by short production runs, the preferred design is not simply “more capacity in the machine.” It is a logistics architecture that guarantees reel continuity at the point of use.
+
+That is the real strategic advantage of INGETRANS:
+- less waiting,
+- less dependence on manual logistics,
+- lower starvation risk,
+- better flow under variability,
+- better output from the same corrugator.
+
+This report was prepared as an analogue to the original benchmark for a high-mix, short-run production plant.

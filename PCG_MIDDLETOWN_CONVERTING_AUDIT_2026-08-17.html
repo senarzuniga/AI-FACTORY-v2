@@ -41,8 +41,8 @@
   <div class="ribbon"><div class="ribbon-inner"><strong>Decision basis</strong><span>Throughput</span><span>Blocking</span><span>Packaging</span><span>PLC / drives</span><span>WCS</span><span>Quick wins</span><span>Design gates</span></div></div>
 
   <div class="layout"><aside><nav class="toc" aria-label="Table of contents">
-    <div class="lang lang-es"><div class="toc-title">Contenido</div><a href="#executive">01 · Decision</a><a href="#baseline">02 · Planta</a><a href="#risk">03 · Riesgo</a><a href="#capacity">04 · Capacidad</a><a href="#strapping">05 · Flejado</a><a href="#audit">06 · Auditoria</a><a href="#data">07 · Datos</a><a href="#quickwins">08 · Quick wins</a><a href="#architecture">09 · Arquitectura</a><a href="#deliverables">10 · Entregables</a><a href="#gates">11 · Gates</a><a href="#sources">12 · Evidencia</a></div>
-    <div class="lang lang-en hidden"><div class="toc-title">Contents</div><a href="#executive">01 · Decision</a><a href="#baseline">02 · Plant</a><a href="#risk">03 · Risk</a><a href="#capacity">04 · Capacity</a><a href="#strapping">05 · Strapping</a><a href="#audit">06 · Audit</a><a href="#data">07 · Data</a><a href="#quickwins">08 · Quick wins</a><a href="#architecture">09 · Architecture</a><a href="#deliverables">10 · Deliverables</a><a href="#gates">11 · Gates</a><a href="#sources">12 · Evidence</a></div>
+    <div class="lang lang-es"><div class="toc-title">Contenido</div><a href="#executive">01 · Decision</a><a href="#baseline">02 · Planta</a><a href="#risk">03 · Riesgo</a><a href="#capacity">04 · Capacidad</a><a href="#strapping">05 · Flejado</a><a href="#audit">06 · Auditoria</a><a href="#data">07 · Datos</a><a href="#quickwins">08 · Quick wins</a><a href="#deliverables">09 · Entregables</a><a href="#gates">10 · Gates</a></div>
+    <div class="lang lang-en hidden"><div class="toc-title">Contents</div><a href="#executive">01 · Decision</a><a href="#baseline">02 · Plant</a><a href="#risk">03 · Risk</a><a href="#capacity">04 · Capacity</a><a href="#strapping">05 · Strapping</a><a href="#audit">06 · Audit</a><a href="#data">07 · Data</a><a href="#quickwins">08 · Quick wins</a><a href="#deliverables">09 · Deliverables</a><a href="#gates">10 · Gates</a></div>
   </nav></aside><main>
 
     <section id="executive">
@@ -52,9 +52,7 @@
         <div class="decision"><strong>Tesis tecnica</strong>Antes de congelar el diseño de conveyors, insertadores, remontado, flejado y retractilado, INGECART propone medir el ciclo completo desde el ultimo punto productivo de cada convertidora hasta la liberacion del producto terminado. El resultado sera una especificacion neutral que PCG podra utilizar con todos sus proveedores.</div>
         <div class="grid-4">
           <article class="card accent"><div class="metric">3 dias</div><div class="metric-label">captura intensiva en planta</div></article>
-          <article class="card green"><div class="metric">&gt;30</div><div class="metric-label">convertidoras reportadas</div></article>
-          <article class="card amber"><div class="metric">3 EVOL</div><div class="metric-label">72.000 cajas/h pico teorico conjunto</div></article>
-          <article class="card"><div class="metric">2 gates</div><div class="metric-label">quick wins y diseño de inversion</div></article>
+          <article class="card green"><div class="metric">2 gates</div><div class="metric-label">quick wins y diseño de inversion</div></article>
         </div>
         <div class="decision green"><strong>Compromiso INGECART</strong>Entregar acciones inmediatas de minimo gasto y maximo output, junto con recomendaciones de diseño, control e integracion que permitan capturar el mayor rendimiento posible de la futura solucion.</div>
       </div>
@@ -64,9 +62,7 @@
         <div class="decision"><strong>Technical thesis</strong>Before freezing the conveyor, pallet-insertion, restacking, strapping and wrapping design, INGECART proposes measuring the complete cycle from each converter's final production point to finished-goods release. The result will be a vendor-neutral specification PCG can share with all suppliers.</div>
         <div class="grid-4">
           <article class="card accent"><div class="metric">3 days</div><div class="metric-label">intensive on-site capture</div></article>
-          <article class="card green"><div class="metric">30+</div><div class="metric-label">reported converting machines</div></article>
-          <article class="card amber"><div class="metric">3 EVOL</div><div class="metric-label">72,000 boxes/h combined theoretical peak</div></article>
-          <article class="card"><div class="metric">2 gates</div><div class="metric-label">quick wins and investment design</div></article>
+          <article class="card green"><div class="metric">2 gates</div><div class="metric-label">quick wins and investment design</div></article>
         </div>
         <div class="decision green"><strong>INGECART commitment</strong>Deliver immediate minimum-spend, maximum-output actions and the design, control and integration recommendations needed to capture the highest possible return from the future solution.</div>
       </div>
@@ -74,30 +70,32 @@
 
     <section id="baseline">
       <div class="lang lang-es">
-        <div class="section-no">02 · Base industrial preliminar</div><h2>Una superplanta exige capacidad sostenible, no nominal.</h2>
-        <div class="flow" style="--steps:6"><div class="flow-step">2 Fosber<br>110 in</div><div class="flow-step">WIP + transfer cars</div><div class="flow-step">FFG / RDC / jumbo</div><div class="flow-step control">Bundling + remontado</div><div class="flow-step control">Pallet + flejado + retractilado</div><div class="flow-step">FG liberado</div></div>
-        <div class="table-wrap"><table><thead><tr><th>Activo / familia</th><th>Dato preliminar</th><th>Implicacion para auditoria</th><th>Estado</th></tr></thead><tbody>
-          <tr><td>Mitsubishi EVOL</td><td>3 lineas; hasta 24.000 cajas/h por linea</td><td>Separar velocidad mecanica, velocidad buena sostenida y tiempo bloqueado por salida.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Flota FFG</td><td>14 flexo-encoladoras totales</td><td>Construir matriz SKU, bundle, pallet y destino por maquina.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Engico Jumbo FFG</td><td>Hasta 6.000 cajas/h; encolado y cosido</td><td>Evaluar cajas grandes/double wall por envolvente, peso y estabilidad.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Gopfert RDC</td><td>10.000-12.000 planchas/h indicativas</td><td>Medir mix, golpes buenos, stack geometry y descarga real.</td><td><span class="evidence e-verify">Validar</span></td></tr>
-          <tr><td>Flota total</td><td>Mas de 30 convertidoras</td><td>La simultaneidad, no la suma nominal, dimensiona el common outfeed.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Produccion anual</td><td>2,2-2,3 billion ft2; objetivo 3,0 billion ft2</td><td>Reconciliar superficie, cajas, bundles, pallets y horas calendario.</td><td><span class="evidence e-verify">Validar</span></td></tr>
+        <div class="section-no">02 · Base industrial preliminar</div><h2>El alcance de la auditoria se centra en flujo, proceso y coordinacion operacional.</h2>
+        <p class="lead">No buscamos abarcar un analisis maquina a maquina en tres dias de trabajo. El objetivo es acotar el scope a la arquitectura del flujo, la gestion del proceso, la coordinacion entre estaciones, los elementos automatizables, los cuellos de botella criticos y las zonas que estaran muy por debajo del requisito real de la planta.</p>
+
+        <div class="table-wrap"><table><thead><tr><th>Area de analisis</th><th>Enfoque</th><th>Valor para la auditoria</th></tr></thead><tbody>
+          <tr><td>Flujo de proceso</td><td>Rutas, colas, liberacion, buffer, starvation y bloqueo.</td><td>Identifica donde la capacidad real se destruye, aunque las maquinas esten tecnicamente funcionando.</td></tr>
+          <tr><td>Coordinacion operacional</td><td>Prioridad, destino, handoff, reserva, liberacion y recuperacion local.</td><td>Separa logica operativa del problema de capacidad mecanica.</td></tr>
+          <tr><td>Equipos automatizables</td><td>Secciones con accion manual, repetitiva, no trazable o con alta variabilidad.</td><td>Marca oportunidades de automatizacion con mayor impacto y menor riesgo.</td></tr>
+          <tr><td>Elementos criticos</td><td>Pickups, conveyors, wrapping, flejado, consolidacion y puntos de congestión.</td><td>Define los puntos que condicionan el outfeed y la estabilidad del sistema.</td></tr>
+          <tr><td>Capacidad degradada</td><td>Una ruta, una celula o un equipo fuera de servicio.</td><td>Evalua si el sistema conserva salida y recuperacion sin perder continuidad.</td></tr>
+          <tr><td>Scope de trabajo</td><td>Analisis de flujo y proceso, no evaluacion exhaustiva maquina a maquina.</td><td>Es una decision de alcance consciente, no una limitacion tecnica de INGECART.</td></tr>
         </tbody></table></div>
-        <p class="small">PCG = informacion facilitada para este estudio. Validar = placa OEM, historico o medicion de planta pendiente. Ningun valor nominal constituye garantia de rendimiento.</p>
+        <p class="small">La auditoria no niega la posibilidad de analizar equipo a equipo; simplemente declara que en tres dias de planta no es viable realizar ese nivel de detalle completo. El objetivo es definir correctamente el scope, detectar los elementos que condicionan el flujo y preparar la base para la siguiente fase de diseño y decision de inversion.</p>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">02 · Preliminary industrial baseline</div><h2>A superplant requires sustainable, not nominal, capacity.</h2>
-        <div class="flow" style="--steps:6"><div class="flow-step">2 Fosber<br>110 in</div><div class="flow-step">WIP + transfer cars</div><div class="flow-step">FFG / RDC / jumbo</div><div class="flow-step control">Bundling + restacking</div><div class="flow-step control">Pallet + strapping + wrapping</div><div class="flow-step">FG released</div></div>
-        <div class="table-wrap"><table><thead><tr><th>Asset / family</th><th>Preliminary data</th><th>Audit implication</th><th>Status</th></tr></thead><tbody>
-          <tr><td>Mitsubishi EVOL</td><td>3 lines; up to 24,000 boxes/h per line</td><td>Separate mechanical speed, sustained good speed and outfeed blocked time.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>FFG fleet</td><td>14 flexo folder gluers total</td><td>Build the SKU, bundle, pallet and destination matrix by machine.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Engico Jumbo FFG</td><td>Up to 6,000 boxes/h; gluing and stitching</td><td>Assess large/double-wall boxes by envelope, weight and stability.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Gopfert RDC</td><td>Indicative 10,000-12,000 sheets/h</td><td>Measure mix, good strokes, stack geometry and actual discharge.</td><td><span class="evidence e-verify">Verify</span></td></tr>
-          <tr><td>Total fleet</td><td>More than 30 converting machines</td><td>Concurrency, not nominal sum, sizes the common outfeed.</td><td><span class="evidence e-client">PCG</span></td></tr>
-          <tr><td>Annual production</td><td>2.2-2.3 billion ft2; 3.0 billion ft2 target</td><td>Reconcile area, boxes, bundles, pallets and calendar hours.</td><td><span class="evidence e-verify">Verify</span></td></tr>
+        <div class="section-no">02 · Preliminary industrial baseline</div><h2>The audit focuses on flow, process and operational coordination.</h2>
+        <p class="lead">We are not trying to cover a machine-by-machine analysis in only three days on site. The goal is to limit the scope to the flow architecture, process management, station coordination, automatable elements, critical bottlenecks and areas that will fall well below the plant's real requirement.</p>
+
+        <div class="table-wrap"><table><thead><tr><th>Analysis area</th><th>Focus</th><th>Value to the audit</th></tr></thead><tbody>
+          <tr><td>Process flow</td><td>Routes, queues, release, buffer, starvation and blocking.</td><td>Identifies where real capacity is destroyed even when machines are technically running.</td></tr>
+          <tr><td>Operational coordination</td><td>Priority, destination, handoff, reservation, release and local recovery.</td><td>Separates operational logic from the mechanical capacity problem.</td></tr>
+          <tr><td>Automatable equipment</td><td>Manual, repetitive, non-traceable or high-variability sections.</td><td>Highlights the highest-impact, lowest-risk automation opportunities.</td></tr>
+          <tr><td>Critical elements</td><td>Pickups, conveyors, wrapping, strapping, consolidation and congestion points.</td><td>Defines the points that constrain outfeed and system stability.</td></tr>
+          <tr><td>Degraded capacity</td><td>One route, one cell or one asset out of service.</td><td>Assesses whether the system preserves output and recovery without losing continuity.</td></tr>
+          <tr><td>Scope of work</td><td>Flow and process analysis, not exhaustive machine-by-machine evaluation.</td><td>This is a conscious scope decision, not a limitation of INGECART's technical capabilities.</td></tr>
         </tbody></table></div>
-        <p class="small">PCG = information provided for this study. Verify = OEM plate, history or site measurement pending. No nominal value is a performance guarantee.</p>
+        <p class="small">The audit does not deny the value of machine-by-machine analysis; it simply states that a complete level of detail is not feasible in three on-site days. The objective is to define the right scope, identify the elements that condition the flow and build the basis for the next design and investment decision phase.</p>
       </div>
     </section>
 
@@ -130,73 +128,73 @@
 
     <section id="capacity">
       <div class="lang lang-es">
-        <div class="section-no">04 · Modelo de capacidad</div><h2>Dimensionar por evento, simultaneidad y percentil.</h2>
+        <div class="section-no">04 · Modelo de capacidad</div><h2>Dimensionar por evento, simultaneidad y percentil, desde la perspectiva del proceso.</h2>
         <div class="formula">Output bueno restringido = min(convertidora, bundler, remontador, insertador, flejadora, retractiladora, conveyor, pickup) × disponibilidad del sistema</div>
         <div class="formula">Cajas recuperadas = minutos de bloqueo evitados × cajas buenas/min sostenidas<br>Valor anual = cajas recuperadas × margen de contribucion unitario - OPEX incremental</div>
         <div class="grid-2">
-          <article class="card green"><h3>Ejemplo transparente: una EVOL</h3><p>A 24.000 cajas/h teoricas, cada minuto bloqueado equivale como maximo a 400 cajas no producidas. Evitar solo 15 min de bloqueo por turno representa hasta 6.000 cajas por turno antes de aplicar mix, calidad y disponibilidad.</p><p class="small">Ejemplo de sensibilidad, no promesa de output.</p></article>
-          <article class="card accent"><h3>Escala de las tres EVOL</h3><p>A pico teorico combinado, un minuto comun de restriccion equivale como maximo a 1.200 cajas. La auditoria sustituira ese maximo por velocidad buena observada y minutos clasificados por causa.</p></article>
+          <article class="card green"><h3>Ejemplo transparente: una EVOL</h3><p>Con 24.000 cajas/h teoricas, cada minuto bloqueado equivale como maximo a 400 cajas no producidas. Evitar solo 15 minutos de bloqueo por turno representa hasta 6.000 cajas por turno antes de aplicar mix, calidad y disponibilidad.</p><p class="small">Ejemplo de sensibilidad, no promesa de output.</p></article>
+          <article class="card accent"><h3>Escala de las tres EVOL</h3><p>A pico teorico combinado, un minuto comun de restriccion equivale como maximo a 1.200 cajas. La auditoria sustituira ese maximo por velocidad buena observada y minutos clasificados por causa, para no convertir una regla teorica en garantia operativa.</p></article>
         </div>
         <div class="table-wrap"><table><thead><tr><th>Metrica</th><th>Calculo</th><th>Uso de diseño</th></tr></thead><tbody>
-          <tr><td>Demanda de salida por maquina</td><td>bundles buenos / minuto por SKU</td><td>Capacidad instantanea de conveyors y equipos finales.</td></tr>
-          <tr><td>Simultaneidad</td><td>p50 / p95 / maximo de maquinas descargando</td><td>Evitar sobredimensionar por suma nominal o fallar en picos.</td></tr>
-          <tr><td>Blocked time</td><td>minutos y eventos por causa / turno</td><td>Priorizar quick wins y calcular output recuperable.</td></tr>
-          <tr><td>Clearance time</td><td>bundle ready → zona liberada, p50/p95</td><td>Buffer minimo y SLA de evacuacion.</td></tr>
+          <tr><td>Demanda de salida por maquina</td><td>bundles buenos / minuto por SKU</td><td>Capacidad instantanea de conveyors, equipos finales y puntos de salida.</td></tr>
+          <tr><td>Simultaneidad</td><td>p50 / p95 / maximo de maquinas descargando</td><td>Evitar sobredimensionar por suma nominal o fallar en picos reales del proceso.</td></tr>
+          <tr><td>Blocked time</td><td>minutos y eventos por causa / turno</td><td>Priorizar quick wins y calcular output recuperable sin sobreprometer.</td></tr>
+          <tr><td>Clearance time</td><td>bundle ready → zona liberada, p50/p95</td><td>Buffer minimo y SLA de evacuacion del flujo.</td></tr>
           <tr><td>Utilizacion</td><td>tiempo ocupado / tiempo disponible</td><td>Objetivo sostenible; evitar operar recursos comunes al limite.</td></tr>
-          <tr><td>Capacidad degradada</td><td>throughput con una celula o ruta fuera</td><td>Bypass, redundancia y plan de recuperacion.</td></tr>
+          <tr><td>Capacidad degradada</td><td>throughput con una celula o ruta fuera</td><td>Bypass, redundancia y plan de recuperacion del proceso.</td></tr>
         </tbody></table></div>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">04 · Capacity model</div><h2>Size by event, concurrency and percentile.</h2>
+        <div class="section-no">04 · Capacity model</div><h2>Size by event, concurrency and percentile from a process perspective.</h2>
         <div class="formula">Constrained good output = min(converter, bundler, restacker, pallet inserter, strapper, wrapper, conveyor, pickup) × system availability</div>
         <div class="formula">Recovered boxes = avoided blocked minutes × sustained good boxes/min<br>Annual value = recovered boxes × unit contribution margin - incremental OPEX</div>
         <div class="grid-2">
-          <article class="card green"><h3>Transparent example: one EVOL</h3><p>At a theoretical 24,000 boxes/h, each blocked minute represents at most 400 unproduced boxes. Avoiding only 15 blocked minutes per shift represents up to 6,000 boxes per shift before applying mix, quality and availability.</p><p class="small">Sensitivity example, not an output commitment.</p></article>
-          <article class="card accent"><h3>Scale of three EVOLs</h3><p>At combined theoretical peak, one common constrained minute represents at most 1,200 boxes. The audit will replace that maximum with observed good speed and cause-coded minutes.</p></article>
+          <article class="card green"><h3>Transparent example: one EVOL</h3><p>With 24,000 theoretical boxes/h, each blocked minute represents at most 400 unproduced boxes. Avoiding only 15 blocked minutes per shift represents up to 6,000 boxes per shift before applying mix, quality and availability.</p><p class="small">Sensitivity example, not an output commitment.</p></article>
+          <article class="card accent"><h3>Scale of three EVOLs</h3><p>At combined theoretical peak, one common constrained minute represents at most 1,200 boxes. The audit will replace that maximum with observed good speed and cause-coded minutes so a theoretical rule is not turned into an operational guarantee.</p></article>
         </div>
         <div class="table-wrap"><table><thead><tr><th>Metric</th><th>Calculation</th><th>Design use</th></tr></thead><tbody>
-          <tr><td>Outfeed demand by machine</td><td>good bundles/min by SKU</td><td>Instantaneous capacity of conveyors and end equipment.</td></tr>
-          <tr><td>Concurrency</td><td>p50 / p95 / maximum machines discharging</td><td>Avoid sizing by nominal sum or failing at peaks.</td></tr>
-          <tr><td>Blocked time</td><td>minutes and events by cause / shift</td><td>Prioritize quick wins and calculate recoverable output.</td></tr>
-          <tr><td>Clearance time</td><td>bundle ready → zone clear, p50/p95</td><td>Minimum buffer and evacuation SLA.</td></tr>
+          <tr><td>Outfeed demand by machine</td><td>good bundles/min by SKU</td><td>Instantaneous capacity of conveyors, final equipment and exit points.</td></tr>
+          <tr><td>Concurrency</td><td>p50 / p95 / maximum machines discharging</td><td>Avoid sizing by nominal sum or failing under real process peaks.</td></tr>
+          <tr><td>Blocked time</td><td>minutes and events by cause / shift</td><td>Prioritize quick wins and calculate recoverable output without overpromising.</td></tr>
+          <tr><td>Clearance time</td><td>bundle ready → zone clear, p50/p95</td><td>Minimum buffer and flow evacuation SLA.</td></tr>
           <tr><td>Utilization</td><td>busy time / available time</td><td>Sustainable target; avoid running shared resources at the limit.</td></tr>
-          <tr><td>Degraded capacity</td><td>throughput with one cell or route down</td><td>Bypass, redundancy and recovery plan.</td></tr>
+          <tr><td>Degraded capacity</td><td>throughput with one cell or route down</td><td>Bypass, redundancy and process recovery plan.</td></tr>
         </tbody></table></div>
       </div>
     </section>
 
     <section id="strapping">
       <div class="lang lang-es">
-        <div class="section-no">05 · Flejado y formacion de carga</div><h2>Tres lineas no son una validacion de capacidad.</h2>
-        <p class="lead">La suficiencia del flejado debe demostrarse contra la demanda p95 y el mix real, incluyendo colocacion de cantoneras, doble fleje, cambios, rechazos y disponibilidad. La hipotesis de trabajo es evaluar una cuarta linea o sustituir tecnologia actual por flejadoras automaticas con insercion automatica de cantoneras.</p>
+        <div class="section-no">05 · Flejado y formacion de carga</div><h2>Tres lineas no son una validacion de capacidad y este punto debe dimensionarse bien antes del gran proyecto.</h2>
+        <p class="lead">La suficiencia del flejado debe demostrarse frente a la demanda p95 y al mix real, incluyendo colocacion de cantoneras, doble fleje, cambios, rechazos y disponibilidad. Este punto es clave para dimensionar correctamente la salida principal y, ademas, permite definir actuaciones concretas previas al gran proyecto si el problema ya aparece en planta.</p>
         <div class="formula">N flejadoras requeridas = techo[demanda p95 de cargas/min ÷ (capacidad sostenible por flejadora × disponibilidad)] + redundancia requerida</div>
         <div class="grid-3">
-          <article class="card red"><span class="tag risk">Situacion</span><h3>3 lineas cuestionadas</h3><p>La experiencia operativa indica insuficiencia. Debe documentarse por colas, blocked time, utilizacion y recuperacion tras fallo.</p></article>
-          <article class="card amber"><span class="tag proposal">Alternativa A</span><h3>Cuarta flejadora</h3><p>Aumenta capacidad y redundancia si routing, espacio, operarios y pickup permiten distribuir la carga.</p></article>
-          <article class="card green"><span class="tag fact">Alternativa B</span><h3>Automatica + cantoneras</h3><p>Elimina tareas manuales del ciclo critico y puede elevar fuertemente el ritmo sostenible del puesto final.</p></article>
+          <article class="card red"><span class="tag risk">Situacion</span><h3>3 lineas cuestionadas</h3><p>La experiencia operativa indica posible insuficiencia. Debe documentarse por colas, blocked time, utilizacion y comportamiento real delante de picos y cambios.</p></article>
+          <article class="card amber"><span class="tag proposal">Actuacion A</span><h3>Cuarta flejadora</h3><p>Aumenta capacidad y redundancia si routing, espacio, operarios y pickup lo permiten; es una decision de dimensionado a validar con datos de planta.</p></article>
+          <article class="card green"><span class="tag fact">Actuacion B</span><h3>Automatica + cantoneras</h3><p>Elimina tareas manuales del ciclo critico y puede elevar el ritmo sostenible del puesto final, siempre que la firma operativa soporte la conversion sin aumentar la complejidad del proceso.</p></article>
         </div>
-        <div class="decision"><strong>Interpretacion correcta del 400-600%</strong>Una mejora neta del 400-600% significa que el nuevo puesto produciria entre 5 y 7 veces el output base, si “mejora” se usa en sentido incremental. La auditoria fijara la convencion, cronometrara ciclo actual y automatico por SKU y evitara convertir una afirmacion comercial en garantia sin FAT/SAT.</div>
+        <div class="decision"><strong>Interpretacion correcta del 400-600%</strong>Un incremento neto del 400-600% significa que el nuevo puesto podria producir entre 5 y 7 veces el output base si el incremento se mide como mejora incremental. La auditoria fijara la convencion aplicable, cronometrara el ciclo actual y el proyectado por SKU y evitara convertir una afirmacion comercial en garantia sin evidencia de planta.</div>
         <div class="table-wrap"><table><thead><tr><th>Equipo</th><th>Capacidad informada</th><th>Prueba requerida</th></tr></thead><tbody>
           <tr><td>Insertador doble de pallets</td><td class="number">hasta 180 pallets/h</td><td>Pallet mix, doble alimentacion, atasco, reposicion, disponibilidad y handoff.</td></tr>
           <tr><td>Insertador simple de pallets</td><td class="number">hasta 85 pallets/h</td><td>Mismo protocolo, incluyendo compatibilidad dimensional y modo degradado.</td></tr>
-          <tr><td>Flejadoras</td><td>3 lineas previstas / actuales a confirmar</td><td>Cargas/min sostenidas con cantoneras, recetas reales y una linea fuera de servicio.</td></tr>
+          <tr><td>Flejadoras</td><td>3 lineas previstas / actuales a confirmar</td><td>Cargas/min sostenidas con cantoneras, recetas reales y un equipo fuera de servicio.</td></tr>
           <tr><td>Retractilado / wrapping</td><td>Pendiente de captura</td><td>Tiempo de ciclo, film, estabilidad, alarmas, bypass y pickup.</td></tr>
         </tbody></table></div>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">05 · Strapping and load formation</div><h2>Three lines are not a capacity validation.</h2>
-        <p class="lead">Strapping sufficiency must be proven against p95 demand and actual mix, including corner-board placement, double straps, changeovers, rejects and availability. The working hypothesis is to assess a fourth line or replace current technology with automatic strappers and automatic corner-board insertion.</p>
+        <div class="section-no">05 · Strapping and load formation</div><h2>Three lines are not a capacity validation, and this area must be sized correctly before the main project.</h2>
+        <p class="lead">Strapping sufficiency must be proven against p95 demand and the real mix, including corner-board placement, double straps, changeovers, rejects and availability. This is a key point for correctly sizing the main outfeed and can also define concrete pre-project actions if the issue is already visible on site.</p>
         <div class="formula">Required strappers = ceiling[p95 load demand/min ÷ (sustainable capacity per strapper × availability)] + required redundancy</div>
         <div class="grid-3">
-          <article class="card red"><span class="tag risk">Situation</span><h3>3 lines challenged</h3><p>Operating experience indicates insufficient capacity. This must be documented through queues, blocked time, utilization and failure recovery.</p></article>
-          <article class="card amber"><span class="tag proposal">Option A</span><h3>Fourth strapper</h3><p>Adds capacity and redundancy if routing, space, labor and pickup can distribute the load.</p></article>
-          <article class="card green"><span class="tag fact">Option B</span><h3>Automatic + corner boards</h3><p>Removes manual tasks from the critical cycle and can sharply increase the final station's sustainable rate.</p></article>
+          <article class="card red"><span class="tag risk">Situation</span><h3>3 lines challenged</h3><p>Operating experience suggests possible insufficiency. It must be documented by queues, blocked time, utilization and real behavior under peaks and changeovers.</p></article>
+          <article class="card amber"><span class="tag proposal">Action A</span><h3>Fourth strapper</h3><p>Adds capacity and redundancy if routing, space, labor and pickup allow it; it is a sizing decision to validate with plant data.</p></article>
+          <article class="card green"><span class="tag fact">Action B</span><h3>Automatic + corner boards</h3><p>Removes manual tasks from the critical cycle and can increase the final station's sustainable rate, provided the operational model supports the conversion without adding process complexity.</p></article>
         </div>
-        <div class="decision"><strong>Correct interpretation of 400-600%</strong>A net 400-600% improvement means the new station would produce 5 to 7 times baseline output if “improvement” is incremental. The audit will define the convention, time current and automatic cycles by SKU, and prevent a commercial claim from becoming a guarantee without FAT/SAT.</div>
+        <div class="decision"><strong>Correct interpretation of 400-600%</strong>A net increase of 400-600% means the new station could produce between 5 and 7 times baseline output if measured as incremental improvement. The audit will define the applicable convention, time the current and projected cycle by SKU, and avoid converting a commercial claim into a guarantee without plant evidence.</div>
         <div class="table-wrap"><table><thead><tr><th>Equipment</th><th>Reported capacity</th><th>Required test</th></tr></thead><tbody>
           <tr><td>Double pallet inserter</td><td class="number">up to 180 pallets/h</td><td>Pallet mix, dual feed, jam, replenishment, availability and handoff.</td></tr>
           <tr><td>Single pallet inserter</td><td class="number">up to 85 pallets/h</td><td>Same protocol, including dimensional compatibility and degraded mode.</td></tr>
-          <tr><td>Strappers</td><td>3 planned / current lines to confirm</td><td>Sustained loads/min with corner boards, actual recipes and one line unavailable.</td></tr>
+          <tr><td>Strappers</td><td>3 planned / current lines to confirm</td><td>Sustained loads/min with corner boards, actual recipes and one unit out of service.</td></tr>
           <tr><td>Shrink / stretch wrapping</td><td>Pending capture</td><td>Cycle time, film, stability, alarms, bypass and pickup.</td></tr>
         </tbody></table></div>
       </div>
@@ -204,26 +202,26 @@
 
     <section id="audit">
       <div class="lang lang-es">
-        <div class="section-no">06 · Ejecucion en planta</div><h2>Tres dias, cuatro disciplinas, un solo modelo de flujo.</h2>
+        <div class="section-no">06 · Ejecucion en planta</div><h2>Tres dias de planta, cuatro disciplinas y un solo modelo de flujo.</h2>
         <div class="day"><h3>Dia 1 · Gemba, baseline y taxonomia de perdidas</h3><p>Mapear rutas y estados; cronometrar ciclos; capturar formatos, bundles y pallets; identificar starvation, blocking, microparadas, rehandling, esperas de operador y acumulacion. Alinear tags y causas con produccion, mantenimiento y calidad.</p></div>
         <div class="day"><h3>Dia 2 · Electricidad, PLC, drives y conectividad</h3><p>Inventariar PLC/HMI/VFD/servo, versiones, redes y protocolos; revisar I/O, handshakes, safety, alarmas, historicos y capacidad de datos; comprobar interfaces de paquetadoras, remontadoras, insertadores, flejadoras, wrappers y conveyors.</p></div>
-        <div class="day"><h3>Dia 3 · Stress test, quick wins y arquitectura objetivo</h3><p>Observar picos y cambios; probar recuperacion y modos manuales acordados; validar colas y restricciones; priorizar acciones inmediatas; cerrar requisitos funcionales, datos faltantes y pruebas de aceptacion de la inversion.</p></div>
+        <div class="day"><h3>Dia 3 · Stress test y priorizacion de acciones</h3><p>Observar picos y cambios; confirmar patrones de bloqueo, congestión y flujo; priorizar acciones inmediatas y cerrar requisitos funcionales del siguiente nivel de analisis. La auditoria no pretende resolver un proyecto completo en tres dias: su objetivo es dejar una base solide de observacion, evidencia y decision.</p></div>
         <div class="grid-2">
-          <article class="card accent"><h3>Equipo INGECART</h3><p>Direccion tecnica, direccion de ingenieria, ingenieria electrica y software, y direccion de proyecto. Participacion coordinada con produccion, mantenimiento, IT/OT, calidad y seguridad de PCG.</p></article>
-          <article class="card green"><h3>Metodo de captura</h3><p>Observacion directa, time study, export de historicos, conteo de eventos, entrevistas estructuradas, revision de planos y programas disponibles, fotografia tecnica autorizada y reconciliacion al final de cada jornada.</p></article>
+          <article class="card accent"><h3>Equipo INGECART</h3><p>Direccion tecnica, ingenieria electrica y software. Participacion coordinada con produccion, mantenimiento, IT/OT, calidad y seguridad de PCG.</p></article>
+          <article class="card green"><h3>Metodo de captura</h3><p>Observacion directa, time study, export de historicos, fotografia tecnica autorizada y reconciliacion al final de cada jornada.</p></article>
         </div>
-        <div class="decision green"><strong>Propuesta economica</strong>El valor de la auditoria de Middletown se propone en <span class="nowrap">43.870$</span>, incluyendo levantamiento en planta, analisis de capacidad, revision de OT/PLC, evaluacion del flujo y entrega de hallazgos con recomendaciones de inversion para la siguiente fase de implementacion.</div>
+        <div class="decision green"><strong>Propuesta economica</strong>El valor de la auditoria de Middletown se propone en <span class="nowrap">43.870$</span>, incluyendo levantamiento en planta, analisis de capacidad, revision funcional de flujo y equipos, evaluacion del proceso y entrega de hallazgos con recomendaciones priorizadas para la siguiente fase de implementacion. A este trabajo le seguiran aproximadamente 10 dias de analisis tecnico y redaccion en Ingecart para validar conclusiones, documentar hallazgos y cerrar la recomendacion final.</div>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">06 · On-site execution</div><h2>Three days, four disciplines, one flow model.</h2>
+        <div class="section-no">06 · On-site execution</div><h2>Three days on site, four disciplines and one flow model.</h2>
         <div class="day"><h3>Day 1 · Gemba, baseline and loss taxonomy</h3><p>Map routes and states; time cycles; capture formats, bundles and pallets; identify starvation, blocking, microstops, rehandling, operator waits and accumulation. Align tags and causes with production, maintenance and quality.</p></div>
         <div class="day"><h3>Day 2 · Electrical, PLC, drives and connectivity</h3><p>Inventory PLC/HMI/VFD/servo assets, versions, networks and protocols; review I/O, handshakes, safety, alarms, histories and data capability; verify interfaces across bundlers, restackers, pallet inserters, strappers, wrappers and conveyors.</p></div>
-        <div class="day"><h3>Day 3 · Stress test, quick wins and target architecture</h3><p>Observe peaks and changeovers; test agreed recovery and manual modes; validate queues and constraints; prioritize immediate actions; close functional requirements, missing data and investment acceptance tests.</p></div>
+        <div class="day"><h3>Day 3 · Stress test and action prioritization</h3><p>Observe peaks and changeovers; confirm blocking, congestion and flow patterns; prioritize immediate actions and close functional requirements for the next level of analysis. The audit is not intended to resolve a full project in three days; its goal is to create a solid base of observation, evidence and decision.</p></div>
         <div class="grid-2">
-          <article class="card accent"><h3>INGECART team</h3><p>Technical direction, engineering direction, electrical and software engineering, and project direction. Coordinated participation with PCG production, maintenance, IT/OT, quality and safety.</p></article>
-          <article class="card green"><h3>Capture method</h3><p>Direct observation, time study, history exports, event counts, structured interviews, available drawing and program review, authorized technical photography and end-of-day reconciliation.</p></article>
+          <article class="card accent"><h3>INGECART team</h3><p>Technical direction, electrical and software engineering. Coordinated participation with PCG production, maintenance, IT/OT, quality and safety.</p></article>
+          <article class="card green"><h3>Capture method</h3><p>Direct observation, time study, history exports, authorized technical photography and end-of-day reconciliation.</p></article>
         </div>
-        <div class="decision green"><strong>Economic proposal</strong>The Middletown audit value is proposed at <span class="nowrap">$43,870 USD</span>, including on-site assessment, capacity analysis, OT/PLC review, flow evaluation and delivery of findings with investment recommendations for the next implementation phase.</div>
+        <div class="decision green"><strong>Economic proposal</strong>The Middletown audit value is proposed at <span class="nowrap">$43,870 USD</span>, including on-site assessment, capacity analysis, functional review of flow and equipment, process evaluation and delivery of findings with prioritized recommendations for the next implementation phase. This is followed by approximately 10 days of technical analysis and reporting in Ingecart to validate conclusions, document findings and close the final recommendation.</div>
       </div>
     </section>
 
@@ -238,7 +236,7 @@
           <tr><td>OT / control</td><td>PLC, firmware, I/O, protocolos, red, drives, historico y backup</td><td>Matriz de integrabilidad y retrofit.</td></tr>
           <tr><td>Seguridad</td><td>zonas, E-stop, scanners, accesos, LOTO y recovery</td><td>Requisitos de risk assessment y modo degradado.</td></tr>
         </tbody></table></div>
-        <div class="decision"><strong>Regla de evidencia</strong>Cada hallazgo incluira timestamp o muestra, activo, estado, causa, duracion, impacto, confianza y responsable de validacion. Las entrevistas orientan; los eventos y mediciones confirman.</div>
+        <div class="decision"><strong>Regla de evidencia</strong>Cada hallazgo debe documentar la evidencia, su impacto operativo y posibles acciones de mitigacion o mejora. Las entrevistas orientan; los eventos y mediciones confirman.</div>
       </div>
       <div class="lang lang-en hidden">
         <div class="section-no">07 · Data and tests</div><h2>Blind spots become signals.</h2>
@@ -250,7 +248,7 @@
           <tr><td>OT / control</td><td>PLC, firmware, I/O, protocols, network, drives, history and backup</td><td>Integration and retrofit matrix.</td></tr>
           <tr><td>Safety</td><td>zones, E-stop, scanners, access, LOTO and recovery</td><td>Risk-assessment and degraded-mode requirements.</td></tr>
         </tbody></table></div>
-        <div class="decision"><strong>Evidence rule</strong>Each finding will include timestamp or sample, asset, state, cause, duration, impact, confidence and validation owner. Interviews guide; events and measurements confirm.</div>
+        <div class="decision"><strong>Evidence rule</strong>Each finding must document the evidence, its operational impact and possible mitigation or improvement actions. Interviews guide; events and measurements confirm.</div>
       </div>
     </section>
 
@@ -285,87 +283,39 @@
       </div>
     </section>
 
-    <section id="architecture">
-      <div class="lang lang-es">
-        <div class="section-no">09 · Arquitectura recomendada</div><h2>Los PLC ejecutan; el orquestador coordina.</h2>
-        <div class="flow" style="--steps:5"><div class="flow-step">ERP / planning<br>orden y prioridad</div><div class="flow-step">MES / WMS<br>identidad y estado</div><div class="flow-step control">INGECART WCS<br>reserva, routing, colas</div><div class="flow-step control">PLC / safety<br>secuencia e interlocks</div><div class="flow-step">Drives / equipos<br>movimiento fisico</div></div>
-        <div class="grid-3">
-          <article class="card accent"><h3>Contrato de carga</h3><p>load_id, order, SKU, cantidad, dimensiones, peso, pallet/no pallet, bottom layer, flejado, wrapping y destino.</p></article>
-          <article class="card green"><h3>Contrato de estado</h3><p>ready, running, starved, blocked, fault, manual, occupied, destination reserved y pickup requested.</p></article>
-          <article class="card amber"><h3>Contrato de excepcion</h3><p>destino lleno, carga descentrada, pallet ausente, jam, equipo fuera, perdida de red, E-stop y recovery.</p></article>
-        </div>
-        <div class="decision"><strong>Principio de diseño</strong>Ninguna carga sale sin identidad y destino reservado; ningun destino recibe sin capacidad confirmada; toda excepcion conserva trazabilidad y dispone de ruta, buffer o procedimiento degradado seguro.</div>
-      </div>
-      <div class="lang lang-en hidden">
-        <div class="section-no">09 · Recommended architecture</div><h2>PLCs execute; the orchestrator coordinates.</h2>
-        <div class="flow" style="--steps:5"><div class="flow-step">ERP / planning<br>order and priority</div><div class="flow-step">MES / WMS<br>identity and state</div><div class="flow-step control">INGECART WCS<br>reservation, routing, queues</div><div class="flow-step control">PLC / safety<br>sequence and interlocks</div><div class="flow-step">Drives / equipment<br>physical movement</div></div>
-        <div class="grid-3">
-          <article class="card accent"><h3>Load contract</h3><p>load_id, order, SKU, quantity, dimensions, weight, pallet/no pallet, bottom layer, strapping, wrapping and destination.</p></article>
-          <article class="card green"><h3>State contract</h3><p>ready, running, starved, blocked, fault, manual, occupied, destination reserved and pickup requested.</p></article>
-          <article class="card amber"><h3>Exception contract</h3><p>destination full, off-center load, missing pallet, jam, equipment down, network loss, E-stop and recovery.</p></article>
-        </div>
-        <div class="decision"><strong>Design principle</strong>No load leaves without identity and reserved destination; no destination receives without confirmed capacity; every exception retains traceability and has a safe route, buffer or degraded procedure.</div>
-      </div>
-    </section>
-
     <section id="deliverables">
       <div class="lang lang-es">
-        <div class="section-no">10 · Entregables</div><h2>De la observacion a una especificacion utilizable.</h2>
+        <div class="section-no">09 · Entregables</div><h2>De la observacion a una especificacion utilizable.</h2>
         <div class="grid-2">
           <article class="card green"><h3>A · Accion inmediata</h3><ul><li>Pareto de perdidas por minutos y output.</li><li>Quick wins priorizados por impacto, coste, riesgo y plazo.</li><li>Cambios de control, sensores, drives, recetas y trabajo estandar.</li><li>Plan 30/60/90 dias con owner y KPI.</li></ul></article>
           <article class="card accent"><h3>B · Diseño de nueva salida</h3><ul><li>Balance de capacidad p50/p95 y modo degradado.</li><li>Recomendacion 3/4 flejadoras o cambio tecnologico.</li><li>Requisitos de insertadores, wrapping, buffers y bypass.</li><li>URS neutral para compartir con proveedores.</li></ul></article>
-          <article class="card amber"><h3>C · OT y software</h3><ul><li>Inventario PLC/HMI/drives/redes y matriz de conectividad.</li><li>Arquitectura WCS y contratos de datos.</li><li>Alarmas, historizacion, dashboards y trazabilidad.</li><li>Backups, ciberseguridad, ownership y soporte.</li></ul></article>
-          <article class="card"><h3>D · Validacion</h3><ul><li>Protocolo FAT/SAT por familia SKU.</li><li>Escenarios pico, fallo, bypass y restart.</li><li>KPIs baseline/target y metodo de aceptacion.</li><li>Registro de riesgos, decisiones y datos pendientes.</li></ul></article>
         </div>
+        <p class="small"><strong>Nota:</strong> Al termino de la auditoria y ya en Ingecart se trabajara en un informe completo para el cliente con las conclusiones, acciones de impacto directo y observaciones y recomendaciones para nuevo proyecto de salidas. El informe estara disponible en 15 dias.</p>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">10 · Deliverables</div><h2>From observation to a usable specification.</h2>
+        <div class="section-no">09 · Deliverables</div><h2>From observation to a usable specification.</h2>
         <div class="grid-2">
           <article class="card green"><h3>A · Immediate action</h3><ul><li>Loss Pareto by minutes and output.</li><li>Quick wins prioritized by impact, cost, risk and lead time.</li><li>Control, sensor, drive, recipe and standard-work changes.</li><li>30/60/90-day plan with owner and KPI.</li></ul></article>
           <article class="card accent"><h3>B · New outfeed design</h3><ul><li>p50/p95 capacity balance and degraded mode.</li><li>3/4 strapper or technology-change recommendation.</li><li>Pallet inserter, wrapping, buffer and bypass requirements.</li><li>Vendor-neutral URS to share with suppliers.</li></ul></article>
-          <article class="card amber"><h3>C · OT and software</h3><ul><li>PLC/HMI/drive/network inventory and connectivity matrix.</li><li>WCS architecture and data contracts.</li><li>Alarms, histories, dashboards and traceability.</li><li>Backups, cybersecurity, ownership and support.</li></ul></article>
-          <article class="card"><h3>D · Validation</h3><ul><li>FAT/SAT protocol by SKU family.</li><li>Peak, failure, bypass and restart scenarios.</li><li>Baseline/target KPIs and acceptance method.</li><li>Risk, decision and missing-data register.</li></ul></article>
         </div>
+        <p class="small"><strong>Note:</strong> At the end of the audit and once in Ingecart, a full client report will be prepared with the conclusions, direct-impact actions and observations and recommendations for a new outfeed project. The report will be available in 15 days.</p>
       </div>
     </section>
 
     <section id="gates">
       <div class="lang lang-es">
-        <div class="section-no">11 · Gates de decision</div><h2>La inversion avanza cuando el sistema cierra.</h2>
-        <ul class="checklist"><li>Baseline de blocked/starved time aprobado por PCG.</li><li>Matriz SKU-bundle-pallet-destino cubre volumen y familias criticas.</li><li>Capacidad p95 demostrada en cada operacion y ruta compartida.</li><li>Flejado resuelve demanda con disponibilidad y redundancia definidas.</li><li>Insertadores de pallets validados con consumos pico y reposicion.</li><li>Bypass y modo degradado mantienen produccion segura y trazable.</li><li>PLC, drives y WCS tienen interfaces, ownership y recovery definidos.</li><li>FAT/SAT reproduce mix, picos, excepciones y reinicio realistas.</li><li>Quick wins implementados no quedan anulados por el nuevo diseño.</li><li>Beneficios se calculan con output bueno y margen, sin doble conteo.</li></ul>
-        <div class="decision green"><strong>Recomendacion</strong>Autorizar la auditoria como gate de preingenieria. Congelar la arquitectura final solo despues de reconciliar capacidad, simultaneidad, integracion y contingencias con datos de Middletown.</div>
+        <div class="section-no">10 · Gates de decision</div><h2>La inversion avanza cuando el sistema cierra.</h2>
+        <ul class="checklist"><li>Baseline de blocked/starved time aprobado por PCG.</li><li>Matriz SKU-bundle-pallet-destino cubre volumen y familias criticas.</li><li>Flejado resuelve demanda con disponibilidad y redundancia definidas.</li><li>Insertadores de pallets analizados con consumos pico y reposicion.</li><li>Bypass y modo degradado mantienen produccion segura y trazable.</li><li>Quick wins implementados no quedan anulados por el nuevo diseño.</li><li>Beneficios se calculan con output bueno y margen, sin doble conteo.</li></ul>
+        <div class="decision green"><strong>Recomendacion</strong>Autorizar la auditoria como gate de preingenieria. Congelar la arquitectura final solo despues de reconciliar capacidad, simultaneidad, flujo y contingencias con datos de Middletown.</div>
       </div>
       <div class="lang lang-en hidden">
-        <div class="section-no">11 · Decision gates</div><h2>The investment advances when the system closes.</h2>
-        <ul class="checklist"><li>PCG-approved blocked/starved-time baseline.</li><li>SKU-bundle-pallet-destination matrix covers critical volume and families.</li><li>p95 capacity demonstrated at every operation and shared route.</li><li>Strapping meets demand with defined availability and redundancy.</li><li>Pallet inserters validated against peak consumption and replenishment.</li><li>Bypass and degraded mode preserve safe, traceable production.</li><li>PLC, drives and WCS have defined interfaces, ownership and recovery.</li><li>FAT/SAT reproduces realistic mix, peaks, exceptions and restart.</li><li>Implemented quick wins are not negated by the new design.</li><li>Benefits use good output and contribution margin without double counting.</li></ul>
-        <div class="decision green"><strong>Recommendation</strong>Authorize the audit as a pre-engineering gate. Freeze the final architecture only after reconciling capacity, concurrency, integration and contingencies with Middletown data.</div>
+        <div class="section-no">10 · Decision gates</div><h2>The investment advances when the system closes.</h2>
+        <ul class="checklist"><li>PCG-approved blocked/starved-time baseline.</li><li>SKU-bundle-pallet-destination matrix covers critical volume and families.</li><li>Strapping meets demand with defined availability and redundancy.</li><li>Pallet inserters analyzed against peak consumption and replenishment.</li><li>Bypass and degraded mode preserve safe, traceable production.</li><li>Implemented quick wins are not negated by the new design.</li><li>Benefits use good output and contribution margin without double counting.</li></ul>
+        <div class="decision green"><strong>Recommendation</strong>Authorize the audit as a pre-engineering gate. Freeze the final architecture only after reconciling capacity, concurrency, flow and contingencies with Middletown data.</div>
       </div>
     </section>
 
-    <section id="sources">
-      <div class="lang lang-es">
-        <div class="section-no">12 · Evidencia, limites y preparacion</div><h2>Un informe auditable distingue dato, hipotesis y medicion.</h2>
-        <div class="grid-3">
-          <article class="card amber"><span class="evidence e-client">PCG</span><h3>Informacion facilitada</h3><p>Inventario, capacidades, configuracion preliminar de salidas, insertadores y observaciones sobre flejado.</p></article>
-          <article class="card red"><span class="evidence e-verify">Validar</span><h3>Preingenieria</h3><p>Velocidades nominales, produccion anual, simultaneidad y mejora 400-600% requieren fuente OEM o medicion.</p></article>
-          <article class="card green"><span class="evidence e-audit">Auditoria</span><h3>Resultado contractual</h3><p>Baseline, hallazgos, calculos, URS, KPIs y criterios FAT/SAT trazados a evidencia de planta.</p></article>
-        </div>
-        <h3>Preparacion solicitada a PCG</h3>
-        <p>Layout y P&amp;ID/diagramas disponibles; lista de activos y placas; programas y backups autorizados; historicos de produccion/parada de 8-12 semanas; matriz SKU; turnos; registros de mantenimiento; topologia OT; manuales; proyecto preliminar; interlocutores de produccion, mantenimiento, IT/OT, calidad y seguridad.</p>
-        <p class="small"><strong>Limitacion:</strong> este documento justifica y define la auditoria; no sustituye la inspeccion, el risk assessment, la simulacion ni la ingenieria de detalle. Todas las cifras de capacidad son preliminares hasta validacion. La imagen de portada es industrial de contexto y no representa la planta PCG.</p>
-      </div>
-      <div class="lang lang-en hidden">
-        <div class="section-no">12 · Evidence, limits and preparation</div><h2>An auditable report separates data, hypothesis and measurement.</h2>
-        <div class="grid-3">
-          <article class="card amber"><span class="evidence e-client">PCG</span><h3>Provided information</h3><p>Inventory, capacities, preliminary outfeed configuration, pallet inserters and observations on strapping.</p></article>
-          <article class="card red"><span class="evidence e-verify">Verify</span><h3>Pre-engineering</h3><p>Nominal speeds, annual production, concurrency and 400-600% improvement require OEM source or measurement.</p></article>
-          <article class="card green"><span class="evidence e-audit">Audit</span><h3>Contractual outcome</h3><p>Baseline, findings, calculations, URS, KPIs and FAT/SAT criteria traced to plant evidence.</p></article>
-        </div>
-        <h3>Requested PCG preparation</h3>
-        <p>Available layout and P&amp;ID/diagrams; asset and nameplate list; authorized programs and backups; 8-12 weeks of production/downtime history; SKU matrix; shifts; maintenance records; OT topology; manuals; preliminary project; production, maintenance, IT/OT, quality and safety counterparts.</p>
-        <p class="small"><strong>Limitation:</strong> this document justifies and defines the audit; it does not replace inspection, risk assessment, simulation or detailed engineering. All capacity figures remain preliminary until validated. The cover image is industrial context and does not depict the PCG plant.</p>
-      </div>
-    </section>
+
   </main></div>
 
   <footer><div class="hero-inner" style="padding:0">

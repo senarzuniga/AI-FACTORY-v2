@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe resumen del programa de automatización Ingecart para Calgary: Fase 1, Fase 2 y Fase 3." />
+  <title>Calgary · Ingecart · Informe resumen</title>
+  <style>:root {
+  --ink: #181817;
+  --paper: #f2efe8;
+  --surface: #fff;
+  --line: #d2cbc0;
+  --muted: #625f59;
+  --orange: #ff5a10;
+  --orange-dark: #a94400;
+  --green: #14735f;
+  --amber: #8b6700;
+  --red: #9f3232;
+  --black: #0c0c0c;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px), var(--paper);
+  color: var(--ink);
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  background-color: var(--black);
+  background-image: linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.58) 58%, rgba(0,0,0,.18)), var(--hero-image);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  border-bottom: 8px solid var(--orange);
+}
+.hero-inner, .ribbon-inner, .layout { width: min(1240px, calc(100% - 48px)); margin: 0 auto; }
+.hero-inner { padding: 76px 0 58px; }
+.eyebrow, .section-no, .tag, .toc-title, .meta { font-family: "Cascadia Mono", Consolas, monospace; }
+.eyebrow { color: #ffb38b; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+h1 { max-width: 980px; margin: 16px 0 20px; font: 800 clamp(40px, 6vw, 78px)/.98 Georgia, serif; letter-spacing: 0; overflow-wrap: anywhere; }
+.hero p { max-width: 830px; margin: 0; color: #eee8de; font-size: 20px; }
+.meta { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 28px; color: #ccc7be; font-size: 12px; font-weight: 700; }
+.ribbon { background: var(--black); color: #eee; }
+.ribbon-inner { display: flex; flex-wrap: wrap; gap: 24px; padding: 17px 0; font-size: 13px; }
+.ribbon strong { color: var(--orange); }
+.layout { display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 46px; }
+aside { padding: 46px 0; }
+.toc { position: sticky; top: 20px; border-top: 5px solid var(--orange); padding-top: 15px; }
+.toc-title { margin-bottom: 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+.toc a { display: block; padding: 7px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; text-decoration: none; }
+.toc a:hover { color: var(--orange-dark); }
+main { min-width: 0; padding: 50px 0 80px; }
+section { margin-bottom: 70px; scroll-margin-top: 20px; }
+.section-no { color: var(--orange-dark); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+h2 { margin: 5px 0 24px; font: 800 clamp(28px, 4vw, 46px)/1.05 Georgia, serif; letter-spacing: 0; overflow-wrap: anywhere; }
+h3 { margin: 26px 0 10px; font-size: 20px; letter-spacing: 0; overflow-wrap: anywhere; }
+p { margin: 0 0 14px; }
+.lead { max-width: 900px; color: #3b3935; font-size: 20px; }
+.decision { margin: 24px 0; padding: 25px 27px; border-left: 7px solid var(--orange); background: var(--surface); box-shadow: 0 10px 28px rgba(20,20,20,.07); }
+.decision strong { display: block; margin-bottom: 7px; color: var(--orange-dark); font: 800 12px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; }
+.decision.green { border-left-color: var(--green); }
+.decision.green strong { color: var(--green); }
+.grid-2, .grid-3, .grid-4 { display: grid; gap: 18px; margin: 20px 0; }
+.grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.card { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.card.accent { border-top: 5px solid var(--orange); }
+.card.green { border-top: 5px solid var(--green); }
+.card.amber { border-top: 5px solid var(--amber); }
+.card.red { border-top: 5px solid var(--red); }
+.card h3 { margin-top: 0; }
+.metric { color: var(--orange-dark); font: 800 30px/1 Georgia, serif; overflow-wrap: anywhere; }
+.metric-label { margin-top: 8px; color: var(--muted); font-size: 12px; }
+.tag { display: inline-block; padding: 4px 8px; border-radius: 3px; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.fact { color: var(--green); background: #dceee7; }
+.proposal { color: #654900; background: #f4e7c3; }
+.risk { color: var(--red); background: #f2dddd; }
+.table-wrap { overflow: auto; margin: 18px 0; border: 1px solid var(--line); background: var(--surface); }
+table { width: 100%; min-width: 720px; border-collapse: collapse; }
+th, td { padding: 13px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
+th { background: var(--black); color: #fff; font: 800 11px "Cascadia Mono", Consolas, monospace; letter-spacing: .05em; text-transform: uppercase; }
+tbody tr:last-child td { border-bottom: 0; }
+.number { white-space: nowrap; font-family: "Cascadia Mono", Consolas, monospace; font-weight: 800; }
+.flow { display: grid; grid-template-columns: repeat(var(--steps,5),minmax(0,1fr)); gap: 8px; margin: 24px 0; }
+.flow-step { display: flex; min-height: 100px; align-items: center; justify-content: center; padding: 14px; border: 1px solid var(--line); background: var(--surface); text-align: center; font-weight: 800; }
+.flow-step.control { border-color: var(--orange); background: #fff2e9; }
+.phase { padding-left: 18px; border-left: 5px solid var(--orange); }
+.phase + .phase { margin-top: 28px; }
+.checklist { margin: 16px 0; padding: 0; list-style: none; }
+.checklist li { padding: 11px 0 11px 28px; border-bottom: 1px solid var(--line); position: relative; }
+.checklist li::before { content: "✓"; position: absolute; left: 2px; color: var(--green); font-weight: 900; }
+.lang.hidden { display: none; }
+.language-switcher { position: fixed; top: 18px; right: 18px; z-index: 10; display: flex; padding: 3px; border: 1px solid #777; border-radius: 4px; background: rgba(9,9,9,.92); }
+.language-switcher button { min-width: 44px; padding: 8px 10px; border: 0; border-radius: 2px; background: transparent; color: #fff; font: 800 12px "Cascadia Mono", Consolas, monospace; cursor: pointer; }
+.language-switcher button[aria-pressed="true"] { background: var(--orange); color: #111; }
+@media (max-width: 980px) { .layout { grid-template-columns: 1fr; } aside { display: none; } .grid-3, .grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)); } .flow { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .hero-inner, .ribbon-inner, .layout { width: min(calc(100% - 28px),1240px); } h1 { font-size: 42px; } .hero p { font-size: 17px; } .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+@media print { body { background: #fff; font-size: 10pt; } .hero { min-height: 210mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; } .layout { display: block; width: 100%; } aside, .language-switcher { display: none; } main { padding: 12mm; } section { margin-bottom: 12mm; } .card, .decision, .table-wrap { break-inside: avoid; } }</style>
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(12,12,12,.92) 0%, rgba(12,12,12,.72) 46%, rgba(12,12,12,.22) 100%); }
+    .kpi-slab { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+    .summary-card { border:1px solid var(--line); background:#fff; padding:18px; border-radius:10px; }
+    .summary-card h3 { margin-top:0; }
+    @media (max-width:980px) { .kpi-slab { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:620px) { .kpi-slab { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Calgary · Automatización integral · Resumen ejecutivo</div>
+        <div class="brand-mark"><img src="data:image/png;base64,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" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Fase 1 + Fase 2 + Fase 3: continuidad, capacidad y control del flujo</h1>
+        <p>El valor del programa no es la suma aislada de equipos, sino la conversión de un sistema reactivo en un flujo controlado por prioridad, trazabilidad y capacidad útil recuperada.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Resumen</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Calgary · Integrated automation · Executive summary</div>
+        <div class="brand-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABDCAYAAAALU4KYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAA2USURBVHhe7VtpsFxFGT09M2/LTjYCiUBSIUDCFkiULASDQCAGCwmFVKFiBFEUi9JyAZdflCLlD/eyLFFQkqAFJYKKCEEJCAQqAQyQBAgJEbK+JIS8l7xllus5ffvO8ua++2a5Qyx9p16/2/3dXk9/3d/XPTPGIzCImpFwz0HUiEEC68T/B4EN3KUavwe+8ACw7g9AU4sTEMYwcO6CkNAzWRq3TwYwb0LpIKRC0irHZ9IFK2NQO1POAUYd47fbADSWwIN7gLs/D/R0+oMsRr7V4uYZD5PbqEvnuxuStlH9c/F0FzD9AuDy7+hFQ9AgAlUlZ//h7wMvPQy0DLVJpJxGWRQ1W00PqsrLzN2HgaW3AZNnOWG8aJwGbn8Z+N2XuXRb2QpJy2SR3dAOZNmc5ZEy/TGoA3oq7TmZTQRK697ZIJTJ+c+9s6veJlhrazPMqCHAuKnA1T/Ri9jROALvuQnYscnf+5qTyD6/E5kntsG0JOBpkAnDcTMwrrS/3ZlCnO9FlCWTT0/5rdzPl4/btJ6FskZlJUsy3ymTYbgd4pKbuZw/xEi8UPPx45VHgbdf8snTwDp6kX1xF8yQJi7nFEyzCy00AiTXMIDpQpyhiXGGkrhCSk92O4jbtP80LiDp5CTR20mtTzUDz65kx+LXlfgJ7DkEPPUbDqrNT3Pfy67bARxKc0BSi0agUG8JRTJcBzvhHeQ+uP/fwPP0CGJGfAQGO8HTvwXe3cmapQkGuV2dyG3Y62tJCbxIfYiimgvTxSqAVsBuegNyjdbeC3QddC/iQXwESrv2vwWs/0vB6rLz2WepfTlSVTbmaBqiyI2ivrwZSrp74B3oADpIpHzSGBHvEn7iDvpe3X6cGpd9fT9yb75LTay+mShyyxFFN8E90du7TxHgX38COhWPB/ERuOU5YPNT3PTpNgg9GWSeofYFFjEE0VoWM+hG5URiDzXx2Xt8WQwOSDwEqiNP3cUJppUVaF0z67lc9vEkwH0wHHFSVIG+yqAceBdemu1ueIRxTm4MRi0eAp+/H9hJn08EatM+0IPs2l3WAkeh/u6Xo99pYWPsGdBOt6aXE/vM3e5FfaifwMMHgDUrqHVu6ZK0jAzHYbotodpHWddhePv3wXuH4YCetNId3CtrZrQybfbkZR8+BK+rF3j1cTr6G92b2lH/SeTRH3BjpuXV3kcHN7e9A+l7X/XJozYWTg968l+2F4klS5G48FJqAgeiwTc1wdu6Cbm7fuhrLf90SrHlissWxW29Nu6Cy+/LXd58cO+UX6G5CWbSROD4mcAV36OgdtRHYPsWYPkX2Dl5/ewhB9977yZ4b3Gj5pGtdFAMGkiuF00r/8Yj1um2imKkLzyR7zNusH5ZG4KyLm6Panm5e+fiZQTK/VRafzbOoCGPGwszcgRw+XdJ5FkU1gY1UTtW/5KdybFTrIZHruzGfXRb6KjqqOWg/paCkt4eFy9CjvUU5Y6a1XI/MCJ38IpVizebFOEH3oGnFfDMcvu6VtRO4KurgTfXUut43tUMd2eQfXo7Z7lAghA6tJSz1sWwF6guTpTWUjnK2gsq4guniH4kl+W+y5Wy42Xg9X/aLLWgNgKldTrvBm5LMw3HC7vhtdOJHsDyStO8vbtdogAZE6RpeBxCie8XBboLMYegIr0orlSrppOrpZt9fu73fFddiwFq2wPV4OpfcJ8bRhITHHw3epdvIAEk1hoP5lFwe1HJHmiYZ/hwYOw4irT8KddJ5RC14eD+QnmWteWKy+bjfBTte0H+IF6yf9pQyOvX6dLqS9sQmDFjgUVfAU67mMLqUD2BhzjIu64jWdzHZDzoNKcf3IzceroibfocgnmCjocRKIK6O+nQ9trlriw2r66fRox0ZSnM9MDoWChyg7J6N4zkS9Rz2E+3tjKPrAPJ0BW+rrRISkk/XNl8WwGBirOcGTMemHgycA2VQmOqAtUTuOrHwIsPFtyWtzuofRthZDiKO6YQRqCXgZk9B4lZ8+jSuCUr8nZsQ+6xB/wtIJeGmTod5txLqCS0yiqr8+y+XfBWUftF7lkLkDjnIuCE6cBQWtOuDnhb1tMn5Vn39XXAEK0OFhQfQT9sHxQYCeJ60o0yo8cAF1MLz1hCQeWojsBdr/nX9LZDfuhdUeS2VEIg/cDUir8iMeNMCkqRvmAqCebmTu1KfuNHSCy+yr0pIHPtPCSW3YLE/P4H6j10B7yVt3KSm30Si/pVsoSDuLR3xFEwE6cBy+5gGZarEKqicjz5K0uAJUa3La+Uuy0DgmVNhlrVF4E7JKj+sHnNpJG8dXkkeYJZfB3MVTdTKzudhHCchULtHuY49m6r+tK18pFvfhrYxqWhm2bNWlcGmSd5ZBvA6oZ3OoScMlFIHro/5tjJLhENs+QGYMoZVGt3vRYFdVJujUh84Y92BVSKyghU5bpt0YfVGhg1Lr1mB3J72JCWyBGAt3UDvE3r4MlyW0E54ebcpX7fHZQjZFp8obSwh0aofav/ZYAKURmBqnDPZmqAv6d4e7uQXbMbpkWEvsegH5m97bPI3XAecl88n2EhiaRDr2XfF9Pns8+Fb0QoR/R0k8nuQ76R7KBXUQEqIJCV6rpKS9f2wCD9j7ftEh6gNxahM14Hcqvvh/fISt/yHjUO2L8LuZW3u7elMOOP44Q7t8RqmR/tF9JCuWc76dO+xpNWBaiAQLZ60nn+XkLyPB7ZvB2cpSO1dN94hdZVk8n2RUob3ZW36B0ULdU89KG+Tktueesx4ITKCxhKl2baAieIRmVLeM7HgVHHkkQ6v0ObkJrPuL5hcCQgoornTvEw8gS9y1t2l/RT4RDD9DGx+Os8LVG7K0BlBGom53+aldOF6ckheSaPYZO5hHR0O9LQPIbtf7VAn2nP/Ahw6iInGBiVESicstC/N9Nxif1t+uAkeFrGR0QR+xDWXx/6yCO7Kj902Gjg0m85QWWonEDhvOt9S9ybRWLKSKRO5V7BeNS6iEk3akOfxiP7wvM5Fn8NGDnBCSpDdQQefSLPirqKp/+X8ZBaMJFnTroy7/l+WEN7KtIfgxkayKlzgLlXO0HlqI5AQQZlxNH2VtmMbkXq/RPgReyFjaG2QtUqbpx5wk6HdulKfikNRw2onkB9bWPeNb5B6c1ZAhNjaWSOlFUW+mu6mFjmCbU1cpw/cAXMlNlOUB2qJ1CQlXofz5m9VP22FJLzuZSzbib7IFw5QqRlovCSPgthjPWTP0DfYjbNPg8dBfPhr/qyGlAbgcKCz/hefk8GyRljYE4Y6ZPYB2VD1TrSNVNfWH/N5Vae4ATRF8pXXilHEjIUXY4G65YPxfJFFZH2nc9xjBxfyFclarvSD/DYT/3biyHDkNvRifTKjf7tjMau8VBbLC82rif/6bJ04SIk5p8Pk0n7A0rREG3fitx9v/bL67Pj02bDXLSUcXdklObRYc79+U6Y9u30o9iIrVMVeNSiZTDHHF9wqlXnnjfhrbrTjzOfVV7bH78fGDMR5tur+L7y+7++qI9AOZ53XsuZPMil3IL0Q1uQW98OtHJwlrQQAkWujoVcPvnPd11eDBni0oyTRCPy7GQwrfcJdlXaqxvkfJ0u6OsazOfLlVdy5tf1vmunhMDuDuD6n8PMouNcB1Rd7ZBBmftJEsLjj9yaOTzi6XORoikJnZ1mGp22ofA0uFYXFM+DpaQVwfsWnn1bFRjX70DKaiUh+mqJ8pWEojpZJF9K933TF9RNnlAfgcLpi4FJp3NGu2COakVyNh1ROdcDgsvOxcIQ9S4KeZL6VsB0XsS90Xz0FpeoD/UTKCz8nK8ZJC51Fn3E8Zx559b0T0Q0RX11LBqF3PlaA1FxM4p3cenO/RiPpfpqSXWthCEeAiecBJxGTdSPWlpSSJ2j25r+nev6EU1+CYo48rJZeMPHAktucpIq6ukH8RAoyLkeMY4k9iA5bTTM8XRrGnZbU4vm0MDQ6JkLr+NWE99v5+IjsHUYMH+Zb1CI1Dw617r+t6kwRJMQpRvl7wqSfmuVlZ50CsyiG5wgHsRHoDBDH3SfzX3mMBLHDEdiBpdLhEGpRY+EqHL9Ei//8HKed8O+2FQH4iVQWOCuvDI0KLMm2Bts+zOHMkTvP9WRO0Buad/0c2FmVn5RWiniJ/DoqcDMy6iF3G9GtSF5Nt0a7YVlfEUPOpreKqDzbiIFc+U3nSBexE+gMPcTwOhJJLGL5+TxMHJr6GiXgpu6i4WhOg2MqElO87lX0qid6gTxojEE6rPYeZ/yr7xakkjOotUrW8bVUVQT9OWlEWNhLvuSE8SPxhAonLzQ/7l9ZycSU+nWHDfCNygi0gatLj51FFeIjLO+ID1AsEd7G1imh6ejJTdyK6Fz3yDUd5kwEN7ZDqy4ka3QgW3vQvrRN+yBXr/91dSVfEmyzzP/JcliuWFXbeCfnmIpLwvSOf/SQLctx01H4vbHmWgcGkugsGYl8Pef2cO9p28zyLfWlYklRExYtpRwaT+IQM8++T6RgJdsgtHHq9wePD6NfovcxDqb22D0QTuDjeuCo0mXDrT+x04Dxp2gXjQMjSdQ+9Da+3xidAsjPyzBYL9nEzwZJLfPIK0gkljG/j7hvxONJ/B/HNpdBlEHBgmsE4ME1olBAuvEIIF1YpDAOjFIYF0A/gPL0UgoUB2B2QAAAABJRU5ErkJggg==" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Phase 1 + Phase 2 + Phase 3: continuity, capacity and flow control</h1>
+        <p>The value of the program is not the isolated sum of equipment, but the conversion of a reactive system into a flow governed by priority, traceability and recovered useful capacity.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-18</span><span>ES / EN</span><span>Summary</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Summary logic</strong>
+      <span>Fase 1</span>
+      <span>Fase 2</span>
+      <span>Fase 3</span>
+      <span>Flow</span>
+      <span>Capacity</span>
+      <span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Table of contents">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#executive">01 · Resumen</a>
+          <a href="#phase1">02 · Fase 1</a>
+          <a href="#phase2">03 · Fase 2</a>
+          <a href="#phase3">04 · Fase 3</a>
+          <a href="#impact">05 · Impacto</a>
+          <a href="#conclusion">06 · Conclusiones</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#executive">01 · Summary</a>
+          <a href="#phase1">02 · Phase 1</a>
+          <a href="#phase2">03 · Phase 2</a>
+          <a href="#phase3">04 · Phase 3</a>
+          <a href="#impact">05 · Impact</a>
+          <a href="#conclusion">06 · Conclusions</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>El programa completo de Calgary no busca sustituir máquinas por equipos más modernos, sino hacer que cada tramo del flujo responda a la lógica del proceso.</h2>
+          <p class="lead">La Fase 1 elimina la dependencia del transfer manual y evita que la salida de la RDC se convierta en el punto más frágil del sistema. La Fase 2 estabiliza la paletización final y la salida hacia logística. La Fase 3 convierte el WIP y la flota de movimiento en una capa operativa y trazable que sirve a la producción. Cuando se ven en conjunto, las tres fases no comparten un solo equipo: comparten una lógica común de flujo, prioridad, disponibilidad y capacidad útil recuperada.</p>
+          <div class="kpi-slab">
+            <div class="card green"><div class="metric">+3 a +6 pp</div><div class="metric-label">OEE útil del tramo</div></div>
+            <div class="card accent"><div class="metric">-60% a -87%</div><div class="metric-label">Starvation</div></div>
+            <div class="card amber"><div class="metric">+4,2M m</div><div class="metric-label">Producción extra</div></div>
+            <div class="card"><div class="metric">~€309k</div><div class="metric-label">Ahorro operativo</div></div>
+          </div>
+          <div class="decision"><strong>Conclusión base</strong>La creación de valor real no nace de la automatización aislada, sino de la liberación de capacidad que se pierde por bloqueos, espera, desplazamientos improductivos y falta de coordinación entre flujo principal y flujo de apoyo.</div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The full Calgary program does not seek to replace machines with more modern equipment, but to make each flow segment respond to the real logic of the process.</h2>
+          <p class="lead">Phase 1 removes dependence on manual transfer and prevents the RDC outfeed from becoming the most fragile point of the system. Phase 2 stabilizes final palletizing and the outfeed to logistics. Phase 3 turns WIP and the mobile fleet into an operational and traceable layer that serves production. Together, the three phases do not share a single equipment: they share a common logic of flow, priority, availability and recovered useful capacity.</p>
+          <div class="kpi-slab">
+            <div class="card green"><div class="metric">+3 to +6 pp</div><div class="metric-label">Useful OEE range</div></div>
+            <div class="card accent"><div class="metric">-60% to -87%</div><div class="metric-label">Starvation</div></div>
+            <div class="card amber"><div class="metric">+4.2M m</div><div class="metric-label">Extra output</div></div>
+            <div class="card"><div class="metric">~€309k</div><div class="metric-label">Operating savings</div></div>
+          </div>
+          <div class="decision"><strong>Core conclusion</strong>Real value is not created by isolated automation, but by releasing capacity lost to blockages, waiting, non-productive movement and lack of coordination between the main flow and the support flow.</div>
+        </div>
+      </section>
+
+      <section id="phase1">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Fase 1</div>
+          <h2>Fase 1: la salida de la RDC ya no depende del operador.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Automatiza la transferencia y la reserva de destino para eliminar la dependencia manual del flow entre la RDC y las estaciones de segunda pasada o FG. La ventaja no es solo mover material, sino coordinar el flujo y evitar que el sistema espere a un operador para liberar capacidad.</p>
+            <ul><li>reduce bloqueo de salida</li><li>recupera continuidad del tramo</li><li>reduce starvation y rehandling</li><li>mejora disponibilidad y trazabilidad</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Phase 1</div>
+          <h2>Phase 1: the RDC outfeed no longer depends on the operator.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It automates transfer and destination reservation to eliminate manual dependence in the flow between the RDC and second-pass or FG stations. The advantage is not only moving material, but coordinating flow and avoiding a system waiting for an operator to release capacity.</p>
+            <ul><li>reduces outlet blocking</li><li>recovers continuity of the segment</li><li>reduces starvation and rehandling</li><li>improves availability and traceability</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="phase2">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Fase 2</div>
+          <h2>Fase 2: la salida final gana estabilidad y capacidad útil.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Estabiliza paletización, interlayers e integración con la logística final. La salida no es un simple “último paso”; es una barrera crítica para la continuidad del flujo, y la Fase 2 la vuelve predecible y más eficiente.</p>
+            <ul><li>reduce bloqueo por salida final</li><li>mejora pallet quality y consistencia</li><li>reduce rework y manipulación</li><li>mejora la disponibilidad del tramo final</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Phase 2</div>
+          <h2>Phase 2: the final outfeed gains stability and useful capacity.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It stabilizes palletizing, interlayers and integration with final logistics. The final outfeed is not a simple “last step”; it is a critical barrier to flow continuity, and Phase 2 makes it predictable and more efficient.</p>
+            <ul><li>reduces final outfeed blocking</li><li>improves pallet quality and consistency</li><li>reduces rework and manipulation</li><li>improves availability of the final segment</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="phase3">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Fase 3</div>
+          <h2>Fase 3: la logística de apoyo se vuelve un servicio productivo y trazable.</h2>
+          <div class="summary-card">
+            <h3>Qué hace</h3>
+            <p>Coordina WIP móvil, AMR, prioridad y reserva de destino para mantener el flujo de materiales sin que el almacenamiento intermedio se convierta en un cuello de botella. Aquí la ventaja no es mover más material, sino moverlo con sentido, en el momento correcto y con trazabilidad.</p>
+            <ul><li>reduce starvation logístico</li><li>mejora control de WIP</li><li>reduce tiempo de búsqueda y espera</li><li>recupera continuidad por prioridad dinámica</li></ul>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Phase 3</div>
+          <h2>Phase 3: support logistics becomes a productive and traceable service.</h2>
+          <div class="summary-card">
+            <h3>What it does</h3>
+            <p>It coordinates mobile WIP, AMR, priority and destination reservation to keep the material flow without allowing intermediate storage to become a new bottleneck. The advantage is not moving more material, but moving it with purpose, at the right time and with traceability.</p>
+            <ul><li>reduces logistics starvation</li><li>improves WIP control</li><li>reduces search time and waiting</li><li>recovers continuity through dynamic priority</li></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Impacto conjunto</div>
+          <h2>La mejora no es lineal: es multiplicadora porque cada fase reduce el efecto de bloqueo sobre la siguiente.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Fase 1</h3><p>eliminación del cuello de salida manual y disminución del bloqueo inicial.</p></article>
+            <article class="card accent"><h3>Fase 2</h3><p>estabilización del final del flujo y mejor calidad del pallet final.</p></article>
+            <article class="card amber"><h3>Fase 3</h3><p>orquestación del WIP y la flota para sostener prioridad y continuidad.</p></article>
+            <article class="card"><h3>Resultado</h3><p>capacidad útil recuperada, menos espera, menos rehandling y mayor OEE global.</p></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Combined impact</div>
+          <h2>The improvement is not linear: it is multiplicative because each phase reduces the blocking effect on the next one.</h2>
+          <div class="grid-2">
+            <article class="card green"><h3>Phase 1</h3><p>removes the manual outfeed bottleneck and reduces the initial blockage.</p></article>
+            <article class="card accent"><h3>Phase 2</h3><p>stabilizes the end of the flow and improves the quality of the final pallet.</p></article>
+            <article class="card amber"><h3>Phase 3</h3><p>orchestrates WIP and the fleet to maintain priority and continuity.</p></article>
+            <article class="card"><h3>Result</h3><p>recovered useful capacity, less waiting, less rehandling and higher global OEE.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Conclusiones</div>
+          <h2>La conclusión más importante es que la automatización genera valor cuando elimina fricción del flujo y convierte la logística en un servicio productivo.</h2>
+          <p>La Fase 1 corrige el cuello más cercano a la RDC, la Fase 2 estabiliza la salida final y la Fase 3 hace que el almacenamiento intermedio y la movilidad interna sirvan a la línea en vez de bloquearla. El programa completo es viable cuando se entiende como un sistema integrado, y no como tres automatizaciones independientes. En ese marco, Ingecart funciona como integrador del flujo total, no solo como proveedor de equipos.</p>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Conclusions</div>
+          <h2>The most important conclusion is that automation creates value when it removes friction from the flow and turns logistics into a productive service.</h2>
+          <p>Phase 1 corrects the bottleneck closest to the RDC, Phase 2 stabilizes the final outfeed and Phase 3 makes the intermediate storage and internal mobility serve the line rather than block it. The complete program is viable when understood as one integrated system, not as three independent automations. In that sense, Ingecart acts as integrator of the total flow, not just as a supplier of machines.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="hero-inner" style="padding:0">
+      <div class="lang lang-es"><strong>INGECART · Calgary · Informe resumen</strong><br>Fase 1 + Fase 2 + Fase 3 · 2026-08-18</div>
+      <div class="lang lang-en hidden"><strong>INGECART · Calgary · Summary report</strong><br>Phase 1 + Phase 2 + Phase 3 · 2026-08-18</div>
+    </div>
+  </footer>
+
+  <script>function setLanguage(language) {
+  document.documentElement.lang = language;
+  document.querySelectorAll('.lang').forEach((element) => {
+    element.classList.toggle('hidden', !element.classList.contains(`lang-${language}`));
+  });
+  document.querySelectorAll('[data-language]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.language === language));
+  });
+}
+
+document.querySelectorAll('[data-language]').forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.language));
+});</script>
+</body>
+</html>
