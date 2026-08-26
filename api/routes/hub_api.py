@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from agents.action_engine import ActionPool
 from api.action_dashboard import create_action_router
+from api.routes.audio_transcription_api import router as audio_transcription_router
 from api.routes.cognitive_os_api import router as cognitive_os_router
 
 APP_STARTED_AT = datetime.now(timezone.utc)
@@ -37,6 +38,7 @@ app.add_middleware(
 _action_pool = ActionPool()
 app.include_router(create_action_router(_action_pool))
 app.include_router(cognitive_os_router)
+app.include_router(audio_transcription_router)
 
 
 @app.get("/")
