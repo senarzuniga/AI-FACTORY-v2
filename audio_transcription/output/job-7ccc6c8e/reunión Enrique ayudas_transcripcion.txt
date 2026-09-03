@@ -1,0 +1,4259 @@
+Vale, entonces, volvemos al tema de cómo gestionar una herramienta para facilitar las ideas, sí.
+
+Si estamos en esa dinámica, podemos, tanto como colaborar, como tener una frontera de contactos importante, o postularnos como podemos hacer este tipo de cosas que no tenemos que hacer.
+
+Entonces, podemos postularnos como una consultora que puede hacer ahí un camino.
+
+Yo digo que para eso, mientras tú no estés fuera de Torres, o no apareces en Petit Comité donde yo te diga que puedes aparecer, porque si es con María, mi amiga, ya sé que va a ser en discreta, pero con el otro no.
+
+Esto, yo comento, tiene que salir ya lo mío, Enrique.
+
+Sí, yo lo que sí que te iba a decir, incluso yo tengo una cosa muy buena, no como formador, como podría ser John, sino como hacer casos de estudio.
+
+Lo sé, pero quiere decir, como figura de formado en IA, John.
+
+No, pero escúchame mi idea, es decir, yo creo que los casos prácticos son muy buenos de escuchar.
+
+Y yo he vivido mucho caso práctico del uso de copilot, lo que yo os decía, yo he visto en Torres usar copilot dos años y solo dos personas la saben usar.
+
+Bueno, esos errores que cometen las empresas, yo puedo contarlos y creo que es una experiencia muy buena.
+
+Pero que es que eso, a ver, el tema de la IA está ahora mismo tan trinturado que hay mucha gente dando eso.
+
+Lo sé, digo, como casos de estudio.
+
+Nosotros tenemos que ir claramente a dar una charla, pero ya de esto.
+
+Vale, entendíos.
+
+Sí, y nos focalizamos en Navarra y ayuda a cenar.
+
+Vale, entonces, en principio, la herramienta puede evaluar a la empresa desde su tamaño, su tipo de proyectos y de esa manera,
+
+poder ver si podemos enfocarlo en unas ayudas o enfocarlo en otras, ¿vale?
+
+Lógicamente hace falta esa información por cada empresa, como el tamaño, actividad principal, que hacen de innovación,
+
+las inversiones que hacen, bueno, todo aquello, pero yo eso lo puedo conseguir sin ningún problema.
+
+Vale, motor de priorización, no basta con listar las ayudas, hay que priorizar ordenado por afinidad.
+
+Es decir, aquí te está ya juntando dos cosas.
+
+Por un lado, saca las ayudas que hay, las lista, las pondera y luego tú, con tus empresas identificadas,
+
+él empieza a ordenar para estas ayudas y te da un ranking, para estas otras y te da un ranking.
+
+Es decir, ajustamos empresa a ayuda, ¿vale?
+
+Bien, esto está muy bien, pero si tuviéramos todo en plan bestia, si tenemos tres o cuatro, nos definimos esta respuesta.
+
+Totalmente, pero claro, tenemos, ¿por qué está hecho así?
+
+Porque, claro...
+
+El punto tres, está claro.
+
+El punto tres debe ser comprensible para un asesor, un directivo y un cliente no técnico.
+
+Eso es a lo que voy a decir, nosotros, yo soy virgen en esta materia, tú sabes mucho y Ana es virgen
+
+y además nunca ha estado en este tipo de entorno industrial.
+
+Entonces, nosotros necesitamos esto para que el periodo de aprendizaje se acorte.
+
+Vale, pero si esto es un tema interno, ¿deje esto un interno? Perfecto.
+
+Esto es interno, esto es una herramienta para que Ana sea productiva.
+
+Volvemos a la de las productividades que os decía ayer, ¿vale?
+
+O sea, yo sí que creo que esto hoy en día te puede hacer mucho más productivo.
+
+Sí, sí, sí.
+
+Y más para que no tiene...
+
+Eso es, eso es.
+
+Vale, dos siers documental, los checklists, claro.
+
+Fíjate que esto te ayudaría a crear todo.
+
+Una vez que identifica, pues, todos los checklists, los documentos requeridos,
+
+nos daría todo eso, un dos siers, para ir a la empresa y decir,
+
+mira, esto es lo que tenemos que cumplimenta y nos lo daría hecho, ¿vale?
+
+El sistema de acompañar al cliente, que eso es lo que haríamos nosotros,
+
+la preparación inicial, diagnóstico, la propuesta, tramitación, cierre y seguimiento.
+
+Vale.
+
+Sin editar, bueno, taxonomías más claras, eso ya lo haré.
+
+Niveles de soporte que puede cambiar.
+
+Aquí estaría también.
+
+Vale, el analista financiero, el equipo de tramitación.
+
+Bueno, al final todas las empresas tienen fortalezas de debilidades
+
+y en las debilidades sería donde apoyaríamos.
+
+Vale.
+
+Validación y ayuda.
+
+Haríamos un CRM, no haría problema.
+
+Vale.
+
+Resumen.
+
+La herramienta debe crear un resumen ejecutivo para la empresa,
+
+como tú decías, claro y entendible.
+
+Recomendaciones, diagnóstico, simulación, dos siers,
+
+plan de acción recomendado.
+
+Vale.
+
+Información que falta.
+
+Que fuentes oficiales se usan como base de verdad para cada convocatoria ministerio,
+
+comunidad, EICI, CDETI, tarara.
+
+Que reglas de elegibilidad son obligatorias y cuales son interpretativas.
+
+Que costes son subvencionables para y más de que tipos de empresas
+
+y tamaños deben evaluarse.
+
+¿Cuáles son los requisitos documentales?
+
+¿Qué porcentaje de ayuda?
+
+¿Qué plazos, ciclos?
+
+Información financiera es imprescindible para modelar la liquidez y la solvencia.
+
+Esto es lo que tú decías.
+
+¿Qué cuentas te van a enseñar?
+
+¿Qué te va a enseñar esa empresa?
+
+¿Qué está dispuesta a compartir?
+
+¿Qué formato debe tener el dos siers final?
+
+¿Nivel de explicación que debe dar la herramienta?
+
+Entonces, esta es la parte que creo que tenemos que debatir ahora.
+
+Es decir, información, fuentes, cómo se gestiona,
+
+un poco que me cuentes como ha sido tu experiencia en ayudas
+
+y lo que tú has...
+
+Yo siempre me apoyo con una consultora.
+
+Sí.
+
+¿Por qué lo primero porque no tenías conocimiento que tengo ahora?
+
+Lo segundo porque...
+
+¿Cómo se llamaba la consultora con la que tú trabajaba?
+
+Inspiria.
+
+Inspiria Consultio.
+
+¿De Joaquín García?
+
+Bueno, principalmente, sé que el otro me trabajó con Carlos,
+
+y yo no he trabajado, pero sí.
+
+Entonces, ¿dices por qué he trabajado con estas gente?
+
+Porque ya los conocía de otras veces y la experiencia con ellos ya lo siempre he podido.
+
+Y además, son muy, muy butignos.
+
+No es una gran consultora que te pone en serio, te pone en Junior,
+
+también hemos trabajado con Zavala.
+
+Zavala es una mega consultora, pero si te toca en Junior,
+
+pues casi estás enseñándoles.
+
+Claro.
+
+Y estás todo el día haciendo el excel y historias para ellos,
+
+y yo solo he vivido.
+
+Entonces, te consume muchos recursos.
+
+El problema que tienen las consultoras habituales
+
+es que te bloquean la gestión de la empresa por unas semanas.
+
+Y sin embargo, a nosotros, no.
+
+Esta gente te da todo muy, muy, muy trabajado.
+
+Es decir, necesito esto, muy concreto.
+
+Pásame esto.
+
+No me pases, no se aguanta el documento,
+
+no se aguanta el balance,
+
+no se aguanta las cuentas de actuación,
+
+no se aguanta lo sé qué, no.
+
+Concreto.
+
+Cuando necesito los balances total, ya exactamente los pide,
+
+pero los trabajan ellos.
+
+Y luego, lo más importante en estas cosas,
+
+que aparte del tema técnico, ya sea industrial,
+
+o sea financiero, que acaba, evidentemente,
+
+para el tema técnico, ellos no son especialistas.
+
+Para sostenerse al especialista técnico.
+
+Y financieros, sí controlan de finanzas,
+
+pero no saben las tripas de la empresa.
+
+Tienes que aportar tu...
+
+Pero sí que ahora he presentado informes,
+
+informes que saben cómo les gusta los analistas
+
+de gobierno de Navarra.
+
+En eso son muy buenos.
+
+Y luego descuélgan el teléfono.
+
+Y, oye, está esto bien presentado.
+
+Me falta, no sé qué, cómo está la convocatoria,
+
+cuándo va a salir la convocatoria.
+
+Está previsto...
+
+¿Vais a pedir este año lo mismo que el año pasado?
+
+No, hemos cambiado.
+
+No sé qué, no sé cuántos,
+
+prepárate porque va a irnos a incidir aquí o allá.
+
+Eso dice la empresa.
+
+Esto hace inspiridad.
+
+O sea, inspiridad pregunta al cliente.
+
+No, en este caso la administración.
+
+A la administración.
+
+El cliente sabe exactamente cómo va a salir la convocatoria
+
+antes de publicarse.
+
+Por tanto, ya que está trabajando,
+
+puede empezar a trabajar antes de que se publique.
+
+Y para cuando está el boom,
+
+ya tiene casi todo preparado.
+
+Y eso a través de la IN,
+
+ese conocimiento previo...
+
+Yo lo he trabajado con la IN,
+
+convocatorias de subvenciones.
+
+O sea, podríamos identificar
+
+esas posibles bolsas de ayudas
+
+que pueden salir al futuro.
+
+Serían identificables con nuestro...
+
+que esté antes de salir.
+
+Complicado, porque allá no sé cómo va a...
+
+No, no estoy pensando en allá.
+
+Eso ya es cuestión de relaciones.
+
+Sí.
+
+¿Se tendríamos que hacer lo tu y yo?
+
+Sí, sea que sería esto inspirado o la IN.
+
+¿No pasa que inspiras y le vas a descompetir?
+
+Claro, no podemos, yo no le...
+
+Yo discrepo.
+
+No estoy pensando en...
+
+Aquí no va a ser mejor que ellos.
+
+No vamos a ser.
+
+Al principio.
+
+Yo no digo que no cogemos los precios.
+
+No.
+
+Si yo estoy de acuerdo contigo,
+
+incluso ayer lo que nos contaba,
+
+yo, de Transatec,
+
+de que Diego venda a través de Transatec...
+
+No.
+
+Te tracé.
+
+Te tracé.
+
+Eso te tracé.
+
+A mí me encaja.
+
+Es decir, no se trata...
+
+Yo creo que nuestra virtud es un conjunto,
+
+es un paquete.
+
+Es decir,
+
+tenemos conocimiento industrial...
+
+Por eso es que creo que en ciertas cosas
+
+colaboradores críticos buenos,
+
+expertos más que nosotros,
+
+colaboramos.
+
+Yo estoy de acuerdo.
+
+A mí, o sea, la ambición por un 5% más
+
+no me mata.
+
+Prefiero tener éxito,
+
+generar una buena cartera
+
+y crecer,
+
+que asumir un riesgo
+
+que nos haga fracasar.
+
+Otra cosa es que esta gente,
+
+pues como te digo,
+
+como son pocos,
+
+están justitos de tiempo.
+
+Bueno, ahí es donde les damos
+
+nuestra capacidad de trabajo.
+
+Si le llevamos las cosas en las mismas cadas...
+
+Claro.
+
+Y solo te tienen que decir el informe final,
+
+por ejemplo.
+
+Pero no va a ser fácil,
+
+porque tienen sus clientes
+
+y tienen sus trabajos,
+
+y entonces no les gusta
+
+tapar, recer mucho,
+
+y encontrar a tal gente.
+
+Tuvimos a uno también senior,
+
+pero él tuvo problemas de salud
+
+y estuvo muchos meses de baja,
+
+y al final se ha prejubilado,
+
+y no sé qué,
+
+la experiencia tampoco les ha ido muy allá.
+
+Bueno,
+
+va a ser la confianza
+
+y los años que yo he trabajado con ellos,
+
+pero que nos hicieran un hueco al menos
+
+para esas consultas específicas de ellos,
+
+o es informe final o tal,
+
+se podría tirar de ellos,
+
+pero no nos tenemos disponibles como...
+
+Se encuentran muy grandes,
+
+Zavala, Bantec también está siendo grande,
+
+pero en varias comunidades...
+
+Pero eso es motivo de confianza.
+
+No, no, yo lo que estoy pensando es,
+
+sobre todo, en poder gestionar
+
+paquetes de valor para la empresa,
+
+es decir, las empresas pequeñas
+
+tampoco pueden tener siempre un Zavala
+
+para que todos los años le renueven todo.
+
+Vamos a proyectos.
+
+¿Zavala o que quieres un fin mensual?
+
+Y es una empresa pequeña...
+
+No lo va a dar,
+
+pero si una empresa pequeña te va a comprar un proyecto,
+
+y eso es lo que tenemos que ir
+
+a definir proyectos
+
+en base a
+
+nuestra experiencia
+
+y un paquete.
+
+¿Pero te estás focalizando el tema de ayudas?
+
+No sé por qué, yo pensé que esto era un capítulo.
+
+Es un capítulo.
+
+Por eso digo, es un paquete.
+
+Para mí el paquete es, por ejemplo,
+
+y el ejemplo es muy bueno,
+
+lo que dijimos ahí con yo.
+
+Digitalización,
+
+su herramienta
+
+y ayudas.
+
+Es el paquete.
+
+Porque ahí...
+
+Yo como que yo soy más ampliado,
+
+porque todo el mundo está en el tema comercial,
+
+que es aparte.
+
+Luego está la dirección general, que es aparte.
+
+Satélites,
+
+luego lo ofrecemos,
+
+y finalmente incluso llegar a la idea
+
+cuando has conseguido madurar a ese cliente
+
+de ayudarle a tener
+
+una empresa
+
+bendible a un mayor valor.
+
+Ese es el fin último.
+
+Al final, ¿qué es el final?
+
+Al final, yo creo que
+
+tenemos que
+
+estar con el cliente
+
+y ver sus necesidades.
+
+Sí.
+
+Uno tiene necesidades comerciales,
+
+el otro financieras,
+
+el otro de ayudas, el otro de no sé qué.
+
+Tiene que ser
+
+cuando pienso en que estoy muy solo,
+
+tenemos que ser el referente.
+
+Sí.
+
+Pero me da igual para qué.
+
+Sí.
+
+Ahora estoy solo para las ayudas,
+
+ahora estoy solo para temas comerciales
+
+de dónde me meto en aquel mercado,
+
+en aquel territorio, no sé qué.
+
+Estamos ahí.
+
+Ahora estoy...
+
+tema...
+
+tema jurídico, mercantil.
+
+Estamos ahí.
+
+¿Por qué?
+
+Porque me meto a Vanessa en este tema
+
+y entro.
+
+Y estoy alfuscado por un tema financiero.
+
+Voy a hacer unas inversiones,
+
+no sé cómo financiar,
+
+pero bueno, ahí estamos.
+
+Necesito casi alguien
+
+de adjunto a dirección,
+
+que esté en cualquier momento
+
+para cuando le pueda consultar.
+
+Ahí estamos.
+
+Sí.
+
+Un soporte multifuncional,
+
+que en cada caso pueda ser
+
+en derivado de un departamento...
+
+Cuando tenga una necesidad
+
+que él se siente muy solo,
+
+que cuente con nosotros
+
+para lo que necesite.
+
+Para debatirla, para trabajarla,
+
+para ver si ponerla en valor,
+
+si tiene sentido, si tiene sentido,
+
+y si tiene sentido,
+
+vamos a trabajar con él.
+
+Sí.
+
+Eso creo que es...
+
+yo creía que íbamos a trabajar.
+
+Luego hay paquetes.
+
+Pero este es un paquete.
+
+Vamos a trabajar.
+
+Sí, sí.
+
+Yo estoy de acuerdo contigo.
+
+Está en la misma página.
+
+Vamos a trabajar eso.
+
+El fin de la empresa es esa.
+
+Pero este ahora mismo es un agujero negro.
+
+Tú tienes mucha información
+
+y yo no tengo ni un puñetera idea.
+
+Entonces, tira, tira.
+
+Todo esto,
+
+que tenemos toda la ilusión del mundo,
+
+pero hay que ser muy realistas.
+
+Llegar a todo lo que estamos hablando de tú y yo,
+
+que puedan tenernos en la mente
+
+para tener la confianza de decirnos,
+
+ahora de este...
+
+como si fuera un departamento,
+
+de empresa, el departamento comercial,
+
+el departamento financiero,
+
+el departamento de ayudas,
+
+es muy difícil llegar a tener esa confianza.
+
+Pero bueno, el camino nos ponemos.
+
+Sabes, estando de acuerdo,
+
+lo que es importante es tener una base solida.
+
+Es decir, que tú te puedas sentar delante de un cliente
+
+y ser solido en tus respuestas.
+
+Entonces, nosotros tenemos que tener el conocimiento
+
+para que esas reuniones
+
+se genere confianza.
+
+Entonces, para mí, el entender bien todo esto
+
+entra en esa parte.
+
+O sea, yo, por ejemplo, ahora mismo,
+
+esta es una parte en la que me siento muy flojo
+
+y no me vería capaz de estar delante de un empresario
+
+y tener el discurso, sin tener esto a cabo.
+
+Porque en la parte comercial no tengo problema.
+
+En la parte de gestión no tengo problema.
+
+En la parte de soporte financiero,
+
+incluso de delegación a nivel de gerencia,
+
+no tengo problema porque estás tú.
+
+Hay un punto que me ha apuntado aquí, Enrique,
+
+que lo estamos dejando pasar rato.
+
+Ayer lo hablé un poco, cuando estábamos con John,
+
+que se termina la productividad.
+
+Es decir, la productividad en operarios de oficina
+
+no se controla como se controla en taller o en ingeniería.
+
+Decía yo, sí, ya te meten los tiempos y tal,
+
+pero eso no es productividad.
+
+Precisamente los ojeros negros en las empresas
+
+están en administración y gente de oficina multitask,
+
+porque al final es una bola o un cajón de desastre
+
+donde metes un montón de actividades
+
+y realmente renta muy poco.
+
+Pero tampoco puedes vivir sin esa persona,
+
+porque hoy te hace una factura, mañana le llamo un proveedor,
+
+mañana, pero realmente no es un trabajo
+
+ni organizado ni productivo.
+
+En general.
+
+Entonces, esa parte también yo creo que podemos dar
+
+un discurso serio y creíble.
+
+Y en ese paquete lo que te digo, esto...
+
+Pero mira, lo último que hay que entrar en un empresario
+
+es diciéndole cómo tiene que ordenar su casa.
+
+Sí.
+
+Y eso de administración es decirle cómo hay que ordenar su casa.
+
+Sí, pero sí que puedes decirle, hablar de productividades.
+
+Cuando tienes confianza suficiente, porque te da pie,
+
+él, entonces ya irnos.
+
+Pero primero tengo que demostrarle que somos pálidos
+
+y aportamos valor en cosas concretas.
+
+Eso es.
+
+En ganar nuevos mercados, en mejorar su financiación,
+
+en mejorar ayudas que consigue, etcétera.
+
+Pero ya meterte profundo en ordenar su casa,
+
+cuidado.
+
+Es decir, no pretendo eso.
+
+Lo que sí que pretendo es poder tener un discurso.
+
+Es decir, yo le puedo, dentro de esa conversación,
+
+cuando estamos hablando ya en privado...
+
+Pero que no podemos abrumar.
+
+No, sin abrumar.
+
+No le diría a esa persona...
+
+Pero es lo que a John se lo hice.
+
+Cuando le hablé de la trazabilidad de proyectos,
+
+de la diferencia entre lo presupuestado
+
+y lo cerrado, los gaps que hay.
+
+Sí, pero ya cuántas reuniones llevábamos.
+
+Sí.
+
+Pero a lo que voy...
+
+¿Cómo los presentamos?
+
+Sí, eso ya lo haremos.
+
+Y lo organizaremos y no abrumaremos.
+
+Pero nosotros por detrás tenemos que tener un motor fuerte.
+
+Es...
+
+Yo tenemos un bagaje...
+
+Sí, bajo.
+
+Tenemos bastante experiencia,
+
+bastante ganos de estar al frente de cosas.
+
+Tú de departamentos, yo de pymes, o sea,
+
+en ese sentido no me preocupa.
+
+Tenemos tal bagaje, pero John,
+
+si lo colocamos realmente...
+
+¡Fum!
+
+Ya vemos una vez.
+
+Entonces...
+
+Yo para que te hagas una idea,
+
+para que veas cómo pienso.
+
+El tema es cómo arrancamos con ese cliente
+
+desde el primer día para aportarle valor
+
+y para cobrarnos.
+
+¿Cómo se abre a nosotros para decirnos
+
+que lo que más me aporta el zapato
+
+es aquí?
+
+Entonces, empezamos ahí
+
+y nos triunfarán a la presencia
+
+con curro, con malo el año de aportado
+
+y que este desgusto apagó.
+
+La idea no es soltar el rollo
+
+y aprumar.
+
+Pero la idea es...
+
+No, no estoy trabajando.
+
+Estoy viendo...
+
+Estoy viendo sentir esto porque
+
+en este tema estás verde
+
+o no estaría tocando antes y entonces aquí
+
+mira,
+
+esto es lo que yo le explico
+
+a los clientes de DIO.
+
+Y solo necesito esto.
+
+Yo lo que dibujo es una planta
+
+y todos los puntos de actuación
+
+en los que...
+
+Eso es.
+
+Yo no abrumo.
+
+Si ahora el tío,
+
+cuando ve esto,
+
+porque es lo que suele ocurrir,
+
+entonces ellos empiezan a pensar,
+
+¡Hostia!
+
+Y entonces ellos son los que te llevan
+
+a que tú les saques
+
+a donde les apretas el zapato.
+
+Pero yo tengo respuesta.
+
+Es decir, yo luego tengo aquí
+
+28 páginas.
+
+Llegaré a la 2 o a la 3.
+
+Depende del cliente.
+
+Pero este mapa
+
+conceptual tenemos que tenerlo.
+
+¿Eh?
+
+Y entonces...
+
+Eso sí.
+
+Así sí.
+
+Esta es mi idea.
+
+Pero debajo de esto hay un trabajo.
+
+Total.
+
+Y sé que me estás llevando a eso.
+
+Me has sentado la sesión
+
+en una cosa tan concreta.
+
+Sí.
+
+Yo necesitaba y me pagaba arriba.
+
+Vale.
+
+Para que luego bajara.
+
+Claro.
+
+Porque si no...
+
+Pues tu idea de alto nivel,
+
+sí.
+
+Y luego hablamos
+
+de cómo conceptualizamos esa empresa.
+
+Me olvidé de si ahora este mapa
+
+y ahora hay que trabajar
+
+cada uno de los...
+
+Eso es.
+
+Eso es.
+
+Eso es.
+
+Eso es.
+
+Y entonces en esos hexágonos
+
+que yo he apuntado aquí,
+
+todavía he dicho el comercial,
+
+soporte financiero,
+
+gerencia,
+
+gestión de ayudas, digitalización,
+
+productividad.
+
+Eso serán los quesitos.
+
+Con la gerencia de cambiar el nombre
+
+y de ponerle
+
+a justo decisión.
+
+¿Por qué?
+
+Porque no le parece
+
+que vamos a desbancar.
+
+No.
+
+Él sigue siendo el dueño del gerencio.
+
+Nosotros podemos ayudarle
+
+como soporte
+
+a justo o como quiera ya.
+
+Sí.
+
+Luego los nombres,
+
+ya cuando tengamos el panel,
+
+ya definimos nombres
+
+exactos y...
+
+Vale.
+
+Para que me pilles la idea de...
+
+Total.
+
+Total.
+
+Y también para que tú me pilles,
+
+que te pillo.
+
+Que te pillo.
+
+Vale.
+
+Y entonces,
+
+vamos a darle una vuelta
+
+a esto
+
+y saltamos al tema de empresa.
+
+Vale.
+
+Ahora sí,
+
+y esto es una pata.
+
+Esto es una pata.
+
+Eso es.
+
+Entonces aquí
+
+donde he visto
+
+el punto central,
+
+capa de conocimiento
+
+de experto en ayudas.
+
+O sea, ahora mismo
+
+lo que necesitamos es
+
+una capa de conocimiento
+
+para ayudas.
+
+Y ahí es ahora lo que
+
+quiero que me describas un poco.
+
+Que hay que mirar.
+
+Que website hay que mirar.
+
+Que...
+
+Es decir,
+
+no pretendo que me des todos los detalles,
+
+pero sí que me des guías
+
+de donde yo puedo estructurar esa información.
+
+Mira.
+
+Normalmente muchas son
+
+las propias consultoras.
+
+Facebook,
+
+Bantec,
+
+Zavala,
+
+te van informando
+
+de las soluciones
+
+que van a salir.
+
+Porque...
+
+Es su trabajo.
+
+Entonces ahí
+
+promocionan.
+
+Puedes beber
+
+de esas fuentes
+
+tranquilamente.
+
+Sobre todo los grandes.
+
+Por mí un inspirador
+
+son tres
+
+y no te van a dar
+
+a hacer estas cosas.
+
+Pero los grandes
+
+sí que te hacen ese tipo de cosas.
+
+Aparte de Zavala,
+
+cuáles nombró como grande.
+
+Bantec.
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+Vale.
+
+Cosas importantes
+
+que hay que tener en cuenta.
+
+Esa capa de conocimiento
+
+incluso si tú eres proactivo
+
+y tú dices
+
+voy a ver
+
+gobierno Navarra
+
+Ayudas.
+
+Entras.
+
+Ayudas gobierno Navarra
+
+para la industria
+
+y te van saliendo
+
+en Google,
+
+en la IA,
+
+no sé ya como el motor
+
+de la industria que utilizas.
+
+Ayudas para la industria
+
+estatales.
+
+Ayudas para la industria
+
+europeas.
+
+Son las tres capas
+
+porque ya locales y locales
+
+entran en la industria.
+
+Entran en comercio
+
+no sé qué, no sé cuál.
+
+Vale.
+
+Entonces, vale.
+
+Daí saco.
+
+Entonces, daí vienen convocatorias,
+
+vienen importes,
+
+vienen tal.
+
+Entonces, ¿ahora eso?
+
+¿Cómo se aterriza?
+
+A saber si eso...
+
+¿Se hace match
+
+con un cliente concreto?
+
+Sí, hace match.
+
+Te tenemos que conocer al cliente.
+
+Vale.
+
+Desde lo que hace perfiles de cliente.
+
+Y tenemos que ver
+
+en qué época del año estamos.
+
+Porque no todo...
+
+Normalmente
+
+intentan sacarlas
+
+en períodos parecidos,
+
+pero
+
+dependen de política.
+
+¿Por qué?
+
+Porque dependen de los presupuestos.
+
+Entonces,
+
+si los presupuestos se retrasan,
+
+se retrasan las convocatorias.
+
+Porque no hay presupuesto.
+
+Y eso es una mierda.
+
+¿Por qué?
+
+Porque alguien que está haciendo un mar de
+
+no puede estar parado
+
+a que se haga la jodida convocatoria.
+
+Y esto lo hemos dicho
+
+cientos de millones de veces.
+
+Coño.
+
+Dejar sacar convocatorias
+
+plurianuales.
+
+Y ya están empezando a sacar
+
+dos años y medio, tres.
+
+¿Para qué?
+
+Para que...
+
+Pero claro,
+
+luego te dicen,
+
+a ver,
+
+nunca
+
+podemos sacar
+
+para algo que ya está en camino.
+
+Porque es un requerimiento europeo.
+
+El europeo te dice,
+
+tiene que ser
+
+efecto incentivador.
+
+Por tanto,
+
+tienes que
+
+esperar
+
+a que
+
+salga la convocatoria
+
+para empezar con el imáster.
+
+Ese concreto.
+
+Ese proyecto concreto.
+
+Y es una putada.
+
+Porque si tú tienes la idea,
+
+quieres arrancarla.
+
+¿Vale?
+
+En ese efecto incentivador,
+
+ahí sí que encajaría
+
+el concepto
+
+de esa nueva empresa
+
+de servicios que plantea Diego.
+
+¿O no?
+
+El proyecto concreto,
+
+no la empresa.
+
+El proyecto,
+
+el desarrollo.
+
+Claro, pero como las ayudas
+
+no las quieres llevar en GK,
+
+por eso te lo digo.
+
+Sí,
+
+las pedirán
+
+la nueva sociedad.
+
+Pero vamos a pedir
+
+sobre un proyecto concreto.
+
+Nuevos proyectos.
+
+O sea, el proyecto no es la empresa.
+
+Vale.
+
+O sea,
+
+el efecto incentivador es
+
+sobre proyecto.
+
+No sobre empresa.
+
+Vale.
+
+Vale.
+
+Ahí hay campo
+
+con...
+
+Vale.
+
+De ayudas.
+
+Algo más que se te ocurra que...
+
+Porque, por ejemplo,
+
+el día que estuvimos con yo
+
+en la primera vez,
+
+bueno,
+
+hablasteis de un montón
+
+de ayudas y cosas
+
+que ya tienen de alguna manera
+
+mecanizadas,
+
+instrumentalizadas y...
+
+Sí,
+
+bueno,
+
+hay ayudas,
+
+a veces hay ayudas
+
+muy digitales
+
+para digitalización,
+
+te dice.
+
+Y entonces entran
+
+tecnologías digitales
+
+pues de que es unisión artificial,
+
+que es realmente aumentada,
+
+que se ha quedado a menos,
+
+que es el remelo digital,
+
+que es el 3D,
+
+y no sé cuántos no sé qué.
+
+Y entonces te dicen las tecnologías
+
+que entran dentro de esa ayuda.
+
+Pero las que son industriales,
+
+a veces son inversión pymes.
+
+Y no es que hagas ninguna innovación,
+
+simplemente que estás sintirtiendo.
+
+Entonces,
+
+hay mucha menos ayuda
+
+y está acotada.
+
+Y otras son
+
+ayudas de competitividad.
+
+Y hay un cajón de desastre
+
+bastante amplio.
+
+¿Por qué?
+
+Porque ayudan desde
+
+uniones e fusiones
+
+de empresas
+
+a
+
+su contratación
+
+de un externo
+
+para ayudarme
+
+en una comercialización concreta,
+
+en un sector concreto
+
+o en una alejera
+
+la fija concreta,
+
+hasta
+
+pues también un externo
+
+en temas financieros.
+
+O sea,
+
+competitividad después.
+
+Me tengo en un cajón varias cosas
+
+que ayudan a las empresas a ser mejores.
+
+Pues puede ser cosas
+
+lo que estamos perdiendo a nosotros, ¿no?
+
+Expertos en una materia
+
+que es los contratas.
+
+Evidentemente, no pueden haber estado...
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.
+
+No.

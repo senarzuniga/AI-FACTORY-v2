@@ -1,0 +1,859 @@
+# ================================================================
+# MISSION: AI_FACTORY-v2 REPOSITORY ARCHITECTURE DISCOVERY,
+# APPLICATION CLASSIFICATION AND IS_BACKOFFICE PANEL INTEGRATION
+# ================================================================
+
+MISSION TYPE:
+ARCHITECTURE + DISCOVERY + APPLICATION REGISTRY + UI INTEGRATION
+
+OBJECTIVE:
+
+Analizar exhaustivamente el repositorio AI-FACTORY-v2 y reorganizar
+conceptualmente su arquitectura para identificar correctamente:
+
+- Applications
+- Modules
+- Engines
+- Runtime Services
+- Agents
+- APIs
+- UI / Panels
+- Databases
+- Registries
+- Knowledge components
+- Evidence components
+- Simulators
+- Digital Twin components
+- Configuration
+- Infrastructure
+- Tests
+- Documentation
+- Deprecated / duplicate / orphaned components
+
+y posteriormente integrar correctamente las aplicaciones que deban ser
+visibles para el usuario dentro del menú general de paneles de
+IS_BACKOFFICE.
+
+IMPORTANTE:
+
+NO crear nuevas aplicaciones innecesariamente.
+
+NO duplicar funcionalidades existentes.
+
+NO mover código simplemente por estética.
+
+Primero comprender la arquitectura real.
+
+===============================================================
+1. ARQUITECTURA OBJETIVO
+===============================================================
+
+La arquitectura objetivo es:
+
+                    AI_FACTORY
+                         │
+                         ▼
+                   AI COORDINATOR
+                         │
+                         ▼
+                  MISSION MANAGER
+                         │
+             ┌───────────┼────────────┐
+             ▼           ▼            ▼
+          AGENTS       ENGINES     RUNTIMES
+             │           │            │
+             └───────────┼────────────┘
+                         ▼
+                   APPLICATIONS
+                         │
+                         ▼
+                  IS_BACKOFFICE
+                         │
+                         ▼
+                    USER / UI
+
+AI_FACTORY es el cerebro.
+
+IS_BACKOFFICE es el entorno operativo y de interfaz.
+
+AI_FACTORY NO debe convertirse en una segunda copia de IS_BACKOFFICE.
+
+===============================================================
+2. REVERSE ENGINEERING COMPLETO
+===============================================================
+
+Antes de modificar código:
+
+INSPECCIONAR TODO EL REPOSITORIO.
+
+Analizar:
+
+- estructura de directorios
+- Python
+- HTML
+- JS
+- CSS
+- APIs
+- FastAPI
+- Streamlit
+- configuración
+- bases de datos
+- JSON
+- registries
+- scripts
+- servicios
+- agentes
+- engines
+- simuladores
+- documentación
+- tests
+- workflows
+- entry points
+- imports
+- rutas
+- enlaces entre aplicaciones
+
+Buscar también:
+
+- aplicaciones duplicadas
+- módulos duplicados
+- versiones antiguas
+- prototipos
+- demos
+- archivos huérfanos
+- páginas no registradas
+- APIs sin UI
+- UI sin backend
+- backend sin consumidor
+- funcionalidades duplicadas entre AI_FACTORY e IS_BACKOFFICE
+
+NO asumir que el nombre de una carpeta determina su función.
+
+Clasificar por comportamiento real.
+
+===============================================================
+3. CREAR APPLICATION INVENTORY
+===============================================================
+
+Crear:
+
+/Architecture/ApplicationRegistry/
+
+y:
+
+APPLICATION_INVENTORY.json
+
+APPLICATION_INVENTORY.md
+
+Cada elemento debe clasificarse como:
+
+APPLICATION
+MODULE
+ENGINE
+RUNTIME
+AGENT
+API
+UI_PANEL
+DATABASE
+REGISTRY
+SIMULATOR
+DIGITAL_TWIN
+KNOWLEDGE
+EVIDENCE
+INFRASTRUCTURE
+TEST
+DOCUMENTATION
+DEPRECATED
+DUPLICATE
+ORPHANED
+UNKNOWN
+
+Cada elemento debe incluir:
+
+ID
+Name
+Type
+Description
+Repository Path
+Entry Point
+UI
+API
+Dependencies
+Consumers
+Providers
+Status
+Completion %
+Health
+Owner
+Purpose
+Inputs
+Outputs
+Capabilities
+Related Applications
+IS_BACKOFFICE Integration
+AI_FACTORY Integration
+Evidence
+Recommended Action
+
+===============================================================
+4. IDENTIFICAR LAS APLICACIONES REALES
+===============================================================
+
+Determinar mediante análisis de código cuáles son realmente
+aplicaciones operativas.
+
+Como mínimo investigar la existencia de:
+
+- ING_DIGHUB
+- Knowledge Hub
+- Industrial Layout Intelligence Workbench
+- Plant Simulator
+- Digital Twin
+- Adaptive Sales Engine
+- SPOE / Smart Proposal Engine
+- Mission Manager
+- Executive Intelligence
+- Industrial Intelligence
+- Factory Intelligence
+- cualquier otra aplicación existente
+
+NO crear una aplicación si ya existe.
+
+Si existe una aplicación parcialmente desarrollada:
+
+CONSOLIDARLA.
+
+Si existen dos implementaciones de la misma función:
+
+IDENTIFICARLAS.
+
+Seleccionar:
+
+CANONICAL IMPLEMENTATION
+
+y documentar:
+
+DUPLICATE / LEGACY IMPLEMENTATION.
+
+===============================================================
+5. IDENTIFICAR LOS ENGINES
+===============================================================
+
+Separar claramente las aplicaciones de los motores de inteligencia.
+
+Investigar especialmente:
+
+DWG Parser
+DXF Parser
+Geometry Engine
+Factory Graph
+Knowledge Graph
+Evidence Runtime
+Simulation Engine
+Digital Twin Engine
+Engineering Optimizer
+Scoring Engine
+AI Coordinator
+Memory
+Evidence Pipeline
+Industrial Intelligence Engines
+
+Cada engine debe tener:
+
+Engine ID
+Purpose
+Inputs
+Outputs
+API
+Consumers
+Dependencies
+Status
+Completion %
+Tests
+Evidence
+Reuse Potential
+
+===============================================================
+6. CAPABILITY REGISTRY
+===============================================================
+
+Revisar y consolidar Capability Registry.
+
+Debe poder responder:
+
+WHAT CAN THE ECOSYSTEM DO?
+
+Ejemplo:
+
+Capability:
+Industrial Layout Analysis
+
+Provider:
+Industrial Layout Workbench
+
+Required:
+DWG Parser
+Geometry Engine
+Factory Graph
+Knowledge Graph
+
+Status:
+PARTIAL
+
+Otro ejemplo:
+
+Capability:
+Plant Simulation
+
+Provider:
+Plant Simulator
+
+Required:
+Factory Graph
+Machine Models
+Production Model
+
+===============================================================
+7. PLATFORM REGISTRY
+===============================================================
+
+Revisar Platform Registry.
+
+Debe responder:
+
+WHAT APPLICATIONS EXIST?
+
+WHERE ARE THEY?
+
+WHAT DO THEY DO?
+
+WHAT IS THEIR STATUS?
+
+WHAT APIs DO THEY EXPOSE?
+
+WHAT CAPABILITIES DO THEY PROVIDE?
+
+WHAT OTHER COMPONENTS DEPEND ON THEM?
+
+Registrar como mínimo:
+
+AI_FACTORY
+IS_BACKOFFICE
+ING_DIGHUB
+Knowledge Hub
+Mission Manager
+Industrial Layout Intelligence
+Plant Simulator
+Digital Twin
+ASE
+SPOE
+Executive Intelligence
+
+y cualquier otra aplicación real detectada.
+
+===============================================================
+8. UI / PANEL DISCOVERY
+===============================================================
+
+Localizar todas las interfaces existentes.
+
+Buscar:
+
+.html
+Streamlit
+React
+JS
+dashboard
+panel
+workbench
+app
+page
+route
+
+Determinar cuáles son:
+
+- páginas principales
+- dashboards
+- workbenches
+- herramientas
+- administración
+- diagnóstico
+- configuración
+- aplicaciones operativas
+- prototipos
+
+NO añadir todas las páginas al menú.
+
+Solamente deben aparecer las aplicaciones/paneles que tengan
+valor operativo real para el usuario.
+
+===============================================================
+9. IS_BACKOFFICE MENU INTEGRATION
+===============================================================
+
+Analizar cómo IS_BACKOFFICE construye actualmente su menú general.
+
+NO inventar un sistema de navegación nuevo.
+
+UTILIZAR EL MECANISMO EXISTENTE.
+
+Crear una integración canónica.
+
+El menú debe representar:
+
+ING_DIGHUB
+Knowledge Hub
+Mission Manager
+Industrial Layout Intelligence
+Plant Simulator
+Digital Twin
+Adaptive Sales Engine
+SPOE
+Executive Intelligence
+Industrial Intelligence
+y otras aplicaciones que el análisis determine que son aplicaciones
+reales y operativas.
+
+NO mostrar:
+
+- engines internos
+- APIs
+- parsers
+- databases
+- debugging pages
+- technical services
+- internal agents
+
+salvo que exista una razón explícita de administración.
+
+===============================================================
+10. PANEL CATEGORIES
+===============================================================
+
+Organizar el menú por función.
+
+Propuesta:
+
+OPERATIONS
+
+- Mission Manager
+- Industrial Layout Intelligence
+- Plant Simulator
+- Digital Twin
+
+KNOWLEDGE
+
+- ING_DIGHUB
+- Knowledge Hub
+
+COMMERCIAL
+
+- Adaptive Sales Engine
+- SPOE
+
+INTELLIGENCE
+
+- Industrial Intelligence
+- Executive Intelligence
+
+ADMINISTRATION
+
+- Platform Registry
+- Capability Registry
+- System Status
+
+Los nombres finales deben adaptarse al diseño existente de
+IS_BACKOFFICE.
+
+===============================================================
+11. APPLICATION CONTRACT
+===============================================================
+
+Cada aplicación integrada debe disponer de un contrato mínimo:
+
+Application ID
+
+Display Name
+
+Description
+
+Route
+
+UI Entry Point
+
+API Base
+
+Health Endpoint
+
+Capabilities
+
+Required Dependencies
+
+Status
+
+Version
+
+Registry ID
+
+Owner
+
+Documentation
+
+Tests
+
+Evidence
+
+===============================================================
+12. HEALTH / STATUS
+===============================================================
+
+Cada aplicación debe poder informar:
+
+ONLINE
+DEGRADED
+OFFLINE
+DEVELOPMENT
+PARTIAL
+BLOCKED
+
+El menú NO debe fingir que una aplicación está completa.
+
+Mostrar correctamente:
+
+Implemented
+Partial
+Under Development
+Blocked
+
+===============================================================
+13. DUPLICATE DETECTION
+===============================================================
+
+Detectar:
+
+- páginas duplicadas
+- aplicaciones duplicadas
+- APIs duplicadas
+- engines duplicados
+- código duplicado
+- funcionalidades repetidas
+- versiones antiguas
+
+NO eliminar automáticamente.
+
+Primero generar:
+
+DUPLICATE_ANALYSIS.md
+
+con:
+
+Component A
+Component B
+Similarity
+Functional overlap
+Recommended canonical component
+Migration required
+Risk
+
+Después consolidar cuando sea seguro.
+
+===============================================================
+14. ORPHAN DETECTION
+===============================================================
+
+Detectar componentes que:
+
+- no tienen consumidores
+- no están registrados
+- no tienen UI
+- no tienen API
+- no tienen documentación
+- no tienen tests
+- no son utilizados
+
+Crear:
+
+ORPHAN_COMPONENTS.md
+
+Cada elemento deberá recibir una acción:
+
+KEEP
+INTEGRATE
+REFACTOR
+DEPRECATE
+REMOVE
+INVESTIGATE
+
+===============================================================
+15. ARCHITECTURE MAP
+===============================================================
+
+Generar:
+
+/Architecture/AI_FACTORY_ARCHITECTURE.md
+
+Debe representar:
+
+AI_FACTORY
+↓
+AI COORDINATOR
+↓
+MISSION MANAGER
+↓
+AGENTS / ENGINES / RUNTIMES
+↓
+APPLICATIONS
+↓
+IS_BACKOFFICE
+↓
+USER
+
+También representar:
+
+Knowledge Flow
+
+Evidence Flow
+
+Data Flow
+
+API Flow
+
+Mission Flow
+
+UI Flow
+
+===============================================================
+16. CURRENT STATE
+===============================================================
+
+Actualizar:
+
+/Architecture/ContinuousImprovement/02_CURRENT_STATE.md
+
+con el estado REAL encontrado.
+
+NO utilizar porcentajes inventados.
+
+Cada porcentaje debe estar basado en evidencia:
+
+Code
+Tests
+Endpoints
+UI
+Integration
+Documentation
+
+===============================================================
+17. GAP ANALYSIS
+===============================================================
+
+Actualizar:
+
+/Architecture/ContinuousImprovement/03_GAP_ANALYSIS.md
+
+Identificar:
+
+Architecture gaps
+Application gaps
+Integration gaps
+UI gaps
+API gaps
+Registry gaps
+Testing gaps
+Documentation gaps
+Knowledge gaps
+Evidence gaps
+Security gaps
+Performance gaps
+Technical debt
+Duplicate functionality
+Orphan components
+
+===============================================================
+18. EXECUTION BACKLOG
+===============================================================
+
+Actualizar:
+
+/Architecture/ContinuousImprovement/04_EXECUTION_BACKLOG.md
+
+Cada gap accionable se convierte en una misión.
+
+Priorizar por:
+
+Mission Alignment
+Business Value
+Industrial Value
+Architecture Value
+Reuse
+Risk
+Evidence
+Implementation Effort
+Technical Debt
+User Impact
+
+===============================================================
+19. AHDE
+===============================================================
+
+Aplicar AUTONOMOUS HYPOTHESIS DRIVEN EXECUTION.
+
+Si aparece una incertidumbre:
+
+NO detenerse inmediatamente.
+
+Investigar.
+
+Generar hipótesis.
+
+Comparar evidencia.
+
+Probar.
+
+Seleccionar la alternativa con mayor valor.
+
+Implementar.
+
+Testear.
+
+Documentar.
+
+Continuar.
+
+===============================================================
+20. AUTONOMOUS VALIDATION
+===============================================================
+
+Antes de declarar finalizada la misión:
+
+VALIDAR:
+
+Repository structure
+Applications
+Modules
+Engines
+APIs
+Routes
+UI
+Menu
+Registries
+Dependencies
+Tests
+Documentation
+Architecture
+No broken links
+No duplicate routes
+No orphaned application pages
+No broken imports
+
+Realizar pruebas end-to-end:
+
+IS_BACKOFFICE
+↓
+GENERAL MENU
+↓
+APPLICATION
+↓
+UI
+↓
+API
+↓
+FUNCTIONALITY
+
+===============================================================
+21. NO IDLE
+===============================================================
+
+Cuando una acción termine:
+
+NO detenerse.
+
+Ejecutar:
+
+CURRENT STATE
+↓
+GAP ANALYSIS
+↓
+BACKLOG
+↓
+NEXT HIGHEST VALUE ACTION
+
+Mientras existan gaps ejecutables:
+
+CONTINUAR.
+
+===============================================================
+22. DEFINITION OF DONE
+===============================================================
+
+La misión NO termina al reorganizar carpetas.
+
+Debe terminar cuando:
+
+[ ] AI_FACTORY-v2 ha sido completamente inventariado
+[ ] Applications identificadas
+[ ] Modules identificados
+[ ] Engines identificados
+[ ] Agents identificados
+[ ] APIs identificadas
+[ ] UIs identificadas
+[ ] Databases identificadas
+[ ] Registries identificados
+[ ] Duplicados identificados
+[ ] Orphan components identificados
+[ ] Architecture Map generado
+[ ] Application Inventory generado
+[ ] Platform Registry actualizado
+[ ] Capability Registry actualizado
+[ ] IS_BACKOFFICE menu analizado
+[ ] Aplicaciones operativas integradas correctamente
+[ ] Rutas verificadas
+[ ] Links verificados
+[ ] Health/status verificado
+[ ] Tests ejecutados
+[ ] Documentation actualizada
+[ ] Current State actualizado
+[ ] Gap Analysis actualizado
+[ ] Execution Backlog actualizado
+[ ] Progress History actualizado
+
+===============================================================
+FINAL OBJECTIVE
+===============================================================
+
+Transformar AI_FACTORY-v2 en un ecosistema claramente estructurado
+donde:
+
+AI_FACTORY = BRAIN / GOVERNANCE / ORCHESTRATION
+
+AI COORDINATOR = MISSION OPTIMIZATION
+
+MISSION MANAGER = EXECUTION CONTROL
+
+ENGINES = REUSABLE INTELLIGENCE
+
+APPLICATIONS = BUSINESS / ENGINEERING WORK
+
+IS_BACKOFFICE = OPERATIONAL USER ENVIRONMENT
+
+REGISTRIES = GLOBAL SYSTEM MAP
+
+KNOWLEDGE HUB = KNOWLEDGE
+
+EVIDENCE RUNTIME = TRUST / TRACEABILITY
+
+DIGITAL TWIN + SIMULATION = INDUSTRIAL MODEL
+
+No crear complejidad innecesaria.
+
+No duplicar funcionalidades.
+
+No esconder funcionalidades existentes.
+
+No dejar aplicaciones operativas fuera del ecosistema.
+
+No dejar aplicaciones duplicadas compitiendo entre sí.
+
+El resultado debe ser un mapa real y verificable de AI_FACTORY-v2
+y una integración limpia de sus aplicaciones en el menú general
+de IS_BACKOFFICE.

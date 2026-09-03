@@ -1,0 +1,33 @@
+Asunto: Seguimiento de la primera fase técnica – SigmaQ
+
+Estimado Rafael,
+
+Gracias por tu claridad y por la secuencia propuesta para la evolución del proyecto.
+
+Estamos de acuerdo en que la mejor manera de avanzar es definir la primera fase con un enfoque técnico y operativo claro, priorizando la gestión de desperdicio y el manejo del trim/recorte entre el corrugador y la embaladora. Entendemos que este punto es el de mayor impacto inmediato en flujo, eficiencia y control del material, y además resulta ser el punto más natural para validar la propuesta técnica y la viabilidad operativa antes de ampliar el alcance.
+
+En ese sentido, proponemos estructurar la primera sesión de trabajo de la siguiente manera:
+
+1. Análisis del flujo actual de desperdicio y trim entre corrugador y embaladora.
+2. Identificación de los puntos críticos de congestión, pérdida y control del material.
+3. Revisión de diferentes alternativas de layout y solución para optimizar el flujo sin afectar la continuidad operativa.
+4. Evaluación de los principales requisitos de SigmaQ en cuanto a capacidad, flexibilidad, trazabilidad y futura escalabilidad.
+
+Con este enfoque, podremos validar de forma técnica y práctica qué solución encaja mejor con la operación actual y con la estrategia de mejora futura de la planta.
+
+Respecto a la segunda parte, estamos de acuerdo en que la logística de bobinas de papel y el manejo de alimentación al corrugador deben revisarse como un segundo bloque, con su propia lógica de negocio, requisitos de diseño y presupuesto asociado. Lo mismo aplica para la automatización de paletización y la evolución hacia WIP y AMR, que entendemos deben plantearse como etapas posteriores y no como un único bloque inicial.
+
+Nuestra propuesta es, por tanto, avanzar en una roadmap modular:
+
+- Fase 1: manejo de desperdicio y trim / flujo de conversión
+- Fase 2: logística de bobinas y alimentación al corrugador
+- Fase 3: automatización de paletización, WIP y logística avanzada
+
+Esto nos permitirá avanzar con rigor técnico, validar la solución en una primera fase y preparar la siguiente etapa con base real en la experiencia operativa y los resultados obtenidos.
+
+Quedamos a tu disposición para preparar la agenda de la primera sesión y para compartir con vosotros el enfoque técnico exacto que queremos revisar con SigmaQ.
+
+Atentamente,
+
+Iñaki Senar
+Ingecart

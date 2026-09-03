@@ -1,0 +1,5388 @@
+1
+00:00:00,000 --> 00:00:06,220
+Vale, entonces, volvemos al tema de cómo gestionar una herramienta para facilitar las ideas, sí.
+
+2
+00:00:43,360 --> 00:00:59,980
+Si estamos en esa dinámica, podemos, tanto como colaborar, como tener una frontera de contactos importante, o postularnos como podemos hacer este tipo de cosas que no tenemos que hacer.
+
+3
+00:01:17,580 --> 00:01:24,200
+Entonces, podemos postularnos como una consultora que puede hacer ahí un camino.
+
+4
+00:01:24,840 --> 00:01:40,420
+Yo digo que para eso, mientras tú no estés fuera de Torres, o no apareces en Petit Comité donde yo te diga que puedes aparecer, porque si es con María, mi amiga, ya sé que va a ser en discreta, pero con el otro no.
+
+5
+00:02:08,580 --> 00:02:10,400
+Esto, yo comento, tiene que salir ya lo mío, Enrique.
+
+6
+00:02:22,180 --> 00:02:32,540
+Sí, yo lo que sí que te iba a decir, incluso yo tengo una cosa muy buena, no como formador, como podría ser John, sino como hacer casos de estudio.
+
+7
+00:02:32,540 --> 00:02:39,380
+Lo sé, pero quiere decir, como figura de formado en IA, John.
+
+8
+00:02:40,000 --> 00:02:45,400
+No, pero escúchame mi idea, es decir, yo creo que los casos prácticos son muy buenos de escuchar.
+
+9
+00:02:46,280 --> 00:02:56,120
+Y yo he vivido mucho caso práctico del uso de copilot, lo que yo os decía, yo he visto en Torres usar copilot dos años y solo dos personas la saben usar.
+
+10
+00:02:56,660 --> 00:03:03,000
+Bueno, esos errores que cometen las empresas, yo puedo contarlos y creo que es una experiencia muy buena.
+
+11
+00:03:03,480 --> 00:03:08,740
+Pero que es que eso, a ver, el tema de la IA está ahora mismo tan trinturado que hay mucha gente dando eso.
+
+12
+00:03:08,880 --> 00:03:10,680
+Lo sé, digo, como casos de estudio.
+
+13
+00:03:11,320 --> 00:03:17,460
+Nosotros tenemos que ir claramente a dar una charla, pero ya de esto.
+
+14
+00:03:39,600 --> 00:03:40,240
+Vale, entendíos.
+
+15
+00:03:40,260 --> 00:03:44,860
+Sí, y nos focalizamos en Navarra y ayuda a cenar.
+
+16
+00:03:58,760 --> 00:04:17,120
+Vale, entonces, en principio, la herramienta puede evaluar a la empresa desde su tamaño, su tipo de proyectos y de esa manera,
+
+17
+00:04:17,120 --> 00:04:22,400
+poder ver si podemos enfocarlo en unas ayudas o enfocarlo en otras, ¿vale?
+
+18
+00:04:23,060 --> 00:04:30,420
+Lógicamente hace falta esa información por cada empresa, como el tamaño, actividad principal, que hacen de innovación,
+
+19
+00:04:30,780 --> 00:04:35,120
+las inversiones que hacen, bueno, todo aquello, pero yo eso lo puedo conseguir sin ningún problema.
+
+20
+00:04:36,660 --> 00:04:44,020
+Vale, motor de priorización, no basta con listar las ayudas, hay que priorizar ordenado por afinidad.
+
+21
+00:04:44,020 --> 00:04:46,520
+Es decir, aquí te está ya juntando dos cosas.
+
+22
+00:04:47,020 --> 00:04:55,600
+Por un lado, saca las ayudas que hay, las lista, las pondera y luego tú, con tus empresas identificadas,
+
+23
+00:04:56,040 --> 00:05:00,680
+él empieza a ordenar para estas ayudas y te da un ranking, para estas otras y te da un ranking.
+
+24
+00:05:00,920 --> 00:05:04,140
+Es decir, ajustamos empresa a ayuda, ¿vale?
+
+25
+00:05:04,140 --> 00:05:16,900
+Bien, esto está muy bien, pero si tuviéramos todo en plan bestia, si tenemos tres o cuatro, nos definimos esta respuesta.
+
+26
+00:05:18,400 --> 00:05:22,540
+Totalmente, pero claro, tenemos, ¿por qué está hecho así?
+
+27
+00:05:23,260 --> 00:05:24,140
+Porque, claro...
+
+28
+00:05:24,720 --> 00:05:25,900
+El punto tres, está claro.
+
+29
+00:05:28,280 --> 00:05:32,480
+El punto tres debe ser comprensible para un asesor, un directivo y un cliente no técnico.
+
+30
+00:05:32,480 --> 00:05:38,480
+Eso es a lo que voy a decir, nosotros, yo soy virgen en esta materia, tú sabes mucho y Ana es virgen
+
+31
+00:05:39,020 --> 00:05:41,500
+y además nunca ha estado en este tipo de entorno industrial.
+
+32
+00:05:42,060 --> 00:05:46,700
+Entonces, nosotros necesitamos esto para que el periodo de aprendizaje se acorte.
+
+33
+00:05:47,060 --> 00:05:51,100
+Vale, pero si esto es un tema interno, ¿deje esto un interno? Perfecto.
+
+34
+00:05:51,480 --> 00:05:55,380
+Esto es interno, esto es una herramienta para que Ana sea productiva.
+
+35
+00:05:56,540 --> 00:05:59,000
+Volvemos a la de las productividades que os decía ayer, ¿vale?
+
+36
+00:05:59,000 --> 00:06:02,680
+O sea, yo sí que creo que esto hoy en día te puede hacer mucho más productivo.
+
+37
+00:06:02,740 --> 00:06:03,520
+Sí, sí, sí.
+
+38
+00:06:03,780 --> 00:06:05,360
+Y más para que no tiene...
+
+39
+00:06:05,360 --> 00:06:06,500
+Eso es, eso es.
+
+40
+00:06:07,860 --> 00:06:10,580
+Vale, dos siers documental, los checklists, claro.
+
+41
+00:06:11,000 --> 00:06:12,860
+Fíjate que esto te ayudaría a crear todo.
+
+42
+00:06:12,980 --> 00:06:16,820
+Una vez que identifica, pues, todos los checklists, los documentos requeridos,
+
+43
+00:06:16,960 --> 00:06:20,300
+nos daría todo eso, un dos siers, para ir a la empresa y decir,
+
+44
+00:06:20,380 --> 00:06:25,320
+mira, esto es lo que tenemos que cumplimenta y nos lo daría hecho, ¿vale?
+
+45
+00:06:27,280 --> 00:06:32,980
+El sistema de acompañar al cliente, que eso es lo que haríamos nosotros,
+
+46
+00:06:33,580 --> 00:06:38,680
+la preparación inicial, diagnóstico, la propuesta, tramitación, cierre y seguimiento.
+
+47
+00:06:39,900 --> 00:06:40,660
+Vale.
+
+48
+00:06:42,260 --> 00:06:45,640
+Sin editar, bueno, taxonomías más claras, eso ya lo haré.
+
+49
+00:06:46,400 --> 00:06:49,160
+Niveles de soporte que puede cambiar.
+
+50
+00:06:50,140 --> 00:06:51,520
+Aquí estaría también.
+
+51
+00:06:52,240 --> 00:06:55,240
+Vale, el analista financiero, el equipo de tramitación.
+
+52
+00:06:55,460 --> 00:06:59,580
+Bueno, al final todas las empresas tienen fortalezas de debilidades
+
+53
+00:06:59,580 --> 00:07:01,640
+y en las debilidades sería donde apoyaríamos.
+
+54
+00:07:03,240 --> 00:07:03,540
+Vale.
+
+55
+00:07:03,960 --> 00:07:05,200
+Validación y ayuda.
+
+56
+00:07:08,720 --> 00:07:11,440
+Haríamos un CRM, no haría problema.
+
+57
+00:07:13,940 --> 00:07:14,540
+Vale.
+
+58
+00:07:15,600 --> 00:07:16,200
+Resumen.
+
+59
+00:07:16,620 --> 00:07:19,100
+La herramienta debe crear un resumen ejecutivo para la empresa,
+
+60
+00:07:19,200 --> 00:07:20,700
+como tú decías, claro y entendible.
+
+61
+00:07:21,260 --> 00:07:24,840
+Recomendaciones, diagnóstico, simulación, dos siers,
+
+62
+00:07:25,600 --> 00:07:26,860
+plan de acción recomendado.
+
+63
+00:07:27,800 --> 00:07:27,900
+Vale.
+
+64
+00:07:29,860 --> 00:07:30,880
+Información que falta.
+
+65
+00:07:32,420 --> 00:07:36,600
+Que fuentes oficiales se usan como base de verdad para cada convocatoria ministerio,
+
+66
+00:07:36,600 --> 00:07:39,160
+comunidad, EICI, CDETI, tarara.
+
+67
+00:07:39,760 --> 00:07:44,040
+Que reglas de elegibilidad son obligatorias y cuales son interpretativas.
+
+68
+00:07:44,240 --> 00:07:47,560
+Que costes son subvencionables para y más de que tipos de empresas
+
+69
+00:07:47,560 --> 00:07:48,820
+y tamaños deben evaluarse.
+
+70
+00:07:48,960 --> 00:07:50,460
+¿Cuáles son los requisitos documentales?
+
+71
+00:07:51,160 --> 00:07:52,080
+¿Qué porcentaje de ayuda?
+
+72
+00:07:52,520 --> 00:07:53,620
+¿Qué plazos, ciclos?
+
+73
+00:07:54,720 --> 00:07:58,780
+Información financiera es imprescindible para modelar la liquidez y la solvencia.
+
+74
+00:07:58,840 --> 00:07:59,560
+Esto es lo que tú decías.
+
+75
+00:07:59,700 --> 00:08:00,820
+¿Qué cuentas te van a enseñar?
+
+76
+00:08:01,260 --> 00:08:03,100
+¿Qué te va a enseñar esa empresa?
+
+77
+00:08:03,100 --> 00:08:04,680
+¿Qué está dispuesta a compartir?
+
+78
+00:08:05,300 --> 00:08:07,460
+¿Qué formato debe tener el dos siers final?
+
+79
+00:08:07,920 --> 00:08:10,000
+¿Nivel de explicación que debe dar la herramienta?
+
+80
+00:08:10,740 --> 00:08:15,300
+Entonces, esta es la parte que creo que tenemos que debatir ahora.
+
+81
+00:08:15,820 --> 00:08:20,060
+Es decir, información, fuentes, cómo se gestiona,
+
+82
+00:08:21,160 --> 00:08:29,440
+un poco que me cuentes como ha sido tu experiencia en ayudas
+
+83
+00:08:29,440 --> 00:08:31,100
+y lo que tú has...
+
+84
+00:08:32,100 --> 00:08:33,840
+Yo siempre me apoyo con una consultora.
+
+85
+00:08:34,420 --> 00:08:34,660
+Sí.
+
+86
+00:08:38,480 --> 00:08:40,960
+¿Por qué lo primero porque no tenías conocimiento que tengo ahora?
+
+87
+00:08:42,760 --> 00:08:44,160
+Lo segundo porque...
+
+88
+00:08:44,960 --> 00:08:47,060
+¿Cómo se llamaba la consultora con la que tú trabajaba?
+
+89
+00:08:47,140 --> 00:08:47,360
+Inspiria.
+
+90
+00:08:48,660 --> 00:08:49,540
+Inspiria Consultio.
+
+91
+00:08:53,400 --> 00:08:54,680
+¿De Joaquín García?
+
+92
+00:08:57,860 --> 00:09:01,080
+Bueno, principalmente, sé que el otro me trabajó con Carlos,
+
+93
+00:09:01,240 --> 00:09:02,280
+y yo no he trabajado, pero sí.
+
+94
+00:09:07,920 --> 00:09:09,800
+Entonces, ¿dices por qué he trabajado con estas gente?
+
+95
+00:09:10,060 --> 00:09:14,320
+Porque ya los conocía de otras veces y la experiencia con ellos ya lo siempre he podido.
+
+96
+00:09:15,840 --> 00:09:21,180
+Y además, son muy, muy butignos.
+
+97
+00:09:21,180 --> 00:09:24,700
+No es una gran consultora que te pone en serio, te pone en Junior,
+
+98
+00:09:24,860 --> 00:09:26,020
+también hemos trabajado con Zavala.
+
+99
+00:09:26,640 --> 00:09:30,600
+Zavala es una mega consultora, pero si te toca en Junior,
+
+100
+00:09:31,320 --> 00:09:32,740
+pues casi estás enseñándoles.
+
+101
+00:09:33,080 --> 00:09:33,300
+Claro.
+
+102
+00:09:34,040 --> 00:09:37,080
+Y estás todo el día haciendo el excel y historias para ellos,
+
+103
+00:09:37,540 --> 00:09:38,480
+y yo solo he vivido.
+
+104
+00:09:38,880 --> 00:09:41,260
+Entonces, te consume muchos recursos.
+
+105
+00:09:41,400 --> 00:09:44,360
+El problema que tienen las consultoras habituales
+
+106
+00:09:44,360 --> 00:09:49,660
+es que te bloquean la gestión de la empresa por unas semanas.
+
+107
+00:09:50,660 --> 00:09:51,960
+Y sin embargo, a nosotros, no.
+
+108
+00:09:52,240 --> 00:09:54,380
+Esta gente te da todo muy, muy, muy trabajado.
+
+109
+00:09:54,700 --> 00:09:57,280
+Es decir, necesito esto, muy concreto.
+
+110
+00:09:58,260 --> 00:09:58,920
+Pásame esto.
+
+111
+00:09:59,120 --> 00:10:01,320
+No me pases, no se aguanta el documento,
+
+112
+00:10:01,440 --> 00:10:02,120
+no se aguanta el balance,
+
+113
+00:10:02,380 --> 00:10:03,520
+no se aguanta las cuentas de actuación,
+
+114
+00:10:03,620 --> 00:10:04,600
+no se aguanta lo sé qué, no.
+
+115
+00:10:05,160 --> 00:10:05,560
+Concreto.
+
+116
+00:10:06,060 --> 00:10:08,260
+Cuando necesito los balances total, ya exactamente los pide,
+
+117
+00:10:08,580 --> 00:10:09,720
+pero los trabajan ellos.
+
+118
+00:10:13,000 --> 00:10:15,600
+Y luego, lo más importante en estas cosas,
+
+119
+00:10:15,600 --> 00:10:19,760
+que aparte del tema técnico, ya sea industrial,
+
+120
+00:10:20,320 --> 00:10:23,060
+o sea financiero, que acaba, evidentemente,
+
+121
+00:10:23,380 --> 00:10:25,760
+para el tema técnico, ellos no son especialistas.
+
+122
+00:10:26,140 --> 00:10:28,220
+Para sostenerse al especialista técnico.
+
+123
+00:10:28,740 --> 00:10:30,680
+Y financieros, sí controlan de finanzas,
+
+124
+00:10:30,900 --> 00:10:32,680
+pero no saben las tripas de la empresa.
+
+125
+00:10:33,360 --> 00:10:34,600
+Tienes que aportar tu...
+
+126
+00:10:35,660 --> 00:10:37,600
+Pero sí que ahora he presentado informes,
+
+127
+00:10:38,300 --> 00:10:41,820
+informes que saben cómo les gusta los analistas
+
+128
+00:10:41,820 --> 00:10:42,980
+de gobierno de Navarra.
+
+129
+00:10:43,580 --> 00:10:44,820
+En eso son muy buenos.
+
+130
+00:10:45,700 --> 00:10:47,080
+Y luego descuélgan el teléfono.
+
+131
+00:10:48,180 --> 00:10:50,360
+Y, oye, está esto bien presentado.
+
+132
+00:10:50,840 --> 00:10:53,240
+Me falta, no sé qué, cómo está la convocatoria,
+
+133
+00:10:53,320 --> 00:10:55,080
+cuándo va a salir la convocatoria.
+
+134
+00:10:55,200 --> 00:10:56,100
+Está previsto...
+
+135
+00:10:56,100 --> 00:10:57,620
+¿Vais a pedir este año lo mismo que el año pasado?
+
+136
+00:10:58,120 --> 00:10:58,760
+No, hemos cambiado.
+
+137
+00:10:58,860 --> 00:10:59,580
+No sé qué, no sé cuántos,
+
+138
+00:10:59,660 --> 00:11:01,720
+prepárate porque va a irnos a incidir aquí o allá.
+
+139
+00:11:02,040 --> 00:11:03,180
+Eso dice la empresa.
+
+140
+00:11:03,520 --> 00:11:04,240
+Esto hace inspiridad.
+
+141
+00:11:04,580 --> 00:11:06,560
+O sea, inspiridad pregunta al cliente.
+
+142
+00:11:06,780 --> 00:11:08,260
+No, en este caso la administración.
+
+143
+00:11:08,540 --> 00:11:09,520
+A la administración.
+
+144
+00:11:10,480 --> 00:11:13,160
+El cliente sabe exactamente cómo va a salir la convocatoria
+
+145
+00:11:13,160 --> 00:11:14,400
+antes de publicarse.
+
+146
+00:11:15,520 --> 00:11:16,400
+Por tanto, ya que está trabajando,
+
+147
+00:11:16,760 --> 00:11:18,340
+puede empezar a trabajar antes de que se publique.
+
+148
+00:11:19,060 --> 00:11:20,260
+Y para cuando está el boom,
+
+149
+00:11:21,240 --> 00:11:22,420
+ya tiene casi todo preparado.
+
+150
+00:11:22,520 --> 00:11:23,560
+Y eso a través de la IN,
+
+151
+00:11:23,760 --> 00:11:27,020
+ese conocimiento previo...
+
+152
+00:11:27,020 --> 00:11:27,960
+Yo lo he trabajado con la IN,
+
+153
+00:11:28,100 --> 00:11:29,140
+convocatorias de subvenciones.
+
+154
+00:11:29,500 --> 00:11:31,740
+O sea, podríamos identificar
+
+155
+00:11:31,740 --> 00:11:33,700
+esas posibles bolsas de ayudas
+
+156
+00:11:33,700 --> 00:11:34,900
+que pueden salir al futuro.
+
+157
+00:11:36,000 --> 00:11:38,460
+Serían identificables con nuestro...
+
+158
+00:11:38,460 --> 00:11:39,920
+que esté antes de salir.
+
+159
+00:11:41,440 --> 00:11:43,320
+Complicado, porque allá no sé cómo va a...
+
+160
+00:11:43,320 --> 00:11:44,340
+No, no estoy pensando en allá.
+
+161
+00:11:44,480 --> 00:11:46,540
+Eso ya es cuestión de relaciones.
+
+162
+00:11:47,100 --> 00:11:47,380
+Sí.
+
+163
+00:11:47,600 --> 00:11:48,700
+¿Se tendríamos que hacer lo tu y yo?
+
+164
+00:11:48,900 --> 00:11:51,340
+Sí, sea que sería esto inspirado o la IN.
+
+165
+00:11:52,980 --> 00:11:54,980
+¿No pasa que inspiras y le vas a descompetir?
+
+166
+00:11:55,200 --> 00:11:57,460
+Claro, no podemos, yo no le...
+
+167
+00:12:00,120 --> 00:12:01,000
+Yo discrepo.
+
+168
+00:12:03,920 --> 00:12:05,460
+No estoy pensando en...
+
+169
+00:12:05,460 --> 00:12:07,400
+Aquí no va a ser mejor que ellos.
+
+170
+00:12:08,440 --> 00:12:09,320
+No vamos a ser.
+
+171
+00:12:10,220 --> 00:12:10,840
+Al principio.
+
+172
+00:12:11,440 --> 00:12:12,560
+Yo no digo que no cogemos los precios.
+
+173
+00:12:12,640 --> 00:12:12,700
+No.
+
+174
+00:12:13,060 --> 00:12:14,220
+Si yo estoy de acuerdo contigo,
+
+175
+00:12:14,440 --> 00:12:16,280
+incluso ayer lo que nos contaba,
+
+176
+00:12:16,440 --> 00:12:17,520
+yo, de Transatec,
+
+177
+00:12:18,040 --> 00:12:20,900
+de que Diego venda a través de Transatec...
+
+178
+00:12:21,460 --> 00:12:21,580
+No.
+
+179
+00:12:22,400 --> 00:12:22,860
+Te tracé.
+
+180
+00:12:23,040 --> 00:12:24,060
+Te tracé.
+
+181
+00:12:24,400 --> 00:12:25,540
+Eso te tracé.
+
+182
+00:12:25,680 --> 00:12:26,640
+A mí me encaja.
+
+183
+00:12:26,800 --> 00:12:28,320
+Es decir, no se trata...
+
+184
+00:12:28,320 --> 00:12:31,060
+Yo creo que nuestra virtud es un conjunto,
+
+185
+00:12:31,220 --> 00:12:31,780
+es un paquete.
+
+186
+00:12:32,540 --> 00:12:32,920
+Es decir,
+
+187
+00:12:33,560 --> 00:12:35,420
+tenemos conocimiento industrial...
+
+188
+00:12:35,420 --> 00:12:37,020
+Por eso es que creo que en ciertas cosas
+
+189
+00:12:37,020 --> 00:12:39,240
+colaboradores críticos buenos,
+
+190
+00:12:40,240 --> 00:12:41,460
+expertos más que nosotros,
+
+191
+00:12:42,080 --> 00:12:42,680
+colaboramos.
+
+192
+00:12:42,900 --> 00:12:43,420
+Yo estoy de acuerdo.
+
+193
+00:12:44,260 --> 00:12:47,940
+A mí, o sea, la ambición por un 5% más
+
+194
+00:12:47,940 --> 00:12:48,440
+no me mata.
+
+195
+00:12:48,960 --> 00:12:50,960
+Prefiero tener éxito,
+
+196
+00:12:51,560 --> 00:12:52,960
+generar una buena cartera
+
+197
+00:12:52,960 --> 00:12:54,460
+y crecer,
+
+198
+00:12:55,160 --> 00:12:56,320
+que asumir un riesgo
+
+199
+00:12:56,920 --> 00:12:58,640
+que nos haga fracasar.
+
+200
+00:12:59,060 --> 00:13:00,160
+Otra cosa es que esta gente,
+
+201
+00:13:01,200 --> 00:13:02,140
+pues como te digo,
+
+202
+00:13:02,400 --> 00:13:03,240
+como son pocos,
+
+203
+00:13:04,360 --> 00:13:05,600
+están justitos de tiempo.
+
+204
+00:13:06,300 --> 00:13:07,580
+Bueno, ahí es donde les damos
+
+205
+00:13:07,580 --> 00:13:09,100
+nuestra capacidad de trabajo.
+
+206
+00:13:10,680 --> 00:13:12,540
+Si le llevamos las cosas en las mismas cadas...
+
+207
+00:13:12,540 --> 00:13:12,780
+Claro.
+
+208
+00:13:13,240 --> 00:13:15,100
+Y solo te tienen que decir el informe final,
+
+209
+00:13:15,180 --> 00:13:15,500
+por ejemplo.
+
+210
+00:13:18,320 --> 00:13:19,620
+Pero no va a ser fácil,
+
+211
+00:13:20,020 --> 00:13:22,040
+porque tienen sus clientes
+
+212
+00:13:22,040 --> 00:13:23,700
+y tienen sus trabajos,
+
+213
+00:13:23,840 --> 00:13:25,460
+y entonces no les gusta
+
+214
+00:13:25,460 --> 00:13:26,420
+tapar, recer mucho,
+
+215
+00:13:26,420 --> 00:13:27,280
+y encontrar a tal gente.
+
+216
+00:13:28,800 --> 00:13:30,560
+Tuvimos a uno también senior,
+
+217
+00:13:30,960 --> 00:13:32,880
+pero él tuvo problemas de salud
+
+218
+00:13:32,880 --> 00:13:35,340
+y estuvo muchos meses de baja,
+
+219
+00:13:35,580 --> 00:13:36,740
+y al final se ha prejubilado,
+
+220
+00:13:36,840 --> 00:13:37,240
+y no sé qué,
+
+221
+00:13:37,820 --> 00:13:39,600
+la experiencia tampoco les ha ido muy allá.
+
+222
+00:13:43,460 --> 00:13:43,860
+Bueno,
+
+223
+00:13:44,960 --> 00:13:46,260
+va a ser la confianza
+
+224
+00:13:46,260 --> 00:13:49,180
+y los años que yo he trabajado con ellos,
+
+225
+00:13:49,360 --> 00:13:51,580
+pero que nos hicieran un hueco al menos
+
+226
+00:13:51,580 --> 00:13:54,940
+para esas consultas específicas de ellos,
+
+227
+00:13:54,940 --> 00:13:57,040
+o es informe final o tal,
+
+228
+00:13:59,680 --> 00:14:01,380
+se podría tirar de ellos,
+
+229
+00:14:01,480 --> 00:14:03,940
+pero no nos tenemos disponibles como...
+
+230
+00:14:05,980 --> 00:14:07,340
+Se encuentran muy grandes,
+
+231
+00:14:07,380 --> 00:14:10,600
+Zavala, Bantec también está siendo grande,
+
+232
+00:14:10,780 --> 00:14:12,940
+pero en varias comunidades...
+
+233
+00:14:14,520 --> 00:14:17,320
+Pero eso es motivo de confianza.
+
+234
+00:14:17,680 --> 00:14:19,740
+No, no, yo lo que estoy pensando es,
+
+235
+00:14:19,800 --> 00:14:22,200
+sobre todo, en poder gestionar
+
+236
+00:14:23,260 --> 00:14:24,660
+paquetes de valor para la empresa,
+
+237
+00:14:24,800 --> 00:14:26,060
+es decir, las empresas pequeñas
+
+238
+00:14:26,060 --> 00:14:28,160
+tampoco pueden tener siempre un Zavala
+
+239
+00:14:28,160 --> 00:14:30,340
+para que todos los años le renueven todo.
+
+240
+00:14:30,900 --> 00:14:32,060
+Vamos a proyectos.
+
+241
+00:14:32,160 --> 00:14:33,420
+¿Zavala o que quieres un fin mensual?
+
+242
+00:14:33,800 --> 00:14:35,200
+Y es una empresa pequeña...
+
+243
+00:14:35,200 --> 00:14:35,900
+No lo va a dar,
+
+244
+00:14:36,060 --> 00:14:37,960
+pero si una empresa pequeña te va a comprar un proyecto,
+
+245
+00:14:38,620 --> 00:14:40,080
+y eso es lo que tenemos que ir
+
+246
+00:14:40,080 --> 00:14:42,420
+a definir proyectos
+
+247
+00:14:42,420 --> 00:14:43,600
+en base a
+
+248
+00:14:44,560 --> 00:14:45,360
+nuestra experiencia
+
+249
+00:14:45,820 --> 00:14:46,760
+y un paquete.
+
+250
+00:14:46,840 --> 00:14:48,860
+¿Pero te estás focalizando el tema de ayudas?
+
+251
+00:14:49,240 --> 00:14:50,920
+No sé por qué, yo pensé que esto era un capítulo.
+
+252
+00:14:50,920 --> 00:14:52,180
+Es un capítulo.
+
+253
+00:14:53,060 --> 00:14:54,220
+Por eso digo, es un paquete.
+
+254
+00:14:55,340 --> 00:14:56,760
+Para mí el paquete es, por ejemplo,
+
+255
+00:14:56,980 --> 00:14:57,800
+y el ejemplo es muy bueno,
+
+256
+00:14:57,880 --> 00:14:58,880
+lo que dijimos ahí con yo.
+
+257
+00:15:00,340 --> 00:15:00,740
+Digitalización,
+
+258
+00:15:02,260 --> 00:15:03,060
+su herramienta
+
+259
+00:15:04,320 --> 00:15:05,120
+y ayudas.
+
+260
+00:15:05,960 --> 00:15:06,800
+Es el paquete.
+
+261
+00:15:08,080 --> 00:15:08,780
+Porque ahí...
+
+262
+00:15:08,780 --> 00:15:09,860
+Yo como que yo soy más ampliado,
+
+263
+00:15:10,280 --> 00:15:12,700
+porque todo el mundo está en el tema comercial,
+
+264
+00:15:12,820 --> 00:15:13,360
+que es aparte.
+
+265
+00:15:13,700 --> 00:15:15,360
+Luego está la dirección general, que es aparte.
+
+266
+00:15:15,540 --> 00:15:15,940
+Satélites,
+
+267
+00:15:16,360 --> 00:15:17,340
+luego lo ofrecemos,
+
+268
+00:15:17,640 --> 00:15:19,420
+y finalmente incluso llegar a la idea
+
+269
+00:15:19,420 --> 00:15:21,420
+cuando has conseguido madurar a ese cliente
+
+270
+00:15:22,060 --> 00:15:23,380
+de ayudarle a tener
+
+271
+00:15:23,380 --> 00:15:24,260
+una empresa
+
+272
+00:15:25,060 --> 00:15:26,440
+bendible a un mayor valor.
+
+273
+00:15:27,220 --> 00:15:27,880
+Ese es el fin último.
+
+274
+00:15:28,220 --> 00:15:29,180
+Al final, ¿qué es el final?
+
+275
+00:15:29,360 --> 00:15:30,440
+Al final, yo creo que
+
+276
+00:15:31,440 --> 00:15:32,240
+tenemos que
+
+277
+00:15:32,240 --> 00:15:34,680
+estar con el cliente
+
+278
+00:15:34,680 --> 00:15:35,860
+y ver sus necesidades.
+
+279
+00:15:35,920 --> 00:15:36,060
+Sí.
+
+280
+00:15:36,280 --> 00:15:38,560
+Uno tiene necesidades comerciales,
+
+281
+00:15:38,680 --> 00:15:39,580
+el otro financieras,
+
+282
+00:15:39,860 --> 00:15:41,800
+el otro de ayudas, el otro de no sé qué.
+
+283
+00:15:42,200 --> 00:15:42,780
+Tiene que ser
+
+284
+00:15:43,940 --> 00:15:45,500
+cuando pienso en que estoy muy solo,
+
+285
+00:15:46,180 --> 00:15:47,300
+tenemos que ser el referente.
+
+286
+00:15:47,540 --> 00:15:47,700
+Sí.
+
+287
+00:15:48,280 --> 00:15:49,280
+Pero me da igual para qué.
+
+288
+00:15:49,560 --> 00:15:49,700
+Sí.
+
+289
+00:15:50,280 --> 00:15:51,380
+Ahora estoy solo para las ayudas,
+
+290
+00:15:51,440 --> 00:15:54,580
+ahora estoy solo para temas comerciales
+
+291
+00:15:54,580 --> 00:15:56,300
+de dónde me meto en aquel mercado,
+
+292
+00:15:56,500 --> 00:15:57,760
+en aquel territorio, no sé qué.
+
+293
+00:15:58,740 --> 00:15:59,480
+Estamos ahí.
+
+294
+00:15:59,860 --> 00:16:00,700
+Ahora estoy...
+
+295
+00:16:01,680 --> 00:16:02,080
+tema...
+
+296
+00:16:02,080 --> 00:16:04,180
+tema jurídico, mercantil.
+
+297
+00:16:04,820 --> 00:16:05,440
+Estamos ahí.
+
+298
+00:16:05,660 --> 00:16:05,740
+¿Por qué?
+
+299
+00:16:05,860 --> 00:16:07,920
+Porque me meto a Vanessa en este tema
+
+300
+00:16:07,920 --> 00:16:08,820
+y entro.
+
+301
+00:16:09,460 --> 00:16:12,240
+Y estoy alfuscado por un tema financiero.
+
+302
+00:16:12,460 --> 00:16:13,600
+Voy a hacer unas inversiones,
+
+303
+00:16:13,760 --> 00:16:14,500
+no sé cómo financiar,
+
+304
+00:16:14,580 --> 00:16:15,540
+pero bueno, ahí estamos.
+
+305
+00:16:17,880 --> 00:16:19,760
+Necesito casi alguien
+
+306
+00:16:19,760 --> 00:16:22,380
+de adjunto a dirección,
+
+307
+00:16:22,500 --> 00:16:24,020
+que esté en cualquier momento
+
+308
+00:16:24,020 --> 00:16:25,540
+para cuando le pueda consultar.
+
+309
+00:16:25,740 --> 00:16:26,280
+Ahí estamos.
+
+310
+00:16:27,820 --> 00:16:28,000
+Sí.
+
+311
+00:16:28,160 --> 00:16:29,420
+Un soporte multifuncional,
+
+312
+00:16:29,980 --> 00:16:31,700
+que en cada caso pueda ser
+
+313
+00:16:31,700 --> 00:16:34,000
+en derivado de un departamento...
+
+314
+00:16:34,000 --> 00:16:35,160
+Cuando tenga una necesidad
+
+315
+00:16:35,160 --> 00:16:36,580
+que él se siente muy solo,
+
+316
+00:16:37,040 --> 00:16:37,880
+que cuente con nosotros
+
+317
+00:16:37,880 --> 00:16:40,420
+para lo que necesite.
+
+318
+00:16:40,800 --> 00:16:42,220
+Para debatirla, para trabajarla,
+
+319
+00:16:42,460 --> 00:16:44,620
+para ver si ponerla en valor,
+
+320
+00:16:44,620 --> 00:16:45,800
+si tiene sentido, si tiene sentido,
+
+321
+00:16:45,960 --> 00:16:46,380
+y si tiene sentido,
+
+322
+00:16:46,560 --> 00:16:47,340
+vamos a trabajar con él.
+
+323
+00:16:47,680 --> 00:16:47,840
+Sí.
+
+324
+00:16:48,780 --> 00:16:51,620
+Eso creo que es...
+
+325
+00:16:52,840 --> 00:16:54,860
+yo creía que íbamos a trabajar.
+
+326
+00:16:55,660 --> 00:16:56,700
+Luego hay paquetes.
+
+327
+00:16:56,800 --> 00:16:57,580
+Pero este es un paquete.
+
+328
+00:16:58,200 --> 00:16:59,320
+Vamos a trabajar.
+
+329
+00:16:59,520 --> 00:16:59,740
+Sí, sí.
+
+330
+00:16:59,900 --> 00:17:00,840
+Yo estoy de acuerdo contigo.
+
+331
+00:17:01,000 --> 00:17:01,640
+Está en la misma página.
+
+332
+00:17:02,060 --> 00:17:03,080
+Vamos a trabajar eso.
+
+333
+00:17:03,360 --> 00:17:05,320
+El fin de la empresa es esa.
+
+334
+00:17:06,000 --> 00:17:07,820
+Pero este ahora mismo es un agujero negro.
+
+335
+00:17:08,900 --> 00:17:10,300
+Tú tienes mucha información
+
+336
+00:17:10,300 --> 00:17:11,660
+y yo no tengo ni un puñetera idea.
+
+337
+00:17:11,660 --> 00:17:13,260
+Entonces, tira, tira.
+
+338
+00:17:20,400 --> 00:17:21,320
+Todo esto,
+
+339
+00:17:22,380 --> 00:17:23,660
+que tenemos toda la ilusión del mundo,
+
+340
+00:17:25,040 --> 00:17:26,700
+pero hay que ser muy realistas.
+
+341
+00:17:27,900 --> 00:17:29,640
+Llegar a todo lo que estamos hablando de tú y yo,
+
+342
+00:17:31,020 --> 00:17:32,940
+que puedan tenernos en la mente
+
+343
+00:17:33,660 --> 00:17:35,340
+para tener la confianza de decirnos,
+
+344
+00:17:36,140 --> 00:17:38,020
+ahora de este...
+
+345
+00:17:38,020 --> 00:17:38,980
+como si fuera un departamento,
+
+346
+00:17:38,980 --> 00:17:40,660
+de empresa, el departamento comercial,
+
+347
+00:17:40,800 --> 00:17:42,880
+el departamento financiero,
+
+348
+00:17:43,020 --> 00:17:44,480
+el departamento de ayudas,
+
+349
+00:17:45,220 --> 00:17:48,360
+es muy difícil llegar a tener esa confianza.
+
+350
+00:17:49,000 --> 00:17:52,800
+Pero bueno, el camino nos ponemos.
+
+351
+00:17:53,220 --> 00:17:54,880
+Sabes, estando de acuerdo,
+
+352
+00:17:55,800 --> 00:17:59,080
+lo que es importante es tener una base solida.
+
+353
+00:18:00,000 --> 00:18:03,020
+Es decir, que tú te puedas sentar delante de un cliente
+
+354
+00:18:03,020 --> 00:18:04,600
+y ser solido en tus respuestas.
+
+355
+00:18:05,420 --> 00:18:07,780
+Entonces, nosotros tenemos que tener el conocimiento
+
+356
+00:18:07,780 --> 00:18:09,240
+para que esas reuniones
+
+357
+00:18:09,780 --> 00:18:10,980
+se genere confianza.
+
+358
+00:18:11,760 --> 00:18:14,580
+Entonces, para mí, el entender bien todo esto
+
+359
+00:18:14,580 --> 00:18:16,360
+entra en esa parte.
+
+360
+00:18:17,040 --> 00:18:18,900
+O sea, yo, por ejemplo, ahora mismo,
+
+361
+00:18:19,660 --> 00:18:22,320
+esta es una parte en la que me siento muy flojo
+
+362
+00:18:22,820 --> 00:18:25,960
+y no me vería capaz de estar delante de un empresario
+
+363
+00:18:25,960 --> 00:18:28,740
+y tener el discurso, sin tener esto a cabo.
+
+364
+00:18:29,020 --> 00:18:31,260
+Porque en la parte comercial no tengo problema.
+
+365
+00:18:31,920 --> 00:18:33,640
+En la parte de gestión no tengo problema.
+
+366
+00:18:34,140 --> 00:18:35,980
+En la parte de soporte financiero,
+
+367
+00:18:35,980 --> 00:18:38,560
+incluso de delegación a nivel de gerencia,
+
+368
+00:18:38,840 --> 00:18:40,480
+no tengo problema porque estás tú.
+
+369
+00:18:42,460 --> 00:18:44,360
+Hay un punto que me ha apuntado aquí, Enrique,
+
+370
+00:18:45,280 --> 00:18:46,960
+que lo estamos dejando pasar rato.
+
+371
+00:18:47,040 --> 00:18:49,280
+Ayer lo hablé un poco, cuando estábamos con John,
+
+372
+00:18:49,660 --> 00:18:51,100
+que se termina la productividad.
+
+373
+00:18:51,400 --> 00:18:53,820
+Es decir, la productividad en operarios de oficina
+
+374
+00:18:55,120 --> 00:18:58,960
+no se controla como se controla en taller o en ingeniería.
+
+375
+00:18:59,360 --> 00:19:01,520
+Decía yo, sí, ya te meten los tiempos y tal,
+
+376
+00:19:02,000 --> 00:19:03,340
+pero eso no es productividad.
+
+377
+00:19:04,420 --> 00:19:07,080
+Precisamente los ojeros negros en las empresas
+
+378
+00:19:07,080 --> 00:19:11,140
+están en administración y gente de oficina multitask,
+
+379
+00:19:11,420 --> 00:19:15,560
+porque al final es una bola o un cajón de desastre
+
+380
+00:19:15,560 --> 00:19:17,280
+donde metes un montón de actividades
+
+381
+00:19:17,280 --> 00:19:19,800
+y realmente renta muy poco.
+
+382
+00:19:20,020 --> 00:19:21,600
+Pero tampoco puedes vivir sin esa persona,
+
+383
+00:19:22,080 --> 00:19:24,800
+porque hoy te hace una factura, mañana le llamo un proveedor,
+
+384
+00:19:25,020 --> 00:19:27,800
+mañana, pero realmente no es un trabajo
+
+385
+00:19:27,800 --> 00:19:30,700
+ni organizado ni productivo.
+
+386
+00:19:32,080 --> 00:19:32,960
+En general.
+
+387
+00:19:33,580 --> 00:19:37,640
+Entonces, esa parte también yo creo que podemos dar
+
+388
+00:19:37,640 --> 00:19:42,060
+un discurso serio y creíble.
+
+389
+00:19:42,680 --> 00:19:46,340
+Y en ese paquete lo que te digo, esto...
+
+390
+00:19:46,340 --> 00:19:52,620
+Pero mira, lo último que hay que entrar en un empresario
+
+391
+00:19:52,620 --> 00:19:54,000
+es diciéndole cómo tiene que ordenar su casa.
+
+392
+00:19:54,300 --> 00:19:54,420
+Sí.
+
+393
+00:19:55,080 --> 00:19:57,660
+Y eso de administración es decirle cómo hay que ordenar su casa.
+
+394
+00:19:57,660 --> 00:19:59,940
+Sí, pero sí que puedes decirle, hablar de productividades.
+
+395
+00:20:00,680 --> 00:20:04,260
+Cuando tienes confianza suficiente, porque te da pie,
+
+396
+00:20:04,720 --> 00:20:06,480
+él, entonces ya irnos.
+
+397
+00:20:07,200 --> 00:20:10,140
+Pero primero tengo que demostrarle que somos pálidos
+
+398
+00:20:10,140 --> 00:20:13,020
+y aportamos valor en cosas concretas.
+
+399
+00:20:13,080 --> 00:20:13,440
+Eso es.
+
+400
+00:20:13,640 --> 00:20:18,120
+En ganar nuevos mercados, en mejorar su financiación,
+
+401
+00:20:18,720 --> 00:20:21,380
+en mejorar ayudas que consigue, etcétera.
+
+402
+00:20:22,200 --> 00:20:24,720
+Pero ya meterte profundo en ordenar su casa,
+
+403
+00:20:25,580 --> 00:20:26,060
+cuidado.
+
+404
+00:20:26,920 --> 00:20:28,660
+Es decir, no pretendo eso.
+
+405
+00:20:29,100 --> 00:20:32,000
+Lo que sí que pretendo es poder tener un discurso.
+
+406
+00:20:32,100 --> 00:20:35,460
+Es decir, yo le puedo, dentro de esa conversación,
+
+407
+00:20:35,640 --> 00:20:37,420
+cuando estamos hablando ya en privado...
+
+408
+00:20:37,420 --> 00:20:38,540
+Pero que no podemos abrumar.
+
+409
+00:20:38,840 --> 00:20:39,560
+No, sin abrumar.
+
+410
+00:20:39,720 --> 00:20:41,120
+No le diría a esa persona...
+
+411
+00:20:41,620 --> 00:20:43,800
+Pero es lo que a John se lo hice.
+
+412
+00:20:44,160 --> 00:20:46,980
+Cuando le hablé de la trazabilidad de proyectos,
+
+413
+00:20:46,980 --> 00:20:49,720
+de la diferencia entre lo presupuestado
+
+414
+00:20:50,400 --> 00:20:52,780
+y lo cerrado, los gaps que hay.
+
+415
+00:20:52,780 --> 00:20:54,980
+Sí, pero ya cuántas reuniones llevábamos.
+
+416
+00:20:55,140 --> 00:20:55,360
+Sí.
+
+417
+00:20:56,080 --> 00:20:57,660
+Pero a lo que voy...
+
+418
+00:20:57,660 --> 00:20:58,300
+¿Cómo los presentamos?
+
+419
+00:20:58,820 --> 00:21:01,460
+Sí, eso ya lo haremos.
+
+420
+00:21:01,640 --> 00:21:03,020
+Y lo organizaremos y no abrumaremos.
+
+421
+00:21:03,580 --> 00:21:06,660
+Pero nosotros por detrás tenemos que tener un motor fuerte.
+
+422
+00:21:08,200 --> 00:21:08,740
+Es...
+
+423
+00:21:08,740 --> 00:21:10,560
+Yo tenemos un bagaje...
+
+424
+00:21:10,560 --> 00:21:10,960
+Sí, bajo.
+
+425
+00:21:11,540 --> 00:21:13,740
+Tenemos bastante experiencia,
+
+426
+00:21:13,860 --> 00:21:15,800
+bastante ganos de estar al frente de cosas.
+
+427
+00:21:16,440 --> 00:21:18,820
+Tú de departamentos, yo de pymes, o sea,
+
+428
+00:21:19,880 --> 00:21:21,620
+en ese sentido no me preocupa.
+
+429
+00:21:21,820 --> 00:21:23,640
+Tenemos tal bagaje, pero John,
+
+430
+00:21:24,100 --> 00:21:26,060
+si lo colocamos realmente...
+
+431
+00:21:26,060 --> 00:21:26,340
+¡Fum!
+
+432
+00:21:26,620 --> 00:21:27,400
+Ya vemos una vez.
+
+433
+00:21:28,720 --> 00:21:29,240
+Entonces...
+
+434
+00:21:29,240 --> 00:21:30,940
+Yo para que te hagas una idea,
+
+435
+00:21:31,920 --> 00:21:35,760
+para que veas cómo pienso.
+
+436
+00:21:35,840 --> 00:21:38,020
+El tema es cómo arrancamos con ese cliente
+
+437
+00:21:38,020 --> 00:21:39,820
+desde el primer día para aportarle valor
+
+438
+00:21:39,820 --> 00:21:40,660
+y para cobrarnos.
+
+439
+00:21:44,700 --> 00:21:46,760
+¿Cómo se abre a nosotros para decirnos
+
+440
+00:21:46,760 --> 00:21:48,580
+que lo que más me aporta el zapato
+
+441
+00:21:48,580 --> 00:21:49,260
+es aquí?
+
+442
+00:21:50,480 --> 00:21:51,920
+Entonces, empezamos ahí
+
+443
+00:21:51,920 --> 00:21:53,760
+y nos triunfarán a la presencia
+
+444
+00:21:53,760 --> 00:21:56,560
+con curro, con malo el año de aportado
+
+445
+00:21:56,560 --> 00:21:58,840
+y que este desgusto apagó.
+
+446
+00:22:01,040 --> 00:22:02,840
+La idea no es soltar el rollo
+
+447
+00:22:02,840 --> 00:22:03,680
+y aprumar.
+
+448
+00:22:04,840 --> 00:22:05,840
+Pero la idea es...
+
+449
+00:22:05,840 --> 00:22:07,000
+No, no estoy trabajando.
+
+450
+00:22:08,200 --> 00:22:09,320
+Estoy viendo...
+
+451
+00:22:09,320 --> 00:22:11,140
+Estoy viendo sentir esto porque
+
+452
+00:22:11,760 --> 00:22:13,940
+en este tema estás verde
+
+453
+00:22:13,940 --> 00:22:15,880
+o no estaría tocando antes y entonces aquí
+
+454
+00:22:17,460 --> 00:22:17,940
+mira,
+
+455
+00:22:18,460 --> 00:22:19,720
+esto es lo que yo le explico
+
+456
+00:22:19,720 --> 00:22:20,740
+a los clientes de DIO.
+
+457
+00:22:21,460 --> 00:22:23,080
+Y solo necesito esto.
+
+458
+00:22:23,720 --> 00:22:25,860
+Yo lo que dibujo es una planta
+
+459
+00:22:25,860 --> 00:22:28,920
+y todos los puntos de actuación
+
+460
+00:22:28,920 --> 00:22:30,360
+en los que...
+
+461
+00:22:31,640 --> 00:22:32,460
+Eso es.
+
+462
+00:22:32,960 --> 00:22:33,600
+Yo no abrumo.
+
+463
+00:22:34,300 --> 00:22:35,840
+Si ahora el tío,
+
+464
+00:22:35,920 --> 00:22:36,620
+cuando ve esto,
+
+465
+00:22:36,700 --> 00:22:37,760
+porque es lo que suele ocurrir,
+
+466
+00:22:38,340 --> 00:22:39,420
+entonces ellos empiezan a pensar,
+
+467
+00:22:39,660 --> 00:22:39,880
+¡Hostia!
+
+468
+00:22:40,700 --> 00:22:43,040
+Y entonces ellos son los que te llevan
+
+469
+00:22:43,040 --> 00:22:43,980
+a que tú les saques
+
+470
+00:22:43,980 --> 00:22:45,840
+a donde les apretas el zapato.
+
+471
+00:22:46,140 --> 00:22:47,240
+Pero yo tengo respuesta.
+
+472
+00:22:48,200 --> 00:22:49,520
+Es decir, yo luego tengo aquí
+
+473
+00:22:50,600 --> 00:22:51,480
+28 páginas.
+
+474
+00:22:52,640 --> 00:22:54,100
+Llegaré a la 2 o a la 3.
+
+475
+00:22:54,300 --> 00:22:55,440
+Depende del cliente.
+
+476
+00:22:55,640 --> 00:22:56,380
+Pero este mapa
+
+477
+00:22:57,880 --> 00:22:59,580
+conceptual tenemos que tenerlo.
+
+478
+00:23:00,680 --> 00:23:00,720
+¿Eh?
+
+479
+00:23:00,940 --> 00:23:02,220
+Y entonces...
+
+480
+00:23:02,220 --> 00:23:02,620
+Eso sí.
+
+481
+00:23:03,260 --> 00:23:03,860
+Así sí.
+
+482
+00:23:04,680 --> 00:23:05,500
+Esta es mi idea.
+
+483
+00:23:06,160 --> 00:23:07,620
+Pero debajo de esto hay un trabajo.
+
+484
+00:23:08,440 --> 00:23:08,700
+Total.
+
+485
+00:23:09,480 --> 00:23:10,880
+Y sé que me estás llevando a eso.
+
+486
+00:23:11,040 --> 00:23:13,320
+Me has sentado la sesión
+
+487
+00:23:13,320 --> 00:23:14,680
+en una cosa tan concreta.
+
+488
+00:23:14,720 --> 00:23:14,880
+Sí.
+
+489
+00:23:15,080 --> 00:23:16,440
+Yo necesitaba y me pagaba arriba.
+
+490
+00:23:16,660 --> 00:23:16,880
+Vale.
+
+491
+00:23:17,040 --> 00:23:17,920
+Para que luego bajara.
+
+492
+00:23:18,320 --> 00:23:18,520
+Claro.
+
+493
+00:23:19,100 --> 00:23:20,080
+Porque si no...
+
+494
+00:23:20,080 --> 00:23:21,180
+Pues tu idea de alto nivel,
+
+495
+00:23:21,500 --> 00:23:21,720
+sí.
+
+496
+00:23:22,480 --> 00:23:23,220
+Y luego hablamos
+
+497
+00:23:23,220 --> 00:23:25,060
+de cómo conceptualizamos esa empresa.
+
+498
+00:23:25,660 --> 00:23:26,940
+Me olvidé de si ahora este mapa
+
+499
+00:23:26,940 --> 00:23:28,300
+y ahora hay que trabajar
+
+500
+00:23:28,300 --> 00:23:29,980
+cada uno de los...
+
+501
+00:23:29,980 --> 00:23:30,140
+Eso es.
+
+502
+00:23:30,140 --> 00:23:30,380
+Eso es.
+
+503
+00:23:30,820 --> 00:23:31,300
+Eso es.
+
+504
+00:23:31,980 --> 00:23:32,460
+Eso es.
+
+505
+00:23:32,860 --> 00:23:33,960
+Y entonces en esos hexágonos
+
+506
+00:23:33,960 --> 00:23:35,300
+que yo he apuntado aquí,
+
+507
+00:23:35,520 --> 00:23:37,140
+todavía he dicho el comercial,
+
+508
+00:23:37,340 --> 00:23:38,320
+soporte financiero,
+
+509
+00:23:39,140 --> 00:23:39,580
+gerencia,
+
+510
+00:23:40,260 --> 00:23:41,640
+gestión de ayudas, digitalización,
+
+511
+00:23:42,440 --> 00:23:42,980
+productividad.
+
+512
+00:23:43,720 --> 00:23:44,760
+Eso serán los quesitos.
+
+513
+00:23:44,920 --> 00:23:46,020
+Con la gerencia de cambiar el nombre
+
+514
+00:23:46,020 --> 00:23:46,640
+y de ponerle
+
+515
+00:23:47,380 --> 00:23:48,520
+a justo decisión.
+
+516
+00:23:48,860 --> 00:23:49,120
+¿Por qué?
+
+517
+00:23:49,540 --> 00:23:51,140
+Porque no le parece
+
+518
+00:23:51,140 --> 00:23:52,760
+que vamos a desbancar.
+
+519
+00:23:53,680 --> 00:23:53,720
+No.
+
+520
+00:23:55,040 --> 00:23:56,840
+Él sigue siendo el dueño del gerencio.
+
+521
+00:23:57,180 --> 00:23:58,400
+Nosotros podemos ayudarle
+
+522
+00:23:58,400 --> 00:23:59,920
+como soporte
+
+523
+00:23:59,920 --> 00:24:01,320
+a justo o como quiera ya.
+
+524
+00:24:01,340 --> 00:24:01,460
+Sí.
+
+525
+00:24:02,160 --> 00:24:03,160
+Luego los nombres,
+
+526
+00:24:03,420 --> 00:24:05,040
+ya cuando tengamos el panel,
+
+527
+00:24:05,380 --> 00:24:07,380
+ya definimos nombres
+
+528
+00:24:08,480 --> 00:24:09,500
+exactos y...
+
+529
+00:24:09,500 --> 00:24:10,000
+Vale.
+
+530
+00:24:10,000 --> 00:24:11,540
+Para que me pilles la idea de...
+
+531
+00:24:11,540 --> 00:24:11,800
+Total.
+
+532
+00:24:12,060 --> 00:24:12,120
+Total.
+
+533
+00:24:12,660 --> 00:24:14,240
+Y también para que tú me pilles,
+
+534
+00:24:14,280 --> 00:24:14,780
+que te pillo.
+
+535
+00:24:15,280 --> 00:24:16,200
+Que te pillo.
+
+536
+00:24:16,300 --> 00:24:16,380
+Vale.
+
+537
+00:24:17,200 --> 00:24:17,620
+Y entonces,
+
+538
+00:24:18,560 --> 00:24:20,020
+vamos a darle una vuelta
+
+539
+00:24:20,020 --> 00:24:20,440
+a esto
+
+540
+00:24:21,040 --> 00:24:23,640
+y saltamos al tema de empresa.
+
+541
+00:24:23,860 --> 00:24:23,880
+Vale.
+
+542
+00:24:23,980 --> 00:24:24,560
+Ahora sí,
+
+543
+00:24:24,660 --> 00:24:26,600
+y esto es una pata.
+
+544
+00:24:26,880 --> 00:24:27,900
+Esto es una pata.
+
+545
+00:24:28,040 --> 00:24:28,420
+Eso es.
+
+546
+00:24:28,540 --> 00:24:29,360
+Entonces aquí
+
+547
+00:24:30,600 --> 00:24:31,600
+donde he visto
+
+548
+00:24:33,260 --> 00:24:34,340
+el punto central,
+
+549
+00:24:34,960 --> 00:24:35,880
+capa de conocimiento
+
+550
+00:24:35,880 --> 00:24:36,700
+de experto en ayudas.
+
+551
+00:24:37,120 --> 00:24:37,760
+O sea, ahora mismo
+
+552
+00:24:37,760 --> 00:24:39,120
+lo que necesitamos es
+
+553
+00:24:39,120 --> 00:24:39,760
+una capa de conocimiento
+
+554
+00:24:40,380 --> 00:24:41,140
+para ayudas.
+
+555
+00:24:41,500 --> 00:24:42,840
+Y ahí es ahora lo que
+
+556
+00:24:42,840 --> 00:24:44,600
+quiero que me describas un poco.
+
+557
+00:24:45,740 --> 00:24:46,860
+Que hay que mirar.
+
+558
+00:24:47,840 --> 00:24:48,940
+Que website hay que mirar.
+
+559
+00:24:49,180 --> 00:24:49,700
+Que...
+
+560
+00:24:49,700 --> 00:24:50,020
+Es decir,
+
+561
+00:24:50,640 --> 00:24:52,980
+no pretendo que me des todos los detalles,
+
+562
+00:24:53,180 --> 00:24:54,500
+pero sí que me des guías
+
+563
+00:24:54,500 --> 00:24:57,340
+de donde yo puedo estructurar esa información.
+
+564
+00:25:00,120 --> 00:25:00,640
+Mira.
+
+565
+00:25:02,720 --> 00:25:04,200
+Normalmente muchas son
+
+566
+00:25:04,200 --> 00:25:05,920
+las propias consultoras.
+
+567
+00:25:06,760 --> 00:25:07,200
+Facebook,
+
+568
+00:25:08,080 --> 00:25:08,520
+Bantec,
+
+569
+00:25:08,820 --> 00:25:09,180
+Zavala,
+
+570
+00:25:09,520 --> 00:25:10,640
+te van informando
+
+571
+00:25:10,640 --> 00:25:11,820
+de las soluciones
+
+572
+00:25:11,820 --> 00:25:12,760
+que van a salir.
+
+573
+00:25:14,880 --> 00:25:15,320
+Porque...
+
+574
+00:25:15,320 --> 00:25:16,300
+Es su trabajo.
+
+575
+00:25:17,200 --> 00:25:17,800
+Entonces ahí
+
+576
+00:25:17,800 --> 00:25:18,500
+promocionan.
+
+577
+00:25:19,520 --> 00:25:20,400
+Puedes beber
+
+578
+00:25:20,400 --> 00:25:21,000
+de esas fuentes
+
+579
+00:25:21,000 --> 00:25:21,700
+tranquilamente.
+
+580
+00:25:23,480 --> 00:25:24,360
+Sobre todo los grandes.
+
+581
+00:25:24,760 --> 00:25:25,560
+Por mí un inspirador
+
+582
+00:25:25,560 --> 00:25:25,920
+son tres
+
+583
+00:25:26,480 --> 00:25:27,260
+y no te van a dar
+
+584
+00:25:27,260 --> 00:25:28,000
+a hacer estas cosas.
+
+585
+00:25:28,680 --> 00:25:29,260
+Pero los grandes
+
+586
+00:25:29,260 --> 00:25:30,500
+sí que te hacen ese tipo de cosas.
+
+587
+00:25:30,880 --> 00:25:31,600
+Aparte de Zavala,
+
+588
+00:25:31,700 --> 00:25:32,600
+cuáles nombró como grande.
+
+589
+00:25:32,940 --> 00:25:33,380
+Bantec.
+
+590
+00:25:34,080 --> 00:25:35,240
+¿Cómo se escribe Bantec?
+
+591
+00:25:35,240 --> 00:25:36,240
+¿Cómo se escribe Bantec?
+
+592
+00:25:39,040 --> 00:25:42,160
+¿Cómo se escribe Bantec?
+
+593
+00:25:42,160 --> 00:25:45,380
+¿Cómo se escribe Bantec?
+
+594
+00:25:46,080 --> 00:25:46,840
+¿Cómo se escribe Bantec?
+
+595
+00:25:47,000 --> 00:25:54,240
+¿Cómo se escribe Bantec?
+
+596
+00:25:56,600 --> 00:26:05,120
+¿Cómo se escribe Bantec?
+
+597
+00:26:06,000 --> 00:26:06,480
+Vale.
+
+598
+00:26:06,980 --> 00:26:08,020
+Cosas importantes
+
+599
+00:26:08,020 --> 00:26:08,760
+que hay que tener en cuenta.
+
+600
+00:26:08,840 --> 00:26:09,940
+Esa capa de conocimiento
+
+601
+00:26:09,940 --> 00:26:11,560
+incluso si tú eres proactivo
+
+602
+00:26:12,120 --> 00:26:12,500
+y tú dices
+
+603
+00:26:12,500 --> 00:26:12,960
+voy a ver
+
+604
+00:26:12,960 --> 00:26:14,320
+gobierno Navarra
+
+605
+00:26:17,800 --> 00:26:18,280
+Ayudas.
+
+606
+00:26:18,920 --> 00:26:19,400
+Entras.
+
+607
+00:26:19,620 --> 00:26:20,540
+Ayudas gobierno Navarra
+
+608
+00:26:20,540 --> 00:26:21,220
+para la industria
+
+609
+00:26:21,220 --> 00:26:22,560
+y te van saliendo
+
+610
+00:26:22,560 --> 00:26:24,640
+en Google,
+
+611
+00:26:24,880 --> 00:26:25,360
+en la IA,
+
+612
+00:26:25,400 --> 00:26:26,400
+no sé ya como el motor
+
+613
+00:26:26,400 --> 00:26:27,820
+de la industria que utilizas.
+
+614
+00:26:29,720 --> 00:26:31,420
+Ayudas para la industria
+
+615
+00:26:32,380 --> 00:26:32,860
+estatales.
+
+616
+00:26:35,380 --> 00:26:36,520
+Ayudas para la industria
+
+617
+00:26:36,520 --> 00:26:37,200
+europeas.
+
+618
+00:26:37,960 --> 00:26:39,220
+Son las tres capas
+
+619
+00:26:40,920 --> 00:26:42,760
+porque ya locales y locales
+
+620
+00:26:43,640 --> 00:26:44,860
+entran en la industria.
+
+621
+00:26:45,700 --> 00:26:46,560
+Entran en comercio
+
+622
+00:26:46,560 --> 00:26:47,380
+no sé qué, no sé cuál.
+
+623
+00:26:47,380 --> 00:26:47,540
+Vale.
+
+624
+00:26:47,760 --> 00:26:48,280
+Entonces, vale.
+
+625
+00:26:48,740 --> 00:26:49,580
+Daí saco.
+
+626
+00:26:50,000 --> 00:26:51,920
+Entonces, daí vienen convocatorias,
+
+627
+00:26:52,240 --> 00:26:52,860
+vienen importes,
+
+628
+00:26:53,920 --> 00:26:54,560
+vienen tal.
+
+629
+00:26:54,700 --> 00:26:55,500
+Entonces, ¿ahora eso?
+
+630
+00:26:55,660 --> 00:26:56,560
+¿Cómo se aterriza?
+
+631
+00:26:57,240 --> 00:26:58,600
+A saber si eso...
+
+632
+00:26:58,600 --> 00:26:59,020
+¿Se hace match
+
+633
+00:26:59,020 --> 00:26:59,760
+con un cliente concreto?
+
+634
+00:26:59,780 --> 00:27:00,340
+Sí, hace match.
+
+635
+00:27:00,580 --> 00:27:01,840
+Te tenemos que conocer al cliente.
+
+636
+00:27:01,840 --> 00:27:02,120
+Vale.
+
+637
+00:27:02,520 --> 00:27:03,920
+Desde lo que hace perfiles de cliente.
+
+638
+00:27:03,980 --> 00:27:04,780
+Y tenemos que ver
+
+639
+00:27:04,780 --> 00:27:06,200
+en qué época del año estamos.
+
+640
+00:27:06,500 --> 00:27:06,840
+Porque no todo...
+
+641
+00:27:07,760 --> 00:27:08,200
+Normalmente
+
+642
+00:27:10,080 --> 00:27:10,960
+intentan sacarlas
+
+643
+00:27:12,620 --> 00:27:14,040
+en períodos parecidos,
+
+644
+00:27:14,660 --> 00:27:15,100
+pero
+
+645
+00:27:16,000 --> 00:27:17,060
+dependen de política.
+
+646
+00:27:17,500 --> 00:27:17,880
+¿Por qué?
+
+647
+00:27:18,000 --> 00:27:19,140
+Porque dependen de los presupuestos.
+
+648
+00:27:19,880 --> 00:27:20,240
+Entonces,
+
+649
+00:27:20,560 --> 00:27:22,200
+si los presupuestos se retrasan,
+
+650
+00:27:22,420 --> 00:27:23,840
+se retrasan las convocatorias.
+
+651
+00:27:24,920 --> 00:27:25,700
+Porque no hay presupuesto.
+
+652
+00:27:26,660 --> 00:27:27,740
+Y eso es una mierda.
+
+653
+00:27:28,220 --> 00:27:28,500
+¿Por qué?
+
+654
+00:27:28,940 --> 00:27:30,060
+Porque alguien que está haciendo un mar de
+
+655
+00:27:30,060 --> 00:27:31,860
+no puede estar parado
+
+656
+00:27:31,860 --> 00:27:33,640
+a que se haga la jodida convocatoria.
+
+657
+00:27:33,760 --> 00:27:34,280
+Y esto lo hemos dicho
+
+658
+00:27:34,280 --> 00:27:35,440
+cientos de millones de veces.
+
+659
+00:27:36,020 --> 00:27:36,360
+Coño.
+
+660
+00:27:37,040 --> 00:27:38,480
+Dejar sacar convocatorias
+
+661
+00:27:39,100 --> 00:27:39,520
+plurianuales.
+
+662
+00:27:39,660 --> 00:27:40,660
+Y ya están empezando a sacar
+
+663
+00:27:40,660 --> 00:27:42,340
+dos años y medio, tres.
+
+664
+00:27:43,260 --> 00:27:43,580
+¿Para qué?
+
+665
+00:27:43,700 --> 00:27:45,060
+Para que...
+
+666
+00:27:45,900 --> 00:27:46,180
+Pero claro,
+
+667
+00:27:46,300 --> 00:27:46,860
+luego te dicen,
+
+668
+00:27:47,120 --> 00:27:47,460
+a ver,
+
+669
+00:27:49,300 --> 00:27:49,720
+nunca
+
+670
+00:27:50,300 --> 00:27:51,140
+podemos sacar
+
+671
+00:27:52,740 --> 00:27:54,520
+para algo que ya está en camino.
+
+672
+00:27:55,900 --> 00:27:57,520
+Porque es un requerimiento europeo.
+
+673
+00:27:57,520 --> 00:27:58,720
+El europeo te dice,
+
+674
+00:27:58,980 --> 00:27:59,820
+tiene que ser
+
+675
+00:27:59,820 --> 00:28:01,020
+efecto incentivador.
+
+676
+00:28:01,500 --> 00:28:01,940
+Por tanto,
+
+677
+00:28:02,480 --> 00:28:03,320
+tienes que
+
+678
+00:28:04,100 --> 00:28:04,660
+esperar
+
+679
+00:28:05,520 --> 00:28:05,720
+a que
+
+680
+00:28:06,320 --> 00:28:07,480
+salga la convocatoria
+
+681
+00:28:07,480 --> 00:28:08,620
+para empezar con el imáster.
+
+682
+00:28:08,900 --> 00:28:09,520
+Ese concreto.
+
+683
+00:28:10,100 --> 00:28:11,080
+Ese proyecto concreto.
+
+684
+00:28:11,720 --> 00:28:12,360
+Y es una putada.
+
+685
+00:28:13,040 --> 00:28:14,320
+Porque si tú tienes la idea,
+
+686
+00:28:14,520 --> 00:28:15,260
+quieres arrancarla.
+
+687
+00:28:16,360 --> 00:28:16,920
+¿Vale?
+
+688
+00:28:17,020 --> 00:28:18,860
+En ese efecto incentivador,
+
+689
+00:28:19,060 --> 00:28:20,260
+ahí sí que encajaría
+
+690
+00:28:20,260 --> 00:28:21,520
+el concepto
+
+691
+00:28:22,380 --> 00:28:23,640
+de esa nueva empresa
+
+692
+00:28:23,640 --> 00:28:25,100
+de servicios que plantea Diego.
+
+693
+00:28:25,100 --> 00:28:27,160
+¿O no?
+
+694
+00:28:27,340 --> 00:28:28,140
+El proyecto concreto,
+
+695
+00:28:28,300 --> 00:28:28,640
+no la empresa.
+
+696
+00:28:29,280 --> 00:28:29,880
+El proyecto,
+
+697
+00:28:30,060 --> 00:28:30,480
+el desarrollo.
+
+698
+00:28:30,580 --> 00:28:31,640
+Claro, pero como las ayudas
+
+699
+00:28:31,640 --> 00:28:32,720
+no las quieres llevar en GK,
+
+700
+00:28:32,860 --> 00:28:33,500
+por eso te lo digo.
+
+701
+00:28:33,800 --> 00:28:33,940
+Sí,
+
+702
+00:28:34,960 --> 00:28:35,720
+las pedirán
+
+703
+00:28:35,720 --> 00:28:36,560
+la nueva sociedad.
+
+704
+00:28:37,020 --> 00:28:37,540
+Pero vamos a pedir
+
+705
+00:28:37,540 --> 00:28:38,460
+sobre un proyecto concreto.
+
+706
+00:28:39,060 --> 00:28:39,720
+Nuevos proyectos.
+
+707
+00:28:39,740 --> 00:28:41,040
+O sea, el proyecto no es la empresa.
+
+708
+00:28:41,300 --> 00:28:41,480
+Vale.
+
+709
+00:28:41,700 --> 00:28:41,760
+O sea,
+
+710
+00:28:42,620 --> 00:28:43,820
+el efecto incentivador es
+
+711
+00:28:43,820 --> 00:28:44,600
+sobre proyecto.
+
+712
+00:28:45,920 --> 00:28:46,740
+No sobre empresa.
+
+713
+00:28:47,040 --> 00:28:47,340
+Vale.
+
+714
+00:28:51,360 --> 00:28:51,740
+Vale.
+
+715
+00:28:53,200 --> 00:28:54,000
+Ahí hay campo
+
+716
+00:28:54,980 --> 00:28:55,440
+con...
+
+717
+00:28:55,440 --> 00:28:55,740
+Vale.
+
+718
+00:28:57,420 --> 00:28:58,020
+De ayudas.
+
+719
+00:28:58,240 --> 00:29:01,140
+Algo más que se te ocurra que...
+
+720
+00:29:01,140 --> 00:29:01,660
+Porque, por ejemplo,
+
+721
+00:29:01,960 --> 00:29:03,140
+el día que estuvimos con yo
+
+722
+00:29:03,140 --> 00:29:03,920
+en la primera vez,
+
+723
+00:29:04,120 --> 00:29:04,220
+bueno,
+
+724
+00:29:04,300 --> 00:29:05,060
+hablasteis de un montón
+
+725
+00:29:05,060 --> 00:29:06,100
+de ayudas y cosas
+
+726
+00:29:06,100 --> 00:29:07,540
+que ya tienen de alguna manera
+
+727
+00:29:07,540 --> 00:29:08,320
+mecanizadas,
+
+728
+00:29:09,400 --> 00:29:10,260
+instrumentalizadas y...
+
+729
+00:29:10,260 --> 00:29:10,500
+Sí,
+
+730
+00:29:10,780 --> 00:29:10,920
+bueno,
+
+731
+00:29:11,040 --> 00:29:12,200
+hay ayudas,
+
+732
+00:29:12,680 --> 00:29:13,300
+a veces hay ayudas
+
+733
+00:29:13,300 --> 00:29:14,820
+muy digitales
+
+734
+00:29:14,820 --> 00:29:16,000
+para digitalización,
+
+735
+00:29:16,040 --> 00:29:16,440
+te dice.
+
+736
+00:29:17,140 --> 00:29:18,000
+Y entonces entran
+
+737
+00:29:19,600 --> 00:29:20,520
+tecnologías digitales
+
+738
+00:29:20,520 --> 00:29:21,760
+pues de que es unisión artificial,
+
+739
+00:29:21,760 --> 00:29:24,220
+que es realmente aumentada,
+
+740
+00:29:24,340 --> 00:29:25,200
+que se ha quedado a menos,
+
+741
+00:29:25,440 --> 00:29:26,940
+que es el remelo digital,
+
+742
+00:29:27,600 --> 00:29:28,780
+que es el 3D,
+
+743
+00:29:28,900 --> 00:29:29,580
+y no sé cuántos no sé qué.
+
+744
+00:29:29,820 --> 00:29:31,020
+Y entonces te dicen las tecnologías
+
+745
+00:29:31,020 --> 00:29:32,560
+que entran dentro de esa ayuda.
+
+746
+00:29:33,720 --> 00:29:34,800
+Pero las que son industriales,
+
+747
+00:29:35,320 --> 00:29:36,700
+a veces son inversión pymes.
+
+748
+00:29:37,540 --> 00:29:39,220
+Y no es que hagas ninguna innovación,
+
+749
+00:29:39,220 --> 00:29:40,500
+simplemente que estás sintirtiendo.
+
+750
+00:29:41,580 --> 00:29:41,760
+Entonces,
+
+751
+00:29:41,820 --> 00:29:42,540
+hay mucha menos ayuda
+
+752
+00:29:43,880 --> 00:29:44,760
+y está acotada.
+
+753
+00:29:45,660 --> 00:29:46,700
+Y otras son
+
+754
+00:29:48,080 --> 00:29:49,960
+ayudas de competitividad.
+
+755
+00:29:49,960 --> 00:29:52,300
+Y hay un cajón de desastre
+
+756
+00:29:52,300 --> 00:29:53,420
+bastante amplio.
+
+757
+00:29:53,840 --> 00:29:54,000
+¿Por qué?
+
+758
+00:29:54,580 --> 00:29:55,580
+Porque ayudan desde
+
+759
+00:29:55,580 --> 00:29:57,620
+uniones e fusiones
+
+760
+00:29:57,620 --> 00:29:58,760
+de empresas
+
+761
+00:30:00,340 --> 00:30:08,860
+a su contratación de un externo para ayudarme en una comercialización concreta, en un
+
+762
+00:30:08,860 --> 00:30:16,860
+sector concreto o en una área jerófica concreta, hasta también un externo en temas financieros.
+
+763
+00:30:17,380 --> 00:30:23,920
+O sea, competitividad, pues. Me tengo en un cajón varias cosas que ayudan a las empresas
+
+764
+00:30:23,920 --> 00:30:33,780
+las cosas hacen mejores, pues pueden ser cosas que estamos perdiendo a nosotros, expertos
+
+765
+00:30:33,780 --> 00:30:38,160
+en una materia que es los contratas. Evidentemente no pueden haber estado.
+
+766
+00:36:02,420 --> 00:36:04,080
+A ver, la vacación, ¿verdad?
+
+767
+00:36:04,160 --> 00:36:06,240
+¿Qué está la vacación? Sí, ha cogido.
+
+768
+00:36:09,680 --> 00:36:10,560
+Vale, estábamos...
+
+769
+00:36:11,360 --> 00:36:15,880
+Ayudas a las empresas para que mejorean, entonces...
+
+770
+00:36:15,880 --> 00:36:20,800
+Otra cosa que me viene, que ya lo hemos estado comentando,
+
+771
+00:36:20,940 --> 00:36:23,540
+pero porque quedé afianzado porque te la notes.
+
+772
+00:36:25,480 --> 00:36:27,880
+En esta parte de ayudas,
+
+773
+00:36:31,240 --> 00:36:35,700
+yo creo que al principio, y quizás,
+
+774
+00:36:36,440 --> 00:36:39,380
+es lo que hemos hablado antes, de que yo decía,
+
+775
+00:36:41,680 --> 00:36:42,920
+Este es el analizarlo.
+
+776
+00:36:44,140 --> 00:36:46,760
+Yo me siento muy de muy cómodo de trabajo en el Supermigo de Espíritu.
+
+777
+00:36:50,440 --> 00:36:54,320
+Entonces, irnosotros a hacer ese trabajo, me cuesta lo arrobar.
+
+778
+00:36:55,300 --> 00:36:59,500
+Me cuesta lo arrobar porque lo veo tan fácil de sacar con Espíritu
+
+779
+00:36:59,500 --> 00:37:01,620
+que para que nos vamos a meter a pegarnos
+
+780
+00:37:04,840 --> 00:37:08,040
+en lugar de sacarlo o de estenarizarlo o apoyarnos, ¿eh?
+
+781
+00:37:08,040 --> 00:37:12,620
+No tenemos por qué hacerlo así, pero nosotros, el cliente, su cara eres tú y yo.
+
+782
+00:37:13,000 --> 00:37:16,500
+Entonces tiene que entender sus interlocutos, vamos a ser nosotros.
+
+783
+00:37:17,120 --> 00:37:20,060
+Y nosotros tenemos que ser delantes suya expertos.
+
+784
+00:37:20,900 --> 00:37:22,720
+¿Y cómo lo tramitemos es otra película?
+
+785
+00:37:24,660 --> 00:37:27,760
+Que si no se confronta a Joachim como uno de nuestro equipo.
+
+786
+00:37:28,640 --> 00:37:29,800
+Bien, no hay problema.
+
+787
+00:37:30,400 --> 00:37:33,440
+Pero a mí el cómo lo gestionemos es otra fase.
+
+788
+00:37:37,980 --> 00:37:44,560
+Es como cuando tú tienes tu capacidad de ingeniería hasta un punto y necesitas subcontratar.
+
+789
+00:37:44,760 --> 00:37:51,860
+Como el tema del mercantil, el tema jurídico mercantil, pues tú y yo podemos hablar bastante
+
+790
+00:37:51,860 --> 00:37:55,440
+porque yo no tengo bastante conocimiento, pero cuando hayan que trabajar una cosa concreta,
+
+791
+00:37:55,860 --> 00:37:59,960
+tiraremos de la abogada, claro, apresentaremos con nuestra abogada.
+
+792
+00:38:00,620 --> 00:38:10,940
+No hay problema. Yo no quiero generar falsas expectativas y yo creo que hoy en día la figura de un facilitador
+
+793
+00:38:11,480 --> 00:38:17,960
+es que también crearnos que nosotros dos aborcamos tanto el campo y que somos expertos en todo es difícil.
+
+794
+00:38:19,180 --> 00:38:21,720
+Si tenemos que tener una red de colaboradores es mucho más fácil.
+
+795
+00:38:21,860 --> 00:38:24,220
+Claro, pero tú tienes que mostrar ese conocimiento.
+
+796
+00:38:24,360 --> 00:38:24,640
+Sí.
+
+797
+00:38:24,640 --> 00:38:26,360
+Sí, sí. Es una cosa de diferencia.
+
+798
+00:38:26,440 --> 00:38:28,080
+Una cosa es que seas capaz de gestionarlo
+
+799
+00:38:28,580 --> 00:38:30,820
+y otra cosa es que sepas capaz de entender
+
+800
+00:38:30,820 --> 00:38:31,600
+de lo que estás hablando.
+
+801
+00:38:32,380 --> 00:38:34,760
+Pero que no tenemos que tener el conocimiento
+
+802
+00:38:34,760 --> 00:38:36,640
+que tú tienes comercial
+
+803
+00:38:37,180 --> 00:38:39,680
+en el resto de patas, no lo vamos a tener.
+
+804
+00:38:40,160 --> 00:38:41,560
+Ni el conocimiento que yo tengo financiero
+
+805
+00:38:41,560 --> 00:38:42,900
+en el resto de patas, no lo vamos a tener.
+
+806
+00:38:43,320 --> 00:38:45,260
+Pero sí que tenemos potentes colaboradores
+
+807
+00:38:45,260 --> 00:38:49,000
+que son expertos en lo que vamos a trabajar.
+
+808
+00:38:50,980 --> 00:38:52,920
+Yo me siento capaz de hablar de ayudas
+
+809
+00:38:54,640 --> 00:38:57,640
+pero a la hora de trabajarlas y tramitarlas, hay gente mejor que yo.
+
+810
+00:38:58,360 --> 00:39:02,500
+Yo me siento capaz de hablar de temas mercantiles, mucho,
+
+811
+00:39:02,840 --> 00:39:04,860
+no tengo hasta las ideas, pero mucho, porque me ha tocado.
+
+812
+00:39:07,500 --> 00:39:08,680
+¿Tienes un ejemplo?
+
+813
+00:39:09,280 --> 00:39:11,360
+En la reunión que estábamos, Diego, yo en tu día.
+
+814
+00:39:14,160 --> 00:39:17,760
+Diego sabe que existen esas empresas, como la sabe cualquier otra empresa.
+
+815
+00:39:18,140 --> 00:39:19,760
+Yo puedo generar esas expectativas.
+
+816
+00:39:19,760 --> 00:39:20,620
+Pero son una barrera.
+
+817
+00:39:20,620 --> 00:39:24,420
+Es decir, coño, este tío controlado, entonces, vamos a tirar de eso.
+
+818
+00:39:25,020 --> 00:39:29,820
+O sea, esas consultoras, por su alto nivel...
+
+819
+00:39:29,820 --> 00:39:30,400
+Especialización.
+
+820
+00:39:30,940 --> 00:39:34,560
+...tecnológico, o no sé cómo llamarlo, especialización en su sector,
+
+821
+00:39:34,980 --> 00:39:38,120
+son una barrera, incluso en el idioma, el lenguaje que se usa.
+
+822
+00:39:38,780 --> 00:39:44,940
+Entonces, para un empresario, no ducho en esas áreas, es una barrera.
+
+823
+00:39:44,960 --> 00:39:47,660
+A ese punto de vista, sí. Yo hago de tránsito perfectamente.
+
+824
+00:39:47,660 --> 00:39:54,640
+Claro, o sea, no es ninguna tontería, porque él no puede, y tú lo decías, él no puede estar yendo a 20 puertas.
+
+825
+00:39:56,680 --> 00:39:57,560
+Me puede ni debe.
+
+826
+00:39:58,840 --> 00:39:59,880
+Me puede ni debe.
+
+827
+00:40:00,460 --> 00:40:02,360
+Que por lo menos pasa de lo mismo en el tema jurídico.
+
+828
+00:40:02,960 --> 00:40:07,440
+Cuando a mí me detecto esa necesidad que tienen, que no me la dicen, pero a veces lo normal en el minuto dos,
+
+829
+00:40:08,500 --> 00:40:10,420
+con el que yo no voy a ser quien le organize.
+
+830
+00:40:10,780 --> 00:40:11,640
+No vas a hacer el contrato.
+
+831
+00:40:12,220 --> 00:40:15,860
+Pero sí que es que tengo la esperta con la que he trabajado.
+
+832
+00:40:17,760 --> 00:40:26,860
+problema en media hora. Eso es, pues esa barrera es la que salgamos. Yo necesito interrobutar
+
+833
+00:40:26,860 --> 00:40:32,700
+estar con el contigo para que tengamos claro nuestro campo y donde creo que tenemos que
+
+834
+00:40:32,700 --> 00:40:38,660
+apoyarnos. Sí, yo comparto, además creo, te lo dije, creo en el Uber, es decir, tú
+
+835
+00:40:38,660 --> 00:40:44,660
+creas una estructura y satélites. Tú eres el core, tú eres el que mueve la pelota,
+
+836
+00:40:44,660 --> 00:40:53,100
+tú, sin ti, eso no tiene trazabilidad, porque son islas aisladas de difícil acceso y además
+
+837
+00:40:53,100 --> 00:40:57,420
+que exige dedicar mucho tiempo y contigo eso es fácil.
+
+838
+00:40:58,260 --> 00:41:03,600
+Sí, algunos que tenemos en nuestra experiencia profesional tenemos muchos contactos y tenemos
+
+839
+00:41:03,600 --> 00:41:04,840
+muchas donde apoyarnos.
+
+840
+00:41:06,640 --> 00:41:06,800
+Vale.
+
+841
+00:41:08,980 --> 00:41:13,600
+Vale, yo sí que tengo una, en esto que has dicho todo, de las ayudas un poco más generales
+
+842
+00:41:13,600 --> 00:41:19,680
+de competitividad y hacer que las empresas se mejoren, ¿dónde puedo, o sea, esas informaciones
+
+843
+00:41:19,680 --> 00:41:23,940
+están también en ayudas de gobierno de Navarra, en industria estatal y en industria europea
+
+844
+00:41:23,940 --> 00:41:24,860
+y en contra de la información?
+
+845
+00:41:25,100 --> 00:41:32,360
+Sí, y tú las ayudas de gobierno de Navarra, evidentemente, acotale, porque si te saldrán
+
+846
+00:41:32,360 --> 00:41:33,580
+de agricultura...
+
+847
+00:41:33,580 --> 00:41:34,820
+Vale, y eso es, ¿y cómo se acotan?
+
+848
+00:41:36,880 --> 00:41:48,460
+Hay ideas para la industria, va, va, o pimes, hace una consulta de la industria y otra de pimes, va, va.
+
+849
+00:41:49,000 --> 00:41:51,940
+Porque lo que yo estoy pensando y ahora en el proyecto de Diego...
+
+850
+00:41:51,940 --> 00:42:00,220
+Y si te vas, y si te vas a decir que te suelta no te aguantas movidas, pimes no agrícolas, o pimes no total, o pimes industriales con...
+
+851
+00:42:00,220 --> 00:42:01,800
+A lo que te quieras dedicar a...
+
+852
+00:42:02,400 --> 00:42:09,420
+No, la idea es hacer un buen caso de éxito, que es enjecar y con el conocimiento ya veremos.
+
+853
+00:42:10,300 --> 00:42:12,740
+Sí, lo que pasa es que todo solo tienes que consultar pero en Cataluña.
+
+854
+00:42:14,600 --> 00:42:17,960
+Debo ver una barra en Cataluña, a no ser que decidimos implantarla aquí.
+
+855
+00:42:20,140 --> 00:42:22,420
+¿Quieres hablar más de ayudas?
+
+856
+00:42:23,920 --> 00:42:26,980
+Si tú y yo antes, ¿estás satisfecho con lo que hemos hablado?
+
+857
+00:42:27,440 --> 00:42:30,900
+¿Crees que algo nos ha dejado alguna cosa importante?
+
+858
+00:42:32,680 --> 00:42:36,400
+No, luego hay que ver cada uno de...
+
+859
+00:42:36,400 --> 00:42:38,080
+El clausulado de cada paquete.
+
+860
+00:42:38,320 --> 00:42:40,260
+Claro, porque luego...
+
+861
+00:42:40,260 --> 00:42:43,140
+y conocer las necesidades del propio cliente.
+
+862
+00:42:43,360 --> 00:42:45,380
+Es decir, en este caso que es el cariño, tú ya las tienes claras.
+
+863
+00:42:45,980 --> 00:42:46,960
+Y yo creo que también.
+
+864
+00:42:47,360 --> 00:42:49,600
+Entonces ya podemos ir a buscar esas ayudas muy concretamente.
+
+865
+00:42:52,200 --> 00:42:59,700
+La decisión va a estar en IngeCar, que va a buscarlo, si en Cataluña las ayudas y la
+
+866
+00:42:59,700 --> 00:43:04,800
+pata de IngePro, a ver si la hacemos aquí o la hacemos allí, y entonces veremos si la
+
+867
+00:43:04,800 --> 00:43:15,280
+pudimos ayudar allí o aquí, y no hay otras cosas que no son ayudas per se, pero sí que
+
+868
+00:43:17,540 --> 00:43:18,580
+¿Fuentes de financiación?
+
+869
+00:43:21,880 --> 00:43:22,960
+¿Cómo puedes ir en Issa?
+
+870
+00:43:23,620 --> 00:43:25,800
+¿En Issa entrate a la web?
+
+871
+00:43:28,140 --> 00:43:29,780
+Entra en Issa a la web.
+
+872
+00:43:30,760 --> 00:43:32,560
+¿En Issa es lo que me mandaste el otro día, no?
+
+873
+00:43:37,260 --> 00:43:38,000
+Hace poco no.
+
+874
+00:43:39,700 --> 00:43:41,720
+Ah, no, Ibernova. Me pasaste a Ibernova.
+
+875
+00:43:41,840 --> 00:43:43,500
+Eso es una de...
+
+876
+00:43:43,500 --> 00:43:45,500
+Ya se arruinó.
+
+877
+00:43:52,500 --> 00:43:54,500
+Ya se arruinó.
+
+878
+00:44:01,120 --> 00:44:03,280
+Fijaos que tu pide certificar que costa.
+
+879
+00:44:13,860 --> 00:44:15,600
+Aquí ya ha estado yo, esto no lo ha pasado.
+
+880
+00:44:17,160 --> 00:44:19,880
+Te lo habría pasado antes, por eso tengo que verlo últimamente, pero antes sí.
+
+881
+00:44:22,280 --> 00:44:23,700
+Ahí tienes dos patas.
+
+882
+00:44:24,520 --> 00:44:29,020
+Certificación, es que te certificas como empresa emergente y no se mantiene sé qué,
+
+883
+00:44:29,660 --> 00:44:33,760
+que eso sí, ya lo haremos y hacemos una nueva y otras en la financiación.
+
+884
+00:44:35,820 --> 00:44:38,020
+Y aquí puso podría financiarse sin GECAR.
+
+885
+00:44:39,220 --> 00:44:47,840
+Tanto, y entonces baja un poco, financiación, starrap y pymes, pero estamos en garantías
+
+886
+00:44:48,420 --> 00:45:00,640
+de 25 a 1,5 mil, y baja un poco, creo que es que hay tres partes con los dos camionales,
+
+887
+00:45:00,640 --> 00:45:10,800
+es que han cambiado un poco la web, estos, los programas, estas, emprendedores, este
+
+888
+00:45:10,800 --> 00:45:22,180
+sería el inicial si hacemos la nueva, ah, emprendedora, perdón, me ha dicho de patrón
+
+889
+00:45:22,180 --> 00:45:27,180
+que estos son mujeres, financiación de esta financiera.
+
+890
+00:45:37,180 --> 00:45:39,340
+Ve que hay que conocer detalles.
+
+891
+00:45:44,600 --> 00:45:45,400
+Aja abajo.
+
+892
+00:46:01,900 --> 00:46:10,380
+esto es entrar en prestar, bueno, todo esto, yo me lo sé de memoria, o sea, las dudas que puedas tener aquí, te las resolvo, las que necesites.
+
+893
+00:46:12,400 --> 00:46:14,560
+Pasamente eran tres bloques que no lo estoy viendo.
+
+894
+00:46:16,180 --> 00:46:26,140
+Uno era de nueva creación y otro era de crecimiento. La nueva creación va hasta el tope de 150.000 y la de crecimiento es lo que va hasta el millón y medio.
+
+895
+00:46:32,880 --> 00:46:38,440
+Pero esto ya veo que ha sacado más líneas como las integridades digitales, como el
+
+896
+00:46:38,440 --> 00:46:43,380
+ahora el punso, como no sé qué, también les van dando cada vez más pasta, que esto
+
+897
+00:46:43,380 --> 00:46:44,500
+depende del ministro de Industria.
+
+898
+00:46:46,360 --> 00:46:49,960
+¿Cuál es la información clave que hay que capturar de estas páginas web?
+
+899
+00:46:50,440 --> 00:46:55,660
+O sea, de estas propostas de financiación, es decir, ¿qué son los datos clave para
+
+900
+00:46:55,660 --> 00:46:59,700
+tenerlos en una checklist que necesitamos capturar?
+
+901
+00:47:00,620 --> 00:47:01,740
+¿Cuáles son los datos clave?
+
+902
+00:47:01,800 --> 00:47:03,680
+¿Lo clave para la hora de presentarse?
+
+903
+00:47:03,880 --> 00:47:05,240
+No, para ver qué hay.
+
+904
+00:47:05,260 --> 00:47:07,400
+Para identificar qué hay.
+
+905
+00:47:07,600 --> 00:47:08,960
+Para saber qué...
+
+906
+00:47:10,580 --> 00:47:10,980
+¿Valores?
+
+907
+00:47:11,520 --> 00:47:13,960
+¿El valor? ¿Los intereses? ¿Las carencias?
+
+908
+00:47:15,060 --> 00:47:16,200
+Ah, de los préstamos.
+
+909
+00:47:16,520 --> 00:47:16,680
+Sí.
+
+910
+00:47:17,000 --> 00:47:18,260
+¿Lo ves rápido, eh?
+
+911
+00:47:19,100 --> 00:47:20,120
+Sí, pero por documentarlo.
+
+912
+00:47:20,460 --> 00:47:22,380
+Es decir, si yo te doy algo a ti,
+
+913
+00:47:22,580 --> 00:47:24,300
+si yo te tengo que entregar a ti un resumen
+
+914
+00:47:24,300 --> 00:47:26,040
+de lo que hay en el mercado,
+
+915
+00:47:26,600 --> 00:47:28,340
+¿qué datos tu necesitas visualizar?
+
+916
+00:47:28,340 --> 00:47:29,940
+Para explicarle a un cliente...
+
+917
+00:47:29,940 --> 00:47:32,680
+Para que tú sepas decir esta es la mejor.
+
+918
+00:47:36,140 --> 00:47:39,540
+A ver, si estamos analizando un cliente para yo reconducirla...
+
+919
+00:47:39,540 --> 00:47:45,740
+Si estamos analizando ofertas de organismos en cuanto a financiación,
+
+920
+00:47:46,180 --> 00:47:49,720
+¿cuáles son los datos que te hacen a ti comparar a esos organismos?
+
+921
+00:47:50,720 --> 00:47:53,980
+O esas ofertas de crédito.
+
+922
+00:47:53,980 --> 00:47:56,980
+Vale, este lo único que se ha compagado es con sodena.
+
+923
+00:48:02,080 --> 00:48:04,560
+Porque esto no es una ayuda, esto es un préstamo, esto es financiación.
+
+924
+00:48:05,860 --> 00:48:10,940
+Y sodena, dentro de las patas que tiene de ayuda, es una de ellas también.
+
+925
+00:48:12,520 --> 00:48:14,720
+La sodena colabora con la economía.
+
+926
+00:48:16,020 --> 00:48:19,840
+A veces se apoyan para entrar en el mismo proyecto.
+
+927
+00:48:20,640 --> 00:48:31,460
+porque se siente más cómoda si hay una está y la otra. A veces los financiadores no quieren
+
+928
+00:48:31,460 --> 00:48:37,380
+estar solos con el emprendedor porque es más riesgo. Si, comparten. El emprendedor normalmente
+
+929
+00:48:37,380 --> 00:48:43,420
+está con una mano delante y otra detrás y si el emprendedor va, pues hay que echar y está
+
+930
+00:48:43,420 --> 00:48:50,720
+solo si le toca a ti. Contra el prendedor que no puede echar, entonces cuantos más financiadores hayas,
+
+931
+00:48:51,420 --> 00:48:59,400
+también las follow-up, que se llama, echas a porcentaje de lo que esté carajo.
+
+932
+00:49:03,940 --> 00:49:13,220
+Y ya pasamos de tema y pasamos a los dos conceptos de empresa, el que dice Diego y el nuestro.
+
+933
+00:49:19,640 --> 00:49:25,100
+Vale, por dónde quieres empezar? Por la idea de la empresa de Diego.
+
+934
+00:49:26,880 --> 00:49:28,580
+vamos a ver que igual es más fácil
+
+935
+00:49:34,080 --> 00:49:40,940
+bueno digo lo que lo que tiene en mente es hacer una nueva empresa que gestione los servicios
+
+936
+00:49:41,800 --> 00:49:50,560
+él entiende que el motor de los equipos es la herramienta por la cual se gestiona los servicios
+
+937
+00:49:51,680 --> 00:49:57,700
+entonces aprovechando que hay que hacer esa herramienta y que esa herramienta es la que
+
+938
+00:49:57,700 --> 00:50:09,300
+tracciona, contiene, genera y es el motor generador de esas ventas de servicio esos
+
+939
+00:50:09,300 --> 00:50:14,020
+productos de servicio pues él quiere llevarlo aparte y entonces él ahí es donde está con la
+
+940
+00:50:14,020 --> 00:50:23,500
+muy abierta, de buscar la mejor manera de hacerla limpia. Pero limpia, es decir, el
+
+941
+00:50:23,500 --> 00:50:31,260
+lín, creo que en la medida en que quiere que lo traccione yo contigo, es porque
+
+942
+00:50:31,260 --> 00:50:36,280
+él ha visto que tiene muchos errores de base, que ha ido creando en su vida y lo
+
+943
+00:50:36,280 --> 00:50:42,160
+que haga lo quiere hacer bien, bien estructurado de inicio. Y entonces es ahí
+
+944
+00:50:44,120 --> 00:50:50,500
+brutal, a generar algo limpio y que sea escalable a donde tenga que ser, ¿vale?
+
+945
+00:50:50,900 --> 00:50:54,540
+Entonces, a partir de ahí, ¿cómo hacemos, cómo son los primeros pasos que
+
+946
+00:50:54,540 --> 00:50:59,140
+tenemos que analizar, cómo tenemos que... ¿qué tienes en la cabeza?
+
+947
+00:51:00,300 --> 00:51:04,860
+Lo primero que tiene que ser es quién va a estar en esta empresa, qué socio va a
+
+948
+00:51:04,860 --> 00:51:12,220
+haber, porque depende de los socios que vaya a ver, hay un pacto de socios o no, y una forma
+
+949
+00:51:14,020 --> 00:51:26,960
+Es decir, quien va a gestionar, va a haber un consejo de administración, va a haber un administrador o varios, y entonces son solidarios o mancomunados...
+
+950
+00:51:26,960 --> 00:51:33,980
+Te lo digo al revés, tú que tienes la idea más clara, a calzón quitado tú como lo hayas.
+
+951
+00:51:34,540 --> 00:51:40,860
+Estamos tú y yo, o sea, tú mentalmente cuál sería para ti la estructura o la forma correcta de hacerlo.
+
+952
+00:51:44,020 --> 00:51:55,540
+Yo puedo poner la estructura, pero tengo que saber qué es lo que quiere el promotor de la idea, es decir, digo que quiere.
+
+953
+00:51:57,000 --> 00:52:02,920
+¿Quieres ser una empresa única suya de él y nosotros somos asesores y estamos con él?
+
+954
+00:52:03,240 --> 00:52:06,800
+No, creo que le gustaría tener socios.
+
+955
+00:52:06,820 --> 00:52:07,640
+¿Quieres tener socios?
+
+956
+00:52:07,760 --> 00:52:08,280
+Yo creo que sí.
+
+957
+00:52:10,080 --> 00:52:13,120
+Y ahora yo te pregunto, ¿y tú qué escenario precieres?
+
+958
+00:52:14,380 --> 00:52:18,360
+Yo necesito saber que se está montando para saber, voy a estar aquí, voy a estar allí.
+
+959
+00:52:18,480 --> 00:52:19,140
+Él está abierto.
+
+960
+00:52:20,120 --> 00:52:20,480
+Vale.
+
+961
+00:52:21,220 --> 00:52:25,060
+Dentro de los socios, unas cosas son socios expertos, como tú y yo, en cosas.
+
+962
+00:52:25,800 --> 00:52:26,200
+Sí.
+
+963
+00:52:26,600 --> 00:52:29,620
+Y otras cosas, socios capitalistas que pongan pasta.
+
+964
+00:52:29,980 --> 00:52:30,380
+No quiere.
+
+965
+00:52:31,780 --> 00:52:34,020
+Es lo que quiere, es un nucleo duro de confianza.
+
+966
+00:52:34,980 --> 00:52:42,520
+Bien, ahí podemos ir los dos, pero no quiere porque entendemos todos que no va a necesitar
+
+967
+00:52:42,520 --> 00:52:43,320
+esta empresa mucho capital.
+
+968
+00:52:43,540 --> 00:52:44,540
+No, efectivamente.
+
+969
+00:52:45,400 --> 00:52:48,040
+Porque si se utiliza capital, por mucho que nos guida, hay que buscarlo.
+
+970
+00:52:48,140 --> 00:52:54,060
+Pero yo creo que no requiere de mucho capital, es una empresa que podría empezar a facturar
+
+971
+00:52:54,060 --> 00:52:54,480
+en meses.
+
+972
+00:52:54,980 --> 00:52:55,960
+Vale, ok.
+
+973
+00:52:56,480 --> 00:52:58,700
+Hacemos la empresa de los tres, ¿qué porcentajes?
+
+974
+00:53:00,200 --> 00:53:02,860
+¿Qué parte de dueño somos cada uno?
+
+975
+00:53:06,380 --> 00:53:10,460
+Eso es a negociar, pero conceptualmente en la empresa como sería.
+
+976
+00:53:10,680 --> 00:53:20,340
+Depende de eso, van a depender los restos de cosas, es decir, los partos de socios, van a depender los poderes que hay en la compañía.
+
+977
+00:53:21,800 --> 00:53:27,940
+a nosotros que nos interesa ser socios de externos, que él cree la empresa y nosotros
+
+978
+00:53:27,940 --> 00:53:31,560
+estar de alguna manera en paralelo, o estar dentro.
+
+979
+00:53:33,440 --> 00:53:40,540
+¿Dentro que te refieres? O sea, a mí, si somos socios, la cubrada no lo vamos a llevar
+
+980
+00:53:40,540 --> 00:53:47,760
+tuyo. Y él va a estar ahí, aparte, siendo socio, pero nosotros to' la cubrada inicial.
+
+981
+00:53:47,760 --> 00:53:51,360
+Sí. Pero la facturación también nos la da él.
+
+982
+00:53:52,360 --> 00:53:55,140
+Sí, sí. Estoy hablando de fases. Sí, sí, sí.
+
+983
+00:53:55,160 --> 00:53:56,040
+Sí, sí, sí. Sí.
+
+984
+00:53:56,420 --> 00:53:58,940
+A ver, si vamos con él y hacemos... te la acuerdas,
+
+985
+00:53:59,060 --> 00:54:03,420
+porque luego nos va a llegar el retorno, porque él va a traer los clientes
+
+986
+00:54:03,420 --> 00:54:08,560
+o va a traer el enganche con el cliente,
+
+987
+00:54:08,720 --> 00:54:11,180
+porque él le va a decirme, te duele esto,
+
+988
+00:54:11,260 --> 00:54:13,780
+y yo te planteo una solución así, tal y cual,
+
+989
+00:54:14,800 --> 00:54:17,700
+contigo, que tú también comercialmente ahí
+
+990
+00:54:17,700 --> 00:54:19,520
+claro, claro, sí, sí, yo cuando digo él
+
+991
+00:54:19,520 --> 00:54:22,640
+yo tengo con él una pata de que yo trabajo para él
+
+992
+00:54:22,640 --> 00:54:24,480
+y yo gestino esa parte, pero esa parte
+
+993
+00:54:26,460 --> 00:54:29,100
+a nosotros conceptualmente que nos interesa
+
+994
+00:54:29,100 --> 00:54:31,560
+generar una sociedad con participación
+
+995
+00:54:31,560 --> 00:54:33,120
+pero ahí sí que...
+
+996
+00:54:35,900 --> 00:54:36,860
+o simplemente...
+
+997
+00:54:36,860 --> 00:54:38,780
+ahí sí que vaya a estar los dos
+
+998
+00:54:41,080 --> 00:54:47,980
+A ver si me explico. Como estáis cobrando de Ijecarros 2, vais a echar aquí unas horas,
+
+999
+00:54:48,840 --> 00:54:53,420
+porque estáis tranquilos, aquí estáis cobrando en el otro lado. Llega al retorno cuando te
+
+1000
+00:54:53,420 --> 00:54:59,040
+que llegar, pero estáis cobrando de INGECAR, ahí sí que pueda haber una
+
+1001
+00:55:03,260 --> 00:55:04,820
+duda ética de decir, joder
+
+1002
+00:55:08,660 --> 00:55:12,240
+no estoy cobrando de INGECAR porque estoy de hecho de volver a INGECAR y estoy
+
+1003
+00:55:12,240 --> 00:55:16,700
+metiendo unas horas que corresponde a mi remuneración, aquí estoy por mi cuenta
+
+1004
+00:55:16,700 --> 00:55:21,080
+de mis horas libres entre comillas, aunque estáis utilizando todo el conocimiento
+
+1005
+00:55:21,080 --> 00:55:30,340
+de Ingecar en cuanto al menos clientes, etcétera. Pero en esa casa le vas a llamar Inge. Bueno,
+
+1006
+00:55:30,520 --> 00:55:36,880
+lo coste eso ahora, no es, o sea, le poste. Para entendernos a nivel conceptual, esto es un
+
+1007
+00:55:36,880 --> 00:55:45,600
+concepto. A ver, a mí conceptualmente sí que me encaja en que tú cuando estás lanzando un
+
+1008
+00:55:45,600 --> 00:55:54,280
+proyecto, tienes unos costes. Entonces, en esos costes, como bien dices, hay una currada
+
+1009
+00:55:54,880 --> 00:56:02,920
+y nosotros, como esa currada, de alguna manera, cae sobre el beneficio de UGK futuro, pues
+
+1010
+00:56:02,920 --> 00:56:07,920
+esto realmente no sería día de un coste, sería una sinergia. Y entonces, aquí estaría
+
+1011
+00:56:07,920 --> 00:56:21,240
+la parte del coste puro y duro de la parte tuya de recalzar yo aquí no creo que al principio no
+
+1012
+00:56:21,240 --> 00:56:25,180
+haber claro pero sí que podemos tener una financiación y podemos dar un sueldo
+
+1013
+00:56:30,700 --> 00:56:33,640
+Pregunto. Es difícil. Es mejor que lo financiese yo.
+
+1014
+00:56:34,560 --> 00:56:36,720
+¿Y qué es tu idea? Pues que no voy a cobrar.
+
+1015
+00:56:37,200 --> 00:56:44,300
+A éxito, cuando haya dinero lo cobraré. Porque es que ir a no ser que vayamos por
+
+1016
+00:56:44,300 --> 00:56:53,900
+este tipo de cosas, porque planteemos un proyecto creíble y entonces esta gente entra en financia
+
+1017
+00:56:55,300 --> 00:57:03,480
+pero te va a pedir que al menos creo que el 50% de lo que te van a dar lo pongas como capital
+
+1018
+00:57:04,120 --> 00:57:11,560
+es decir, si tú pides 100.000 libros te van a pedir que haya 50.000, esto es entrar sin garantías
+
+1019
+00:57:11,560 --> 00:57:22,380
+pero quieren que haya priorito y que haya gente que se moja. Yo trae Sodenal que se va a
+
+1020
+00:57:22,380 --> 00:57:27,060
+Ha ayudado a instalar, claro, se ha ayudado a instalar cosas grandes.
+
+1021
+00:57:28,720 --> 00:57:31,100
+Vale, vamos a hacer ese concepto en cuenta por ciento...
+
+1022
+00:57:31,100 --> 00:57:33,360
+Trae a los chinos, no sé quién entra, no sé cuál.
+
+1023
+00:57:34,780 --> 00:57:36,660
+Vale, pero yo creo que esto es explodable.
+
+1024
+00:57:37,480 --> 00:57:38,740
+Yo creo que esto es explodable.
+
+1025
+00:57:39,760 --> 00:57:41,940
+El trasero de los bancos, que los bancos...
+
+1026
+00:57:41,940 --> 00:57:45,420
+Le pidas lo que le pidas, están decididos, garantías a varias.
+
+1027
+00:57:46,400 --> 00:57:46,660
+Vale.
+
+1028
+00:57:48,420 --> 00:57:50,060
+Pero yo creo que esto sí que es explodable.
+
+1029
+00:57:50,060 --> 00:58:00,300
+Pero el esquema sería una situación de socios donde se pide una financiación para poder
+
+1030
+00:58:00,300 --> 00:58:12,180
+generar la estructura y los productos y servicios que esa nueva empresa va a ofrecer y esos
+
+1031
+00:58:12,180 --> 00:58:25,200
+costes de desarrollo, esos productos y servicios y esos costes de desarrollo de productos y
+
+1032
+00:58:25,200 --> 00:58:32,920
+servicios hay que pagarlos y ese desarrollo tiene un nombre y eres tú. Más los auxiliares
+
+1033
+00:58:32,920 --> 00:58:37,900
+que hace falta, pero esos ya no estarían dentro de la participación.
+
+1034
+00:58:37,900 --> 00:58:38,420
+No.
+
+1035
+00:58:38,700 --> 00:58:40,960
+Un esquema así encaja.
+
+1036
+00:58:41,420 --> 00:58:41,900
+Sí, sí.
+
+1037
+00:58:42,320 --> 00:58:46,360
+Oye, por eso de trabajar, pues es decir, tres socios, ¿qué porcentaje cada uno?
+
+1038
+00:58:46,840 --> 00:58:52,660
+Por tanto, ya sabemos quién tiene el control, porque puede decir, digo, me asocié con vosotros,
+
+1039
+00:58:52,840 --> 00:58:53,480
+pero yo tengo el control.
+
+1040
+00:58:54,280 --> 00:58:55,400
+Y además, pone la cifra.
+
+1041
+00:58:55,640 --> 00:58:57,640
+Pues no hay ningún problema, entonces somos unos participantes.
+
+1042
+00:58:57,880 --> 00:58:59,940
+El 51, el 60, o lo que diga.
+
+1043
+00:59:00,380 --> 00:59:05,760
+Ah, yo en el entonces, tú y yo como minoritarios, tenemos que, en el pacto de socios, cubrimos
+
+1044
+00:59:05,760 --> 00:59:17,840
+de ciertas cosas, porque hay puntos de decisión en los que debiríamos olvidar a que uno de
+
+1045
+00:59:17,840 --> 00:59:25,080
+los dos esté a favor, es decir, ampliaciones de capital, venta desde unidades productivas.
+
+1046
+00:59:27,020 --> 00:59:35,720
+Sí, que no pueda decidir el autónoma 90. No todo, no todo. Lo que se llama es no mayorías
+
+1047
+00:59:35,720 --> 00:59:43,700
+cualificadas, es decir. Sí, sí, entendí. Se necesita un, si él tiene imagínate, el
+
+1048
+00:59:43,700 --> 00:59:50,720
+60%, pues se necesita un 75% para estas decisiones, entonces no respetemos en eso. Vale, información
+
+1049
+00:59:50,720 --> 00:59:53,920
+formación de ayudas y financiación pasté tipo de empresas, ¿dónde miro?
+
+1050
+00:59:55,960 --> 00:59:57,180
+Para recar.
+
+1051
+00:59:57,420 --> 00:59:59,060
+Sí, para informarme.
+
+1052
+00:59:59,400 --> 01:00:01,040
+Pues tienes...
+
+1053
+01:00:01,720 --> 01:00:02,960
+Tercedeti, Enisa,
+
+1054
+01:00:07,260 --> 01:00:07,960
+Sodena...
+
+1055
+01:00:07,960 --> 01:00:13,100
+Vale, esto lo hablamos contigo, ¿vale?
+
+1056
+01:00:13,840 --> 01:00:14,080
+Vale.
+
+1057
+01:00:18,180 --> 01:00:18,880
+Nosotros...
+
+1058
+01:00:20,720 --> 01:00:28,860
+Mi idea es, incluso nosotros podríamos entrar aquí como un conjunto y no por separado, ¿vale?
+
+1059
+01:00:29,060 --> 01:00:30,520
+Sí, podemos tener las...
+
+1060
+01:00:30,520 --> 01:00:32,980
+Le llamo CTA y a veremos...
+
+1061
+01:00:32,980 --> 01:00:36,400
+Las acciones las podríamos tener si cada es tuyo.
+
+1062
+01:00:36,600 --> 01:00:37,120
+Eso es.
+
+1063
+01:00:37,380 --> 01:00:40,400
+Pero a B3 tampoco...
+
+1064
+01:00:40,400 --> 01:00:45,180
+Entonces, yo mi idea es hacer una empresa
+
+1065
+01:00:47,780 --> 01:00:58,920
+que aproveche el trabajo que vamos a hacer en los próximos meses para nuevos clientes y ofrecer
+
+1066
+01:00:58,920 --> 01:01:07,660
+esa estructura que tú decías de soportes y servicios a empresas pequeñas de dueño...
+
+1067
+01:01:15,170 --> 01:01:20,150
+Ahora ya vamos a la que a ti te tenía que querías dejar las cosas plazas, ¿vale?
+
+1068
+01:01:20,770 --> 01:01:25,290
+Y yo en esto, de verdad que creo, o sea, yo creo que...
+
+1069
+01:01:25,290 --> 01:01:30,770
+No nos ha de faltar 20 en GK, con encontrar 3 te matas.
+
+1070
+01:01:32,190 --> 01:01:33,690
+Y yo creo que podemos encontrar.
+
+1071
+01:01:35,530 --> 01:01:40,030
+Si llegaras a la profundidad de Edwin con Diego, con tres, cuatro te matas.
+
+1072
+01:01:40,230 --> 01:01:46,690
+Claro, y yo creo de verdad que jodé, que al caicimiento te lo digo de verdad, o sea,
+
+1073
+01:01:46,770 --> 01:01:48,350
+yo veo el lo que hay.
+
+1074
+01:01:48,610 --> 01:01:54,610
+Que sí, yo también, lo que pasa es que estoy tan apaleado, estoy tan apaleado.
+
+1075
+01:01:54,750 --> 01:01:56,030
+Bueno, o sea, con lo hecha de mi energía.
+
+1076
+01:01:56,410 --> 01:01:57,830
+Que sí, que estoy en ello.
+
+1077
+01:01:58,370 --> 01:02:00,210
+Que te animes ahí, que yo sé.
+
+1078
+01:02:00,210 --> 01:02:08,090
+esto y en ello pero que eso vas a traccionarlo tú con esa energía que tienes tú y el buscar ese
+
+1079
+01:02:08,090 --> 01:02:12,070
+yo te voy a acompañar lo que sea porque mi experiencia que tengo desde empezar a empezar
+
+1080
+01:02:12,070 --> 01:02:18,050
+hasta cerrarlas por desgracia o sea es brutal los contactos que tengo los conocimientos es brutal
+
+1081
+01:02:18,050 --> 01:02:26,390
+y entonces te voy a apoyar todo pero necesito rearmarme porque estoy escachado entonces no pasa nada
+
+1082
+01:02:26,390 --> 01:02:32,090
+no pasa nada yo lo que te digo es pero no tengo ni pasta para echar en ningún sitio no necesito
+
+1083
+01:02:32,090 --> 01:02:37,310
+nada yo lo que necesito es no quedarme parado y que me digas cómo voy haciendo los movimientos
+
+1084
+01:02:37,310 --> 01:02:43,510
+adecuados para que el día que sea el momento esté listo yo lo que te digo es yo te voy
+
+1085
+01:02:43,510 --> 01:02:51,050
+montando la estructura trabajando por semana eso para que me entiendas o sea aquí hay un trabajo
+
+1086
+01:02:51,050 --> 01:02:57,490
+primero. Sí, con tu y con Ana. Claro. ¿Puedo ver lo que te entendí? Eso. Hacemos ese trabajo de fondo
+
+1087
+01:02:57,930 --> 01:03:02,410
+hasta el momento que empecemos ya a hacer reuniones con cliente y a ofrecer el servicio porque ya
+
+1088
+01:03:02,410 --> 01:03:07,950
+estamos capacitados. Pero hay un trabajo de fondo. Necesito que me dirijas que lo haré yo con Ana
+
+1089
+01:03:07,950 --> 01:03:14,210
+y tú participas para lo que necesitemos que nos deshacería. Pero mi compromiso es que yo todo lo
+
+1090
+01:03:14,210 --> 01:03:23,130
+que lanzó en esta línea es contigo y el trabajo lo ponemos nosotros y entonces desde esta
+
+1091
+01:03:23,130 --> 01:03:31,770
+perspectiva qué acciones son las que hay que ir moviendo para preparar para preparar ese
+
+1092
+01:03:31,770 --> 01:03:41,250
+escenario de crear esa empresa a ver la creación de esta empresa ya tienes puedes hacer una
+
+1093
+01:03:41,250 --> 01:03:47,550
+sociedad civil, no deba hacer una sociedad, es mejor hacer una sociedad digital, porque
+
+1094
+01:03:47,550 --> 01:03:52,590
+ella tendrá su contabilidad parte y su tal y más cual, lo que otras tienen que tener
+
+1095
+01:03:53,290 --> 01:03:59,890
+un capital inicial mínimo, que se llama mínimo 3.000 euros, tendrá que tener unos estatutos,
+
+1096
+01:04:00,050 --> 01:04:04,670
+tendrá que tener lo mismo un parto de socios de tú y yo, yo tengo, yo hice una sociedad
+
+1097
+01:04:04,670 --> 01:04:14,390
+con mucho varias, con mi socio Daviano, al 50%, y hicimos hasta cómo íbamos a deshacerla,
+
+1098
+01:04:15,630 --> 01:04:24,670
+es decir, no hace falta discutir ni llevarnos mal para tú decir, oye, vamos a irnos a Andalucía,
+
+1099
+01:04:25,270 --> 01:04:30,030
+yo te lo teo, vamos a Andalucía, qué coño me voy a Andalucía, o de qué sí, qué tal,
+
+1100
+01:04:30,030 --> 01:04:34,950
+que cual. Llegó un momento que por decisiones estratégicas podemos discrepar no porque vayamos a
+
+1101
+01:04:34,950 --> 01:04:42,630
+reñir y entonces dice oye mira ese viaje pues no me siento capaz o no me siento no sé lo que sea
+
+1102
+01:04:42,630 --> 01:04:49,510
+no no lo veo y tú que sí que sí pues bueno entonces partimos peras cómo se parten peras
+
+1103
+01:04:49,510 --> 01:04:57,270
+pues llegamos hasta o tú me compras a mí o yo tengo para ti y eso es como se hace a sobrecerrao
+
+1104
+01:04:58,470 --> 01:05:02,470
+ante un notario, se deposita en los obres y yo ofrezco tanto y tú ofreces tanto.
+
+1105
+01:05:02,610 --> 01:05:04,270
+¿Quién se llega a la puesta? ¿Quién pone más?
+
+1106
+01:05:05,470 --> 01:05:06,630
+¿Ya está? ¿Por qué?
+
+1107
+01:05:07,050 --> 01:05:12,650
+Porque tenía más ganas de quedárselo y el otro sería satisfecho porque recibe más de lo que estaba dispuesto a la pagar.
+
+1108
+01:05:14,210 --> 01:05:14,530
+Sí, sí.
+
+1109
+01:05:14,830 --> 01:05:17,630
+No había oído nunca esa manera de...
+
+1110
+01:05:17,630 --> 01:05:18,490
+Por ejemplo, ir y mir.
+
+1111
+01:05:18,490 --> 01:05:26,090
+Eso es, entonces no hace tan ni discutir y llevarse mal, y entonces para mí también cerrar esas cosas cuando te estás llevando bien y estás creando
+
+1112
+01:05:27,870 --> 01:05:40,670
+joder, te tranquiliza, porque no estás en un momento de conflicto, ya sé, por tanto, te olvidas del conflicto y de partir peras y te centras en el medio y de la cuestión,
+
+1113
+01:05:40,930 --> 01:05:43,590
+en sacar el conflicto o el conflicto, no, en sacar adelante la empresa.
+
+1114
+01:05:46,370 --> 01:05:51,230
+SSL para poder ir a hacer presentaciones al cliente, que sea creíble.
+
+1115
+01:05:54,990 --> 01:05:55,950
+Te pregunto.
+
+1116
+01:05:57,170 --> 01:05:58,450
+¿Se puede crear una imagen?
+
+1117
+01:05:58,650 --> 01:06:04,410
+Una cosa es que sí puedes crear una imagen, y decir un logo, y decir un nombre, y decir un tal.
+
+1118
+01:06:05,290 --> 01:06:11,450
+Pero que allá detrás de algo jurídico, eso ya pasó nuestro.
+
+1119
+01:06:13,390 --> 01:06:18,190
+Hasta no empezar a ganar, y hasta las primeras facturaciones podrían ser como autónomos
+
+1120
+01:06:18,190 --> 01:06:18,670
+tuyo.
+
+1121
+01:06:19,890 --> 01:06:22,130
+En aquel momento no sé cómo estás tú, vas a estar autónomo, vas a estar autónomo.
+
+1122
+01:06:22,130 --> 01:06:24,130
+En principio tengo que decir que hago.
+
+1123
+01:06:25,970 --> 01:06:26,670
+Otra cosa.
+
+1124
+01:06:26,970 --> 01:06:40,450
+Si traemos tuyo en esta sociedad, no puedes ser por cuenta 100% porque al ser sucio como
+
+1125
+01:06:47,190 --> 01:06:54,610
+entonces, es una figura entre autónomo y igual cuenta general. Tienes que pagar te tú la Seguridad Social,
+
+1126
+01:06:54,750 --> 01:06:59,830
+cada uno de los que tenemos que pagar nuestra Seguridad Social, figuramos como autónomos, pero tenemos la nómina,
+
+1127
+01:07:00,710 --> 01:07:08,890
+pero una nómina en la que no va la Seguridad Social. Es un poco una cosa amistad, porque es así, no hay otra fórmula,
+
+1128
+01:07:08,890 --> 01:07:15,590
+es decir, os pones a tu mujer o a quien sea, pero si tú estás trabajando y tienes
+
+1129
+01:07:15,590 --> 01:07:22,690
+nómina y eres socio, no puede ser régimen general. Pero también podríamos dar asociación
+
+1130
+01:07:22,690 --> 01:07:30,070
+si tienes ganas de trabajador. Pero si tú eres socio, solo trabajaré ya, y tú y yo
+
+1131
+01:07:30,070 --> 01:07:36,930
+poco cobramos. Vale. ¿Eis un progúter? Solo estás esperando a repartir dividendos.
+
+1132
+01:07:38,890 --> 01:07:45,050
+fórmula, o sea, el accionista, si trabaja, cobrar por su trabajo y la remuneración de,
+
+1133
+01:07:45,370 --> 01:07:53,890
+o sea, otra cosa es que hay que tener claro. Una cosa es el socio, que te viene la condición
+
+1134
+01:07:53,890 --> 01:08:00,170
+de por tener participación de una sociedad y la remuneración de eso solo te va a venir
+
+1135
+01:08:00,170 --> 01:08:04,470
+cuando haya reparto de dividendos. No, pero ya me has dicho que la fluencia es socios trabajadores.
+
+1136
+01:08:04,470 --> 01:08:07,430
+Pero ahora voy más arriba.
+
+1137
+01:08:09,550 --> 01:08:13,130
+Tenemos que tener claro todos los que estamos en una sociedad
+
+1138
+01:08:13,850 --> 01:08:17,510
+que una cosa es la condición de socio y otra la de trabajador.
+
+1139
+01:08:18,250 --> 01:08:19,370
+Porque hay gente que mezcla.
+
+1140
+01:08:21,330 --> 01:08:23,590
+Y entonces tú tu revolución, no.
+
+1141
+01:08:25,090 --> 01:08:26,790
+Ni tú decides más que yo en el día a día
+
+1142
+01:08:27,850 --> 01:08:29,850
+porque tienes tus roles en partidos
+
+1143
+01:08:32,130 --> 01:08:38,790
+ni la propiedad de fideos y los trabajadores. Cuando nos reunimos a temas de propiedad o
+
+1144
+01:08:38,790 --> 01:08:45,150
+consejo o una junta general, temas estratégicos. Somos socios, pero cuando estamos en el día
+
+1145
+01:08:45,150 --> 01:08:53,250
+a día, por nuestro trabajo tenemos un salario y por nuestro error. Mezclar es peligroso en las
+
+1146
+01:08:53,250 --> 01:08:58,570
+estar bien las pymes y a veces la gente no tiene claro. Mi remuneración por el trabajo de ayer
+
+1147
+01:08:59,890 --> 01:09:05,390
+y es un salario, y una razón, y mi regulación como socios o bien que crezca la empresa
+
+1148
+01:09:05,390 --> 01:09:14,150
+y por tanto, el dinero que he puesto aquí, está creciendo seguradamente porque no lo
+
+1149
+01:09:14,150 --> 01:09:21,370
+ves ni hasta que no vendas o hasta que no vaya a entrar por tu primer socio que le digas
+
+1150
+01:09:21,370 --> 01:09:26,270
+mira, para darte un porcentaje de los equines, te voy a pedir 100.000 euros y tu has puesto
+
+1151
+01:09:28,250 --> 01:09:33,210
+¿Por qué? Porque ha habido una revalorización y entonces eso vale otra cosa, o sea, hasta ese momento
+
+1152
+01:09:35,430 --> 01:09:41,830
+el crecimiento del valor ha añadido que esté generando ahí del valor, no lo vas a ver hasta que no
+
+1153
+01:09:41,830 --> 01:09:50,950
+realices o por un reparto de dividendos, es decir, la empresa va generando, se cubren las reservas
+
+1154
+01:09:50,950 --> 01:09:55,030
+legales, las reservas gratuitarias, las reservas de re inversión si queremos, las igualdas de
+
+1155
+01:09:55,030 --> 01:09:57,950
+las que las que nos pongamos de colchones
+
+1156
+01:09:59,270 --> 01:10:01,390
+financiamos el crecimiento, financiamos no sé qué
+
+1157
+01:10:02,070 --> 01:10:05,230
+y oye que hay un incidente que porque cojones vamos a estar aquí
+
+1158
+01:10:05,230 --> 01:10:08,190
+porque nos repartimos, entonces ahí te repartas y vas a ser el porcentaje que tienes
+
+1159
+01:10:09,810 --> 01:10:12,510
+pero son conceptos que si mezclamos vamos mal
+
+1160
+01:10:13,230 --> 01:10:14,910
+hay que tenerlos claros desde el mismo momento
+
+1161
+01:10:14,910 --> 01:10:17,610
+lo que es la condición de socio y lo que es la condición de trabajador
+
+1162
+01:10:17,610 --> 01:10:23,110
+yo Enrique ahí eres el experto y como todos consejes
+
+1163
+01:10:25,030 --> 01:10:29,530
+Pero luego, en el día a día, a veces, si no estás claro...
+
+1164
+01:10:29,530 --> 01:10:32,650
+Pero ya has dicho que dejarlo claro incluso hasta la separación desde el principio.
+
+1165
+01:10:33,250 --> 01:10:35,150
+Sí, porque una cosa es...
+
+1166
+01:10:35,150 --> 01:10:38,090
+A ver, tú que vas a aportar aquí como trabajador, ¿no?
+
+1167
+01:10:38,470 --> 01:10:42,870
+Con su expertise, en las horas que queremos, o lo que sea.
+
+1168
+01:10:43,790 --> 01:10:45,930
+Y activar el porqué porcentaje tengo de socio.
+
+1169
+01:10:46,210 --> 01:10:48,310
+Si la empresa crece bien, crecerá mi valor.
+
+1170
+01:10:48,910 --> 01:10:52,350
+Y si se reparto de bien, recuperaré mi inversión,
+
+1171
+01:10:52,350 --> 01:10:54,150
+pero son cosas distintas
+
+1172
+01:10:54,150 --> 01:10:56,190
+no estamos en la periodidad
+
+1173
+01:10:56,190 --> 01:10:56,730
+estamos aquí
+
+1174
+01:10:57,350 --> 01:10:58,210
+vamos a hablar de estrategia
+
+1175
+01:10:58,210 --> 01:10:58,990
+vamos a juntarnos
+
+1176
+01:10:58,990 --> 01:11:00,070
+yo no sé qué
+
+1177
+01:11:00,670 --> 01:11:01,510
+porque claro
+
+1178
+01:11:01,510 --> 01:11:02,530
+aquí habrá que aprobar
+
+1179
+01:11:02,530 --> 01:11:04,270
+si nos vamos a financiar
+
+1180
+01:11:04,270 --> 01:11:05,190
+aquí habrá que aprobar
+
+1181
+01:11:05,190 --> 01:11:06,730
+si nos vamos a...
+
+1182
+01:11:06,730 --> 01:11:07,650
+cómo remuneramos aquí
+
+1183
+01:11:07,650 --> 01:11:09,150
+aquí habrá que aprobar
+
+1184
+01:11:09,150 --> 01:11:10,570
+si estamos en el consejo
+
+1185
+01:11:10,570 --> 01:11:12,450
+si tenemos remuneraciones consejeros
+
+1186
+01:11:12,450 --> 01:11:13,590
+aquí habrá que aprobar
+
+1187
+01:11:15,710 --> 01:11:16,450
+no sé
+
+1188
+01:11:16,450 --> 01:11:17,290
+los estatutos
+
+1189
+01:11:17,290 --> 01:11:18,490
+claro y luego aquí
+
+1190
+01:11:18,490 --> 01:11:20,910
+vamos a dar poderes para el día a día
+
+1191
+01:11:22,350 --> 01:11:32,310
+Y los tres como solidariamente, que es que cualquiera de los tres puede hacer lo que sea, porque tiene firma, o mancomunadamente, que al menos de los tres, dos, firme.
+
+1192
+01:11:33,650 --> 01:11:40,070
+Bueno, pues eso, en las propias entidades financieras, hay que dejar eso claro porque te van a dejar operar las cuentas en base a lo que tú ya has decidido.
+
+1193
+01:11:41,130 --> 01:11:50,230
+Y si hay que hacer una transferencia, si es solidariamente, la puede hacer cualquiera, pero si es mancomunadamente, lo tienen que hacer los que hayan dicho.
+
+1194
+01:11:58,510 --> 01:11:59,390
+¿Por qué?
+
+1195
+01:12:00,430 --> 01:12:04,530
+Porque imagínate si se lleva alguna pinza y desfalca la empresa y se lleva a la pasta.
+
+1196
+01:12:04,850 --> 01:12:05,950
+Si es solidario lo puede hacer.
+
+1197
+01:12:06,390 --> 01:12:07,030
+Y nada, yo puedo decir nada.
+
+1198
+01:12:09,570 --> 01:12:10,190
+Ya, claro.
+
+1199
+01:12:10,990 --> 01:12:11,250
+Vale.
+
+1200
+01:12:12,550 --> 01:12:20,210
+Entonces ahora, en cuanto a generar imagen, ¿cómo conceptualizarlo?
+
+1201
+01:12:20,230 --> 01:12:26,170
+¿Cuál realizarías tú el ofrecimiento de esta empresa?
+
+1202
+01:12:35,590 --> 01:12:41,170
+Estamos hablando de una cuestión de máxima confianza para el empresario.
+
+1203
+01:12:42,330 --> 01:12:43,530
+Mársimo, ¿por qué?
+
+1204
+01:12:47,270 --> 01:12:59,950
+Va a ir a buscar expertos en los departamentos, como si dijéramos, o patas de su empresa que no tiene.
+
+1205
+01:13:09,650 --> 01:13:18,590
+Entonces, como yo siempre tengo la gorra generalista, os veo en los distritos departamentos y también
+
+1206
+01:13:18,590 --> 01:13:24,510
+la insensibilidad de cada dueño. Y no es la misma un dueño que esté empezando joven
+
+1207
+01:13:24,510 --> 01:13:31,330
+muchas ganas y está buscando crecimiento, financiación de ese crecimiento, buenas
+
+1208
+01:13:31,330 --> 01:13:37,710
+estructuras societarias si es que tiene socios o lo que sea, que uno que esté con una empresa
+
+1209
+01:13:37,710 --> 01:13:46,910
+madura o que es el cuello de botella y no puede crecer o que esté en la fase de retiro o de
+
+1210
+01:13:46,910 --> 01:13:53,350
+busquera de cómo salgo aquí, o sea, es que ahora que ver en cada caso...
+
+1211
+01:13:53,350 --> 01:13:55,090
+Sí, entonces, a contar eso...
+
+1212
+01:13:55,090 --> 01:13:57,910
+Me voy a llamarlo Madurez, Madurez del cliente.
+
+1213
+01:13:58,390 --> 01:14:00,590
+Claro, pero a contar eso...
+
+1214
+01:14:00,590 --> 01:14:02,010
+Puede ser crecimiento,
+
+1215
+01:14:04,990 --> 01:14:05,730
+lo que sea estable,
+
+1216
+01:14:06,570 --> 01:14:07,970
+y puede ser inventa,
+
+1217
+01:14:08,910 --> 01:14:10,110
+inventa barra de clíbe.
+
+1218
+01:14:10,930 --> 01:14:14,510
+Entonces, a contar eso en un slogan, o en una frase...
+
+1219
+01:14:14,510 --> 01:14:25,630
+No lo deslogan, al revés ya veremos luego como paquetamos, es muy difícil hacer una frase, es más fácil describir y luego compactar que al revés.
+
+1220
+01:14:26,130 --> 01:14:27,510
+Si desgranas, luego podés hacer...
+
+1221
+01:14:27,510 --> 01:14:42,570
+Claro, pues te decía yo, en ese desgras, en ese detallado de propuesta, ¿cómo les
+
+1222
+01:14:42,570 --> 01:14:47,890
+picarías tú a alguien eso? ¿Cómo les picarías a alguien cuando estás con una persona,
+
+1223
+01:14:48,190 --> 01:14:51,310
+un amigo tú y le estás contando? ¿Cómo le contarías esa propuesta?
+
+1224
+01:14:52,810 --> 01:14:55,430
+¿A un amigo que no tiene que ver con esto?
+
+1225
+01:14:55,630 --> 01:14:55,770
+Sí.
+
+1226
+01:14:56,050 --> 01:14:59,470
+Hemos creado una consultoria para ayudar a Pymes, para empresarios.
+
+1227
+01:15:00,990 --> 01:15:04,030
+Ahora, al empresario es más complejo.
+
+1228
+01:15:04,570 --> 01:15:08,250
+Ahí tendríamos que ver qué te duele a ti en tu diabilidad,
+
+1229
+01:15:09,470 --> 01:15:13,930
+dónde te ves que tienes un freno que no te deja crecer,
+
+1230
+01:15:15,450 --> 01:15:19,510
+¿Dónde... qué necesitamos tu empresa ahora?
+
+1231
+01:15:22,890 --> 01:15:27,090
+Crecer, la actuación, mejorar rentabilidad y productividad,
+
+1232
+01:15:28,330 --> 01:15:31,230
+estructurar mejor tu financiación, pero claro,
+
+1233
+01:15:31,950 --> 01:15:34,290
+que una empresa que te diga, mira, estoy mal financiado,
+
+1234
+01:15:34,990 --> 01:15:39,250
+y que difícil es, que reconocer.
+
+1235
+01:15:42,790 --> 01:15:46,350
+Yo creo que además tenemos que ir siempre en positivo, no tenemos que buscar lo que estás
+
+1236
+01:15:46,350 --> 01:15:46,870
+haciendo mal.
+
+1237
+01:15:47,010 --> 01:15:47,170
+Ya.
+
+1238
+01:15:47,330 --> 01:15:55,090
+Cómo te ayudamos a mejorar, a crecer, a vender, a… Nuestras fases tienen que ir siempre
+
+1239
+01:15:55,090 --> 01:15:55,590
+en positivo.
+
+1240
+01:15:57,730 --> 01:16:01,550
+Aquí a veces no las compro, eh, pero lo intento.
+
+1241
+01:16:03,750 --> 01:16:05,550
+Mira, propuesta es de la experiencia.
+
+1242
+01:16:05,550 --> 01:16:14,250
+es decir, nosotros lo que lo que lo que voy a intentar crear es un mapa conceptual como
+
+1243
+01:16:14,250 --> 01:16:21,730
+de los exágonos donde en cada exágono hay un caso de experiencia
+
+1244
+01:16:28,170 --> 01:16:35,910
+A ver, clave, clave capital, que es un fondo de inversión que hay varios empresarios.
+
+1245
+01:16:39,510 --> 01:16:51,450
+dentro de ellos está uno que es franquete, entra en Google
+
+1246
+01:16:59,430 --> 01:17:01,350
+como? franquete
+
+1247
+01:17:04,890 --> 01:17:07,530
+si, como se llama este
+
+1248
+01:17:11,050 --> 01:17:13,750
+franquete de clave, un clave
+
+1249
+01:17:28,570 --> 01:17:34,570
+El justo que tiene la flecha, este de aquí.
+
+1250
+01:17:38,650 --> 01:17:43,910
+Este es el que antes era el dueño de taberna, el de medio.
+
+1251
+01:17:45,430 --> 01:17:50,450
+Aquel esfermía armendarice, ese es el ceo, el gerente, como sigamos.
+
+1252
+01:17:51,330 --> 01:17:52,790
+Y estos son los socios principales.
+
+1253
+01:17:55,410 --> 01:18:00,330
+Esto es un fondo de inversión, una gestora, mejor dicho, de fondos de inversión, que
+
+1254
+01:18:00,330 --> 01:18:09,150
+algunos gestionan suyos y otros gestionan de Sodenna o incluso del grupo Montragón.
+
+1255
+01:18:10,790 --> 01:18:11,730
+Es gestora.
+
+1256
+01:18:14,590 --> 01:18:16,290
+¿Por qué digo que este joven son los franquiers?
+
+1257
+01:18:17,650 --> 01:18:21,950
+Porque este bicho hace consultoría a empresarios
+
+1258
+01:18:24,910 --> 01:18:27,470
+y hace una consultoría de altos también
+
+1259
+01:18:27,470 --> 01:18:35,250
+pero tienes por ejemplo a un certec
+
+1260
+01:18:36,350 --> 01:18:37,310
+Sertek
+
+1261
+01:18:38,350 --> 01:18:39,530
+Entra en...
+
+1262
+01:18:39,530 --> 01:18:41,630
+Entra en...
+
+1263
+01:18:55,630 --> 01:18:57,030
+Sertek
+
+1264
+01:18:57,030 --> 01:18:59,350
+Esos, esos
+
+1265
+01:19:03,370 --> 01:19:28,570
+No acabo del cool, no acabo del cool, ahí está, y este se llama Ramón Pérez, el doyó
+
+1266
+01:19:29,650 --> 01:19:30,610
+Este que era?
+
+1267
+01:19:33,830 --> 01:19:34,450
+Ramón?
+
+1268
+01:19:34,710 --> 01:19:35,030
+Pérez
+
+1269
+01:19:36,530 --> 01:19:37,450
+Pérez 10
+
+1270
+01:19:39,470 --> 01:19:41,130
+Su padre tiene una empresa
+
+1271
+01:19:41,130 --> 01:19:43,530
+de instalación de extenderas
+
+1272
+01:19:43,530 --> 01:19:44,570
+de climatización y tal
+
+1273
+01:19:45,630 --> 01:19:47,150
+No sé si el aéreo
+
+1274
+01:19:47,150 --> 01:19:48,530
+falleció o no
+
+1275
+01:19:48,530 --> 01:19:52,510
+y este empezó a comprar
+
+1276
+01:19:53,490 --> 01:19:54,130
+pequeños
+
+1277
+01:19:55,270 --> 01:19:56,310
+y ha hecho
+
+1278
+01:19:58,550 --> 01:20:05,350
+y hasta os has hablado con verdad continuamente por el hijo de Juan Carlos Fragué, el crecimiento, la
+
+1279
+01:20:05,350 --> 01:20:18,050
+decepción, las estructuras, y este del otro, como te he dicho que es Ramón, ¿no? ¿Cómo conocía este?
+
+1280
+01:20:18,050 --> 01:20:23,130
+porque este funk se mueve mucho en la CEN, por ejemplo, la Concegación Empregada en la Barra.
+
+1281
+01:20:23,510 --> 01:20:33,470
+Yo hice un curso de gestión de pymes porque me invitó, me invitó, no quería hacerlo,
+
+1282
+01:20:34,590 --> 01:20:40,930
+este, vamos a dejar en la ecuana, pero esta ha sido la visión con el que ha acabado fatal,
+
+1283
+01:20:40,930 --> 01:21:10,810
+que no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que
+
+1284
+01:21:11,910 --> 01:21:20,650
+reconocer, que tiene sus links. Y aunque lo reconociera, no se lo creía. No tenía confianza en nadie.
+
+1285
+01:21:20,750 --> 01:21:26,830
+Sí, no se lo creía. No confiaba en nadie. Y yo trabajo con él años y mi solución,
+
+1286
+01:21:26,910 --> 01:21:32,790
+yo le hemos propuesto mil cosas, es decir, tú tienes la empresa que estudiar, nadie te la va a tocar,
+
+1287
+01:21:33,590 --> 01:21:37,430
+y es tu niña bonita y no sé qué, pues me acuerdo hasta celebrar a los aniversarios de la creación,
+
+1288
+01:21:41,870 --> 01:21:51,270
+Pero esta empresa que está continuamente haciendo y sacando cosas nuevas en el mercado que están solucionando problemas en el mercado, muchas de ellas se pueden sacar con un producto.
+
+1289
+01:21:52,750 --> 01:22:03,310
+Vamos a hacer entre los tres una comercializadora de lo que tú sacas aquí, tú sigues con tu empresa y más de ello no se quién tanto, y luego los que estás sacando producto lo comercializamos.
+
+1290
+01:22:04,390 --> 01:22:11,410
+joder que fácil lo ves no sé qué esto no te parecerá que es fácil cuando por ejemplo trabajaba con
+
+1291
+01:22:11,410 --> 01:22:19,370
+temas en desnasa estampaciones la solución que las daba es nasa la podrás dar a todas las estampadoras
+
+1292
+01:22:19,910 --> 01:22:27,330
+que fácil lo ves no sé qué si las he hecho tanador habrá posibilidad de dar unos pasos atrás
+
+1293
+01:22:27,330 --> 01:22:38,170
+es standardizar e ir además en esta empresa contratamos a gente algunos tuyos y otros de
+
+1294
+01:22:38,170 --> 01:22:48,250
+fuera que hagan eso retro traer el ad hoc que haces que ha ido a un cliente y lo standardizamos con
+
+1295
+01:22:48,250 --> 01:22:54,350
+estos otros y damos mantenimiento y tal igual pues para nosotros era muy claro nunca dio el paso
+
+1296
+01:22:54,350 --> 01:23:01,270
+porque no se hacía mal. No se fija ni eso sombra, y así no se puede hacer. O sea, nos podemos
+
+1297
+01:23:01,270 --> 01:23:06,730
+encontrar con este tipo de gente. Los diegos, por eso te digo, cuando da el paso, te voy
+
+1298
+01:23:06,730 --> 01:23:09,850
+a contratarte, ya está analizar, ya está en la buena dirección.
+
+1299
+01:23:10,050 --> 01:23:14,810
+Fíjate que acabo de apuntar a que una idea escuchándote brutal, Cabo, si tú empiezas
+
+1300
+01:23:14,810 --> 01:23:19,970
+una relación con una de estas empresarios y ya conoces su empresa y ves cómo trabajan,
+
+1301
+01:23:19,970 --> 01:23:27,230
+¿Es que, incluso, le puedes ayudar a automatizar su empresa con DIO, que no es Barabí?
+
+1302
+01:23:27,690 --> 01:23:36,050
+No, o sea, dentro del, dentro del... o sea, digo nosotros y digo que nos podemos retroalimentar,
+
+1303
+01:23:36,690 --> 01:23:43,010
+porque si somos bases comunicantes, lo que encontremos nosotros en la consultoría está
+
+1304
+01:23:43,010 --> 01:23:48,510
+estratégica que podemos llamarla, puede adolecer de una patada digital, de una patada
+
+1305
+01:23:49,970 --> 01:23:56,390
+a John Navarra por un lado o a Diego por otro, entendiendo que es lo que necesite.
+
+1306
+01:23:57,350 --> 01:24:00,910
+Claro, que es lo que le dije yo a John, yo lo que te pido es que si vienes no me ayudes.
+
+1307
+01:24:01,650 --> 01:24:05,310
+Me dije ayer, pero lo mismo con la automatización, que no había caído.
+
+1308
+01:24:05,610 --> 01:24:07,430
+Igual. Exactamente igual.
+
+1309
+01:24:08,470 --> 01:24:13,870
+Si al final nos manejamos expertos en cosas, en el momento que vemos una debilidad haciendo un pietre,
+
+1310
+01:24:13,870 --> 01:24:19,130
+no tenemos un experto, es decir, de igual que sea el abogado, que sea digo con
+
+1311
+01:24:19,130 --> 01:24:23,730
+automatización, que sea yo con digitalizaciones de la empresa, de la estructura de la empresa,
+
+1312
+01:24:24,230 --> 01:24:28,350
+que sea tu comercialización, que sea yo en lo que me quieras poner, que a veces yo no sé,
+
+1313
+01:24:28,690 --> 01:24:35,370
+ni de donde estoy. Si estoy en financiación o estoy en pido todas estas cosas que podemos atacar
+
+1314
+01:24:35,370 --> 01:24:40,570
+varias cosas. ¿Ves? Porque esto que acabas de decir, para mí es la clave, es decir, yo lo que veo
+
+1315
+01:24:41,170 --> 01:24:47,330
+es que hay eslabones perdidos entre lo que hay, lo que ves en unos sitios y lo que
+
+1316
+01:24:47,330 --> 01:24:53,650
+conocen en otros sitios. Claro, es que esto te acabas de escribir tú ahora, pero para
+
+1317
+01:24:53,650 --> 01:24:57,450
+que se encuentren hace falta que le ganemos mucha confianza.
+
+1318
+01:24:57,570 --> 01:25:01,770
+Vale, yo ahora te cuento otra cosa. Te conté en su día de esta empresa que hace
+
+1319
+01:25:01,770 --> 01:25:07,370
+prospección. Ellos hacían prospección telefónica y eran subcontratados.
+
+1320
+01:25:07,370 --> 01:25:11,170
+Entonces, él ha trabajado pues 15 años, ahora tiene esa empresa.
+
+1321
+01:25:12,450 --> 01:25:13,230
+Entonces, claro.
+
+1322
+01:25:15,090 --> 01:25:16,690
+Ahí tenemos una entrada muy buena.
+
+1323
+01:25:17,250 --> 01:25:20,570
+Él me dice bien, mire aquí, yo en tu proyecto lo que necesites.
+
+1324
+01:25:21,930 --> 01:25:27,690
+Ahí podemos también contar con él para buscar esas necesidades y esos perfiles de cliente.
+
+1325
+01:25:30,530 --> 01:25:33,950
+Me cuesta ver, ¿por qué una cosa es una propuesta de mercado que estás al creciendo?
+
+1326
+01:25:33,950 --> 01:25:40,130
+No pienses así, que nos dé acceso a la persona que le contrataba a él, no pensando en ofrecerle sus
+
+1327
+01:25:40,130 --> 01:25:44,770
+servicios, que su servicio ya está muerto, el que a su servicio ya no lo ofrece. O sea,
+
+1328
+01:25:44,810 --> 01:25:51,970
+su servicio ya lo hace, porque tenía un coste de estructura muy elevado y un margen muy bajo y
+
+1329
+01:25:51,970 --> 01:25:58,270
+te obligaba siempre a tener un nivel crítico de clientes muy elevado, que era difícil de reponer y
+
+1330
+01:25:58,270 --> 01:25:59,710
+cada vez más.
+
+1331
+01:25:59,750 --> 01:26:02,770
+Si hubiera trabajado yo le hacía un chatbot automático
+
+1332
+01:26:02,770 --> 01:26:06,250
+y le está trabajando el bot sin tener el personal.
+
+1333
+01:26:07,670 --> 01:26:11,450
+Quiere decir que esas reuniones las podemos ir teniendo
+
+1334
+01:26:11,450 --> 01:26:13,350
+para ir generando ese mapa.
+
+1335
+01:26:15,250 --> 01:26:18,970
+No veo que nos pueda ayudar a alguien que no hay amadas.
+
+1336
+01:26:19,430 --> 01:26:23,370
+No, no, no pienses así. Piensa en un consultor que tiene entrada al cero
+
+1337
+01:26:24,350 --> 01:26:27,690
+con el que nos podemos sentar hacer una propuesta porque eres una persona de su
+
+1338
+01:26:27,690 --> 01:26:36,650
+conciencia y además que él que él ya trabajó proyectos que él ya ha vendido
+
+1339
+01:26:36,650 --> 01:26:39,750
+proyectos a esas personas la venta más difícil es la primera
+
+1340
+01:26:43,270 --> 01:26:49,270
+y claro entonces vale vale me gusta esto
+
+1341
+01:26:53,170 --> 01:26:58,290
+Vale, oye Enrique, yo creo que le hemos dado una vuelta, ¿se te queda algo en el tintero?
+
+1342
+01:26:58,970 --> 01:26:59,810
+La de un lecóler.
+
+1343
+01:26:59,910 --> 01:27:02,270
+Bueno, bien, pero así, conceptualmente.
+
+1344
+01:27:02,410 --> 01:27:03,870
+Necesito que...
+
+1345
+01:27:04,750 --> 01:27:06,370
+No, tu resumir es pasándolos.
+
+1346
+01:27:06,490 --> 01:27:07,750
+Claro, yo voy a hacerlo todo.
+
+1347
+01:27:07,950 --> 01:27:10,450
+No, resumir de todo, porque yo te diré por eso, me vas a faltar...
+
