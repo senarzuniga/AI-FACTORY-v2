@@ -1,0 +1,237 @@
+{
+  "version": 2,
+  "updated_at": "2026-09-04",
+  "owner": "Inaki Senar",
+  "notes": "Registro canonico de prioridades comerciales. Sustituye por completo las prioridades derivadas automaticamente del escaneo de ficheros. El AI Executive Action Center usa este fichero como fuente de verdad para ordenar acciones, filtrar ruido y puntuar seguimientos.",
+  "supersedes": [
+    "Fwd: FESPA BARCELONA 2026 / DEL 19 AL 22 DE MAYO / TRANSNATUR",
+    "Cascades Agreement (V6) - Status Update Request"
+  ],
+  "accounts": [
+    {
+      "id": "cascades",
+      "name": "CASCADES",
+      "match": ["cascades", "calgary"],
+      "focus": "Varios proyectos abiertos",
+      "stage": "multi_project_follow_up",
+      "weight": 95,
+      "next_action": "Mantener seguimiento por proyecto, no como cuenta unica.",
+      "closed_topics": [
+        "Cascades Agreement (V6) - Status Update Request"
+      ]
+    },
+    {
+      "id": "copack",
+      "name": "COPACK",
+      "match": ["copack"],
+      "focus": "Prospeccion de cliente",
+      "stage": "prospecting",
+      "weight": 70,
+      "next_action": "Cualificar necesidad y definir puerta de entrada tecnica."
+    },
+    {
+      "id": "dssmith_cognac",
+      "name": "DS SMITH Cognac",
+      "match": ["ds smith", "dssmith", "cognac", "frederic"],
+      "focus": "Cognac / contacto Frederic",
+      "stage": "active_opportunity",
+      "weight": 85,
+      "key_contacts": ["Frederic"],
+      "next_action": "Mantener contacto vivo y avanzar definicion tecnica."
+    },
+    {
+      "id": "empacar",
+      "name": "EMPACAR",
+      "match": ["empacar", "prefeeder"],
+      "focus": "Oferta emitida, seguimiento",
+      "stage": "offer_sent",
+      "weight": 88,
+      "next_action": "Follow-up de oferta emitida y deteccion de objeciones."
+    },
+    {
+      "id": "ip_amr",
+      "name": "IP AMR PROJECT",
+      "match": ["ip amr", "international paper", "waterloo"],
+      "focus": "Proyecto en ejecucion",
+      "stage": "execution",
+      "weight": 30,
+      "commercial_relevance": "low",
+      "next_action": "Solo relevante para ofertas de servicio. Bajar prioridad comercial.",
+      "demote": true
+    },
+    {
+      "id": "kelly_box",
+      "name": "KELLY BOX",
+      "match": ["kelly box", "kellybox"],
+      "focus": "Nuevo posible cliente",
+      "stage": "offer_pending",
+      "weight": 82,
+      "next_action": "Pendiente enviar oferta. Accion nuestra, no del cliente."
+    },
+    {
+      "id": "pacificsouth",
+      "name": "PACIFICSOUTH",
+      "match": ["pacificsouth", "pacific south", "psc", "bhs"],
+      "focus": "Seguimiento de oferta",
+      "stage": "offer_sent",
+      "weight": 86,
+      "next_action": "Follow-up de oferta y cierre de dudas tecnicas BHS."
+    },
+    {
+      "id": "pmp",
+      "name": "PMP",
+      "match": ["pmp"],
+      "focus": "Seguimiento oferta de servicio",
+      "stage": "offer_sent",
+      "weight": 72,
+      "next_action": "Seguimiento de oferta de servicio."
+    },
+    {
+      "id": "president_container",
+      "name": "PRESIDENT CONTAINER",
+      "match": ["president container", "president"],
+      "focus": "Oferta, auditoria y equipamiento para expedicion",
+      "stage": "offer_sent",
+      "weight": 84,
+      "next_action": "Seguimiento de oferta, auditoria y alcance de expedicion."
+    },
+    {
+      "id": "sigmaq",
+      "name": "SIGMAQ GUATEMALA",
+      "match": ["sigmaq", "carsa"],
+      "focus": "Seguimiento de oferta y proyecto",
+      "stage": "phase_gated",
+      "weight": 92,
+      "key_contacts": ["Rafael Orlando Rodriguez Ramirez"],
+      "next_action": "Fase 1 desperdicio/trim. Fases 2 y 3 en ventanas separadas.",
+      "dossier": "data/sigmaq_guatemala_project.json"
+    },
+    {
+      "id": "sterner_paige",
+      "name": "STERNER GLOBAL",
+      "match": ["sterner", "paige", "mastercorr", "derbycorr"],
+      "focus": "Paige corrugado, Paige conversion, servicio Mastercorr, cierre Derbycorr",
+      "stage": "multi_thread_active",
+      "weight": 97,
+      "key_contacts": [
+        "Victor Pinto",
+        "Michael Kocherga",
+        "Aren Millan",
+        "Michael Levin",
+        "Kristian"
+      ],
+      "threads": [
+        {
+          "id": "paige_corrugator",
+          "name": "Paige - zona de corrugado",
+          "stage": "proposal_sent",
+          "weight": 95
+        },
+        {
+          "id": "paige_converting",
+          "name": "Paige - zona de conversion",
+          "stage": "concept_proposed_awaiting_interpretation",
+          "weight": 97,
+          "dossier": "data/paige_converting_project.json"
+        },
+        {
+          "id": "mastercorr_service",
+          "name": "Mastercorr - servicio",
+          "stage": "service_offer",
+          "weight": 78
+        },
+        {
+          "id": "derbycorr_close",
+          "name": "Derbycorr - cierre de venta",
+          "stage": "closing",
+          "weight": 90
+        }
+      ],
+      "next_action": "Priorizar interpretacion de la respuesta de Aren y preparar estructura de negociacion para conversion."
+    },
+    {
+      "id": "torsacor",
+      "name": "TORSACOR MEXICO",
+      "match": ["torsacor"],
+      "focus": "Seguimiento de oferta",
+      "stage": "offer_sent",
+      "weight": 80,
+      "next_action": "Follow-up de oferta."
+    }
+  ],
+  "key_people": [
+    {
+      "name": "Diego Garcia",
+      "org": "Ingecart",
+      "role": "Owner & GM",
+      "side": "internal",
+      "weight": 95
+    },
+    {
+      "name": "Jon Navarlaz",
+      "org": "Ingecart",
+      "role": "Relevante",
+      "side": "internal",
+      "weight": 85
+    },
+    {
+      "name": "Enrique Alfaro",
+      "org": "Ingecart",
+      "role": "Relevante",
+      "side": "internal",
+      "weight": 85
+    },
+    {
+      "name": "Daniel Vilchez",
+      "org": "Despacho Alvarez",
+      "role": "Asesoria",
+      "side": "advisor",
+      "weight": 80
+    },
+    {
+      "name": "Michael Kocherga",
+      "org": "Line-Text / Ingecart collaborator",
+      "email": "mishka@line-text.com",
+      "role": "Canal USA / colaborador",
+      "side": "partner",
+      "weight": 92
+    },
+    {
+      "name": "Kristian",
+      "org": "Ingecart collaborator",
+      "role": "Colaborador",
+      "side": "partner",
+      "weight": 78
+    },
+    {
+      "name": "Aren Millan",
+      "org": "Paige Company",
+      "email": "amillan@paigecompany.com",
+      "role": "Interlocutor tecnico / decision",
+      "side": "customer",
+      "weight": 96
+    },
+    {
+      "name": "Michael Levin",
+      "org": "Paige Company",
+      "role": "Decision",
+      "side": "customer",
+      "weight": 94
+    },
+    {
+      "name": "Victor Pinto",
+      "org": "Sterner Global",
+      "role": "Project Director",
+      "side": "customer",
+      "weight": 93
+    },
+    {
+      "name": "Rafael Orlando Rodriguez Ramirez",
+      "org": "SigmaQ",
+      "email": "orodriguez@carsa.sigmaq.com",
+      "role": "Technical Manager",
+      "side": "customer",
+      "weight": 90
+    }
+  ]
+}

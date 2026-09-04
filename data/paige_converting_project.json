@@ -1,0 +1,107 @@
+{
+  "customer": {
+    "id": "paige_company",
+    "name": "Paige Company",
+    "channel": "Sterner Global / Line-Text",
+    "country": "USA",
+    "account_id": "sterner_paige",
+    "thread_id": "paige_converting"
+  },
+  "project": {
+    "name": "Paige - Converting area flow concept",
+    "scope": "Rediseno del flujo del area de conversion con soluciones Ingecart (WIP, retorno 2o/3er proceso, troqueladoras planas, folder gluer, paletizado, expedicion, carga automatica de camiones, almacen de herramientas)",
+    "status": "concept_proposed_awaiting_customer_position",
+    "related_thread": "paige_corrugator (oferta 2026-08-26 re2 enviada, PDF y executive summary entregados)"
+  },
+  "timeline": [
+    {
+      "date": "2026-08-13",
+      "event": "Visita a Paige Company. Toma de datos del layout actual y del flujo de conversion."
+    },
+    {
+      "date": "2026-08-26",
+      "event": "Emision de la propuesta del area de corrugado (PAIGE_CORRUGATOR_AREA_INGECART_PROPOSAL re2)."
+    },
+    {
+      "date": "2026-09-03",
+      "event": "Follow-up enviado por Ingecart (cgo@ingecart.es) sobre Paige Company Layout.",
+      "actor": "Inaki Senar"
+    },
+    {
+      "date": "2026-09-03T18:07",
+      "event": "Respuesta de Aren Millan (amillan@paigecompany.com), con copia a Michael Kocherga (mishka@line-text.com), asunto 'Re: [EXTERNAL] Paige Company Layout'.",
+      "actor": "Aren Millan",
+      "content_status": "PENDIENTE_DE_INGESTA",
+      "note": "El cuerpo integro del correo no esta en disco ni indexado. Se requiere pegarlo en el chat box de la aplicacion o exportarlo a esta carpeta de proyecto para completar el analisis literal."
+    }
+  ],
+  "stakeholders": {
+    "customer_side": [
+      {"name": "Aren Millan", "email": "amillan@paigecompany.com", "role": "Interlocutor tecnico principal en el hilo de layout"},
+      {"name": "Michael Levin", "role": "Decision / direccion"}
+    ],
+    "ingecart_side": [
+      {"name": "Inaki Senar", "email": "cgo@ingecart.es", "role": "CGO, owner del hilo comercial"},
+      {"name": "Michael Kocherga", "email": "mishka@line-text.com", "role": "Line-Text, canal USA, en copia permanente"},
+      {"name": "Diego Garcia", "role": "Owner & GM, autor del documento de diferenciales tecnicos"},
+      {"name": "Kristian", "role": "Colaborador tecnico"}
+    ]
+  },
+  "value_proposition": {
+    "source_document": "INGECART/COMMERCIAL/PROYECTOS/Sterner Global/Paige/retrornos Ingecart PAIGE.txt",
+    "differentiators": [
+      {"id": 1, "area": "Descarga de bobinas", "claim": "Pesaje y control de calidad en recepcion, estandarizacion de materia prima, impresion automatica de bobina, minimizacion de movimientos de carretilla y descarga rapida de tren evitando penalizaciones."},
+      {"id": 2, "area": "Ingetrans vs tradicional", "claim": "Diferenciales de sistema ya conocidos por el canal."},
+      {"id": 3, "area": "AMR desperdicio", "claim": "Automatizacion de la intralogistica de scrap."},
+      {"id": 4, "area": "Salida corrugadora", "claim": "Gran almacen de plancha en conveyor lineales, bypass del WIP para plancha de venta directa, acceso total con transfer para MTO, descarga rapida a WIP y crecimiento de WIP intermedio."},
+      {"id": 5, "area": "WIP", "claim": "Mas de 12 h de almacenamiento, trabajo directo contra canal sin rotacion de laminas, 3 procesos simultaneos y tramitacion automatica de desperdicio, clichets y troqueles. Diferencial estructural: habilita la automatizacion futura que el diseno alternativo no permite."},
+      {"id": 6, "area": "Sistema de desperdicio", "claim": "Ahorro de 250-300 kW de potencia instalada por hora durante toda la vida util, ahorro de MTO, menor inversion, eliminacion de trituradora y reduccion de atranques en ductos."},
+      {"id": 7, "area": "Paletizador FFG", "claim": "Aumento de velocidad, sustitucion de 1 operario por turno, estabilidad de proceso."},
+      {"id": 8, "area": "Retorno 2o y 3er proceso", "claim": "Linea de retorno al WIP sincronizada con salidas de troqueladoras y almacen para mas de 12 h de material en proceso."},
+      {"id": 9, "area": "Troqueladoras planas", "claim": "Breakers y mesa giratoria para operacion automatica sin operario."},
+      {"id": 10, "area": "Folder gluer", "claim": "Ingepack a la salida (2-3x produccion habitual, -2 operarios) y Plug & Play en paletizado (-1 operario fijo)."},
+      {"id": 11, "area": "Salida expedicion", "claim": "Doble descarga de transfer, potencial de 160-200 palets/hora con maquinas adecuadas, gran almacen de expedicion."},
+      {"id": 12, "area": "Carga automatica de camiones", "claim": "Critico por la estructura multi-socio de la planta: entregas habituales entre unidades, ahorro de carretillas y personal, trazabilidad, reduccion de merma por manipulacion."},
+      {"id": 13, "area": "Almacen de troqueles y consumibles", "claim": "Entrega y recogida automatizada de herramienta, almacenamiento profesional de clichets y troqueles, trazabilidad con produccion."},
+      {"id": 14, "area": "Vision general", "claim": "Escalabilidad por incorporacion de lineas, areas abiertas, flujo que permite velocidad nominal sin cuellos de botella, futuro GPS ID de bobinas, equilibrio productivo entre areas."}
+    ]
+  },
+  "strategic_read": {
+    "situation": "Ingecart no esta compitiendo en precio contra un equipo equivalente: ha propuesto un concepto de flujo distinto al que Paige tenia planteado para conversion. Eso convierte la decision en una decision de arquitectura de planta, no de compra de maquina.",
+    "implication": "El riesgo no es perder por precio, es que el cliente compare partidas sueltas contra su layout original y no vea el valor sistemico. La venta se gana o se pierde en la capacidad de que Paige entienda que el diseno Ingecart habilita automatizacion futura que el otro diseno bloquea.",
+    "leverage_points": [
+      "WIP trabajando contra canal sin rotacion: es el punto que condiciona todo lo demas y el que el diseno alternativo no puede replicar a posteriori.",
+      "Ahorro energetico del sistema de desperdicio (250-300 kW): argumento cuantificable, defendible ante finanzas y no discutible tecnicamente.",
+      "Carga automatica de camiones: alineado con la estructura multi-socio de la planta, es un dolor operativo propio de Paige, no un argumento generico.",
+      "Reduccion de plantilla acumulada (FFG 1/turno, folder gluer 2-3, paletizado 1, troqueladoras 1): construir el caso de retorno con headcount y no con velocidad."
+    ],
+    "risks": [
+      "Fragmentacion: que Paige trocee la propuesta y compre solo las partidas baratas, destruyendo la coherencia del flujo y el argumento de escalabilidad.",
+      "Silencio tecnico: el hilo lleva a Michael Kocherga en copia pero la respuesta de Aren no esta ingerida; sin el literal no se puede calibrar el nivel de compromiso.",
+      "Comparacion asimetrica: si el layout alternativo se valora sin contabilizar rotacion de laminas, MTO ni potencia instalada, Ingecart parece mas caro."
+    ]
+  },
+  "negotiation_structure": {
+    "principle": "No negociar equipo a equipo. Negociar el flujo como unidad y dejar las alternativas dentro del flujo, no fuera de el.",
+    "blocks": [
+      {"block": "Nucleo no divisible", "items": ["WIP contra canal", "Retorno 2o/3er proceso", "Salida corrugadora con transfer"], "rationale": "Sin estos tres el concepto deja de existir y la automatizacion futura queda bloqueada."},
+      {"block": "Retorno inmediato demostrable", "items": ["Sistema de desperdicio", "Paletizador FFG", "Plug & Play folder gluer"], "rationale": "Payback con headcount y energia. Es la puerta de entrada si el cliente quiere fasear."},
+      {"block": "Escalado posterior", "items": ["Carga automatica de camiones", "Almacen de troqueles y clichets", "GPS ID bobinas"], "rationale": "Se pueden diferir sin romper el flujo, siempre que el nucleo se instale preparado."}
+    ],
+    "phasing_policy": "Si Paige pide fasear, aceptar fase por bloques, nunca por equipos sueltos, y exigir que el nucleo se ejecute en fase 1 con las interfaces previstas."
+  },
+  "recommended_actions": [
+    {"id": "paige-conv-01", "action": "Ingerir el cuerpo integro de la respuesta de Aren Millan del 2026-09-03 en el chat box de la aplicacion para completar el analisis literal.", "owner": "Inaki Senar", "priority": "CRITICAL"},
+    {"id": "paige-conv-02", "action": "Consolidar los emails del hilo de conversion entre Kocherga, Diego Garcia, Kristian, Levin y Millan en la carpeta del proyecto para que el motor los indexe.", "owner": "Inaki Senar", "priority": "HIGH"},
+    {"id": "paige-conv-03", "action": "Preparar el caso de retorno cuantificado por bloques (headcount + kW + merma) para conversion, en el mismo formato del executive summary del area de corrugado.", "owner": "Ingecart", "priority": "HIGH"},
+    {"id": "paige-conv-04", "action": "Alinear con Michael Kocherga la posicion de Line-Text antes de responder a Aren, para no abrir dos discursos en paralelo.", "owner": "Inaki Senar", "priority": "HIGH"},
+    {"id": "paige-conv-05", "action": "Proponer teleconferencia tecnica de layout de conversion con planos, encadenada a la que ya esta agendada para el area de corrugado.", "owner": "Inaki Senar", "priority": "MEDIUM"}
+  ],
+  "sources": [
+    "INGECART/COMMERCIAL/PROYECTOS/Sterner Global/Paige/retrornos Ingecart PAIGE.txt",
+    "INGECART/COMMERCIAL/PROYECTOS/Sterner Global/Paige/Producto en el Scope.txt",
+    "INGECART/COMMERCIAL/PROYECTOS/Sterner Global/Paige/PAIGE_CORRUGATOR_AREA_INGECART_PROPOSAL_2026-08-26 re2.docx",
+    "Email Aren Millan 2026-09-03 18:07 (pendiente de ingesta literal)"
+  ],
+  "updated_at": "2026-09-04"
+}

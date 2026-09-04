@@ -48,20 +48,68 @@ EMAIL_ACTION_PATTERNS = [
     r"\bstatus update\b",
 ]
 
+PRIORITIES_PATH = REPO_ROOT / "data" / "commercial_priorities.json"
+CHAT_LOG_PATH = REPO_ROOT / "data" / "agent_chat_log.json"
+
+
+def load_priorities() -> dict[str, Any]:
+    """Load the canonical commercial priority registry.
+
+    The registry is the single source of truth for account ranking, closed
+    topics and key people. Editing the JSON (or using the Chat tab) changes the
+    dashboard behaviour without touching this module.
+    """
+    try:
+        with PRIORITIES_PATH.open("r", encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, json.JSONDecodeError):
+        return {"accounts": [], "key_people": [], "supersedes": []}
+
+
+PRIORITIES = load_priorities()
+
 PROJECT_HINTS = {
-    "cascades": "Cascades",
-    "pacificsouth": "PacificSouth",
-    "psc": "PSC",
-    "fuma": "FUMA",
-    "amr": "AMR",
-    "waterloo": "Waterloo AMR",
-    "ip amr": "IP AMR Project",
-    "bhs": "BHS Corrugator",
-    "page": "Page",
-    "ingecart": "Ingecart",
-    "sterner": "Sterner Global",
-    "sigmaq": "Sigmaq Guatemala",
+    needle.lower(): account["name"]
+    for account in PRIORITIES.get("accounts", [])
+    for needle in account.get("match", [])
 }
+
+ACCOUNT_WEIGHTS = {
+    account["name"]: account.get("weight", 50)
+    for account in PRIORITIES.get("accounts", [])
+}
+
+DEMOTED_ACCOUNTS = {
+    account["name"]
+    for account in PRIORITIES.get("accounts", [])
+    if account.get("demote")
+}
+
+CLOSED_TOPICS = [
+    topic.lower()
+    for topic in PRIORITIES.get("supersedes", [])
+] + [
+    topic.lower()
+    for account in PRIORITIES.get("accounts", [])
+    for topic in account.get("closed_topics", [])
+]
+
+KEY_PEOPLE = {
+    person["name"].lower(): person
+    for person in PRIORITIES.get("key_people", [])
+}
+
+
+def _is_closed_topic(subject: str) -> bool:
+    """Return True when a subject matches a topic the user marked as closed."""
+    haystack = (subject or "").lower()
+    if not haystack:
+        return False
+    for topic in CLOSED_TOPICS:
+        stem = topic.lstrip("fwd:").lstrip("re:").strip()
+        if stem and stem[:40] in haystack:
+            return True
+    return False
 
 CATEGORY_HINTS = {
     ActionCategory.OFFER_CREATION: ("proposal", "quote", "cost", "price", "budget", "offer"),
@@ -114,9 +162,9 @@ def _strip_html(text: str) -> str:
 
 def _project_from_text(value: str) -> str:
     haystack = value.lower()
-    for needle, label in PROJECT_HINTS.items():
+    for needle in sorted(PROJECT_HINTS, key=len, reverse=True):
         if needle in haystack:
-            return label
+            return PROJECT_HINTS[needle]
     return "General"
 
 
@@ -408,21 +456,31 @@ def build_report(root_value: str, refresh_token: int = 0) -> dict[str, Any]:
     for item in items:
         if item["action_required"]:
             title = item["subject"] or item["path"].stem
+            if _is_closed_topic(title):
+                continue
             description = f"{item['project']} | {item['reason']}"
+            weight = ACCOUNT_WEIGHTS.get(item["project"], 40)
+            priority = item["priority"]
+            if item["project"] in DEMOTED_ACCOUNTS and priority in {
+                ActionPriority.CRITICAL,
+                ActionPriority.HIGH,
+            }:
+                priority = ActionPriority.MEDIUM
             action = Action(
                 id=f"MAIL_{len(actions)+1:04d}",
                 title=title[:120],
                 description=description[:280],
                 category=item["category"],
-                priority=item["priority"],
+                priority=priority,
                 role=item["role"],
-                score=item["score"],
+                score=item["score"] * (weight / 100.0),
                 created_at=item["date"],
                 due_date=item["due_date"],
                 source=str(item["path"]),
                 context_data={
                     "path": str(item["path"]),
                     "project": item["project"],
+                    "account_weight": weight,
                     "sender": item["sender"],
                     "recipients": item["recipients"],
                     "tags": item["tags"],
@@ -561,9 +619,130 @@ def _download_payload(report: dict[str, Any]) -> str:
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
+CHAT_INTENTS = {
+    "context": "Aporta contexto o matiza informacion existente.",
+    "priority": "Cambia la prioridad de un asunto o cuenta.",
+    "note": "Registra una nota vinculada a persona, empresa o proyecto.",
+    "close": "Marca un asunto como cerrado para que deje de aparecer.",
+    "question": "Pide analisis, redaccion o interpretacion a los agentes.",
+}
+
+
+def load_chat_log() -> list[dict[str, Any]]:
+    """Read the persisted agent conversation."""
+    try:
+        with CHAT_LOG_PATH.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+        return data.get("messages", [])
+    except (OSError, json.JSONDecodeError):
+        return []
+
+
+def append_chat_message(
+    role: str,
+    text: str,
+    intent: str = "context",
+    project: str = "",
+) -> dict[str, Any]:
+    """Persist one chat turn so agents can read it between sessions."""
+    messages = load_chat_log()
+    entry = {
+        "id": f"MSG_{len(messages) + 1:04d}",
+        "role": role,
+        "intent": intent,
+        "project": project,
+        "text": text,
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "processed": False,
+    }
+    messages.append(entry)
+    CHAT_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "version": 1,
+        "updated_at": datetime.now().isoformat(timespec="seconds"),
+        "messages": messages,
+    }
+    with CHAT_LOG_PATH.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2, ensure_ascii=False)
+    return entry
+
+
+def _agent_acknowledge(entry: dict[str, Any]) -> str:
+    """Produce the in-app agent reply for a captured user turn.
+
+    The reply is deterministic and states exactly what was persisted and what
+    the agent will do with it, so the user always knows the input landed.
+    """
+    project = entry.get("project") or "sin proyecto asignado"
+    intent = entry.get("intent", "context")
+    base = f"Registrado `{entry['id']}` — intencion **{intent}**, proyecto **{project}**."
+    guidance = {
+        "context": "Este contexto se incorpora al dossier del proyecto y pesara en los proximos analisis.",
+        "priority": "Actualiza el peso en `data/commercial_priorities.json` para que sea permanente.",
+        "note": "Nota guardada. Quedara vinculada al proyecto indicado en el proximo refresco.",
+        "close": "El asunto se anadira a `closed_topics` y dejara de generar acciones.",
+        "question": "Pregunta encolada para los agentes. La respuesta se escribira en este mismo hilo.",
+    }
+    return f"{base}\n\n{guidance.get(intent, '')}"
+
+
+def _render_chat_tab(report: dict[str, Any]) -> None:
+    st.subheader("Agent chat")
+    st.caption(
+        "Espacio de interaccion con los agentes que gestionan la herramienta. "
+        "Aporta contexto, matiza informacion, cambia prioridades o pide redaccion y analisis. "
+        f"Todo se persiste en `{CHAT_LOG_PATH.relative_to(REPO_ROOT).as_posix()}`."
+    )
+
+    projects = ["(sin proyecto)"] + sorted(ACCOUNT_WEIGHTS)
+    c1, c2 = st.columns([1, 1])
+    with c1:
+        intent = st.selectbox(
+            "Intencion",
+            options=list(CHAT_INTENTS),
+            format_func=lambda key: f"{key} — {CHAT_INTENTS[key]}",
+        )
+    with c2:
+        project = st.selectbox("Proyecto / cuenta", options=projects)
+
+    history = load_chat_log()
+    for message in history[-40:]:
+        with st.chat_message("user" if message["role"] == "user" else "assistant"):
+            meta = f"`{message['id']}` · {message.get('intent', '')}"
+            if message.get("project"):
+                meta += f" · {message['project']}"
+            st.caption(meta)
+            st.markdown(message["text"])
+
+    prompt = st.chat_input("Escribe contexto, una nota, un cambio de prioridad o una peticion...")
+    if prompt:
+        entry = append_chat_message(
+            role="user",
+            text=prompt,
+            intent=intent,
+            project="" if project == "(sin proyecto)" else project,
+        )
+        append_chat_message(
+            role="agent",
+            text=_agent_acknowledge(entry),
+            intent=intent,
+            project=entry["project"],
+        )
+        st.rerun()
+
+    st.divider()
+    st.markdown("**Prioridades activas**")
+    for account in sorted(
+        PRIORITIES.get("accounts", []),
+        key=lambda a: a.get("weight", 0),
+        reverse=True,
+    ):
+        flag = " (baja prioridad comercial)" if account.get("demote") else ""
+        st.write(f"- **{account['name']}** · {account.get('weight', 0)} — {account.get('focus', '')}{flag}")
+
+
 def main() -> None:
     st.set_page_config(page_title=APP_TITLE, page_icon="AI", layout="wide")
-
     st.markdown(
         """
         <style>
@@ -614,7 +793,7 @@ def main() -> None:
     left, right = st.columns([1.3, 1])
     with left:
         st.subheader("AI briefing")
-        st.markdown("**Today | Priority | Waiting | Follow-up | Tasks | Notes | Intelligence**")
+        st.markdown("**Chat | Today | Priority | Waiting | Follow-up | Tasks | Notes | Intelligence**")
         st.markdown(
             "\n".join(
                 [
@@ -638,11 +817,16 @@ def main() -> None:
         )
         st.caption(f"Generated at {report['generated_at']}")
 
-    tabs = st.tabs(["Today", "Priority", "Waiting", "Follow-up", "Tasks", "Notes", "Intelligence"])
+    tabs = st.tabs(
+        ["Chat", "Today", "Priority", "Waiting", "Follow-up", "Tasks", "Notes", "Intelligence"]
+    )
     actions = report["actions"]
     notes = report["notes"]
 
     with tabs[0]:
+        _render_chat_tab(report)
+
+    with tabs[1]:
         todays = [
             action
             for action in actions
@@ -652,21 +836,21 @@ def main() -> None:
         for idx, action in enumerate(todays[:8], start=1):
             _action_card(action, idx)
 
-    with tabs[1]:
+    with tabs[2]:
         for idx, action in enumerate(actions[:12], start=1):
             _action_card(action, idx)
 
-    with tabs[2]:
+    with tabs[3]:
         waiting = [action for action in actions if "waiting_follow_up" in action["tags"]]
         for idx, action in enumerate(waiting[:12], start=1):
             _action_card(action, idx)
 
-    with tabs[3]:
+    with tabs[4]:
         follow_up = [action for action in actions if action["priority"] in {"CRITICAL", "HIGH"}]
         for idx, action in enumerate(follow_up[:12], start=1):
             _action_card(action, idx)
 
-    with tabs[4]:
+    with tabs[5]:
         overdue = [
             action
             for action in actions
@@ -690,11 +874,11 @@ def main() -> None:
             for idx, action in enumerate(upcoming[:8], start=1):
                 _action_card(action, idx)
 
-    with tabs[5]:
+    with tabs[6]:
         for note in notes[:20]:
             _note_card(note)
 
-    with tabs[6]:
+    with tabs[7]:
         p1, p2, p3 = st.columns(3)
         with p1:
             st.subheader("Source mix")
