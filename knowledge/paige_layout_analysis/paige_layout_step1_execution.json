@@ -1,0 +1,68 @@
+{
+  "mission_id": "PAIGE_LAYOUT_A_VS_B_STEP_1",
+  "phase_name": "foundation_and_scope_definition",
+  "execution_date": "2026-08-17",
+  "status": "completed",
+  "objective": "Prepare a valid, independent and evidence-based comparison of PAIGE Model A vs Model B before final decisioning.",
+  "scope": [
+    "source_inventory",
+    "data_contract_definition",
+    "independent_model_design",
+    "assumption_register",
+    "evidence_storage",
+    "comparison_preparation"
+  ],
+  "deliverables": [
+    "paige_layout_model_a_factory_graph.json",
+    "paige_layout_model_b_factory_graph.json",
+    "paige_layout_assumptions_and_evidence.json",
+    "paige_layout_a_vs_b_audit.json",
+    "PAIGE_LAYOUT_STEP1_FACTORY_GRAPH_SUMMARY_2026-08-17.txt",
+    "PUNTO_1_PAIGE_LAYOUT_INGESTA_Y_MODELO_A_B_2026-08-17.txt"
+  ],
+  "model_a": {
+    "status": "baseline_conceptual_model",
+    "key_characteristics": [
+      "120 WIP cells",
+      "higher orientation change requirement",
+      "single-buffer dependency",
+      "greater queueing and transfer risk",
+      "more compact footprint"
+    ],
+    "confidence": 0.74
+  },
+  "model_b": {
+    "status": "baseline_conceptual_model",
+    "key_characteristics": [
+      "120 + 255 WIP cells",
+      "natural flow between corrugator and WIP zones",
+      "more smoothing and starvation resilience",
+      "more conveyor length and infrastructure cost",
+      "greater operational complexity"
+    ],
+    "confidence": 0.8
+  },
+  "decision_rule": "No final recommendation is accepted until real DWG/DXF geometry and operational telemetry are ingested and compared under equivalent scenarios.",
+  "evidence_sources": [
+    "AI_FACTORY_MISSION_PAIGE_LAYOUT_A_VS_B_2026-08-17.txt",
+    "INFORME_PLANTA_CORRUGADO_IA_ERP_2026-08-16.txt",
+    "knowledge/corrugated_equipment/converter_equipment_catalog_v1.json",
+    "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+    "cognitive_os/industrial_layout.py",
+    "specs/factory_intelligence_workbench.md",
+    "docs/IS_BACKOFFICE_AUDIT.md"
+  ],
+  "validation_gate": {
+    "pass_if": [
+      "A and B remain independent scenarios",
+      "Factory Graph contract is maintained",
+      "assumptions and evidence are explicit",
+      "comparison is prepared for real geometry ingestion"
+    ],
+    "fail_if": [
+      "A and B are merged",
+      "assumptions are treated as facts",
+      "no evidence inventory exists"
+    ]
+  }
+}

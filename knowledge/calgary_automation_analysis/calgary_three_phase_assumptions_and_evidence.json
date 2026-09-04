@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "Cascades Calgary three-phase automation",
+    "site": "Cascades Calgary",
+    "analysis_date": "2026-08-17",
+    "currency": "CAD",
+    "decision_status": "concept_validation",
+    "design_principle": "Preserve the existing production-flow topology while automating handling, dispatch, routing, buffering and system coordination."
+  },
+  "evidence_policy": {
+    "A": "Official OEM or standards source",
+    "B": "Project proposal or controlled site document",
+    "C": "Observed site statement requiring survey confirmation",
+    "D": "Generic benchmark; never a Calgary guarantee",
+    "E": "Engineering estimate requiring simulation or test",
+    "U": "Unknown; decision blocked until measured",
+    "rules": [
+      "Do not present proposal values as verified OEM performance.",
+      "Do not present generic Ingetrans or AMR benchmarks as Calgary outcomes.",
+      "Do not publish ROI or payback until installed CAPEX and reconciled annual benefits are approved.",
+      "Do not add labor savings across phases unless role, shift and task IDs are unique."
+    ]
+  },
+  "current_state": {
+    "layout": "WIP on east side; converting equipment on west side; north-south transfers connect WIP, first pass, second pass and shipping.",
+    "first_pass_machines": [
+      "McKinley RDC 66 x 130",
+      "Koppers RDC 49",
+      "Ward converter"
+    ],
+    "second_pass_machines": [
+      "FG miniline",
+      "Automatic Two-Piece Folder Gluer and Stitcher Inline Machine"
+    ],
+    "handling": [
+      "Three non-automated metal roller conveyor outputs",
+      "Manual north-south transfer pushed by operators",
+      "Manual routing to second pass or shipping"
+    ],
+    "principal_losses_to_measure": [
+      "converter blocked time waiting for output clearance",
+      "second-pass starvation time",
+      "manual transfer travel and handling time",
+      "queue age and WIP search time",
+      "shipping staging delay",
+      "damage and rehandling events"
+    ],
+    "evidence_grade": "C"
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Automated outputs, transfer and AGV-ready shipping",
+      "scope": [
+        "Automate and coordinate the three first-pass output roller conveyors",
+        "Automate the north-south transfer under the same INGECART control layer",
+        "Route jobs to FG miniline, Two-Piece line or shipping by software",
+        "Install a trident interface for AGV load and unload at shipping",
+        "Integrate status, job identity, interlocks and exception management"
+      ],
+      "flow_model_change": false,
+      "expected_mechanism": "Remove manual dispatch and transfer delay while preserving the same source, destination and second-pass alternatives.",
+      "acceptance_kpis": [
+        "first-pass output-clearance p95 time",
+        "blocked minutes per converter hour",
+        "routing accuracy by job",
+        "second-pass starvation minutes",
+        "manual touches per unit load",
+        "trident handshake success rate",
+        "automatic-mode availability"
+      ],
+      "labor_benefit_status": "unreconciled",
+      "evidence_grade": "B/C/E"
+    },
+    {
+      "phase": 2,
+      "name": "Plug and Play palletizing expansion",
+      "scope": [
+        "Deploy compact robotic palletizing cells on selected EMBA and Martin lines",
+        "Standardize recipes, pallet quality, interlayers and production records",
+        "Connect line status and completed-load calls to the common software layer",
+        "Prepare finished loads for controlled downstream pickup"
+      ],
+      "flow_model_change": false,
+      "expected_mechanism": "Stabilize end-of-line evacuation and pallet quality without changing machine sequence or product routing.",
+      "proposal_values_pending_fat": {
+        "bundle_rate_per_minute": 12,
+        "maximum_pallet_mm": [1200, 1200, 2300],
+        "bundle_range_mm": {
+          "minimum": [250, 250],
+          "maximum": [700, 900]
+        },
+        "nominal_footprint_m": [3, 3]
+      },
+      "published_local_product_page_values": {
+        "target_boxes_per_hour_range": [12000, 14000],
+        "commissioning_after_positioning_hours": 3,
+        "services": [
+          "380 V",
+          "compressed air"
+        ],
+        "classification": "local INGECART product page; confirm in signed technical offer and FAT"
+      },
+      "acceptance_kpis": [
+        "sustained bundles per minute by SKU family",
+        "pallet completion cycle p95",
+        "pallet quality first-pass acceptance",
+        "line blocked time caused by palletizer",
+        "recipe change duration",
+        "manual touches per finished pallet",
+        "cell availability"
+      ],
+      "labor_benefit_status": "unreconciled",
+      "evidence_grade": "B/E"
+    },
+    {
+      "phase": 3,
+      "name": "Plant-wide Ingetrans and AMR orchestration",
+      "scope": [
+        "Extend automated transport between WIP, converting, finished-goods outputs and shipping",
+        "Introduce AMR transport and trident handoff stations where validated",
+        "Coordinate priorities, routes, charging, traffic and exceptions through WCS and fleet management",
+        "Integrate ERP/APS, MES/WMS, INGECART WCS, fleet manager and machine PLC events",
+        "Use simulation to size fleet, buffers and degraded modes before procurement"
+      ],
+      "flow_model_change": false,
+      "expected_mechanism": "Digitally orchestrate the existing plant routes and buffers, reducing line starvation, uncontrolled WIP and transport variability.",
+      "official_kuka_capabilities": [
+        "real-time obstacle avoidance and route replanning",
+        "job and traffic management in one environment",
+        "standard API integration with WMS and ERP/MES",
+        "VDA 5050 support for heterogeneous fleets",
+        "PLC and peripheral-equipment connectivity",
+        "payload families from 250 kg to heavy-duty platforms"
+      ],
+      "acceptance_kpis": [
+        "transport request-to-delivery p50 and p95",
+        "line starvation attributable to logistics",
+        "WIP age and inventory accuracy",
+        "AMR mission success without intervention",
+        "fleet utilization and charging availability",
+        "traffic deadlocks and blocked-route recovery",
+        "manual forklift and transfer movements displaced",
+        "degraded-mode throughput"
+      ],
+      "labor_benefit_status": "unreconciled",
+      "evidence_grade": "A/B/D/E"
+    }
+  ],
+  "control_architecture": [
+    "ERP/APS: orders, due dates and production priorities",
+    "MES/WMS: job state, inventory identity and location",
+    "INGECART WCS/flow orchestrator: transport demand, route policy, reservations and exceptions",
+    "Fleet manager and transfer PLCs: missions, traffic, charging and station handshakes",
+    "Physical stations: conveyors, transfer, tridents, palletizers, AMRs and safety devices"
+  ],
+  "business_case": {
+    "publication_status": "blocked_pending_inputs",
+    "required_inputs": [
+      "installed CAPEX by phase including engineering, installation, safety, IT/OT and contingency",
+      "annual maintenance, software and support OPEX",
+      "approved loaded labor cost and unique displaced task-hours by role and shift",
+      "baseline throughput, blocked time, starvation, waste and damage",
+      "validated post-change KPI ranges from simulation, FAT and SAT",
+      "production calendar, ramp-up curve and discount rate"
+    ],
+    "scenario_method": {
+      "low": "Use p25 validated benefit and p75 cost; include conservative ramp-up.",
+      "base": "Use median validated benefit and approved expected cost.",
+      "high": "Use p75 validated benefit and p25 cost; label as upside, not commitment."
+    },
+    "formulas": {
+      "annual_net_benefit": "labor + throughput_contribution + waste_avoidance + downtime_avoidance - incremental_opex",
+      "simple_payback_years": "installed_capex / annual_net_benefit",
+      "roi_percent": "100 * (analysis_period_benefit - installed_capex) / installed_capex",
+      "npv": "sum(net_cash_flow_t / (1 + discount_rate)^t) - installed_capex"
+    },
+    "anti_double_counting_key": "phase + role_id + shift_id + task_id + effective_date",
+    "decision_rule": "No numeric ROI claim while any required input is unknown or duplicated."
+  },
+  "gates": [
+    {
+      "gate": "G0",
+      "decision": "Baseline accepted",
+      "evidence": "time study, PLC history, production records and role-task matrix"
+    },
+    {
+      "gate": "G1",
+      "decision": "Concept and safety accepted",
+      "evidence": "surveyed layout, controls narrative, risk assessment and simulation"
+    },
+    {
+      "gate": "G2",
+      "decision": "FAT accepted",
+      "evidence": "SKU matrix, throughput, handshakes, fault recovery and data integration"
+    },
+    {
+      "gate": "G3",
+      "decision": "SAT and ramp-up accepted",
+      "evidence": "site KPI comparison over representative production window"
+    },
+    {
+      "gate": "G4",
+      "decision": "Next phase released",
+      "evidence": "benefits ledger, open-risk review and approved business case"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-KUKA-TOPLOAD",
+      "grade": "A",
+      "url": "https://www.kuka.com/en-de/products/amr-autonomous-mobile-robotics/topload-transport-robots",
+      "use": "AMR payload families, navigation, safety, charging and connectivity"
+    },
+    {
+      "id": "SRC-KUKA-FLEET",
+      "grade": "A",
+      "url": "https://www.kuka.com/en-de/products/amr-autonomous-mobile-robotics/amr-fleet-management-software",
+      "use": "fleet orchestration, VDA 5050, API, PLC and ERP/MES integration"
+    },
+    {
+      "id": "SRC-INGECART-WEB",
+      "grade": "A",
+      "url": "https://www.ingecart.eu/",
+      "use": "general integration, robotic palletizing and end-to-end project capability"
+    },
+    {
+      "id": "SRC-PLUG-PLAY-LOCAL",
+      "grade": "B",
+      "path": "../ingesite.github.io/solutions/plug-play-palletizer-es.html",
+      "use": "local product positioning and provisional target values"
+    },
+    {
+      "id": "SRC-INGETRANS-DIGITAL-TWIN",
+      "grade": "D",
+      "path": "../ingesite.github.io/solutions/ingetrans_DigitalTwin.html",
+      "use": "generic scenario structure only; not calibrated Calgary performance"
+    },
+    {
+      "id": "SRC-USER-BRIEF",
+      "grade": "B/C",
+      "use": "three-phase Calgary scope and current-state description"
+    }
+  ]
+}

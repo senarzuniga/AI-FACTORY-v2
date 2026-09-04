@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAIGE Layout A vs B | Executive Board</title>
+  <style>
+    :root {
+      --bg: #f2efe9;
+      --ink: #1a1a1a;
+      --muted: #5e5b57;
+      --panel: #ffffff;
+      --line: #d8d1c7;
+      --orange: #ff5a10;
+      --orange-dark: #b84a00;
+      --green: #137b62;
+      --green-soft: #e6f5f0;
+      --red: #b53131;
+      --red-soft: #f7e2e2;
+      --amber: #ebc86d;
+      --black: #121212;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        repeating-linear-gradient(90deg, rgba(25,25,25,.02) 0, rgba(25,25,25,.02) 1px, transparent 1px, transparent 42px),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .language-switcher {
+      position: fixed;
+      right: 18px;
+      top: 18px;
+      z-index: 20;
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      background: rgba(18,18,18,.95);
+      border: 1px solid #555;
+      border-radius: 6px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.22);
+    }
+    .language-switcher button {
+      border: 0;
+      background: transparent;
+      color: #fff;
+      padding: 7px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font: 700 12px "Cascadia Mono", monospace;
+    }
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--orange);
+      color: #111;
+    }
+
+    .page {
+      width: min(1260px, calc(100% - 28px));
+      margin: 30px auto 40px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(0,0,0,.08);
+    }
+
+    .topbar {
+      background: var(--black);
+      color: #fff;
+      padding: 18px 26px;
+      border-bottom: 6px solid var(--orange);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .eyebrow {
+      font: 700 11px "Cascadia Mono", monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #ffc7a6;
+    }
+    .title {
+      font: 800 26px/1.2 Georgia, serif;
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+    .meta {
+      font: 600 11px "Cascadia Mono", monospace;
+      color: #d1cfc8;
+      letter-spacing: .05em;
+    }
+
+    .content {
+      padding: 22px 26px 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .quad {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+    }
+    .quad h3 {
+      margin: 0 0 8px;
+      font: 800 13px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--orange-dark);
+    }
+    .hero .lead {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .kpi {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+    }
+    .kpi .value {
+      font: 800 28px/1 Georgia, serif;
+      color: var(--orange-dark);
+      margin-bottom: 6px;
+    }
+    .kpi .label {
+      font: 700 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+    .kpi .note {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--green);
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .model {
+      border: 1px solid var(--line);
+      padding: 16px 16px 12px;
+      background: #fff;
+    }
+    .model.a { border-top: 6px solid var(--orange); }
+    .model.b { border-top: 6px solid var(--green); }
+    .model h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+    .model .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      font: 700 10px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+    .model.a .tag { background: #fff0e8; color: var(--orange-dark); }
+    .model.b .tag { background: var(--green-soft); color: var(--green); }
+    .procon {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .mini {
+      border: 1px solid var(--line);
+      background: #faf8f5;
+      padding: 10px 10px 8px;
+    }
+    .mini strong {
+      display: block;
+      margin-bottom: 4px;
+      font: 700 10px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: .06em;
+    }
+    .mini ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+    }
+    li { margin: 3px 0; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px 16px;
+    }
+    .panel h3 {
+      margin: 0 0 12px;
+      font: 800 13px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--orange-dark);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #111;
+      color: #fff;
+      font: 700 10px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .scorebox {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .score {
+      background: #faf8f5;
+      border: 1px solid var(--line);
+      padding: 12px 12px 10px;
+    }
+    .score .big {
+      display: block;
+      font: 800 30px/1 Georgia, serif;
+      color: var(--orange-dark);
+      margin-bottom: 4px;
+    }
+    .score .label {
+      font: 700 10px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .bars { margin-top: 8px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 115px 1fr 72px;
+      gap: 10px;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 12px;
+    }
+    .track {
+      height: 16px;
+      background: #e4dfd7;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: var(--orange);
+    }
+    .fill.green { background: var(--green); }
+
+    .final {
+      background: var(--black);
+      color: #fff;
+      padding: 16px 18px;
+      border-left: 8px solid var(--orange);
+      margin-top: 18px;
+    }
+    .final strong {
+      display: block;
+      margin-bottom: 6px;
+      font: 800 11px "Cascadia Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #ffbf8d;
+    }
+    .final p {
+      margin: 0;
+      font-size: 15px;
+      color: #f3efe9;
+    }
+
+    .lang.hidden { display: none; }
+
+    @media (max-width: 980px) {
+      .hero, .compare, .metrics, .bottom, .kpis { grid-template-columns: 1fr; }
+      .scorebox { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 12px, 1260px); }
+      .content { padding: 16px 14px 18px; }
+      .topbar { padding: 14px 16px; }
+      .title { font-size: 22px; }
+      .kpis { grid-template-columns: 1fr 1fr; }
+      .procon { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 90px 1fr 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / language">
+    <button type="button" data-language="es" aria-pressed="true">ES</button>
+    <button type="button" data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">PAIGE layout decision</div>
+        <h1 class="title lang lang-es">Análisis ejecutivo A vs B</h1>
+        <h1 class="title lang lang-en hidden">Executive A vs B analysis</h1>
+      </div>
+      <div class="meta lang lang-es">PAIGE · AI-FACTORY v2 · 2026-08-17</div>
+      <div class="meta lang lang-en hidden">PAIGE · AI-FACTORY v2 · 2026-08-17</div>
+    </div>
+
+    <div class="content">
+      <div class="hero">
+        <div class="quad">
+          <h3 class="lang lang-es">Resumen</h3>
+          <h3 class="lang lang-en hidden">Summary</h3>
+          <p class="lead lang lang-es">El Modelo B ofrece mejor estabilidad operativa, mejor WIP y menor riesgo de starvation. El Modelo A es más barato al inicio, pero tiene mayor riesgo de congestión y pérdida de capacidad útil en picos de demanda y mezclas complejas.</p>
+          <p class="lead lang lang-en hidden">Model B offers better operating stability, better WIP control and lower starvation risk. Model A is cheaper upfront, but it carries greater risk of congestion and loss of usable capacity in peak demand and complex mixes.</p>
+        </div>
+        <div class="quad">
+          <h3 class="lang lang-es">Decisión recomendada</h3>
+          <h3 class="lang lang-en hidden">Recommended decision</h3>
+          <p class="lead lang lang-es">Preferir Modelo B si el proyecto puede absorber mayor inversión, mayor infraestructura y complejidad. Mantener Modelo A como alternativa de contingencia si la prioridad es capex más bajo.</p>
+          <p class="lead lang lang-en hidden">Prefer Model B if the project can absorb higher investment, larger infrastructure and additional complexity. Keep Model A as a contingency option if the priority is lower capex.</p>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="value">0.624</div>
+          <div class="label lang lang-es">Score A</div>
+          <div class="label lang lang-en hidden">Score A</div>
+          <span class="note lang lang-es">flujo más limitado</span>
+          <span class="note lang lang-en hidden">more limited flow</span>
+        </div>
+        <div class="kpi">
+          <div class="value">0.736</div>
+          <div class="label lang lang-es">Score B</div>
+          <div class="label lang lang-en hidden">Score B</div>
+          <span class="note lang lang-es">mayor robustez</span>
+          <span class="note lang lang-en hidden">greater robustness</span>
+        </div>
+        <div class="kpi">
+          <div class="value">+4 a +8 pp</div>
+          <div class="label lang lang-es">OEE diferencia</div>
+          <div class="label lang lang-en hidden">OEE gap</div>
+          <span class="note lang lang-es">a favor de B</span>
+          <span class="note lang lang-en hidden">in favor of B</span>
+        </div>
+        <div class="kpi">
+          <div class="value">€60k-€180k</div>
+          <div class="label lang lang-es">Beneficio anual</div>
+          <div class="label lang lang-en hidden">Annual benefit</div>
+          <span class="note lang lang-es">por mejora de flujo</span>
+          <span class="note lang lang-en hidden">from flow improvement</span>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="model a">
+          <div class="tag">Model A</div>
+          <h3 class="lang lang-es">Ventajas</h3>
+          <h3 class="lang lang-en hidden">Advantages</h3>
+          <div class="procon">
+            <div class="mini">
+              <strong class="lang lang-es">Fortalezas</strong>
+              <strong class="lang lang-en hidden">Strengths</strong>
+              <ul>
+                <li class="lang lang-es">Menor inversión inicial</li>
+                <li class="lang lang-en hidden">Lower initial investment</li>
+                <li class="lang lang-es">Menos longitud de conveyor</li>
+                <li class="lang lang-en hidden">Shorter conveyor length</li>
+                <li class="lang lang-es">Menor complejidad física</li>
+                <li class="lang lang-en hidden">Lower physical complexity</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <strong class="lang lang-es">Debilidades</strong>
+              <strong class="lang lang-en hidden">Weaknesses</strong>
+              <ul>
+                <li class="lang lang-es">Más giro/reorientación</li>
+                <li class="lang lang-en hidden">More rotation/reorientation</li>
+                <li class="lang lang-es">Más congestión</li>
+                <li class="lang lang-en hidden">More congestion</li>
+                <li class="lang lang-es">Mayor starvation</li>
+                <li class="lang lang-en hidden">Higher starvation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="model b">
+          <div class="tag">Model B</div>
+          <h3 class="lang lang-es">Ventajas</h3>
+          <h3 class="lang lang-en hidden">Advantages</h3>
+          <div class="procon">
+            <div class="mini">
+              <strong class="lang lang-es">Fortalezas</strong>
+              <strong class="lang lang-en hidden">Strengths</strong>
+              <ul>
+                <li class="lang lang-es">Mayor amortiguación</li>
+                <li class="lang lang-en hidden">Greater buffering</li>
+                <li class="lang lang-es">Menos reorientación</li>
+                <li class="lang lang-en hidden">Less reorientation</li>
+                <li class="lang lang-es">Mejor resiliencia</li>
+                <li class="lang lang-en hidden">Better resilience</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <strong class="lang lang-es">Debilidades</strong>
+              <strong class="lang lang-en hidden">Weaknesses</strong>
+              <ul>
+                <li class="lang lang-es">Más inversión</li>
+                <li class="lang lang-en hidden">Higher investment</li>
+                <li class="lang lang-es">Más energía</li>
+                <li class="lang lang-en hidden">More energy use</li>
+                <li class="lang lang-es">Más mantenimiento</li>
+                <li class="lang lang-en hidden">More maintenance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="panel">
+          <h3 class="lang lang-es">Tabla comparativa</h3>
+          <h3 class="lang lang-en hidden">Comparative table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th class="lang lang-es">Indicador</th>
+                <th class="lang lang-en hidden">Indicator</th>
+                <th>Model A</th>
+                <th>Model B</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lang lang-es">OEE esperado</td>
+                <td class="lang lang-en hidden">Expected OEE</td>
+                <td>82-86%</td>
+                <td>86-90%</td>
+              </tr>
+              <tr>
+                <td class="lang lang-es">Riesgo starvation</td>
+                <td class="lang lang-en hidden">Starvation risk</td>
+                <td>0.38-0.55</td>
+                <td>0.20-0.35</td>
+              </tr>
+              <tr>
+                <td class="lang lang-es">Pérdida de output</td>
+                <td class="lang lang-en hidden">Output loss</td>
+                <td>5-12%</td>
+                <td>2-7%</td>
+              </tr>
+              <tr>
+                <td class="lang lang-es">Capex</td>
+                <td class="lang lang-en hidden">Capex</td>
+                <td>1.00x</td>
+                <td>1.18x-1.35x</td>
+              </tr>
+              <tr>
+                <td class="lang lang-es">Penalización anual</td>
+                <td class="lang lang-en hidden">Annual penalty</td>
+                <td>€90k-€220k</td>
+                <td>€20k-€80k</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h3 class="lang lang-es">Puntuación</h3>
+          <h3 class="lang lang-en hidden">Score</h3>
+          <div class="scorebox">
+            <div class="score">
+              <span class="big">0.624</span>
+              <span class="label lang lang-es">Modelo A</span>
+              <span class="label lang lang-en hidden">Model A</span>
+            </div>
+            <div class="score">
+              <span class="big">0.736</span>
+              <span class="label lang lang-es">Modelo B</span>
+              <span class="label lang lang-en hidden">Model B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="panel">
+          <h3 class="lang lang-es">ROI estimado</h3>
+          <h3 class="lang lang-en hidden">Estimated ROI</h3>
+          <div class="bars">
+            <div class="bar-row"><span class="lang lang-es">A</span><span class="lang lang-en hidden">A</span><div class="track"><div class="fill" style="width: 42%"></div></div><span>8-18%</span></div>
+            <div class="bar-row"><span class="lang lang-es">B</span><span class="lang lang-en hidden">B</span><div class="track"><div class="fill green" style="width: 68%"></div></div><span>15-28%</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 class="lang lang-es">Impacto económico</h3>
+          <h3 class="lang lang-en hidden">Economic impact</h3>
+          <div class="bars">
+            <div class="bar-row"><span class="lang lang-es">Ahorro / valor</span><span class="lang lang-en hidden">Value captured</span><div class="track"><div class="fill" style="width: 46%"></div></div><span>€90k</span></div>
+            <div class="bar-row"><span class="lang lang-es">Beneficio B</span><span class="lang lang-en hidden">Benefit B</span><div class="track"><div class="fill green" style="width: 72%"></div></div><span>€180k</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="final">
+        <strong class="lang lang-es">Conclusión</strong>
+        <strong class="lang lang-en hidden">Conclusion</strong>
+        <p class="lang lang-es">Con la evidencia disponible, el Modelo B es la opción preferente para PAIGE cuando el proyecto puede asumir mayor inversión y complejidad. El Modelo A puede ser útil como contingencia si se prioriza capex bajo, aunque con peor resilience y menor capacidad útil.</p>
+        <p class="lang lang-en hidden">With the evidence available, Model B is the preferred option for PAIGE when the project can absorb higher investment and complexity. Model A can be useful as a contingency if lower capex is prioritized, although with worse resilience and lower usable capacity.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-language]');
+    const blocks = document.querySelectorAll('.lang');
+
+    function setLanguage(lang) {
+      const isEs = lang === 'es';
+      blocks.forEach(el => {
+        const visible = isEs ? el.classList.contains('lang-es') : el.classList.contains('lang-en');
+        el.classList.toggle('hidden', !visible);
+      });
+      document.documentElement.lang = lang;
+      buttons.forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.dataset.language === lang ? 'true' : 'false');
+      });
+    }
+
+    buttons.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.language)));
+  </script>
+</body>
+</html>

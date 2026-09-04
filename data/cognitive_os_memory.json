@@ -1,0 +1,699 @@
+{
+  "mission_model": {
+    "selection": {
+      "hypotheses": [
+        {
+          "id": "H5",
+          "title": "Dual-Layer Canonical + Compatibility",
+          "description": "Canonical normalized aggregate with compatibility adapters for legacy mission formats.",
+          "score": 0.9122
+        },
+        {
+          "id": "H2",
+          "title": "Normalized Mission Aggregate",
+          "description": "Mission aggregate with structured sub-entities and explicit lifecycle state machine.",
+          "score": 0.8712
+        },
+        {
+          "id": "H3",
+          "title": "Event-Sourced Mission Ledger",
+          "description": "Mission as append-only events with projection views.",
+          "score": 0.8317
+        },
+        {
+          "id": "H6",
+          "title": "Domain-Split Mission Microtypes",
+          "description": "Separate mission records by domain with orchestration-level federation.",
+          "score": 0.7989
+        },
+        {
+          "id": "H4",
+          "title": "Graph-Only Mission Semantics",
+          "description": "All mission semantics encoded as graph nodes/edges without canonical aggregate.",
+          "score": 0.7187
+        },
+        {
+          "id": "H1",
+          "title": "Flat Mission Record",
+          "description": "Single flat mission entity with denormalized lifecycle fields.",
+          "score": 0.6764
+        }
+      ],
+      "selected": {
+        "id": "H5",
+        "title": "Dual-Layer Canonical + Compatibility",
+        "description": "Canonical normalized aggregate with compatibility adapters for legacy mission formats.",
+        "score": 0.9122
+      },
+      "production_ready": true
+    },
+    "production_ready": true
+  },
+  "industrial_intelligence": {
+    "m010_registration": {
+      "mission_id": "M010",
+      "components": [
+        {
+          "id": "industrial-geometry-engine",
+          "name": "Industrial Geometry Engine",
+          "mission_ref": "M010",
+          "dependencies": [],
+          "capabilities": [
+            "geometry_extraction",
+            "spatial_metrics",
+            "layout_normalization"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-geometry-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "stage": "foundation"
+          },
+          "health": {
+            "component_id": "industrial-geometry-engine",
+            "status": "ok",
+            "dependencies": [],
+            "timestamp": "2026-08-17T12:46:38.321613+00:00"
+          }
+        },
+        {
+          "id": "dwg-intelligence-parser",
+          "name": "DWG Intelligence Parser",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-geometry-engine"
+          ],
+          "capabilities": [
+            "dwg_parsing",
+            "entity_tokenization",
+            "geometry_mapping"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "format": "DWG"
+          },
+          "health": {
+            "component_id": "dwg-intelligence-parser",
+            "status": "ok",
+            "dependencies": [
+              "industrial-geometry-engine"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321621+00:00"
+          }
+        },
+        {
+          "id": "dxf-intelligence-parser",
+          "name": "DXF Intelligence Parser",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-geometry-engine"
+          ],
+          "capabilities": [
+            "dxf_parsing",
+            "entity_tokenization",
+            "geometry_mapping"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "format": "DXF"
+          },
+          "health": {
+            "component_id": "dxf-intelligence-parser",
+            "status": "ok",
+            "dependencies": [
+              "industrial-geometry-engine"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321627+00:00"
+          }
+        },
+        {
+          "id": "factory-graph-runtime-m001",
+          "name": "Factory Graph Runtime",
+          "mission_ref": "M001",
+          "dependencies": [
+            "dwg-intelligence-parser",
+            "dxf-intelligence-parser"
+          ],
+          "capabilities": [
+            "graph_construction",
+            "asset_connectivity",
+            "topology_indexing"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/factory-graph-runtime-m001/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M001"
+          },
+          "health": {
+            "component_id": "factory-graph-runtime-m001",
+            "status": "ok",
+            "dependencies": [
+              "dwg-intelligence-parser",
+              "dxf-intelligence-parser"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321633+00:00"
+          }
+        },
+        {
+          "id": "knowledge-graph-runtime",
+          "name": "Knowledge Graph Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "factory-graph-runtime-m001"
+          ],
+          "capabilities": [
+            "semantic_relations",
+            "knowledge_fusion",
+            "traceability_links"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/knowledge-graph-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "domain": "industrial_knowledge"
+          },
+          "health": {
+            "component_id": "knowledge-graph-runtime",
+            "status": "ok",
+            "dependencies": [
+              "factory-graph-runtime-m001"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321639+00:00"
+          }
+        },
+        {
+          "id": "evidence-runtime-m004",
+          "name": "Evidence Runtime",
+          "mission_ref": "M004",
+          "dependencies": [
+            "knowledge-graph-runtime"
+          ],
+          "capabilities": [
+            "evidence_tracking",
+            "confidence_scoring",
+            "source_traceability"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/evidence-runtime-m004/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M004"
+          },
+          "health": {
+            "component_id": "evidence-runtime-m004",
+            "status": "ok",
+            "dependencies": [
+              "knowledge-graph-runtime"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321644+00:00"
+          }
+        },
+        {
+          "id": "digital-twin-runtime",
+          "name": "Digital Twin Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "evidence-runtime-m004"
+          ],
+          "capabilities": [
+            "twin_synchronization",
+            "state_projection",
+            "asset_digitalization"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/digital-twin-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "single_executable_representation": true
+          },
+          "health": {
+            "component_id": "digital-twin-runtime",
+            "status": "ok",
+            "dependencies": [
+              "evidence-runtime-m004"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321650+00:00"
+          }
+        },
+        {
+          "id": "industrial-simulation-runtime",
+          "name": "Industrial Simulation Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "digital-twin-runtime"
+          ],
+          "capabilities": [
+            "scenario_simulation",
+            "capacity_analysis",
+            "kpi_projection"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-simulation-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "simulation_domains": [
+              "flow",
+              "oee",
+              "roi",
+              "energy"
+            ]
+          },
+          "health": {
+            "component_id": "industrial-simulation-runtime",
+            "status": "ok",
+            "dependencies": [
+              "digital-twin-runtime"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321656+00:00"
+          }
+        },
+        {
+          "id": "bottleneck-analyzer-m007",
+          "name": "Bottleneck Analyzer",
+          "mission_ref": "M007",
+          "dependencies": [
+            "industrial-simulation-runtime"
+          ],
+          "capabilities": [
+            "bottleneck_detection",
+            "constraint_ranking",
+            "throughput_impact"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/bottleneck-analyzer-m007/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "mission": "M007"
+          },
+          "health": {
+            "component_id": "bottleneck-analyzer-m007",
+            "status": "ok",
+            "dependencies": [
+              "industrial-simulation-runtime"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321661+00:00"
+          }
+        },
+        {
+          "id": "industrial-flow-analyzer",
+          "name": "Industrial Flow Analyzer",
+          "mission_ref": "M010",
+          "dependencies": [
+            "bottleneck-analyzer-m007"
+          ],
+          "capabilities": [
+            "flow_balance",
+            "wip_dynamics",
+            "warehouse_throughput"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/industrial-flow-analyzer/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "industrial-flow-analyzer",
+            "status": "ok",
+            "dependencies": [
+              "bottleneck-analyzer-m007"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321667+00:00"
+          }
+        },
+        {
+          "id": "amr-optimization-engine",
+          "name": "AMR Optimization Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "industrial-flow-analyzer"
+          ],
+          "capabilities": [
+            "amr_routing",
+            "fleet_balancing",
+            "collision_risk_reduction"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/amr-optimization-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "amr-optimization-engine",
+            "status": "ok",
+            "dependencies": [
+              "industrial-flow-analyzer"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321673+00:00"
+          }
+        },
+        {
+          "id": "oee-prediction-engine",
+          "name": "OEE Prediction Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "amr-optimization-engine"
+          ],
+          "capabilities": [
+            "oee_forecasting",
+            "availability_prediction",
+            "performance_loss_detection"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/oee-prediction-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "oee-prediction-engine",
+            "status": "ok",
+            "dependencies": [
+              "amr-optimization-engine"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321678+00:00"
+          }
+        },
+        {
+          "id": "roi-engine",
+          "name": "ROI Engine",
+          "mission_ref": "M010",
+          "dependencies": [
+            "oee-prediction-engine"
+          ],
+          "capabilities": [
+            "investment_analysis",
+            "payback_estimation",
+            "risk_adjusted_roi"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/roi-engine/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0"
+          },
+          "health": {
+            "component_id": "roi-engine",
+            "status": "ok",
+            "dependencies": [
+              "oee-prediction-engine"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321684+00:00"
+          }
+        },
+        {
+          "id": "smart-proposal-intelligence-runtime",
+          "name": "Smart Proposal Intelligence Runtime",
+          "mission_ref": "M010",
+          "dependencies": [
+            "roi-engine"
+          ],
+          "capabilities": [
+            "proposal_generation",
+            "executive_reporting",
+            "evidence_citation"
+          ],
+          "apis": [
+            "/api/cognitive-os/industrial-intelligence/components/smart-proposal-intelligence-runtime/execute"
+          ],
+          "metadata": {
+            "version": "1.0.0",
+            "output": "executive_report"
+          },
+          "health": {
+            "component_id": "smart-proposal-intelligence-runtime",
+            "status": "ok",
+            "dependencies": [
+              "roi-engine"
+            ],
+            "timestamp": "2026-08-17T12:46:38.321689+00:00"
+          }
+        }
+      ],
+      "dependency_chain": [
+        "industrial-geometry-engine",
+        "dwg-intelligence-parser",
+        "dxf-intelligence-parser",
+        "factory-graph-runtime-m001",
+        "knowledge-graph-runtime",
+        "evidence-runtime-m004",
+        "digital-twin-runtime",
+        "industrial-simulation-runtime",
+        "bottleneck-analyzer-m007",
+        "industrial-flow-analyzer",
+        "amr-optimization-engine",
+        "oee-prediction-engine",
+        "roi-engine",
+        "smart-proposal-intelligence-runtime"
+      ],
+      "ahde_policy": "enabled",
+      "timestamp": "2026-08-17T12:46:38.321695+00:00"
+    },
+    "ahde_policy": {
+      "enabled": true,
+      "timestamp": "2026-08-17T12:46:38.324286+00:00"
+    },
+    "governance": {
+      "approved": true,
+      "reason": "Approved by governance policy",
+      "policy_violations": []
+    }
+  },
+  "factory_graph": {
+    "latest": {
+      "node_count": 1,
+      "edge_count": 0,
+      "kind_counts": {
+        "machine": 1
+      },
+      "nodes": [
+        {
+          "id": "dxf-0-d1a8f61bad6b",
+          "kind": "machine",
+          "label": "Demo Cell 01",
+          "layer": "MACHINES",
+          "center": [
+            6.0,
+            4.5
+          ],
+          "bounds": [
+            0.0,
+            0.0,
+            12.0,
+            9.0
+          ],
+          "confidence": 0.94,
+          "properties": {
+            "source_type": "text",
+            "classification_rationale": [
+              "machine marker"
+            ]
+          }
+        }
+      ],
+      "edges": []
+    }
+  },
+  "knowledge_graph": {
+    "latest": {
+      "fact_count": 1,
+      "relation_count": 1,
+      "confidence": 0.5625
+    }
+  },
+  "digital_twin": {
+    "latest": {
+      "version": "twin-382efeec7954",
+      "layout_name": "Plan Projet Cognac",
+      "live_sync": false,
+      "nodes": 0,
+      "edges": 0,
+      "scenarios": [
+        "baseline",
+        "high_demand",
+        "maintenance",
+        "amr_reconfiguration"
+      ],
+      "simulation_inputs": {
+        "node_count": 0,
+        "edge_count": 0,
+        "machine_count": 0,
+        "conveyor_count": 0,
+        "buffer_count": 0,
+        "warehouse_count": 0,
+        "amr_route_count": 0,
+        "layout_signature": "382efeec7954"
+      },
+      "state": {
+        "snapshots": [
+          "snapshot-382efeec7954"
+        ],
+        "versions": [
+          1
+        ],
+        "scenarios": [
+          "baseline",
+          "high_demand",
+          "maintenance",
+          "amr_reconfiguration"
+        ],
+        "live_sync": false,
+        "simulation_inputs": {
+          "node_count": 0,
+          "edge_count": 0,
+          "machine_count": 0,
+          "conveyor_count": 0,
+          "buffer_count": 0,
+          "warehouse_count": 0,
+          "amr_route_count": 0,
+          "layout_signature": "382efeec7954"
+        }
+      }
+    }
+  },
+  "simulation": {
+    "latest": {
+      "material_flow": {
+        "flow_edges": 0,
+        "flow_intensity": 0.0,
+        "flow_edges_per_machine": 0.0,
+        "logistics_pressure_index": 0.0,
+        "starvation_risk_index": 0.38,
+        "knowledge_coverage": 0.5625
+      },
+      "amr_routing": {
+        "routes": 0,
+        "coverage": 0.0,
+        "amr_layout_coverage": 0.0,
+        "fleet_recommendation": {
+          "baseline_units": 2,
+          "peak_units": 3,
+          "dispatch_policy": "priority_by_starvation_risk"
+        },
+        "wip_cell_strategy": {
+          "strategy": "jit_proximity_cells",
+          "proximity_policy": "near_converter",
+          "score": 0.75,
+          "notes": [
+            "Use low-height WIP cells when height storage is constrained.",
+            "Eliminate forklift aisles where AMR-only operation is feasible."
+          ]
+        }
+      },
+      "travel_distance": 0,
+      "production_capacity": 18.0,
+      "oee": 0.522,
+      "roi": 1.3293,
+      "bottlenecks": [
+        {
+          "id": "dxf-0-d1a8f61bad6b",
+          "kind": "machine",
+          "label": "Demo Cell 01",
+          "severity": 0.81,
+          "degree": 0,
+          "root_cause": "low_connectivity_or_isolated_flow_node",
+          "recommended_action": "increase_path_redundancy_and_priority_dispatch"
+        }
+      ],
+      "buffer_occupancy": {
+        "buffers": 0,
+        "estimated_occupancy": 0.29,
+        "buffer_to_machine_ratio": 0.0,
+        "jit_readiness": 0.45,
+        "wip_policy_score": 0.75
+      },
+      "warehouse_capacity": {
+        "warehouses": 0,
+        "estimated_capacity_units": 0,
+        "recommended_near_line_wip_cells": 2
+      },
+      "cycle_times": {
+        "baseline_seconds": 46.2,
+        "variance_seconds": 4.5,
+        "estimated_changeover_loss_minutes": 23.0
+      }
+    }
+  },
+  "engineering_analysis": {
+    "latest": {
+      "layout_quality": {
+        "score": 0.43,
+        "status": "needs_improvement",
+        "entity_coverage": 1
+      },
+      "flow_analysis": {
+        "score": 0.483,
+        "material_flow_health": "needs_improvement",
+        "travel_distance": 0,
+        "starvation_risk": 0.38,
+        "bottleneck_pressure": 1.0
+      },
+      "constraint_analysis": {
+        "safety_zones": 0,
+        "constraints_found": 0,
+        "constraint_density": 0.0,
+        "bottleneck_pressure": 1.0,
+        "starvation_risk": 0.38,
+        "jit_readiness": 0.45,
+        "wip_policy_score": 0.75
+      },
+      "amr_recommendations": [
+        "Add AMR routes to connect production, buffer, and storage areas with one-way conflict-safe loops.",
+        "Target AMR coverage >= 0.55. Current estimated coverage: 0.0"
+      ],
+      "warehouse_optimisation": [
+        "Introduce storage zoning when material staging is required.",
+        "For corrugated WIP without height storage, deploy low-height sequencing cells near converters."
+      ],
+      "production_optimisation": [
+        "Use conveyor adjacency to remove avoidable material handoffs.",
+        "Tune WIP buffers to keep cycle-time variance below the estimated threshold.",
+        "Apply JIT release windows by converter and slot to reduce changeover-loss minutes.",
+        "Sequence machine clusters into production cells for shorter internal flows."
+      ],
+      "risk_analysis": [
+        "Bottleneck pressure identified on 1 layout nodes.",
+        "Travel distance accumulation is 0 units; watch for excess AMR path length.",
+        "Starvation risk index is 0.38; prioritize feed continuity actions above 0.35."
+      ],
+      "safety_analysis": [
+        "Check path intersections with safety zones before live synchronization.",
+        "Confirm restricted areas are preserved as non-traversable constraints."
+      ],
+      "executive_recommendations": [
+        "Proceed with digital twin synchronization after validating route constraints.",
+        "Prioritize bottleneck mitigation around buffers and warehouses.",
+        "Use simulation results to rank AMR and conveyor investments.",
+        "Build scenario A/B/C with forklift baseline vs AMR + near-line WIP cells and compare OEE, starvation and ROI.",
+        "Adopt constraint-aware JIT sequencing to stabilize converter feeding and reduce unplanned waiting."
+      ]
+    }
+  },
+  "ecosystem": {
+    "discovery": {
+      "discovered_at": "2026-08-09T11:57:12.878698+00:00",
+      "repositories": 6,
+      "available_repositories": 6,
+      "platforms": 7,
+      "capabilities": 31,
+      "agents": 82,
+      "knowledge_records": 17,
+      "missing_repositories": []
+    }
+  }
+}

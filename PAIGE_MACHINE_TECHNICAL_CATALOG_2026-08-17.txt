@@ -1,0 +1,365 @@
+CATÁLOGO TÉCNICO DE MÁQUINAS DEL PROYECTO PAIGE / AI_FACTORY
+Para uso en Knowledge Hub, Knowledge Graph, Enterprise Memory y Layout Workbench
+
+Fecha: 2026-08-17
+Proyecto: PAIGE Conversion Plant
+Objetivo: registrar las máquinas del proyecto en una base de conocimiento compartida para análisis de layout, flujo, capacidad, WIP y simulación
+Fuente única de verdad técnica: knowledge/corrugated_equipment/converter_equipment_catalog_v1.json (v2.0)
+Biblioteca humana ampliada: BIBLIOTECA DE MAQUINAS Y EQUIPOS.txt
+
+====================================================================
+1. RESUMEN GENERAL
+====================================================================
+Este catálogo registra el equipamiento productivo común para ambos layouts A y B, con valor estructural para:
+- comparación de alternativas
+- simulación digital
+- análisis de flujo y congestionamiento
+- evaluación de capacidad y WIP
+- cálculo de OEE, throughput y balance de línea
+- diseño de rutas logísticas internas
+- integración con ERP y Knowledge Hub
+- preparación de “digital twin” industrial
+
+Consiste en:
+- 2 corrugadoras Fosber S/LINE
+- 1 línea de conversión FFG LMC 42"
+- 1 Curioni 2000 78"
+- 1 S&SZLRF/F/G
+- 2 Dong Fang Apstar rotativos
+- 1 Ward 66" rotativo
+- 1 McKinley RDC 66" x 130"
+- 1 Koppers RDC 49" (interpretación y modelo pendientes de validar)
+- 1 Young Shin 210 plano
+- 1 BOBST SPO 1575 plano
+- 3 Post 74" de acabado / pegado
+- 1 ESTAR Automatic Two-Piece Folder Gluer & Stitcher con carga a 90 grados y ajuste manual
+- transfer car(s) para conexión transversal de conveyors, cantidad y proveedor pendientes
+
+Familia de benchmark moderno para comparación de capacidad y tecnología:
+- EMBA QS Ultima 175 / 215 / 245 / 295
+
+Calidad de evidencia:
+- A: fabricante/OEM
+- B: documento técnico fiable
+- C: máquina concreta o mercado usado
+- D: benchmark industrial
+- E: estimación de ingeniería
+- H: hipótesis AHDE
+- U: desconocido/no verificado
+
+====================================================================
+2. IDENTIFICACIÓN DE EQUIPOS
+====================================================================
+2.1 Fosber S/LINE (x2)
+- machine_id: FOSBER_SLINE_01
+- machine_id: FOSBER_SLINE_02
+- family: Corrugadora
+- process_stage: corrugado
+- function: producción de cartón corrugado base
+- subfamily: high-speed corrugator
+- criticality: critical
+- operating_mode: continuous
+- inputs: papel, cartón base, adhesivos, rollos, material primario
+- outputs: planchas corrugadas / material intermedio
+- typical_capacity: dependiente de ancho, gramaje y formato
+- key_kpis: speed, OEE, setup, downtime, waste, roll utilization
+- layout_risk: high starvation / blocking risk if WIP or conveyor not synchronized
+- automation_candidate: yes
+- knowledge_hub_tag: corrugator_primary
+
+2.2 LMC 42" FFG
+- machine_id: LMC_42_FFG_01
+- family: Flexo Folder Gluer
+- process_stage: finishing / conversion final
+- function: impresión, plegado, pegado, formado de cajas finales
+- criticality: critical
+- operating_mode: continuous production line
+- inputs: material corrugado, planchas o semiacabados
+- outputs: cajas formadas / producto final en estado de preparación
+- typical_capacity: variable por ancho, formato y calidad
+- key_kpis: line speed, OEE, print/slot registration, scrap, set-up time
+- layout_risk: moderate-high if feed path is unstable
+- automation_candidate: yes
+- knowledge_hub_tag: ffg_final
+
+2.3 Curioni 2000 78"
+- machine_id: CURIONI_2000_78_01
+- family: conversion machine
+- process_stage: conversion / finishing
+- function: processing of sheets / box conversion
+- criticality: high
+- inputs: corrugated sheets or intermediate material
+- outputs: semi-finished or finished converted material
+- key_kpis: OEE, throughput, setup, downtime, material waiting
+- layout_risk: moderate-high due to transport synchronization
+- automation_candidate: yes
+
+2.4 S&SZLRF/F/G
+- machine_id: SSZLRF_FG_01
+- family: conversion / finishing
+- process_stage: conversion / finishing / linea auxiliar
+- function: support the conversion process and secondary transformations
+- criticality: high-medium
+- inputs: converted material / blanks / boxes
+- outputs: intermediate finished product
+- key_kpis: cycle time, delay, line utilization, quality, balance with upstream
+- layout_risk: medium-high if supply chain is unstable
+
+2.5 Dong Fang Apstar Rotativo (x2)
+- machine_id: DONG_FANG_APSTAR_ROT_01
+- machine_id: DONG_FANG_APSTAR_ROT_02
+- family: rotary converting / printing
+- process_stage: printing / die cutting / conversion
+- function: rotary cutting, printing, converting of sheets or boxes
+- criticality: high
+- operating_mode: continuous
+- key_kpis: speed, quality, registration, setup, downtime
+- layout_risk: high if WIP feeding is unbalanced
+- automation_candidate: yes
+
+2.6 Ward 66" Rotativo
+- machine_id: WARD_66_ROT_01
+- family: rotary converting
+- process_stage: printing / converting
+- function: high-speed rotary processing
+- criticality: high
+- key_kpis: registration, throughput, setup, machine availability
+- layout_risk: moderate-high if alignment or transport path unstable
+
+2.7 Young Shin 210 Plano
+- machine_id: YOUNG_SHIN_210_FLAT_01
+- family: flat die cutting / conversion
+- process_stage: die cutting / complex pieces
+- function: flat die-cutting for complex shapes, short runs or special products
+- criticality: medium-high
+- key_kpis: setup, scrap, cycle time, tooling wear, quality
+- layout_risk: high in high-mix or rework conditions
+
+2.8 BOBST SPO 1575 Plano
+- machine_id: BOBST_SPO_1575_01
+- family: flat die cutting / conversion
+- process_stage: die cutting / precision conversion
+- function: precision cutting and complex box conversion
+- criticality: high
+- key_kpis: setup, die quality, throughput, OEE, scrap
+- layout_risk: high if logistics create starvation or blockages
+
+2.9 Post 74" (x3)
+- machine_id: POST_74_01
+- machine_id: POST_74_02
+- machine_id: POST_74_03
+- family: finishing / post-processing
+- process_stage: finishing / secondary finishing / packaging
+- function: final finish, folding, gluing, closure, preparation for expedition
+- criticality: high
+- outputs: ready-to-ship or ready-to-store finished product
+- key_kpis: output rate, quality, adhesive performance, OEE, palletization readiness
+- layout_risk: high if output path or expedition logic is congested
+- automation_candidate: yes
+
+2.10 McKinley RDC 66" x 130"
+- machine_id: MCKINLEY_RDC_66X130_01
+- family: jumbo / heavy-duty RDC
+- process_stage: printing / rotary die cutting
+- reported_format: 66" development x 130" width
+- reported_format_mm: 1676 x 3302 mm
+- throughput: unknown; no OEM speed assigned
+- data_confidence: low / C-U
+- simulation_use: format constraint only until machine identification
+- required_validation: nameplate, serial, year, colors, feeder, stacker, rated speed
+
+2.11 Koppers RDC 49"
+- machine_id: KOPPERS_RDC_49_01
+- family: legacy RDC
+- process_stage: printing / slotting / rotary die cutting, configuration dependent
+- reported_development: 49"; confirm that 49 means inches and not unit count
+- throughput: unknown
+- data_confidence: low / U
+- simulation_use: disabled until exact model identification
+- required_validation: model, year, colors, feeder, slotter, die-cut section and stacker
+
+2.12 ESTAR Automatic Two-Piece Folder Gluer & Stitcher
+- machine_id: ESTAR_TWO_PIECE_FGS_01
+- family: two-piece folder gluer / stitcher
+- process_stage: folding / gluing / stitching / counting / stacking
+- infeed: 90-degree bundle loading with manual adjustment by operator
+- human_logistics_interface: required and capacity-constraining
+- throughput: unknown for the installed model
+- data_confidence: low / C
+- required_simulation_inputs: manual alignment time, operator availability, bundle size, starvation and ergonomic delays
+
+2.13 Transfer car para conveyors
+- machine_id: TRANSFER_CAR_CONVEYOR_01 (provisional)
+- family: material handling / rail-guided transfer car
+- function: cross-aisle transfer and synchronized conveyor handoff
+- engineering_payload_range: 3000-5000 kg [E]
+- engineering_travel_speed_range: 1.5-2.5 m/s [E]
+- engineering_roller_speed_range: 0.3-0.5 m/s [E]
+- PLC inputs: load position, safety scanner zones, continuous position, source/destination requests, limit switches
+- PLC outputs: travel setpoint, roller direction, brake, beacon/alarm, transfer permit and central status
+- mandatory_interlocks: aligned, conveyors ready, load clear, safety clear, valid brake and destination capacity
+- required_validation: vendor, quantity, rail length, stations, duty cycle, I/O list and functional safety level
+
+2.14 EMBA QS Ultima benchmark family
+- machine_ids: EMBA_175_QS, EMBA_215_QS, EMBA_245_QS, EMBA_295_QS
+- role: modern FFG benchmark; not assumed installed without site evidence
+- OEM maximum speeds: 500 / 420 / 330 / 300 sheets per minute
+- optional modes: 245 TwinFeed/DualBox up to 500 sheets/min; 295 up to 450 sheets/min
+- board_caliper: 1.2-8 mm
+- technology: Non-Crush Converting, Real Direct Drive and top-print
+- evidence: A, EMBA OEM page validated 2026-08-17
+
+====================================================================
+3. MACHINE DATA MODEL FOR LAYOUT WORKBENCH
+====================================================================
+Cada máquina debe registrarse con el siguiente contrato mínimo:
+
+- machine_id
+- equipment_name
+- family
+- subfamily
+- function
+- process_stage
+- area
+- x_position
+- y_position
+- orientation
+- upstream_dependency
+- downstream_dependency
+- required_feed_rate
+- capacity_unit
+- maximum_speed
+- nominal_capacity
+- sustained_capacity_by_product
+- theoretical_capacity
+- practical_capacity
+- good_output_after_oee
+- boxes_per_sheet
+- bundles_per_hour
+- pallets_per_hour
+- transport_missions_per_hour
+- oee_target
+- average_setup_time_min
+- average_changeover_min
+- required_buffer_units
+- safety_zone_m
+- maintenance_zone_m
+- conveyor_connection_required
+- transfer_required
+- material_type_handled
+- product_family
+- sku_family
+- second_pass_capability
+- critical_for_delivery
+- critical_for_wip
+- risk_of_starvation
+- risk_of_blocking
+- operator_requirement
+- manual_intervention_time
+- plc_inputs
+- plc_outputs
+- safety_interlocks
+- evidence_level
+- data_confidence
+- validation_required
+- last_validated
+- source_type
+- source_reference
+
+====================================================================
+4. CAPACITY / FLOW ASSUMPTIONS FOR SIMULATION
+====================================================================
+Estas cifras son orientativas para modelado y benchmarking; deben validarse con datos reales del cliente o fabricantes. 
+
+Cadena de cálculo obligatoria:
+- rated speed -> sustained speed by SKU -> OEE good output -> bundles -> pallets -> transport missions -> plant-constrained output
+
+- Corrugadora Fosber S/LINE: alta capacidad, dependiente de ancho, gramaje, formato y configuración
+- Flexo Folder Gluer LMC 42": capacidad media-alta dependiendo del formato y calidad
+- Rotary conversion lines: capacidad elevada en tiradas sostenidas
+- Young Shin / BOBST plano: sensible a setup y scrap; más variabilidad en tiradas mixtas
+- Post 74": la capacidad real se define por flujo de salida y sincronización con expedición
+- McKinley y Koppers: no asignar velocidad hasta identificar las máquinas
+- ESTAR: incluir la carga manual a 90 grados como restricción de capacidad y ergonomía
+- Transfer car: simular handshakes, colas, duty cycle, precisión de parada y fallos de interlock
+- EMBA: diferenciar sheets/hour de boxes/hour cuando TwinFeed/DualBox está activo
+
+Indicadores de equilibrio operativo:
+- WIP required for continuous feed
+- buffer requirement at each machine
+- starvation risk if transfer fails
+- blocking risk if downstream is saturated
+- queue time caused by conveyors / direction changes
+- rework probability when second pass is required
+
+====================================================================
+5. LAYOUT-SENSITIVE RISK MATRIX
+====================================================================
+A. Corrugadora / WIP / conversion process
+- High risk if WIP orientation change is required
+- High risk if conveyors create crossing or merge points
+- High risk if a single transfer creates bottleneck
+
+B. Rotary / flat die-cutting / finishing
+- High risk if setup is not scheduled and WIP feed is unstable
+- High risk if second pass requires material to travel back through path
+
+C. Output / expedition
+- High risk if outgoing flow intersects with incoming flow
+- High risk if WIP is placed in a way that blocks access to maintenance or forklifts
+
+D. WIP architecture
+- A: risk of unnecessary orientation changes and additional transfer time
+- B: risk of additional space and extra length in conveyors/transfer, but potentially lower handling intensity if feed is clean
+
+====================================================================
+6. KNOWLEDGE HUB AND MEMORY REQUIREMENTS
+====================================================================
+Los datos técnicos deben quedar almacenados en:
+- Knowledge Hub
+- Enterprise Memory
+- Knowledge Graph
+- Factory Graph
+- Layout Workbench data model
+
+La intención es evitar que cada análisis vuelva a “reinventar” la misma información. Debe existir un mismo “single source of truth” para:
+- máquina
+- ubicación
+- capacidad
+- proceso
+- dependencia upstream/downstream
+- riesgo de bloqueo
+- riesgo de starvation
+- relación con WIP, transport y expedición
+
+====================================================================
+7. USAGE FOR AI_FACTORY DECISION PROCESS
+====================================================================
+Estos datos deben usarse para:
+- comparar layouts A y B
+- identificar cuellos de botella físicos y logísticos
+- calcular capacidad real y flujos de material
+- evaluar WIP required vs WIP excess
+- validar si la transferencia de material es muy compleja o demasiado larga
+- decidir si el diseño es compatible con automatización futura
+- priorizar mejor diseño según TCO y productividad
+
+====================================================================
+8. RECOMENDACIÓN DE MAPEADO PARA EL LAYOUT WORKBENCH
+====================================================================
+Para cada equipo del proyecto:
+- mapear a un nodo de proceso
+- mapear a un nodo de transporte
+- mapear a un nodo de almacenamiento / WIP
+- mapear a un nodo de salida / expedición
+- asociar la dependencia lógica con upstream/downstream
+
+Esto permitirá:
+- modelar flujo real
+- detectar interdependencias
+- ejecutar optimización por layout
+- simular carga, picos y colas
+- comparar A y B con rigor cuantitativo
+
+====================================================================
+FIN DEL CATÁLOGO TÉCNICO DEL PROYECTO

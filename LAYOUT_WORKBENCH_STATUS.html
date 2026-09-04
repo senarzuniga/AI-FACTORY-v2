@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LAYOUT WORKBENCH STATUS</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 20px; background: #0f1f17; color: #e8f6ee; }
+    .box { border: 1px solid #3d6b56; border-radius: 10px; padding: 14px; margin-bottom: 14px; background: #142a20; }
+    h1, h2 { margin: 0 0 8px; }
+    h3 { margin: 10px 0 6px; color: #a4dfc1; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { border: 1px solid #335646; padding: 8px; text-align: left; }
+    th { background: #193427; }
+    .kpi { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 10px; }
+    .kpi div { border: 1px solid #335646; padding: 8px; border-radius: 8px; background: #10241b; }
+    ul { margin: 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Industrial Layout Analysis Workbench Status</h1>
+  <p>Generated: 2026-08-07T15:59:39.317227+00:00</p>
+
+  <section class="box">
+    <h2>Implementation KPI</h2>
+    <div class="kpi">
+      <div><strong>Implementation</strong><br>70%</div>
+      <div><strong>Pending</strong><br>9 items</div>
+      <div><strong>Keyword Coverage</strong><br>639 hits</div>
+      <div><strong>Estimated Completion</strong><br>30% remaining</div>
+    </div>
+  </section>
+
+  <section class="box">
+    <h2>Maturity Matrix</h2>
+    <table>
+      <thead><tr><th>Component</th><th>Status</th><th>Percent</th></tr></thead>
+      <tbody><tr><td>Mission Manager</td><td>partial</td><td>70%</td></tr><tr><td>DWG parser</td><td>partial</td><td>70%</td></tr><tr><td>DXF parser</td><td>partial</td><td>70%</td></tr><tr><td>Geometry Engine</td><td>partial</td><td>70%</td></tr><tr><td>Factory Graph</td><td>partial</td><td>70%</td></tr><tr><td>Knowledge Graph</td><td>partial</td><td>70%</td></tr><tr><td>Simulation Runtime</td><td>partial</td><td>70%</td></tr><tr><td>Digital Twin</td><td>partial</td><td>70%</td></tr><tr><td>Engineering Optimizer</td><td>partial</td><td>70%</td></tr></tbody>
+    </table>
+  </section>
+
+  <section class="box">
+    <h2>Automatic Scoring Weights</h2>
+    <table>
+      <thead><tr><th>Criterion</th><th>Weight</th></tr></thead>
+      <tbody><tr><td>functionality</td><td>30%</td></tr><tr><td>integration</td><td>20%</td></tr><tr><td>tests</td><td>15%</td></tr><tr><td>documentation</td><td>10%</td></tr><tr><td>code_quality</td><td>10%</td></tr><tr><td>knowledge_sync</td><td>10%</td></tr><tr><td>end_to_end</td><td>5%</td></tr></tbody>
+    </table>
+  </section>
+
+  <section class="box">
+    <h2>Pending Functionality</h2>
+    <ul><li>Mission Manager remains at 70% and requires completion to reach production-ready target</li><li>DWG parser remains at 70% and requires completion to reach production-ready target</li><li>DXF parser remains at 70% and requires completion to reach production-ready target</li><li>Geometry Engine remains at 70% and requires completion to reach production-ready target</li><li>Factory Graph remains at 70% and requires completion to reach production-ready target</li><li>Knowledge Graph remains at 70% and requires completion to reach production-ready target</li><li>Simulation Runtime remains at 70% and requires completion to reach production-ready target</li><li>Digital Twin remains at 70% and requires completion to reach production-ready target</li><li>Engineering Optimizer remains at 70% and requires completion to reach production-ready target</li></ul>
+  </section>
+
+  <section class="box">
+    <h2>Dependency Map</h2>
+    <h3>mandatory_module_order</h3><ul><li>Mission Manager</li><li>DWG parser</li><li>DXF parser</li><li>Geometry Engine</li><li>Factory Graph</li><li>Knowledge Graph</li><li>Simulation Runtime</li><li>Digital Twin</li><li>Engineering Optimizer</li></ul><h3>ui_pages</h3><ul><li>dashboard/layout_workbench.html</li><li>dashboard/orchestrator_panel.html</li><li>dashboard/streamlit/hub_dashboard.py</li></ul><h3>api_services</h3><ul><li>api/routes/hub_api.py</li><li>api/routes/cognitive_os_api.py</li></ul><h3>mission_manager</h3><ul><li>cognitive_os/mission_core.py</li><li>cognitive_os/system.py</li><li>cognitive_os/registries.py</li></ul><h3>schemas_and_models</h3><ul><li>schemas/mission_graph_schema.json</li><li>schemas/canonical_mission_model.schema.json</li><li>cognitive_os/models.py</li></ul><h3>knowledge_assets</h3><ul><li>specs/factory_intelligence_workbench.md</li><li>docs/mission_manager.md</li><li>mission_portfolio/mission_portfolio_001.json</li><li>data/missions/canonical_missions_v1.json</li></ul><h3>ops_scripts</h3><ul><li>start_ecosystem.ps1</li><li>start-collaborative-hub.ps1</li><li>scripts/generate_layout_workbench_status.py</li></ul>
+  </section>
+
+  <section class="box">
+    <h2>Self Audit</h2>
+    <h3>Broken Routes</h3>
+    <ul><li>None</li></ul>
+    <h3>Duplicate Pages/Modules</h3>
+    <ul><li>openai_key_manager.py | ai-factory-v2/openai_key_manager.py</li><li>main.py | orchestrator/main.py | ultimate_orchestrator.py</li></ul>
+    <h3>Missing Parsers</h3>
+    <ul><li>DWG parser implementation not complete</li><li>DXF parser implementation not complete</li></ul>
+    <h3>Missing Backend</h3>
+    <ul><li>None</li></ul>
+    <h3>Missing Services</h3>
+    <ul><li>None</li></ul>
+  </section>
+
+  <section class="box">
+    <h2>Quality Gates</h2>
+    <table>
+      <thead><tr><th>Gate</th><th>Status</th></tr></thead>
+      <tbody><tr><td>layout_workbench_accessible</td><td>PASS</td></tr><tr><td>platform_registry_registered</td><td>PASS</td></tr><tr><td>capability_registry_registered</td><td>PASS</td></tr><tr><td>mission_manager_reachable</td><td>PASS</td></tr><tr><td>status_documented</td><td>PASS</td></tr><tr><td>executive_html_generated</td><td>PASS</td></tr><tr><td>dependency_chain_enforced</td><td>PASS</td></tr><tr><td>scoring_model_automatic</td><td>PASS</td></tr></tbody>
+    </table>
+  </section>
+
+  <section class="box">
+    <h2>Recommended Next Missions</h2>
+    <ul><li>M014-MISSION-MANAGER: Close critical gaps for Mission Manager and validate integration with predecessor</li><li>M014-DWG-PARSER: Close critical gaps for DWG parser and validate integration with predecessor</li><li>M014-DXF-PARSER: Close critical gaps for DXF parser and validate integration with predecessor</li><li>M014-GEOMETRY-ENGINE: Close critical gaps for Geometry Engine and validate integration with predecessor</li><li>M014-FACTORY-GRAPH: Close critical gaps for Factory Graph and validate integration with predecessor</li></ul>
+  </section>
+</body>
+</html>

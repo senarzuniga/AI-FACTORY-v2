@@ -1,0 +1,1322 @@
+{
+  "schema": "mission-model-v1",
+  "migrated_at": "2026-07-24T00:00:00Z",
+  "missions": [
+    {
+      "id": "M-001",
+      "title": "Factory Graph Adapter",
+      "objective": "Adapter that maps plant layouts and parsed drawings into a canonical Factory Graph and populates KnowledgeGraph/GraphStore.",
+      "objectives": [
+        {
+          "id": "M-001-OBJ-1",
+          "statement": "Adapter that maps plant layouts and parsed drawings into a canonical Factory Graph and populates KnowledgeGraph/GraphStore.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.4,
+        "engineering_value": 0.8,
+        "knowledge_value": 0.8889
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WS1",
+          "title": "Industrial Knowledge Graph schema + rules",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01"
+          ],
+          "deliverables": [
+            "knowledge_graph_model"
+          ]
+        },
+        {
+          "id": "WS2",
+          "title": "Factory Geometry data contracts",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01"
+          ],
+          "deliverables": [
+            "data_contract"
+          ]
+        },
+        {
+          "id": "WS3",
+          "title": "Material Flow canonical model",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01"
+          ],
+          "deliverables": [
+            "industrial_model"
+          ]
+        },
+        {
+          "id": "WS4",
+          "title": "Machine graph schema draft",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01"
+          ],
+          "deliverables": [
+            "engineering_model"
+          ]
+        }
+      ],
+      "dependencies": [
+        "NXT-001"
+      ],
+      "capabilities": [
+        "IS-BACKOFFICE knowledge_hub",
+        "GraphStore",
+        "plant_simulator"
+      ],
+      "evidence_ids": [],
+      "deliverables": [
+        "Industrial Knowledge Graph schema + rules",
+        "Factory Geometry data contracts",
+        "Material Flow canonical model",
+        "Machine graph schema draft"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "M-001-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "parallel_running",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.6516,
+      "mission_roi": 0.1429,
+      "mission_confidence": 0.7143,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json",
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "NXT-001"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-001-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-001",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-002",
+      "title": "DWG/DXF Ingest Pipeline",
+      "objective": "Robust drawing ingestion pipeline: DWG->DXF conversion, geometry extraction (ezdxf), symbol recognition and integration into the Factory Graph.",
+      "objectives": [
+        {
+          "id": "M-002-OBJ-1",
+          "statement": "Robust drawing ingestion pipeline: DWG->DXF conversion, geometry extraction (ezdxf), symbol recognition and integration into the Factory Graph.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 1.0,
+        "engineering_value": 0.2,
+        "knowledge_value": 0.0
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [],
+      "dependencies": [
+        "M-001"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [],
+      "risks": [],
+      "kpis": [],
+      "milestones": [],
+      "lessons_learned": [],
+      "mission_state": "planned",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.4812,
+      "mission_roi": 0.5714,
+      "mission_confidence": 0.0,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-001"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-002-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-002",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-003",
+      "title": "Simulation Integration & Scenario Runner",
+      "objective": "Map Factory Graph to scenario YAML, integrate `ingetrans-reel-simulator` and `plant_simulator` for scenario execution and batch optimization.",
+      "objectives": [
+        {
+          "id": "M-003-OBJ-1",
+          "statement": "Map Factory Graph to scenario YAML, integrate `ingetrans-reel-simulator` and `plant_simulator` for scenario execution and batch optimization.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.72,
+        "engineering_value": 0.4,
+        "knowledge_value": 0.6667
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [],
+      "dependencies": [
+        "M-001"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [],
+      "risks": [],
+      "kpis": [],
+      "milestones": [],
+      "lessons_learned": [],
+      "mission_state": "planned",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.5645,
+      "mission_roi": 0.3714,
+      "mission_confidence": 0.4286,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-001"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-003-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-003",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-004",
+      "title": "Evidence & Truth Sync",
+      "objective": "Integrate `document_analysis` -> `EvidenceStore` -> `TruthEngine` to ingest engineering evidence, version facts and populate the Knowledge Graph with confidence and provenance.",
+      "objectives": [
+        {
+          "id": "M-004-OBJ-1",
+          "statement": "Integrate `document_analysis` -> `EvidenceStore` -> `TruthEngine` to ingest engineering evidence, version facts and populate the Knowledge Graph with confidence and provenance.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.2,
+        "engineering_value": 0.6,
+        "knowledge_value": 1.0
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WP-EVIDENCE-PIPE-01",
+          "title": "Evidence ingestion runtime pipeline",
+          "status": "critical",
+          "owner": "",
+          "depends_on": [
+            "NXT-002.WP-RUNTIME-01",
+            "M-001.WS1"
+          ],
+          "deliverables": [
+            "critical_runtime"
+          ]
+        },
+        {
+          "id": "WP-KNOWLEDGE-MODEL-01",
+          "title": "Provenance object model",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [
+            "NXT-002.WP-RUNTIME-01",
+            "M-001.WS1"
+          ],
+          "deliverables": [
+            "knowledge_deliverable"
+          ]
+        },
+        {
+          "id": "WP-DOC-PIPE-01",
+          "title": "Evidence-to-truth architecture documentation",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [
+            "NXT-002.WP-RUNTIME-01",
+            "M-001.WS1"
+          ],
+          "deliverables": [
+            "documentation_deliverable"
+          ]
+        }
+      ],
+      "dependencies": [
+        "M-001",
+        "NXT-002"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [
+        "Evidence ingestion runtime pipeline",
+        "Provenance object model",
+        "Evidence-to-truth architecture documentation"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "M-004-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "waiting_partial_parallel",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.5861,
+      "mission_roi": 0.0,
+      "mission_confidence": 0.8571,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json",
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-001",
+          "NXT-002"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-004-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-004",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-005",
+      "title": "AMR Opportunity Engine",
+      "objective": "Opportunity engine that analyzes flow, WIP and simulation outputs to identify where AMR fleets or Ingetrans can replace forklifts and reduce cost.",
+      "objectives": [
+        {
+          "id": "M-005-OBJ-1",
+          "statement": "Opportunity engine that analyzes flow, WIP and simulation outputs to identify where AMR fleets or Ingetrans can replace forklifts and reduce cost.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.0,
+        "engineering_value": 0.0,
+        "knowledge_value": 0.2222
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [],
+      "dependencies": [
+        "M-003",
+        "M-007"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [],
+      "risks": [],
+      "kpis": [],
+      "milestones": [],
+      "lessons_learned": [],
+      "mission_state": "planned",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.1674,
+      "mission_roi": 0.4286,
+      "mission_confidence": 0.2857,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-003",
+          "M-007"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-005-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-005",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-006",
+      "title": "Engineering Copilot Integration",
+      "objective": "Integrate UI copilot that answers engineering questions by combining knowledge graph, evidence, analytics and simulation outputs (Engineering Copilot).",
+      "objectives": [
+        {
+          "id": "M-006-OBJ-1",
+          "statement": "Integrate UI copilot that answers engineering questions by combining knowledge graph, evidence, analytics and simulation outputs (Engineering Copilot).",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.88,
+        "engineering_value": 1.0,
+        "knowledge_value": 0.4444
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WP-COPILOT-QA-01",
+          "title": "Copilot grounded QA integration",
+          "status": "blocked",
+          "owner": "",
+          "depends_on": [
+            "M-004.WP-EVIDENCE-PIPE-01"
+          ],
+          "deliverables": [
+            "critical_runtime"
+          ]
+        },
+        {
+          "id": "WP-COPILOT-UI-01",
+          "title": "Copilot interface mockups",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [
+            "M-004.WP-EVIDENCE-PIPE-01"
+          ],
+          "deliverables": [
+            "ui_deliverable"
+          ]
+        },
+        {
+          "id": "WP-CALC-ENGINE-01",
+          "title": "Decision scoring calculation engine",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [
+            "M-004.WP-EVIDENCE-PIPE-01"
+          ],
+          "deliverables": [
+            "calculation_engine"
+          ]
+        }
+      ],
+      "dependencies": [
+        "M-001",
+        "M-004",
+        "NXT-002"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [
+        "Copilot grounded QA integration",
+        "Copilot interface mockups",
+        "Decision scoring calculation engine"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "M-006-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "blocked",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.7455,
+      "mission_roi": 1.0,
+      "mission_confidence": 0.1429,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json",
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-001",
+          "M-004",
+          "NXT-002"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-006-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-006",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-007",
+      "title": "Bottleneck & WIP Analyzer",
+      "objective": "Analyzer that consumes simulation outputs and factory graph to detect bottlenecks, queue behavior and WIP hotspots and recommend mitigations.",
+      "objectives": [
+        {
+          "id": "M-007-OBJ-1",
+          "statement": "Analyzer that consumes simulation outputs and factory graph to detect bottlenecks, queue behavior and WIP hotspots and recommend mitigations.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.56,
+        "engineering_value": 0.48,
+        "knowledge_value": 0.5556
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [],
+      "dependencies": [
+        "M-001",
+        "M-003"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [],
+      "risks": [],
+      "kpis": [],
+      "milestones": [],
+      "lessons_learned": [],
+      "mission_state": "planned",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.5221,
+      "mission_roi": 0.2857,
+      "mission_confidence": 0.7143,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-001",
+          "M-003"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-007-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-007",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-008",
+      "title": "Executive Offer & Report Generator",
+      "objective": "Combine analytics, evidence and scenario outputs to generate executive offers, investment roadmaps and ROI-based proposals for decision makers.",
+      "objectives": [
+        {
+          "id": "M-008-OBJ-1",
+          "statement": "Combine analytics, evidence and scenario outputs to generate executive offers, investment roadmaps and ROI-based proposals for decision makers.",
+          "owner": "Executive Engineering Board",
+          "priority": 1
+        }
+      ],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.32,
+        "engineering_value": 0.0,
+        "knowledge_value": 0.7778
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [],
+      "dependencies": [
+        "M-003",
+        "M-004"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [],
+      "risks": [],
+      "kpis": [],
+      "milestones": [],
+      "lessons_learned": [],
+      "mission_state": "planned",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.2915,
+      "mission_roi": 0.0857,
+      "mission_confidence": 1.0,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_001.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "M-003",
+          "M-004"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-008-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-008",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "M-009",
+      "title": "Quality Governance Framework",
+      "objective": "",
+      "objectives": [],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.0,
+        "engineering_value": 0.0,
+        "knowledge_value": 0.0
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WP-CONTROL-01",
+          "title": "Quality policy controls",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-GOV-01"
+          ],
+          "deliverables": [
+            "governance"
+          ]
+        },
+        {
+          "id": "WP-METRICS-01",
+          "title": "Governance SLO metrics",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-GOV-01"
+          ],
+          "deliverables": [
+            "mathematical_model"
+          ]
+        }
+      ],
+      "dependencies": [
+        "NXT-001"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [
+        "Quality policy controls",
+        "Governance SLO metrics"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "M-009-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "parallel_running",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.0,
+      "mission_roi": 0.0,
+      "mission_confidence": 0.0,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "NXT-001"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "M-009-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#M-009",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "NXT-001",
+      "title": "AEOS Core Stabilization Sprint",
+      "objective": "",
+      "objectives": [],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.0,
+        "engineering_value": 0.0,
+        "knowledge_value": 0.0
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WP-TEST-01",
+          "title": "Dependency and test collection hardening",
+          "status": "critical",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "testing"
+          ]
+        },
+        {
+          "id": "WP-GOV-01",
+          "title": "Shared governance contract layer",
+          "status": "critical",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "architecture"
+          ]
+        },
+        {
+          "id": "WP-ARCH-01",
+          "title": "Orchestration facade specification",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "architecture_deliverable"
+          ]
+        },
+        {
+          "id": "WP-DOC-01",
+          "title": "Mission execution standards package",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "documentation_deliverable"
+          ]
+        },
+        {
+          "id": "WP-UI-01",
+          "title": "Governance dashboard mockups",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "ui_deliverable"
+          ]
+        },
+        {
+          "id": "WP-STANDARDS-01",
+          "title": "Engineering benchmark and quality rubric",
+          "status": "parallel_low_risk",
+          "owner": "",
+          "depends_on": [],
+          "deliverables": [
+            "engineering_model"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [
+        "Dependency and test collection hardening",
+        "Shared governance contract layer",
+        "Orchestration facade specification",
+        "Mission execution standards package",
+        "Governance dashboard mockups",
+        "Engineering benchmark and quality rubric"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "NXT-001-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "running",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.0,
+      "mission_roi": 0.0,
+      "mission_confidence": 0.0,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": []
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "NXT-001-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#NXT-001",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    },
+    {
+      "id": "NXT-002",
+      "title": "Mission Manager MVP Runtime",
+      "objective": "",
+      "objectives": [],
+      "strategic_alignment": {
+        "themes": [
+          "platform_stability",
+          "interoperability"
+        ],
+        "target_platforms": [
+          "IS_BACKOFFICE",
+          "ING_DIGHUB"
+        ],
+        "rationale": "Canonical mission alignment migration"
+      },
+      "value": {
+        "business_value": 0.0,
+        "engineering_value": 0.0,
+        "knowledge_value": 0.0
+      },
+      "hypothesis_portfolio_ids": [],
+      "scoring_matrix": {
+        "architecture": 0.0,
+        "maintainability": 0.0,
+        "scalability": 0.0,
+        "performance": 0.0,
+        "interoperability": 0.0,
+        "governance": 0.0
+      },
+      "work_packages": [
+        {
+          "id": "WP-RUNTIME-01",
+          "title": "Mission manager runtime and API MVP",
+          "status": "critical",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01",
+            "NXT-001.WP-GOV-01"
+          ],
+          "deliverables": [
+            "architecture"
+          ]
+        },
+        {
+          "id": "WP-KNOWLEDGE-01",
+          "title": "Mission decision record templates",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01",
+            "NXT-001.WP-GOV-01"
+          ],
+          "deliverables": [
+            "knowledge_deliverable"
+          ]
+        },
+        {
+          "id": "WP-MODEL-01",
+          "title": "Mission graph canonical model v2",
+          "status": "parallel",
+          "owner": "",
+          "depends_on": [
+            "NXT-001.WP-TEST-01",
+            "NXT-001.WP-GOV-01"
+          ],
+          "deliverables": [
+            "mission_graph_model"
+          ]
+        }
+      ],
+      "dependencies": [
+        "NXT-001"
+      ],
+      "capabilities": [],
+      "evidence_ids": [],
+      "deliverables": [
+        "Mission manager runtime and API MVP",
+        "Mission decision record templates",
+        "Mission graph canonical model v2"
+      ],
+      "risks": [],
+      "kpis": [],
+      "milestones": [
+        {
+          "id": "NXT-002-M1",
+          "name": "Migrated from legacy portfolio",
+          "due_at": "2026-12-31T00:00:00Z",
+          "status": "planned"
+        }
+      ],
+      "lessons_learned": [],
+      "mission_state": "running",
+      "mission_history": [
+        {
+          "timestamp": "2026-07-24T00:00:00Z",
+          "event_type": "migrated",
+          "detail": "Migrated from legacy mission artifacts into canonical mission model",
+          "actor": "migration-script"
+        }
+      ],
+      "mission_evolution": [
+        {
+          "version": 1,
+          "change_summary": "Initial canonical model migration",
+          "changed_at": "2026-07-24T00:00:00Z"
+        }
+      ],
+      "mission_score": 0.0,
+      "mission_roi": 0.0,
+      "mission_confidence": 0.0,
+      "mission_traceability": {
+        "source_documents": [
+          "mission_portfolio_003_parallel_30d.json"
+        ],
+        "evidence_ids": [],
+        "dependency_links": [
+          "NXT-001"
+        ]
+      },
+      "mission_knowledge_assets": [
+        {
+          "id": "NXT-002-KNOW-LEGACY",
+          "asset_type": "legacy_archive",
+          "uri": "canonical_missions_legacy_archive.json#NXT-002",
+          "description": "Lossless legacy source payload archive"
+        }
+      ],
+      "status": "planned",
+      "tags": [
+        "migrated"
+      ],
+      "created_at": "2026-07-24T00:00:00Z",
+      "updated_at": "2026-07-24T00:00:00Z"
+    }
+  ]
+}

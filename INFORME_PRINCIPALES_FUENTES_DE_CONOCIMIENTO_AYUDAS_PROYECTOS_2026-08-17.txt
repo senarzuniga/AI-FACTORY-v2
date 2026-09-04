@@ -1,0 +1,463 @@
+INFORME: PRINCIPALES FUENTES DE CONOCIMIENTO PARA LA GESTIÓN DE AYUDAS A PROYECTOS
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Contexto: informe orientado a gestión de ayudas, subvenciones, financiación, ejecución y liquidación de proyectos I+D+i, innovación, digitalización y transformación industrial.
+
+====================================================================
+1. OBJETIVO DEL INFORME
+====================================================================
+Este documento tiene como objetivo establecer una visión clara de:
+- las principales fuentes de conocimiento y financiación para proyectos
+- los rangos de ayuda habituales
+- los requisitos de elegibilidad y formalización
+- cómo se gestiona una ayuda desde la captación hasta la liquidación
+- qué documentación, sistema de control y gobernanza es necesaria
+- qué riesgos existen en la gestión de ayudas y cómo se minimizan
+
+La finalidad es servir de base para la gestión de una cartera de proyectos, la preparación de expedientes, el control de cumplimiento y la correcta liquidación de ayudas públicas.
+
+====================================================================
+2. FUENTES PRINCIPALES DE CONOCIMIENTO PARA AYUDAS A PROYECTOS
+====================================================================
+Las ayudas no se gestionan solo con "búsqueda de convocatorias". Se gestionan con una arquitectura de conocimiento que combina fuentes institucionales, sectoriales, legales y de ejecución.
+
+2.1 Fuentes institucionales principales
+- CDTI (Centro para el Desarrollo Tecnológico Industrial)
+  - fuente clave para I+D+i, innovación, proyectos colaborativos, tecnologías avanzadas, demostradores, PYMEs, consorcios.
+  - enfoque: proyectos con componente tecnológico y de innovación.
+  - conocimiento clave: convocatorias, requisitos, bases reguladoras, plazos, memoria económica, ratio de ayuda, tipología de coste elegible.
+
+- Ministerio de Ciencia, Innovación y Universidades
+  - normativa general para ayudas a I+D+i y programas del Estado.
+  - fuente de referencia para políticas públicas, programas, bases, requisitos, financiación de innovación.
+
+- European Commission / Funding & Tenders Portal
+  - fuente principal para ayudas europeas: Horizon Europe, Digital Europe, CEF, Eurostars, etc.
+  - informa de convocatorias, consorcios, normas de elegibilidad, presupuesto, costes permitidos, revisión de propuestas y cumplimiento de reporting.
+
+- Agencia Estatal de Investigación (AEI)
+  - ayuda a proyectos de investigación y desarrollo, consorcios, universidades y equipos científicos.
+
+- ICEX / Ministerio de Comercio
+  - ayudas a internacionalización, comercio exterior, expansión, proyectos de ingreso a mercados extranjeros, asociacionismo internacional.
+
+- RED.es / digitalización y transformación digital
+  - apoyo a proyectos de digitalización, ciberseguridad, innovación tecnológica, inteligencia artificial, productividad digital, etc.
+
+2.2 Fuentes autonómicas y regionales
+- Agencias de innovación autonómicas
+  - ejemplo: agencias de desarrollo regional, inversiones, innovación y apoyo a PYMEs
+- Departamentos de industria, economía y emprendimiento
+  - fuentes de ayudas regionales para inversión, I+D, automatización, sostenibilidad, digitalización, nuevas tecnologías
+- Ayudas locales / diputaciones / fondos europeos de desarrollo regional
+  - proyectos ejecutados en ámbito territorial concreto, inversiones productivas, transformación industrial, energía, sostenible.
+
+2.3 Fuentes sectoriales y específicas
+- ayudas a energía y sostenibilidad
+- ayudas a industria 4.0 y automatización
+- ayudas a ciberseguridad
+- ayudas a medio ambiente / ESG / eficiencia energética
+- ayudas a innovación en logística, salud, agroalimentación, movilidad, mar, construcción, etc.
+
+2.4 Fuentes de conocimiento interno de la empresa o PMO
+- cartera de proyectos
+- histórico de ayudas y convocatorias
+- banco de documentos y modelos de expediente
+- matriz de elegibilidad por proyecto
+- cost ledger y excel de costes elegibles
+- cronograma de hitos y entregables
+- justificación técnica y económica
+- base de conocimiento de proyectos anteriores
+
+====================================================================
+3. PRINCIPALES TIPOS DE AYUDAS Y FUENTES
+====================================================================
+3.1 Ayudas a I+D+i
+- proyectos de investigación aplicada
+- desarrollo experimental
+- innovación tecnológica
+- prototipos y validaciones
+- demostradores industriales
+- actividades de cooperación con universidades, centros tecnológicos o proveedores
+
+3.2 Ayudas a inversión industrial
+- maquinaria, automatización, robots, líneas, equipos, industria 4.0
+- sistemas de producción, logística, control, digitalización
+- inversiones productivas con impacto territorial o tecnológico
+
+3.3 Ayudas a transformación digital
+- ERP, CRM, analítica, IA, ciberseguridad, sistemas de negocio
+- automatización de procesos, plataformas de datos
+- digitalización de la cadena de valor
+
+3.4 Ayudas a sostenibilidad y eficiencia energética
+- eficiencia energética
+- consumos, reducción de emisiones
+- energías renovables y sistemas de ahorro
+- gestión de residuos y sostenibilidad industrial
+
+3.5 Ayudas a internacionalización y expansión
+- participación en ferias, mercados, exportación, alianzas internacionales
+- proyectos de entrada en nuevos mercados
+- consolidación de negocio internacional
+
+3.6 Ayudas a PYMEs y emprendimiento
+- subvenciones para creación de empresa o desarrollo de negocio
+- programas de innovación para empresas pequeñas
+- programas de financiación complementaria y riesgo
+
+====================================================================
+4. RANGOS TÍPICOS DE AYUDA Y CUANTÍAS
+====================================================================
+Las cuantías dependen del tipo de ayuda, del tamaño de la empresa, del tipo de actividad, del cofinanciación requerido y del programa.
+
+4.1 Rango general por tipo de proyecto
+- Feasibility / estudios / diagnósticos: 5.000 a 50.000 EUR
+- Proyectos de I+D+i pequeños: 20.000 a 200.000 EUR
+- Proyectos de innovación industrial media: 100.000 a 1.000.000 EUR
+- Proyectos colaborativos / consorcio: 500.000 a 10.000.000 EUR
+- Inversiones industriales y digitales: 50.000 a 5.000.000 EUR o más
+- Programas europeos: 0,5 M a 10 M+ según consorcio
+
+4.2 Tipos de ayuda y proporción habitual de ayuda
+- Ayudas a I+D+i: normalmente 40% a 80% del coste elegible, según programa, tamaño de empresa y tipo de proyecto
+- PYMEs: ratio más alta que grandes empresas
+- Proyecto colaborativo: apoyo complementario a la aportación privada
+- Inversión industrial: 20% a 60% dependiendo del programa y la comunidad autónoma
+- Digitalización / transformación: 30% a 70% en muchos programas
+- Programas de innovación y sostenibilidad: 25% a 60% según territorialidad
+
+4.3 Lo que suele hacer la diferencia
+- tamaño de la empresa
+- nivel de innovación
+- impacto territorial
+- capacidad de ejecución
+- nivel de colaboración con centros tecnológicos o universidades
+- nivel de cofinanciación y deuda propia
+- capacidad para aportar documentación y trazabilidad depurada
+
+====================================================================
+5. REQUISITOS BÁSICOS PARA QUE UNA AYUDA SEA ELEGIBLE
+====================================================================
+La elegibilidad depende del programa, pero existen requisitos muy repetidos:
+
+5.1 Requisitos generales de la empresa
+- estar constituida legalmente
+- estar al corriente de obligaciones fiscales y laborales
+- no estar en situaciones de incompatibilidad o prohibición
+- demostrar solvencia técnica y económica
+- justificar capacidad de ejecución y gestión del proyecto
+
+5.2 Requisitos del proyecto
+- existencia de un problema o una necesidad real
+- innovación, mejora competitiva o cambio tecnológico
+- alcance definido y justificable
+- planificación con hitos y entregables
+- presupuesto detallado y coste elegible
+- impacto económico, técnico y/o territorial
+- cumplimiento de la Base Reguladora y la convocatoria
+
+5.3 Requisitos de documentación
+- memoria técnica del proyecto
+- plan de trabajo / Gantt / cronograma
+- justificación del coste y desglose
+- presupuesto y financiación prevista
+- organización del equipo y roles
+- CV y experiencia de equipo de proyecto
+- documentación de propiedad intelectual, licencias, acuerdos, consorcio, si procede
+- pruebas de cumplimiento y evidencias de ejecución
+
+5.4 Requisitos de I+D+i / innovación
+- nivel de novedad o mejora en relación con el estado del arte
+- explicación del problema y la solución propuesta
+- TRL o nivel de madurez tecnológica, en algunos programas
+- carácter innovador y aplicable a mercado o uso industrial
+- impacto en productividad, costes, calidad o competitividad
+
+5.5 Requisitos para proyectos colaborativos
+- consorcio con partners claros
+- roles y responsabilidades definidos
+- aportación técnica y económica de cada participante
+- evitar solapamiento entre tareas y financiación
+- coordinación y governance clara
+
+====================================================================
+6. CÓMO SE GESTIONA UNA AYUDA A PROYECTOS
+====================================================================
+La gestión de ayudas es un proceso estructurado que va mucho más allá de presentar un formulario. Debe gestionarse como un proyecto con fases, evidencia y control.
+
+6.1 Fase 1: Descubrimiento y búsqueda
+- identificar negocio, necesidad e inversión
+- detectar convocatorias relevantes
+- clasificar por tipo de ayuda, ámbito, requisitos, plazos
+- mapear oportunidad por prioridad y ratio de éxito
+
+6.2 Fase 2: Evaluación de elegibilidad
+- validación de empresa, proyecto, costes, plazo y consorcio
+- análisis de requisitos específicos de la convocatoria
+- identificación de riesgos regulatorios
+- preparación de matriz de cumplimiento
+
+6.3 Fase 3: Diseño del proyecto
+- definición de objetivo, alcance, entregables, trabajo y hitos
+- plan de ejecución y equipo
+- presupuesto detallado por partidas
+- definición de costes elegibles y excluidos
+- identificación de cofinanciación y recursos propios
+
+6.4 Fase 4: Preparación de la solicitud
+- memoria técnica
+- justificación económica
+- cronograma
+- roles y organización
+- capacidad de ejecución
+- firma y revisión final
+- checklist legal y administrativa
+
+6.5 Fase 5: Presentación y seguimiento
+- envío de la solicitud
+- control de plazo de presentación
+- respuesta a requerimientos de la administracion
+- seguimiento de valoración
+- negociación, aclaraciones, correcciones, si procede
+
+6.6 Fase 6: Formalización y ejecución
+- firma de la resolución o convenio
+- registro del proyecto en la cartera
+- asignación de responsables
+- activación del sistema de control
+- plan de seguimiento y reporting
+
+6.7 Fase 7: Control durante la ejecución
+- control de gasto real vs planificado
+- certificación de avance
+- comprobación de costes elegibles
+- cumplimiento de hitos y entregables
+- mantenimiento de documentación técnica y económica
+- seguimiento de riesgos y desviaciones
+
+====================================================================
+7. QUÉ SE CONSIDERA COSTE ELEGIBLE
+====================================================================
+No todos los costes son elegibles. La gestión del proyecto debe diferenciar entre costes:
+
+- elegibles
+- no elegibles
+- parcialmente elegibles
+- financiados por otra ayuda
+- de cofinanciación
+
+Costes típicos elegibles:
+- personal dedicado al proyecto
+- gastos de subcontratación
+- equipos, maquinaria, software específico
+- materiales y consumibles
+- gastos de viaje y desplazamiento vinculados al proyecto
+- gastos de patente, propiedad industrial o protección
+- costes de análisis, pruebas, validación, certificación
+- gastos de estructura y servicios externos vinculados al proyecto
+
+Costes no elegibles o limitados:
+- gastos generales no justificables
+- compras no vinculadas al proyecto
+- costes ya subvencionados
+- IVA no deducible, si no procede
+- inversiones no identificables claramente con el proyecto
+- costes de estructura no directamente ligados a la actividad de innovación
+
+====================================================================
+8. CÓMO SE GESTIONA LA INNOVACIÓN Y LA EVIDENCIA
+====================================================================
+El valor real de una ayuda no está solo en la convocatoria, sino en la capacidad de demostrar que:
+- el proyecto es válido
+- la financiación es necesaria
+- la ejecución fue correcta
+- el gasto fue real y justificable
+- el resultado es consistente con la propuesta original
+
+Se requieren repositorios de evidencia:
+- memorias técnicas
+- avances de trabajo
+- entregables y entregas
+- facturas y pagos
+- certificaciones de cumplimiento
+- registros de horas
+- documentación de terceros y proveedores
+- pruebas, validaciones, resultados
+- acuerdos de colaboración
+
+Esto convierte la ayuda en un sistema de trazabilidad y cumplimiento, no en un trámite administrativo aislado.
+
+====================================================================
+9. CÓMO SE LIQUIDAN LAS AYUDAS
+====================================================================
+La liquidación es el cierre administrativo y económico del proyecto. Es la fase más crítica para evitar devoluciones, penalizaciones o negativa de coste.
+
+9.1 Base de la liquidación
+La liquidación se realiza con la comparación entre:
+- presupuesto aprobado
+- gasto realmente ejecutado
+- gasto elegible
+- gasto subvencionable
+- avance real del proyecto
+- justificante de cumplimiento técnico y económico
+
+9.2 Documentación de liquidación
+- informe final del proyecto
+- memoria final técnica
+- memoria final económica
+- resumen de gastos reales
+- facturas, pagos y justificación
+- certificados de finalización con resultados
+- justificante de conformidad o aprobación
+- declaración de contribución propia
+- justificación de tiempo, personal o subcontratación
+
+9.3 Elementos clave del proceso
+- comprobar que todos los gastos coinciden con lo aprobado
+- revisar que no haya costes excluidos o dobles ayudas
+- asegurar que la ejecución técnica se corresponde con la solicitud
+- confirmar que los hitos clave quedaron cumplidos
+- validar si hubo cambios de alcance o modificación del proyecto
+- presentar el documento final con todas las pruebas
+
+9.4 Resultado posible
+- aprobación total de la liquidación
+- aprobación parcial
+- revisión / ajuste
+- devolución parcial o total de la ayuda
+- requerimiento adicional por parte de la administración
+
+9.5 Riesgos principales en la liquidación
+- costes no elegibles
+- falta de documentación de gastos
+- diferencias entre plan inicial y ejecución real
+- incumplimiento de objetivos o entregables
+- retrasos en pago o justificación
+- incoherencia entre memoria técnica y justificante económico
+- doble financiación
+
+====================================================================
+10. MODELO DE GESTIÓN OPERATIVA DE AYUDAS EN UN PMO
+====================================================================
+Para una empresa o estructura profesional, la gestión de ayudas debe integrarse dentro de un PMO de proyectos y financiación.
+
+10.1 Roles clave
+- director del proyecto
+- responsable de ayudas y financiación
+- responsable técnico
+- responsable económico / contabilidad
+- analista documental
+- responsable legal / compliance
+- coordinador de consorcio, si procede
+
+10.2 Indicadores clave de gestión
+- número de convocatorias analizadas
+- número de proyectos elegibles
+- tasa de éxito de solicitud
+- ratio de ayuda capturada
+- volumen de inversión movilizada
+- tiempo medio de preparación de expediente
+- porcentaje de coste elegible
+- porcentaje de gasto liquidado correctamente
+- número de incidencias/requerimientos
+
+10.3 Dashboard mínimo recomendado
+- cartera activa
+- proyectos con ayuda en curso
+- proyectos pendientes de solicitud
+- proyectos en liquidación
+- ayudas aprobadas
+- ayudas pendientes de pago
+- riesgo de no cumplimiento
+- proyectos con documentación incompleta
+
+====================================================================
+11. MODELO DE PRIORIZACIÓN DE AYUDAS
+====================================================================
+No todas las ayudas son buenas para todos los proyectos. La prioridad debe basarse en:
+- alineación con el proyecto
+- ratio de ayuda real
+- complejidad administrativa
+- tiempo de preparación
+- coste del expediente
+- nivel de riesgo
+- impacto estratégico
+- posibilidad de ejecución efectiva
+
+Regla práctica:
+- prioridad alta: convocatorias con alta probabilidad de éxito, alta ayuda, bajo coste de preparación y fuerte alineación
+- prioridad media: ayudas con valor estratégico pero más complejos
+- prioridad baja: programas con baja aportación o mucha carga documental
+
+====================================================================
+12. PRINCIPALES FUENTES DE RIESGO EN LA GESTIÓN DE AYUDAS
+====================================================================
+- inadecuada definición del proyecto
+- falta de documentación o pruebas
+- coste no elegible
+- plazos no cumplidos
+- requisitos de cofinanciación mal dimensionados
+- problemas de justificación de personal o subcontratación
+- no acreditar el impacto o la innovación
+- cambios de alcance sin informar
+- doble financiación o solapamiento con otras ayudas
+- errores en liquidación
+
+====================================================================
+13. RECOMENDACIÓN PRÁCTICA PARA UNA EMPRESA O PMO
+====================================================================
+La forma más robusta de gestionar ayudas es crear una máquina de conocimiento de financiación que combine:
+
+1. Base de datos de convocatorias
+2. Matriz de elegibilidad por proyecto
+3. Repositorio documental
+4. Sistema de seguimiento de hitos y gastos
+5. Control de costes elegibles y no elegibles
+6. Panel de priorización y ranking de oportunidades
+7. Modelo de liquidación y cierre
+8. Gobernanza y responsables por etapa
+
+A nivel operativo, la empresa debe diseñar:
+- un portfolio de proyectos con estado legal, técnico y económico
+- un pipeline de oportunidades de ayuda
+- un registro de ayudas aprobadas y pendientes
+- una checklist de requisitos por convocatoria
+- un plan de liquidación desde el inicio del proyecto, no al final
+
+====================================================================
+14. CONCLUSIÓN
+====================================================================
+La gestión de ayudas a proyectos no es un trabajo de búsqueda aislada de subvenciones, sino una disciplina de gestión de proyecto, evidencia y cumplimiento. Para tener éxito, la empresa debe operar con:
+- fuentes de conocimiento fiables
+- un mapa de convocatorias actualizado
+- criterios claros de elegibilidad
+- una documentación técnica y económica impecable
+- control de gastos y liquidez
+- capacidad de liquidar correctamente la ayuda
+- una gobernanza sólida del proyecto
+
+En la práctica, la clave está en combinar:
+- gestión de proyecto
+- financiación pública y privada
+- innovación o I+D+i
+- contabilidad, legalidad y cumplimiento
+- control de evidencia y trazabilidad
+- estrategia de portfolio y priorización
+
+Esto permite convertir una buena idea en un proyecto elegible, ejecutable, financiable y liquidable.
+
+====================================================================
+15. RESUMEN DE FUENTES Y TIPO DE AYUDA
+====================================================================
+- CDTI / Ministerio: I+D+i, innovación, tecnología, consorcios, proyectos colaborativos
+- European Commission / Horizon Europe: financiación europea, investigación, innovación, proyectos transnacionales
+- AEI: investigación y desarrollo
+- ICEX: internacionalización y exportación
+- RED.es / digitalización: IA, ciberseguridad, digitalización, productividad
+- Agencias autonómicas: inversión industrial, automatización, sostenibilidad, innovación territorial
+- Ayudas locales: inversión, transformación industrial, desarrollo económico local
+- Fondos europeos y regionales: inversiones y proyectos con impacto territorial
+
+====================================================================
+FIN DEL INFORME

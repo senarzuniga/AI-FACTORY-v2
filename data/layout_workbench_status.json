@@ -1,0 +1,623 @@
+{
+  "generated_at": "2026-08-07T15:59:39.317227+00:00",
+  "mission": {
+    "id": "M014",
+    "name": "MISSION M014 - COMPLETE INDUSTRIAL LAYOUT INTELLIGENCE PLATFORM",
+    "priority": "P0",
+    "dependency_order": [
+      "Mission Manager",
+      "DWG parser",
+      "DXF parser",
+      "Geometry Engine",
+      "Factory Graph",
+      "Knowledge Graph",
+      "Simulation Runtime",
+      "Digital Twin",
+      "Engineering Optimizer"
+    ],
+    "automatic_continuation": true
+  },
+  "score_model": {
+    "type": "weighted-objective-scoring",
+    "weights": {
+      "functionality": 30,
+      "integration": 20,
+      "tests": 15,
+      "documentation": 10,
+      "code_quality": 10,
+      "knowledge_sync": 10,
+      "end_to_end": 5
+    },
+    "criteria_order": [
+      "functionality",
+      "integration",
+      "tests",
+      "documentation",
+      "code_quality",
+      "knowledge_sync",
+      "end_to_end"
+    ]
+  },
+  "keywords": [
+    "dwg",
+    "dxf",
+    "layout",
+    "plant",
+    "factory",
+    "geometry",
+    "cad",
+    "simulation",
+    "factory graph",
+    "knowledge graph",
+    "mission manager",
+    "workbench",
+    "plant simulator",
+    "reel loading",
+    "flow analysis",
+    "amr",
+    "ingetrans",
+    "wip",
+    "digital twin",
+    "geometry engine"
+  ],
+  "keyword_hits": {
+    "dwg": 33,
+    "dxf": 34,
+    "layout": 47,
+    "plant": 28,
+    "factory": 137,
+    "geometry": 29,
+    "cad": 60,
+    "simulation": 43,
+    "factory graph": 27,
+    "knowledge graph": 29,
+    "mission manager": 35,
+    "workbench": 21,
+    "plant simulator": 2,
+    "reel loading": 2,
+    "flow analysis": 5,
+    "amr": 24,
+    "ingetrans": 15,
+    "wip": 26,
+    "digital twin": 29,
+    "geometry engine": 13
+  },
+  "discovery": {
+    "pages": [
+      "LAYOUT_WORKBENCH_STATUS.html",
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "orchestrator_dashboard.html",
+      "teams-channel-access.html"
+    ],
+    "unfinished_pages": [
+      "dashboard/layout_workbench.html"
+    ],
+    "backend_services": [
+      "README.md",
+      "api/routes/cognitive_os_api.py",
+      "api/routes/hub_api.py",
+      "docs/aeos_review/Platform_Registry.json",
+      "scripts/generate_layout_workbench_status.py",
+      "start-collaborative-hub.ps1",
+      "start_ecosystem.ps1",
+      "tests/test_cognitive_os_api.py"
+    ],
+    "parsers": [
+      ".forge/ai-factory-v2.config.json",
+      "Architecture/ContinuousImprovement/01_OBJECTIVES.md",
+      "Architecture/ContinuousImprovement/03_GAP_ANALYSIS.md",
+      "Architecture/ContinuousImprovement/05_PROGRESS_HISTORY.md",
+      "CAPABILITY_GRAPH.md",
+      "EXECUTABLE_ROADMAP.md",
+      "IA FACTORY recuperar 06 08 2026.txt",
+      "INDUSTRIAL_MATURITY_MODEL.md",
+      "Industrial_Layout_Workbench_ARCHITECTURE.md",
+      "Industrial_Layout_Workbench_README.txt",
+      "Industrial_Layout_Workbench_ROADMAP.md",
+      "Industrial_Layout_Workbench_STATUS.md",
+      "LAYOUT_WORKBENCH_STATUS.html",
+      "M001_IMPLEMENTATION_CHARTER.md",
+      "README.md",
+      "README_CASCADE.md",
+      "STRATEGIC_REFOUNDATION.md",
+      "TODO_REPORT.md",
+      "UNIVERSAL LAYOUT INGESTION.txt",
+      "agents/action_engine.py",
+      "ai-factory-v2/specification.md",
+      "api/routes/cognitive_os_api.py",
+      "architecture_reorganization_report.txt",
+      "cascade_orchestrator.py",
+      "clean_all_repos.sh",
+      "cognitive_os/continuous_improvement.py",
+      "cognitive_os/industrial_intelligence.py",
+      "cognitive_os/industrial_layout.py",
+      "cognitive_os/knowledge_core.py",
+      "cognitive_os/layout_import_framework.py",
+      "cognitive_os/sdk.py",
+      "context/context_layer.py",
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "data/cascade_results.json",
+      "data/cognitive_os_memory.json",
+      "data/layout_versions.json",
+      "data/layout_workbench_status.json",
+      "data/learning/cascade_results.json",
+      "data/missions/canonical_missions_legacy_archive.json",
+      "data/missions/canonical_missions_v1.json",
+      "data/simulation_7h_report.json",
+      "data/sync_summary.json",
+      "data/synced_customers.json",
+      "data/verification_report.json",
+      "docs/IS_BACKOFFICE_AUDIT.md",
+      "docs/aeos_review/Capability_Registry.json",
+      "docs/aeos_review/Executive_Engineering_Report_2026-07-23_cycle2.md",
+      "docs/aeos_review/NXT-001_Implementation_Charter.md",
+      "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+      "docs/aeos_review/Platform_Registry.json",
+      "docs/cognitive_os_services.md",
+      "docs/engineering_scoring.md",
+      "docs/industrial_layout_functionality_review_2026-08-06.md",
+      "docs/industrial_layout_progress_report.md",
+      "force_update_panels_report.txt",
+      "knowledge/industrial_knowledge_map_template.md",
+      "main.py",
+      "mission_portfolio/mission_portfolio_001.json",
+      "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+      "monitor_cascade.py",
+      "reorganize_architecture.ps1",
+      "resumen_capacidades.txt",
+      "scripts/cascade_agents.py",
+      "scripts/deploy_linked_apps.ps1",
+      "scripts/force_sync_data.py",
+      "scripts/generate_layout_workbench_status.py",
+      "scripts/simulate_7h_autonomous.py",
+      "scripts/update_all_panels.py",
+      "scripts/verify_all.py",
+      "setup_cascade.ps1",
+      "setup_cascade.sh",
+      "specs/factory_intelligence_workbench.md",
+      "start_ecosystem.ps1",
+      "tests/test_cascade_orchestrator.py",
+      "tests/test_cognitive_os_api.py",
+      "tests/test_industrial_layout.py",
+      "tests/test_layout_import_framework.py",
+      "tools/mission_portfolio/generate_portfolio.py"
+    ],
+    "models_schemas": [
+      "schemas/canonical_mission_model.schema.json",
+      "schemas/mission_graph_schema.json",
+      "schemas/mission_state_machine.json"
+    ],
+    "ui_components": [
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "dashboard/streamlit/hub_dashboard.py",
+      "dashboard/streamlit/human_interaction_portal.py"
+    ],
+    "knowledge_assets": [
+      ".forge/knowledge_map.json",
+      ".forge/schemas/vision.schema.json",
+      ".forge/skill_registry.json",
+      ".forge/vision.json",
+      ".github/copilot-instructions.md",
+      ".github/workflows/ai-factory.yml",
+      "AGENTS.md",
+      "AI Factory Natural next steps.txt",
+      "AI-FACTORY = Sistema Operativo de I.txt",
+      "Architecture/ContinuousImprovement/01_OBJECTIVES.md",
+      "Architecture/ContinuousImprovement/02_CURRENT_STATE.md",
+      "Architecture/ContinuousImprovement/03_GAP_ANALYSIS.md",
+      "Architecture/ContinuousImprovement/04_EXECUTION_BACKLOG.md",
+      "Architecture/ContinuousImprovement/05_PROGRESS_HISTORY.md",
+      "Architecture/ContinuousImprovement/06_ARCHITECTURE_DECISIONS.md",
+      "CAPABILITY_GRAPH.md",
+      "EXECUTABLE_ROADMAP.md",
+      "INDUSTRIAL_MATURITY_MODEL.md",
+      "Industrial_Layout_Workbench_API.md",
+      "Industrial_Layout_Workbench_ARCHITECTURE.md",
+      "Industrial_Layout_Workbench_README.txt",
+      "Industrial_Layout_Workbench_ROADMAP.md",
+      "Industrial_Layout_Workbench_STATUS.md",
+      "LAYOUT_WORKBENCH_STATUS.html",
+      "M001_IMPLEMENTATION_CHARTER.md",
+      "SHAREPOINT_HUB_INSTRUCTIONS.md",
+      "STRATEGIC_REFOUNDATION.md",
+      "UNIVERSAL LAYOUT INGESTION.txt",
+      "agents/action_engine.py",
+      "agents/delivery_agent.py",
+      "agents/validation_agent.py",
+      "ai-factory-v2/agents/generator.py",
+      "ai-factory-v2/models/hypothesis.py",
+      "api/routes/cognitive_os_api.py",
+      "cascade_orchestrator.py",
+      "cognitive_os/autonomous.py",
+      "cognitive_os/continuous_improvement.py",
+      "cognitive_os/industrial_intelligence.py",
+      "cognitive_os/industrial_layout.py",
+      "cognitive_os/knowledge_core.py",
+      "cognitive_os/mission_core.py",
+      "cognitive_os/mission_model_selection.py",
+      "cognitive_os/models.py",
+      "cognitive_os/registries.py",
+      "cognitive_os/runtimes.py",
+      "cognitive_os/sdk.py",
+      "cognitive_os/system.py",
+      "context/__init__.py",
+      "context/context_layer.py",
+      "dashboard/layout_workbench.html",
+      "data/cognitive_os_memory.json",
+      "data/layout_versions.json",
+      "data/layout_workbench_status.json",
+      "data/missions/canonical_mission_migration_report.json",
+      "data/missions/canonical_missions_legacy_archive.json",
+      "data/missions/canonical_missions_v1.json",
+      "docs/IS_BACKOFFICE_AUDIT.md",
+      "docs/SHAREPOINT_SETUP_RECIPE.md",
+      "docs/aeos_review/ADR-2026-07-23-next-mission-selection.md",
+      "docs/aeos_review/Capability_Registry.json",
+      "docs/aeos_review/Engineering_Investment_Portfolio_30d.json",
+      "docs/aeos_review/Enterprise_Digital_Twin_Status.json",
+      "docs/aeos_review/Executive_Engineering_Report_2026-07-23_cycle2.md",
+      "docs/aeos_review/Executive_Engineering_Review_2026-07-23.md",
+      "docs/aeos_review/Executive_Platform_Status_2026-07-23_cycle2.json",
+      "docs/aeos_review/Hypothesis_Evaluation_2026-07-23_cycle2.json",
+      "docs/aeos_review/Knowledge_Hub_Status.json",
+      "docs/aeos_review/Mission_Graph.json",
+      "docs/aeos_review/NXT-001_Implementation_Charter.md",
+      "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+      "docs/aeos_review/Platform_Registry.json",
+      "docs/cognitive_os_services.md",
+      "docs/engineering_scoring.md",
+      "docs/industrial_layout_functionality_review_2026-08-06.md",
+      "docs/industrial_layout_progress_report.md",
+      "docs/mission_manager.md",
+      "docs/mission_model_consolidation_report.md",
+      "docs/mission_model_specification.md",
+      "governance/global_operational_directive.md",
+      "knowledge/corrugated_equipment/converter_equipment_catalog_v1.json",
+      "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+      "knowledge/industrial_knowledge_map_template.md",
+      "mission_portfolio/mission_portfolio_001.json",
+      "mission_portfolio/mission_portfolio_002_aeos.json",
+      "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+      "resumen_capacidades.txt",
+      "schemas/canonical_mission_model.schema.json",
+      "schemas/mission_graph_schema.json",
+      "schemas/mission_state_machine.json",
+      "scripts/generate_converter_scoring_report.py",
+      "scripts/generate_layout_workbench_status.py",
+      "scripts/migrate_mission_model.py",
+      "specs/factory_intelligence_workbench.md",
+      "tests/test_continuous_improvement.py",
+      "tests/test_industrial_intelligence_core.py",
+      "tests/test_industrial_layout.py",
+      "tools/mission_portfolio/generate_portfolio.py",
+      "ultimate_orchestrator.py"
+    ]
+  },
+  "dependency_map": {
+    "mandatory_module_order": [
+      "Mission Manager",
+      "DWG parser",
+      "DXF parser",
+      "Geometry Engine",
+      "Factory Graph",
+      "Knowledge Graph",
+      "Simulation Runtime",
+      "Digital Twin",
+      "Engineering Optimizer"
+    ],
+    "ui_pages": [
+      "dashboard/layout_workbench.html",
+      "dashboard/orchestrator_panel.html",
+      "dashboard/streamlit/hub_dashboard.py"
+    ],
+    "api_services": [
+      "api/routes/hub_api.py",
+      "api/routes/cognitive_os_api.py"
+    ],
+    "mission_manager": [
+      "cognitive_os/mission_core.py",
+      "cognitive_os/system.py",
+      "cognitive_os/registries.py"
+    ],
+    "schemas_and_models": [
+      "schemas/mission_graph_schema.json",
+      "schemas/canonical_mission_model.schema.json",
+      "cognitive_os/models.py"
+    ],
+    "knowledge_assets": [
+      "specs/factory_intelligence_workbench.md",
+      "docs/mission_manager.md",
+      "mission_portfolio/mission_portfolio_001.json",
+      "data/missions/canonical_missions_v1.json"
+    ],
+    "ops_scripts": [
+      "start_ecosystem.ps1",
+      "start-collaborative-hub.ps1",
+      "scripts/generate_layout_workbench_status.py"
+    ]
+  },
+  "maturity": {
+    "Mission Manager": {
+      "status": "partial",
+      "percent": 70
+    },
+    "DWG parser": {
+      "status": "partial",
+      "percent": 70
+    },
+    "DXF parser": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Geometry Engine": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Factory Graph": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Knowledge Graph": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Simulation Runtime": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Digital Twin": {
+      "status": "partial",
+      "percent": 70
+    },
+    "Engineering Optimizer": {
+      "status": "partial",
+      "percent": 70
+    }
+  },
+  "scoring_details": {
+    "Mission Manager": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 70.0,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 70.5
+    },
+    "DWG parser": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Mission Manager"
+    },
+    "DXF parser": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "DWG parser"
+    },
+    "Geometry Engine": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "DXF parser"
+    },
+    "Factory Graph": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Geometry Engine"
+    },
+    "Knowledge Graph": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Factory Graph"
+    },
+    "Simulation Runtime": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Knowledge Graph"
+    },
+    "Digital Twin": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Simulation Runtime"
+    },
+    "Engineering Optimizer": {
+      "weights": {
+        "functionality": 30,
+        "integration": 20,
+        "tests": 15,
+        "documentation": 10,
+        "code_quality": 10,
+        "knowledge_sync": 10,
+        "end_to_end": 5
+      },
+      "criteria": {
+        "functionality": 77.5,
+        "integration": 70.0,
+        "tests": 70.0,
+        "documentation": 70.0,
+        "code_quality": 70.0,
+        "knowledge_sync": 70.0,
+        "end_to_end": 80.0
+      },
+      "raw_percent": 72.75,
+      "dependency_capped_by": "Digital Twin"
+    }
+  },
+  "implementation_percent": 70,
+  "pending_functionality": [
+    "Mission Manager remains at 70% and requires completion to reach production-ready target",
+    "DWG parser remains at 70% and requires completion to reach production-ready target",
+    "DXF parser remains at 70% and requires completion to reach production-ready target",
+    "Geometry Engine remains at 70% and requires completion to reach production-ready target",
+    "Factory Graph remains at 70% and requires completion to reach production-ready target",
+    "Knowledge Graph remains at 70% and requires completion to reach production-ready target",
+    "Simulation Runtime remains at 70% and requires completion to reach production-ready target",
+    "Digital Twin remains at 70% and requires completion to reach production-ready target",
+    "Engineering Optimizer remains at 70% and requires completion to reach production-ready target"
+  ],
+  "recommended_next_missions": [
+    "M014-MISSION-MANAGER: Close critical gaps for Mission Manager and validate integration with predecessor",
+    "M014-DWG-PARSER: Close critical gaps for DWG parser and validate integration with predecessor",
+    "M014-DXF-PARSER: Close critical gaps for DXF parser and validate integration with predecessor",
+    "M014-GEOMETRY-ENGINE: Close critical gaps for Geometry Engine and validate integration with predecessor",
+    "M014-FACTORY-GRAPH: Close critical gaps for Factory Graph and validate integration with predecessor"
+  ],
+  "self_audit": {
+    "broken_imports": [],
+    "broken_routes": [],
+    "missing_assets": [],
+    "duplicate_pages": [
+      "openai_key_manager.py | ai-factory-v2/openai_key_manager.py",
+      "main.py | orchestrator/main.py | ultimate_orchestrator.py"
+    ],
+    "missing_parsers": [
+      "DWG parser implementation not complete",
+      "DXF parser implementation not complete"
+    ],
+    "missing_backend": [],
+    "missing_services": [],
+    "quality_gates": {
+      "layout_workbench_accessible": true,
+      "platform_registry_registered": true,
+      "capability_registry_registered": true,
+      "mission_manager_reachable": true,
+      "status_documented": true,
+      "executive_html_generated": true,
+      "dependency_chain_enforced": true,
+      "scoring_model_automatic": true
+    }
+  }
+}

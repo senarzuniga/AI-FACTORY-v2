@@ -1,0 +1,30 @@
+{
+  "registry_date": "2026-07-23",
+  "scale": ["implemented", "partial", "prototype", "missing", "deprecated", "duplicate"],
+  "capabilities": [
+    {"name": "Mission Management", "status": "partial", "evidence": ["docs/mission_manager.md", "mission_portfolio/mission_portfolio_001.json"]},
+    {"name": "Mission Portfolio", "status": "implemented", "evidence": ["mission_portfolio/mission_portfolio_001.json", "mission_portfolio/mission_portfolio_003_parallel_30d.json", "tools/mission_portfolio/generate_portfolio.py"]},
+    {"name": "Engineering Governance", "status": "partial", "evidence": ["agents/validation_agent.py", "agents/judge_agent.py", "orchestrator/agents/critic_agent.py", "orchestrator/hybrid_orchestrator.py", "tests/test_hybrid_human_approval_governance.py"]},
+    {"name": "Decision Intelligence", "status": "partial", "evidence": ["agents/judge_agent.py", "docs/engineering_scoring.md"]},
+    {"name": "Knowledge Management", "status": "partial", "evidence": ["agents/memory_agent.py", "orchestrator/memory/vector_store.py"]},
+    {"name": "Architecture Intelligence", "status": "prototype", "evidence": ["orchestrator/agents/planning_agent.py", "orchestrator/agents/grounding_agent.py"]},
+    {"name": "Enterprise Digital Twin", "status": "missing", "evidence": ["M001_IMPLEMENTATION_CHARTER.md", "INDUSTRIAL_MATURITY_MODEL.md"]},
+    {"name": "Capability Registry", "status": "partial", "evidence": ["docs/mission_manager.md", "docs/aeos_review/Capability_Registry.json"]},
+    {"name": "Platform Observatory", "status": "partial", "evidence": ["ultimate_orchestrator.py", "orchestrator_dashboard.html", "orchestrator_master_report.txt"]},
+    {"name": "Quality Assurance", "status": "partial", "evidence": ["tests/test_cascade_orchestrator.py", "tests/test_hybrid_human_approval_governance.py", "tests/test_orchestration_taxonomy.py", "agents/validation_agent.py"]},
+    {"name": "Learning", "status": "partial", "evidence": ["cascade_orchestrator.py", "orchestrator/memory/experience_replay.py", "orchestrator/core/coepg_trainer.py"]},
+    {"name": "Self Improvement", "status": "prototype", "evidence": ["orchestrator/core/escher_loop.py", "orchestrator/core/imcts_engine.py"]},
+    {"name": "Context Intelligence", "status": "partial", "evidence": ["context/context_layer.py", "orchestrator/hybrid_orchestrator.py"]},
+    {"name": "Workflow Orchestration", "status": "implemented", "evidence": ["orchestrator/hybrid_orchestrator.py", "cascade_orchestrator.py", "orchestrator/main.py"]},
+    {"name": "Industrial Intelligence", "status": "missing", "evidence": ["M001_IMPLEMENTATION_CHARTER.md", "schemas/"]},
+    {"name": "Executive Intelligence", "status": "prototype", "evidence": ["tools/mission_portfolio/generate_portfolio.py", "agents/delivery_agent.py"]},
+    {"name": "Parallel Portfolio Optimization", "status": "implemented", "evidence": ["docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md", "docs/aeos_review/Engineering_Investment_Portfolio_30d.json"]}
+  ],
+  "duplicates": [
+    {"area": "OpenAI key management", "files": ["openai_key_manager.py", "ai-factory-v2/openai_key_manager.py"]},
+    {"area": "Orchestrator entrypoints", "files": ["main.py", "orchestrator/main.py", "ultimate_orchestrator.py", "cascade_orchestrator.py", "ai-factory-v2/orchestrator.py"]}
+  ],
+  "deprecated_candidates": [
+    {"component": "Legacy stack in ai-factory-v2", "reason": "Active but overlaps with advanced stack and creates maintenance split"}
+  ]
+}

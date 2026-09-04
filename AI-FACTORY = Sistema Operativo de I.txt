@@ -1,0 +1,69 @@
+AI-FACTORY = Sistema Operativo de IA
+
+AI-FACTORY no debería contener el negocio. Su función es proporcionar la infraestructura cognitiva y de orquestación que cualquier aplicación pueda utilizar.
+
+Responsabilidades:
+
+AI Coordinator / Orchestrator
+Agent Registry
+Mission Manager (genérico)
+Capability Graph
+Mission Graph
+Platform Registry
+Workflow Engine
+Hypothesis Engine
+Scoring Engine
+Governance
+Evidence Runtime
+Truth Runtime
+Enterprise Memory (infraestructura)
+SDK para agentes
+Framework de autoevaluación y aprendizaje
+
+Es decir, el motor.
+
+DIGITAL TWIN
+
+Customer
+    │
+    ├── Factory
+    │
+    ├── Buildings
+    │
+    ├── Corrugator
+    │
+    ├── Converting
+    │
+    ├── Warehouse
+    │
+    ├── Logistics
+    │
+    ├── AMR Fleet
+    │
+    ├── WIP
+    │
+    ├── Scrap
+    │
+    ├── Maintenance
+    │
+    ├── Utilities
+    │
+    ├── Energy
+    │
+    ├── Operators
+    │
+    ├── ERP
+    │
+    ├── MES
+    │
+    ├── Documents
+    │
+    ├── Drawings
+    │
+    ├── Simulations
+    │
+    ├── Offers
+    │
+    ├── Projects
+    │
+    └── Historical Decisions

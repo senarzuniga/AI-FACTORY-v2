@@ -1,0 +1,689 @@
+INFORME COMPLETO: PLANTA TIPO CORRUGADO, FLUJOS, EQUIPOS, BENCHMARKS, REQUISITOS DE CONTROL Y MODELO DE IA/ERP
+
+Fecha de generación: 2026-08-16
+Proyecto: AI-FACTORY-v2
+Contexto: base industrial tipo corrugado + reutilización de IS-BACKOFFICE como capa de conocimiento, integración, analítica y simulación.
+
+====================================================================
+1. OBJETIVO DEL INFORME
+====================================================================
+Este documento tiene como objetivo definir un modelo operativo y de control para una planta de corrugado con:
+- 1 corrugadora
+- 3 RDCs (Rotary Die Cutters)
+- 2 FG (Finishing / converting lines o zonas de finalizado)
+- 1 troqueladora plana
+- 1 FFG (Flexo Folder Gluer)
+- 4 paletizadores robóticos
+- 2 transfer de gestión de WIP
+- 1 Ingetrans (sistema automatizado de transporte/traslado interno)
+- presencia de almacenes, stocks, ubicaciones, WIP, FG, FFG, RDCI, y flujo de expedición
+
+La finalidad es servir de base para:
+- especificación funcional de software industrial
+- automatización con Agentes IA
+- compatibilidad con ERP (SAP, Oracle, Dynamics, NetSuite, Odoo, Infor, etc.)
+- análisis de capacidad, cargas, velocidades, ciclos, congestionamientos, tiempos de espera
+- generación de escenarios de simulación y optimización del flujo de trabajo
+- mejora de decisiones operativas usando toda la información de órdenes, stock, almacenes, urgencias, WIP, capacidad real y disponibilidad.
+
+====================================================================
+2. RESUMEN EJECUTIVO
+====================================================================
+Una planta de corrugado moderna no está formada por máquinas aisladas: es una red de flujo de materiales, inventario, procesos y decisiones. El control óptimo exige un modelo digital de la planta con:
+- trazabilidad por orden, SKU, lote, pallet, caja, bulto, ubicación, ruta y prioridad
+- sincronización temporal entre corrugadora, RDC, troqueladora, FFG y expedición
+- gestión de WIP como un activo dinámico, no como un inventario “despreciado”
+- control de buffers y capacidad por pieza, pallet, lote o código de cliente
+- equilibrio entre velocidad y calidad
+- cumplimiento del ERP como sistema de verdad de negocio
+- IA como sistema de recomendación, optimización y gestión de excepción
+
+La arquitectura correcta es:
+ERP -> capa de integración -> capa de datos maestros -> capa operacional (producción, almacén, transporte, WIP, expediciones) -> capa IA/Agentes -> capa de dashboards y decisiones.
+
+No debe existir una lógica de optimización “fuera de la planta” sin una base de datos de operaciones, órdenes, ubicaciones, stock y capacidades reales. El software debe operar con un modelo holístico.
+
+====================================================================
+3. ARQUITECTURA TÍPICA DE UNA PLANTA DE CORRUGADO
+====================================================================
+Flujo base asumido:
+1. Recepción de materia prima: papel, cartón, microcorrugado, adhesivos, estuches, etc.
+2. Corrugadora: proceso principal de formación de cartón corrugado.
+3. Buffer / WIP intermedio: almacenamiento rápido de rollos, placas, hojas o packs.
+4. RDCs: corte rotativo, troquelado, estampado, perforación, etc.
+5. Transfer / WIP loop / secuenciamiento: manejo de cargas, choques de flujo, priorización, controles de abastecimiento.
+6. FG: líneas finales de acabado, montaje, caja, embalaje, stickers, etc.
+7. Troqueladora plana: piezas más complejas o tiradas específicas.
+8. FFG: flexo-folder-gluer para cajas terminadas o kits.
+9. Paletizadores robotizados: preparación automática por SKU, cliente, canal o ruta.
+10. Almacenes FG / FFG / RDCI / buffer de expedición.
+11. Ingetrans: transporte automatizado interno para mover pallets, cajas u otro material entre zonas.
+12. Expedición / transporte externo / entrega a cliente.
+
+====================================================================
+4. DEFINICIÓN DE EQUIPOS Y SU ROL OPERATIVO
+====================================================================
+4.1 Corrugadora
+Rol:
+- Es el centro de producción principal.
+- Produce el panel corrugado base del producto.
+- Define ritmo de la planta y genera la mayor parte del WIP.
+
+Variables críticas de control:
+- velocidad nominal (m/min o m/s)
+- capacidad real por tipo de cartón
+- ancho de máquina
+- gramaje del papel
+- porcentaje de ocupación / saturación
+- tiempos de cambio de receta
+- paradas por calidad/recurso
+- velocidad de salida por minuto
+- utilización de rollos / stock intermedio
+
+Indicadores claves:
+- OEE por turno
+- throughput real
+- incidencia de paradas
+- tiempo de setup
+- porcentaje de tiempo de máquina disponible
+- line starvation / line blockage
+
+Benchmarks orientativos:
+- Corrugadora tipo industrial: rendimientos reales muy variables según gramaje, grosor y ancho.
+- En entorno similar de corrugado con automatización y WIP disciplinado: 80-95% de OEE sobre un entorno estable.
+- En plantas con mayor variabilidad: 70-85% OEE típico.
+- Reducción de paradas por logística con Ingetrans / AMR: 50-90% en eventos de hambre/espera según escenario.
+
+4.2 RDCs (Rotary Die Cutters)
+Rol:
+- Cortan, perforan, troquelan o estampan de forma continua.
+- Son estaciones de alto volumen y alta sensibilidad a la sincronización con corrugadora.
+
+Variables críticas:
+- velocidad por máquina
+- capacidad por hoja / segundo / minuto
+- duración de cambio de matriz
+- tolerancia de registro
+- riesgo de bloqueos por material faltante
+- reseteo por scrap, cambio de cilindro o mal alineación
+
+Benchmarks orientativos:
+- 3 RDCs de tipo industrial pueden operar entre 7.000 y 14.000 hojas/hora cada uno, dependiendo del formato, de la tarea y del tipo de material.
+- Cambio de matriz: 10-35 minutos según complejidad.
+- OEE típico: 68-84% según mantenimiento, set-up y disponibilidad de material.
+
+4.3 FG (Finishing / finalization / conversion zones)
+Rol:
+- Normalmente zonas de acabado o conversión final, con envasado, etiquetado, cierre, caja cerrada o preparación para entrega.
+- Pueden ser líneas de acabado de cartón o cajas de consumo.
+
+Variables críticas:
+- velocidad de línea
+- capacidad por SKU / tamaño / cajas/hora
+- nivel de WIP previo
+- cambio de formato
+- integración con paletizadores
+- capacidad para secuenciar por cliente
+
+Benchmarks orientativos:
+- OEE en entorno estable: 72-88%
+- Velocidad variable según pack y caja. 8.000-18.000 unidades/hora en líneas de caja/corrugado según formato.
+
+4.4 Troqueladora plana
+Rol:
+- Producción de piezas o cajas con geometrías complejas.
+- Muy útil para tiradas cortas, personalizadas, pruebas, configuraciones especiales, piezas complejas, materiales especiales.
+
+Variables críticas:
+- velocidad de cuchilla / ciclo por pieza
+- tiempo de setup
+- índice de scrap
+- tipo de material / espesor
+- número de planchas
+- mantenimiento de cuchillas
+
+Benchmarks orientativos:
+- Máquina de troquelado plano: entre 4.000 y 9.000 piezas/hora o equivalente de hojas/sets según formato.
+- Configuración: 15-60 minutos según la complejidad del arte y la tarea.
+- OEE típico 65-80% dependiendo de la estandarización y de la tasa de rework.
+
+4.5 FFG (Flexo Folder Gluer)
+Rol:
+- Línea especializada en impresión, plegado, pegado y formación de cajas terminadas.
+- Tiene un mayor impacto en la logística final y en la preparación de pedidos.
+
+Variables críticas:
+- tasa de producción por hora
+- velocidad por referencia
+- tiempos de ajuste de impresión/pegado
+- cambios de formato/caja
+- capacidad de carga / salida / paletizado
+- nivel de inventario antes y después de la línea
+
+Benchmarks orientativos:
+- FFG industrial: 10.000-22.000 piezas/hora según tamaño y tipo de caja.
+- Setup: 8-28 minutos, según complejidad y referencia.
+- OEE 74-90%. 
+
+4.6 Paletizadores robóticos
+Rol:
+- Preparar los pallets de salida, paletizar por cliente / ruta / canal / SKU.
+- Reducen mano de obra y estabilizan la salida.
+
+Variables críticas:
+- pallets/hora
+- carga máxima por pallet
+- patrón de paletizado
+- tiempo de cambio entre referencias
+- secuencia de salida
+- prioridad de cliente
+- disponibilidad de etiquetas, transportes, camiones
+
+Benchmarks orientativos:
+- 4 paletizadores robóticos pueden operar en conjunto con 200-600 pallets/hora dependiendo del tamaño del pack y la complejidad.
+- Tiempo de ciclo por pallet: 30-120 s según material y patrón.
+- Reducción de mano de obra directa: 30-70% según nivel de automatización y tipo de SKU.
+
+4.7 Transfers para gestión de WIP
+Rol:
+- Mover material entre procesos respecto a tiempos de alta variabilidad.
+- Reducir tiempos de espera, starvation, y bloqueos por falta de secuenciamiento.
+- Servir como amortiguadores para WIP crítico.
+
+Variables críticas:
+- capacidad por hora
+- capacidad de almacenamiento por zona
+- distancia a la máquina
+- tiempos de carrera
+- prioridad de recepción
+- sincronización con UPC / etiqueta / SKU
+
+Benchmarks orientativos:
+- Transfer tipo WIP: 80-180 pallets/hora o equivalente en cargas/horas según la geometría.
+- Bajas latencias y sincronización: 30-90 segundos entre solicitud y asignación según sistema.
+- Reducción de starvation: 60-90% en escenarios con logística automatizada.
+
+4.8 Ingetrans
+Rol:
+- Sistema automatizado de transporte interno para pallets, cajas o transporte inter-zona.
+- Sustituye movimientos manuales o con montacargas en tramos críticos.
+
+Variables críticas:
+- recorrido / rutas
+- demanda por hora
+- carga por vehículo
+- prioridad en colas
+- congestión por pasillos
+- tiempo de asignación
+- niveles de buffer por estación
+
+Benchmarks orientativos:
+- Ingetrans con flotas pequeñas/medianas puede mover 50-180 cargas/hora en un sistema equilibrado.
+- Reducción de tiempos de espera significativa en zonas de corrugadora/RDC/FG.
+- En propuestas de mejora, la sustitución de montacargas por Ingetrans suele reducir los desplazamientos manuales y mejorar la predictibilidad de flujo en 20-50% en recorridos críticos.
+
+====================================================================
+5. BENCHMARKS Y DATO DE REFERENCIA DEL REPOSITORIO IS-BACKOFFICE
+====================================================================
+A partir de la evidencia y de los artefactos del repositorio AI-FACTORY-v2 y de IS-BACKOFFICE, se disponen los siguientes puntos de referencia aplicables:
+
+- Escenario de corrugado interno con WIP y AMR/ingetrans:
+  - aumento de OEE estimado: +6 puntos
+  - reducción de starvation: 87%
+  - producción adicional anual: 4.200.000 metros
+  - ahorro operativo anual: 309.300 EUR
+  - reducción de downtime logístico: 56 horas/año
+
+- Criterio de scoring de mejora por hipótesis:
+  - oee_improvement: 20%
+  - roi: 20%
+  - starvation_risk_reduction: 20%
+  - forklift_reduction: 15%
+  - wip_reduction: 15%
+  - safety_improvement: 10%
+
+- Puerta de decisión:
+  - GO: 0.75+
+  - PILOT: 0.60-0.75
+  - HOLD: <0.60
+
+- Reutilización validada de IS-BACKOFFICE para aplicaciones industriales:
+  - knowledge_hub/competitive_intel: 88/100
+  - ingetrans-reel-simulator: 84/100
+  - document_analysis: 80/100
+  - GraphStore: 78/100
+  - reporting: 76/100
+  - plant_simulator: 75/100
+
+Esto confirma que el repositorio IS-BACKOFFICE aporta una base reutilizable para:
+- simulación
+- knowledge graph
+- evidencia de hechos
+- reporting
+- análisis de flujo
+- extracción de información de documentos y layout
+- preparación de escenarios para automatización industrial
+
+====================================================================
+6. MODELO DE PLANTA ASUMIDA PARA SIMULACIÓN
+====================================================================
+Supuesto operacional para simulación de ejemplo:
+
+Planta tipo corrugado:
+- Corrugadora: 1 línea principal
+- 3 RDCs operando en paralelo
+- 2 líneas FG / zonas finish
+- 1 troqueladora plana
+- 1 FFG
+- 4 paletizadores robóticos
+- 2 transfer de WIP
+- 1 Ingetrans para mover pallets entre lineas y almacén
+- 3 RDCs regionales / de distribución (RDCs) o centros de distribución lógica asociados a planta
+
+Capacidad nominal asumida:
+- Corrugadora: 18.000-30.000 hojas/h según producto y gramaje
+- RDC 1: 8.000-12.000 hojas/h
+- RDC 2: 9.000-13.000 hojas/h
+- RDC 3: 7.000-11.000 hojas/h
+- FG 1: 8.000-16.000 packs/h (según tamaño)
+- FG 2: 9.000-17.000 packs/h
+- FFG: 12.000-22.000 piezas/h
+- Troqueladora plana: 4.000-9.000 piezas/h
+- Paletizador robotizado: 200-500 pallets/h según formato
+- Transfer WIP: 80-180 cargas/hora por tramo
+- Ingetrans: 50-180 cargas/hora según recorrido y flota
+
+Riesgos de operación típicos:
+- hambre de la línea por falta de material
+- bloqueo por acumulación excesiva de WIP
+- falta de priorización por fecha de entrega
+- congestión en puntos de transferencia
+- paradas de cambio de formato/tiempo de setup
+- pérdida de trazabilidad por falta de codificación de lote/pallet
+
+====================================================================
+7. ESCENARIO OPERATIVO DE EJEMPLO
+====================================================================
+Orden de producción ejemplo:
+- Cliente A: 16.000 cajas de cartón corrugado, requiere 48 horas, prioridad alta
+- Cliente B: 22.000 cajas premium, prioridad media, entrega en 72 horas
+- Cliente C: 14.000 piezas de exportación, prioridad muy alta, SKU complejo
+- Cliente D: 10.000 cajas con cambio de formato complejo, exige FFG y paletización especial
+
+Ruta operativa tipo:
+- Orden 1 -> Corrugadora -> RDC 2 -> WIP Transfer -> FG 1 -> Paletizador 3 -> Almacén FG
+- Orden 2 -> Corrugadora -> RDC 1 -> FFG -> Paletizador 2 -> Almacén FFG
+- Orden 3 -> Troqueladora plana -> Buffer -> Paletizador 1 -> Almacén FG
+- Orden 4 -> Corrugadora -> RDC 3 -> WIP Transfer -> FG 2 -> Ingetrans -> Almacén RDCI -> Expedición
+
+Desafíos reales del flujo:
+- corrugadora subutilizada por falta de sincronía con RDC 2 y 3
+- WIP esperando en transfer y generando desbalance
+- paletizadores saturados por mezcla de SKU y prioridad de clientes
+- Ingetrans con colas por no contemplar reparto por prioridad
+- almacenes FG con stock localizado sin reglas visuales ni decisiones inteligentes
+
+====================================================================
+8. REQUISITOS DE CONTROL Y OPTIMIZACIÓN
+====================================================================
+8.1 Datos maestros requeridos
+El software debe tener acceso a los siguientes datos de negocio y físicos:
+- clientes
+- SKU y variantes
+- rutas de producto
+- materiales y componentes
+- plazos de entrega
+- ubicaciones físicas
+- capacidad por máquina
+- stock por ubicación
+- historial de producción
+- paradas
+- mantenimientos
+- plan de cambio de referencia / matriz
+- lotes / seriales si aplica
+- prioridad por pedido / cliente / canal
+- restricciones de almacenamiento
+- fechas de vencimiento / caducidad si aplica
+
+8.2 Variables de control de cada equipo
+Debe existir una representación unificada del equipo con estos campos:
+- id_equipo
+- tipo_equipo
+- nombre
+- capacidad_nominal
+- capacidad_real
+- velocidad_trabajo
+- estado_operativo
+- disponibilidad
+- tiempo_setup_promedio
+- tiempo_ciclo_promedio
+- nivel_buffer_actual
+- nivel_buffer_maximo
+- capacidad_carga
+- prioridad_actual
+- niveles_de_alarma
+- tiempo_medio_espera
+- tiempo_medio_cola
+- tasa_scrap
+- calidad_real
+- tiempo_parada_no_planificada
+- consumo_recurso
+
+8.3 Reglas de control del software
+- evitar hambre de línea por falta de material
+- evitar bloqueo por acumulación excesiva de WIP
+- secuenciar actividades por prioridad y vencimiento
+- equilibrar la carga entre RDCs y FG
+- reubicar WIP si hay congestión en rutas críticas
+- priorizar órdenes con mayor riesgo de retraso
+- minimizar cambios de formato innecesarios
+- asimilar tiempos de setup y cambio de referencia en la programación
+- mantener cargas seguras en Ingetrans y paletizadores
+
+====================================================================
+9. MODELO DE IA REQUERIDO
+====================================================================
+El software debe poseer Agentes IA especializados para cada capa funcional. La lógica no debe ser monolítica; debe estar desacoplada por dominio.
+
+9.1 Agente de Planificación y Secuenciación
+Objetivo:
+- ordenar producción según prioridad, enlace de proceso, capacidad y entrega.
+Función:
+- calcular secuencia óptima por orden, máquina y tiempo window.
+- considerar tiempos de setup, buffers, dependencias y urgencia.
+
+9.2 Agente de Flujo / WIP / Cuellos de Botella
+Objetivo:
+- detectar zonas con atascos, saturación y riesgo de starvation.
+Funciones:
+- evaluar líneas y buffers
+- sugerir movimiento de inventario WIP
+- ajustar política de prioridad
+- identificar cuello de botella crítico
+
+9.3 Agente de Almacén e Inventario
+Objetivo:
+- controlar stock, ubicaciones, rotación, movimiento, FG, FFG, RDCI.
+Funciones:
+- priorizar ubicaciones
+- recomendar movimientos de stock
+- evitar sobrestock / substock
+- coordinar con ERP
+
+9.4 Agente de Transporte / Ingetrans / Paletización
+Objetivo:
+- equilibrar carga de transporte y paletizadores.
+Funciones:
+- asignar rutas
+- atender prioridad por cliente / pedido / ventana
+- evitar colas frente a paletizadores
+- redirigir cargas si una zona está saturada
+
+9.5 Agente de Mantenimiento y Calidad
+Objetivo:
+- prevenir averías y pérdida de rendimiento.
+Funciones:
+- analítica de fallos
+- detectar primeras señales de degradación
+- recomendar mantenimiento antes del evento
+- asociar defectos a órdenes, herramientas y líneas
+
+9.6 Agente de Simulación y Optimización
+Objetivo:
+- probar escenarios sin comprometer la operación real.
+Funciones:
+- lanzar escenarios hipotéticos
+- comparar throughput, tiempos de ciclo, WIP y OEE
+- simular efecto de reducción de colas
+- estimar beneficios de Ingetrans, 4 paletizadores, etc.
+
+====================================================================
+10. KPIs RECOMENDADOS PARA LA PLANTA
+====================================================================
+- OEE total por máquina y por línea
+- Throughput real por hora / día
+- tiempo de ciclo real vs nominal
+- tiempo medio de setup
+- porcentaje de ocupación de buffer
+- WIP promedio por estación
+- días de stock por SKU
+- stock en tránsito
+- número de paradas no planificadas
+- tasa de scrap / rework
+- volumen de órdenes entregadas a tiempo
+- carga por paletizador
+- saturación de Ingetrans
+- tiempos de espera por prioridad
+- nivel de congestión por transfer
+- porcentaje de pedidos entregados sin desviación
+- nivel total de inventario FG/FFG/RDCI
+- utilización de capacidad frente a demanda
+- lead time total desde orden hasta expedición
+
+====================================================================
+11. EJEMPLOS PRÁCTICOS DE SIMULACIÓN
+====================================================================
+11.1 Escenario A: Operación base sin IA
+Suposición:
+- Corrugadora trabaja a plena capacidad
+- 3 RDCs reciben cargas sin priorización inteligente
+- WIP se acumula en transfer
+- paletizadores atienden por orden de llegada
+- Ingetrans mueve materiales sin optimización
+
+Resultado estimado:
+- OEE promedio de la planta: 72-78%
+- WIP excesivo en transfer y buffers
+- alta congestión en paletizadores
+- horas de espera por material: 20-40% del tiempo total de línea
+- aumento del lead time y menos entregas a tiempo
+
+11.2 Escenario B: IA de secuenciación + WIP control
+Suposición:
+- se prioriza por fecha de entrega + riesgo de starvation
+- transfer WIP gestionado con reglas de carga y limitación de buffers
+- se activa política de JIT
+
+Resultado estimado:
+- OEE +3 a +6 puntos
+- reducción de starvation: 60-87%
+- WIP medio: -10 a -30%
+- lead time: -8 a -18%
+- mejora en entregas a tiempo: +4 a +12 puntos
+
+11.3 Escenario C: Ingetrans + paletizadores automatizados + 2 transfer inteligentes
+Suposición:
+- se dispone de flota automatizada y 4 paletizadores robotizados
+- se activa gestión centralizada de rutas y prioridad
+
+Resultado estimado:
+- reducción de transporte manual: 30-60%
+- menor congestión en pasillos y zonas de carga
+- mejora de utilización de paletizadores: +15 a +30%
+- aumento real de throughput: +8 a +18% en determinadas referencias
+- mejor respuesta a urgencias del cliente
+
+11.4 Escenario D: Replanificación dinámica por ERP + IA
+Suposición:
+- el ERP entrega órdenes reales e intervalos de actualización cada 15-30 minutos
+- el sistema replanifica flujo frente a cambios de prioridad
+
+Resultado estimado:
+- mayor cumplimiento de SLA
+- menos demora por cambios de última hora
+- nivel de stock más estable
+- mejora de coordinación de procesos y almacén
+
+====================================================================
+12. EJEMPLOS DE MODELOS DE DATOS PARA EL SOFTWARE
+====================================================================
+12.1 Modelo de orden
+- order_id
+- customer_id
+- sku_id
+- product_family
+- quantity
+- due_date
+- priority
+- route_id
+- plant_id
+- warehouse_id
+- current_status
+- ready_date
+- planned_start
+- actual_start
+- actual_finish
+- location_current
+- lot_id
+- pallet_id
+- route_stage
+
+12.2 Modelo de equipo
+- equipment_id
+- equipment_type
+- line_id
+- nominal_capacity
+- current_capacity
+- speed
+- operating_state
+- buffer_level
+- buffer_max
+- planned_stoppage
+- unplanned_stoppage
+- oee
+- setup_time
+- last_maintenance
+
+12.3 Modelo de stock / WIP
+- stock_id
+- sku_id
+- quantity
+- unit_type
+- warehouse_id
+- location_id
+- status (FG, FFG, WIP, buffer, transit, blocked)
+- age_hours
+- last_move
+- order_id
+- priority
+
+12.4 Modelo de transporte
+- transport_id
+- route_id
+- origin_location
+- destination_location
+- load_type
+- load_quantity
+- assigned_priority
+- travel_time
+- status
+- queue_time
+
+====================================================================
+13. EL PAPEL DEL ERP Y SU COMPATIBILIDAD
+====================================================================
+El ERP debe ser la fuente autorizada de:
+- datos maestros
+- órdenes
+- clientes
+- almacenes
+- stock
+- ubicaciones
+- disponibilidad real
+- datos financieros y de costes
+- pedidos de expedición
+
+El software de automatización con IA debe integrarse mediante una capa neutral de adaptadores y eventos, para no depender de un ERP concreto. Idealmente:
+- API REST/GraphQL para lectura/escritura
+- ETL / event bus para sincronización
+- mapeo unificado de entidades y estándares
+- compatibilidad con SAP, Oracle, Dynamics, NetSuite, Odoo, Infor, etc.
+- actualización en tiempo real o con intervalos de replanificación de 5, 15 o 30 minutos
+
+Entonces, los Agentes IA trabajan sobre la capa de operación, no directamente sobre el ERP, evitando que cada sistema tenga su propia lógica distinta.
+
+====================================================================
+14. PRINCIPIOS DE DISEÑO PARA LA SOLUCIÓN DE IA
+====================================================================
+- consistencia de datos por encima de velocidad
+- trazabilidad total por orden, SKU, ubicación, lote y pallet
+- WIP gestionado como recurso crítico
+- decisiones basadas en evidencia, no en intuición
+- coordinación de varios equipos sin perder la visión global
+- simulación de escenarios antes de ejecutar cambios reales
+- planificar con restricciones y no solo con capacidad bruta
+- supervisión / decisiones de excepción por humanos si la IA no puede resolver
+
+====================================================================
+15. RECOMENDACIONES DE IMPLEMENTACIÓN INMEDIATA
+====================================================================
+1. Definir el modelo de planta y sus entidades (machines, buffers, transfers, orders, pallets, stock).
+2. Mapear el ERP a un modelo neutral de integración.
+3. Definir la capa de eventos: order_created, stock_updated, machine_status_changed, pallet_ready, route_assignment, dispatch, hold, alarm.
+4. Implementar agentes IA por dominio: planificación, WIP, almacén, transporte, mantenimiento, análisis.
+5. Diseñar dashboard de operación con KPIs reales por máquina, zona y pedido.
+6. Construir un motor de simulación para comparar escenarios antes de despliegue.
+7. Incluir un modelo de optimización con restricciones y pareto.
+8. Definir una política clara de priorización: due date, SLA, riesgo, stock crítico, capacidad disponible.
+9. Estándar la nomenclatura: FG, FFG, RDC, RDCI, WIP, buffer, transfer, Ingetrans, etc.
+10. Mantener trazabilidad completa desde la orden hasta la expedición.
+
+====================================================================
+16. CONCLUSIÓN
+====================================================================
+Una planta de corrugado con corrugadora, 3 RDCs, 2 FG, troqueladora plana, FFG, 4 paletizadores robóticos, 2 transfer WIP y 1 Ingetrans no es meramente una secuencia de equipos: es un sistema de flujo, decisión y control. Para optimizarla con Agentes IA y compatibilidad con ERP, es necesario:
+- modelar equipos y procesos con datos de capacidad, velocidad, buffers, colas y WIP
+- integrar de forma neutral con el ERP
+- analizar stock y órdenes en tiempo real
+- utilizar IA para replanificar, priorizar, equilibrar y predecir
+- simular escenarios para validar la mejora antes del cambio real
+
+El repositorio IS-BACKOFFICE aporta una base muy útil para ello: graph knowledge, simulación, extraction, reporting, analytics y capacidad de reutilización. Por tanto, la solución más robusta es usar esa base como capa inteligente, pero desacoplar los modelos de la fábrica del dominio comercial para crear una implementación industrial configurable y compatible con cualquier ERP.
+
+====================================================================
+17. MATRIZ DE RESUMEN OPERACIONAL
+====================================================================
+Equipo / función / parámetro crítico / benchmark típico
+- Corrugadora / producción base / velocidad, setup, OEE / 70-95% OEE, alta sensibilidad a starvation
+- RDCs / corte rotativo / capacidad por hoja, registro, cambio de matriz / 7.000-14.000 hojas/h cada uno
+- FG / acabado / línea, SKU, tiempos de cambio / 8.000-18.000 packs/h
+- Troqueladora plana / piezas complejas / setup, scrap / 4.000-9.000 piezas/h
+- FFG / caja terminada / velocidad, impresión, pegado / 12.000-22.000 piezas/h
+- 4 paletizadores / preparación / pallets/h, patrones, carga / 200-500 pallets/h total
+- 2 transfer de WIP / gestión de flujo / buffer, cola, sincronización / 80-180 cargas/h
+- Ingetrans / transporte interno / rutas, prioridad, congestión / 50-180 cargas/h
+- WIP / inventario productivo / tiempo de permanencia / reducir a mínimo sin desabastecer
+- FG / almacén terminados / ubicación y stock / gestión por SLA
+- FFG / terminado final / preparación / control y trazabilidad
+
+====================================================================
+18. PARÁMETROS SUGERIDOS PARA UN POC DE SIMULACIÓN
+====================================================================
+- Horario: 2 turnos, 24h/5d
+- Demanda: 50-70% de carga por SKU complejo, 30-50% por caja estándar
+- WIP max por buffer: 6-12 unidades o equivalente en pallets
+- Política de prioridad: due date + riesgo de starvation + SLA
+- Replanificación: cada 15-30 minutos
+- Cambios de referencia: cada 30-90 minutos según línea
+- Inventario de seguridad: 0.5-2 horas según SKU crítico
+- Muestra de decisiones: priorizar pedidos con mayor impacto en OTIF
+
+====================================================================
+19. APÉNDICE: LISTA DE CONCEPTOS DOMINIO INDUSTRIAL
+====================================================================
+FG = Finished Goods
+FFG = Final Finished Goods / Flexo Folder Gluer
+RDC = Rotary Die Cutter / Regional Distribution Center (según contexto)
+RDCI = posible centro intermedio / entrada / distribución / nodos de inventario intermedio
+WIP = Work In Progress
+Buffer = área de amortiguación / stock intermedio
+Transfer = sistema/sistema de tránsito entre etapas
+Ingetrans = transporte automatizado interno
+OEE = Overall Equipment Effectiveness
+OTIF = On Time In Full
+SLA = Service Level Agreement
+Scrap = merma / material descartado
+Lead time = tiempo total desde orden hasta entrega
+
+====================================================================
+FIN DEL INFORME

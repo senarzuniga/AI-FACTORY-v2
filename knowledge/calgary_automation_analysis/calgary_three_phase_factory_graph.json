@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "project": "Cascades Calgary three-phase automation",
+  "invariant": "Physical production sequence and permitted destinations remain unchanged; automation changes execution and control, not the flow model.",
+  "nodes": [
+    {"id": "WIP_EAST", "type": "buffer", "state_0": "manual_or_legacy_coordination", "phase_3": "digitally_addressed"},
+    {"id": "TRANSFER_FEED_NS", "type": "transfer", "state_0": "existing", "phase_3": "WCS_coordinated_where_validated"},
+    {"id": "MCKINLEY_RDC", "type": "first_pass_converter"},
+    {"id": "KOPPERS_RDC", "type": "first_pass_converter"},
+    {"id": "WARD", "type": "first_pass_converter"},
+    {"id": "OUT_MCKINLEY", "type": "roller_output", "state_0": "manual", "phase_1": "automatic"},
+    {"id": "OUT_KOPPERS", "type": "roller_output", "state_0": "manual", "phase_1": "automatic"},
+    {"id": "OUT_WARD", "type": "roller_output", "state_0": "manual", "phase_1": "automatic"},
+    {"id": "TRANSFER_OUTPUT_NS", "type": "transfer", "state_0": "operator_pushed", "phase_1": "automatic_WCS_managed"},
+    {"id": "FG_MINILINE", "type": "second_pass_converter"},
+    {"id": "TWO_PIECE_FG_STITCHER", "type": "second_pass_converter"},
+    {"id": "SHIPPING_TRIDENT", "type": "handoff", "state_0": "not_available", "phase_1": "AGV_ready"},
+    {"id": "EMBA_LINES", "type": "FFG_group", "phase_2": "plug_play_palletizing"},
+    {"id": "MARTIN_LINES", "type": "FFG_group", "phase_2": "plug_play_palletizing"},
+    {"id": "INGETRANS_WCS", "type": "flow_orchestrator", "phase_3": "active"},
+    {"id": "AMR_FLEET", "type": "transport_resource", "phase_3": "active_after_simulation"},
+    {"id": "MES_WMS", "type": "system", "phase_3": "integrated"},
+    {"id": "ERP_APS", "type": "system", "phase_3": "integrated"}
+  ],
+  "production_edges_preserved": [
+    ["WIP_EAST", "TRANSFER_FEED_NS"],
+    ["TRANSFER_FEED_NS", "MCKINLEY_RDC"],
+    ["TRANSFER_FEED_NS", "KOPPERS_RDC"],
+    ["TRANSFER_FEED_NS", "WARD"],
+    ["MCKINLEY_RDC", "OUT_MCKINLEY"],
+    ["KOPPERS_RDC", "OUT_KOPPERS"],
+    ["WARD", "OUT_WARD"],
+    ["OUT_MCKINLEY", "TRANSFER_OUTPUT_NS"],
+    ["OUT_KOPPERS", "TRANSFER_OUTPUT_NS"],
+    ["OUT_WARD", "TRANSFER_OUTPUT_NS"],
+    ["TRANSFER_OUTPUT_NS", "FG_MINILINE"],
+    ["TRANSFER_OUTPUT_NS", "TWO_PIECE_FG_STITCHER"],
+    ["TRANSFER_OUTPUT_NS", "SHIPPING_TRIDENT"]
+  ],
+  "control_edges_added": [
+    {"phase": 1, "from": "INGETRANS_WCS", "to": "OUT_MCKINLEY", "purpose": "release_and_clearance"},
+    {"phase": 1, "from": "INGETRANS_WCS", "to": "OUT_KOPPERS", "purpose": "release_and_clearance"},
+    {"phase": 1, "from": "INGETRANS_WCS", "to": "OUT_WARD", "purpose": "release_and_clearance"},
+    {"phase": 1, "from": "INGETRANS_WCS", "to": "TRANSFER_OUTPUT_NS", "purpose": "route_and_reserve"},
+    {"phase": 1, "from": "INGETRANS_WCS", "to": "SHIPPING_TRIDENT", "purpose": "AGV_handoff"},
+    {"phase": 2, "from": "INGETRANS_WCS", "to": "EMBA_LINES", "purpose": "recipe_status_and_completed_load"},
+    {"phase": 2, "from": "INGETRANS_WCS", "to": "MARTIN_LINES", "purpose": "recipe_status_and_completed_load"},
+    {"phase": 3, "from": "ERP_APS", "to": "MES_WMS", "purpose": "order_and_priority"},
+    {"phase": 3, "from": "MES_WMS", "to": "INGETRANS_WCS", "purpose": "job_identity_inventory_and_demand"},
+    {"phase": 3, "from": "INGETRANS_WCS", "to": "AMR_FLEET", "purpose": "mission_and_route_policy"},
+    {"phase": 3, "from": "AMR_FLEET", "to": "WIP_EAST", "purpose": "pickup_drop_and_location_confirmation"}
+  ],
+  "loss_to_countermeasure_map": [
+    {"loss": "converter blocked waiting for manual clearance", "phase": 1, "countermeasure": "automatic output release and transfer reservation"},
+    {"loss": "wrong or late routing to second pass", "phase": 1, "countermeasure": "job-based software dispatch"},
+    {"loss": "variable pallet completion and manual handling", "phase": 2, "countermeasure": "recipe-driven robotic palletizing"},
+    {"loss": "line starvation caused by transport variability", "phase": 3, "countermeasure": "forecast demand, pre-staging and dynamic mission priority"},
+    {"loss": "uncontrolled WIP age and search", "phase": 3, "countermeasure": "digitally addressed inventory and event traceability"},
+    {"loss": "single blocked route stops transport", "phase": 3, "countermeasure": "fleet rerouting and defined degraded modes"}
+  ]
+}

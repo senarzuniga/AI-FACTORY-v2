@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "currency": "CAD",
+  "status": "not_financially_confirmed",
+  "reason": "Installed CAPEX, unique labor task-hours and Calgary KPI baselines are not yet approved.",
+  "phases": [
+    {
+      "phase": 1,
+      "installed_capex": null,
+      "incremental_annual_opex": null,
+      "benefit_drivers": [
+        "recovered converter time from faster output clearance",
+        "reduced manual transfer task-hours",
+        "reduced second-pass starvation",
+        "reduced routing errors and rehandling",
+        "safer AGV-ready shipping handoff"
+      ],
+      "baseline_required": ["blocked_minutes", "manual_transfer_hours", "second_pass_starvation", "routing_errors", "annual_saleable_units"],
+      "simple_payback_years": null
+    },
+    {
+      "phase": 2,
+      "installed_capex": null,
+      "incremental_annual_opex": null,
+      "benefit_drivers": [
+        "reduced manual palletizing task-hours",
+        "reduced line blocking at finished-goods discharge",
+        "more consistent pallet quality",
+        "reduced damage and rework",
+        "faster repeatable recipe changes"
+      ],
+      "baseline_required": ["manual_palletizing_hours", "line_blocked_minutes", "pallet_rejects", "damage_cost", "changeover_minutes"],
+      "simple_payback_years": null
+    },
+    {
+      "phase": 3,
+      "installed_capex": null,
+      "incremental_annual_opex": null,
+      "benefit_drivers": [
+        "reduced logistics-caused line starvation",
+        "displaced manual forklift and transfer missions",
+        "reduced WIP search and aging",
+        "reduced handling damage",
+        "higher resilience through rerouting and modular fleet capacity"
+      ],
+      "baseline_required": ["transport_cycle_p95", "logistics_starvation", "manual_missions", "WIP_accuracy", "damage_cost", "downtime_cost"],
+      "simple_payback_years": null
+    }
+  ],
+  "calculation_model": {
+    "throughput_contribution": "recovered_saleable_units * contribution_margin_per_unit",
+    "labor_benefit": "sum(unique_displaced_task_hours * loaded_hourly_cost * realization_factor)",
+    "quality_benefit": "avoided_damage_and_rework_units * fully_loaded_loss_per_unit",
+    "downtime_benefit": "avoided_downtime_hours * validated_contribution_per_hour",
+    "annual_net_benefit": "throughput_contribution + labor_benefit + quality_benefit + downtime_benefit - incremental_annual_opex",
+    "simple_payback_years": "installed_capex / annual_net_benefit",
+    "npv": "sum(net_cash_flow_t / (1 + discount_rate)^t) - installed_capex"
+  },
+  "scenario_policy": {
+    "low": {"benefit_percentile": 25, "cost_percentile": 75, "ramp_up": "conservative"},
+    "base": {"benefit_percentile": 50, "cost_percentile": 50, "ramp_up": "approved_plan"},
+    "high": {"benefit_percentile": 75, "cost_percentile": 25, "ramp_up": "upside_only"}
+  },
+  "labor_reconciliation": {
+    "status": "required",
+    "unique_key": ["phase", "role_id", "shift_id", "task_id", "effective_date"],
+    "rules": [
+      "A person is not a saving; only an eliminated or redeployed task-hour is a benefit.",
+      "Shared tasks may be assigned to one phase only unless time studies prove separate increments.",
+      "Apply a realization factor for redeployment, attrition or avoided hiring.",
+      "Keep safety and capacity benefits separate from cash labor benefits."
+    ]
+  },
+  "release_conditions": [
+    "all required baselines approved by Calgary Operations and Finance",
+    "installed CAPEX and annual OPEX approved by Engineering and Procurement",
+    "benefits ledger contains no duplicate labor keys",
+    "simulation or FAT supports capacity assumptions",
+    "SAT supports realized performance before phase-to-phase extrapolation"
+  ]
+}

@@ -1,0 +1,555 @@
+PLAN DE ACCIÓN PARA LA GESTIÓN DE AYUDAS Y FINANCIACIÓN DE LOS 4 PROYECTOS DE INGECART
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Contexto: continuación del análisis previo sobre gestión de ayudas, financiación, cartera de proyectos, cultura de innovación y propuesta de negocio para CTA y consultoría a PYMEs.
+
+====================================================================
+1. CONTEXTO Y BASE DEL ANÁLISIS PREVIO
+====================================================================
+El trabajo previo ya dejó clara una conclusión clave: la gestión de ayudas no es un trámite administrativo aislado, sino un proceso de negocio, innovación, ejecución, trazabilidad y control financiero.
+
+En ese marco, el objetivo no es solo "buscar subvenciones", sino:
+- resolver un problema real del mercado
+- convertir la idea en un proyecto técnicamente viable
+- preparar una documentación sólida y elegible
+- asegurar la financiación adecuada
+- ejecutar el proyecto con disciplina, evidencias y cumplimiento
+- liquidar correctamente la ayuda y cerrar la operación con trazabilidad
+
+Esto es especialmente relevante para una empresa como INGECART, donde hay proyectos con potencial tecnológico, innovación industrial, software, automatización, logística, WMS, IA y transformación digital.
+
+La lógica propuesta para la empresa es doble:
+1. Financiar y ejecutar proyectos industriales y de innovación con ayudas públicas y privadas.
+2. Desarrollar una capa de negocio propia (CTA / Centro de Transformación y Aceleración) para vender consultoría y soluciones a PYMEs usando un modelo basado en agentes IA, diseño de procesos, ventas y acompañamiento operativo.
+
+En otras palabras:
+- los proyectos técnicos deben tener una ruta clara de financiación y ejecución;
+- la empresa debe desarrollar capacidad de venta y gestión de consultoría con IA, sin depender solo de la operación industrial.
+
+====================================================================
+2. OBJETIVO DEL DOCUMENTO
+====================================================================
+El presente documento tiene como finalidad:
+- mover los 4 proyectos identificados de "descubrimiento" a una fase operativa real de ejecución
+- convertir cada proyecto en una propuesta aprovechable para convocatorias de ayudas
+- definir una estructura de trabajo por proyecto
+- crear un flujo de gestión de ayudas, elegibilidad, preparación de expediente, ejecución y liquidación
+- desarrollar el modelo de negocio interno de CTA y la herramienta de agentes para la venta de consultoría a PYMEs
+- dejar una hoja de ruta ejecutiva con acciones inmediatas, responsables, entregables y cronograma
+
+====================================================================
+3. BASE DE PROYECTOS IDENTIFICADOS PARA INGECART
+====================================================================
+Se identifican 4 proyectos estratégicos para poner en movimiento una cartera real de innovación y financiación.
+
+3.1 Proyecto P01 — INGETRANS Intelligent Control
+Objetivo:
+- sistema inteligente de control y sincronización para transporte interno, WIP y flujo entre estaciones.
+
+Valor del proyecto:
+- mejora la coordinación logística y productiva
+- reduce bloqueos y starvation
+- optimiza prioridad de cargas, rutas y secuenciación
+- aporta software de control, planificación y supervisión
+
+Tipo de ayuda probable:
+- I+D+i industrial
+- digitalización de procesos logísticos
+- automatización industrial
+- proyectos de innovación tecnológica
+
+3.2 Proyecto P02 — AMR Multi-load / Logística automatizada
+Objetivo:
+- plataforma de transporte intralogístico con vehículos automatizados, gestión de rutas, prioridad por pedido y coordinación con almacén y producción.
+
+Valor del proyecto:
+- automatización de movimientos internos
+- reducción de transporte manual y congestión
+- mejora de flujo, seguridad y trazabilidad
+- alta capacidad de integración con ERP y gestión de almacén
+
+Tipo de ayuda probable:
+- inversión industrial
+- automatización y robotización
+- innovación en logística y operaciones
+- sostenibilidad y eficiencia industrial
+
+3.3 Proyecto P03 — Industrial AI Business Operating System
+Objetivo:
+- sistema operativo empresarial para gestión industrial basada en IA, análisis de procesos, KPI, decisiones y coordinación.
+
+Valor del proyecto:
+- convierte la empresa en un sistema digital integrado
+- mejora la toma de decisiones
+- conecta operaciones, logística, ERP, calidad, WIP y dirección
+- crea una plataforma configurable y reutilizable para clientes y proyectos
+
+Tipo de ayuda probable:
+- I+D+i digital
+- IA aplicada a procesos productivos
+- transformación digital industrial
+- innovación en software industrial
+
+3.4 Proyecto P04 — Almacén inteligente / GPS Warehouse Management
+Objetivo:
+- plataforma de gestión de almacén inteligente, trazabilidad, localización, stock y control de ubicación por pedido, SKU y prioridad.
+
+Valor del proyecto:
+- mejora la visibilidad física y lógica del almacén
+- optimiza localización, picking, reposición y flujo de inventario
+- reduce errores, tiempos y duplicidad de movimientos
+- conecta almacén con producción, expedición y ERP
+
+Tipo de ayuda probable:
+- digitalización industrial
+- eficiencia operativa
+- logística y gestión de almacén
+- innovación aplicada a la cadena de suministro
+
+====================================================================
+4. ESTADO ACTUAL DE LOS PROYECTOS: DE LA IDEA AL PROGRAMA DE FINANCIACIÓN
+====================================================================
+Los 4 proyectos ya han pasado la etapa "concepto" y pueden entrar al flujo de inversión y financiación. El siguiente paso es moverlos del estado de idea o hipótesis al estado de proyecto ejecutable.
+
+Estado actual deseado:
+- definido con problema, solución, innovación, alcance y capacidad de ejecución
+- trazado el mercado y la oportunidad
+- validada la base tecnológica y de negocio
+- identificado el tipo de ayuda y la convocatoria idónea
+- estimado coste elegible y presupuesto real
+- preparado el paquete mínimo de evidencia y documentación
+
+Para cada proyecto debe existir una carpeta de proyecto con:
+- ficha del proyecto
+- diagrama de funcionamiento
+- alcance y actividades
+- milestones y entregables
+- presupuesto por trabajo y coste
+- justificación técnica y económica
+- evaluación de riesgo
+- requisitos de ayuda
+- planning y tiempos
+- documentos habilitantes
+
+====================================================================
+5. FLUJO DE TRABAJO PARA QUE LOS PROYECTOS SALGAN ADELANTE
+====================================================================
+A continuación se define el flujo operativo recomendado para dar salida real a cada uno de los 4 proyectos.
+
+5.1 Fase 0: Validación estratégica
+Objetivo:
+- confirmar que el proyecto encaja con la estrategia de la empresa
+
+Acciones:
+- definir problema y necesidad del cliente/mercado
+- valorar tamaño de mercado y dirección comercial
+- confirmar si es un proyecto de innovación, automatización o digitalización
+- identificar si requiere colaboración con universidad, centro tecnológico o proveedor
+- decidir si va a una convocatoria pública, inversión privada o combinación
+
+Entregables:
+- resumen ejecutivo de proyecto
+- oportunidad de negocio
+- alineación con estrategia
+- criterio de priorización
+
+5.2 Fase 1: Descubrimiento y búsqueda
+Objetivo:
+- convertir la idea en un proyecto con forma, alcance y potencial de financiación
+
+Acciones:
+- identificar negocio, necesidad e inversión
+- desglosar problema, caso de uso y solución propuesta
+- definir stakeholders y beneficiarios
+- definir alcance tecnológico y funcional
+- identificar si es esencialmente producto, servicio, solución industrial, software o combinación
+- mapear posibles fuentes de financiación
+
+Resultado esperado:
+- proyecto con estructura clara para pasar a elegibilidad
+
+5.3 Fase 2: Evaluación de elegibilidad y selección de ayuda
+Objetivo:
+- elegir la convocatoria o instrumento de financiación más adecuado
+
+Acciones:
+- evaluar CDTI, autonómicas, europeas, digitalización, sostenibilidad, industrial, innovación, inversión
+- comprobar eurorregión, tamaño de empresa, forma jurídica, cumplimiento regulatorio
+- analizar relación entre proyecto, coste y ayuda estimada
+- definir si se requiere consorcio
+- identificar requisitos de innovación, TRL, colaboración o impacto territorial
+
+Entregables:
+- matriz de elegibilidad
+- ranking de convocatorias
+- recomendación de ayuda
+- riesgo de no cumplimiento
+
+5.4 Fase 3: Definición técnica del proyecto
+Objetivo:
+- construir el documento técnico que sustentará la solicitud
+
+Acciones:
+- establecer objetivos, alcance, estado del arte, solución propuesta
+- identificar innovación y diferenciación
+- definir TRL o nivel de madurez
+- crear un plan de trabajo por paquetes
+- documentar roles del equipo, socios y entregables
+- preparar presupuesto técnico y económico
+
+Entregables:
+- memoria técnica
+- plan de trabajo
+- folios de innovación
+- nota de alcance
+- WBS / trabajo por paquetes
+
+5.5 Fase 4: Presupuesto, coste y financiación
+Objetivo:
+- poner en forma la base económica del proyecto
+
+Acciones:
+- desglose por personal, subcontratación, software, hardware, equipos, validación, costes indirectos
+- establecer costes elegibles y no elegibles
+- confirmar cofinanciación, financiación propia y recursos
+- estimar ratio de ayuda
+- preparar schedules de gasto y cash flow
+
+Entregables:
+- presupuesto detallado
+- tabla de costes elegibles
+- cronograma financiero
+- plan de contribución propia
+
+5.6 Fase 5: Preparación del expediente
+Objetivo:
+- dejar preparado todo lo necesario para presentar la solicitud
+
+Acciones:
+- crear carpeta del proyecto
+- preparar formulación de la memoria
+- preparar anexos y documentación legal
+- revisar requisitos de cada organismo
+- validar la firma, autorización y responsable del proyecto
+- revisar riesgos de cumplimiento legal y administrativo
+
+Entregables:
+- expediente completo
+- checklist de presentación
+- matriz de documentación
+- control de revisión final
+
+5.7 Fase 6: Presentación y seguimiento
+Objetivo:
+- presentar y mantener la traza del proyecto
+
+Acciones:
+- presentar solicitud
+- seguir requerimientos administrativos
+- preparar aclaraciones o ampliaciones requeridas
+- validar cambios en alcance o presupuesto
+- mantener registro del estado y fecha de decisión
+
+Entregables:
+- evidencia de envío
+- seguimiento de resolución
+- respuesta a requerimientos
+- control de vencimientos
+
+5.8 Fase 7: Formalización, ejecución y liquidación
+Objetivo:
+- transformar la ayuda en ejecución real y cierre correcto
+
+Acciones:
+- formalizar resolución, convenio o contrato
+- activar PMO del proyecto
+- controlar hitos, entregables y avance financiero
+- certificar gastos y ajustar el plan si procede
+- preparar informes de avance
+- preparar liquidación final y cierre administrativo
+
+Entregables:
+- plan de ejecución
+- seguimiento de gastos y hitos
+- memoria de resultado
+- liquidación final
+
+====================================================================
+6. MATRIZ DE PROYECTOS Y RUTA DE AYUDA
+====================================================================
+A continuación se incorpora una matriz orientativa para cada proyecto.
+
+Proyecto P01 — INGETRANS Intelligent Control
+- Tipo: innovación y automatización industrial
+- Base de valor: mejora flujo, prioridad, WIP, coordinación y trazabilidad
+- Ruta recomendada: I+D+i industrial + ayudas regionales / digitales / innovación
+- Objetivo: convertir el software de control y sincronización en un proyecto de innovación viable
+- Entregables clave: prototipo, integración, validación, piloto industrial
+
+Proyecto P02 — AMR Multi-load / Logística automatizada
+- Tipo: automatización, robotización, logística interna
+- Base de valor: reducción de movimientos manuales y congestión
+- Ruta recomendada: inversión industrial + innovación + sostenibilidad
+- Objetivo: validar plataforma de AMR / vehículos automatizados para logística interna
+- Entregables clave: demostrador, validación, coste de despliegue, rendimiento operativo
+
+Proyecto P03 — Industrial AI Business Operating System
+- Tipo: software industrial, IA, digitalización, plataforma de decisiones
+- Base de valor: analítica, IA, coordinación, productividad, gestión de negocio
+- Ruta recomendada: I+D+i digital, innovación tecnológica, transformación digital
+- Objetivo: crear un sistema operativo con IA para gestión industrial y negocio
+- Entregables clave: arquitectura, prototipo, dashboard, simulador, módulos funcionales
+
+Proyecto P04 — Almacén inteligente / GPS Warehouse Management
+- Tipo: digitalización de almacén y logística
+- Base de valor: trazabilidad, stock, ubicación, reposición, picking, control visual
+- Ruta recomendada: digitalización, logística, eficiencia industrial, inversión productiva
+- Objetivo: desplegar un WMS/GPS inteligente con visión en tiempo real
+- Entregables clave: modelo de warehouse, trazabilidad, KPI, validación funcional
+
+====================================================================
+7. MODELO DE GESTIÓN DE AYUDAS PARA INGECART
+====================================================================
+La empresa debe operar con una estructura mínima de PMO de ayudas y proyectos.
+
+7.1 Estructura sugerida
+- Dirección / sponsor del programa
+- Responsable de cartera de innovación
+- Responsable de ayudas y financiación
+- Responsable técnico por proyecto
+- Responsable financiero / contabilidad
+- Responsable de documentación y evidencia
+- Responsable de seguimiento y liquidación
+
+7.2 Funciones del PMO
+- identificar demandas, oportunidades y convocatorias
+- preparar y priorizar proyecto por proyecto
+- preparar la documentación y la evidencia
+- controlar gastos, hitos y entregables
+- verificar elegibilidad y cumplimiento
+- preparar informes de avance y liquidación
+- dar soporte a la dirección en decisiones de inversión
+
+7.3 Indicadores mínimos de gestión
+- proyectos activos
+- proyectos en pipeline
+- proyectos en elegibilidad / preparación
+- proyectos en presentación
+- ayudas aprobadas
+- ayudas pendientes de resolución
+- gasto total tramitado
+- coste elegible estimado
+- ratio de ayuda esperada
+- tasa de éxito de presentación
+- proyectos en liquidación
+- tasa de ejecución real frente al plan
+
+====================================================================
+8. CTA INTERNO: HERRAMIENTA DE AGENTES PARA VENDER CONSULTORÍA A PYMES
+====================================================================
+Además de aprovechar ayudas para sus proyectos, INGECART debe desarrollar su propia línea de negocio dentro de la organización: CTA (Centro de Transformación y Aceleración), orientado a vender servicios de consultoría, diagnóstico y acompañamiento a PYMEs españolas.
+
+8.1 Objetivo del CTA
+La idea es construir una oferta de servicios digitales y estratégicos para pequeñas y medianas empresas que necesitan:
+- mejorar su operación
+- vender mejor
+- digitalizar procesos
+- optimizar gestión comercial y logística
+- mejorar producción y control operativo
+- implementar IA de forma útil y funcional
+
+El CTA no debe ser una consultora genérica. Debe ser una estructura especializado en:
+- consultoría comercial
+- transformación de procesos
+- analítica y KPIs
+- IA aplicada a negocio y operación
+- gestión de proyecto y PMO
+- adaptaciones digitales para PYMEs
+
+8.2 Propuesta de valor del CTA
+"Ayudamos a PYMEs españolas a transformar su operación comercial y productiva con un enfoque práctico, medible y guiado por agentes IA, sin necesidad de construir estructuras internas complejas."
+
+8.3 Modelo de venta
+El CTA puede venderse en cuatro niveles:
+
+A. Diagnóstico inicial
+- revisión del negocio, proceso y estructura
+- identificación de puntos de fricción
+- priorización de oportunidades
+- diagnóstico concreto con recomendaciones
+
+B. Diseño de transformación
+- arquitectura de procesos
+- propuesta de solución
+- trabajo de mapeo de negocio
+- impacto esperado, KPI y plan de implementación
+
+C. Implementación modular
+- ventas y CRM
+- atención al cliente
+- operaciones y logística
+- producción y control
+- dashboards y analítica
+
+D. Acompañamiento operativo gestionado
+- soporte continuo
+- gestión del rendimiento
+- monitorización y mejora
+- agentes IA operativos
+
+8.4 Herramienta de agentes para venta de consultoría
+La herramienta de agentes debe actuar como un sistema de acompañamiento para la captación y ejecución de proyectos de consultoría. No debe ser un mero chatbot.
+
+Debe incluir estos módulos:
+
+- Agente de diagnóstico del cliente
+  - analiza negocio, procesos, oportunidades y puntos de fricción
+
+- Agente de análisis comercial
+  - identifica segmentos, clientes, oportunidades, riesgos y capacidad de venta
+
+- Agente de evaluación funcional
+  - analiza departamentos, flujos, procesos, carga, KPI y continuidad operativa
+
+- Agente de propuesta comercial
+  - prepara propuesta, alcance, estructura de servicios, entregables y línea de precio
+
+- Agente de priorización
+  - ordena proyectos por impacto, facilidad de ejecución y valor estratégico
+
+- Agente de PMO
+  - controla tareas, objetivos, entrega y tiempos del proyecto de consultoría
+
+- Agente de KPI y reporting
+  - monitoriza resultados, evolución del proyecto y fit con objetivos
+
+- Agente de follow-up y cierre
+  - acompaña la relación con el cliente durante la implementación y la entrega
+
+8.5 Modelo de ingresos del CTA
+- fee por diagnóstico
+- fee por diseño y arquitectura de solución
+- fee por módulos implementados
+- retainer mensual de seguimiento
+- fee por resultados y ahorro o mejora medible
+- acuerdos de implementación con el cliente
+
+8.6 Beneficio del CTA para INGECART
+- genera negocio independiente de la línea industrial pura
+- mejora la relación con clientes y prospectos
+- incorpora un flujo adicional de ingresos y conocimiento
+- fortalece el posicionamiento de la empresa como referente tecnológico y de transformación
+- crea un canal de venta para la consultoría, la IA y la automatización
+
+====================================================================
+9. ACCIONES CONCRETAS Y MANOS A LA OBRA
+====================================================================
+A continuación se definen las acciones inmediatas para poner en marcha el plan.
+
+9.1 Acciones para la cartera de proyectos (0-30 días)
+- completar ficha y resumen ejecutivo de cada uno de los 4 proyectos
+- definir responsable técnico y responsable comercial por cada proyecto
+- preparar matriz de ayudas por proyecto
+- identificar una primera batería de convocatorias relevantes
+- construir carpeta de evidencia mínima por proyecto
+- cerrar alcance y objetivos de cada proyecto
+- preparar el primer briefing para presentación a organismos o socios
+
+9.2 Acciones para la fase de elegibilidad (30-60 días)
+- valorar el tipo de ayuda más compatible para cada proyecto
+- validar necesidad de consorcio, universidad, centro tecnológico o proveedor
+- preparar ensayo de presupuesto y coste elegible
+- definir cronograma técnico y económico
+- preparar primera versión de memoria técnica y memoria económica
+- preparar checklist de documentación
+
+9.3 Acciones para preparación del expediente (60-90 días)
+- redactar memoria completa de cada proyecto
+- definir plan de trabajo, WBS, hitos, responsables y riesgo
+- complementar documentación legal y económica
+- preparar mapa de financiación y cofinanciación
+- ejecutar revisión interna y auditoría de calidad de expediente
+- definir fecha de presentación por proyecto
+
+9.4 Acciones para CTA y consultoría (0-90 días)
+- definir el posicionamiento del CTA en el mercado de PYMEs
+- crear oferta base para diagnóstico y transformación
+- preparar 3 modelos de servicio tipo: diagnóstico, implementación modular, acompañamiento gestionado
+- definir agente de diagnóstico inicial
+- definir prototipo de tablero de negocio y KPI
+- preparar campaña de prospección y primer pipeline de clientes
+- crear materiales de venta y presentación para PYMEs
+
+9.5 Acciones de negocio interno (0-90 días)
+- crear PMO de ayudas e innovación
+- definir matriz de proyectos, ayudas y prioridad
+- establecer sistema de seguimiento con hitos, fechas y evidencias
+- preparar listado de organismos, organismos regionales y convocatorias clave
+- asignar liderazgo para cada una de las 4 iniciativas
+
+====================================================================
+10. CRONOGRAMA SUGERIDO
+====================================================================
+Mes 1: definir, validar, priorizar y preparar suministros de documentación
+Mes 2: preparar la primera oleada de ayudas y marcar proyecto por proyecto
+Mes 3: presentar primero bloque de expedientes y lanzar CTA con diagnóstico básico
+Mes 4: ejecutar primeros pilotos y cerrar primer ciclo de financiación y consultoría
+
+====================================================================
+11. KPIs DE SEGUIMIENTO DEL PLAN
+====================================================================
+- número de proyectos con ficha completa
+- número de proyectos con matriz de elegibilidad
+- número de convocatorias analizadas por proyecto
+- proyectos con memoria técnica en preparación
+- proyectos con presupuesto validado
+- proyectos listos para presentación
+- ayudas presentadas
+- ayudas concedidas
+- valor estimado captado por ayudas
+- coste de preparación del expediente
+- proyectos ejecutándose
+- proyectos en liquidación
+- clientes en CTA y diagnósticos vendidos
+- módulos de consultoría y IA en venta
+- ventas del CTA y margen estimado
+
+====================================================================
+12. PRINCIPALES RIESGOS Y CONTROLES
+====================================================================
+Riesgos:
+- proyecto sin alcance claro
+- ayuda mal seleccionada
+- documentación incompleta
+- falta de evidencia técnica y financiera
+- presupuesto no elegible
+- retrasos en ejecución
+- falta de responsable de proyecto
+- excesiva dependencia de una sola convocatoria
+- no conectar la innovación con un mercado real
+
+Controles:
+- checklist de proyecto por fase
+- revisión técnica y económica antes de presentación
+- PMO con control de hitos
+- trazabilidad documental por proyecto
+- validación de gastos y costes elegibles
+- separación clara entre proyecto, ayuda y ejecución
+- monitorización continua del pipeline de ayudas
+
+====================================================================
+13. CONCLUSIÓN EJECUTIVA
+====================================================================
+Los 4 proyectos identificados para INGECART ya han dado el paso desde la idea a la oportunidad real de negocio. La siguiente fase no consiste en "seguir pensando" o en mantenerlos como conceptos de innovación, sino en convertirlos en un portfolio real de proyectos con financiación, gestión, trazabilidad y ejecución.
+
+Para ello, es imprescindible dotar a la empresa de tres capas simultáneas:
+1. cartera de proyectos con estructura de ayuda y financiación
+2. PMO de innovación y ejecución
+3. CTA de consultoría a PYMEs con agentes IA y arquitectura comercial
+
+Si estas tres capas se construyen con disciplina, la empresa no solo podrá avanzar en su línea tecnológica, sino que también podrá abrir un segundo motor de negocio más estable, más escalable y más rentable: la venta de consultoría y transformación a pequeñas y medianas empresas españolas.
+
+La clave del éxito está en actuar con rigor, no solo con ideas. El siguiente paso es poner en marcha la primera tanda de trabajo por proyecto, preparar los expedientes y lanzar la fase de captación de ayudas, así como la oferta inicial del CTA.
+
+====================================================================
+FIN DEL DOCUMENTO

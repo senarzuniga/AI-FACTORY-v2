@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Informe bilingüe de la Fase 2 de automatización de paletización para Cascades Calgary.">
+  <title>Cascades Calgary Phase 2 | Plug & Play Palletizing</title>
+  <link rel="stylesheet" href="calgary_report_theme.css">
+  <style>
+    .hero{--hero-image:url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1800&q=85')}
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0 12px;
+      padding: 0;
+      color: #f2f7ff;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .brand-mark img{display:block;width:58px;height:58px;object-fit:contain;background:#fff;border:2px solid #fff}
+    .formula{margin:18px 0;padding:18px 20px;border:1px solid var(--line);border-left:5px solid var(--green);background:#f7faf8;font:700 13px/1.7 "Cascadia Mono",Consolas,monospace;overflow-wrap:anywhere}
+    .note{color:var(--muted);font-size:12px}
+    footer{padding:28px 0 42px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language"><button data-language="es" aria-pressed="true">ES</button><button data-language="en" aria-pressed="false">EN</button></div>
+  <header class="hero"><div class="hero-inner">
+    <div class="lang lang-es">
+      <div class="eyebrow">Cascades Calgary · Paletización Plug &amp; Play · Fase 2</div>
+      <div class="brand-mark"><img src="simple-in.png" alt="Ingecart"><span>INGECART</span></div>
+      <h1>Salida estable, pallet repetible</h1>
+      <p>Expansión Plug & Play para proteger la producción sostenida de EMBA y Martin y preparar cargas consistentes para la logística automática.</p>
+      <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>ES / EN</span><span>Versión cliente</span></div>
+    </div>
+    <div class="lang lang-en hidden">
+      <div class="eyebrow">Cascades Calgary · Plug &amp; Play palletizing · Phase 2</div>
+      <div class="brand-mark"><img src="simple-in.png" alt="Ingecart"><span>INGECART</span></div>
+      <h1>Stable outfeed, repeatable pallet</h1>
+      <p>Plug & Play expansion to protect sustained EMBA and Martin production and prepare consistent loads for automated logistics.</p>
+      <div class="meta"><span>AI-FACTORY v2</span><span>2026-08-17</span><span>ES / EN</span><span>Client version</span></div>
+    </div>
+  </div></header>
+  <div class="ribbon"><div class="ribbon-inner"><strong>Decision basis</strong><span>Throughput</span><span>SKU matrix</span><span>Pallet quality</span><span>Integration</span><span>FAT / SAT</span></div></div>
+  <div class="layout"><aside><nav class="toc" aria-label="Table of contents">
+    <div class="lang lang-es"><div class="toc-title">Contenido</div><a href="#summary">01 · Resumen</a><a href="#scope">02 · Alcance</a><a href="#capacity">03 · Capacidad</a><a href="#integration">04 · Integración</a><a href="#improvements">05 · Mejoras</a><a href="#controls">06 · Control</a><a href="#economics">07 · Economía</a><a href="#delivery">08 · Ejecución</a><a href="#risks">09 · Riesgos</a><a href="#release">10 · Liberación</a></div>
+    <div class="lang lang-en hidden"><div class="toc-title">Contents</div><a href="#summary">01 · Summary</a><a href="#scope">02 · Scope</a><a href="#capacity">03 · Capacity</a><a href="#integration">04 · Integration</a><a href="#improvements">05 · Improvements</a><a href="#controls">06 · Control</a><a href="#economics">07 · Economics</a><a href="#delivery">08 · Delivery</a><a href="#risks">09 · Risks</a><a href="#release">10 · Release</a></div>
+  </nav></aside><main>
+    <section id="summary">
+      <div class="lang lang-es"><div class="section-no">01 · Resumen ejecutivo</div><h2>La descarga deja de limitar el ritmo útil.</h2><p class="lead">Una FFG pierde producción cuando la paletización no absorbe su cadencia. La Fase 2 estandariza conteo, interlayers, patrón, formación de pallet y petición de recogida sin modificar la secuencia productiva conocida.</p><div class="decision"><strong>Tesis de inversión</strong>La paletización crea valor cuando recupera minutos bloqueados de EMBA y Martin, estabiliza la calidad de carga y entrega pallets identificados al sistema logístico. El ahorro laboral es una consecuencia validable, no la única justificación.</div><div class="grid-4"><article class="card accent"><div class="metric">2</div><div class="metric-label">líneas candidatas: EMBA y Martin</div></article><article class="card green"><div class="metric">12</div><div class="metric-label">bundles/min propuestos; pendiente de FAT</div></article><article class="card amber"><div class="metric">CAD 640k</div><div class="metric-label">beneficio laboral bruto indicado; reconciliar</div></article><article class="card"><div class="metric">2 gates</div><div class="metric-label">liberación independiente por línea</div></article></div><div class="decision green"><strong>Conclusión técnica</strong>La selección no debe basarse en una velocidad nominal común. Cada célula se libera por matriz SKU, capacidad sostenida, calidad de pallet, modo degradado e integración demostradas.</div></div>
+      <div class="lang lang-en hidden"><div class="section-no">01 · Executive summary</div><h2>Discharge stops limiting usable rate.</h2><p class="lead">An FFG loses output when palletizing cannot absorb its cadence. Phase 2 standardizes counting, interlayers, pattern, pallet formation and pickup request without changing the known production sequence.</p><div class="decision"><strong>Investment thesis</strong>Palletizing creates value when it recovers blocked minutes at EMBA and Martin, stabilizes load quality and hands identified pallets to the logistics system. Labor benefit is a verifiable outcome, not the sole justification.</div><div class="grid-4"><article class="card accent"><div class="metric">2</div><div class="metric-label">candidate lines: EMBA and Martin</div></article><article class="card green"><div class="metric">12</div><div class="metric-label">proposed bundles/min; FAT pending</div></article><article class="card amber"><div class="metric">CAD 640k</div><div class="metric-label">stated gross labor benefit; reconcile</div></article><article class="card"><div class="metric">2 gates</div><div class="metric-label">independent release by line</div></article></div><div class="decision green"><strong>Technical conclusion</strong>Selection must not rely on one common nominal speed. Each cell is released through demonstrated SKU matrix, sustained capacity, pallet quality, degraded mode and integration.</div></div>
+    </section>
+    <section id="scope">
+      <div class="lang lang-es"><div class="section-no">02 · Alcance funcional</div><h2>Dos células, una disciplina operativa.</h2><div class="flow" style="--steps:5"><div class="flow-step">Bundle validado</div><div class="flow-step control">Receta + conteo</div><div class="flow-step control">Interlayer + patrón</div><div class="flow-step control">Pallet completo</div><div class="flow-step">WCS solicita pickup</div></div><div class="grid-2"><article class="card accent"><h3>Incluido por línea</h3><ul><li>Célula Plug & Play seleccionada.</li><li>Gestión de recetas y patrón.</li><li>Formación y salida automática de pallet.</li><li>Alarmas, producción y calidad.</li></ul></article><article class="card green"><h3>Valor operativo</h3><ul><li>Menor bloqueo por descarga.</li><li>Pallets repetibles y menor daño.</li><li>Menos manipulación y correcciones.</li><li>Pickup coordinado con WCS/AMR.</li></ul></article></div></div>
+      <div class="lang lang-en hidden"><div class="section-no">02 · Functional scope</div><h2>Two cells, one operating discipline.</h2><div class="flow" style="--steps:5"><div class="flow-step">Bundle validated</div><div class="flow-step control">Recipe + count</div><div class="flow-step control">Interlayer + pattern</div><div class="flow-step control">Pallet complete</div><div class="flow-step">WCS requests pickup</div></div><div class="grid-2"><article class="card accent"><h3>Included by line</h3><ul><li>Selected Plug & Play cell.</li><li>Recipe and pattern management.</li><li>Automated pallet formation and outfeed.</li><li>Alarms, production and quality.</li></ul></article><article class="card green"><h3>Operating value</h3><ul><li>Less discharge blocking.</li><li>Repeatable pallets and lower damage.</li><li>Less handling and correction.</li><li>WCS/AMR coordinated pickup.</li></ul></article></div></div>
+    </section>
+    <section id="capacity">
+      <div class="lang lang-es"><div class="section-no">03 · Capacidad y compatibilidad</div><h2>La matriz de producto decide.</h2><div class="table-wrap"><table><thead><tr><th>Dato de propuesta</th><th>Valor</th><th>Tratamiento</th></tr></thead><tbody><tr><td>Cadencia estable</td><td class="number">12 bundles/min</td><td>Validar con interlayers y mix real</td></tr><tr><td>Pallet máximo</td><td class="number">1.200 × 1.200 × 2.300 mm</td><td>Validar estabilidad y seguridad</td></tr><tr><td>Bundle</td><td class="number">250 × 250 a 700 × 900 mm</td><td>Cruzar dimensiones, peso y patrón</td></tr><tr><td>Huella nominal</td><td class="number">3 × 3 m</td><td>Confirmar interfaces y servicio</td></tr></tbody></table></div><div class="decision green"><strong>Matriz de aceptación</strong>SKU, dimensiones, peso, bundles por pallet, estabilidad, patrón, interlayer, calidad del cartón y ritmo de salida deben probarse como conjunto.</div><p class="note"><strong>Nota:</strong> WCS significa <em>Warehouse Control System</em>: el sistema que coordina reservas, destinos, colas y prioridad para mover cargas sin depender de decisiones manuales.</p></div>
+      <div class="lang lang-en hidden"><div class="section-no">03 · Capacity and compatibility</div><h2>The product matrix decides.</h2><div class="table-wrap"><table><thead><tr><th>Proposal data</th><th>Value</th><th>Treatment</th></tr></thead><tbody><tr><td>Stable rate</td><td class="number">12 bundles/min</td><td>Validate with interlayers and real mix</td></tr><tr><td>Maximum pallet</td><td class="number">1,200 × 1,200 × 2,300 mm</td><td>Validate stability and safety</td></tr><tr><td>Bundle</td><td class="number">250 × 250 to 700 × 900 mm</td><td>Cross dimensions, weight and pattern</td></tr><tr><td>Nominal footprint</td><td class="number">3 × 3 m</td><td>Confirm interfaces and service access</td></tr></tbody></table></div><div class="decision green"><strong>Acceptance matrix</strong>SKU, dimensions, weight, bundles per pallet, stability, pattern, interlayer, board quality and outfeed rate must be tested together.</div><p class="note"><strong>Note:</strong> WCS stands for <em>Warehouse Control System</em>: the system that coordinates reservations, destinations, queues and priorities so loads move without relying on manual decisions.</p></div>
+    </section>
+    <section id="integration">
+      <div class="lang lang-es"><div class="section-no">04 · Integración</div><h2>La célula produce; el WCS coordina.</h2><div class="grid-3"><article class="card accent"><h3>Estado operativo</h3><p>ready, running, starved, blocked, fault y manual.</p></article><article class="card green"><h3>Producto</h3><p>orden, SKU, lote, receta, contadores y pallet.</p></article><article class="card amber"><h3>Handoff</h3><p>pallet present, complete, pickup requested y disponibilidad.</p></article></div><p>El WCS coordina demanda, prioridad y recogida. Los PLC locales conservan secuencia, protecciones e interlocks seguros.</p></div>
+      <div class="lang lang-en hidden"><div class="section-no">04 · Integration</div><h2>The cell produces; WCS coordinates.</h2><div class="grid-3"><article class="card accent"><h3>Operating state</h3><p>ready, running, starved, blocked, fault and manual.</p></article><article class="card green"><h3>Product</h3><p>order, SKU, lot, recipe, counters and pallet.</p></article><article class="card amber"><h3>Handoff</h3><p>pallet present, complete, pickup requested and availability.</p></article></div><p>WCS coordinates demand, priority and pickup. Local PLCs retain sequence, protections and safe interlocks.</p></div>
+    </section>
+    <section id="improvements">
+      <div class="lang lang-es">
+        <div class="section-no">05 · Mejoras esperadas</div><h2>Más capacidad útil, menos variabilidad logística.</h2>
+        <div class="grid-2">
+          <article class="card green"><h3>Producción</h3><ul><li>Menor blocked time en EMBA y Martin.</li><li>Mayor velocidad buena sostenible por línea.</li><li>Menor dependencia del ritmo de paletizado manual.</li><li>Evacuación consistente hacia pickup automático.</li></ul></article>
+          <article class="card accent"><h3>Flujo</h3><ul><li>Pallet completo identificado antes de liberar.</li><li>Destino y pickup coordinados por WCS.</li><li>Buffer dimensionado por p50/p95.</li><li>Menos espera, corrección y rehandling.</li></ul></article>
+          <article class="card amber"><h3>Calidad y trazabilidad</h3><ul><li>Menos manipulación y daño de lámina.</li><li>Identidad de carga de origen a destino.</li><li>Registro de tiempos, colas y excepciones.</li><li>Mejor consistencia de pallet.</li></ul></article>
+          <article class="card"><h3>Seguridad y mantenimiento</h3><ul><li>Menor empuje manual de cargas pesadas.</li><li>Interlocks y scanners en zonas de transferencia.</li><li>Diagnóstico de fallo y recuperación guiada.</li><li>Base modular para automatizaciones futuras.</li></ul></article>
+        </div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="section-no">05 · Expected improvements</div><h2>More usable capacity, less logistics variability.</h2>
+        <div class="grid-2">
+          <article class="card green"><h3>Production</h3><ul><li>Lower blocked time at EMBA and Martin.</li><li>Higher sustainable good speed by line.</li><li>Less dependency on manual palletizing pace.</li><li>Consistent evacuation to automated pickup.</li></ul></article>
+          <article class="card accent"><h3>Flow</h3><ul><li>Complete pallet identified before release.</li><li>Destination and pickup coordinated by WCS.</li><li>Buffer sized from p50/p95.</li><li>Less waiting, correction and rehandling.</li></ul></article>
+          <article class="card amber"><h3>Quality and traceability</h3><ul><li>Less handling and sheet damage.</li><li>Load identity from origin to destination.</li><li>Recorded times, queues and exceptions.</li><li>More consistent pallets.</li></ul></article>
+          <article class="card"><h3>Safety and maintenance</h3><ul><li>Less manual pushing of heavy loads.</li><li>Interlocks and scanners at transfer zones.</li><li>Fault diagnostics and guided recovery.</li><li>Modular base for future automation.</li></ul></article>
+        </div>
+      </div>
+    </section>
+    <section id="controls">
+      <div class="lang lang-es">
+        <div class="section-no">06 · Software y control</div><h2>La integración es parte del equipo productivo.</h2>
+        <div class="table-wrap"><table><thead><tr><th>Capa</th><th>Responsabilidad</th><th>Dato crítico</th></tr></thead><tbody>
+          <tr><td>ERP / APS</td><td>Órdenes, fechas y prioridad comercial</td><td>order_id, due date, priority</td></tr>
+          <tr><td>MES / WMS</td><td>Identidad, cantidad, estado y ubicación</td><td>SKU, lot, load, location</td></tr>
+          <tr><td>INGECART WCS</td><td>Reservas, routing, colas y excepciones</td><td>origin, destination, route state</td></tr>
+          <tr><td>Fleet manager</td><td>Misiones AMR, tráfico y disponibilidad</td><td>mission, vehicle, battery, ETA</td></tr>
+          <tr><td>PLC / safety</td><td>Secuencia física e interlocks seguros</td><td>ready, aligned, clear, fault</td></tr>
+        </tbody></table></div>
+        <div class="decision"><strong>Criterio FAT</strong>Probar peticiones simultáneas, cambio de prioridad, destino lleno, carga descentrada, pérdida de red/energía, E-stop, restart y reconciliación de inventario en modo degradado.</div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="section-no">06 · Software and control</div><h2>Integration is part of the production equipment.</h2>
+        <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Responsibility</th><th>Critical data</th></tr></thead><tbody>
+          <tr><td>ERP / APS</td><td>Orders, dates and commercial priority</td><td>order_id, due date, priority</td></tr>
+          <tr><td>MES / WMS</td><td>Identity, quantity, state and location</td><td>SKU, lot, load, location</td></tr>
+          <tr><td>INGECART WCS</td><td>Reservations, routing, queues and exceptions</td><td>origin, destination, route state</td></tr>
+          <tr><td>Fleet manager</td><td>AMR missions, traffic and availability</td><td>mission, vehicle, battery, ETA</td></tr>
+          <tr><td>PLC / safety</td><td>Physical sequence and safe interlocks</td><td>ready, aligned, clear, fault</td></tr>
+        </tbody></table></div>
+        <div class="decision"><strong>FAT criterion</strong>Test simultaneous calls, priority change, full destination, off-center load, network/power loss, E-stop, restart and inventory reconciliation in degraded mode.</div>
+      </div>
+    </section>
+
+    <section id="economics">
+      <div class="lang lang-es"><div class="section-no">07 · Caso económico</div><h2>Valorar output bueno recuperado, no velocidad nominal.</h2><div class="formula">bundles recuperados = minutos bloqueados evitados × bundles buenos/min sostenidos<br>beneficio throughput = bundles recuperados × cajas/bundle × margen de contribución/caja</div><div class="grid-3"><article class="card amber"><span class="tag proposal">Labor</span><h3>CAD 640.000/año bruto</h3><p>Hipótesis de 8 puestos equivalentes. Requiere reconciliar tarea, turno, reasignación y fecha efectiva.</p></article><article class="card green"><span class="tag proposal">Capacidad</span><h3>Minutos recuperados</h3><p>Medir blocked time antes/después por EMBA y Martin y valorarlo con output bueno y margen.</p></article><article class="card accent"><span class="tag proposal">Calidad</span><h3>Pallet repetible</h3><p>Daño, rework y rechazo evitados requieren incidencia y coste unitario validados.</p></article></div><div class="decision"><strong>Guarda financiera</strong>El beneficio laboral no se suma a Fases 1 o 3 hasta reconciliar fase + rol + turno + tarea. El business case final resta mantenimiento, energía, consumibles, soporte y repuestos incrementales.</div></div>
+      <div class="lang lang-en hidden"><div class="section-no">07 · Economic case</div><h2>Value recovered good output, not nominal speed.</h2><div class="formula">recovered bundles = avoided blocked minutes × sustained good bundles/min<br>throughput benefit = recovered bundles × boxes/bundle × contribution margin/box</div><div class="grid-3"><article class="card amber"><span class="tag proposal">Labor</span><h3>CAD 640,000/year gross</h3><p>Hypothesis of 8 equivalent positions. Task, shift, reassignment and effective date must be reconciled.</p></article><article class="card green"><span class="tag proposal">Capacity</span><h3>Recovered minutes</h3><p>Measure blocked time before/after by EMBA and Martin and value it using good output and margin.</p></article><article class="card accent"><span class="tag proposal">Quality</span><h3>Repeatable pallet</h3><p>Avoided damage, rework and rejection require validated incidence and unit cost.</p></article></div><div class="decision"><strong>Financial guardrail</strong>Labor benefit is not added to Phases 1 or 3 until phase + role + shift + task are reconciled. The final case deducts incremental maintenance, energy, consumables, support and spares.</div></div>
+    </section>
+    <section id="delivery">
+      <div class="lang lang-es"><div class="section-no">08 · Ejecución</div><h2>Dos líneas, liberación independiente.</h2><div class="grid-3"><article class="card accent"><h3>1 · Ingeniería</h3><p>Survey, matriz SKU, layout, utilidades, interfaces, risk assessment y URS por línea.</p></article><article class="card amber"><h3>2 · FAT</h3><p>Probar familias límite, cadencia sostenida, cambio de receta, interlayers, calidad y recuperación.</p></article><article class="card green"><h3>3 · SAT / ramp-up</h3><p>Instalar por ventana, validar una línea sin condicionar la otra y cerrar baseline/target.</p></article></div></div>
+      <div class="lang lang-en hidden"><div class="section-no">08 · Delivery</div><h2>Two lines, independent release.</h2><div class="grid-3"><article class="card accent"><h3>1 · Engineering</h3><p>Survey, SKU matrix, layout, utilities, interfaces, risk assessment and URS by line.</p></article><article class="card amber"><h3>2 · FAT</h3><p>Test boundary families, sustained rate, recipe change, interlayers, quality and recovery.</p></article><article class="card green"><h3>3 · SAT / ramp-up</h3><p>Install by window, validate either line without conditioning the other and close baseline/target.</p></article></div></div>
+    </section>
+    <section id="risks">
+      <div class="lang lang-es"><div class="section-no">09 · Riesgos</div><h2>El palletizer no puede crear un cuello nuevo.</h2><ul class="checklist"><li>Mix fuera de envolvente o patrón no estable.</li><li>Cadencia nominal no sostenible con interlayers y cambio de pallet.</li><li>Pickup tardío bloquea la célula aunque el palletizado sea rápido.</li><li>Solapamiento de ahorro laboral con otras fases.</li><li>Fallo común sin bypass o procedimiento manual seguro.</li><li>Acceso de mantenimiento, guarding o utilidades insuficientes.</li></ul></div>
+      <div class="lang lang-en hidden"><div class="section-no">09 · Risks</div><h2>The palletizer must not create a new bottleneck.</h2><ul class="checklist"><li>Mix outside the envelope or unstable pattern.</li><li>Nominal rate not sustainable with interlayers and pallet change.</li><li>Late pickup blocks the cell even when palletizing is fast.</li><li>Labor-benefit overlap with other phases.</li><li>Common failure without bypass or safe manual procedure.</li><li>Insufficient maintenance access, guarding or utilities.</li></ul></div>
+    </section>
+    <section id="release">
+      <div class="lang lang-es"><div class="section-no">10 · KPIs y liberación</div><h2>Cada célula se acepta con evidencia propia.</h2><div class="table-wrap"><table><thead><tr><th>KPI / gate</th><th>Criterio</th></tr></thead><tbody><tr><td>Capacidad</td><td>Bundles/min sostenidos por familias SKU, incluyendo interlayer y cambio de pallet.</td></tr><tr><td>Producción</td><td>Blocked time de EMBA/Martin y output bueno antes/después.</td></tr><tr><td>Calidad</td><td>Patrón, verticalidad, estabilidad, daño y rechazo dentro de objetivo aprobado.</td></tr><tr><td>Integración</td><td>Identidad, receta, pallet complete, pickup y reconciliación tras restart.</td></tr><tr><td>Resiliencia</td><td>Bypass, fallo de pickup, E-stop, pérdida de red/energía y recuperación ensayados.</td></tr></tbody></table></div><div class="decision green"><strong>Recomendación</strong>Liberar EMBA y Martin por separado después de FAT/SAT sobre su matriz real. Tratar 12 bundles/min y CAD 640k como hipótesis de propuesta hasta demostrar capacidad y realización.</div><p class="note">Informe de preingeniería. Dimensiones, velocidades y beneficios no son garantías contractuales hasta oferta final, FAT, SAT y baseline aprobados.</p></div>
+      <div class="lang lang-en hidden"><div class="section-no">10 · KPIs and release</div><h2>Each cell is accepted on its own evidence.</h2><div class="table-wrap"><table><thead><tr><th>KPI / gate</th><th>Criterion</th></tr></thead><tbody><tr><td>Capacity</td><td>Sustained bundles/min by SKU family, including interlayer and pallet change.</td></tr><tr><td>Production</td><td>EMBA/Martin blocked time and good output before/after.</td></tr><tr><td>Quality</td><td>Pattern, verticality, stability, damage and rejection within approved target.</td></tr><tr><td>Integration</td><td>Identity, recipe, pallet complete, pickup and reconciliation after restart.</td></tr><tr><td>Resilience</td><td>Bypass, pickup failure, E-stop, network/power loss and recovery tested.</td></tr></tbody></table></div><div class="decision green"><strong>Recommendation</strong>Release EMBA and Martin separately after FAT/SAT against their actual matrices. Treat 12 bundles/min and CAD 640k as proposal hypotheses until capacity and realization are demonstrated.</div><p class="note">Pre-engineering report. Dimensions, rates and benefits are not contractual guarantees until final offer, FAT, SAT and approved baseline.</p></div>
+    </section>
+  </main></div>
+  <footer><div class="hero-inner" style="padding:0"><div class="lang lang-es"><strong>INGECART · Cascades Calgary · Fase 2</strong><br>Paletización Plug &amp; Play · Informe técnico y económico · 2026-08-17</div><div class="lang lang-en hidden"><strong>INGECART · Cascades Calgary · Phase 2</strong><br>Plug &amp; Play palletizing · Technical and economic report · 2026-08-17</div></div></footer>
+  <script src="calgary_report_language.js"></script>
+</body></html>

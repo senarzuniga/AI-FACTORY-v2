@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico y estratégico para definir la mejor estructura de inteligencia artificial y agentes AI para Ingecart, integrada con Microsoft 365 y un modelo operativo basado en contexto, misiones y validación." />
+  <title>INGECART · AI Operating System Report</title>
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --bg-2: #121b2a;
+      --panel: #101a29;
+      --panel-2: #132236;
+      --line: rgba(255,255,255,0.13);
+      --ink: #eaf2ff;
+      --muted: #a8bbd6;
+      --blue: #5aa8ff;
+      --cyan: #7ce7dd;
+      --teal: #4de0b7;
+      --amber: #ffbf69;
+      --orange: #ff915d;
+      --red: #ff6b6b;
+      --purple: #9d8bff;
+      --green: #7fe38a;
+      --shadow: rgba(0,0,0,0.28);
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,168,255,0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(124,231,221,0.12), transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(92vw, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10,15,26,0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(92vw, var(--max));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 58px;
+      gap: 18px;
+    }
+
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .mark-badge {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      box-shadow: 0 0 18px rgba(255,145,93,0.7);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 70px 0 26px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19,34,54,0.9), rgba(12,19,31,0.95));
+      border-radius: 22px;
+      padding: 42px 42px 30px;
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      max-width: 900px;
+    }
+
+    .lead {
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 26px;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    section {
+      padding: 24px 0;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(1.3rem, 2vw, 2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(17,25,37,0.9);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+    }
+
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-9 { grid-column: span 9; }
+    .col-12 { grid-column: span 12; }
+
+    h3 {
+      font-size: 1.06rem;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    p, li {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    ul, ol {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    .quote {
+      padding: 18px 20px;
+      border-left: 4px solid var(--cyan);
+      background: rgba(122, 231, 221, 0.04);
+      border-radius: 0 14px 14px 0;
+      color: var(--ink);
+      font-size: 1.01rem;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr 1fr;
+      gap: 12px;
+      align-items: stretch;
+      margin-top: 16px;
+    }
+
+    .node {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(21, 33, 49, 0.9), rgba(15, 22, 33, 0.95));
+      padding: 16px 14px;
+      min-height: 110px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .node small {
+      display: block;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .node strong {
+      font-size: 1.02rem;
+    }
+
+    .node.cyan { border-color: rgba(124,231,221,0.4); }
+    .node.blue { border-color: rgba(90,168,255,0.35); }
+    .node.orange { border-color: rgba(255,145,93,0.35); }
+    .node.purple { border-color: rgba(157,139,255,0.35); }
+    .node.green { border-color: rgba(127,227,138,0.35); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(14, 23, 33, 0.95);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: rgba(255,255,255,0.03);
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .score {
+      display: inline-block;
+      min-width: 58px;
+      padding: 8px 10px;
+      text-align: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      color: var(--ink);
+      background: rgba(90,168,255,0.08);
+    }
+
+    .score.good { background: rgba(127,227,138,0.08); color: var(--green); }
+    .score.mid { background: rgba(255,191,105,0.09); color: var(--amber); }
+    .score.low { background: rgba(255,107,107,0.07); color: var(--red); }
+
+    .roadmap {
+      position: relative;
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .phase {
+      background: rgba(17,25,37,0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px;
+    }
+
+    .phase .no {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: #081018;
+      font-weight: 800;
+      text-align: center;
+      line-height: 30px;
+      margin-bottom: 8px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .kpi {
+      background: rgba(17,25,37,0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 18px;
+    }
+
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .col-3, .col-4, .col-6, .col-7, .col-8, .col-9, .col-12 { grid-column: span 12; }
+      .diagram, .roadmap, .kpis { grid-template-columns: 1fr; }
+      .nav { display: none; }
+      .hero-shell { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="mark"><span class="mark-badge"></span> Ingecart</div>
+      <div class="nav">
+        <a href="#resumen">Resumen</a>
+        <a href="#arquitectura">Arquitectura</a>
+        <a href="#workplaces">Workplaces</a>
+        <a href="#agentes">Agentes</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#recomendacion">Recomendación</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <header class="hero" id="resumen">
+      <div class="hero-shell">
+        <div class="eyebrow">INGECART · AI Operating System</div>
+        <h1>Arquitectura recomendada de IA y agentes para Ingecart</h1>
+        <p class="lead">
+          Este informe define una estructura de Enterprise AI Operating System para Ingecart basada en contexto, misiones, agentes especializados, validación continua y trabajo preparado. La recomendación no es sustituir Microsoft 365, ni convertir la organización en un ERP más complejo: la propuesta es crear una capa transversal de inteligencia empresarial que conecta personas, procesos, documentos, proyectos, sistemas y decisiones, con Microsoft 365 como entorno digital de trabajo y ASE/CTA como sistema operativo del conocimiento y la ejecución.
+        </p>
+        <div class="meta-row">
+          <span class="chip">Microsoft 365 + Copilot</span>
+          <span class="chip">Mission Manager</span>
+          <span class="chip">Workplace Context</span>
+          <span class="chip">Agentes Especializados</span>
+          <span class="chip">AHDE + validación</span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">Conclusión ejecutiva</h2>
+      <div class="grid">
+        <div class="card col-12">
+          <div class="quote">
+            La mejor estructura para Ingecart no es un asistente aislado ni un listado de agentes “bonitos”. Es un sistema operativo de trabajo con memoria, contexto, priorización, gobernanza, validación y ejecución orientada a personas y procesos. Microsoft 365 debe actuar como capa de productividad y colaboración; ASE/CTA debe actuar como capa de inteligencia operativa y coordinación transversal.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">1. Principios de diseño</h2>
+      <div class="grid">
+        <div class="card col-4">
+          <h3>1. Contexto como activo estratégico</h3>
+          <p>Cada persona, puesto y proyecto debe tener un Work Context operativo que reúna objetivos, proyectos, clientes, proveedores, documentos, decisiones, riesgos y tareas pendientes.</p>
+        </div>
+        <div class="card col-4">
+          <h3>2. Agentes especializados, no agentes inútiles</h3>
+          <p>La estructura no debe ser un agente por cada tarea. Debe existir un modelo de niveles: Enterprise AI Assistant, Mission Manager, Domain Agents y herramientas especializadas.</p>
+        </div>
+        <div class="card col-4">
+          <h3>3. Trabajo preparado, no solo respuesta</h3>
+          <p>El valor real es preparar la acción: sugerir contenido, contexto, riesgos, respuesta, decisiones y próximos pasos antes de que el usuario lo pida.</p>
+        </div>
+        <div class="card col-4">
+          <h3>4. Microsoft 365 como digital workplace</h3>
+          <p>Outlook, Teams, SharePoint, Excel, Word, Power Automate y Copilot deben ser la capa de colaboración. ASE introduce el contexto y la coordinación.</p>
+        </div>
+        <div class="card col-4">
+          <h3>5. Validación por evidencia</h3>
+          <p>Los agentes deben operar con contexto verificable, no con suposiciones. Deben validar ofertas, riesgos, cargas, tiempos y documentación antes de cerrar una decisión.</p>
+        </div>
+        <div class="card col-4">
+          <h3>6. Calidad + productividad</h3>
+          <p>El objetivo no es solo acelerar tareas; es mejorar la calidad del trabajo, reducir omisiones y anticipar decisiones antes de que se vuelvan críticas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="arquitectura">
+      <h2 class="section-title">2. Arquitectura propuesta</h2>
+      <div class="diagram">
+        <div class="node cyan">
+          <small>Tier 1</small>
+          <strong>Enterprise AI OS</strong>
+          <span>Contexto universal e inteligencia ejecutiva</span>
+        </div>
+        <div class="node blue">
+          <small>Tier 2</small>
+          <strong>Mission Manager</strong>
+          <span>Prioriza, ejecuta, valida y hace seguimiento de misiones</span>
+        </div>
+        <div class="node orange">
+          <small>Tier 3</small>
+          <strong>Domain Agents</strong>
+          <span>Ventas, ingeniería, proyectos, finanzas, taller, mantenimiento</span>
+        </div>
+        <div class="node purple">
+          <small>Tier 4</small>
+          <strong>Workflows</strong>
+          <span>Generadores, analizadores, RFIs, informes, ofertas, reuniones</span>
+        </div>
+        <div class="node green">
+          <small>Tier 5</small>
+          <strong>Business Systems</strong>
+          <span>Microsoft 365, Excel, SharePoint, ERP, bancos, CRM, documentos</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px;">
+        <h3>Arquitectura conceptual</h3>
+        <pre style="white-space: pre-wrap; color: var(--ink); background: rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:0.9rem; font-family: Consolas, monospace;">
+                         CTA / ASE
+                    ENTERPRISE AI OS
+                            │
+             ┌──────────────┴──────────────┐
+             │                             │
+       ENTERPRISE CONTEXT            MISSION MANAGER
+             │                             │
+       ┌─────┴─────┐                ┌─────┴─────┐
+       │           │                │           │
+  Knowledge Graph   Company Context    Objectives    Actions
+       │           │                │           │
+       └─────┬─────┘                └─────┬─────┘
+             │                           │
+             └──────────────┬────────────┘
+                            │
+                    BUSINESS MODULES
+                            │
+       ┌─────────┬──────────┼──────────┬─────────┐
+       │         │          │          │         │
+     Sales    Projects   Engineering Finance   Operations
+       │         │          │          │         │
+       └─────────┴──────────┼──────────┴─────────┘
+                            │
+                   MICROSOFT ECOSYSTEM
+                            │
+       ┌─────────┬─────────┼─────────┬──────────┐
+       │         │         │         │          │
+    Outlook   Teams    SharePoint  Excel   Power Automate
+       │         │         │         │          │
+       └─────────┴─────────┴─────────┴──────────┘
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">3. Modelo operativo: Workplace Context</h2>
+      <div class="card">
+        <p>El concepto clave es que cada puesto debe tener un <strong>Workplace Context</strong>, no un perfil estático. Ese contexto debe encapsular:</p>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Componente</th>
+                <th>Qué incluye</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Persona</td>
+                <td>Rol, competencias, carga, decisiones, productividad y nivel de autonomía.</td>
+              </tr>
+              <tr>
+                <td>Puesto</td>
+                <td>Objetivos, KPI, responsabilidades, workflow operativo y ejecuciones esperadas.</td>
+              </tr>
+              <tr>
+                <td>Contexto empresarial</td>
+                <td>Clientes, proveedores, proyectos, documentos, reuniones, emails, riesgos y decisiones pendientes.</td>
+              </tr>
+              <tr>
+                <td>Contexto del trabajo</td>
+                <td>Acciones activas, entregables, riesgos de proyecto, documentos requeridos, próximos hitos.</td>
+              </tr>
+              <tr>
+                <td>Agentes disponibles</td>
+                <td>Asistentes especializados, validadores, generadores, buscadores y responsables de seguimiento.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="workplaces">
+      <h2 class="section-title">4. Workplaces recomendados para Ingecart</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Dirección General / Diego</h3>
+          <ul>
+            <li>Contexto de estrategia, clientes clave, oportunidades, riesgos, proyectos críticos, caja y crecimiento.</li>
+            <li>La consola no debe mostrar 200 tareas; debe mostrar “las 7 cosas que necesitan mi intervención hoy”.</li>
+            <li>Recomendación: una vista de decisiones, prioridades, bloqueos y impacto financiero.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Dirección de Ingeniería</h3>
+          <ul>
+            <li>Capacidad, carga, proyectos, decisiones, proveedores, entregables y bloqueos técnicos.</li>
+            <li>La IA debe responder: “¿dónde está bloqueada ingeniería?”, “qué proyecto necesita intervención”, “qué decisión está pendiente”.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Project Manager</h3>
+          <ul>
+            <li>Debe recibir una visualización de proyecto con prioridades y acciones preparadas.</li>
+            <li>ASE compone: historial, email, documento, riesgo, objetivo, propuesta de respuesta y siguiente paso.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Ingeniero</h3>
+          <ul>
+            <li>Consola de proyectos, especificaciones, RFIs, documentos, cambios de ingeniería, proveedores y decisiones abiertas.</li>
+            <li>Agentes: document agent, technical search agent, specification agent, calc assistant, supplier agent y documentation agent.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Ingeniero junior / Project Engineer</h3>
+          <ul>
+            <li>Debe convertirse en un execution assistant.</li>
+            <li>ASE prepara reuniones, recopila documentación, revisa pendientes, genera RFIs, minutas, listas, estados y seguimiento de plazos.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Dirección de taller</h3>
+          <ul>
+            <li>Necesita una consola de producción con producción, mantenimiento, materiales, máquinas, personas y proyectos.</li>
+            <li>Debe incluir preparación de máquina, montaje, materiales, calidad y despacho.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Jefe de mantenimiento</h3>
+          <ul>
+            <li>Debe operar con un Maintenance Operating System para prevenir, corregir y predecir fallos.</li>
+            <li>ASE debe identificar repetición de incidencias, preparar órdenes y materiales, y sugerir prioridad.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Administración / Finanzas</h3>
+          <ul>
+            <li>Integrar facturas, proveedores, clientes, cobros, pagos, proyecto cashflow, documentos y bancos.</li>
+            <li>Especial atención a María Jesús: su workplace debe fusionar finanzas, administración, riesgo, caja y seguimiento de proyecto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="agentes">
+      <h2 class="section-title">5. Estructura recomendada de agentes</h2>
+      <div class="grid">
+        <div class="card col-12">
+          <h3>Modelo de 4 niveles</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nivel</th>
+                  <th>Función</th>
+                  <th>Ejemplos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Enterprise AI Assistant</td>
+                  <td>Asistente general de trabajo, ayuda contextual y resolución multimodal.</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mission Manager</td>
+                  <td>Prioriza, decide, crea misiones, valida resultados y gestiona ciclos de ejecución.</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Domain Agents</td>
+                  <td>Sales, Finance, Projects, Engineering, Workshop, Maintenance, Administration, Marketing.</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Specialist Tools / Workflows</td>
+                  <td>Offer generator, document analyzer, RFI manager, meeting minutes, risk engine, action generator.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">6. Qué debe hacer realmente ASE</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Automatizar el trabajo administrativo y de preparación</h3>
+          <ul>
+            <li>Clasificar emails y clientes.</li>
+            <li>Detectar nuevas tareas y compromisos.</li>
+            <li>Generar seguimientos y tareas.</li>
+            <li>Preparar docuementos, ofertas e informes.</li>
+            <li>Actualizar registros y estados.</li>
+            <li>Solicitar información faltante a otros departamentos.</li>
+          </ul>
+        </div>
+        <div class="card col-6">
+          <h3>Incrementar la calidad del trabajo</h3>
+          <ul>
+            <li>Comprobar requisitos de oferta.</li>
+            <li>Revisar que la documentación está completa.</li>
+            <li>Detectar riesgos, omisiones y inconsistencias.</li>
+            <li>Anticipar vencimientos y decisiones.</li>
+            <li>Preparar respuestas con contexto y evidencia.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">7. Relación con Microsoft 365</h2>
+      <div class="card">
+        <p>Microsoft no reemplaza a ASE, pero sí ofrece las capas fundamentales de productividad. La arquitectura recomendable es la siguiente:</p>
+        <div class="table-wrap" style="margin-top:12px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Capacidad Microsoft</th>
+                <th>Rol</th>
+                <th>Qué aporta ASE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Outlook</td>
+                <td>Mensajes y comunicaciones</td>
+                <td>Clasificación de emails por cliente, proyecto, riesgo y acción.</td>
+              </tr>
+              <tr>
+                <td>Teams</td>
+                <td>Reuniones y coordinación</td>
+                <td>Preparación de agenda, minutas, acciones y seguimiento.</td>
+              </tr>
+              <tr>
+                <td>SharePoint</td>
+                <td>Documentos y conocimiento</td>
+                <td>Indexación, contexto y recuperación por proyecto, documento y proceso.</td>
+              </tr>
+              <tr>
+                <td>Excel</td>
+                <td>Datos estructurados</td>
+                <td>Análisis, KPI, comparativas, cashflow y seguimiento de indicadores.</td>
+              </tr>
+              <tr>
+                <td>Power Automate</td>
+                <td>Automatización de procesos</td>
+                <td>Activación de flujos con validación de negocio, no solo automatizaciones aisladas.</td>
+              </tr>
+              <tr>
+                <td>Copilot</td>
+                <td>Asistente individual</td>
+                <td>Asistente del trabajador, enriquecido por contexto empresarial del sistema.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">8. El “Work Pull Engine”</h2>
+      <div class="card">
+        <p>El sistema debe empujar trabajo hacia la persona, no esperar a que la persona busque qué hacer. La lógica operativa ideal es:</p>
+        <pre style="white-space: pre-wrap; color: var(--ink); background: rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:0.9rem; font-family: Consolas, monospace;">
+ROLE CONTEXT
+     +
+BUSINESS CONTEXT
+     +
+CURRENT STATE
+     +
+EMAILS / PROJECTS / RISKS / OBJECTIVES
+     ↓
+WORK PULL ENGINE
+     ↓
+PRIORITIZED ACTIONS
+     ↓
+MISSION MANAGER
+     ↓
+AGENT / TOOL
+     ↓
+EXECUTION + VALIDATION
+     ↓
+UPDATE CONTEXT
+</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">9. Acción preparada: el modelo esencial</h2>
+      <div class="card">
+        <p>La diferencia clave es crear acciones preparadas, no simples tareas:</p>
+        <pre style="white-space: pre-wrap; color: var(--ink); background: rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:0.9rem; font-family: Consolas, monospace;">
+ACTION
+  Why
+  Objective
+  Context
+  Recommended Action
+  Content (email / report / checklist)
+  Expected Result
+  Deadline
+  Owner
+  Priority
+  Impact
+  [EXECUTE] [MODIFY] [DELEGATE]
+</pre>
+        <p style="margin-top:12px;">Esto convierte el sistema en una herramienta operativa, no en un chatbot de soporte.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">10. Loop permanente de ejecución</h2>
+      <div class="card">
+        <pre style="white-space: pre-wrap; color: var(--ink); background: rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:0.9rem; font-family: Consolas, monospace;">
+OBJECTIVES
+  ↓
+CURRENT STATE
+  ↓
+GAP
+  ↓
+PRIORITY
+  ↓
+MISSION
+  ↓
+AGENT
+  ↓
+EXECUTION
+  ↓
+VALIDATION
+  ↓
+RESULT
+  ↓
+UPDATE CONTEXT
+  ↓
+NEW GAP
+  ↓
+NEXT MISSION
+</pre>
+        <p style="margin-top:12px;">ASE no se “apaga” al final del día. Sigue detectando oportunidades, riesgos, retrasos y tareas no visibles para el operario medio.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">11. KPI y Workplace Score</h2>
+      <div class="kpis">
+        <div class="kpi">
+          <div class="kpi-value"><span class="score good">86%</span></div>
+          <div>Productivity Gain</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value"><span class="score good">81%</span></div>
+          <div>Quality Gain</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value"><span class="score mid">73%</span></div>
+          <div>Execution Coverage</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value"><span class="score good">89%</span></div>
+          <div>Decision Readiness</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <h3>Ejemplo de Workplace Score</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Puesto</th>
+              <th>Priorización</th>
+              <th>Seguimiento</th>
+              <th>Documentación</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Project Manager</td>
+              <td><span class="score good">92%</span></td>
+              <td><span class="score mid">64%</span></td>
+              <td><span class="score good">78%</span></td>
+              <td><span class="score good">83/100</span></td>
+            </tr>
+            <tr>
+              <td>Ingeniería</td>
+              <td><span class="score good">87%</span></td>
+              <td><span class="score mid">70%</span></td>
+              <td><span class="score good">81%</span></td>
+              <td><span class="score good">84/100</span></td>
+            </tr>
+            <tr>
+              <td>Administración</td>
+              <td><span class="score good">79%</span></td>
+              <td><span class="score low">58%</span></td>
+              <td><span class="score mid">68%</span></td>
+              <td><span class="score mid">71/100</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <h2 class="section-title">12. Roadmap recomendado para Ingecart</h2>
+      <div class="roadmap">
+        <div class="phase">
+          <div class="no">1</div>
+          <h3>0-90 días</h3>
+          <p>Diagnóstico, inventario de procesos, definición de Workplaces, mapeo de documentos, primeras misiones y agentes clave.</p>
+        </div>
+        <div class="phase">
+          <div class="no">2</div>
+          <h3>90-180 días</h3>
+          <p>Implementación en ventas, ingeniería y PM. Automatización de seguimiento, documentos, RFIs y generación de contenido.</p>
+        </div>
+        <div class="phase">
+          <div class="no">3</div>
+          <h3>180-365 días</h3>
+          <p>Extensión a taller, mantenimiento, finanzas y administración. Medición de KPI, validación y mejora del sistema operativo.</p>
+        </div>
+        <div class="phase">
+          <div class="no">4</div>
+          <h3>365+ días</h3>
+          <p>Escalado a múltiples clientes, plantillas por negocio y evolución hacia un modelo de enterprise intelligence platform.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="recomendacion">
+      <h2 class="section-title">13. Recomendación final</h2>
+      <div class="grid">
+        <div class="card col-12">
+          <p>La mejor estructura para Ingecart es una combinación de:</p>
+          <ul>
+            <li>Microsoft 365 como entorno de trabajo y colaboración.</li>
+            <li>Copilot como asistente de productividad individual.</li>
+            <li>ASE/CTA como sistema operativo empresarial basado en contexto, misiones y agentes.</li>
+            <li>Mission Manager como núcleo de coordinación y validación.</li>
+            <li>Workplaces específicos por persona y puesto.</li>
+            <li>Agentes especializados por dominio y workflows de negocio.</li>
+            <li>Memoria, conocimiento y validación continua como base del sistema.</li>
+          </ul>
+          <div class="quote" style="margin-top:14px;">
+            En resumen: Ingecart no necesita “más chatbots”; necesita un sistema operativo de trabajo inteligente que convierta la información, la ejecución y la decisión en una capacidad empresarial reproducible, escalable y medible.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">14. Propuesta de estructura final</h2>
+      <div class="card">
+        <pre style="white-space: pre-wrap; color: var(--ink); background: rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:0.9rem; font-family: Consolas, monospace;">
+                    CTA
+                     │
+        ENTERPRISE AI OPERATING SYSTEM
+                     │
+              AI ASSISTANT
+                     │
+              MISSION MANAGER
+                     │
+          AUTONOMOUS EXECUTION
+                     │
+      ┌──────────────┴──────────────┐
+      │                             │
+    Context                     Knowledge
+      │                             │
+      └──────────────┬──────────────┘
+                     │
+              DOMAIN AGENTS
+                     │
+ ┌─────────┬─────────┼─────────┬──────────┐
+ │         │         │         │          │
+Sales   Finance   Projects Engineering Operations
+ │         │         │         │          │
+ │         │         │         │          │
+Workshop Maintenance Administration Marketing
+                     │
+                     ▼
+             MICROSOFT 365 / ERP / CRM / BANKS
+                     │
+                     ▼
+                  DAILY EXECUTION
+                     │
+                     ▼
+                     HUMAN
+</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    INGECART · AI Operating System Architecture Report · 2026-08-20
+  </footer>
+</body>
+</html>

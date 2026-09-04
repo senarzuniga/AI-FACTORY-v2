@@ -1,0 +1,57 @@
+{
+  "updated_at": "2026-07-23",
+  "graph_name": "AEOS mission graph update - parallel optimization",
+  "optimization_mode": "throughput_maximization",
+  "nodes": [
+    {"id": "NXT-001", "title": "AEOS Core Stabilization Sprint"},
+    {"id": "NXT-002", "title": "Mission Manager MVP Runtime"},
+    {"id": "M-001", "title": "Industrial Factory Intelligence Foundation"},
+    {"id": "M-004", "title": "Evidence & Truth Sync"},
+    {"id": "M-006", "title": "Engineering Copilot Integration"},
+    {"id": "M-009", "title": "Quality Governance Framework"}
+  ],
+  "edges": [
+    {"from": "NXT-001", "to": "NXT-002"},
+    {"from": "NXT-001", "to": "M-001"},
+    {"from": "NXT-002", "to": "M-004"},
+    {"from": "NXT-002", "to": "M-006"},
+    {"from": "NXT-001", "to": "M-009"},
+    {"from": "M-001", "to": "M-004"},
+    {"from": "M-004", "to": "M-006"}
+  ],
+  "critical_path": [
+    "NXT-001.WP-TEST-01",
+    "NXT-001.WP-GOV-01",
+    "NXT-002.WP-RUNTIME-01",
+    "M-004.WP-EVIDENCE-PIPE-01",
+    "M-006.WP-COPILOT-QA-01"
+  ],
+  "parallel_paths": [
+    ["NXT-001.WP-ARCH-01", "NXT-001.WP-DOC-01", "NXT-001.WP-UI-01"],
+    ["M-001.WS1", "M-001.WS2", "M-001.WS3", "M-001.WS4"],
+    ["M-009.WP-CONTROL-01", "M-009.WP-METRICS-01"]
+  ],
+  "optional_paths": [
+    ["M-008.WP-EXEC-TEMPLATES-01"],
+    ["M-007.WP-BOTTLENECK-BASELINE-01"]
+  ],
+  "blocked_paths": [
+    {
+      "path": ["M-006.WP-COPILOT-QA-01", "M-012.WP-ARCH-GEN-01"],
+      "blocked_by": ["M-004.WP-EVIDENCE-PIPE-01"]
+    },
+    {
+      "path": ["M-003.WP-SIM-LIVE-01"],
+      "blocked_by": ["M-001.WS2", "M-001.WS3"]
+    }
+  ],
+  "low_risk_parallel_tasks": [
+    "NXT-001.WP-DOC-01",
+    "NXT-001.WP-STANDARDS-01",
+    "M-001.WS1-SCHEMA",
+    "M-001.WS2-DATA-CONTRACT",
+    "M-009.WP-METRICS-01",
+    "M-004.WP-KNOWLEDGE-MODEL-01"
+  ],
+  "blocking_rationale": "NXT-001 removes reliability and governance blockers while allowing low-risk architecture, knowledge, and documentation packages to run in parallel without debt growth."
+}

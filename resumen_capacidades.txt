@@ -1,0 +1,59 @@
+Resumen de capacidades y acciones — AI-FACTORY-v2
+
+Propósito general:
+- Orquestar agentes autónomos y pipelines de IA para generar, analizar, validar y entregar resultados.
+
+Componentes principales:
+- Orquestador: módulos en la carpeta "orchestrator/", y entradas como `ultimate_orchestrator.py` y `main.py` que coordinan flujos, recuperaciones y reportes.
+- Agentes: implementaciones en `agents/` y `ai-factory-v2/agents/` (por ejemplo: action_engine, analysis_agent, data_intelligence_agent, delivery_agent, generation_agent, judge_agent, memory_agent, supervisor_agent, validation_agent). Cada agente cumple roles especializados en el pipeline.
+- API y rutas: carpeta `api/` y archivos de configuración en `config/` que exponen endpoints para enviar peticiones y controlar procesos.
+- Interfaz y paneles: `orchestrator_dashboard.html`, `dashboard/orchestrator_panel.html` y recursos en `dashboard/streamlit/` para visualización y control.
+- Datos y registros: `data/`, `logs/` y ficheros JSON de salidas y reportes.
+- Scripts operativos: numerosos scripts PowerShell y shell (`*.ps1`, `setup.sh`, `start_all.ps1`, `restart_services.ps1`, etc.) para despliegue, inicio, mantenimiento y pruebas.
+
+Capacidades clave:
+- Orquestación multi-agente: coordina la ejecución concurrente y secuencial de agentes para resolver tareas complejas.
+- Generación de contenido: producir texto o resultados a partir de prompts/solicitudes mediante agentes de generación.
+- Análisis e inteligencia de datos: extracción de insights y preprocesado por agentes de análisis y data intelligence.
+- Evaluación y validación: comprobación automática de resultados, juicios y criterios de aceptación (judge_agent, validation_agent).
+- Gestión de memoria/contexto: persistencia y recuperación de contexto histórico para mejorar continuidad y aprendizaje (memory_agent).
+- Entrega y publicación: empaquetado y envío de resultados finales (delivery_agent), integración con hubs y sistemas externos.
+- Monitorización, resiliencia y curación: supervisión de ejecuciones, reportes y mecanismos de recuperación (`orchestrator_healing.ps1`, scripts de restart).
+- Gestión de claves y seguridad: gestión y propagación de claves OpenAI (`openai_key_manager.py`, `propagate_openai_key.ps1`).
+
+Flujo de ejecución típico:
+1. Recepción de petición (vía API o proceso en cola).
+2. Análisis inicial por `analysis_agent` o similar.
+3. Generación de propuestas por `generation_agent`.
+4. Validación y juicio con `validation_agent` / `judge_agent`.
+5. Entrega de resultados vía `delivery_agent` y registro en `data/`.
+6. Actualización de memoria y generación de reportes por el orquestador.
+
+Operaciones administrativas:
+- Instalación y configuración con `setup.sh` / `setup_cascade.ps1` / `setup_windows.ps1`.
+- Despliegue y gestión de servicios mediante `start_all.ps1`, `restart_services.ps1`, y scripts de integración.
+- Informes acumulados en ficheros como `orchestrator_master_report.txt` y paneles HTML.
+
+Resumen final:
+- AI-FACTORY-v2 es una plataforma modular y scriptable para construir, ejecutar y monitorizar pipelines multi-agente de IA, con capacidades de generación, análisis, validación, memoria y entrega, junto con utilidades operativas para despliegue, monitorización e integración empresarial.
+
+Actualización — Cognitive Operating System Core (2026-07-24):
+- Se incorpora una capa reusable en `cognitive_os/` para consolidar AI-FACTORY como sistema operativo cognitivo modular.
+- Responsabilidades cubiertas por servicios neutrales (sin módulos industriales de negocio):
+	- AI Coordinator
+	- Agent Registry
+	- Mission Manager Core
+	- Capability Graph
+	- Mission Graph
+	- Platform Registry
+	- Evidence Runtime
+	- Truth Runtime
+	- Hypothesis Engine
+	- Scoring Engine
+	- Enterprise Memory Core
+	- Knowledge Core APIs
+	- Governance
+	- SDK
+	- Autonomous Execution Framework
+- La API reusable queda expuesta en `api/routes/cognitive_os_api.py` bajo `/api/cognitive-os/*` para consumo por plataformas como IS_BACKOFFICE / ING_DIGHUB.
+- El ciclo autónomo implementado sigue el flujo: Hypothesis -> Scoring -> Selection -> Validation, iterando hasta no detectar acciones positivas de ingeniería.

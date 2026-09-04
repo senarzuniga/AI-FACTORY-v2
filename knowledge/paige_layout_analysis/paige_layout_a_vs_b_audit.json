@@ -1,0 +1,231 @@
+{
+  "mission_id": "PAIGE_LAYOUT_A_VS_B_AUDIT",
+  "audit_date": "2026-08-17",
+  "audited_entity": "PAIGE conversion plant - Layout A vs Layout B",
+  "audit_scope": [
+    "layout_geometry_assessment",
+    "flow_efficiency",
+    "wip_strategy",
+    "transport_and_transfer_analysis",
+    "machine_feedability",
+    "capacity_balance",
+    "energy_and_capex_factors",
+    "operational_risk",
+    "safety_and_maintenance",
+    "decision_support"
+  ],
+  "audit_status": "preliminary_evidence_based",
+  "data_quality": {
+    "overall": "medium",
+    "note": "The repository contains technical assumptions, mission requirements, benchmark data, and Factory Graph contracts, but not validated DWG/DXF coordinates from PAIGE actual layouts. Therefore, the recommendation is provisional and should be confirmed with CAD geometry and operational telemetry.",
+    "missing_inputs": [
+      "actual DWG/DXF files of PAIGE model A and B",
+      "floor-space dimensions and door/aisle clearances",
+      "real material flow and dispatch data",
+      "equipment OEM data sheets",
+      "maintenance logs and actual downtime history"
+    ]
+  },
+  "evidence_sources": [
+    "AI_FACTORY_MISSION_PAIGE_LAYOUT_A_VS_B_2026-08-17.txt",
+    "INFORME_PLANTA_CORRUGADO_IA_ERP_2026-08-16.txt",
+    "knowledge/corrugated_equipment/converter_equipment_catalog_v1.json",
+    "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+    "cognitive_os/industrial_layout.py",
+    "specs/factory_intelligence_workbench.md",
+    "docs/IS_BACKOFFICE_AUDIT.md"
+  ],
+  "common_equipment": [
+    {
+      "label": "Fosber S/LINE",
+      "role": "corrugating",
+      "benchmark": "two corrugators in parallel; primary feed for conversion",
+      "evidence": "Mission PAIGE conversion plan and industrial plant baseline"
+    },
+    {
+      "label": "LMC 42 FFG",
+      "role": "flexo folder gluer / conversion",
+      "benchmark": "highly sensitive to feed continuity and WIP discipline",
+      "evidence": "Machine catalog and mission description"
+    },
+    {
+      "label": "Curioni 2000 78",
+      "role": "conversion line",
+      "benchmark": "requires stable input and sequencing control",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "S&SZLRF/F/G",
+      "role": "conversion / finishing stack",
+      "benchmark": "involved in feed and conversion loops",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "Dong Fang Apstar Rotativo",
+      "role": "rotary printing / die-cutting",
+      "benchmark": "high rate, sensitivity to alignment and incoming queue",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "Ward 66 Rotativo",
+      "role": "rotary finishing / die-cutting",
+      "benchmark": "rate-intensive and dependent on continuous feed",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "Young Shin 210 Plano",
+      "role": "flat die cutter",
+      "benchmark": "complexity and setup sensitivity",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "BOBST SPO 1575 Plano",
+      "role": "flat die cutter",
+      "benchmark": "high flexibility but setup-sensitive",
+      "evidence": "Mission PAIGE equipment list"
+    },
+    {
+      "label": "Post 74",
+      "role": "finishing / 3 units",
+      "benchmark": "last-stage finishing and packaging preparation",
+      "evidence": "Mission PAIGE equipment list"
+    }
+  ],
+  "technical_assumptions": [
+    {
+      "id": "A-01",
+      "statement": "Model A has a single 120-cell WIP and requires additional orientation changes before conversion.",
+      "confidence": 0.74,
+      "source": "PAIGE mission operational description"
+    },
+    {
+      "id": "A-02",
+      "statement": "Model A likely creates more transfer and queueing events due to a single WIP center and stronger right-to-left feed logic.",
+      "confidence": 0.7,
+      "source": "PAIGE mission operational description"
+    },
+    {
+      "id": "B-01",
+      "statement": "Model B retains the 120-cell WIP and adds a second 255-cell WIP area, which improves smoothing and starvation protection.",
+      "confidence": 0.8,
+      "source": "PAIGE mission operational description"
+    },
+    {
+      "id": "B-02",
+      "statement": "Model B improves natural flow and reduces direct transfer friction but introduces more conveyor length, greater capital cost and more maintenance points.",
+      "confidence": 0.73,
+      "source": "PAIGE mission operational description"
+    },
+    {
+      "id": "BENCH-01",
+      "statement": "Corrugator OEE in stable industrial conditions typically sits in the 80-95% band; bottlenecks and starvation reduce this materially.",
+      "confidence": 0.7,
+      "source": "INFORME_PLANTA_CORRUGADO_IA_ERP_2026-08-16.txt"
+    },
+    {
+      "id": "BENCH-02",
+      "statement": "AMR / transfer / WIP policies can cut starvation by 60-87% and improve OEE by +6 points in comparable plants.",
+      "confidence": 0.75,
+      "source": "simulation_hypotheses_corrugated_v1.json"
+    }
+  ],
+  "comparative_scoring": {
+    "weights": {
+      "flow_efficiency": 0.2,
+      "wip_efficiency": 0.2,
+      "transfer_complexity": 0.15,
+      "capacity_balance": 0.15,
+      "safety_ergonomics": 0.1,
+      "capex_energy": 0.1,
+      "flexibility_scalability": 0.1
+    },
+    "model_a": {
+      "flow_efficiency": 0.6,
+      "wip_efficiency": 0.65,
+      "transfer_complexity": 0.52,
+      "capacity_balance": 0.62,
+      "safety_ergonomics": 0.57,
+      "capex_energy": 0.76,
+      "flexibility_scalability": 0.63,
+      "weighted_score": 0.624,
+      "label": "conservative / lower capex / more congestion risk"
+    },
+    "model_b": {
+      "flow_efficiency": 0.77,
+      "wip_efficiency": 0.82,
+      "transfer_complexity": 0.71,
+      "capacity_balance": 0.75,
+      "safety_ergonomics": 0.67,
+      "capex_energy": 0.58,
+      "flexibility_scalability": 0.83,
+      "weighted_score": 0.736,
+      "label": "higher resilience / higher capex / stronger WIP control"
+    },
+    "delta_points": 0.112,
+    "decision_gap": "Model B performs better on operational resilience and WIP protection; Model A remains attractive only if capex and space constraints dominate."
+  },
+  "risk_matrix": {
+    "model_a": [
+      "Higher queueing probability due to single WIP and orientation change",
+      "Increased load on transfer and conveyors during product mix shifts",
+      "Greater starvation risk during short interruptions",
+      "More frequent manual intervention and re-routing when throughput peaks"
+    ],
+    "model_b": [
+      "Higher civil and installation cost due to longer conveyors and extra WIP area",
+      "Greater maintenance burden for extended transfer network",
+      "Additional risk of route conflict and second-pass rehandling",
+      "Potentially more energy consumption if conveyors are overextended"
+    ]
+  },
+  "overall_recommendation": {
+    "recommended_preferred_option": "MODEL_B",
+    "decision_statement": "Under the current evidence base, Model B is the stronger technical option for resilience, starvation control and dynamic WIP management, provided capex, maintenance burden and occupied footprint remain within the site envelope. Model A should be kept as a fallback or low-risk option only if the project is strongly constrained by capital, floor space or implementation schedule.",
+    "decision_rule": "If available footprint, investment budget and maintenance team capacity are sufficient, prefer B. If budget or space is tight, A can be a lower-complexity fallback with a conscious trade-off against flow resilience.",
+    "confidence": "medium",
+    "caveat": "This recommendation is not a final design decision until the actual PAIGE DWG/DXF geometry is validated in the Layout Workbench and benchmarked against real dispatch, WIP and downtime telemetry."
+  },
+  "financial_and_operational_logic": {
+    "model_a_advantages": [
+      "Lower installation complexity",
+      "Lower civil cost",
+      "Simpler footprint and fewer conveyor sections",
+      "Less maintenance exposure"
+    ],
+    "model_a_disadvantages": [
+      "Higher transfer congestion risk",
+      "More orientation and rehandling work",
+      "Lower robustness under schedule volatility",
+      "Higher operational starvation risk"
+    ],
+    "model_b_advantages": [
+      "Better WIP smoothing",
+      "Lower probability of starvation under disturbance",
+      "More flexible routing and flow recovery",
+      "Potentially higher throughput stability on mixed SKUs"
+    ],
+    "model_b_disadvantages": [
+      "Higher infrastructure cost",
+      "Longer material paths and more energy use",
+      "Increased maintenance and control complexity",
+      "Potential second-pass handling and cross-traffic risk"
+    ]
+  },
+  "decision_criteria_for_PAIGE": [
+    "Budget cap and payback period",
+    "Available floor area and clear aisle requirements",
+    "Expected SKU mix and product volatility",
+    "Tolerance to WIP and starvation events",
+    "Maintenance staffing and automation maturity",
+    "ERP and scheduling control ambition",
+    "Need for future expansion without redesign"
+  ],
+  "next_required_actions": [
+    "Ingest actual PAIGE DWG/DXF layout files into Industrial Layout Intelligence Workbench",
+    "Generate independent Factory Graphs for A and B using real geometry",
+    "Measure travel distance, conveyor length, buffer occupancy, and crossing points",
+    "Simulate scenario peaks, high mix, and maintenance events",
+    "Quantify capex, energy, maintenance and labor impact for both models",
+    "Apply final scorecard with production, safety and financial thresholds"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "customer": {
+    "company_name": "Sigmaq Guatemala",
+    "contact": "Rafael Orlando Rodriguez Ramirez",
+    "role": "Technical Manager | SigmaQ / Corrugated Plants",
+    "email": "orodriguez@carsa.sigmaq.com",
+    "phone": "+503 7882 0635",
+    "country": "El Salvador / Central America",
+    "commercial_context": "Opportunity for phased automation plan in corrugated plant conversion and intralogistics."
+  },
+  "opportunity_id": "sigmaq-guatemala-expansion-2026",
+  "status": "active_phase_gated",
+  "stage": "technical alignment / first phase validation",
+  "summary": "Sigmaq is not rejecting the opportunity. The response from Rafael indicates a staged buying pattern: focus first on waste handling and trim flow; wait to evaluate bobbin logistics and palletization in separate session and budget windows. The opportunity should be managed as a modular roadmap rather than a single full-plant request.",
+  "source_signals": [
+    "Email from Rafael indicates agreement to a first technical session.",
+    "Explicit prioritization of waste handling and trim flow in the first phase.",
+    "Deferred bobbin logistics and palletization to second/third sessions with separate budget.",
+    "Customer asks to validate layouts and technical fit before expansion."
+  ],
+  "strategic_interpretation": {
+    "main_point": "This is a phased conversion sale, not a rejection.",
+    "reality": "Rafael is signaling interest in a first ROI-focused technical win and is not yet ready to commit to the broader automation roadmap under a single scope.",
+    "commercial_implication": "The correct strategy is to win the first phase, prove layout and performance, then use that success as a bridge to the next automation modules.",
+    "risk_if_we_push_too_far": "If we push the full vision in one project, we risk losing the sale because the budget is fragmented across phases and the customer wants risk reduction first."
+  },
+  "decision_log": [
+    {
+      "date": "2026-09-03",
+      "source": "Email from Rafael to Ingecart",
+      "decision": "Customer accepts technical session structure, but scoped to first phase only.",
+      "details": "They propose focusing on line waste handling and trim flow for corrugator-to-embaladora processes."
+    },
+    {
+      "date": "2026-09-03",
+      "source": "Customer language",
+      "decision": "Bobbin logistics / paper reel handling and palletization are deferred to later stages.",
+      "details": "This indicates separate budget and a differentiated technical discussion path."
+    },
+    {
+      "date": "2026-09-03",
+      "source": "Business inference",
+      "decision": "Target phase 1 as the commercial entry point.",
+      "details": "This is the most probable win path because it addresses a highly visible bottleneck with clear operational value."
+    }
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Waste handling and trim flow",
+      "priority": "critical",
+      "objective": "Solve the most visible operational pain point and secure a visible ROI case.",
+      "value_proposition": "Reduction in waste, better trim flow, more stable process between corrugator and embaladora, limited technical risk and faster decision cycle.",
+      "recommended_positioning": "Fase de entrada, de demostración técnica y retorno medible."
+    },
+    {
+      "phase": 2,
+      "name": "Bobbin logistics and paper reel feed to corrugator",
+      "priority": "secondary",
+      "objective": "Expand automation to upstream material flow once phase 1 is validated.",
+      "value_proposition": "Better logistics flow, reduction in manual intervention, overall plant throughput stabilization.",
+      "recommended_positioning": "Second session with separate budget and technical scope."
+    },
+    {
+      "phase": 3,
+      "name": "Automatic palletization, WIP, and AMR integration",
+      "priority": "future",
+      "objective": "Broaden the solution after the customer sees first-phase success and budget availability increases.",
+      "value_proposition": "Higher efficiency, lower labor dependency, scalability and future-proof intralogistics.",
+      "recommended_positioning": "Roadmap item, not immediate proposal scope."
+    }
+  ],
+  "commercial_focus": [
+    "Waste handling and trim management as phase 1 entry point.",
+    "Layout review with Sigmaq around current operational constraints.",
+    "Technical validation for flow continuity and material handling efficiency.",
+    "ROI proof through concrete bottleneck reduction and process reliability.",
+    "Use phase 1 to unlock the next budget windows for bobbin logistics and palletization."
+  ],
+  "recommended_actions": [
+    "Send a direct technical response acknowledging phase prioritization and proposing a dedicated session for phase 1.",
+    "Prepare a layout-focused technical pack around waste/trim flow and machine interfaces.",
+    "Clarify what is excluded vs included in phase 1 to avoid scope confusion.",
+    "Frame bobbin logistics and palletization as sequential follow-up scopes with independent business cases.",
+    "Document the commercial rationale and keep a decision log in the repository for continuity."
+  ],
+  "signals_of_opportunity": [
+    "Customer openly discusses phased sessions.",
+    "Technical discussion is already accepted.",
+    "The scope is being broken into manageable business units.",
+    "Budget signal is not negative; it is staged."
+  ],
+  "risks": [
+    "Pushing outbound full-plant automation too early may reduce win probability.",
+    "Scope drift if the first meeting mixes phase 1 and phase 2 topics in the same discussion.",
+    "Failure to document the sequence may allow the customer to lose focus and delay the sale.",
+    "Lack of clear commercial packaging around phase 1 may make the project look too small or too technical."
+  ],
+  "next_milestone": "Define the first meeting around waste/trim scope, evidence, layout review, and required technical inputs from Sigmaq."
+}

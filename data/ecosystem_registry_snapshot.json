@@ -1,0 +1,2763 @@
+{
+  "summary": {
+    "discovered_at": "2026-08-09T11:57:12.878698+00:00",
+    "repositories": 6,
+    "available_repositories": 6,
+    "platforms": 7,
+    "capabilities": 31,
+    "agents": 82,
+    "knowledge_records": 17,
+    "missing_repositories": []
+  },
+  "repositories": [
+    {
+      "id": "AI_FACTORY",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2",
+      "status": "available",
+      "purpose": "AI-FACTORY-v2",
+      "capabilities": [],
+      "entrypoints": [
+        "main.py",
+        "orchestrator/main.py",
+        "ai-factory-v2/launch.ps1"
+      ],
+      "apis": [
+        "api/action_dashboard.py",
+        "api/__init__.py",
+        "api/routes/cognitive_os_api.py",
+        "api/routes/hub_api.py",
+        "api/routes/__init__.py"
+      ],
+      "agents": [
+        "AGENTS.md",
+        "scripts/cascade_agents.py",
+        "orchestrator/agents/critic_agent.py",
+        "orchestrator/agents/grounding_agent.py",
+        "orchestrator/agents/optimizer_agent.py",
+        "orchestrator/agents/planning_agent.py",
+        "agents/analysis_agent.py",
+        "agents/data_intelligence_agent.py",
+        "agents/delivery_agent.py",
+        "agents/generation_agent.py",
+        "agents/judge_agent.py",
+        "agents/memory_agent.py",
+        "agents/supervisor_agent.py",
+        "agents/validation_agent.py",
+        "agents/request_management/request_management_agent.py"
+      ],
+      "tests": [
+        "tests/test_action_system.py",
+        "tests/test_cascade_orchestrator.py",
+        "tests/test_cognitive_os_api.py",
+        "tests/test_continuous_improvement.py",
+        "tests/test_ecosystem_discovery.py",
+        "tests/test_hybrid_human_approval_governance.py",
+        "tests/test_industrial_intelligence_core.py",
+        "tests/test_industrial_layout.py",
+        "tests/test_layout_import_framework.py",
+        "tests/test_layout_versioning.py",
+        "tests/test_learning_registry.py",
+        "tests/test_mission_control_loop.py",
+        "tests/test_orchestration_taxonomy.py"
+      ],
+      "instructions": [
+        "AGENTS.md",
+        "governance/global_operational_directive.md",
+        ".github/copilot-instructions.md"
+      ],
+      "dependencies": [
+        "requirements.txt",
+        "ai-factory-v2/requirements.txt"
+      ],
+      "known_gaps": [],
+      "metadata": {
+        "files_indexed": 282,
+        "git_repository": true
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\IS-BACKOFFICE",
+      "status": "available",
+      "purpose": "IS-BACKOFFICE",
+      "capabilities": [],
+      "entrypoints": [
+        "main.py",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/selected/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/portal_web/index.html",
+        "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/microsite/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_061027_5da8b157/selected/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_061017_c1ee36ed/selected/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_060837_e4d2b219/selected/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_060833_3c5b49ee/selected/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_060815_8d0a1d55/selected/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_060704_265d07f3/selected/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/spe/runs/20260804_060555_6bbb379b/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/microsite/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/selected/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/portal_web/index.html",
+        "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/microsite/index.html",
+        "reports/pie/20260731_152246_6c632e87/version_3_his_update/index.html",
+        "reports/pie/20260731_152246_6c632e87/version_2_smart_reconstruction/index.html",
+        "reports/pie/20260731_152246_6c632e87/version_1_slide_flow/index.html",
+        "reports/pie/20260731_095103_9ed420bd/version_2_smart_reconstruction/index.html",
+        "reports/pie/20260731_095103_9ed420bd/version_1_slide_flow/index.html",
+        "reports/pie/20260731_095020_1e40bd02/version_2_smart_reconstruction/index.html",
+        "reports/pie/20260731_095020_1e40bd02/version_1_slide_flow/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/selected/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/selected/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/selected/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/selected/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/microsite/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/portal_web/index.html",
+        "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/microsite/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/selected/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/microsite/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/portal_web/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/microsite/index.html",
+        "reports/html_intelligence_studio/20260804_081613_7a26e0d8/selected/index.html",
+        "reports/dipc/20260731_152514_80e90ea2/published/index.html",
+        "reports/dipc/20260731_152514_80e90ea2/published/portal_web/index.html",
+        "reports/dipc/20260731_152514_80e90ea2/published/microsite/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/portal_web/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/microsite/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/portal_web/index.html",
+        "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/microsite/index.html",
+        "informes/used-equipment-business/Website/index.html",
+        "informes/ingecart-marketing-kit/ingecart-marketing-kit/email_sender/main.py",
+        "frontend/app.py",
+        "backoffice/ui/app.py",
+        "backend/main.py"
+      ],
+      "apis": [
+        "api/state.py",
+        "api/__init__.py",
+        "api/routes/analytics.py",
+        "api/routes/backoffice.py",
+        "api/routes/graph.py",
+        "api/routes/ingestion.py",
+        "api/routes/ing_dighub.py",
+        "api/routes/intelligence_ingestion.py",
+        "api/routes/market_intelligence.py",
+        "api/routes/orchestration.py",
+        "api/routes/reporting.py",
+        "api/routes/review.py",
+        "api/routes/scraping.py",
+        "api/routes/simulation.py",
+        "api/routes/transcription.py",
+        "api/routes/__init__.py"
+      ],
+      "agents": [
+        "utils/doc_agents.py",
+        "tools/report_publisher_agent.py",
+        "tests/test_agents.py",
+        "reports/AI_AGENT_CATALOG.md",
+        "plant_simulator/config_agent.py",
+        "informes/ingecart-marketing-kit/ingecart-marketing-kit/plant_simulator/config_agent.py",
+        "backoffice/ingestion/intelligence/agents/extractor_agent.py",
+        "backoffice/ingestion/intelligence/agents/intelligence_agent.py",
+        "backoffice/ingestion/intelligence/agents/normalizer_agent.py",
+        "backoffice/ingestion/intelligence/agents/planner_agent.py",
+        "backoffice/ingestion/intelligence/agents/sales_agent.py",
+        "backoffice/ingestion/intelligence/agents/scraper_agent.py",
+        "backoffice/agents/backoffice_agent.py",
+        "backoffice/agents/transcription_agent.py",
+        "Architecture/AGENT_CAPABILITY_MATRIX.md",
+        "Architecture/AGENT_DEPENDENCY_MAP.md",
+        "Architecture/AGENT_REGISTRY.md",
+        "Architecture/ADRs/0002-ai-agent-framework.md",
+        "agents/Reel_load_simulator/config_agent.py",
+        "agents/Reel_load_simulator/kpi_agent.py",
+        "agents/Reel_load_simulator/movement_agent.py",
+        "agents/Reel_load_simulator/roi_agent.py",
+        "agents/Reel_load_simulator/work_order_agent.py",
+        "agents/knowledge_intelligence/agents/analyst_agent.py",
+        "agents/knowledge_intelligence/agents/executive_summary_agent.py",
+        "agents/knowledge_intelligence/agents/gap_analysis_agent.py",
+        "agents/knowledge_intelligence/agents/repository_agent.py",
+        "agents/knowledge_intelligence/agents/reviewer_agent.py",
+        "agents/knowledge_intelligence/agents/validation_agent.py",
+        "agents/knowledge_intelligence/agents/web_research_agent.py",
+        "agents/competitive_intelligence/base_agent.py",
+        "agents/competitive_intelligence/benchmark_agent.py",
+        "agents/competitive_intelligence/executive_strategy_agent.py",
+        "agents/competitive_intelligence/market_intelligence_agent.py"
+      ],
+      "tests": [
+        "tests/test_agents.py",
+        "tests/test_ai_orchestrator.py",
+        "tests/test_architecture_validation_report.py",
+        "tests/test_backoffice.py",
+        "tests/test_competitive_intel.py",
+        "tests/test_context_router.py",
+        "tests/test_corrugator.py",
+        "tests/test_corrugator_v3.py",
+        "tests/test_dipc_components.py",
+        "tests/test_dipc_mission_manager.py",
+        "tests/test_doc_analysis.py",
+        "tests/test_evidence_fact_checker.py",
+        "tests/test_his_api_stabilization.py",
+        "tests/test_ing_dighub_api.py",
+        "tests/test_ing_dighub_platform.py",
+        "tests/test_integration_pipeline.py",
+        "tests/test_local_search.py",
+        "tests/test_memory_store.py",
+        "tests/test_orchestration_api.py",
+        "tests/test_pdf_report_builder.py",
+        "tests/test_performance_baseline.py",
+        "tests/test_pie_hypothesis_engine.py",
+        "tests/test_pie_mission_manager.py",
+        "tests/test_scraper.py",
+        "tests/test_simulation.py",
+        "tests/test_spoe.py",
+        "tests/test_spoe_mission_manager.py",
+        "tests/test_transcription_api.py",
+        "tests/test_wip_storage_design.py"
+      ],
+      "instructions": [],
+      "dependencies": [
+        "requirements.txt",
+        "scrapes/requirements.txt"
+      ],
+      "known_gaps": [
+        "governance_directive_not_detected"
+      ],
+      "metadata": {
+        "files_indexed": 3223,
+        "git_repository": true
+      }
+    },
+    {
+      "id": "ING_DIGHUB",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\ingesite.github.io",
+      "status": "available",
+      "purpose": "senarzuniga.github.io",
+      "capabilities": [],
+      "entrypoints": [
+        "index.html",
+        "solutions/ingetrans_DigitalTwin/index.html",
+        "services/index.html",
+        "public/videos/index.html",
+        "public/docs/index.html",
+        "documentation/index.html"
+      ],
+      "apis": [],
+      "agents": [],
+      "tests": [],
+      "instructions": [],
+      "dependencies": [
+        "requirements.txt"
+      ],
+      "known_gaps": [
+        "governance_directive_not_detected"
+      ],
+      "metadata": {
+        "files_indexed": 206,
+        "git_repository": true
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\adaptive-sales-engine",
+      "status": "available",
+      "purpose": "Adaptive Sales Engine",
+      "capabilities": [],
+      "entrypoints": [
+        "index.html",
+        "package.json",
+        "ing_support_agent/app.py",
+        "Architecture/outputs/duplicates/1782634383/package.json/package.json",
+        "Architecture/outputs/duplicates/1782634383/index.html/index.html",
+        "adaptive-sales-engine/index.html",
+        "adaptive-sales-engine/package.json"
+      ],
+      "apis": [],
+      "agents": [
+        "start_ing_supportagent.py",
+        "ui/pages/agent_hub.py",
+        "scripts/cascade_agents.py",
+        "scripts/test_agent.py",
+        "modules/orchestrator/agents.py",
+        "modules/orchestrator/reports/Agent_Contracts.md",
+        "modules/orchestrator/reports/Agent_Registry.md",
+        "Architecture/tools/validate_agent_registry.py",
+        "Architecture/outputs/duplicates/1782634383/__init__.py/agents___init__.py",
+        "Architecture/outputs/duplicates/1782634383/__init__.py/ai-factory-v2_ingestion_agents___init__.py",
+        "Architecture/outputs/duplicates/1782634383/README.md/ing_support_agent_README.md",
+        "ai-factory-v2/ingestion/agents/extractor_agent.py",
+        "ai-factory-v2/ingestion/agents/intelligence_agent.py",
+        "ai-factory-v2/ingestion/agents/normalizer_agent.py",
+        "ai-factory-v2/ingestion/agents/planner_agent.py",
+        "ai-factory-v2/ingestion/agents/sales_agent.py",
+        "ai-factory-v2/ingestion/agents/scraper_agent.py",
+        "ai/agent_runtime.py",
+        "agents/after_sales_opportunity_agent.py",
+        "agents/cross_selling_agent.py",
+        "agents/data_cleaner_agent.py",
+        "agents/forecaster_agent.py",
+        "agents/kam_mapper_agent.py",
+        "agents/market_intelligence_agent.py",
+        "agents/request_management_agent.py",
+        ".ai/agent_system_prompt.md"
+      ],
+      "tests": [
+        "tests/test_are.py",
+        "tests/test_ehri.py",
+        "tests/test_ingecart_offer_ingestion.py"
+      ],
+      "instructions": [],
+      "dependencies": [
+        "package.json",
+        "requirements.txt",
+        "Architecture/outputs/duplicates/1782634383/requirements.txt/requirements.txt",
+        "Architecture/outputs/duplicates/1782634383/package.json/package.json",
+        "ai-factory-v2/requirements.txt",
+        "adaptive-sales-platform-final/requirements.txt",
+        "adaptive-sales-engine/package.json"
+      ],
+      "known_gaps": [
+        "governance_directive_not_detected"
+      ],
+      "metadata": {
+        "files_indexed": 1553,
+        "git_repository": true
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\Digital-Ecosystem-Platform",
+      "status": "available",
+      "purpose": "\ud83c\udfed Digital Ecosystem Platform",
+      "capabilities": [],
+      "entrypoints": [
+        "app.py",
+        "backend/main.py"
+      ],
+      "apis": [],
+      "agents": [
+        "utils/agent_taxonomy.py",
+        "pages/04_AI_Agents.py",
+        "backend/tests/test_agents.py",
+        "backend/services/agent_service.py",
+        "backend/services/procurement_agents.py",
+        "backend/routers/agents.py"
+      ],
+      "tests": [],
+      "instructions": [],
+      "dependencies": [
+        "requirements.txt",
+        "backend/requirements.txt"
+      ],
+      "known_gaps": [
+        "governance_directive_not_detected"
+      ],
+      "metadata": {
+        "files_indexed": 135,
+        "git_repository": true
+      }
+    },
+    {
+      "id": "PLANT_SIMULATOR",
+      "path": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\Factoty-Simulator",
+      "status": "available",
+      "purpose": "Factory-Simulator",
+      "capabilities": [],
+      "entrypoints": [
+        "main.py",
+        "dcfs/main.py"
+      ],
+      "apis": [
+        "dcfs/api/server.py",
+        "dcfs/api/stream_client.py",
+        "dcfs/api/__init__.py"
+      ],
+      "agents": [
+        "AGENTS.md"
+      ],
+      "tests": [
+        "tests/test_api_endpoints.py",
+        "tests/test_company_profile.py",
+        "tests/test_dep_bridge.py",
+        "tests/test_factory_state.py",
+        "tests/test_failures.py",
+        "tests/test_simulator.py"
+      ],
+      "instructions": [
+        "AGENTS.md"
+      ],
+      "dependencies": [
+        "requirements.txt"
+      ],
+      "known_gaps": [],
+      "metadata": {
+        "files_indexed": 83,
+        "git_repository": true
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "id": "industrial-intelligence-core",
+      "name": "Industrial Intelligence Core",
+      "contract_version": "v1",
+      "metadata": {
+        "mission": "M010",
+        "policy": "AHDE",
+        "health_api": "/api/cognitive-os/industrial-intelligence/status"
+      }
+    },
+    {
+      "id": "AI_FACTORY",
+      "name": "Ai Factory",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\AI-FACTORY-v2",
+        "status": "available",
+        "entrypoints": [
+          "main.py",
+          "orchestrator/main.py",
+          "ai-factory-v2/launch.ps1"
+        ],
+        "apis": [
+          "api/action_dashboard.py",
+          "api/__init__.py",
+          "api/routes/cognitive_os_api.py",
+          "api/routes/hub_api.py",
+          "api/routes/__init__.py"
+        ],
+        "tests": [
+          "tests/test_action_system.py",
+          "tests/test_cascade_orchestrator.py",
+          "tests/test_cognitive_os_api.py",
+          "tests/test_continuous_improvement.py",
+          "tests/test_ecosystem_discovery.py",
+          "tests/test_hybrid_human_approval_governance.py",
+          "tests/test_industrial_intelligence_core.py",
+          "tests/test_industrial_layout.py",
+          "tests/test_layout_import_framework.py",
+          "tests/test_layout_versioning.py",
+          "tests/test_learning_registry.py",
+          "tests/test_mission_control_loop.py",
+          "tests/test_orchestration_taxonomy.py"
+        ]
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE",
+      "name": "Is Backoffice",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\IS-BACKOFFICE",
+        "status": "available",
+        "entrypoints": [
+          "main.py",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/selected/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/portal_web/index.html",
+          "reports/spe/runs/20260804_061032_b4520290/published/20260804_061036_dom/microsite/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_061027_5da8b157/selected/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_061017_c1ee36ed/selected/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_060837_e4d2b219/selected/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_060833_3c5b49ee/selected/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_060815_8d0a1d55/selected/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_060704_265d07f3/selected/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/spe/runs/20260804_060555_6bbb379b/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985_dup_20260805_072158/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260804/20260804_120549_478fa985/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092722_a1921ae1/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092320_dfd6d518/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_092023_7f2e0df0/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091818_72b2f42d/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091536_c94d4aba/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_091401_35422f58/published/20260803_091415_dom/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_084551_f76ace66/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_075017_7171915e/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074730_3611a455/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_2/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_074255_7b7ed3d8/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_2/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073818_bab99449/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_2/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_073211_bfba09ef/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/variants/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071340_d31917f2/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/smart_reconstruction/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/variants/slide_flow/microsite/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803_071239_7d0ed3cb/selected/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/portal_web/index.html",
+          "reports/pie/Corrugated_Plant_Automation/20260803/version_1/html/microsite/index.html",
+          "reports/pie/20260731_152246_6c632e87/version_3_his_update/index.html",
+          "reports/pie/20260731_152246_6c632e87/version_2_smart_reconstruction/index.html",
+          "reports/pie/20260731_152246_6c632e87/version_1_slide_flow/index.html",
+          "reports/pie/20260731_095103_9ed420bd/version_2_smart_reconstruction/index.html",
+          "reports/pie/20260731_095103_9ed420bd/version_1_slide_flow/index.html",
+          "reports/pie/20260731_095020_1e40bd02/version_2_smart_reconstruction/index.html",
+          "reports/pie/20260731_095020_1e40bd02/version_1_slide_flow/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/selected/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092412_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092359_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112347/published/20260803_092349_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/selected/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092117_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092101_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_112049/published/20260803_092051_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111832/selected/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/selected/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091616_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091613_dom/microsite/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/portal_web/index.html",
+          "reports/html_intelligence_studio/rc1_acceptance_workspace_20260803_111609/published/20260803_091610_dom/microsite/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8_dup_20260804_081654/selected/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/portal_web/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/smart_reconstruction/microsite/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/portal_web/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/variants/attempt_1/slide_flow/microsite/index.html",
+          "reports/html_intelligence_studio/20260804_081613_7a26e0d8/selected/index.html",
+          "reports/dipc/20260731_152514_80e90ea2/published/index.html",
+          "reports/dipc/20260731_152514_80e90ea2/published/portal_web/index.html",
+          "reports/dipc/20260731_152514_80e90ea2/published/microsite/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/portal_web/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/microsite/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/portal_web/index.html",
+          "reports/dipc/20260731_142242_7c3125e3/published/20260731_142259_635bdd21/microsite/index.html",
+          "informes/used-equipment-business/Website/index.html",
+          "informes/ingecart-marketing-kit/ingecart-marketing-kit/email_sender/main.py",
+          "frontend/app.py",
+          "backoffice/ui/app.py",
+          "backend/main.py"
+        ],
+        "apis": [
+          "api/state.py",
+          "api/__init__.py",
+          "api/routes/analytics.py",
+          "api/routes/backoffice.py",
+          "api/routes/graph.py",
+          "api/routes/ingestion.py",
+          "api/routes/ing_dighub.py",
+          "api/routes/intelligence_ingestion.py",
+          "api/routes/market_intelligence.py",
+          "api/routes/orchestration.py",
+          "api/routes/reporting.py",
+          "api/routes/review.py",
+          "api/routes/scraping.py",
+          "api/routes/simulation.py",
+          "api/routes/transcription.py",
+          "api/routes/__init__.py"
+        ],
+        "tests": [
+          "tests/test_agents.py",
+          "tests/test_ai_orchestrator.py",
+          "tests/test_architecture_validation_report.py",
+          "tests/test_backoffice.py",
+          "tests/test_competitive_intel.py",
+          "tests/test_context_router.py",
+          "tests/test_corrugator.py",
+          "tests/test_corrugator_v3.py",
+          "tests/test_dipc_components.py",
+          "tests/test_dipc_mission_manager.py",
+          "tests/test_doc_analysis.py",
+          "tests/test_evidence_fact_checker.py",
+          "tests/test_his_api_stabilization.py",
+          "tests/test_ing_dighub_api.py",
+          "tests/test_ing_dighub_platform.py",
+          "tests/test_integration_pipeline.py",
+          "tests/test_local_search.py",
+          "tests/test_memory_store.py",
+          "tests/test_orchestration_api.py",
+          "tests/test_pdf_report_builder.py",
+          "tests/test_performance_baseline.py",
+          "tests/test_pie_hypothesis_engine.py",
+          "tests/test_pie_mission_manager.py",
+          "tests/test_scraper.py",
+          "tests/test_simulation.py",
+          "tests/test_spoe.py",
+          "tests/test_spoe_mission_manager.py",
+          "tests/test_transcription_api.py",
+          "tests/test_wip_storage_design.py"
+        ]
+      }
+    },
+    {
+      "id": "ING_DIGHUB",
+      "name": "Ing Dighub",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\ingesite.github.io",
+        "status": "available",
+        "entrypoints": [
+          "index.html",
+          "solutions/ingetrans_DigitalTwin/index.html",
+          "services/index.html",
+          "public/videos/index.html",
+          "public/docs/index.html",
+          "documentation/index.html"
+        ],
+        "apis": [],
+        "tests": []
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE",
+      "name": "Adaptive Sales Engine",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\adaptive-sales-engine",
+        "status": "available",
+        "entrypoints": [
+          "index.html",
+          "package.json",
+          "ing_support_agent/app.py",
+          "Architecture/outputs/duplicates/1782634383/package.json/package.json",
+          "Architecture/outputs/duplicates/1782634383/index.html/index.html",
+          "adaptive-sales-engine/index.html",
+          "adaptive-sales-engine/package.json"
+        ],
+        "apis": [],
+        "tests": [
+          "tests/test_are.py",
+          "tests/test_ehri.py",
+          "tests/test_ingecart_offer_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM",
+      "name": "Digital Ecosystem Platform",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\Digital-Ecosystem-Platform",
+        "status": "available",
+        "entrypoints": [
+          "app.py",
+          "backend/main.py"
+        ],
+        "apis": [],
+        "tests": []
+      }
+    },
+    {
+      "id": "PLANT_SIMULATOR",
+      "name": "Plant Simulator",
+      "contract_version": "v1",
+      "metadata": {
+        "repository": "C:\\Users\\Inaki Senar\\Documents\\GitHub\\Factoty-Simulator",
+        "status": "available",
+        "entrypoints": [
+          "main.py",
+          "dcfs/main.py"
+        ],
+        "apis": [
+          "dcfs/api/server.py",
+          "dcfs/api/stream_client.py",
+          "dcfs/api/__init__.py"
+        ],
+        "tests": [
+          "tests/test_api_endpoints.py",
+          "tests/test_company_profile.py",
+          "tests/test_dep_bridge.py",
+          "tests/test_factory_state.py",
+          "tests/test_failures.py",
+          "tests/test_simulator.py"
+        ]
+      }
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "industrial-geometry-engine",
+      "description": "Industrial Geometry Engine",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/industrial-geometry-engine/execute"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "dwg-intelligence-parser",
+      "description": "DWG Intelligence Parser",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/dwg-intelligence-parser/execute"
+      ],
+      "dependencies": [
+        "industrial-geometry-engine"
+      ]
+    },
+    {
+      "id": "dxf-intelligence-parser",
+      "description": "DXF Intelligence Parser",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/dxf-intelligence-parser/execute"
+      ],
+      "dependencies": [
+        "industrial-geometry-engine"
+      ]
+    },
+    {
+      "id": "factory-graph-runtime-m001",
+      "description": "Factory Graph Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/factory-graph-runtime-m001/execute"
+      ],
+      "dependencies": [
+        "dwg-intelligence-parser",
+        "dxf-intelligence-parser"
+      ]
+    },
+    {
+      "id": "knowledge-graph-runtime",
+      "description": "Knowledge Graph Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/knowledge-graph-runtime/execute"
+      ],
+      "dependencies": [
+        "factory-graph-runtime-m001"
+      ]
+    },
+    {
+      "id": "evidence-runtime-m004",
+      "description": "Evidence Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/evidence-runtime-m004/execute"
+      ],
+      "dependencies": [
+        "knowledge-graph-runtime"
+      ]
+    },
+    {
+      "id": "digital-twin-runtime",
+      "description": "Digital Twin Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/digital-twin-runtime/execute"
+      ],
+      "dependencies": [
+        "evidence-runtime-m004"
+      ]
+    },
+    {
+      "id": "industrial-simulation-runtime",
+      "description": "Industrial Simulation Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/industrial-simulation-runtime/execute"
+      ],
+      "dependencies": [
+        "digital-twin-runtime"
+      ]
+    },
+    {
+      "id": "bottleneck-analyzer-m007",
+      "description": "Bottleneck Analyzer",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/bottleneck-analyzer-m007/execute"
+      ],
+      "dependencies": [
+        "industrial-simulation-runtime"
+      ]
+    },
+    {
+      "id": "industrial-flow-analyzer",
+      "description": "Industrial Flow Analyzer",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/industrial-flow-analyzer/execute"
+      ],
+      "dependencies": [
+        "bottleneck-analyzer-m007"
+      ]
+    },
+    {
+      "id": "amr-optimization-engine",
+      "description": "AMR Optimization Engine",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/amr-optimization-engine/execute"
+      ],
+      "dependencies": [
+        "industrial-flow-analyzer"
+      ]
+    },
+    {
+      "id": "oee-prediction-engine",
+      "description": "OEE Prediction Engine",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/oee-prediction-engine/execute"
+      ],
+      "dependencies": [
+        "amr-optimization-engine"
+      ]
+    },
+    {
+      "id": "roi-engine",
+      "description": "ROI Engine",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/roi-engine/execute"
+      ],
+      "dependencies": [
+        "oee-prediction-engine"
+      ]
+    },
+    {
+      "id": "smart-proposal-intelligence-runtime",
+      "description": "Smart Proposal Intelligence Runtime",
+      "interfaces": [
+        "/api/cognitive-os/industrial-intelligence/components/smart-proposal-intelligence-runtime/execute"
+      ],
+      "dependencies": [
+        "roi-engine"
+      ]
+    },
+    {
+      "id": "mission-management",
+      "description": "Mission Management",
+      "interfaces": [
+        "docs/mission_manager.md",
+        "mission_portfolio/mission_portfolio_001.json"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "mission-portfolio",
+      "description": "Mission Portfolio",
+      "interfaces": [
+        "mission_portfolio/mission_portfolio_001.json",
+        "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+        "tools/mission_portfolio/generate_portfolio.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "engineering-governance",
+      "description": "Engineering Governance",
+      "interfaces": [
+        "agents/validation_agent.py",
+        "agents/judge_agent.py",
+        "orchestrator/agents/critic_agent.py",
+        "orchestrator/hybrid_orchestrator.py",
+        "tests/test_hybrid_human_approval_governance.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "decision-intelligence",
+      "description": "Decision Intelligence",
+      "interfaces": [
+        "agents/judge_agent.py",
+        "docs/engineering_scoring.md"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "knowledge-management",
+      "description": "Knowledge Management",
+      "interfaces": [
+        "agents/memory_agent.py",
+        "orchestrator/memory/vector_store.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "architecture-intelligence",
+      "description": "Architecture Intelligence",
+      "interfaces": [
+        "orchestrator/agents/planning_agent.py",
+        "orchestrator/agents/grounding_agent.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "enterprise-digital-twin",
+      "description": "Enterprise Digital Twin",
+      "interfaces": [
+        "M001_IMPLEMENTATION_CHARTER.md",
+        "INDUSTRIAL_MATURITY_MODEL.md"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "capability-registry",
+      "description": "Capability Registry",
+      "interfaces": [
+        "docs/mission_manager.md",
+        "docs/aeos_review/Capability_Registry.json"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "platform-observatory",
+      "description": "Platform Observatory",
+      "interfaces": [
+        "ultimate_orchestrator.py",
+        "orchestrator_dashboard.html",
+        "orchestrator_master_report.txt"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "quality-assurance",
+      "description": "Quality Assurance",
+      "interfaces": [
+        "tests/test_cascade_orchestrator.py",
+        "tests/test_hybrid_human_approval_governance.py",
+        "tests/test_orchestration_taxonomy.py",
+        "agents/validation_agent.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "learning",
+      "description": "Learning",
+      "interfaces": [
+        "cascade_orchestrator.py",
+        "orchestrator/memory/experience_replay.py",
+        "orchestrator/core/coepg_trainer.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "self-improvement",
+      "description": "Self Improvement",
+      "interfaces": [
+        "orchestrator/core/escher_loop.py",
+        "orchestrator/core/imcts_engine.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "context-intelligence",
+      "description": "Context Intelligence",
+      "interfaces": [
+        "context/context_layer.py",
+        "orchestrator/hybrid_orchestrator.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "workflow-orchestration",
+      "description": "Workflow Orchestration",
+      "interfaces": [
+        "orchestrator/hybrid_orchestrator.py",
+        "cascade_orchestrator.py",
+        "orchestrator/main.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "industrial-intelligence",
+      "description": "Industrial Intelligence",
+      "interfaces": [
+        "M001_IMPLEMENTATION_CHARTER.md",
+        "schemas/"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "executive-intelligence",
+      "description": "Executive Intelligence",
+      "interfaces": [
+        "tools/mission_portfolio/generate_portfolio.py",
+        "agents/delivery_agent.py"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "parallel-portfolio-optimization",
+      "description": "Parallel Portfolio Optimization",
+      "interfaces": [
+        "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+        "docs/aeos_review/Engineering_Investment_Portfolio_30d.json"
+      ],
+      "dependencies": []
+    }
+  ],
+  "agents": [
+    {
+      "id": "AI_FACTORY:AGENTS.md",
+      "name": "AGENTS",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "AGENTS.md"
+      }
+    },
+    {
+      "id": "AI_FACTORY:scripts/cascade_agents.py",
+      "name": "cascade_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "scripts/cascade_agents.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:orchestrator/agents/critic_agent.py",
+      "name": "critic_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "orchestrator/agents/critic_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:orchestrator/agents/grounding_agent.py",
+      "name": "grounding_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "orchestrator/agents/grounding_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:orchestrator/agents/optimizer_agent.py",
+      "name": "optimizer_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "orchestrator/agents/optimizer_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:orchestrator/agents/planning_agent.py",
+      "name": "planning_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "orchestrator/agents/planning_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/analysis_agent.py",
+      "name": "analysis_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/analysis_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/data_intelligence_agent.py",
+      "name": "data_intelligence_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/data_intelligence_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/delivery_agent.py",
+      "name": "delivery_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/delivery_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/generation_agent.py",
+      "name": "generation_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/generation_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/judge_agent.py",
+      "name": "judge_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/judge_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/memory_agent.py",
+      "name": "memory_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/memory_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/supervisor_agent.py",
+      "name": "supervisor_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/supervisor_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/validation_agent.py",
+      "name": "validation_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/validation_agent.py"
+      }
+    },
+    {
+      "id": "AI_FACTORY:agents/request_management/request_management_agent.py",
+      "name": "request_management_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "AI_FACTORY",
+        "path": "agents/request_management/request_management_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:utils/doc_agents.py",
+      "name": "doc_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "utils/doc_agents.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:tools/report_publisher_agent.py",
+      "name": "report_publisher_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "tools/report_publisher_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:tests/test_agents.py",
+      "name": "test_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "tests/test_agents.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:reports/AI_AGENT_CATALOG.md",
+      "name": "AI_AGENT_CATALOG",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "reports/AI_AGENT_CATALOG.md"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:plant_simulator/config_agent.py",
+      "name": "config_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "plant_simulator/config_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:informes/ingecart-marketing-kit/ingecart-marketing-kit/plant_simulator/config_agent.py",
+      "name": "config_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "informes/ingecart-marketing-kit/ingecart-marketing-kit/plant_simulator/config_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/extractor_agent.py",
+      "name": "extractor_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/extractor_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/intelligence_agent.py",
+      "name": "intelligence_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/intelligence_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/normalizer_agent.py",
+      "name": "normalizer_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/normalizer_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/planner_agent.py",
+      "name": "planner_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/planner_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/sales_agent.py",
+      "name": "sales_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/sales_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/ingestion/intelligence/agents/scraper_agent.py",
+      "name": "scraper_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/ingestion/intelligence/agents/scraper_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/agents/backoffice_agent.py",
+      "name": "backoffice_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/agents/backoffice_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:backoffice/agents/transcription_agent.py",
+      "name": "transcription_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "backoffice/agents/transcription_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:Architecture/AGENT_CAPABILITY_MATRIX.md",
+      "name": "AGENT_CAPABILITY_MATRIX",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "Architecture/AGENT_CAPABILITY_MATRIX.md"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:Architecture/AGENT_DEPENDENCY_MAP.md",
+      "name": "AGENT_DEPENDENCY_MAP",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "Architecture/AGENT_DEPENDENCY_MAP.md"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:Architecture/AGENT_REGISTRY.md",
+      "name": "AGENT_REGISTRY",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "Architecture/AGENT_REGISTRY.md"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:Architecture/ADRs/0002-ai-agent-framework.md",
+      "name": "0002-ai-agent-framework",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "Architecture/ADRs/0002-ai-agent-framework.md"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/Reel_load_simulator/config_agent.py",
+      "name": "config_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/Reel_load_simulator/config_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/Reel_load_simulator/kpi_agent.py",
+      "name": "kpi_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/Reel_load_simulator/kpi_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/Reel_load_simulator/movement_agent.py",
+      "name": "movement_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/Reel_load_simulator/movement_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/Reel_load_simulator/roi_agent.py",
+      "name": "roi_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/Reel_load_simulator/roi_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/Reel_load_simulator/work_order_agent.py",
+      "name": "work_order_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/Reel_load_simulator/work_order_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/analyst_agent.py",
+      "name": "analyst_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/analyst_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/executive_summary_agent.py",
+      "name": "executive_summary_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/executive_summary_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/gap_analysis_agent.py",
+      "name": "gap_analysis_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/gap_analysis_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/repository_agent.py",
+      "name": "repository_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/repository_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/reviewer_agent.py",
+      "name": "reviewer_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/reviewer_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/validation_agent.py",
+      "name": "validation_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/validation_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/knowledge_intelligence/agents/web_research_agent.py",
+      "name": "web_research_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/knowledge_intelligence/agents/web_research_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/competitive_intelligence/base_agent.py",
+      "name": "base_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/competitive_intelligence/base_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/competitive_intelligence/benchmark_agent.py",
+      "name": "benchmark_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/competitive_intelligence/benchmark_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/competitive_intelligence/executive_strategy_agent.py",
+      "name": "executive_strategy_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/competitive_intelligence/executive_strategy_agent.py"
+      }
+    },
+    {
+      "id": "IS_BACKOFFICE:agents/competitive_intelligence/market_intelligence_agent.py",
+      "name": "market_intelligence_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "IS_BACKOFFICE",
+        "path": "agents/competitive_intelligence/market_intelligence_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:start_ing_supportagent.py",
+      "name": "start_ing_supportagent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "start_ing_supportagent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ui/pages/agent_hub.py",
+      "name": "agent_hub",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ui/pages/agent_hub.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:scripts/cascade_agents.py",
+      "name": "cascade_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "scripts/cascade_agents.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:scripts/test_agent.py",
+      "name": "test_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "scripts/test_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:modules/orchestrator/agents.py",
+      "name": "agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "modules/orchestrator/agents.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:modules/orchestrator/reports/Agent_Contracts.md",
+      "name": "Agent_Contracts",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "modules/orchestrator/reports/Agent_Contracts.md"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:modules/orchestrator/reports/Agent_Registry.md",
+      "name": "Agent_Registry",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "modules/orchestrator/reports/Agent_Registry.md"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:Architecture/tools/validate_agent_registry.py",
+      "name": "validate_agent_registry",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "Architecture/tools/validate_agent_registry.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:Architecture/outputs/duplicates/1782634383/__init__.py/agents___init__.py",
+      "name": "agents___init__",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "Architecture/outputs/duplicates/1782634383/__init__.py/agents___init__.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:Architecture/outputs/duplicates/1782634383/__init__.py/ai-factory-v2_ingestion_agents___init__.py",
+      "name": "ai-factory-v2_ingestion_agents___init__",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "Architecture/outputs/duplicates/1782634383/__init__.py/ai-factory-v2_ingestion_agents___init__.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:Architecture/outputs/duplicates/1782634383/README.md/ing_support_agent_README.md",
+      "name": "ing_support_agent_README",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "Architecture/outputs/duplicates/1782634383/README.md/ing_support_agent_README.md"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/extractor_agent.py",
+      "name": "extractor_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/extractor_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/intelligence_agent.py",
+      "name": "intelligence_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/intelligence_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/normalizer_agent.py",
+      "name": "normalizer_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/normalizer_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/planner_agent.py",
+      "name": "planner_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/planner_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/sales_agent.py",
+      "name": "sales_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/sales_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai-factory-v2/ingestion/agents/scraper_agent.py",
+      "name": "scraper_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai-factory-v2/ingestion/agents/scraper_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:ai/agent_runtime.py",
+      "name": "agent_runtime",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "ai/agent_runtime.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/after_sales_opportunity_agent.py",
+      "name": "after_sales_opportunity_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/after_sales_opportunity_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/cross_selling_agent.py",
+      "name": "cross_selling_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/cross_selling_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/data_cleaner_agent.py",
+      "name": "data_cleaner_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/data_cleaner_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/forecaster_agent.py",
+      "name": "forecaster_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/forecaster_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/kam_mapper_agent.py",
+      "name": "kam_mapper_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/kam_mapper_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/market_intelligence_agent.py",
+      "name": "market_intelligence_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/market_intelligence_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:agents/request_management_agent.py",
+      "name": "request_management_agent",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": "agents/request_management_agent.py"
+      }
+    },
+    {
+      "id": "ADAPTIVE_SALES_ENGINE:.ai/agent_system_prompt.md",
+      "name": "agent_system_prompt",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "ADAPTIVE_SALES_ENGINE",
+        "path": ".ai/agent_system_prompt.md"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:utils/agent_taxonomy.py",
+      "name": "agent_taxonomy",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "utils/agent_taxonomy.py"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:pages/04_AI_Agents.py",
+      "name": "04_AI_Agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "pages/04_AI_Agents.py"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:backend/tests/test_agents.py",
+      "name": "test_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "backend/tests/test_agents.py"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:backend/services/agent_service.py",
+      "name": "agent_service",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "backend/services/agent_service.py"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:backend/services/procurement_agents.py",
+      "name": "procurement_agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "backend/services/procurement_agents.py"
+      }
+    },
+    {
+      "id": "DIGITAL_ECOSYSTEM_PLATFORM:backend/routers/agents.py",
+      "name": "agents",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "DIGITAL_ECOSYSTEM_PLATFORM",
+        "path": "backend/routers/agents.py"
+      }
+    },
+    {
+      "id": "PLANT_SIMULATOR:AGENTS.md",
+      "name": "AGENTS",
+      "capabilities": [
+        "mission_contributing_execution"
+      ],
+      "runtime": "python",
+      "metadata": {
+        "repository": "PLANT_SIMULATOR",
+        "path": "AGENTS.md"
+      }
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "KN-CAP-mission-management",
+      "topic": "capability_discovery",
+      "statement": "Capability Mission Management has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "docs/mission_manager.md",
+        "mission_portfolio/mission_portfolio_001.json"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "docs/mission_manager.md",
+          "mission_portfolio/mission_portfolio_001.json"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-mission-portfolio",
+      "topic": "capability_discovery",
+      "statement": "Capability Mission Portfolio has 3 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "mission_portfolio/mission_portfolio_001.json",
+        "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+        "tools/mission_portfolio/generate_portfolio.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "implemented",
+        "evidence_declared": [
+          "mission_portfolio/mission_portfolio_001.json",
+          "mission_portfolio/mission_portfolio_003_parallel_30d.json",
+          "tools/mission_portfolio/generate_portfolio.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-engineering-governance",
+      "topic": "capability_discovery",
+      "statement": "Capability Engineering Governance has 5 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "agents/validation_agent.py",
+        "agents/judge_agent.py",
+        "orchestrator/agents/critic_agent.py",
+        "orchestrator/hybrid_orchestrator.py",
+        "tests/test_hybrid_human_approval_governance.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "agents/validation_agent.py",
+          "agents/judge_agent.py",
+          "orchestrator/agents/critic_agent.py",
+          "orchestrator/hybrid_orchestrator.py",
+          "tests/test_hybrid_human_approval_governance.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-decision-intelligence",
+      "topic": "capability_discovery",
+      "statement": "Capability Decision Intelligence has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "agents/judge_agent.py",
+        "docs/engineering_scoring.md"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "agents/judge_agent.py",
+          "docs/engineering_scoring.md"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-knowledge-management",
+      "topic": "capability_discovery",
+      "statement": "Capability Knowledge Management has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "agents/memory_agent.py",
+        "orchestrator/memory/vector_store.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "agents/memory_agent.py",
+          "orchestrator/memory/vector_store.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-architecture-intelligence",
+      "topic": "capability_discovery",
+      "statement": "Capability Architecture Intelligence has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "orchestrator/agents/planning_agent.py",
+        "orchestrator/agents/grounding_agent.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "prototype",
+        "evidence_declared": [
+          "orchestrator/agents/planning_agent.py",
+          "orchestrator/agents/grounding_agent.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-enterprise-digital-twin",
+      "topic": "capability_discovery",
+      "statement": "Capability Enterprise Digital Twin has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "M001_IMPLEMENTATION_CHARTER.md",
+        "INDUSTRIAL_MATURITY_MODEL.md"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "missing",
+        "evidence_declared": [
+          "M001_IMPLEMENTATION_CHARTER.md",
+          "INDUSTRIAL_MATURITY_MODEL.md"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-capability-registry",
+      "topic": "capability_discovery",
+      "statement": "Capability Capability Registry has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "docs/mission_manager.md",
+        "docs/aeos_review/Capability_Registry.json"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "docs/mission_manager.md",
+          "docs/aeos_review/Capability_Registry.json"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-platform-observatory",
+      "topic": "capability_discovery",
+      "statement": "Capability Platform Observatory has 3 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "ultimate_orchestrator.py",
+        "orchestrator_dashboard.html",
+        "orchestrator_master_report.txt"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "ultimate_orchestrator.py",
+          "orchestrator_dashboard.html",
+          "orchestrator_master_report.txt"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-quality-assurance",
+      "topic": "capability_discovery",
+      "statement": "Capability Quality Assurance has 4 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "tests/test_cascade_orchestrator.py",
+        "tests/test_hybrid_human_approval_governance.py",
+        "tests/test_orchestration_taxonomy.py",
+        "agents/validation_agent.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "tests/test_cascade_orchestrator.py",
+          "tests/test_hybrid_human_approval_governance.py",
+          "tests/test_orchestration_taxonomy.py",
+          "agents/validation_agent.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-learning",
+      "topic": "capability_discovery",
+      "statement": "Capability Learning has 3 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "cascade_orchestrator.py",
+        "orchestrator/memory/experience_replay.py",
+        "orchestrator/core/coepg_trainer.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "cascade_orchestrator.py",
+          "orchestrator/memory/experience_replay.py",
+          "orchestrator/core/coepg_trainer.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-self-improvement",
+      "topic": "capability_discovery",
+      "statement": "Capability Self Improvement has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "orchestrator/core/escher_loop.py",
+        "orchestrator/core/imcts_engine.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "prototype",
+        "evidence_declared": [
+          "orchestrator/core/escher_loop.py",
+          "orchestrator/core/imcts_engine.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-context-intelligence",
+      "topic": "capability_discovery",
+      "statement": "Capability Context Intelligence has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "context/context_layer.py",
+        "orchestrator/hybrid_orchestrator.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "partial",
+        "evidence_declared": [
+          "context/context_layer.py",
+          "orchestrator/hybrid_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-workflow-orchestration",
+      "topic": "capability_discovery",
+      "statement": "Capability Workflow Orchestration has 3 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "orchestrator/hybrid_orchestrator.py",
+        "cascade_orchestrator.py",
+        "orchestrator/main.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "implemented",
+        "evidence_declared": [
+          "orchestrator/hybrid_orchestrator.py",
+          "cascade_orchestrator.py",
+          "orchestrator/main.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-industrial-intelligence",
+      "topic": "capability_discovery",
+      "statement": "Capability Industrial Intelligence has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "M001_IMPLEMENTATION_CHARTER.md",
+        "schemas/"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "missing",
+        "evidence_declared": [
+          "M001_IMPLEMENTATION_CHARTER.md",
+          "schemas/"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-executive-intelligence",
+      "topic": "capability_discovery",
+      "statement": "Capability Executive Intelligence has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "tools/mission_portfolio/generate_portfolio.py",
+        "agents/delivery_agent.py"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "prototype",
+        "evidence_declared": [
+          "tools/mission_portfolio/generate_portfolio.py",
+          "agents/delivery_agent.py"
+        ]
+      }
+    },
+    {
+      "id": "KN-CAP-parallel-portfolio-optimization",
+      "topic": "capability_discovery",
+      "statement": "Capability Parallel Portfolio Optimization has 2 verified evidence artifact(s).",
+      "classification": "VALIDATED",
+      "source": "docs/aeos_review/Capability_Registry.json",
+      "evidence": [
+        "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+        "docs/aeos_review/Engineering_Investment_Portfolio_30d.json"
+      ],
+      "confidence": 1.0,
+      "validation_status": "validated",
+      "metadata": {
+        "previous_status": "implemented",
+        "evidence_declared": [
+          "docs/aeos_review/Parallel_Mission_Portfolio_Optimization_2026-07-23.md",
+          "docs/aeos_review/Engineering_Investment_Portfolio_30d.json"
+        ]
+      }
+    }
+  ]
+}

@@ -177,6 +177,12 @@
             <p><a id="sales-open-link" href="http://localhost:5173" target="_blank" rel="noreferrer">Abrir App</a></p>
           </div>
           <div class="app-item">
+            <div class="app-title">Industrial Layout Workbench</div>
+            <p class="subtitle">Workbench de ingenieria de layout y madurez industrial.</p>
+            <div class="status ok">Disponible</div>
+            <p><a href="http://localhost:8080/dashboard/layout_workbench.html" target="_blank" rel="noreferrer">Abrir Workbench</a></p>
+          </div>
+          <div class="app-item">
             <div class="app-title">Hub API</div>
             <p class="subtitle">API operativa del orquestador.</p>
             <div id="api-status" class="status warn">Verificando...</div>
@@ -212,6 +218,7 @@
 
       <article class="card actions">
         <h2>Acciones rapidas</h2>
+        <button class="btn" onclick="window.open('http://localhost:8080/dashboard/layout_workbench.html','_blank')">Abrir Layout Workbench</button>
         <button class="btn" onclick="window.open('http://localhost:8501','_blank')">Abrir dashboard tecnico</button>
         <button class="btn" onclick="window.open('http://localhost:8502','_blank')">Abrir portal humano</button>
         <button class="btn secondary" onclick="refreshAll()">Refrescar estado</button>
@@ -227,6 +234,7 @@
         <h2>Conexiones</h2>
         <ul class="list">
           <li><span>Panel Orquestador</span><span class="mono">http://localhost:8080/dashboard/orchestrator_panel.html</span></li>
+          <li><span>Layout Workbench</span><span class="mono">http://localhost:8080/dashboard/layout_workbench.html</span></li>
           <li><span>App principal</span><span class="mono">http://localhost:5173</span></li>
           <li><span>API Hub</span><span class="mono">http://localhost:8000/hub/status</span></li>
           <li><span>Teams</span><span class="mono">teams.live.com/.../FEA5JSTpd_3FAKh9gI</span></li>

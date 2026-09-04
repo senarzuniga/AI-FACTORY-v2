@@ -1,0 +1,101 @@
+{
+  "version": "v1.0",
+  "generated_at": "2026-08-06",
+  "scenario_family": "corrugated_internal_intralogistics_amr_wip",
+  "reference_case": {
+    "site_profile": "comparable_to_ds_smith_cognac",
+    "annual_output_tons": 104000,
+    "capacity_margin_percent": 124,
+    "target_oee_delta_points": 3.1,
+    "target_forklift_reduction_percent": 50,
+    "target_starvation_risk": 0,
+    "target_capacity_headroom_percent": 30
+  },
+  "ingetrans_benchmark_reference": {
+    "oee_delta_points": 6,
+    "starvation_reduction_percent": 87,
+    "annual_additional_production_meters": 4200000,
+    "annual_operating_savings_eur": 309300,
+    "logistics_downtime_reduction_hours": 56
+  },
+  "hypotheses": [
+    {
+      "id": "H-AMR-01",
+      "title": "AMR replacement of forklift feed loops in corrugator + conversion buffers",
+      "variables": {
+        "amr_fleet_size": [4, 6, 8],
+        "dispatch_policy": ["priority_by_starvation_risk", "shortest_travel_time", "hybrid"],
+        "buffer_slots_near_converters": [24, 36, 48]
+      },
+      "expected_effect": {
+        "oee_points": [2.0, 6.0],
+        "forklift_reduction_percent": [35, 65],
+        "starvation_events_reduction_percent": [60, 90]
+      },
+      "kpis": [
+        "amr_utilization_percent",
+        "delivery_response_time_s",
+        "corrugator_starvation_events",
+        "converter_waiting_time_min",
+        "wip_turnover_per_day"
+      ]
+    },
+    {
+      "id": "H-WIP-02",
+      "title": "Low-height WIP cells next to converters without forklift aisles",
+      "variables": {
+        "wip_cell_count": [6, 8, 10],
+        "cell_distance_to_converter_m": [8, 15, 25],
+        "max_stack_height_units": [1],
+        "jit_release_window_min": [30, 45, 60]
+      },
+      "expected_effect": {
+        "travel_distance_reduction_percent": [20, 45],
+        "converter_feed_stability_percent": [8, 20],
+        "wip_days_reduction_percent": [10, 30]
+      },
+      "kpis": [
+        "wip_occupancy_percent",
+        "stock_age_hours",
+        "line_replenishment_sla_percent",
+        "space_utilization_percent"
+      ]
+    },
+    {
+      "id": "H-JIT-03",
+      "title": "JIT sequencing by converter slot and reel availability",
+      "variables": {
+        "sequencing_strategy": ["fifo", "due_date", "constraint_aware_jit"],
+        "lookahead_orders": [12, 24, 36],
+        "replan_interval_min": [15, 30]
+      },
+      "expected_effect": {
+        "schedule_adherence_percent": [4, 12],
+        "oee_points": [1.0, 3.5],
+        "expedite_orders_reduction_percent": [15, 40]
+      },
+      "kpis": [
+        "on_time_delivery_percent",
+        "changeover_loss_min",
+        "order_completion_rate",
+        "expedite_order_count"
+      ]
+    }
+  ],
+  "scoring": {
+    "weights": {
+      "oee_improvement": 0.2,
+      "roi": 0.2,
+      "starvation_risk_reduction": 0.2,
+      "forklift_reduction": 0.15,
+      "wip_reduction": 0.15,
+      "safety_improvement": 0.1
+    },
+    "final_score_formula": "sum(normalized_kpi_i * weight_i)",
+    "decision_thresholds": {
+      "go": 0.75,
+      "pilot": 0.6,
+      "hold": 0.0
+    }
+  }
+}

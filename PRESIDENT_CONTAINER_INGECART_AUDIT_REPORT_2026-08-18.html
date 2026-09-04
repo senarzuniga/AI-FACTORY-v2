@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe de auditoría técnica de flujo, mantenimiento y automatización para President Container Group basado en el modelo de diagnóstico INGECART." />
+  <title>President Container · Audit report · INGECART</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    body { background: linear-gradient(180deg,#f5f0e8,#efeae0); }
+    .hero { background: linear-gradient(90deg, rgba(8,8,8,.93), rgba(8,8,8,.72)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .kpi-slab { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+    .card-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .product-spotlight { display:grid; grid-template-columns:260px minmax(0,1fr); gap:18px; align-items:stretch; margin:18px 0; }
+    .product-spotlight img { width:100%; height:220px; object-fit:cover; border-radius:12px; border:1px solid var(--line); }
+    .product-copy { padding:18px 18px; border:1px solid var(--line); background:linear-gradient(180deg, rgba(20,115,95,.04), rgba(0,0,0,.01)); border-radius:12px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:12px 14px; border-bottom:1px solid var(--line); font-size:13px; }
+    th { background:#111; color:#fff; text-transform:uppercase; font:700 11px 'Cascadia Mono', monospace; }
+    @media (max-width:980px) { .kpi-slab, .card-list, .product-spotlight { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">President Container Group · Middletown, NY · Auditoría de flujo</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Auditar antes de automatizar</h1>
+        <p>Diagnóstico técnico, operativo y de flujo para poner la base de una inversión real, medible y alineada con capacidad, OEE, mantenimiento y gestión del WIP.</p>
+        <div class="meta"><span>Informe de auditoría</span><span>2026-08-18</span><span>ES / EN</span><span>Versión nueva</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">President Container Group · Middletown, NY · Flow audit</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Audit before automating</h1>
+        <p>Technical, operational and flow diagnosis to establish a real, measurable and well-aligned investment foundation based on capacity, OEE, maintenance and WIP management.</p>
+        <div class="meta"><span>Audit report</span><span>2026-08-18</span><span>ES / EN</span><span>New version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Audit basis</strong>
+      <span>Flow</span>
+      <span>OEE</span>
+      <span>WIP</span>
+      <span>Maintenance</span>
+      <span>People</span>
+      <span>ROI</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Índice">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#exec">01 · Resumen</a>
+          <a href="#analysis">02 · Qué analiza</a>
+          <a href="#metrics">03 · Cómo se mide</a>
+          <a href="#deliverables">04 · Entregables</a>
+          <a href="#benchmarks">05 · Benchmark</a>
+          <a href="#method">06 · Método</a>
+          <a href="#conclusion">07 · Conclusión</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#exec">01 · Summary</a>
+          <a href="#analysis">02 · What it analyzes</a>
+          <a href="#metrics">03 · How it is measured</a>
+          <a href="#deliverables">04 · Deliverables</a>
+          <a href="#benchmarks">05 · Benchmark</a>
+          <a href="#method">06 · Method</a>
+          <a href="#conclusion">07 · Conclusion</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="exec">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La auditoría no es una inspección de máquina; es una lectura del sistema.</h2>
+          <p class="lead">Los ejemplos de Sullana/United/Agnati y la parte húmeda de Asitrade muestran una misma realidad: los equipos siguen produciendo, pero la capacidad real se pierde en alineación, blockages, WIP, mantenimiento, coordinación de flujo y ausencia de disciplina operativa. La auditoría debe descubrir exactamente dónde está ese valor oculto.</p>
+          <div class="decision"><strong>Tesis</strong>La verdadera inversión no es “más velocidad”. Es restaurar la capacidad útil del sistema, mejorar la OEE, reducir starvation y bloqueo, corregir el mantenimiento y consolidar un flujo que se pueda repetir sin depender de la improvisación del operario.</div>
+          <div class="kpi-slab">
+            <div class="kpi"><div class="kpi-value">+3 a +6 pp</div><div class="kpi-label">OEE útil del tramo</div></div>
+            <div class="kpi"><div class="kpi-value">-60 a -87%</div><div class="kpi-label">Starvation</div></div>
+            <div class="kpi"><div class="kpi-value">+4,2M m</div><div class="kpi-label">Producción extra anual</div></div>
+            <div class="kpi"><div class="kpi-value">~€309k/año</div><div class="kpi-label">Ahorro operativo</div></div>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The audit is not a machine inspection; it is a reading of the system.</h2>
+          <p class="lead">The Sullana/United/Agnati examples and the wet-end Asitrade audit show the same reality: the equipment keeps running, but real capacity is lost in alignment, blockages, WIP, maintenance, flow coordination and lack of operating discipline. The audit must uncover exactly where that hidden value sits.</p>
+          <div class="decision"><strong>Thesis</strong>The true investment is not “more speed”. It is restoring usable system capacity, improving OEE, reducing starvation and blockage, fixing maintenance and establishing a flow that can be repeated without relying on operator improvisation.</div>
+          <div class="kpi-slab">
+            <div class="kpi"><div class="kpi-value">+3 to +6 pp</div><div class="kpi-label">Usable OEE of the line</div></div>
+            <div class="kpi"><div class="kpi-value">-60 to -87%</div><div class="kpi-label">Starvation</div></div>
+            <div class="kpi"><div class="kpi-value">+4.2M m</div><div class="kpi-label">Extra annual output</div></div>
+            <div class="kpi"><div class="kpi-value">~€309k/year</div><div class="kpi-label">Operating savings</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analysis">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Qué analiza la auditoría</div>
+          <h2>La base de datos de auditoría debe cubrir diez capas de análisis.</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Estado físico</h3><ul><li>Alineación, paralelismo y holguras</li><li>Rodillos, soportes, transmisión y desgaste</li><li>Estado de cuchillas, cliché, placas, tintas y encolado</li></ul></article>
+            <article class="card accent"><h3>Proceso</h3><ul><li>Velocidad sostenible real</li><li>Setup, microparadas y bloqueos</li><li>Seriedad de golpes, mal contacto y calidad</li></ul></article>
+            <article class="card green"><h3>Flujo</h3><ul><li>Starvation vs blockage</li><li>WIP y buffer real</li><li>Congestión de salida e entrada</li></ul></article>
+            <article class="card accent"><h3>Control</h3><ul><li>PLC, VFD, interfaces y alarmas</li><li>integración con MES/WMS/ERP</li><li>modo degradado y recuperación</li></ul></article>
+            <article class="card green"><h3>Mantenimiento</h3><ul><li>MTBF / MTTR</li><li>Rutas preventivas</li><li>Repuestos y criticidad</li></ul></article>
+            <article class="card accent"><h3>Personal</h3><ul><li>Competencias operativas</li><li>Entrenamiento y seguridad</li><li>Dependencia de “hombre clave”</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · What the audit analyzes</div>
+          <h2>The audit database should cover ten layers of analysis.</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Physical status</h3><ul><li>Alignment, parallelism and clearances</li><li>Rollers, supports, transmission and wear</li><li>Condition of knives, cliché, plates, inks and gluing</li></ul></article>
+            <article class="card accent"><h3>Process</h3><ul><li>True sustainable speed</li><li>Setup, microstops and blockages</li><li>Severity of impacts, poor contact and quality</li></ul></article>
+            <article class="card green"><h3>Flow</h3><ul><li>Starvation vs blockage</li><li>Actual WIP and buffer</li><li>Infeed and outfeed congestion</li></ul></article>
+            <article class="card accent"><h3>Control</h3><ul><li>PLC, VFD, interfaces and alarms</li><li>MES/WMS/ERP integration</li><li>Degraded mode and recovery</li></ul></article>
+            <article class="card green"><h3>Maintenance</h3><ul><li>MTBF / MTTR</li><li>Preventive routes</li><li>Spare parts and criticality</li></ul></article>
+            <article class="card accent"><h3>People</h3><ul><li>Operating skills</li><li>Training and safety</li><li>Dependency on “key person”</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="metrics">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Cómo se mide</div>
+          <h2>La medición debe transformar observación en datos.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Área</th><th>Indicador</th><th>Qué se busca</th></tr></thead>
+              <tbody>
+                <tr><td>Flujo</td><td>Time blocked / starvation</td><td>descubrir dónde se pierde capacidad real</td></tr>
+                <tr><td>Productividad</td><td>Cajas/h o bundles/h</td><td>comparar velocidad real frente a velocidad objetivo</td></tr>
+                <tr><td>Calidad</td><td>merma, defectos por m²</td><td>correlacionar calidad y ajuste con pérdida de salida</td></tr>
+                <tr><td>Mantenimiento</td><td>MTBF, MTTR, tareas preventivas</td><td>reducir averías y dependencia del reactivo</td></tr>
+                <tr><td>WIP</td><td>buffer real, tiempo en cola</td><td>medir saturación y bloqueos de posición</td></tr>
+                <tr><td>OEE</td><td>Availability × Performance × Quality</td><td>evaluar capacidad útil del tramo</td></tr>
+                <tr><td>Personal</td><td>indice de ajuste y errores operativos</td><td>medir dependencia del aprendizaje y la experiencia</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · How it is measured</div>
+          <h2>Measurement must convert observation into data.</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Area</th><th>Indicator</th><th>What it seeks</th></tr></thead>
+              <tbody>
+                <tr><td>Flow</td><td>Time blocked / starvation</td><td>discover where real capacity is lost</td></tr>
+                <tr><td>Productivity</td><td>Boxes/h or bundles/h</td><td>compare actual speed with target speed</td></tr>
+                <tr><td>Quality</td><td>waste, defects per m²</td><td>correlate quality and tuning with loss of output</td></tr>
+                <tr><td>Maintenance</td><td>MTBF, MTTR, preventive tasks</td><td>reduce downtime and dependence on reactive fixes</td></tr>
+                <tr><td>WIP</td><td>actual buffer, queue time</td><td>measure saturation and blocked positions</td></tr>
+                <tr><td>OEE</td><td>Availability × Performance × Quality</td><td>evaluate usable capacity of the line</td></tr>
+                <tr><td>People</td><td>adjustment index and operator errors</td><td>measure dependence on experience and learning</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverables">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Entregables</div>
+          <h2>La auditoría debe dejar un documento ejecutable, no solo un diagnóstico.</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Entregables técnicos</h3><ul><li>Mapa de flujo actual</li><li>Árbol de pérdidas por estación</li><li>Matriz de criticidad y riesgo</li><li>Plan de intervención por prioridad</li></ul></article>
+            <article class="card accent"><h3>Entregables operativos</h3><ul><li>KPI de línea y turno</li><li>Benchmark de OEE y throughput</li><li>Plan de mantenimiento y formación</li><li>Ruta de mejora de flujo y WIP</li></ul></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Deliverables</div>
+          <h2>The audit must leave an actionable document, not just a diagnosis.</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Technical deliverables</h3><ul><li>Current flow map</li><li>Loss tree by station</li><li>Criticality and risk matrix</li><li>Intervention plan by priority</li></ul></article>
+            <article class="card accent"><h3>Operational deliverables</h3><ul><li>Line and shift KPI</li><li>OEE and throughput benchmark</li><li>Maintenance and training plan</li><li>Flow and WIP improvement roadmap</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="benchmarks">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Benchmark y mejoras</div>
+          <h2>La mejora real está en la capacidad útil, no en la velocidad nominal.</h2>
+          <table>
+            <thead><tr><th>Área</th><th>Mejora orientativa</th><th>Impacto</th></tr></thead>
+            <tbody>
+              <tr><td>Alineación y paralelismo</td><td>10-25%</td><td>menos defectos y mejor velocidad sostenible</td></tr>
+              <tr><td>Gestión de WIP</td><td>15-35%</td><td>menos bloqueos y mejor continuidad</td></tr>
+              <tr><td>Starvation</td><td>-60% a -87%</td><td>mejor servicio a downstream</td></tr>
+              <tr><td>OEE del tramo</td><td>+3 a +6 pp</td><td>mejor utilización de la capacidad instalada</td></tr>
+              <tr><td>Rehandling</td><td>-30% a -60%</td><td>menos movimiento no productivo</td></tr>
+              <tr><td>Disponibilidad</td><td>+8% a +15%</td><td>menos bloqueos y mejor ajuste</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · Benchmark and improvements</div>
+          <h2>Real improvement is in usable capacity, not nominal speed.</h2>
+          <table>
+            <thead><tr><th>Area</th><th>Indicative improvement</th><th>Impact</th></tr></thead>
+            <tbody>
+              <tr><td>Alignment and parallelism</td><td>10-25%</td><td>fewer defects and better sustainable speed</td></tr>
+              <tr><td>WIP management</td><td>15-35%</td><td>fewer blockages and better continuity</td></tr>
+              <tr><td>Starvation</td><td>-60% to -87%</td><td>better downstream service</td></tr>
+              <tr><td>Trunk OEE</td><td>+3 to +6 pp</td><td>better use of installed capacity</td></tr>
+              <tr><td>Rehandling</td><td>-30% to -60%</td><td>less non-productive movement</td></tr>
+              <tr><td>Availability</td><td>+8% to +15%</td><td>less blockage and better tuning</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="method">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Método recomendado</div>
+          <h2>Diseño de la auditoría INGECART para President Container</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Fase 1 · Descubrimiento</h3><p>Revisión de salida, entrada, WIP, buffer, líneas downstream y mantenimiento.</p></article>
+            <article class="card accent"><h3>Fase 2 · Medición</h3><p>Time study, bloqueos, setup, calidad, MTBF/MTTR, flujo y capacidad por mix.</p></article>
+            <article class="card green"><h3>Fase 3 · Diagnóstico</h3><p>Prioridad de causa raíz, criticidad y mapa de pérdidas.</p></article>
+            <article class="card accent"><h3>Fase 4 · Solución</h3><p>Quick wins + automatización + gestión de WIP + plan de inversión.</p></article>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Recommended method</div>
+          <h2>INGECART audit design for President Container</h2>
+          <div class="card-list">
+            <article class="card green"><h3>Phase 1 · Discovery</h3><p>Review of entry, exit, WIP, buffer, downstream lines and maintenance.</p></article>
+            <article class="card accent"><h3>Phase 2 · Measurement</h3><p>Time study, blockages, setup, quality, MTBF/MTTR, flow and capacity by mix.</p></article>
+            <article class="card green"><h3>Phase 3 · Diagnosis</h3><p>Root-cause prioritization, criticality and loss map.</p></article>
+            <article class="card accent"><h3>Phase 4 · Solution</h3><p>Quick wins + automation + WIP management + investment plan.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="conclusion">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Conclusión</div>
+          <h2>La auditoría debe dejar claro qué se gana si se corrige el sistema.</h2>
+          <div class="decision"><strong>Conclusión industrial</strong>La auditoría INGECART no sirve solo para detectar averías: sirve para decidir dónde invertir, qué corregir primero y qué mejora genera impacto real en producción, OEE, flujo, logística y personal. En President Container, el valor no está en la “máquina más rápida”, sino en la capacidad útil del sistema completa.</div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/INGECART%20TRANSFER.jpeg" alt="Automatic transfer" />
+            <div class="product-copy">
+              <strong>Solución</strong>
+              <h3>Automatic transfer / flow management</h3>
+              <p>La transferencia automática es la base para eliminar dependencia del operario y estabilizar la salida del flujo productivo.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/solutions/intralogistics-automatic-transfer.html" target="_blank" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+          <div class="product-spotlight">
+            <img src="file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png"
+                 alt="AMR WIP"
+                 onerror="this.onerror=null;this.src='file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png';" />
+            <div class="product-copy">
+              <strong>Solución</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>La gestión de WIP con AMR permite estabilizar la ruta productiva y evitar que el almacén intermedio se convierta en un bloqueador del proceso principal.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/solutions/amr-intralogistics.html" target="_blank" rel="noopener">Ver solución</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Conclusion</div>
+          <h2>The audit must show what is gained by fixing the system.</h2>
+          <div class="decision"><strong>Industrial conclusion</strong>The INGECART audit is not only for detecting breakdowns: it is for deciding where to invest, what to correct first and which improvement will generate real impact on production, OEE, flow, logistics and people. In President Container, value is not in the “fastest machine,” but in the usable capacity of the complete system.</div>
+          <div class="product-spotlight">
+            <img src="https://senarzuniga.github.io/ingesite.github.io/assets/images/INGECART%20TRANSFER.jpeg" alt="Automatic transfer" />
+            <div class="product-copy">
+              <strong>Solution</strong>
+              <h3>Automatic transfer / flow management</h3>
+              <p>Automatic transfer is the foundation for eliminating operator dependence and stabilizing the output of the production flow.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/solutions/intralogistics-automatic-transfer.html" target="_blank" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+          <div class="product-spotlight">
+            <img src="file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png"
+                 alt="AMR WIP"
+                 onerror="this.onerror=null;this.src='file:///C:/Users/Inaki%20Senar/Documents/GitHub/AI-FACTORY-v2/AMR%20WIP.png';" />
+            <div class="product-copy">
+              <strong>Solution</strong>
+              <h3>AMR WIP / intralogistics</h3>
+              <p>AMR-based WIP management stabilizes the production path and prevents the intermediate warehouse from becoming a blocker for the main process.</p>
+              <p style="margin-top:8px;"><a href="https://senarzuniga.github.io/ingesite.github.io/solutions/amr-intralogistics.html" target="_blank" rel="noopener">View solution</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="lang lang-es"><p>President Container Group · AUDITORÍA INGECART · 2026-08-18</p></div>
+      <div class="lang lang-en hidden"><p>President Container Group · INGECART AUDIT · 2026-08-18</p></div>
+    </div>
+  </footer>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

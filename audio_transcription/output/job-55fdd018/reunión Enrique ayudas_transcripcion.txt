@@ -1,0 +1,2693 @@
+Vale, entonces, volvemos al tema de cómo gestionar una herramienta para facilitar las ideas, sí.
+
+Si estamos en esa dinámica, podemos, tanto como colaborar, como tener una frontera de contactos importante, o postularnos como podemos hacer este tipo de cosas que no tenemos que hacer.
+
+Entonces, podemos postularnos como una consultora que puede hacer ahí un camino.
+
+Yo digo que para eso, mientras tú no estés fuera de Torres, o no apareces en Petit Comité donde yo te diga que puedes aparecer, porque si es con María, mi amiga, ya sé que va a ser en discreta, pero con el otro no.
+
+Esto, yo comento, tiene que salir ya lo mío, Enrique.
+
+Sí, yo lo que sí que te iba a decir, incluso yo tengo una cosa muy buena, no como formador, como podría ser John, sino como hacer casos de estudio.
+
+Lo sé, pero quiere decir, como figura de formado en IA, John.
+
+No, pero escúchame mi idea, es decir, yo creo que los casos prácticos son muy buenos de escuchar.
+
+Y yo he vivido mucho caso práctico del uso de copilot, lo que yo os decía, yo he visto en Torres usar copilot dos años y solo dos personas la saben usar.
+
+Bueno, esos errores que cometen las empresas, yo puedo contarlos y creo que es una experiencia muy buena.
+
+Pero que es que eso, a ver, el tema de la IA está ahora mismo tan trinturado que hay mucha gente dando eso.
+
+Lo sé, digo, como casos de estudio.
+
+Nosotros tenemos que ir claramente a dar una charla, pero ya de esto.
+
+Vale, entendíos.
+
+Sí, y nos focalizamos en Navarra y ayuda a cenar.
+
+Vale, entonces, en principio, la herramienta puede evaluar a la empresa desde su tamaño, su tipo de proyectos y de esa manera,
+
+poder ver si podemos enfocarlo en unas ayudas o enfocarlo en otras, ¿vale?
+
+Lógicamente hace falta esa información por cada empresa, como el tamaño, actividad principal, que hacen de innovación,
+
+las inversiones que hacen, bueno, todo aquello, pero yo eso lo puedo conseguir sin ningún problema.
+
+Vale, motor de priorización, no basta con listar las ayudas, hay que priorizar ordenado por afinidad.
+
+Es decir, aquí te está ya juntando dos cosas.
+
+Por un lado, saca las ayudas que hay, las lista, las pondera y luego tú, con tus empresas identificadas,
+
+él empieza a ordenar para estas ayudas y te da un ranking, para estas otras y te da un ranking.
+
+Es decir, ajustamos empresa a ayuda, ¿vale?
+
+Bien, esto está muy bien, pero si tuviéramos todo en plan bestia, si tenemos tres o cuatro, nos definimos esta respuesta.
+
+Totalmente, pero claro, tenemos, ¿por qué está hecho así?
+
+Porque, claro...
+
+El punto tres, está claro.
+
+El punto tres debe ser comprensible para un asesor, un directivo y un cliente no técnico.
+
+Eso es a lo que voy a decir, nosotros, yo soy virgen en esta materia, tú sabes mucho y Ana es virgen
+
+y además nunca ha estado en este tipo de entorno industrial.
+
+Entonces, nosotros necesitamos esto para que el periodo de aprendizaje se acorte.
+
+Vale, pero si esto es un tema interno, ¿deje esto un interno? Perfecto.
+
+Esto es interno, esto es una herramienta para que Ana sea productiva.
+
+Volvemos a la de las productividades que os decía ayer, ¿vale?
+
+O sea, yo sí que creo que esto hoy en día te puede hacer mucho más productivo.
+
+Sí, sí, sí.
+
+Y más para que no tiene...
+
+Eso es, eso es.
+
+Vale, dos siers documental, los checklists, claro.
+
+Fíjate que esto te ayudaría a crear todo.
+
+Una vez que identifica, pues, todos los checklists, los documentos requeridos,
+
+nos daría todo eso, un dos siers, para ir a la empresa y decir,
+
+mira, esto es lo que tenemos que cumplimenta y nos lo daría hecho, ¿vale?
+
+El sistema de acompañar al cliente, que eso es lo que haríamos nosotros,
+
+la preparación inicial, diagnóstico, la propuesta, tramitación, cierre y seguimiento.
+
+Vale.
+
+Sin editar, bueno, taxonomías más claras, eso ya lo haré.
+
+Niveles de soporte que puede cambiar.
+
+Aquí estaría también.
+
+Vale, el analista financiero, el equipo de tramitación.
+
+Bueno, al final todas las empresas tienen fortalezas de debilidades
+
+y en las debilidades sería donde apoyaríamos.
+
+Vale.
+
+Validación y ayuda.
+
+Haríamos un CRM, no haría problema.
+
+Vale.
+
+Resumen.
+
+La herramienta debe crear un resumen ejecutivo para la empresa,
+
+como tú decías, claro y entendible.
+
+Recomendaciones, diagnóstico, simulación, dos siers,
+
+plan de acción recomendado.
+
+Vale.
+
+Información que falta.
+
+Que fuentes oficiales se usan como base de verdad para cada convocatoria ministerio,
+
+comunidad, EICI, CDETI, tarara.
+
+Que reglas de elegibilidad son obligatorias y cuales son interpretativas.
+
+Que costes son subvencionables para y más de que tipos de empresas
+
+y tamaños deben evaluarse.
+
+¿Cuáles son los requisitos documentales?
+
+¿Qué porcentaje de ayuda?
+
+¿Qué plazos, ciclos?
+
+Información financiera es imprescindible para modelar la liquidez y la solvencia.
+
+Esto es lo que tú decías.
+
+¿Qué cuentas te van a enseñar?
+
+¿Qué te va a enseñar esa empresa?
+
+¿Qué está dispuesta a compartir?
+
+¿Qué formato debe tener el dos siers final?
+
+¿Nivel de explicación que debe dar la herramienta?
+
+Entonces, esta es la parte que creo que tenemos que debatir ahora.
+
+Es decir, información, fuentes, cómo se gestiona,
+
+un poco que me cuentes como ha sido tu experiencia en ayudas
+
+y lo que tú has...
+
+Yo siempre me apoyo con una consultora.
+
+Sí.
+
+¿Por qué lo primero porque no tenías conocimiento que tengo ahora?
+
+Lo segundo porque...
+
+¿Cómo se llamaba la consultora con la que tú trabajaba?
+
+Inspiria.
+
+Inspiria Consultio.
+
+¿De Joaquín García?
+
+Bueno, principalmente, sé que el otro me trabajó con Carlos,
+
+y yo no he trabajado, pero sí.
+
+Entonces, ¿dices por qué he trabajado con estas gente?
+
+Porque ya los conocía de otras veces y la experiencia con ellos ya lo siempre he podido.
+
+Y además, son muy, muy butignos.
+
+No es una gran consultora que te pone en serio, te pone en Junior,
+
+también hemos trabajado con Zavala.
+
+Zavala es una mega consultora, pero si te toca en Junior,
+
+pues casi estás enseñándoles.
+
+Claro.
+
+Y estás todo el día haciendo el excel y historias para ellos,
+
+y yo solo he vivido.
+
+Entonces, te consume muchos recursos.
+
+El problema que tienen las consultoras habituales
+
+es que te bloquean la gestión de la empresa por unas semanas.
+
+Y sin embargo, a nosotros, no.
+
+Esta gente te da todo muy, muy, muy trabajado.
+
+Es decir, necesito esto, muy concreto.
+
+Pásame esto.
+
+No me pases, no se aguanta el documento,
+
+no se aguanta el balance,
+
+no se aguanta las cuentas de actuación,
+
+no se aguanta lo sé qué, no.
+
+Concreto.
+
+Cuando necesito los balances total, ya exactamente los pide,
+
+pero los trabajan ellos.
+
+Y luego, lo más importante en estas cosas,
+
+que aparte del tema técnico, ya sea industrial,
+
+o sea financiero, que acaba, evidentemente,
+
+para el tema técnico, ellos no son especialistas.
+
+Para sostenerse al especialista técnico.
+
+Y financieros, sí controlan de finanzas,
+
+pero no saben las tripas de la empresa.
+
+Tienes que aportar tu...
+
+Pero sí que ahora he presentado informes,
+
+informes que saben cómo les gusta los analistas
+
+de gobierno de Navarra.
+
+En eso son muy buenos.
+
+Y luego descuélgan el teléfono.
+
+Y, oye, está esto bien presentado.
+
+Me falta, no sé qué, cómo está la convocatoria,
+
+cuándo va a salir la convocatoria.
+
+Está previsto...
+
+¿Vais a pedir este año lo mismo que el año pasado?
+
+No, hemos cambiado.
+
+No sé qué, no sé cuántos,
+
+prepárate porque va a irnos a incidir aquí o allá.
+
+Eso dice la empresa.
+
+Esto hace inspiridad.
+
+O sea, inspiridad pregunta al cliente.
+
+No, en este caso la administración.
+
+A la administración.
+
+El cliente sabe exactamente cómo va a salir la convocatoria
+
+antes de publicarse.
+
+Por tanto, ya que está trabajando,
+
+puede empezar a trabajar antes de que se publique.
+
+Y para cuando está el boom,
+
+ya tiene casi todo preparado.
+
+Y eso a través de la IN,
+
+ese conocimiento previo...
+
+Yo lo he trabajado con la IN,
+
+convocatorias de subvenciones.
+
+O sea, podríamos identificar
+
+esas posibles bolsas de ayudas
+
+que pueden salir al futuro.
+
+Serían identificables con nuestro...
+
+que esté antes de salir.
+
+Complicado, porque allá no sé cómo va a...
+
+No, no estoy pensando en allá.
+
+Eso ya es cuestión de relaciones.
+
+Sí.
+
+¿Se tendríamos que hacer lo tu y yo?
+
+Sí, sea que sería esto inspirado o la IN.
+
+¿No pasa que inspiras y le vas a descompetir?
+
+Claro, no podemos, yo no le...
+
+Yo discrepo.
+
+No estoy pensando en...
+
+Aquí no va a ser mejor que ellos.
+
+No vamos a ser.
+
+Al principio.
+
+Yo no digo que no cogemos los precios.
+
+No.
+
+Si yo estoy de acuerdo contigo,
+
+incluso ayer lo que nos contaba,
+
+yo, de Transatec,
+
+de que Diego venda a través de Transatec...
+
+No.
+
+Te tracé.
+
+Te tracé.
+
+Eso te tracé.
+
+A mí me encaja.
+
+Es decir, no se trata...
+
+Yo creo que nuestra virtud es un conjunto,
+
+es un paquete.
+
+Es decir,
+
+tenemos conocimiento industrial...
+
+Por eso es que creo que en ciertas cosas
+
+colaboradores críticos buenos,
+
+expertos más que nosotros,
+
+colaboramos.
+
+Yo estoy de acuerdo.
+
+A mí, o sea, la ambición por un 5% más
+
+no me mata.
+
+Prefiero tener éxito,
+
+generar una buena cartera
+
+y crecer,
+
+que asumir un riesgo
+
+que nos haga fracasar.
+
+Otra cosa es que esta gente,
+
+pues como te digo,
+
+como son pocos,
+
+están justitos de tiempo.
+
+Bueno, ahí es donde les damos
+
+nuestra capacidad de trabajo.
+
+Si le llevamos las cosas en las mismas cadas...
+
+Claro.
+
+Y solo te tienen que decir el informe final,
+
+por ejemplo.
+
+Pero no va a ser fácil,
+
+porque tienen sus clientes
+
+y tienen sus trabajos,
+
+y entonces no les gusta
+
+tapar, recer mucho,
+
+y encontrar a tal gente.
+
+Tuvimos a uno también senior,
+
+pero él tuvo problemas de salud
+
+y estuvo muchos meses de baja,
+
+y al final se ha prejubilado,
+
+y no sé qué,
+
+la experiencia tampoco les ha ido muy allá.
+
+Bueno,
+
+va a ser la confianza
+
+y los años que yo he trabajado con ellos,
+
+pero que nos hicieran un hueco al menos
+
+para esas consultas específicas de ellos,
+
+o es informe final o tal,
+
+se podría tirar de ellos,
+
+pero no nos tenemos disponibles como...
+
+Se encuentran muy grandes,
+
+Zavala, Bantec también está siendo grande,
+
+pero en varias comunidades...
+
+Pero eso es motivo de confianza.
+
+No, no, yo lo que estoy pensando es,
+
+sobre todo, en poder gestionar
+
+paquetes de valor para la empresa,
+
+es decir, las empresas pequeñas
+
+tampoco pueden tener siempre un Zavala
+
+para que todos los años le renueven todo.
+
+Vamos a proyectos.
+
+¿Zavala o que quieres un fin mensual?
+
+Y es una empresa pequeña...
+
+No lo va a dar,
+
+pero si una empresa pequeña te va a comprar un proyecto,
+
+y eso es lo que tenemos que ir
+
+a definir proyectos
+
+en base a
+
+nuestra experiencia
+
+y un paquete.
+
+¿Pero te estás focalizando el tema de ayudas?
+
+No sé por qué, yo pensé que esto era un capítulo.
+
+Es un capítulo.
+
+Por eso digo, es un paquete.
+
+Para mí el paquete es, por ejemplo,
+
+y el ejemplo es muy bueno,
+
+lo que dijimos ahí con yo.
+
+Digitalización,
+
+su herramienta
+
+y ayudas.
+
+Es el paquete.
+
+Porque ahí...
+
+Yo como que yo soy más ampliado,
+
+porque todo el mundo está en el tema comercial,
+
+que es aparte.
+
+Luego está la dirección general, que es aparte.
+
+Satélites,
+
+luego lo ofrecemos,
+
+y finalmente incluso llegar a la idea
+
+cuando has conseguido madurar a ese cliente
+
+de ayudarle a tener
+
+una empresa
+
+bendible a un mayor valor.
+
+Ese es el fin último.
+
+Al final, ¿qué es el final?
+
+Al final, yo creo que
+
+tenemos que
+
+estar con el cliente
+
+y ver sus necesidades.
+
+Sí.
+
+Uno tiene necesidades comerciales,
+
+el otro financieras,
+
+el otro de ayudas, el otro de no sé qué.
+
+Tiene que ser
+
+cuando pienso en que estoy muy solo,
+
+tenemos que ser el referente.
+
+Sí.
+
+Pero me da igual para qué.
+
+Sí.
+
+Ahora estoy solo para las ayudas,
+
+ahora estoy solo para temas comerciales
+
+de dónde me meto en aquel mercado,
+
+en aquel territorio, no sé qué.
+
+Estamos ahí.
+
+Ahora estoy...
+
+tema...
+
+tema jurídico, mercantil.
+
+Estamos ahí.
+
+¿Por qué?
+
+Porque me meto a Vanessa en este tema
+
+y entro.
+
+Y estoy alfuscado por un tema financiero.
+
+Voy a hacer unas inversiones,
+
+no sé cómo financiar,
+
+pero bueno, ahí estamos.
+
+Necesito casi alguien
+
+de adjunto a dirección,
+
+que esté en cualquier momento
+
+para cuando le pueda consultar.
+
+Ahí estamos.
+
+Sí.
+
+Un soporte multifuncional,
+
+que en cada caso pueda ser
+
+en derivado de un departamento...
+
+Cuando tenga una necesidad
+
+que él se siente muy solo,
+
+que cuente con nosotros
+
+para lo que necesite.
+
+Para debatirla, para trabajarla,
+
+para ver si ponerla en valor,
+
+si tiene sentido, si tiene sentido,
+
+y si tiene sentido,
+
+vamos a trabajar con él.
+
+Sí.
+
+Eso creo que es...
+
+yo creía que íbamos a trabajar.
+
+Luego hay paquetes.
+
+Pero este es un paquete.
+
+Vamos a trabajar.
+
+Sí, sí.
+
+Yo estoy de acuerdo contigo.
+
+Está en la misma página.
+
+Vamos a trabajar eso.
+
+El fin de la empresa es esa.
+
+Pero este ahora mismo es un agujero negro.
+
+Tú tienes mucha información
+
+y yo no tengo ni un puñetera idea.
+
+Entonces, tira, tira.
+
+Todo esto,
+
+que tenemos toda la ilusión del mundo,
+
+pero hay que ser muy realistas.
+
+Llegar a todo lo que estamos hablando de tú y yo,
+
+que puedan tenernos en la mente
+
+para tener la confianza de decirnos,
+
+ahora de este...
+
+como si fuera un departamento,
+
+de empresa, el departamento comercial,
+
+el departamento financiero,
+
+el departamento de ayudas,
+
+es muy difícil llegar a tener esa confianza.
+
+Pero bueno, el camino nos ponemos.
+
+Sabes, estando de acuerdo,
+
+lo que es importante es tener una base solida.
+
+Es decir, que tú te puedas sentar delante de un cliente
+
+y ser solido en tus respuestas.
+
+Entonces, nosotros tenemos que tener el conocimiento
+
+para que esas reuniones
+
+se genere confianza.
+
+Entonces, para mí, el entender bien todo esto
+
+entra en esa parte.
+
+O sea, yo, por ejemplo, ahora mismo,
+
+esta es una parte en la que me siento muy flojo
+
+y no me vería capaz de estar delante de un empresario
+
+y tener el discurso, sin tener esto a cabo.
+
+Porque en la parte comercial no tengo problema.
+
+En la parte de gestión no tengo problema.
+
+En la parte de soporte financiero,
+
+incluso de delegación a nivel de gerencia,
+
+no tengo problema porque estás tú.
+
+Hay un punto que me ha apuntado aquí, Enrique,
+
+que lo estamos dejando pasar rato.
+
+Ayer lo hablé un poco, cuando estábamos con John,
+
+que se termina la productividad.
+
+Es decir, la productividad en operarios de oficina
+
+no se controla como se controla en taller o en ingeniería.
+
+Decía yo, sí, ya te meten los tiempos y tal,
+
+pero eso no es productividad.
+
+Precisamente los ojeros negros en las empresas
+
+están en administración y gente de oficina multitask,
+
+porque al final es una bola o un cajón de desastre
+
+donde metes un montón de actividades
+
+y realmente renta muy poco.
+
+Pero tampoco puedes vivir sin esa persona,
+
+porque hoy te hace una factura, mañana le llamo un proveedor,
+
+mañana, pero realmente no es un trabajo
+
+ni organizado ni productivo.
+
+En general.
+
+Entonces, esa parte también yo creo que podemos dar
+
+un discurso serio y creíble.
+
+Y en ese paquete lo que te digo, esto...
+
+Pero mira, lo último que hay que entrar en un empresario
+
+es diciéndole cómo tiene que ordenar su casa.
+
+Sí.
+
+Y eso de administración es decirle cómo hay que ordenar su casa.
+
+Sí, pero sí que puedes decirle, hablar de productividades.
+
+Cuando tienes confianza suficiente, porque te da pie,
+
+él, entonces ya irnos.
+
+Pero primero tengo que demostrarle que somos pálidos
+
+y aportamos valor en cosas concretas.
+
+Eso es.
+
+En ganar nuevos mercados, en mejorar su financiación,
+
+en mejorar ayudas que consigue, etcétera.
+
+Pero ya meterte profundo en ordenar su casa,
+
+cuidado.
+
+Es decir, no pretendo eso.
+
+Lo que sí que pretendo es poder tener un discurso.
+
+Es decir, yo le puedo, dentro de esa conversación,
+
+cuando estamos hablando ya en privado...
+
+Pero que no podemos abrumar.
+
+No, sin abrumar.
+
+No le diría a esa persona...
+
+Pero es lo que a John se lo hice.
+
+Cuando le hablé de la trazabilidad de proyectos,
+
+de la diferencia entre lo presupuestado
+
+y lo cerrado, los gaps que hay.
+
+Sí, pero ya cuántas reuniones llevábamos.
+
+Sí.
+
+Pero a lo que voy...
+
+¿Cómo los presentamos?
+
+Sí, eso ya lo haremos.
+
+Y lo organizaremos y no abrumaremos.
+
+Pero nosotros por detrás tenemos que tener un motor fuerte.
+
+Es...
+
+Yo tenemos un bagaje...
+
+Sí, bajo.
+
+Tenemos bastante experiencia,
+
+bastante ganos de estar al frente de cosas.
+
+Tú de departamentos, yo de pymes, o sea,
+
+en ese sentido no me preocupa.
+
+Tenemos tal bagaje, pero John,
+
+si lo colocamos realmente...
+
+¡Fum!
+
+Ya vemos una vez.
+
+Entonces...
+
+Yo para que te hagas una idea,
+
+para que veas cómo pienso.
+
+El tema es cómo arrancamos con ese cliente
+
+desde el primer día para aportarle valor
+
+y para cobrarnos.
+
+¿Cómo se abre a nosotros para decirnos
+
+que lo que más me aporta el zapato
+
+es aquí?
+
+Entonces, empezamos ahí
+
+y nos triunfarán a la presencia
+
+con curro, con malo el año de aportado
+
+y que este desgusto apagó.
+
+La idea no es soltar el rollo
+
+y aprumar.
+
+Pero la idea es...
+
+No, no estoy trabajando.
+
+Estoy viendo...
+
+Estoy viendo sentir esto porque
+
+en este tema estás verde
+
+o no estaría tocando antes y entonces aquí
+
+mira,
+
+esto es lo que yo le explico
+
+a los clientes de DIO.
+
+Y solo necesito esto.
+
+Yo lo que dibujo es una planta
+
+y todos los puntos de actuación
+
+en los que...
+
+Eso es.
+
+Yo no abrumo.
+
+Si ahora el tío,
+
+cuando ve esto,
+
+porque es lo que suele ocurrir,
+
+entonces ellos empiezan a pensar,
+
+¡Hostia!
+
+Y entonces ellos son los que te llevan
+
+a que tú les saques
+
+a donde les apretas el zapato.
+
+Pero yo tengo respuesta.
+
+Es decir, yo luego tengo aquí
+
+28 páginas.
+
+Llegaré a la 2 o a la 3.
+
+Depende del cliente.
+
+Pero este mapa
+
+conceptual tenemos que tenerlo.
+
+¿Eh?
+
+Y entonces...
+
+Eso sí.
+
+Así sí.
+
+Esta es mi idea.
+
+Pero debajo de esto hay un trabajo.
+
+Total.
+
+Y sé que me estás llevando a eso.
+
+Me has sentado la sesión
+
+en una cosa tan concreta.
+
+Sí.
+
+Yo necesitaba y me pagaba arriba.
+
+Vale.
+
+Para que luego bajara.
+
+Claro.
+
+Porque si no...
+
+Pues tu idea de alto nivel,
+
+sí.
+
+Y luego hablamos
+
+de cómo conceptualizamos esa empresa.
+
+Me olvidé de si ahora este mapa
+
+y ahora hay que trabajar
+
+cada uno de los...
+
+Eso es.
+
+Eso es.
+
+Eso es.
+
+Eso es.
+
+Y entonces en esos hexágonos
+
+que yo he apuntado aquí,
+
+todavía he dicho el comercial,
+
+soporte financiero,
+
+gerencia,
+
+gestión de ayudas, digitalización,
+
+productividad.
+
+Eso serán los quesitos.
+
+Con la gerencia de cambiar el nombre
+
+y de ponerle
+
+a justo decisión.
+
+¿Por qué?
+
+Porque no le parece
+
+que vamos a desbancar.
+
+No.
+
+Él sigue siendo el dueño del gerencio.
+
+Nosotros podemos ayudarle
+
+como soporte
+
+a justo o como quiera ya.
+
+Sí.
+
+Luego los nombres,
+
+ya cuando tengamos el panel,
+
+ya definimos nombres
+
+exactos y...
+
+Vale.
+
+Para que me pilles la idea de...
+
+Total.
+
+Total.
+
+Y también para que tú me pilles,
+
+que te pillo.
+
+Que te pillo.
+
+Vale.
+
+Y entonces,
+
+vamos a darle una vuelta
+
+a esto
+
+y saltamos al tema de empresa.
+
+Vale.
+
+Ahora sí,
+
+y esto es una pata.
+
+Esto es una pata.
+
+Eso es.
+
+Entonces aquí
+
+donde he visto
+
+el punto central,
+
+capa de conocimiento
+
+de experto en ayudas.
+
+O sea, ahora mismo
+
+lo que necesitamos es
+
+una capa de conocimiento
+
+para ayudas.
+
+Y ahí es ahora lo que
+
+quiero que me describas un poco.
+
+Que hay que mirar.
+
+Que website hay que mirar.
+
+Que...
+
+Es decir,
+
+no pretendo que me des todos los detalles,
+
+pero sí que me des guías
+
+de donde yo puedo estructurar esa información.
+
+Mira.
+
+Normalmente muchas son
+
+las propias consultoras.
+
+Facebook,
+
+Bantec,
+
+Zavala,
+
+te van informando
+
+de las soluciones
+
+que van a salir.
+
+Porque...
+
+Es su trabajo.
+
+Entonces ahí
+
+promocionan.
+
+Puedes beber
+
+de esas fuentes
+
+tranquilamente.
+
+Sobre todo los grandes.
+
+Por mí un inspirador
+
+son tres
+
+y no te van a dar
+
+a hacer estas cosas.
+
+Pero los grandes
+
+sí que te hacen ese tipo de cosas.
+
+Aparte de Zavala,
+
+cuáles nombró como grande.
+
+Bantec.
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+¿Cómo se escribe Bantec?
+
+Vale.
+
+Cosas importantes
+
+que hay que tener en cuenta.
+
+Esa capa de conocimiento
+
+incluso si tú eres proactivo
+
+y tú dices
+
+voy a ver
+
+gobierno Navarra
+
+Ayudas.
+
+Entras.
+
+Ayudas gobierno Navarra
+
+para la industria
+
+y te van saliendo
+
+en Google,
+
+en la IA,
+
+no sé ya como el motor
+
+de la industria que utilizas.
+
+Ayudas para la industria
+
+estatales.
+
+Ayudas para la industria
+
+europeas.
+
+Son las tres capas
+
+porque ya locales y locales
+
+entran en la industria.
+
+Entran en comercio
+
+no sé qué, no sé cuál.
+
+Vale.
+
+Entonces, vale.
+
+Daí saco.
+
+Entonces, daí vienen convocatorias,
+
+vienen importes,
+
+vienen tal.
+
+Entonces, ¿ahora eso?
+
+¿Cómo se aterriza?
+
+A saber si eso...
+
+¿Se hace match
+
+con un cliente concreto?
+
+Sí, hace match.
+
+Te tenemos que conocer al cliente.
+
+Vale.
+
+Desde lo que hace perfiles de cliente.
+
+Y tenemos que ver
+
+en qué época del año estamos.
+
+Porque no todo...
+
+Normalmente
+
+intentan sacarlas
+
+en períodos parecidos,
+
+pero
+
+dependen de política.
+
+¿Por qué?
+
+Porque dependen de los presupuestos.
+
+Entonces,
+
+si los presupuestos se retrasan,
+
+se retrasan las convocatorias.
+
+Porque no hay presupuesto.
+
+Y eso es una mierda.
+
+¿Por qué?
+
+Porque alguien que está haciendo un mar de
+
+no puede estar parado
+
+a que se haga la jodida convocatoria.
+
+Y esto lo hemos dicho
+
+cientos de millones de veces.
+
+Coño.
+
+Dejar sacar convocatorias
+
+plurianuales.
+
+Y ya están empezando a sacar
+
+dos años y medio, tres.
+
+¿Para qué?
+
+Para que...
+
+Pero claro,
+
+luego te dicen,
+
+a ver,
+
+nunca
+
+podemos sacar
+
+para algo que ya está en camino.
+
+Porque es un requerimiento europeo.
+
+El europeo te dice,
+
+tiene que ser
+
+efecto incentivador.
+
+Por tanto,
+
+tienes que
+
+esperar
+
+a que
+
+salga la convocatoria
+
+para empezar con el imáster.
+
+Ese concreto.
+
+Ese proyecto concreto.
+
+Y es una putada.
+
+Porque si tú tienes la idea,
+
+quieres arrancarla.
+
+¿Vale?
+
+En ese efecto incentivador,
+
+ahí sí que encajaría
+
+el concepto
+
+de esa nueva empresa
+
+de servicios que plantea Diego.
+
+¿O no?
+
+El proyecto concreto,
+
+no la empresa.
+
+El proyecto,
+
+el desarrollo.
+
+Claro, pero como las ayudas
+
+no las quieres llevar en GK,
+
+por eso te lo digo.
+
+Sí,
+
+las pedirán
+
+la nueva sociedad.
+
+Pero vamos a pedir
+
+sobre un proyecto concreto.
+
+Nuevos proyectos.
+
+O sea, el proyecto no es la empresa.
+
+Vale.
+
+O sea,
+
+el efecto incentivador es
+
+sobre proyecto.
+
+No sobre empresa.
+
+Vale.
+
+Vale.
+
+Ahí hay campo
+
+con...
+
+Vale.
+
+De ayudas.
+
+Algo más que se te ocurra que...
+
+Porque, por ejemplo,
+
+el día que estuvimos con yo
+
+en la primera vez,
+
+bueno,
+
+hablasteis de un montón
+
+de ayudas y cosas
+
+que ya tienen de alguna manera
+
+mecanizadas,
+
+instrumentalizadas y...
+
+Sí,
+
+bueno,
+
+hay ayudas,
+
+a veces hay ayudas
+
+muy digitales
+
+para digitalización,
+
+te dice.
+
+Y entonces entran
+
+tecnologías digitales
+
+pues de que es unisión artificial,
+
+que es realmente aumentada,
+
+que se ha quedado a menos,
+
+que es el remelo digital,
+
+que es el 3D,
+
+y no sé cuántos no sé qué.
+
+Y entonces te dicen las tecnologías
+
+que entran dentro de esa ayuda.
+
+Pero las que son industriales,
+
+a veces son inversión pymes.
+
+Y no es que hagas ninguna innovación,
+
+simplemente que estás sintirtiendo.
+
+Entonces,
+
+hay mucha menos ayuda
+
+y está acotada.
+
+Y otras son
+
+ayudas de competitividad.
+
+Y hay un cajón de desastre
+
+bastante amplio.
+
+¿Por qué?
+
+Porque ayudan desde
+
+uniones e fusiones
+
+de empresas
+
+a su contratación de un externo para ayudarme en una comercialización concreta, en un
+
+sector concreto o en una área jerófica concreta, hasta también un externo en temas financieros.
+
+O sea, competitividad, pues. Me tengo en un cajón varias cosas que ayudan a las empresas
+
+las cosas hacen mejores, pues pueden ser cosas que estamos perdiendo a nosotros, expertos
+
+en una materia que es los contratas. Evidentemente no pueden haber estado.
+
+A ver, la vacación, ¿verdad?
+
+¿Qué está la vacación? Sí, ha cogido.
+
+Vale, estábamos...
+
+Ayudas a las empresas para que mejorean, entonces...
+
+Otra cosa que me viene, que ya lo hemos estado comentando,
+
+pero porque quedé afianzado porque te la notes.
+
+En esta parte de ayudas,
+
+yo creo que al principio, y quizás,
+
+es lo que hemos hablado antes, de que yo decía,
+
+Este es el analizarlo.
+
+Yo me siento muy de muy cómodo de trabajo en el Supermigo de Espíritu.
+
+Entonces, irnosotros a hacer ese trabajo, me cuesta lo arrobar.
+
+Me cuesta lo arrobar porque lo veo tan fácil de sacar con Espíritu
+
+que para que nos vamos a meter a pegarnos
+
+en lugar de sacarlo o de estenarizarlo o apoyarnos, ¿eh?
+
+No tenemos por qué hacerlo así, pero nosotros, el cliente, su cara eres tú y yo.
+
+Entonces tiene que entender sus interlocutos, vamos a ser nosotros.
+
+Y nosotros tenemos que ser delantes suya expertos.
+
+¿Y cómo lo tramitemos es otra película?
+
+Que si no se confronta a Joachim como uno de nuestro equipo.
+
+Bien, no hay problema.
+
+Pero a mí el cómo lo gestionemos es otra fase.
+
+Es como cuando tú tienes tu capacidad de ingeniería hasta un punto y necesitas subcontratar.
+
+Como el tema del mercantil, el tema jurídico mercantil, pues tú y yo podemos hablar bastante
+
+porque yo no tengo bastante conocimiento, pero cuando hayan que trabajar una cosa concreta,
+
+tiraremos de la abogada, claro, apresentaremos con nuestra abogada.
+
+No hay problema. Yo no quiero generar falsas expectativas y yo creo que hoy en día la figura de un facilitador
+
+es que también crearnos que nosotros dos aborcamos tanto el campo y que somos expertos en todo es difícil.
+
+Si tenemos que tener una red de colaboradores es mucho más fácil.
+
+Claro, pero tú tienes que mostrar ese conocimiento.
+
+Sí.
+
+Sí, sí. Es una cosa de diferencia.
+
+Una cosa es que seas capaz de gestionarlo
+
+y otra cosa es que sepas capaz de entender
+
+de lo que estás hablando.
+
+Pero que no tenemos que tener el conocimiento
+
+que tú tienes comercial
+
+en el resto de patas, no lo vamos a tener.
+
+Ni el conocimiento que yo tengo financiero
+
+en el resto de patas, no lo vamos a tener.
+
+Pero sí que tenemos potentes colaboradores
+
+que son expertos en lo que vamos a trabajar.
+
+Yo me siento capaz de hablar de ayudas
+
+pero a la hora de trabajarlas y tramitarlas, hay gente mejor que yo.
+
+Yo me siento capaz de hablar de temas mercantiles, mucho,
+
+no tengo hasta las ideas, pero mucho, porque me ha tocado.
+
+¿Tienes un ejemplo?
+
+En la reunión que estábamos, Diego, yo en tu día.
+
+Diego sabe que existen esas empresas, como la sabe cualquier otra empresa.
+
+Yo puedo generar esas expectativas.
+
+Pero son una barrera.
+
+Es decir, coño, este tío controlado, entonces, vamos a tirar de eso.
+
+O sea, esas consultoras, por su alto nivel...
+
+Especialización.
+
+...tecnológico, o no sé cómo llamarlo, especialización en su sector,
+
+son una barrera, incluso en el idioma, el lenguaje que se usa.
+
+Entonces, para un empresario, no ducho en esas áreas, es una barrera.
+
+A ese punto de vista, sí. Yo hago de tránsito perfectamente.
+
+Claro, o sea, no es ninguna tontería, porque él no puede, y tú lo decías, él no puede estar yendo a 20 puertas.
+
+Me puede ni debe.
+
+Me puede ni debe.
+
+Que por lo menos pasa de lo mismo en el tema jurídico.
+
+Cuando a mí me detecto esa necesidad que tienen, que no me la dicen, pero a veces lo normal en el minuto dos,
+
+con el que yo no voy a ser quien le organize.
+
+No vas a hacer el contrato.
+
+Pero sí que es que tengo la esperta con la que he trabajado.
+
+problema en media hora. Eso es, pues esa barrera es la que salgamos. Yo necesito interrobutar
+
+estar con el contigo para que tengamos claro nuestro campo y donde creo que tenemos que
+
+apoyarnos. Sí, yo comparto, además creo, te lo dije, creo en el Uber, es decir, tú
+
+creas una estructura y satélites. Tú eres el core, tú eres el que mueve la pelota,
+
+tú, sin ti, eso no tiene trazabilidad, porque son islas aisladas de difícil acceso y además
+
+que exige dedicar mucho tiempo y contigo eso es fácil.
+
+Sí, algunos que tenemos en nuestra experiencia profesional tenemos muchos contactos y tenemos
+
+muchas donde apoyarnos.
+
+Vale.
+
+Vale, yo sí que tengo una, en esto que has dicho todo, de las ayudas un poco más generales
+
+de competitividad y hacer que las empresas se mejoren, ¿dónde puedo, o sea, esas informaciones
+
+están también en ayudas de gobierno de Navarra, en industria estatal y en industria europea
+
+y en contra de la información?
+
+Sí, y tú las ayudas de gobierno de Navarra, evidentemente, acotale, porque si te saldrán
+
+de agricultura...
+
+Vale, y eso es, ¿y cómo se acotan?
+
+Hay ideas para la industria, va, va, o pimes, hace una consulta de la industria y otra de pimes, va, va.
+
+Porque lo que yo estoy pensando y ahora en el proyecto de Diego...
+
+Y si te vas, y si te vas a decir que te suelta no te aguantas movidas, pimes no agrícolas, o pimes no total, o pimes industriales con...
+
+A lo que te quieras dedicar a...
+
+No, la idea es hacer un buen caso de éxito, que es enjecar y con el conocimiento ya veremos.
+
+Sí, lo que pasa es que todo solo tienes que consultar pero en Cataluña.
+
+Debo ver una barra en Cataluña, a no ser que decidimos implantarla aquí.
+
+¿Quieres hablar más de ayudas?
+
+Si tú y yo antes, ¿estás satisfecho con lo que hemos hablado?
+
+¿Crees que algo nos ha dejado alguna cosa importante?
+
+No, luego hay que ver cada uno de...
+
+El clausulado de cada paquete.
+
+Claro, porque luego...
+
+y conocer las necesidades del propio cliente.
+
+Es decir, en este caso que es el cariño, tú ya las tienes claras.
+
+Y yo creo que también.
+
+Entonces ya podemos ir a buscar esas ayudas muy concretamente.
+
+La decisión va a estar en IngeCar, que va a buscarlo, si en Cataluña las ayudas y la
+
+pata de IngePro, a ver si la hacemos aquí o la hacemos allí, y entonces veremos si la
+
+pudimos ayudar allí o aquí, y no hay otras cosas que no son ayudas per se, pero sí que
+
+¿Fuentes de financiación?
+
+¿Cómo puedes ir en Issa?
+
+¿En Issa entrate a la web?
+
+Entra en Issa a la web.
+
+¿En Issa es lo que me mandaste el otro día, no?
+
+Hace poco no.
+
+Ah, no, Ibernova. Me pasaste a Ibernova.
+
+Eso es una de...
+
+Ya se arruinó.
+
+Ya se arruinó.
+
+Fijaos que tu pide certificar que costa.
+
+Aquí ya ha estado yo, esto no lo ha pasado.
+
+Te lo habría pasado antes, por eso tengo que verlo últimamente, pero antes sí.
+
+Ahí tienes dos patas.
+
+Certificación, es que te certificas como empresa emergente y no se mantiene sé qué,
+
+que eso sí, ya lo haremos y hacemos una nueva y otras en la financiación.
+
+Y aquí puso podría financiarse sin GECAR.
+
+Tanto, y entonces baja un poco, financiación, starrap y pymes, pero estamos en garantías
+
+de 25 a 1,5 mil, y baja un poco, creo que es que hay tres partes con los dos camionales,
+
+es que han cambiado un poco la web, estos, los programas, estas, emprendedores, este
+
+sería el inicial si hacemos la nueva, ah, emprendedora, perdón, me ha dicho de patrón
+
+que estos son mujeres, financiación de esta financiera.
+
+Ve que hay que conocer detalles.
+
+Aja abajo.
+
+esto es entrar en prestar, bueno, todo esto, yo me lo sé de memoria, o sea, las dudas que puedas tener aquí, te las resolvo, las que necesites.
+
+Pasamente eran tres bloques que no lo estoy viendo.
+
+Uno era de nueva creación y otro era de crecimiento. La nueva creación va hasta el tope de 150.000 y la de crecimiento es lo que va hasta el millón y medio.
+
+Pero esto ya veo que ha sacado más líneas como las integridades digitales, como el
+
+ahora el punso, como no sé qué, también les van dando cada vez más pasta, que esto
+
+depende del ministro de Industria.
+
+¿Cuál es la información clave que hay que capturar de estas páginas web?
+
+O sea, de estas propostas de financiación, es decir, ¿qué son los datos clave para
+
+tenerlos en una checklist que necesitamos capturar?
+
+¿Cuáles son los datos clave?
+
+¿Lo clave para la hora de presentarse?
+
+No, para ver qué hay.
+
+Para identificar qué hay.
+
+Para saber qué...
+
+¿Valores?
+
+¿El valor? ¿Los intereses? ¿Las carencias?
+
+Ah, de los préstamos.
+
+Sí.
+
+¿Lo ves rápido, eh?
+
+Sí, pero por documentarlo.
+
+Es decir, si yo te doy algo a ti,
+
+si yo te tengo que entregar a ti un resumen
+
+de lo que hay en el mercado,
+
+¿qué datos tu necesitas visualizar?
+
+Para explicarle a un cliente...
+
+Para que tú sepas decir esta es la mejor.
+
+A ver, si estamos analizando un cliente para yo reconducirla...
+
+Si estamos analizando ofertas de organismos en cuanto a financiación,
+
+¿cuáles son los datos que te hacen a ti comparar a esos organismos?
+
+O esas ofertas de crédito.
+
+Vale, este lo único que se ha compagado es con sodena.
+
+Porque esto no es una ayuda, esto es un préstamo, esto es financiación.
+
+Y sodena, dentro de las patas que tiene de ayuda, es una de ellas también.
+
+La sodena colabora con la economía.
+
+A veces se apoyan para entrar en el mismo proyecto.
+
+porque se siente más cómoda si hay una está y la otra. A veces los financiadores no quieren
+
+estar solos con el emprendedor porque es más riesgo. Si, comparten. El emprendedor normalmente
+
+está con una mano delante y otra detrás y si el emprendedor va, pues hay que echar y está
+
+solo si le toca a ti. Contra el prendedor que no puede echar, entonces cuantos más financiadores hayas,
+
+también las follow-up, que se llama, echas a porcentaje de lo que esté carajo.
+
+Y ya pasamos de tema y pasamos a los dos conceptos de empresa, el que dice Diego y el nuestro.
+
+Vale, por dónde quieres empezar? Por la idea de la empresa de Diego.
+
+vamos a ver que igual es más fácil
+
+bueno digo lo que lo que tiene en mente es hacer una nueva empresa que gestione los servicios
+
+él entiende que el motor de los equipos es la herramienta por la cual se gestiona los servicios
+
+entonces aprovechando que hay que hacer esa herramienta y que esa herramienta es la que
+
+tracciona, contiene, genera y es el motor generador de esas ventas de servicio esos
+
+productos de servicio pues él quiere llevarlo aparte y entonces él ahí es donde está con la
+
+muy abierta, de buscar la mejor manera de hacerla limpia. Pero limpia, es decir, el
+
+lín, creo que en la medida en que quiere que lo traccione yo contigo, es porque
+
+él ha visto que tiene muchos errores de base, que ha ido creando en su vida y lo
+
+que haga lo quiere hacer bien, bien estructurado de inicio. Y entonces es ahí
+
+brutal, a generar algo limpio y que sea escalable a donde tenga que ser, ¿vale?
+
+Entonces, a partir de ahí, ¿cómo hacemos, cómo son los primeros pasos que
+
+tenemos que analizar, cómo tenemos que... ¿qué tienes en la cabeza?
+
+Lo primero que tiene que ser es quién va a estar en esta empresa, qué socio va a
+
+haber, porque depende de los socios que vaya a ver, hay un pacto de socios o no, y una forma
+
+Es decir, quien va a gestionar, va a haber un consejo de administración, va a haber un administrador o varios, y entonces son solidarios o mancomunados...
+
+Te lo digo al revés, tú que tienes la idea más clara, a calzón quitado tú como lo hayas.
+
+Estamos tú y yo, o sea, tú mentalmente cuál sería para ti la estructura o la forma correcta de hacerlo.
+
+Yo puedo poner la estructura, pero tengo que saber qué es lo que quiere el promotor de la idea, es decir, digo que quiere.
+
+¿Quieres ser una empresa única suya de él y nosotros somos asesores y estamos con él?
+
+No, creo que le gustaría tener socios.
+
+¿Quieres tener socios?
+
+Yo creo que sí.
+
+Y ahora yo te pregunto, ¿y tú qué escenario precieres?
+
+Yo necesito saber que se está montando para saber, voy a estar aquí, voy a estar allí.
+
+Él está abierto.
+
+Vale.
+
+Dentro de los socios, unas cosas son socios expertos, como tú y yo, en cosas.
+
+Sí.
+
+Y otras cosas, socios capitalistas que pongan pasta.
+
+No quiere.
+
+Es lo que quiere, es un nucleo duro de confianza.
+
+Bien, ahí podemos ir los dos, pero no quiere porque entendemos todos que no va a necesitar
+
+esta empresa mucho capital.
+
+No, efectivamente.
+
+Porque si se utiliza capital, por mucho que nos guida, hay que buscarlo.
+
+Pero yo creo que no requiere de mucho capital, es una empresa que podría empezar a facturar
+
+en meses.
+
+Vale, ok.
+
+Hacemos la empresa de los tres, ¿qué porcentajes?
+
+¿Qué parte de dueño somos cada uno?
+
+Eso es a negociar, pero conceptualmente en la empresa como sería.
+
+Depende de eso, van a depender los restos de cosas, es decir, los partos de socios, van a depender los poderes que hay en la compañía.
+
+a nosotros que nos interesa ser socios de externos, que él cree la empresa y nosotros
+
+estar de alguna manera en paralelo, o estar dentro.
+
+¿Dentro que te refieres? O sea, a mí, si somos socios, la cubrada no lo vamos a llevar
+
+tuyo. Y él va a estar ahí, aparte, siendo socio, pero nosotros to' la cubrada inicial.
+
+Sí. Pero la facturación también nos la da él.
+
+Sí, sí. Estoy hablando de fases. Sí, sí, sí.
+
+Sí, sí, sí. Sí.
+
+A ver, si vamos con él y hacemos... te la acuerdas,
+
+porque luego nos va a llegar el retorno, porque él va a traer los clientes
+
+o va a traer el enganche con el cliente,
+
+porque él le va a decirme, te duele esto,
+
+y yo te planteo una solución así, tal y cual,
+
+contigo, que tú también comercialmente ahí
+
+claro, claro, sí, sí, yo cuando digo él
+
+yo tengo con él una pata de que yo trabajo para él
+
+y yo gestino esa parte, pero esa parte
+
+a nosotros conceptualmente que nos interesa
+
+generar una sociedad con participación
+
+pero ahí sí que...
+
+o simplemente...
+
+ahí sí que vaya a estar los dos
+
+A ver si me explico. Como estáis cobrando de Ijecarros 2, vais a echar aquí unas horas,
+
+porque estáis tranquilos, aquí estáis cobrando en el otro lado. Llega al retorno cuando te
+
+que llegar, pero estáis cobrando de INGECAR, ahí sí que pueda haber una
+
+duda ética de decir, joder
+
+no estoy cobrando de INGECAR porque estoy de hecho de volver a INGECAR y estoy
+
+metiendo unas horas que corresponde a mi remuneración, aquí estoy por mi cuenta
+
+de mis horas libres entre comillas, aunque estáis utilizando todo el conocimiento
+
+de Ingecar en cuanto al menos clientes, etcétera. Pero en esa casa le vas a llamar Inge. Bueno,
+
+lo coste eso ahora, no es, o sea, le poste. Para entendernos a nivel conceptual, esto es un
+
+concepto. A ver, a mí conceptualmente sí que me encaja en que tú cuando estás lanzando un
+
+proyecto, tienes unos costes. Entonces, en esos costes, como bien dices, hay una currada
+
+y nosotros, como esa currada, de alguna manera, cae sobre el beneficio de UGK futuro, pues
+
+esto realmente no sería día de un coste, sería una sinergia. Y entonces, aquí estaría
+
+la parte del coste puro y duro de la parte tuya de recalzar yo aquí no creo que al principio no
+
+haber claro pero sí que podemos tener una financiación y podemos dar un sueldo
+
+Pregunto. Es difícil. Es mejor que lo financiese yo.
+
+¿Y qué es tu idea? Pues que no voy a cobrar.
+
+A éxito, cuando haya dinero lo cobraré. Porque es que ir a no ser que vayamos por
+
+este tipo de cosas, porque planteemos un proyecto creíble y entonces esta gente entra en financia
+
+pero te va a pedir que al menos creo que el 50% de lo que te van a dar lo pongas como capital
+
+es decir, si tú pides 100.000 libros te van a pedir que haya 50.000, esto es entrar sin garantías
+
+pero quieren que haya priorito y que haya gente que se moja. Yo trae Sodenal que se va a
+
+Ha ayudado a instalar, claro, se ha ayudado a instalar cosas grandes.
+
+Vale, vamos a hacer ese concepto en cuenta por ciento...
+
+Trae a los chinos, no sé quién entra, no sé cuál.
+
+Vale, pero yo creo que esto es explodable.
+
+Yo creo que esto es explodable.
+
+El trasero de los bancos, que los bancos...
+
+Le pidas lo que le pidas, están decididos, garantías a varias.
+
+Vale.
+
+Pero yo creo que esto sí que es explodable.
+
+Pero el esquema sería una situación de socios donde se pide una financiación para poder
+
+generar la estructura y los productos y servicios que esa nueva empresa va a ofrecer y esos
+
+costes de desarrollo, esos productos y servicios y esos costes de desarrollo de productos y
+
+servicios hay que pagarlos y ese desarrollo tiene un nombre y eres tú. Más los auxiliares
+
+que hace falta, pero esos ya no estarían dentro de la participación.
+
+No.
+
+Un esquema así encaja.
+
+Sí, sí.
+
+Oye, por eso de trabajar, pues es decir, tres socios, ¿qué porcentaje cada uno?
+
+Por tanto, ya sabemos quién tiene el control, porque puede decir, digo, me asocié con vosotros,
+
+pero yo tengo el control.
+
+Y además, pone la cifra.
+
+Pues no hay ningún problema, entonces somos unos participantes.
+
+El 51, el 60, o lo que diga.
+
+Ah, yo en el entonces, tú y yo como minoritarios, tenemos que, en el pacto de socios, cubrimos
+
+de ciertas cosas, porque hay puntos de decisión en los que debiríamos olvidar a que uno de
+
+los dos esté a favor, es decir, ampliaciones de capital, venta desde unidades productivas.
+
+Sí, que no pueda decidir el autónoma 90. No todo, no todo. Lo que se llama es no mayorías
+
+cualificadas, es decir. Sí, sí, entendí. Se necesita un, si él tiene imagínate, el
+
+60%, pues se necesita un 75% para estas decisiones, entonces no respetemos en eso. Vale, información
+
+formación de ayudas y financiación pasté tipo de empresas, ¿dónde miro?
+
+Para recar.
+
+Sí, para informarme.
+
+Pues tienes...
+
+Tercedeti, Enisa,
+
+Sodena...
+
+Vale, esto lo hablamos contigo, ¿vale?
+
+Vale.
+
+Nosotros...
+
+Mi idea es, incluso nosotros podríamos entrar aquí como un conjunto y no por separado, ¿vale?
+
+Sí, podemos tener las...
+
+Le llamo CTA y a veremos...
+
+Las acciones las podríamos tener si cada es tuyo.
+
+Eso es.
+
+Pero a B3 tampoco...
+
+Entonces, yo mi idea es hacer una empresa
+
+que aproveche el trabajo que vamos a hacer en los próximos meses para nuevos clientes y ofrecer
+
+esa estructura que tú decías de soportes y servicios a empresas pequeñas de dueño...
+
+Ahora ya vamos a la que a ti te tenía que querías dejar las cosas plazas, ¿vale?
+
+Y yo en esto, de verdad que creo, o sea, yo creo que...
+
+No nos ha de faltar 20 en GK, con encontrar 3 te matas.
+
+Y yo creo que podemos encontrar.
+
+Si llegaras a la profundidad de Edwin con Diego, con tres, cuatro te matas.
+
+Claro, y yo creo de verdad que jodé, que al caicimiento te lo digo de verdad, o sea,
+
+yo veo el lo que hay.
+
+Que sí, yo también, lo que pasa es que estoy tan apaleado, estoy tan apaleado.
+
+Bueno, o sea, con lo hecha de mi energía.
+
+Que sí, que estoy en ello.
+
+Que te animes ahí, que yo sé.
+
+esto y en ello pero que eso vas a traccionarlo tú con esa energía que tienes tú y el buscar ese
+
+yo te voy a acompañar lo que sea porque mi experiencia que tengo desde empezar a empezar
+
+hasta cerrarlas por desgracia o sea es brutal los contactos que tengo los conocimientos es brutal
+
+y entonces te voy a apoyar todo pero necesito rearmarme porque estoy escachado entonces no pasa nada
+
+no pasa nada yo lo que te digo es pero no tengo ni pasta para echar en ningún sitio no necesito
+
+nada yo lo que necesito es no quedarme parado y que me digas cómo voy haciendo los movimientos
+
+adecuados para que el día que sea el momento esté listo yo lo que te digo es yo te voy
+
+montando la estructura trabajando por semana eso para que me entiendas o sea aquí hay un trabajo
+
+primero. Sí, con tu y con Ana. Claro. ¿Puedo ver lo que te entendí? Eso. Hacemos ese trabajo de fondo
+
+hasta el momento que empecemos ya a hacer reuniones con cliente y a ofrecer el servicio porque ya
+
+estamos capacitados. Pero hay un trabajo de fondo. Necesito que me dirijas que lo haré yo con Ana
+
+y tú participas para lo que necesitemos que nos deshacería. Pero mi compromiso es que yo todo lo
+
+que lanzó en esta línea es contigo y el trabajo lo ponemos nosotros y entonces desde esta
+
+perspectiva qué acciones son las que hay que ir moviendo para preparar para preparar ese
+
+escenario de crear esa empresa a ver la creación de esta empresa ya tienes puedes hacer una
+
+sociedad civil, no deba hacer una sociedad, es mejor hacer una sociedad digital, porque
+
+ella tendrá su contabilidad parte y su tal y más cual, lo que otras tienen que tener
+
+un capital inicial mínimo, que se llama mínimo 3.000 euros, tendrá que tener unos estatutos,
+
+tendrá que tener lo mismo un parto de socios de tú y yo, yo tengo, yo hice una sociedad
+
+con mucho varias, con mi socio Daviano, al 50%, y hicimos hasta cómo íbamos a deshacerla,
+
+es decir, no hace falta discutir ni llevarnos mal para tú decir, oye, vamos a irnos a Andalucía,
+
+yo te lo teo, vamos a Andalucía, qué coño me voy a Andalucía, o de qué sí, qué tal,
+
+que cual. Llegó un momento que por decisiones estratégicas podemos discrepar no porque vayamos a
+
+reñir y entonces dice oye mira ese viaje pues no me siento capaz o no me siento no sé lo que sea
+
+no no lo veo y tú que sí que sí pues bueno entonces partimos peras cómo se parten peras
+
+pues llegamos hasta o tú me compras a mí o yo tengo para ti y eso es como se hace a sobrecerrao
+
+ante un notario, se deposita en los obres y yo ofrezco tanto y tú ofreces tanto.
+
+¿Quién se llega a la puesta? ¿Quién pone más?
+
+¿Ya está? ¿Por qué?
+
+Porque tenía más ganas de quedárselo y el otro sería satisfecho porque recibe más de lo que estaba dispuesto a la pagar.
+
+Sí, sí.
+
+No había oído nunca esa manera de...
+
+Por ejemplo, ir y mir.
+
+Eso es, entonces no hace tan ni discutir y llevarse mal, y entonces para mí también cerrar esas cosas cuando te estás llevando bien y estás creando
+
+joder, te tranquiliza, porque no estás en un momento de conflicto, ya sé, por tanto, te olvidas del conflicto y de partir peras y te centras en el medio y de la cuestión,
+
+en sacar el conflicto o el conflicto, no, en sacar adelante la empresa.
+
+SSL para poder ir a hacer presentaciones al cliente, que sea creíble.
+
+Te pregunto.
+
+¿Se puede crear una imagen?
+
+Una cosa es que sí puedes crear una imagen, y decir un logo, y decir un nombre, y decir un tal.
+
+Pero que allá detrás de algo jurídico, eso ya pasó nuestro.
+
+Hasta no empezar a ganar, y hasta las primeras facturaciones podrían ser como autónomos
+
+tuyo.
+
+En aquel momento no sé cómo estás tú, vas a estar autónomo, vas a estar autónomo.
+
+En principio tengo que decir que hago.
+
+Otra cosa.
+
+Si traemos tuyo en esta sociedad, no puedes ser por cuenta 100% porque al ser sucio como
+
+entonces, es una figura entre autónomo y igual cuenta general. Tienes que pagar te tú la Seguridad Social,
+
+cada uno de los que tenemos que pagar nuestra Seguridad Social, figuramos como autónomos, pero tenemos la nómina,
+
+pero una nómina en la que no va la Seguridad Social. Es un poco una cosa amistad, porque es así, no hay otra fórmula,
+
+es decir, os pones a tu mujer o a quien sea, pero si tú estás trabajando y tienes
+
+nómina y eres socio, no puede ser régimen general. Pero también podríamos dar asociación
+
+si tienes ganas de trabajador. Pero si tú eres socio, solo trabajaré ya, y tú y yo
+
+poco cobramos. Vale. ¿Eis un progúter? Solo estás esperando a repartir dividendos.
+
+fórmula, o sea, el accionista, si trabaja, cobrar por su trabajo y la remuneración de,
+
+o sea, otra cosa es que hay que tener claro. Una cosa es el socio, que te viene la condición
+
+de por tener participación de una sociedad y la remuneración de eso solo te va a venir
+
+cuando haya reparto de dividendos. No, pero ya me has dicho que la fluencia es socios trabajadores.
+
+Pero ahora voy más arriba.
+
+Tenemos que tener claro todos los que estamos en una sociedad
+
+que una cosa es la condición de socio y otra la de trabajador.
+
+Porque hay gente que mezcla.
+
+Y entonces tú tu revolución, no.
+
+Ni tú decides más que yo en el día a día
+
+porque tienes tus roles en partidos
+
+ni la propiedad de fideos y los trabajadores. Cuando nos reunimos a temas de propiedad o
+
+consejo o una junta general, temas estratégicos. Somos socios, pero cuando estamos en el día
+
+a día, por nuestro trabajo tenemos un salario y por nuestro error. Mezclar es peligroso en las
+
+estar bien las pymes y a veces la gente no tiene claro. Mi remuneración por el trabajo de ayer
+
+y es un salario, y una razón, y mi regulación como socios o bien que crezca la empresa
+
+y por tanto, el dinero que he puesto aquí, está creciendo seguradamente porque no lo
+
+ves ni hasta que no vendas o hasta que no vaya a entrar por tu primer socio que le digas
+
+mira, para darte un porcentaje de los equines, te voy a pedir 100.000 euros y tu has puesto
+
+¿Por qué? Porque ha habido una revalorización y entonces eso vale otra cosa, o sea, hasta ese momento
+
+el crecimiento del valor ha añadido que esté generando ahí del valor, no lo vas a ver hasta que no
+
+realices o por un reparto de dividendos, es decir, la empresa va generando, se cubren las reservas
+
+legales, las reservas gratuitarias, las reservas de re inversión si queremos, las igualdas de
+
+las que las que nos pongamos de colchones
+
+financiamos el crecimiento, financiamos no sé qué
+
+y oye que hay un incidente que porque cojones vamos a estar aquí
+
+porque nos repartimos, entonces ahí te repartas y vas a ser el porcentaje que tienes
+
+pero son conceptos que si mezclamos vamos mal
+
+hay que tenerlos claros desde el mismo momento
+
+lo que es la condición de socio y lo que es la condición de trabajador
+
+yo Enrique ahí eres el experto y como todos consejes
+
+Pero luego, en el día a día, a veces, si no estás claro...
+
+Pero ya has dicho que dejarlo claro incluso hasta la separación desde el principio.
+
+Sí, porque una cosa es...
+
+A ver, tú que vas a aportar aquí como trabajador, ¿no?
+
+Con su expertise, en las horas que queremos, o lo que sea.
+
+Y activar el porqué porcentaje tengo de socio.
+
+Si la empresa crece bien, crecerá mi valor.
+
+Y si se reparto de bien, recuperaré mi inversión,
+
+pero son cosas distintas
+
+no estamos en la periodidad
+
+estamos aquí
+
+vamos a hablar de estrategia
+
+vamos a juntarnos
+
+yo no sé qué
+
+porque claro
+
+aquí habrá que aprobar
+
+si nos vamos a financiar
+
+aquí habrá que aprobar
+
+si nos vamos a...
+
+cómo remuneramos aquí
+
+aquí habrá que aprobar
+
+si estamos en el consejo
+
+si tenemos remuneraciones consejeros
+
+aquí habrá que aprobar
+
+no sé
+
+los estatutos
+
+claro y luego aquí
+
+vamos a dar poderes para el día a día
+
+Y los tres como solidariamente, que es que cualquiera de los tres puede hacer lo que sea, porque tiene firma, o mancomunadamente, que al menos de los tres, dos, firme.
+
+Bueno, pues eso, en las propias entidades financieras, hay que dejar eso claro porque te van a dejar operar las cuentas en base a lo que tú ya has decidido.
+
+Y si hay que hacer una transferencia, si es solidariamente, la puede hacer cualquiera, pero si es mancomunadamente, lo tienen que hacer los que hayan dicho.
+
+¿Por qué?
+
+Porque imagínate si se lleva alguna pinza y desfalca la empresa y se lleva a la pasta.
+
+Si es solidario lo puede hacer.
+
+Y nada, yo puedo decir nada.
+
+Ya, claro.
+
+Vale.
+
+Entonces ahora, en cuanto a generar imagen, ¿cómo conceptualizarlo?
+
+¿Cuál realizarías tú el ofrecimiento de esta empresa?
+
+Estamos hablando de una cuestión de máxima confianza para el empresario.
+
+Mársimo, ¿por qué?
+
+Va a ir a buscar expertos en los departamentos, como si dijéramos, o patas de su empresa que no tiene.
+
+Entonces, como yo siempre tengo la gorra generalista, os veo en los distritos departamentos y también
+
+la insensibilidad de cada dueño. Y no es la misma un dueño que esté empezando joven
+
+muchas ganas y está buscando crecimiento, financiación de ese crecimiento, buenas
+
+estructuras societarias si es que tiene socios o lo que sea, que uno que esté con una empresa
+
+madura o que es el cuello de botella y no puede crecer o que esté en la fase de retiro o de
+
+busquera de cómo salgo aquí, o sea, es que ahora que ver en cada caso...
+
+Sí, entonces, a contar eso...
+
+Me voy a llamarlo Madurez, Madurez del cliente.
+
+Claro, pero a contar eso...
+
+Puede ser crecimiento,
+
+lo que sea estable,
+
+y puede ser inventa,
+
+inventa barra de clíbe.
+
+Entonces, a contar eso en un slogan, o en una frase...
+
+No lo deslogan, al revés ya veremos luego como paquetamos, es muy difícil hacer una frase, es más fácil describir y luego compactar que al revés.
+
+Si desgranas, luego podés hacer...
+
+Claro, pues te decía yo, en ese desgras, en ese detallado de propuesta, ¿cómo les
+
+picarías tú a alguien eso? ¿Cómo les picarías a alguien cuando estás con una persona,
+
+un amigo tú y le estás contando? ¿Cómo le contarías esa propuesta?
+
+¿A un amigo que no tiene que ver con esto?
+
+Sí.
+
+Hemos creado una consultoria para ayudar a Pymes, para empresarios.
+
+Ahora, al empresario es más complejo.
+
+Ahí tendríamos que ver qué te duele a ti en tu diabilidad,
+
+dónde te ves que tienes un freno que no te deja crecer,
+
+¿Dónde... qué necesitamos tu empresa ahora?
+
+Crecer, la actuación, mejorar rentabilidad y productividad,
+
+estructurar mejor tu financiación, pero claro,
+
+que una empresa que te diga, mira, estoy mal financiado,
+
+y que difícil es, que reconocer.
+
+Yo creo que además tenemos que ir siempre en positivo, no tenemos que buscar lo que estás
+
+haciendo mal.
+
+Ya.
+
+Cómo te ayudamos a mejorar, a crecer, a vender, a… Nuestras fases tienen que ir siempre
+
+en positivo.
+
+Aquí a veces no las compro, eh, pero lo intento.
+
+Mira, propuesta es de la experiencia.
+
+es decir, nosotros lo que lo que lo que voy a intentar crear es un mapa conceptual como
+
+de los exágonos donde en cada exágono hay un caso de experiencia
+
+A ver, clave, clave capital, que es un fondo de inversión que hay varios empresarios.
+
+dentro de ellos está uno que es franquete, entra en Google
+
+como? franquete
+
+si, como se llama este
+
+franquete de clave, un clave
+
+El justo que tiene la flecha, este de aquí.
+
+Este es el que antes era el dueño de taberna, el de medio.
+
+Aquel esfermía armendarice, ese es el ceo, el gerente, como sigamos.
+
+Y estos son los socios principales.
+
+Esto es un fondo de inversión, una gestora, mejor dicho, de fondos de inversión, que
+
+algunos gestionan suyos y otros gestionan de Sodenna o incluso del grupo Montragón.
+
+Es gestora.
+
+¿Por qué digo que este joven son los franquiers?
+
+Porque este bicho hace consultoría a empresarios
+
+y hace una consultoría de altos también
+
+pero tienes por ejemplo a un certec
+
+Sertek
+
+Entra en...
+
+Entra en...
+
+Sertek
+
+Esos, esos
+
+No acabo del cool, no acabo del cool, ahí está, y este se llama Ramón Pérez, el doyó
+
+Este que era?
+
+Ramón?
+
+Pérez
+
+Pérez 10
+
+Su padre tiene una empresa
+
+de instalación de extenderas
+
+de climatización y tal
+
+No sé si el aéreo
+
+falleció o no
+
+y este empezó a comprar
+
+pequeños
+
+y ha hecho
+
+y hasta os has hablado con verdad continuamente por el hijo de Juan Carlos Fragué, el crecimiento, la
+
+decepción, las estructuras, y este del otro, como te he dicho que es Ramón, ¿no? ¿Cómo conocía este?
+
+porque este funk se mueve mucho en la CEN, por ejemplo, la Concegación Empregada en la Barra.
+
+Yo hice un curso de gestión de pymes porque me invitó, me invitó, no quería hacerlo,
+
+este, vamos a dejar en la ecuana, pero esta ha sido la visión con el que ha acabado fatal,
+
+que no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que no dejó de pagar y no nos ha pagado el proyecto de Tailandia, que
+
+reconocer, que tiene sus links. Y aunque lo reconociera, no se lo creía. No tenía confianza en nadie.
+
+Sí, no se lo creía. No confiaba en nadie. Y yo trabajo con él años y mi solución,
+
+yo le hemos propuesto mil cosas, es decir, tú tienes la empresa que estudiar, nadie te la va a tocar,
+
+y es tu niña bonita y no sé qué, pues me acuerdo hasta celebrar a los aniversarios de la creación,
+
+Pero esta empresa que está continuamente haciendo y sacando cosas nuevas en el mercado que están solucionando problemas en el mercado, muchas de ellas se pueden sacar con un producto.
+
+Vamos a hacer entre los tres una comercializadora de lo que tú sacas aquí, tú sigues con tu empresa y más de ello no se quién tanto, y luego los que estás sacando producto lo comercializamos.
+
+joder que fácil lo ves no sé qué esto no te parecerá que es fácil cuando por ejemplo trabajaba con
+
+temas en desnasa estampaciones la solución que las daba es nasa la podrás dar a todas las estampadoras
+
+que fácil lo ves no sé qué si las he hecho tanador habrá posibilidad de dar unos pasos atrás
+
+es standardizar e ir además en esta empresa contratamos a gente algunos tuyos y otros de
+
+fuera que hagan eso retro traer el ad hoc que haces que ha ido a un cliente y lo standardizamos con
+
+estos otros y damos mantenimiento y tal igual pues para nosotros era muy claro nunca dio el paso
+
+porque no se hacía mal. No se fija ni eso sombra, y así no se puede hacer. O sea, nos podemos
+
+encontrar con este tipo de gente. Los diegos, por eso te digo, cuando da el paso, te voy
+
+a contratarte, ya está analizar, ya está en la buena dirección.
+
+Fíjate que acabo de apuntar a que una idea escuchándote brutal, Cabo, si tú empiezas
+
+una relación con una de estas empresarios y ya conoces su empresa y ves cómo trabajan,
+
+¿Es que, incluso, le puedes ayudar a automatizar su empresa con DIO, que no es Barabí?
+
+No, o sea, dentro del, dentro del... o sea, digo nosotros y digo que nos podemos retroalimentar,
+
+porque si somos bases comunicantes, lo que encontremos nosotros en la consultoría está
+
+estratégica que podemos llamarla, puede adolecer de una patada digital, de una patada
+
+a John Navarra por un lado o a Diego por otro, entendiendo que es lo que necesite.
+
+Claro, que es lo que le dije yo a John, yo lo que te pido es que si vienes no me ayudes.
+
+Me dije ayer, pero lo mismo con la automatización, que no había caído.
+
+Igual. Exactamente igual.
+
+Si al final nos manejamos expertos en cosas, en el momento que vemos una debilidad haciendo un pietre,
+
+no tenemos un experto, es decir, de igual que sea el abogado, que sea digo con
+
+automatización, que sea yo con digitalizaciones de la empresa, de la estructura de la empresa,
+
+que sea tu comercialización, que sea yo en lo que me quieras poner, que a veces yo no sé,
+
+ni de donde estoy. Si estoy en financiación o estoy en pido todas estas cosas que podemos atacar
+
+varias cosas. ¿Ves? Porque esto que acabas de decir, para mí es la clave, es decir, yo lo que veo
+
+es que hay eslabones perdidos entre lo que hay, lo que ves en unos sitios y lo que
+
+conocen en otros sitios. Claro, es que esto te acabas de escribir tú ahora, pero para
+
+que se encuentren hace falta que le ganemos mucha confianza.
+
+Vale, yo ahora te cuento otra cosa. Te conté en su día de esta empresa que hace
+
+prospección. Ellos hacían prospección telefónica y eran subcontratados.
+
+Entonces, él ha trabajado pues 15 años, ahora tiene esa empresa.
+
+Entonces, claro.
+
+Ahí tenemos una entrada muy buena.
+
+Él me dice bien, mire aquí, yo en tu proyecto lo que necesites.
+
+Ahí podemos también contar con él para buscar esas necesidades y esos perfiles de cliente.
+
+Me cuesta ver, ¿por qué una cosa es una propuesta de mercado que estás al creciendo?
+
+No pienses así, que nos dé acceso a la persona que le contrataba a él, no pensando en ofrecerle sus
+
+servicios, que su servicio ya está muerto, el que a su servicio ya no lo ofrece. O sea,
+
+su servicio ya lo hace, porque tenía un coste de estructura muy elevado y un margen muy bajo y
+
+te obligaba siempre a tener un nivel crítico de clientes muy elevado, que era difícil de reponer y
+
+cada vez más.
+
+Si hubiera trabajado yo le hacía un chatbot automático
+
+y le está trabajando el bot sin tener el personal.
+
+Quiere decir que esas reuniones las podemos ir teniendo
+
+para ir generando ese mapa.
+
+No veo que nos pueda ayudar a alguien que no hay amadas.
+
+No, no, no pienses así. Piensa en un consultor que tiene entrada al cero
+
+con el que nos podemos sentar hacer una propuesta porque eres una persona de su
+
+conciencia y además que él que él ya trabajó proyectos que él ya ha vendido
+
+proyectos a esas personas la venta más difícil es la primera
+
+y claro entonces vale vale me gusta esto
+
+Vale, oye Enrique, yo creo que le hemos dado una vuelta, ¿se te queda algo en el tintero?
+
+La de un lecóler.
+
+Bueno, bien, pero así, conceptualmente.
+
+Necesito que...
+
+No, tu resumir es pasándolos.
+
+Claro, yo voy a hacerlo todo.
+
+No, resumir de todo, porque yo te diré por eso, me vas a faltar...

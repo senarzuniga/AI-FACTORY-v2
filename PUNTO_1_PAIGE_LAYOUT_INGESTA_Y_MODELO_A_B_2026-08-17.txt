@@ -1,0 +1,158 @@
+PUNTO 1 — RECUPERAR FUENTES, DEFINIR EL MODELO DE ANALISIS Y PREPARAR LA BASE DE COMPARACION A/B
+
+Fecha: 2026-08-17
+Proyecto: AI-FACTORY-v2
+Mision: PAIGE conversion plant — Layout A vs Layout B
+Fase: Step 1 / foundation
+
+====================================================================
+1. OBJETIVO DEL PUNTO 1
+====================================================================
+El objetivo de este punto es preparar la base técnica del proyecto para que la comparacion entre Model A y Model B sea valida, reproducible y no dependa de suposiciones visuales.
+
+Este primer paso se centra en cuatro objetivos esenciales:
+1. Inventariar y clasificar todas las fuentes de informacion del proyecto PAIGE.
+2. Definir el modelo de datos y el contrato de informacion para cada alternativa.
+3. Crear dos escenarios independientes (A y B) para evitar mezclar geometria, rutas y decisiones.
+4. Registrar evidencia, supuestos y criterios de decision para que el analisis sea auditado.
+
+====================================================================
+2. ALCANCE Y PRINCIPIOS
+====================================================================
+- Se trabaja con una regla de evidencia: todo dato debe ser soportado por fuente, benchmark, layout o evidencia documental.
+- No se toma una decision final sobre A vs B al comienzo del proyecto.
+- Se crean dos escenarios separados desde el inicio para preservar integridad tecnica.
+- La geometria real y las mediciones debe validarse en el Layout Workbench antes de emitir una recomendacion final.
+- Si falta una informacion critica, se marca como "pendiente de validacion" y se usa una estimacion tecnica solo como hipo tesis, nunca como hecho.
+
+====================================================================
+3. FUENTES QUE DEBEN CONSULTARSE
+====================================================================
+A nivel de repositorio y proyecto, se consideran fuentes validas:
+- DXF / DWG / CAD de layout PAIGE
+- PDF y planos de ingenieria
+- PNG / JPG de plantas y zonas de produccion
+- historial de proyectos del repositorio
+- benchmark industrial corrugado
+- archivos de Equipment Catalog
+- archivos de simulation hypotheses
+- Factory Graph y Knowledge Graph del repositorio
+- especificaciones del industrial layout workbench
+- documentos de auditoria de IS-BACKOFFICE
+
+En este punto, se asume que los archivos reales pueden no estar aun ingeridos, por lo que se prepara el contrato antes de la validacion geometrica definitiva.
+
+====================================================================
+4. CONTRATO DE INFORMACION PARA MODEL A Y MODEL B
+====================================================================
+Cada alternativa debe mantenerse como escenario independiente con la siguiente estructura:
+- layout_name
+- scenario_type
+- status
+- geometry_status
+- assumptions
+- graph_summary
+- nodes
+- edges
+- objectives
+
+Los nodos deben contener al menos:
+- id
+- kind
+- label
+- layer
+- center
+- bounds
+- confidence
+- properties
+
+Las aristas deben contener:
+- source
+- target
+- relation
+- distance
+- confidence
+- properties
+
+Este punto crea la base para poder transformar los layouts reales o conceptuales en Factory Graphs comparables.
+
+====================================================================
+5. MODELO A — BASE DE TRABAJO
+====================================================================
+Se define un Modelo A base con la siguiente estructura conceptual:
+- 120 WIP cells
+- flujo con intercambio principal entre corrugado y conversion
+- necesidad de giro / orientacion antes de introducir la plancha al WIP
+- transferencia y conveyor asociados al feed de conversion
+- mayor probabilidad de congestion, reorientacion, cola y starvation si el flujo no se gestiona bien
+
+Este modelo queda representado como una base secuencial de flujo, mas compacta, pero menos resiliente frente a variabilidad.
+
+====================================================================
+6. MODELO B — BASE DE TRABAJO
+====================================================================
+Se define un Modelo B base con la siguiente estructura conceptual:
+- 120 WIP cells + 255 WIP cells adicionales
+- flujo mas natural entre corrugadora y WIP 1 / WIP 2
+- capacidad de amortiguacion y mejor control de la secuencia antes de conversion
+- conveyor/transfer en direccion sur para apoyar la alimentacion de conversion
+- salida con transporte y expedicion en el extremo opuesto
+- mayor capacidad de gestion de picos, mezcla y flujo de alta variabilidad
+
+Este modelo queda representado como una alternativa con mas capacidad de suavizado de flujo pero mayor complejidad infraestructural.
+
+====================================================================
+7. BASE DE EVIDENCIA Y SUPUESTOS
+====================================================================
+Se registran los supuestos para ambos modelos:
+- A presenta mayor necesidad de giro y reorientacion
+- B presenta mayor capacidad de amortiguacion y manejo de picos
+- Los equipos productivos son iguales en ambos modelos, por lo que la diferencia principal es el sistema de flujo y WIP
+- La diferencia final no se concluye sin validacion geometrica real
+
+La evidencia se conserva en formato JSON y se relaciona con:
+- mission PAIGE
+- catalogo de maquinaria corrugada
+- benchmark de simulacion industrial
+- COGNITIVE OS industrial layout runtime
+- Factory Graph framework y Workbench
+
+====================================================================
+8. DELIVERABLES DEL PUNTO 1
+====================================================================
+Entregables que se consideran completados en esta fase:
+- inventario de fuentes de proyecto y evidencia
+- modelo base para A
+- modelo base para B
+- registro de supuestos y evidencias
+- grafo inicial para ambos escenarios
+- definicion de formato tecnico de comparacion para la fase siguiente
+
+Archivos generados:
+- knowledge/paige_layout_analysis/paige_layout_model_a_factory_graph.json
+- knowledge/paige_layout_analysis/paige_layout_model_b_factory_graph.json
+- knowledge/paige_layout_analysis/paige_layout_assumptions_and_evidence.json
+- knowledge/paige_layout_analysis/paige_layout_a_vs_b_audit.json
+- PAIGE_LAYOUT_STEP1_FACTORY_GRAPH_SUMMARY_2026-08-17.txt
+
+====================================================================
+9. CRITERIO DE VALIDACION DEL PUNTO 1
+====================================================================
+El punto 1 queda validado si:
+- existe una representacion independiente para A y B
+- no se mezclan nodos ni edges entre modelos
+- se han registrado supuestos y fuentes
+- la comparacion esta preparada para ingesta real del layout
+- la estructura es reutilizable por el Layout Workbench y por futuros analisis de simulacion
+
+====================================================================
+10. SIGUIENTE PASO NATURAL
+====================================================================
+Una vez concluido este punto, la siguiente accion consiste en:
+- ingerir los planos reales de PAIGE A y B en el Layout Workbench
+- validar medidas reales de distancia, superficie, conveyor, WIP, accesos y zones de seguridad
+- construir una comparativa cuantitativa de recorrido, congestions, storage y flow efficiency
+- evaluar y documentar la decision financiera y operativa definitiva
+
+====================================================================
+FIN DEL PUNTO 1

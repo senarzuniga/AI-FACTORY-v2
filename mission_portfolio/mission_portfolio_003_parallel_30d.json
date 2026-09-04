@@ -1,0 +1,209 @@
+{
+  "portfolio_id": "MP-003-AEOS-PARALLEL-30D",
+  "created_at": "2026-07-23T13:00:00Z",
+  "optimization_goal": "maximize_engineering_throughput",
+  "constraints": {
+    "no_idle_capacity": true,
+    "critical_path_priority": true,
+    "parallel_high_value_packages": true,
+    "architecture_quality_protection": true
+  },
+  "missions": [
+    {
+      "id": "NXT-001",
+      "status": "running",
+      "mandatory_dependencies": [],
+      "soft_dependencies": ["legacy_test_contracts"],
+      "independent_work_packages": ["WP-ARCH-01", "WP-DOC-01", "WP-UI-01", "WP-STANDARDS-01"],
+      "work_packages": [
+        {
+          "id": "WP-TEST-01",
+          "name": "Dependency and test collection hardening",
+          "type": "testing",
+          "path_type": "critical",
+          "strategic_alignment": 92,
+          "engineering_value": 95,
+          "knowledge_value": 60,
+          "future_unlock_value": 94,
+          "reuse": 80,
+          "technical_risk": 28,
+          "business_value": 75,
+          "industrial_value": 50,
+          "implementation_cost": 30,
+          "platform_maturity_increase": 85,
+          "global_score": 86.1
+        },
+        {
+          "id": "WP-GOV-01",
+          "name": "Shared governance contract layer",
+          "type": "architecture",
+          "path_type": "critical",
+          "strategic_alignment": 90,
+          "engineering_value": 88,
+          "knowledge_value": 68,
+          "future_unlock_value": 90,
+          "reuse": 83,
+          "technical_risk": 35,
+          "business_value": 72,
+          "industrial_value": 55,
+          "implementation_cost": 40,
+          "platform_maturity_increase": 82,
+          "global_score": 82.7
+        },
+        {
+          "id": "WP-ARCH-01",
+          "name": "Orchestration facade specification",
+          "type": "architecture_deliverable",
+          "path_type": "parallel_low_risk",
+          "global_score": 74.6
+        },
+        {
+          "id": "WP-DOC-01",
+          "name": "Mission execution standards package",
+          "type": "documentation_deliverable",
+          "path_type": "parallel_low_risk",
+          "global_score": 71.9
+        },
+        {
+          "id": "WP-UI-01",
+          "name": "Governance dashboard mockups",
+          "type": "ui_deliverable",
+          "path_type": "parallel_low_risk",
+          "global_score": 68.5
+        },
+        {
+          "id": "WP-STANDARDS-01",
+          "name": "Engineering benchmark and quality rubric",
+          "type": "engineering_model",
+          "path_type": "parallel_low_risk",
+          "global_score": 73.2
+        }
+      ]
+    },
+    {
+      "id": "NXT-002",
+      "status": "running",
+      "mandatory_dependencies": ["NXT-001.WP-TEST-01", "NXT-001.WP-GOV-01"],
+      "soft_dependencies": ["NXT-001.WP-DOC-01"],
+      "independent_work_packages": ["WP-KNOWLEDGE-01", "WP-MODEL-01"],
+      "work_packages": [
+        {
+          "id": "WP-RUNTIME-01",
+          "name": "Mission manager runtime and API MVP",
+          "type": "architecture",
+          "path_type": "critical",
+          "global_score": 84.8
+        },
+        {
+          "id": "WP-KNOWLEDGE-01",
+          "name": "Mission decision record templates",
+          "type": "knowledge_deliverable",
+          "path_type": "parallel",
+          "global_score": 70.8
+        },
+        {
+          "id": "WP-MODEL-01",
+          "name": "Mission graph canonical model v2",
+          "type": "mission_graph_model",
+          "path_type": "parallel",
+          "global_score": 75.4
+        }
+      ]
+    },
+    {
+      "id": "M-001",
+      "status": "parallel_running",
+      "mandatory_dependencies": ["NXT-001.WP-TEST-01"],
+      "soft_dependencies": ["NXT-001.WP-STANDARDS-01"],
+      "independent_work_packages": ["WS1", "WS2", "WS3", "WS4"],
+      "reusable_assets": ["IS-BACKOFFICE knowledge_hub", "GraphStore", "plant_simulator"],
+      "work_packages": [
+        {"id": "WS1", "name": "Industrial Knowledge Graph schema + rules", "type": "knowledge_graph_model", "path_type": "parallel", "global_score": 81.2},
+        {"id": "WS2", "name": "Factory Geometry data contracts", "type": "data_contract", "path_type": "parallel", "global_score": 79.5},
+        {"id": "WS3", "name": "Material Flow canonical model", "type": "industrial_model", "path_type": "parallel", "global_score": 80.1},
+        {"id": "WS4", "name": "Machine graph schema draft", "type": "engineering_model", "path_type": "parallel", "global_score": 77.6}
+      ]
+    },
+    {
+      "id": "M-004",
+      "status": "waiting_partial_parallel",
+      "mandatory_dependencies": ["NXT-002.WP-RUNTIME-01", "M-001.WS1"],
+      "soft_dependencies": ["M-001.WS2"],
+      "independent_work_packages": ["WP-KNOWLEDGE-MODEL-01", "WP-DOC-PIPE-01"],
+      "work_packages": [
+        {"id": "WP-EVIDENCE-PIPE-01", "name": "Evidence ingestion runtime pipeline", "type": "critical_runtime", "path_type": "critical", "global_score": 83.5},
+        {"id": "WP-KNOWLEDGE-MODEL-01", "name": "Provenance object model", "type": "knowledge_deliverable", "path_type": "parallel_low_risk", "global_score": 76.9},
+        {"id": "WP-DOC-PIPE-01", "name": "Evidence-to-truth architecture documentation", "type": "documentation_deliverable", "path_type": "parallel_low_risk", "global_score": 69.4}
+      ]
+    },
+    {
+      "id": "M-009",
+      "status": "parallel_running",
+      "mandatory_dependencies": ["NXT-001.WP-GOV-01"],
+      "soft_dependencies": ["NXT-001.WP-UI-01"],
+      "independent_work_packages": ["WP-CONTROL-01", "WP-METRICS-01"],
+      "work_packages": [
+        {"id": "WP-CONTROL-01", "name": "Quality policy controls", "type": "governance", "path_type": "parallel", "global_score": 78.3},
+        {"id": "WP-METRICS-01", "name": "Governance SLO metrics", "type": "mathematical_model", "path_type": "parallel_low_risk", "global_score": 74.2}
+      ]
+    },
+    {
+      "id": "M-006",
+      "status": "blocked",
+      "mandatory_dependencies": ["M-004.WP-EVIDENCE-PIPE-01"],
+      "soft_dependencies": ["M-009.WP-CONTROL-01"],
+      "blocked_by": ["M-004 runtime incomplete"],
+      "parallel_value_packages": ["WP-COPILOT-UI-01", "WP-CALC-ENGINE-01"],
+      "work_packages": [
+        {"id": "WP-COPILOT-QA-01", "name": "Copilot grounded QA integration", "type": "critical_runtime", "path_type": "blocked", "global_score": 80.4},
+        {"id": "WP-COPILOT-UI-01", "name": "Copilot interface mockups", "type": "ui_deliverable", "path_type": "parallel_low_risk", "global_score": 66.7},
+        {"id": "WP-CALC-ENGINE-01", "name": "Decision scoring calculation engine", "type": "calculation_engine", "path_type": "parallel_low_risk", "global_score": 72.6}
+      ]
+    }
+  ],
+  "paths": {
+    "critical": [
+      "NXT-001.WP-TEST-01",
+      "NXT-001.WP-GOV-01",
+      "NXT-002.WP-RUNTIME-01",
+      "M-004.WP-EVIDENCE-PIPE-01",
+      "M-006.WP-COPILOT-QA-01"
+    ],
+    "parallel": [
+      "NXT-001.WP-ARCH-01",
+      "NXT-001.WP-DOC-01",
+      "NXT-001.WP-UI-01",
+      "M-001.WS1",
+      "M-001.WS2",
+      "M-001.WS3",
+      "M-001.WS4",
+      "M-009.WP-CONTROL-01",
+      "M-009.WP-METRICS-01"
+    ],
+    "optional": [
+      "M-006.WP-COPILOT-UI-01",
+      "M-006.WP-CALC-ENGINE-01"
+    ],
+    "blocked": [
+      "M-006.WP-COPILOT-QA-01"
+    ]
+  },
+  "thirty_day_plan": {
+    "running_missions": ["NXT-001", "NXT-002", "M-001", "M-009"],
+    "parallel_missions": ["M-001", "M-009"],
+    "waiting_missions": ["M-004"],
+    "blocked_missions": ["M-006"],
+    "next_candidate_missions": ["M-004", "M-007", "M-008"],
+    "expected_engineering_return": 79,
+    "expected_platform_maturity": 59,
+    "expected_knowledge_growth": 67,
+    "expected_future_unlocks": ["M-006 runtime start", "M-003 simulation integration", "M-007 bottleneck analyzer"]
+  },
+  "portfolio_selection": {
+    "selected": "parallel_max_throughput",
+    "global_engineering_score": 81.4,
+    "mission_portfolio_score": 80.1,
+    "platform_evolution_score": 82.2,
+    "reason": "Highest throughput under architecture-safe constraints and minimal idle capacity."
+  }
+}

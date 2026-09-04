@@ -1,50 +1,6 @@
 {
   "successful_patterns": [
     {
-      "trigger_type": "code_improvement",
-      "agent_sequence": [
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester",
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester",
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester"
-      ],
-      "duration": 0.353864,
-      "timestamp": "2026-05-04T20:59:22.335926+00:00"
-    },
-    {
-      "trigger_type": "code_improvement",
-      "agent_sequence": [
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester",
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester",
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester"
-      ],
-      "duration": 0.334207,
-      "timestamp": "2026-05-04T20:59:22.868856+00:00"
-    },
-    {
       "trigger_type": "feature_addition",
       "agent_sequence": [
         "code_analyzer",
@@ -4195,18 +4151,56 @@
       ],
       "duration": 0.212765,
       "timestamp": "2026-05-04T21:01:32.853134+00:00"
+    },
+    {
+      "trigger_type": "code_improvement",
+      "agent_sequence": [
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester",
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester",
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester"
+      ],
+      "duration": 0.152039,
+      "timestamp": "2026-07-23T10:08:12.679541+00:00"
+    },
+    {
+      "trigger_type": "code_improvement",
+      "agent_sequence": [
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester",
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester",
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester"
+      ],
+      "duration": 0.146012,
+      "timestamp": "2026-07-23T13:53:43.440921+00:00"
     }
   ],
   "failure_patterns": [],
   "performance_metrics": {
     "code_analyzer": {
       "durations": [
-        0.00112,
-        0.001252,
-        0.001432,
-        0.001338,
-        0.001064,
-        0.001382,
         0.009204,
         0.002357,
         0.001349,
@@ -4300,18 +4294,18 @@
         0.001759,
         0.001207,
         0.001225,
-        0.000977
+        0.000977,
+        0.007899,
+        0.001217,
+        0.002454,
+        0.005252,
+        0.001313,
+        0.001032
       ],
-      "runs": 1203
+      "runs": 1209
     },
     "requirement_analyzer": {
       "durations": [
-        0.000995,
-        0.000497,
-        0.000254,
-        0.000372,
-        0.000414,
-        0.000281,
         0.000364,
         0.000378,
         0.00033,
@@ -4405,18 +4399,18 @@
         0.000334,
         0.000726,
         0.000257,
-        0.000241
+        0.000241,
+        0.000298,
+        0.000372,
+        0.000313,
+        0.000265,
+        0.000281,
+        0.000319
       ],
-      "runs": 1025
+      "runs": 1031
     },
     "code_generator": {
       "durations": [
-        0.000695,
-        0.007025,
-        0.000548,
-        0.000531,
-        0.000685,
-        0.000749,
         0.000514,
         0.020633,
         0.000731,
@@ -4510,18 +4504,18 @@
         0.000714,
         0.000484,
         0.0006,
-        0.000457
+        0.000457,
+        0.000682,
+        0.000514,
+        0.000508,
+        0.000559,
+        0.000489,
+        0.000632
       ],
-      "runs": 1203
+      "runs": 1209
     },
     "reviewer": {
       "durations": [
-        0.000332,
-        0.00033,
-        0.000288,
-        0.000364,
-        0.000331,
-        0.000277,
         0.000326,
         0.000898,
         0.000368,
@@ -4615,18 +4609,18 @@
         0.000299,
         0.007823,
         0.000248,
-        0.00028
+        0.00028,
+        0.000295,
+        0.000254,
+        0.000838,
+        0.000436,
+        0.000364,
+        0.000275
       ],
-      "runs": 1025
+      "runs": 1031
     },
     "tester": {
       "durations": [
-        0.00048,
-        0.000318,
-        0.000505,
-        0.000499,
-        0.000346,
-        0.000598,
         0.000558,
         0.017623,
         0.000574,
@@ -4720,24 +4714,18 @@
         0.000487,
         0.000348,
         0.000525,
-        0.000458
+        0.000458,
+        0.000397,
+        0.000543,
+        0.000671,
+        0.000315,
+        0.00075,
+        0.000474
       ],
-      "runs": 1203
+      "runs": 1209
     }
   },
   "workflow_optimizations": [
-    {
-      "trigger_type": "code_improvement",
-      "optimal_agents": [
-        "code_analyzer",
-        "code_generator",
-        "requirement_analyzer",
-        "reviewer",
-        "tester"
-      ],
-      "expected_duration": 0.664,
-      "confidence": 0.95
-    },
     {
       "trigger_type": "feature_addition",
       "optimal_agents": [
@@ -4749,6 +4737,18 @@
       ],
       "expected_duration": 0.271,
       "confidence": 0.8
+    },
+    {
+      "trigger_type": "code_improvement",
+      "optimal_agents": [
+        "code_analyzer",
+        "code_generator",
+        "requirement_analyzer",
+        "reviewer",
+        "tester"
+      ],
+      "expected_duration": 0.661,
+      "confidence": 0.95
     },
     {
       "trigger_type": "bug_fix",
