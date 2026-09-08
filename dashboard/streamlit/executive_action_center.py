@@ -10,7 +10,8 @@ from datetime import datetime, timedelta
 from email import policy
 from email.parser import BytesParser
 from email.utils import parsedate_to_datetime
-from html import unescape
+from hashlib import sha1
+from html import escape, unescape
 from pathlib import Path
 from typing import Any, Iterable, Optional
 
@@ -50,6 +51,7 @@ EMAIL_ACTION_PATTERNS = [
 
 PRIORITIES_PATH = REPO_ROOT / "data" / "commercial_priorities.json"
 CHAT_LOG_PATH = REPO_ROOT / "data" / "agent_chat_log.json"
+ACTION_STATE_PATH = REPO_ROOT / "data" / "action_center_state.json"
 
 
 def load_priorities() -> dict[str, Any]:
@@ -110,6 +112,225 @@ def _is_closed_topic(subject: str) -> bool:
         if stem and stem[:40] in haystack:
             return True
     return False
+
+
+def load_action_state() -> dict[str, Any]:
+    """Load user-managed action edits, closures and operational notes."""
+    try:
+        with ACTION_STATE_PATH.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+    except (OSError, json.JSONDecodeError):
+        data = {}
+    return {
+        "version": data.get("version", 1),
+        "updated_at": data.get("updated_at", ""),
+        "actions": data.get("actions", {}),
+        "manual_actions": data.get("manual_actions", []),
+        "notes": data.get("notes", []),
+    }
+
+
+def save_action_state(state: dict[str, Any]) -> None:
+    """Persist action-center state to disk."""
+    ACTION_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    state["version"] = 1
+    state["updated_at"] = datetime.now().isoformat(timespec="seconds")
+    with ACTION_STATE_PATH.open("w", encoding="utf-8") as handle:
+        json.dump(state, handle, indent=2, ensure_ascii=False)
+
+
+def _stable_action_id(source: str, title: str) -> str:
+    digest = sha1(f"{source}|{title}".encode("utf-8", errors="ignore")).hexdigest()[:12]
+    return f"MAIL_{digest}"
+
+
+def _parse_action_datetime(value: Any) -> Optional[datetime]:
+    if not value:
+        return None
+    if isinstance(value, datetime):
+        return value
+    if isinstance(value, str):
+        try:
+            return datetime.fromisoformat(value)
+        except ValueError:
+            return None
+    return None
+
+
+def _deadline_urgency_boost(due_date: Optional[datetime]) -> tuple[float, str]:
+    """Return urgency score added by proximity to the action deadline."""
+    if not due_date:
+        return 0.0, "no_deadline"
+    today = datetime.now().date()
+    days = (_to_naive(due_date).date() - today).days
+    if days < 0:
+        return 35.0, "overdue"
+    if days == 0:
+        return 30.0, "due_today"
+    if days == 1:
+        return 24.0, "due_tomorrow"
+    if days <= 3:
+        return 18.0, "due_in_3_days"
+    if days <= 7:
+        return 10.0, "due_this_week"
+    if days <= 14:
+        return 5.0, "due_next_two_weeks"
+    return 0.0, "scheduled"
+
+
+def _priority_from_name(value: str, fallback: str) -> str:
+    candidate = (value or "").upper()
+    names = {priority.name for priority in ActionPriority}
+    return candidate if candidate in names else fallback
+
+
+def _priority_rank(value: str) -> int:
+    try:
+        return ActionPriority[value].value
+    except KeyError:
+        return 0
+
+
+def _default_recommendations(action: dict[str, Any]) -> str:
+    priority = action.get("priority", "LOW")
+    project = action.get("context_data", {}).get("project", "General")
+    due = action.get("due_date")[:10] if action.get("due_date") else "without confirmed deadline"
+    return (
+        f"Review this {priority.lower()} action for {project}. Confirm the real business next step, "
+        f"owner and deadline ({due}). If it no longer requires action, close it to keep the pipeline clean."
+    )
+
+
+def _context_boost_for_action(action: dict[str, Any], chat_messages: list[dict[str, Any]]) -> float:
+    project = action.get("context_data", {}).get("project") or ""
+    if not project:
+        return 0.0
+    recent_project_context = [
+        message
+        for message in chat_messages
+        if message.get("role") == "user"
+        and message.get("project") == project
+        and message.get("intent") in {"context", "priority", "question"}
+    ]
+    return min(10.0, float(len(recent_project_context) * 2))
+
+
+def apply_action_state(report: dict[str, Any]) -> dict[str, Any]:
+    """Apply persisted edits and deadline urgency to generated actions."""
+    state = load_action_state()
+    chat_messages = load_chat_log()
+    active_actions: list[dict[str, Any]] = []
+    closed_actions: list[dict[str, Any]] = []
+
+    for action in report["actions"]:
+        overrides = state["actions"].get(action["id"], {})
+        due_date = _parse_action_datetime(overrides.get("due_date") or action.get("due_date"))
+        deadline_boost, deadline_status = _deadline_urgency_boost(due_date)
+        base_score = float(overrides.get("score", action["score"]))
+        context_boost = _context_boost_for_action(action, chat_messages)
+        action.update(
+            {
+                "title": overrides.get("title", action["title"]),
+                "description": overrides.get("description", action["description"]),
+                "priority": _priority_from_name(overrides.get("priority", ""), action["priority"]),
+                "score": min(100.0, base_score + deadline_boost + context_boost),
+                "base_score": base_score,
+                "deadline_boost": deadline_boost,
+                "context_boost": context_boost,
+                "deadline_status": deadline_status,
+                "due_date": due_date.isoformat(timespec="seconds") if due_date else "",
+                "status": overrides.get("status", action.get("status", "pending")),
+                "owner": overrides.get("owner", action.get("owner", "")),
+                "next_step": overrides.get("next_step", action.get("next_step", "")),
+                "content": overrides.get("content", action.get("content", action["description"])),
+                "editable_context": overrides.get(
+                    "editable_context",
+                    action.get("editable_context", json.dumps(action["context_data"], ensure_ascii=False, indent=2)),
+                ),
+                "recommendations": overrides.get(
+                    "recommendations",
+                    action.get("recommendations", _default_recommendations(action)),
+                ),
+                "management_notes": overrides.get("management_notes", action.get("management_notes", "")),
+            }
+        )
+        if action["status"] in {"closed", "completed", "dismissed"}:
+            closed_actions.append(action)
+        else:
+            active_actions.append(action)
+
+    for manual_action in state["manual_actions"]:
+        due_date = _parse_action_datetime(manual_action.get("due_date"))
+        deadline_boost, deadline_status = _deadline_urgency_boost(due_date)
+        base_score = float(manual_action.get("score", 50))
+        action = {
+            "id": manual_action["id"],
+            "title": manual_action.get("title", "Manual action"),
+            "description": manual_action.get("description", ""),
+            "priority": _priority_from_name(manual_action.get("priority", ""), "MEDIUM"),
+            "role": manual_action.get("role", ActionRole.SALES.value),
+            "category": manual_action.get("category", ActionCategory.PROJECT_MANAGEMENT.value),
+            "score": min(100.0, base_score + deadline_boost),
+            "base_score": base_score,
+            "deadline_boost": deadline_boost,
+            "context_boost": 0.0,
+            "deadline_status": deadline_status,
+            "due_date": due_date.isoformat(timespec="seconds") if due_date else "",
+            "source": manual_action.get("source", "manual_note"),
+            "tags": manual_action.get("tags", ["manual"]),
+            "context_data": manual_action.get("context_data", {}),
+            "status": manual_action.get("status", "pending"),
+            "owner": manual_action.get("owner", ""),
+            "next_step": manual_action.get("next_step", ""),
+            "content": manual_action.get("content", manual_action.get("description", "")),
+            "editable_context": manual_action.get("editable_context", ""),
+            "recommendations": manual_action.get("recommendations", ""),
+            "management_notes": manual_action.get("management_notes", ""),
+        }
+        if action["status"] in {"closed", "completed", "dismissed"}:
+            closed_actions.append(action)
+        else:
+            active_actions.append(action)
+
+    active_actions.sort(key=lambda item: (_priority_rank(item["priority"]), item["score"]), reverse=True)
+    report["actions"] = active_actions
+    report["closed_actions"] = closed_actions
+    report["managed_notes"] = state["notes"]
+    today = datetime.now().date()
+    report["statistics"].update(
+        {
+            "actions": len(active_actions),
+            "closed_actions": len(closed_actions),
+            "overdue": len(
+                [
+                    action
+                    for action in active_actions
+                    if action["due_date"]
+                    and _parse_action_datetime(action["due_date"])
+                    and _parse_action_datetime(action["due_date"]).date() < today
+                ]
+            ),
+            "this_week": len(
+                [
+                    action
+                    for action in active_actions
+                    if action["due_date"]
+                    and _parse_action_datetime(action["due_date"])
+                    and 0 <= (_parse_action_datetime(action["due_date"]).date() - today).days <= 7
+                ]
+            ),
+            "critical": len([action for action in active_actions if action["priority"] == "CRITICAL"]),
+            "high": len([action for action in active_actions if action["priority"] == "HIGH"]),
+            "deadline_risk": len(
+                [
+                    action
+                    for action in active_actions
+                    if action.get("deadline_status") in {"overdue", "due_today", "due_tomorrow", "due_in_3_days"}
+                ]
+            ),
+        }
+    )
+    return report
 
 CATEGORY_HINTS = {
     ActionCategory.OFFER_CREATION: ("proposal", "quote", "cost", "price", "budget", "offer"),
@@ -466,8 +687,9 @@ def build_report(root_value: str, refresh_token: int = 0) -> dict[str, Any]:
                 ActionPriority.HIGH,
             }:
                 priority = ActionPriority.MEDIUM
+            action_id = _stable_action_id(str(item["path"]), title)
             action = Action(
-                id=f"MAIL_{len(actions)+1:04d}",
+                id=action_id,
                 title=title[:120],
                 description=description[:280],
                 category=item["category"],
@@ -485,6 +707,7 @@ def build_report(root_value: str, refresh_token: int = 0) -> dict[str, Any]:
                     "recipients": item["recipients"],
                     "tags": item["tags"],
                     "kind": item["kind"],
+                    "content_preview": (item["body"] or "")[:1200].replace("\n", " ").strip(),
                 },
                 tags=item["tags"],
             )
@@ -554,10 +777,27 @@ def action_to_dict(action: Action) -> dict[str, Any]:
         "role": action.role.value,
         "category": action.category.value,
         "score": action.score,
+        "base_score": action.score,
+        "deadline_boost": 0.0,
+        "context_boost": 0.0,
+        "deadline_status": "no_deadline",
         "due_date": action.due_date.isoformat(timespec="seconds") if action.due_date else "",
         "source": action.source,
         "tags": action.tags,
         "context_data": action.context_data,
+        "status": action.status,
+        "owner": action.assigned_to or "",
+        "next_step": "",
+        "content": action.context_data.get("content_preview", action.description),
+        "editable_context": json.dumps(action.context_data, ensure_ascii=False, indent=2),
+        "recommendations": _default_recommendations(
+            {
+                "priority": action.priority.name,
+                "due_date": action.due_date.isoformat(timespec="seconds") if action.due_date else "",
+                "context_data": action.context_data,
+            }
+        ),
+        "management_notes": "",
     }
 
 
@@ -567,33 +807,225 @@ def _metric_value(label: str, value: Any) -> None:
 
 def _action_card(action: dict[str, Any], index: int) -> None:
     due = action["due_date"] or "No due date"
-    st.markdown(
-        f"""
-        <div style="padding:12px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:14px;margin-bottom:10px;background:rgba(255,255,255,0.03);">
-            <div style="display:flex;justify-content:space-between;gap:12px;">
-                <div style="font-weight:700;">{index}. {action['title']}</div>
-                <div style="font-size:12px;opacity:0.8;">{action['priority']} | score {action['score']:.1f}</div>
-            </div>
-            <div style="margin-top:6px;font-size:13px;opacity:0.92;">{action['description']}</div>
-            <div style="margin-top:8px;font-size:12px;opacity:0.75;">{action['role']} · {action['category']} · Due: {due}</div>
-            <div style="margin-top:4px;font-size:11px;opacity:0.62;">{action['source']}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    deadline_label = action.get("deadline_status", "no_deadline").replace("_", " ")
+    with st.container(border=True):
+        c1, c2, c3 = st.columns([4, 1, 1])
+        with c1:
+            st.markdown(f"**{index}. {escape(action['title'])}**")
+            st.write(action["description"])
+        with c2:
+            st.metric("Score", f"{action['score']:.1f}", delta=f"+{action.get('deadline_boost', 0):.0f} deadline")
+        with c3:
+            st.write(f"**{action['priority']}**")
+            st.caption(f"Due: {due[:10] if due != 'No due date' else due}")
+            st.caption(deadline_label)
+        st.caption(f"{action['role']} · {action['category']} · {action['source']}")
+
+        with st.expander("Open action workspace", expanded=False):
+            _render_action_editor(action)
+
+
+def _render_action_editor(action: dict[str, Any]) -> None:
+    state = load_action_state()
+    action_id = action["id"]
+    existing = state["actions"].get(action_id, {})
+    parsed_due = _parse_action_datetime(action.get("due_date"))
+    default_due = parsed_due.date() if parsed_due else None
+    priority_names = [priority.name for priority in ActionPriority]
+    status_options = ["pending", "in_progress", "waiting", "completed", "closed", "dismissed"]
+
+    with st.form(f"action_editor_{action_id}", border=False):
+        title = st.text_input("Action", value=existing.get("title", action["title"]))
+        description = st.text_area(
+            "Executive summary / description",
+            value=existing.get("description", action["description"]),
+            height=90,
+        )
+        c1, c2, c3, c4 = st.columns(4)
+        with c1:
+            status_value = existing.get("status", action.get("status", "pending"))
+            if status_value not in status_options:
+                status_value = "pending"
+            status = st.selectbox(
+                "Status",
+                status_options,
+                index=status_options.index(status_value),
+            )
+        with c2:
+            priority_value = _priority_from_name(existing.get("priority", ""), action["priority"])
+            priority = st.selectbox(
+                "Priority",
+                priority_names,
+                index=priority_names.index(priority_value),
+            )
+        with c3:
+            score = st.number_input(
+                "Base score",
+                min_value=0.0,
+                max_value=100.0,
+                value=float(existing.get("score", action.get("base_score", action["score"]))),
+                step=1.0,
+            )
+        with c4:
+            due_enabled = st.checkbox("Has deadline", value=default_due is not None)
+            due_date = st.date_input(
+                "Deadline",
+                value=default_due or datetime.now().date(),
+                disabled=not due_enabled,
+            )
+
+        owner = st.text_input("Owner", value=existing.get("owner", action.get("owner", "")))
+        next_step = st.text_input("Next concrete step", value=existing.get("next_step", action.get("next_step", "")))
+        content = st.text_area("Content", value=existing.get("content", action.get("content", "")), height=160)
+        editable_context = st.text_area(
+            "Context",
+            value=existing.get("editable_context", action.get("editable_context", "")),
+            height=140,
+        )
+        recommendations = st.text_area(
+            "Recommendations",
+            value=existing.get("recommendations", action.get("recommendations", "")),
+            height=110,
+        )
+        management_notes = st.text_area(
+            "Management notes",
+            value=existing.get("management_notes", action.get("management_notes", "")),
+            height=90,
+        )
+        save, close = st.columns(2)
+        with save:
+            saved = st.form_submit_button("Save action")
+        with close:
+            closed = st.form_submit_button("Close action")
+
+    if saved or closed:
+        selected_due = datetime(due_date.year, due_date.month, due_date.day) if due_enabled else None
+        state["actions"][action_id] = {
+            "title": title,
+            "description": description,
+            "status": "closed" if closed else status,
+            "priority": priority,
+            "score": float(score),
+            "due_date": selected_due.isoformat(timespec="seconds") if selected_due else "",
+            "owner": owner,
+            "next_step": next_step,
+            "content": content,
+            "editable_context": editable_context,
+            "recommendations": recommendations,
+            "management_notes": management_notes,
+            "updated_at": datetime.now().isoformat(timespec="seconds"),
+        }
+        save_action_state(state)
+        st.success("Action saved.")
+        st.rerun()
 
 
 def _note_card(note: dict[str, Any]) -> None:
-    st.markdown(
-        f"""
-        <div style="padding:10px 12px;border:1px solid rgba(255,255,255,0.06);border-radius:12px;margin-bottom:10px;">
-            <div style="font-weight:600;">{note['title']}</div>
-            <div style="font-size:12px;opacity:0.75;">{note['project']} · {note['date']}</div>
-            <div style="margin-top:6px;font-size:13px;opacity:0.9;">{note['snippet']}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    with st.container(border=True):
+        st.markdown(f"**{escape(note['title'])}**")
+        st.caption(f"{note['project']} · {note['date']}")
+        st.write(note["snippet"])
+
+
+def _render_notes_workspace(notes: list[dict[str, Any]], managed_notes: list[dict[str, Any]]) -> None:
+    st.subheader("Notes and action candidates")
+    st.caption("Create structured notes with enough metadata to convert them into managed actions.")
+
+    state = load_action_state()
+    projects = ["General"] + sorted(ACCOUNT_WEIGHTS)
+    priority_names = [priority.name for priority in ActionPriority]
+
+    with st.form("managed_note_form"):
+        c1, c2, c3 = st.columns([2, 1, 1])
+        with c1:
+            title = st.text_input("Note title")
+        with c2:
+            project = st.selectbox("Linked account / project", projects)
+        with c3:
+            priority = st.selectbox("Candidate priority", priority_names, index=2)
+        related_person = st.text_input("Related person / company")
+        action_candidate = st.text_input("Potential action")
+        note_context = st.text_area("Context", height=110)
+        recommendation = st.text_area("Recommendation / agent interpretation", height=90)
+        c4, c5, c6 = st.columns(3)
+        with c4:
+            owner = st.text_input("Owner", value="Inaki Senar")
+        with c5:
+            has_deadline = st.checkbox("Convert with deadline")
+        with c6:
+            due_date = st.date_input("Deadline", value=datetime.now().date(), disabled=not has_deadline)
+        convert_to_action = st.checkbox("Convert this note into an action", value=False)
+        submitted = st.form_submit_button("Save note")
+
+    if submitted:
+        note_id = f"NOTE_{len(state['notes']) + 1:04d}"
+        selected_due = datetime(due_date.year, due_date.month, due_date.day) if has_deadline else None
+        note = {
+            "id": note_id,
+            "title": title or action_candidate or "Operational note",
+            "project": project,
+            "priority": priority,
+            "related_person": related_person,
+            "action_candidate": action_candidate,
+            "context": note_context,
+            "recommendation": recommendation,
+            "owner": owner,
+            "due_date": selected_due.isoformat(timespec="seconds") if selected_due else "",
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "converted_to_action": convert_to_action,
+        }
+        state["notes"].append(note)
+        if convert_to_action:
+            manual_id = f"MANUAL_{sha1(note_id.encode('utf-8')).hexdigest()[:12]}"
+            state["manual_actions"].append(
+                {
+                    "id": manual_id,
+                    "title": action_candidate or note["title"],
+                    "description": note["title"],
+                    "priority": priority,
+                    "score": 55.0,
+                    "due_date": note["due_date"],
+                    "source": note_id,
+                    "tags": ["manual", project.lower().replace(" ", "_")],
+                    "context_data": {
+                        "project": project,
+                        "related_person": related_person,
+                        "note_id": note_id,
+                    },
+                    "owner": owner,
+                    "next_step": action_candidate,
+                    "content": note_context,
+                    "editable_context": note_context,
+                    "recommendations": recommendation,
+                    "management_notes": "",
+                    "status": "pending",
+                }
+            )
+        save_action_state(state)
+        st.success("Note saved.")
+        st.rerun()
+
+    if managed_notes:
+        st.divider()
+        st.markdown("**Managed notes**")
+        for note in reversed(managed_notes[-20:]):
+            with st.container(border=True):
+                st.markdown(f"**{escape(note.get('title', 'Operational note'))}**")
+                st.caption(
+                    f"{note.get('project', 'General')} · {note.get('priority', '')} · "
+                    f"{note.get('related_person', '')} · {note.get('created_at', '')}"
+                )
+                st.write(note.get("context", ""))
+                if note.get("action_candidate"):
+                    st.info(f"Action candidate: {note['action_candidate']}")
+                if note.get("recommendation"):
+                    st.success(note["recommendation"])
+
+    if notes:
+        st.divider()
+        st.markdown("**Source notes from scanned files**")
+        for note in notes[:20]:
+            _note_card(note)
 
 
 def _build_briefing(actions: list[dict[str, Any]]) -> list[str]:
@@ -614,7 +1046,9 @@ def _download_payload(report: dict[str, Any]) -> str:
         "statistics": report["statistics"],
         "projects": report["projects"],
         "actions": report["actions"][:25],
+        "closed_actions": report.get("closed_actions", [])[:25],
         "notes": report["notes"][:25],
+        "managed_notes": report.get("managed_notes", [])[:25],
     }
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
@@ -759,7 +1193,7 @@ def main() -> None:
     with st.sidebar:
         st.header("Source settings")
         root_input = st.text_input("Context root", value=str(DEFAULT_INGECART_ROOT))
-        refresh = st.button("Refresh analysis", use_container_width=True)
+        refresh = st.button("Refresh analysis", width="stretch")
         st.caption("This panel analyzes .eml, .txt and .md files from the selected root.")
         st.divider()
         st.markdown("**Local focus**")
@@ -767,7 +1201,7 @@ def main() -> None:
         st.write("- Ingecart project documents")
         st.write("- Follow-up and action detection")
 
-    report = build_report(root_input, 1 if refresh else 0)
+    report = apply_action_state(build_report(root_input, 1 if refresh else 0))
 
     if report["errors"]:
         with st.expander("Parsing warnings", expanded=False):
@@ -775,7 +1209,7 @@ def main() -> None:
                 st.write(f"- {error}")
 
     stats = report["statistics"]
-    metrics = st.columns(6)
+    metrics = st.columns(7)
     with metrics[0]:
         _metric_value("🔴 Critical actions", stats.get("critical", 0))
     with metrics[1]:
@@ -787,6 +1221,8 @@ def main() -> None:
     with metrics[4]:
         _metric_value("📅 Tasks vencidas", stats.get("overdue", 0))
     with metrics[5]:
+        _metric_value("⏱️ Deadline risk", stats.get("deadline_risk", 0))
+    with metrics[6]:
         _metric_value("🤖 Recomendaciones IA", stats.get("recommendations", 0))
 
     briefing = _build_briefing(report["actions"])
@@ -813,7 +1249,7 @@ def main() -> None:
             data=_download_payload(report),
             file_name="ai_executive_action_center_summary.json",
             mime="application/json",
-            use_container_width=True,
+            width="stretch",
         )
         st.caption(f"Generated at {report['generated_at']}")
 
@@ -822,6 +1258,7 @@ def main() -> None:
     )
     actions = report["actions"]
     notes = report["notes"]
+    managed_notes = report.get("managed_notes", [])
 
     with tabs[0]:
         _render_chat_tab(report)
@@ -875,8 +1312,7 @@ def main() -> None:
                 _action_card(action, idx)
 
     with tabs[6]:
-        for note in notes[:20]:
-            _note_card(note)
+        _render_notes_workspace(notes, managed_notes)
 
     with tabs[7]:
         p1, p2, p3 = st.columns(3)
@@ -894,6 +1330,9 @@ def main() -> None:
             for key, value in report.get("action_pool_stats", {}).items():
                 if key != "by_role" and key != "by_priority":
                     st.write(f"- {key}: {value}")
+            st.write(f"- editable open actions: {len(actions)}")
+            st.write(f"- closed / completed actions: {len(report.get('closed_actions', []))}")
+            st.write(f"- deadline risk actions: {stats.get('deadline_risk', 0)}")
 
         st.divider()
         st.subheader("Selected action evidence")
@@ -903,6 +1342,13 @@ def main() -> None:
                 st.write(f"Source: {action['source']}")
                 st.write(f"Tags: {', '.join(action['tags'])}")
                 st.write(f"Context: {json.dumps(action['context_data'], ensure_ascii=False, indent=2)}")
+
+        closed_actions = report.get("closed_actions", [])
+        if closed_actions:
+            st.divider()
+            st.subheader("Recently closed actions")
+            for action in closed_actions[-10:]:
+                st.write(f"- {action['title']} · {action.get('status', 'closed')} · score {action['score']:.1f}")
 
 
 if __name__ == "__main__":
