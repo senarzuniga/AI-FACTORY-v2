@@ -1,0 +1,734 @@
+﻿INFORME DE VENTAJAS OBJETIVAS Y CUANTIFICABLES DE PRODUCTOS INGECART
+Aplicación a plantas de cartón corrugado
+Fecha: 26 de agosto de 2026
+Estado: informe técnico-comercial para prefactibilidad; no sustituye oferta, FAT, SAT ni validación financiera
+
+================================================================================
+1. CONCLUSIÓN EJECUTIVA
+================================================================================
+
+La mayor ventaja de Ingecart no procede de una máquina aislada, sino de integrar
+materia prima, corrugadora, WIP, conversión, paletización y expedición como un
+único flujo gobernado por identidad, prioridad, reserva de destino y confirmación
+de cada movimiento.
+
+Las ventajas mejor sustentadas por la documentación analizada son:
+
+1. INGETRANS elimina la dependencia de carretillas en el suministro de bobinas y
+   convierte una logística reactiva en alimentación sincronizada con producción.
+   El modelo interno de alta mezcla estima, como escenario y no como resultado de
+   planta, +12,8% de producción, +8 puntos de OEE, -86% de eventos de starvation,
+   65 h/año menos de parada y +7,2 millones de m/año.
+
+2. AMR + WCS permite dimensionar transporte y WIP por misiones/h, ciclo P95,
+   ocupación y nivel de servicio. El caso de referencia calculado requiere 7 AMR
+   instalados para 30 palets/h, 2 movimientos/palet, 120 m de recorrido, ciclo de
+   192 s y continuidad N-1. El modelo comparativo reduce el área bruta de 758,3 a
+   382,2 m2 (-49,6%), pero solo combinando menor residencia (3 h a 2 h) y mejor
+   utilización espacial (45% a 60%); no debe atribuirse todo el ahorro al robot.
+
+3. Plug & Play reduce una posición por turno en el escenario Calgary y aporta una
+   capacidad publicada de 12.000-14.000 cajas/h, instalación aproximada en 3 h y
+   operación con 380 V y aire comprimido. Con CAPEX orientativo de USD 200.000 y
+   cuatro turnos a 80.000 UM por puesto-año, el payback laboral ilustrativo
+   es 0,69-1,25 años según se materialice el 90%-50% de las horas desplazadas.
+
+4. EasyPack/Ingepack documenta una producción media interna de 2.500-3.000
+   golpes/h y una hipótesis de +35% en cajas de fondo automático, 4/6 puntos y B1,
+   además de dos tareas operativas menos en montaje/flejado. Debe validarse por
+   familia SKU y no sumarse automáticamente al ahorro del paletizador.
+
+5. Heavy Duty Palletizer publica 23 +/-1 ciclos/min en bundle simple y 36 +/-2
+   ciclos/min en doble bundle, con palet de referencia 1.200 x 1.200 mm. Su valor
+   cuantificable es evitar que la salida limite una FFG/RDC, pero la equivalencia
+   a cajas/h depende de cajas/bundle, patrón, capas, interlayers y mix.
+
+6. SR-1400 publica en el dominio oficial de Ingecart un consumo "hasta 93% menor"
+   que otras soluciones, sin identificar baseline ni metodología independiente.
+   La documentación interna estima 250-300 kW de reducción. Para 250 kW,
+   4.032 h/año y energía a 0,08/0,12/0,18 por kWh, el ahorro es
+   80.640/120.960/181.440 por año y el payback energético sobre 500.000 UM sería
+   6,20/4,13/2,76 años, antes de mantenimiento y paradas evitadas.
+
+7. RFID publica hasta 99,5% de precisión de inventario, identificación sin línea
+   de visión, lectura automática, cálculo de remanentes y trazabilidad bobina-lote.
+   El retorno debe calcularse con inventario físico evitado, búsqueda, bobina
+   incorrecta, remanente recuperado, roturas de stock y reclamaciones trazables.
+
+8. Automatic Truck Loading Systems publica una reducción de 30-60 min a 3-8 min
+   por camión: -73% a -95% de ciclo y 3,75x a 20x de capacidad teórica de muelle.
+   El caso de 50 s es un pico dependiente de configuración, no el ciclo de diseño.
+
+La recomendación es vender y evaluar estas soluciones mediante un "benefits
+ledger" común: cada beneficio debe tener baseline, fórmula, propietario, fuente,
+factor de realización y una clave que evite doble conteo entre productos y fases.
+
+================================================================================
+2. POLÍTICA DE EVIDENCIA
+================================================================================
+
+Se utilizan cuatro etiquetas:
+
+[P] Dato publicado: aparece en una página de producto o fuente de fabricante.
+    Es una declaración comercial/técnica publicada, no una aceptación contractual.
+[M] Modelo interno: resultado reproducible de simulación o cálculo del repositorio.
+    Es válido para sus entradas, no es automáticamente transferible a otra planta.
+[H] Hipótesis: estimación de proyecto pendiente de baseline, RFQ, FAT o SAT.
+[C] Cálculo de sensibilidad: aritmética transparente realizada en este informe.
+
+Reglas:
+
+- Una velocidad nominal no equivale a throughput bueno.
+- Un puesto desplazado solo es ahorro si desaparecen horas-tarea o contratación.
+- Seguridad, capacidad y mano de obra se contabilizan por separado.
+- No se suman beneficios de dos productos si eliminan la misma espera o tarea.
+- Los porcentajes de OEE, starvation y espacio son objetivos/modelos hasta que una
+  comparación antes/después en planta los confirme.
+- "N-1" significa que el sistema debe demostrar el SLA con una unidad fuera; no
+  significa disponibilidad garantizada del 100%.
+
+Contraste con fuentes públicas:
+
+- El dominio oficial ingecart.eu solo aporta una métrica de mejora cuantificada
+  claramente accesible: "hasta 93% menos energía" para SR-1400. Es un reclamo del
+  fabricante y no cita equipo comparado, duty cycle ni auditor independiente.
+- La página oficial de INGETRANS confirma eliminación de carretillas e intervención
+  directa en el área, pero no publica porcentaje de OEE, ahorro ni payback.
+- Zebra confirma para RFID lectura sin línea de visión, captura automática,
+  múltiples tags, tracking en tiempo real y monitorización WIP; no confirma el
+  99,5% específico de la ficha del ecosistema Ingecart.
+- OSHA y NIOSH documentan riesgos de trabajo con carretillas. Se usa la reducción
+  de exposición como ventaja objetiva, pero no se monetiza sin historial local.
+- AFCO reportó para 2019 71 empresas onduladoras, 89 fábricas, 3,232 millones de
+  toneladas de papel y EUR 5.370M de facturación en España. Es contexto de escala
+  sectorial, no benchmark de rendimiento de una solución.
+
+================================================================================
+3. MAPA DEL FLUJO INTEGRADO
+================================================================================
+
+Recepción de bobinas
+  -> RFID: identidad, peso, calidad, ubicación y remanente
+  -> INGETRANS: entrega JIT y devolución automática de bobinas
+  -> corrugadora
+  -> SR-1400: evacuación continua del desperdicio
+  -> salida de planchas
+  -> AMR + WCS: WIP direccionable, curado, prioridad y pre-staging
+  -> convertidoras / segunda y tercera operación
+  -> EasyPack/Ingepack: montaje, plegado/encolado y preparación de paquetes
+  -> Plug & Play o Heavy Duty Palletizer: formación automática de carga
+  -> AMR: retirada, almacenamiento y expedición
+  -> ATLS: carga automática del camión
+
+La integración reduce cinco pérdidas sistémicas:
+
+- STARVATION: material o bobina no llega a tiempo.
+- BLOCKING: la máquina no puede descargar.
+- REHANDLING: una carga se mueve más veces de las necesarias.
+- BÚSQUEDA/DECISIÓN: el operario localiza, interpreta y prioriza manualmente.
+- VARIABILIDAD: el resultado depende del turno, operador o congestión puntual.
+
+================================================================================
+4. DESGLOSE POR PRODUCTO
+================================================================================
+
+4.1 RFID REEL MANAGEMENT SYSTEM
+--------------------------------
+
+Función:
+Identificar y localizar bobinas desde recepción hasta consumo y retorno, registrar
+movimientos automáticamente y actualizar peso, diámetro o metros remanentes.
+
+Ventajas objetivas:
+
+- [P] Precisión publicada en la ficha del ecosistema: hasta 99,5%, dependiente
+  del proceso; no se encontró confirmación de esa cifra en ingecart.eu.
+- [P] No requiere línea de visión y admite lectura automática/múltiple; esta
+  capacidad sí queda contrastada por la referencia técnica pública de Zebra.
+- [P] Identificación automática en mill roll stand.
+- [P] Alerta si el remanente no cubre el lote planificado.
+- [P] Trazabilidad proveedor-lote-bobina-producto terminado.
+- [P] Soporta FIFO/FEFO y reduce selección de bobina incorrecta.
+- Reduce movimientos de búsqueda y escaneo en zonas con carretillas.
+
+Cómo cuantificar:
+
+Beneficio anual RFID =
+  horas de inventario evitadas x coste/h
+  + horas de búsqueda evitadas x coste/h
+  + eventos de bobina incorrecta evitados x coste/evento
+  + papel remanente recuperado x coste/kg o coste/m
+  + roturas de stock evitadas x contribución/h
+  + reclamaciones cuya causa se identifica/contiene x coste evitado
+  - OPEX anual RFID.
+
+KPIs de aceptación:
+inventory accuracy, read rate por portal, lecturas falsas, bobinas sin ubicación,
+tiempo de búsqueda, wrong-reel events, discrepancia del remanente, tiempo de
+inventario, genealogía completa por lote.
+
+Límite:
+El 99,5% es "hasta" y no debe contractualizarse sin prueba con metal, humedad,
+orientación, apilado, densidad de tags, interferencias y procesos reales.
+
+4.2 INGETRANS
+-------------
+
+Función:
+Transportar, entregar y devolver bobinas mediante carro sobre raíles y tracks,
+sin carretillas dentro del área crítica de corrugadora.
+
+La página oficial de Ingecart [P] confirma automatización completa de movimiento,
+entrega y retorno y eliminación del tráfico de carretillas/intervención directa
+en el área. No cuantifica el resultado. La ficha del ecosistema publica [P]:
+
+- Carro: 80 m/min; tracks: 59 m/min.
+- Aceleración/deceleración: 4,5 s.
+- Pickup y drop-off: 6 s cada uno.
+- Bobina: diámetro máximo 1.500 mm, longitud hasta 1.800 mm y peso <3.500 kg.
+- Hasta 10 tracks típicos para 5 roll stands x 2.
+- Manipulación simultánea de hasta dos bobinas.
+- CAPEX orientativo publicado: USD 1,32M.
+- Payback comercial publicado: <18 meses, dependiente de planta.
+
+Ventajas objetivas:
+
+- Elimina tráfico de carretilla en el punto de consumo.
+- Prepara la siguiente bobina por programa, no por reacción del operador.
+- Devuelve bobinas parciales y preserva identidad/remanente.
+- Reduce espera, búsqueda, congestión y riesgo de bobina incorrecta.
+- Hace repetible el cambio de pedido y permite medir request-to-delivery.
+- Integra producción/MES con la ejecución física.
+
+Modelo interno de alta mezcla [M]:
+
+- Planta: 1 corrugadora, 5 roll stands, 10 tracks, 220 m/min, 2 turnos/día,
+  330 días/año, 8,8 bobinas/h y cambios cada 5-12 min.
+- Producción anual: 56,4M m con carretilla frente a 63,6M m con INGETRANS
+  (+7,2M m; +12,8%).
+- OEE: 80% frente a 88% (+8 puntos).
+- Entrega media: 128 s frente a 54 s (-57,8%).
+- Respuesta media: 46 s frente a 17 s (-63,0%).
+- Starvation: 1.260 frente a 170 eventos/año (-86,5%).
+- Downtime de corrugadora: 86 frente a 21 h/año (-75,6%; 65 h).
+- Producción perdida: 980.000 frente a 230.000 m (-76,5%).
+- Ahorro operativo modelado: EUR 368.000/año.
+
+Estas cifras son un escenario digital, no un caso medido en cliente.
+
+Escenario ROI [C]:
+
+Supuesto Calgary: 1 puesto/turno, 4 turnos, 80.000 por puesto-año. Para que la
+sensibilidad sea aritméticamente comparable, CAPEX y coste laboral se normalizan
+a la misma unidad monetaria (UM); no se está realizando una conversión CAD/USD.
+
+Realización de horas       50%         75%         90%
+Beneficio laboral/año      160.000     240.000     288.000
+Payback solo laboral       8,25 años   5,50 años   4,58 años
+
+Normalizando el CAPEX publicado a 1,32M UM, un retorno en 18 meses necesita
+880.000 UM/año. Después del beneficio laboral anterior faltan
+720.000/640.000/592.000 UM al año, que deben
+demostrarse con output adicional, downtime, daño, carretilla y seguridad. Esta
+prueba de coherencia no invalida el payback publicado; identifica qué evidencia
+de planta hace falta para sostenerlo.
+
+KPIs:
+request-to-delivery P50/P95, roll-stand starvation, wrong-reel events, OEE,
+disponibilidad, misiones/h, cambio con siguiente bobina preparada, intervención
+manual, tiempo degradado y near misses.
+
+4.3 SR-1400 WASTE LOGISTICS
+---------------------------
+
+Función:
+Recoger y evacuar de forma unificada el desperdicio de corrugadora y conversión.
+
+Ventajas:
+
+- [P] Reclamo oficial Ingecart: hasta 93% menos consumo que otras soluciones.
+  No se publica baseline, equipo comparado, duty cycle ni verificación externa.
+- [H] Reducción de potencia instalada/operativa indicada: 250-300 kW.
+- Menos trituradores, ventiladores, tuberías, filtros y puntos de mantenimiento.
+- Menos microparadas por acumulación o bloqueo de desperdicio.
+- Menos polvo, fugas, intervención manual y exposición a riesgo de incendio.
+- Arquitectura centralizada y preparada para modernización brownfield.
+
+Corrección crítica:
+La nota original calcula 250 kW x 0,83 USD/kWh = 207 USD/h y después
+USD 836.640/año. Con 16 h/día, 21 días/mes y 12 meses, el resultado correcto es
+aprox. USD 836.640/año solo si el precio fuese 0,83 USD/kWh; a 0,083 USD/kWh son
+USD 83.664/año. La cifra original mezcla moneda y usa un precio diez veces mayor
+que 0,083, por lo que no debe reutilizarse sin tarifa contractual.
+
+Sensibilidad energética [C], 250 kW y 4.032 h/año. Tarifa y CAPEX deben expresarse
+en la misma moneda; la tabla usa unidades monetarias (UM), no una conversión FX:
+
+Precio energía UM/kWh Ahorro anual UM  Payback sobre 500.000 UM
+0,08                  80.640           6,20 años
+0,12                  120.960          4,13 años
+0,18                  181.440          2,76 años
+
+La reducción de 300 kW elevaría estos ahorros un 20%. El caso completo debe sumar
+mantenimiento, consumibles, limpieza, incendios/paradas evitadas y restar OPEX.
+
+KPIs:
+kWh/t de desperdicio, kW medio y pico, horas de bloqueo, microparadas, horas de
+mantenimiento, filtros/consumibles, fugas de polvo, temperatura/incidentes,
+disponibilidad y coste total por tonelada evacuada.
+
+4.4 AMR PARA INTRALOGÍSTICA AUXILIAR
+------------------------------------
+
+Función:
+Mover residuos, cores, interlayers, clichés, troqueles, consumibles, vacíos y
+material auxiliar sin consumir transporte crítico de producción.
+
+Ventajas:
+
+- Reduce caminatas, viajes de carretilla y tareas no productivas.
+- Separa misiones auxiliares de la alimentación urgente.
+- Permite cambiar rutas y prioridades por software.
+- Añade trazabilidad a movimientos que hoy suelen ser informales.
+- Escala por unidades y estaciones, sin conveyor continuo en toda la planta.
+- Reduce exposición de personas en recorridos repetitivos.
+
+Capacidades AMR de referencia KUKA [P]:
+
+- Plataformas publicadas desde 250 kg hasta 25 t, según modelo.
+- Movimiento diferencial u omnidireccional.
+- SLAM y/o QR, detección de obstáculos y navegación dinámica.
+- Integración por API con WMS/ERP/MES/PLC.
+- VDA 5050 para flotas heterogéneas.
+
+Cómo cuantificar:
+
+horas de viaje evitadas + alquiler/propiedad de carretilla evitado + incidentes y
+daño evitado + output recuperado por servicio puntual - software, mantenimiento,
+batería, cargadores y soporte.
+
+El número de AMR se calcula con matriz origen-destino, misiones/h P95, ciclo,
+manipulación, congestión, disponibilidad, carga y redundancia; nunca por una regla
+genérica de "un robot por máquina".
+
+4.5 AMR PARA GESTIÓN DE WIP
+---------------------------
+
+Función:
+Evacuar corrugadora, ubicar WIP, temporizar curado, alimentar convertidoras JIT y
+devolver sobrantes/retrabajo mediante WCS y estaciones de tridente.
+
+Modelo de dimensionamiento [M]:
+
+WIP medio = tasa de producción x residencia.
+WIP seguridad = z x tasa x raíz(variabilidad de lead time y demanda).
+Posiciones = techo(WIP pico / ocupación objetivo).
+Ciclo = (distancia ida/vuelta / velocidad efectiva + manipulación) x congestión.
+Flota = techo(demanda pico / capacidad efectiva por AMR) + redundancia.
+
+Caso de referencia:
+
+- 30 palets/h; 2 h de residencia; 2 misiones/palet.
+- WIP medio 60; seguridad 11,035; pico 71,035; 84 posiciones al 85%.
+- 120 m, 1,2 m/s, 60 s de manipulación y congestión 1,20.
+- Ciclo 192 s; capacidad efectiva aproximada 12,1 misiones/h por AMR.
+- 6 AMR operativos + 1 reserva.
+
+Sensibilidad por distancia, con el resto constante:
+
+60/90/120/150/180 m -> 132/162/192/222/252 s y 6/7/7/8/9 AMR instalados.
+
+Ventajas cuantificables:
+
+- [H] Densidad/espacio: +30% conservador en Calgary; 35%-45% en el concepto de
+  bloque compacto; validar con pasillos, evacuación, giro, accesibilidad y safety.
+- [M] Caso combinado de menor residencia y mejor ocupación: -32,7% de WIP pico,
+  -49,6% de área bruta y 376,1 m2 liberables.
+- [H] Altura de palet: +25% únicamente si carga, estabilidad y normativa lo admiten.
+- Menor daño al evitar empuje horizontal y rehandling.
+- Redundancia distribuida: un fallo no tiene por qué detener todo el flujo.
+- Pre-staging basado en el próximo cambio y prioridad/due date.
+
+Escenario ROI Calgary [H/C]:
+
+CAPEX AMR WIP: USD 0,95-1,10M. Hipótesis de 9 puestos equivalentes a 80.000/año,
+pendiente de reconciliar con transfer y paletización.
+
+Escenario     CAPEX       Realización laboral    Calidad/daño    Beneficio/año   Payback
+Bajo          1,10M       50% = 360.000          0               360.000         3,06 años
+Base          1,025M      75% = 540.000          100.000         640.000         1,60 años
+Alto          0,95M       90% = 648.000          300.000         948.000         1,00 años
+
+Los importes de calidad son hipótesis Calgary; no incluyen capacidad/OEE y no
+pueden sumarse si las mismas tareas ya se asignaron a otra fase.
+
+KPIs:
+misión P50/P95, éxito sin intervención, utilización (<80%-85% como criterio de
+preingeniería), carga, WIP age, inventory accuracy, tiempo de búsqueda, remociones,
+starvation/blocking, hojas dañadas/palet, N-1 y throughput degradado.
+
+4.6 EASYPACK / INGEPACK
+-----------------------
+
+Función:
+Automatizar la salida de folder gluer, montaje/encolado y preparación/flejado de
+paquetes antes de paletizar.
+
+Datos internos [H]:
+
+- Producción media: 2.500-3.000 golpes/h incluyendo MTO, cambio y mantenimiento.
+- Aumento mínimo propuesto: +35% en fondo automático, 4/6 puntos y caja B1.
+- Dos tareas operativas menos en montaje y flejado.
+- En PAIGE se plantea una mejora de 2x-3x frente a un patrón manual habitual.
+
+No hay base suficiente para tratar simultáneamente +35% y 2x-3x como resultados
+comparables. El primero es una hipótesis por familia; el segundo es una referencia
+amplia de automatización frente a proceso manual.
+
+Valor:
+
+- Desbloquea la folder gluer y estabiliza su descarga.
+- Reduce variación entre turnos y manipulación repetitiva.
+- Prepara paquetes consistentes para el paletizador.
+- Puede recuperar producción sin aumentar la velocidad mecánica upstream.
+
+ROI:
+Beneficio = horas-tarea realizables + minutos de bloqueo evitados x producción
+buena/min x margen - OPEX. El CAPEX específico de EasyPack/Ingepack no está
+confirmado en las fuentes; no se publica payback numérico.
+
+4.7 PLUG & PLAY PALLETIZER
+--------------------------
+
+Datos publicados [P]:
+
+- 12.000-14.000 cajas/h objetivo.
+- Puesta en marcha aproximada: 3 h después del posicionamiento.
+- Servicios: 380 V + aire comprimido.
+- Inserción automática de interlayer, top y base.
+- Equipo trasladable por carretilla y sin obra civil/fundación extensa.
+- ROI publicado: 1,5-2 años, dependiente de planta.
+
+Datos de proyecto [H]:
+
+- 12 bundles/min estables con interlayers.
+- Palet hasta 1.200 x 1.200 x 2.300 mm.
+- Bundle 250 x 250 a 700 x 900 mm.
+- Footprint nominal 3 x 3 m.
+- Una posición por turno y línea; 4 turnos = 4 puestos equivalentes/año.
+- CAPEX orientativo usado en Calgary: USD 200.000.
+
+Escenario laboral [C]:
+
+Para esta sensibilidad, CAPEX y coste laboral se tratan en una misma UM; la fuente
+mezcla CAD y USD y una decisión real debe aplicar el tipo de cambio aprobado.
+
+Realización              50%         75%         90%
+Beneficio anual          160.000     240.000     288.000
+Payback sobre 200.000    1,25 años   0,83 años   0,69 años
+
+No incluye output recuperado, daño, energía ni OPEX. El ahorro solo es de caja si
+las horas se eliminan, evitan contratación o se reasignan con valor verificable.
+
+KPIs:
+bundles/min por SKU, pallet cycle P50/P95, disponibilidad, minutos de línea
+bloqueada, first-pass pallet acceptance, cambio de receta, intervenciones/palet,
+daño/rework y tiempo pallet-completo a pickup.
+
+4.8 HEAVY DUTY PALLETIZER + SQUARING
+------------------------------------
+
+Datos publicados [P]:
+
+- Palet de referencia: 1.200 x 1.200 mm.
+- Patrón de referencia: 4 bundles/capa de 485 x 635 x 125 mm.
+- Bundle simple: 23 +/-1 ciclos/min.
+- Bundle doble: 36 +/-2 ciclos/min.
+
+Capacidad teórica de colocación:
+
+- Simple: aprox. 22-24 bundles/min.
+- Doble, si cada ciclo manipula dos bundles: aprox. 68-76 bundles/min.
+
+La página también menciona líneas "por encima de 400 bundles/min". Esa cifra no
+es coherente con las tasas de un único robot y probablemente usa otra unidad
+(p. ej., cajas/min), varias salidas o una arquitectura multi-robot. Debe corregirse
+antes de incorporarla a una oferta.
+
+Ventajas:
+
+- Sigue líneas de alta velocidad sin convertir la salida en restricción.
+- Escuadra la carga y reduce corrección manual, inestabilidad y daño downstream.
+- Permite doble bundle y diseños a medida para múltiples salidas.
+- Protege throughput durante ventanas largas de alta utilización.
+
+ROI:
+No hay CAPEX confirmado. Debe valorarse por blocked minutes evitados:
+
+cajas recuperadas = minutos bloqueados evitados x cajas buenas/min.
+contribución anual = cajas recuperadas x margen por caja.
+
+Dimensionar con demanda P95, no con la suma de máximos nominales.
+
+4.9 AUTOMATIC TRUCK LOADING SYSTEMS (ATLS)
+------------------------------------------
+
+Datos publicados [P]:
+
+- Manual: 30-60 min/camión.
+- ATLS típico: 3-8 min/camión.
+- Pico demostrado: alrededor de 50 s, dependiente del escenario.
+
+Mejora calculada [C]:
+
+- Reducción de ciclo típica: 73,3%-95,0%.
+- Multiplicación teórica de capacidad de muelle: 3,75x-20x.
+- Ejemplo con 20 camiones/día y 250 días/año: 1.833-4.750 h/año de
+  capacidad de muelle liberada. No equivale automáticamente a horas de nómina.
+- Frente a 20 min, un ciclo de 50 s reduce 95,8% y multiplica 24x, pero debe
+  reservarse como pico y no como compromiso de diseño.
+
+Ventajas:
+
+- Menos colas, espera del transportista y variación de hora de salida.
+- Mayor capacidad de expedición sin añadir puertas en el escenario adecuado.
+- Menos maniobras de carretilla y exposición de personas dentro del camión/muelle.
+- Ciclo repetible y trazable para planificación de transporte.
+
+ROI:
+
+beneficio = horas de muelle y transportista evitadas x coste/h
+          + turnos/puertas evitados
+          + daño e incidentes evitados
+          + penalizaciones de expedición evitadas
+          - OPEX.
+
+Faltan CAPEX, compatibilidad de remolques, interfaz de suelo y frecuencia real para
+publicar un payback defendible.
+
+4.10 TRANSFER CAR, TRIDENTES Y WCS
+----------------------------------
+
+Aunque actúan como infraestructura de integración, son parte crítica del valor:
+
+- Transfer de referencia [H]: 3.000-5.000 kg, 1,5-2,5 m/s, rodillos
+  0,3-0,5 m/s, precisión +/-2 a +/-5 mm.
+- El tridente normaliza pickup/drop y evita empuje horizontal.
+- El WCS reserva destino antes de liberar, aplica prioridad, evita mezcla de
+  orden/SKU/lote y registra timestamps y excepciones.
+- KUKA.AMR Fleet publica API, VDA 5050 e integración WMS/ERP/MES/PLC.
+
+Sin handshake, identidad, modo degradado y confirmación física, la automatización
+solo acelera movimientos; con ellos, convierte el flujo en un sistema controlado.
+
+================================================================================
+5. VENTAJA DE INTEGRAR TODAS LAS TECNOLOGÍAS
+================================================================================
+
+La integración genera beneficios que no aparecen al comprar equipos aislados:
+
+1. CAPACIDAD ÚTIL EN VEZ DE CAPACIDAD NOMINAL
+   El output de la planta queda limitado por el mínimo de corrugadora, conversión,
+   bundling, paletizado, transporte, buffer y expedición. Ingecart actúa sobre las
+   interfaces que convierten velocidad nominal en producción vendible.
+
+2. DESACOPLAMIENTO CONTROLADO
+   WIP y pre-staging absorben la variabilidad entre procesos sin acumular a ciegas.
+   El objetivo es el menor buffer que mantiene el SLA, no el máximo inventario.
+
+3. UNA IDENTIDAD DE EXTREMO A EXTREMO
+   RFID identifica la bobina; MES/WMS conserva orden y lote; WCS conserva ubicación
+   y misión; paletización y ATLS cierran la genealogía hasta expedición.
+
+4. MENOS DECISIONES LOCALES Y REHANDLING
+   El material se mueve con destino reservado y prioridad conocida. Se reducen
+   búsquedas, llamadas, movimientos exploratorios y correcciones.
+
+5. SEGURIDAD POR REDUCCIÓN DE EXPOSICIÓN
+   Menos carretillas cerca de corrugadora, menos paletizado manual, menos entrada
+   al remolque y menos manipulación de residuos. OSHA identifica atropello,
+   caída de carga y salida de muelle/remolque como riesgos de powered industrial
+   trucks; automatizar reduce exposición, pero no sustituye risk assessment.
+
+6. RESILIENCIA Y ESCALABILIDAD
+   Una flota distribuida puede reasignar misiones; WCS puede bloquear zonas y
+   rerutar; VDA 5050 reduce dependencia de una única marca. N-1 y modo degradado
+   deben demostrarse con simulación y SAT.
+
+7. DATOS PARA MEJORA CONTINUA
+   Cada ciclo genera P50/P95, causa de parada, utilización, reintentos, ubicación,
+   edad de WIP y calidad. Esto permite atacar la pérdida real y no la percepción.
+
+Benchmark interno PAIGE [H/M]:
+
+- Modelo A: OEE útil estimado 82%-86%; Modelo B: 86%-90%.
+- Throughput utilizable: 88%-94% frente a 93%-98%.
+- Diferencial normal: +6%-12% de output utilizable.
+- En demanda +20%, pérdida alcanzable de A 8%-15% frente a B 3%-7%.
+- Alta mezcla: caída de OEE de A 4-8 puntos frente a B 1-3 puntos.
+
+Estas cifras son un scorecard de decisión con confianza media, no rendimiento
+garantizado de Ingecart. La lección transferible es que el layout y la orquestación
+pueden valer más que una diferencia de velocidad nominal.
+
+================================================================================
+6. MODELO DE ROI RECOMENDADO
+================================================================================
+
+Beneficio anual neto =
+  horas-tarea únicas realizables x coste cargado x factor de realización
+  + output bueno recuperado x margen de contribución
+  + desperdicio, rework y daño evitados
+  + downtime evitado x contribución/h
+  + energía evitada
+  + coste de flota/equipo evitado
+  - mantenimiento, software, soporte, energía y consumibles incrementales.
+
+Payback simple = CAPEX instalado / beneficio anual neto.
+
+ROI del periodo = 100 x (beneficio acumulado - CAPEX) / CAPEX.
+
+VAN = suma de flujos netos descontados - CAPEX.
+
+Escenarios:
+
+- Bajo: beneficio P25, coste P75 y ramp-up conservador.
+- Base: beneficio mediano validado y coste aprobado.
+- Alto: beneficio P75, coste P25; se etiqueta "upside", no compromiso.
+
+Clave anti-doble-conteo:
+producto/fase + role_id + shift_id + task_id + loss_event_id + effective_date.
+
+Ejemplo de conflicto:
+si Plug & Play elimina la retirada manual del palet y AMR elimina su transporte,
+son dos tareas distintas; si ambos business cases reclaman al mismo operador
+completo, existe doble conteo. Se valoran horas-tarea, no personas nominales.
+
+================================================================================
+7. PLAN DE VALIDACIÓN ANTES DE PROMETER RESULTADOS
+================================================================================
+
+G0 - BASELINE, 4-8 semanas:
+producción buena, secuencia, WIP age, blocked/starved minutes, misiones, personal,
+daño, energía, mantenimiento, incidentes y tarifas/costes aprobados.
+
+G1 - CONCEPTO:
+layout as-built, matriz origen-destino, cargas/CoG, interfaces, control narrative,
+risk assessment, RF survey, capacidad y business case sin duplicados.
+
+G2 - SIMULACIÓN:
+demanda P50/P95, congestión, carga, N-1, fallo de estación, modo degradado, picos,
+high mix, cambio de turno y recuperación.
+
+G3 - FAT:
+matriz SKU, throughput sostenido, cambios, interlocks, identificación, rechazo,
+fallos, recuperación, API y trazabilidad.
+
+G4 - SAT/RAMP-UP:
+comparación antes/después en una ventana representativa; aceptación por percentil,
+no por la mejor demostración.
+
+KPIs comunes:
+
+- OEE por causa y throughput bueno por SKU.
+- Blocked/starved minutes por hora.
+- Request-to-delivery y clearance P50/P95/P99.
+- WIP medio, pico, edad, precisión y remociones.
+- Disponibilidad automática, MTTR y throughput N-1.
+- Intervenciones manuales por 100 cargas.
+- Daño/hojas por palet y first-pass acceptance.
+- kWh por 1.000 m2, tonelada o unidad relevante.
+- Near misses, E-stops, incursiones y recuperación segura.
+- Beneficio realizado frente al benefits ledger.
+
+================================================================================
+8. FUENTES ANALIZADAS Y TRAZABILIDAD
+================================================================================
+
+Fuentes internas/locales:
+
+[S1] TABLAS DE RETORNO PRODUCTOS INGECART.txt, 26-08-2026.
+[S2] PAIGE_INGECART_MODEL_B_MASTER_REPORT_2026-08-18.md.
+[S3] CALGARY_THREE_PHASE_AUTOMATION_MASTER_REPORT_2026-08-17.md.
+[S4] CALGARY_PHASE_1_2_3_INGECART_REPORT_2026-08-18.md.
+[S5] CALGARY_PHASE_2_PALLETIZING_REPORT_2026-08-17.md.
+[S6] CALGARY_PHASE_3_INGETRANS_AMR_REPORT_2026-08-17.md.
+[S7] PCG_MIDDLETOWN_CONVERTING_AUDIT_2026-08-17.html.
+[S8] DIGITAL_TWIN_SIMULATION_REPORT_SHORT_RUNS_2026-08-19.txt.
+[S9] knowledge/calgary_automation_analysis/
+     calgary_three_phase_assumptions_and_evidence.json.
+[S10] knowledge/calgary_automation_analysis/
+      calgary_three_phase_business_case.json.
+[S11] knowledge/paige_layout_analysis/
+      paige_layout_assumptions_and_evidence.json.
+[S12] knowledge/paige_layout_analysis/paige_layout_board_scorecard.json.
+[S13] knowledge/corrugated_equipment/
+      simulation_hypotheses_corrugated_v1.json.
+[S14] KUKA_AMR_WIP_CORRUGATED_TECHNICAL_REPORT.html, 10-08-2026.
+
+Páginas de producto consultadas el 26-08-2026:
+
+[W1] https://ingesitehub.netlify.app/solutions/ingetrans.html
+[W2] https://ingesitehub.netlify.app/solutions/sr1400.html
+[W3] https://ingesitehub.netlify.app/solutions/rfid-reel-management-system.html
+[W4] https://ingesitehub.netlify.app/solutions/plug-play-palletizer.html
+[W5] https://ingesitehub.netlify.app/solutions/heavy-duty-palletizer.html
+[W6] https://ingesitehub.netlify.app/solutions/automatic-truck-loading.html
+[W7] https://www.kuka.com/en-de/products/amr-autonomous-mobile-robotics/
+     topload-transport-robots
+[W8] https://www.kuka.com/en-de/products/amr-autonomous-mobile-robotics/
+     amr-fleet-management-software
+[W9] https://www.vda.de/en/topics/automotive-industry/vda-5050
+[W10] https://www.osha.gov/powered-industrial-trucks
+[W11] https://www.ingecart.eu/sistemaretal1400
+[W12] https://www.ingecart.eu/post/
+      sistema-de-tratamiento-de-desperdicios-sr-1400
+[W13] https://www.ingecart.eu/ingetrans280
+[W14] https://www.ingecart.eu/ingetransroller
+[W15] https://www.cdc.gov/niosh/publications/numbered/2001-109.html
+[W16] https://www.zebra.com/us/en/resource-library/faq/what-is-rfid.html
+[W17] https://afco.es/publicaciones/
+      espana-se-consolida-como-la-tercera-potencia-europea-en-fabricacion-de-carton/
+
+Notas de calidad de las fuentes:
+
+- W1-W6 son páginas comerciales vinculadas al ecosistema Ingecart; sirven para
+  identificar especificaciones publicadas, pero no pertenecen al dominio
+  corporativo ingecart.eu y requieren oferta firmada y FAT.
+- W11-W14 pertenecen al dominio oficial de Ingecart. W11-W12 publican el reclamo
+  energético de hasta 93% para SR-1400, sin metodología ni auditor identificados.
+- W13 confirma cualitativamente eliminación de carretillas/intervención directa;
+  W14 publica componentes del Ingetrans Roller, pero ninguna publica ROI numérico.
+- W15-W16 respaldan peligros de carretillas y capacidades RFID, respectivamente;
+  no aportan porcentajes de ahorro transferibles a una planta concreta.
+- W17 contiene datos sectoriales AFCO de 2019 y solo se usa como contexto.
+- S8 y S13 son modelos/hipótesis, no resultados auditados de una planta.
+- S2 y S12 tienen confianza media y usan benchmarks internos que deben validarse.
+- S3, S5, S6, S9 y S10 aplican una política prudente: no publicar ROI confirmado
+  sin CAPEX, OPEX, baseline y horas-tarea reconciliadas.
+
+================================================================================
+9. DICTAMEN FINAL
+================================================================================
+
+Los productos Ingecart presentan un caso industrial sólido cuando se venden como
+una arquitectura de flujo y no como una suma de máquinas:
+
+- RFID reduce incertidumbre de material.
+- INGETRANS protege continuidad de bobinas.
+- SR-1400 protege continuidad frente al desperdicio.
+- AMR/WCS protege el flujo entre procesos y convierte WIP en capacidad controlada.
+- EasyPack/Plug & Play/Heavy Duty protegen la salida de conversión.
+- ATLS protege el último ciclo hasta expedición.
+
+Los retornos más rápidos aparecen donde existe trabajo manual repetitivo y
+claramente eliminable (Plug & Play/AMR). Los retornos más estratégicos aparecen
+donde se recupera producción de una máquina de alto valor (INGETRANS, WIP y
+paletización). SR-1400 debe justificarse con energía y mantenimiento reales. RFID
+y ATLS necesitan un baseline económico específico para evitar beneficios
+genéricos.
+
+La propuesta defendible no es "garantizar un porcentaje universal", sino demostrar
+en cada planta cuánto output bueno se pierde hoy por bloqueo, starvation, búsqueda,
+daño, energía y variabilidad; dimensionar la solución con percentiles y modo
+degradado; y contractualizar el resultado mediante FAT/SAT y KPIs trazables.
