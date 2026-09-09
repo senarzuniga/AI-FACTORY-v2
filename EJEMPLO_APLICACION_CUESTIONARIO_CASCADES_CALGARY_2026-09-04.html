@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ejemplo practico de aplicacion del cuestionario INGECART para Cascades Calgary con datos de fases 1-2-3 y baseline de flujo." />
+  <title>INGECART | Ejemplo aplicacion cuestionario - Cascades Calgary</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(8,8,8,.94), rgba(8,8,8,.68)), url('https://images.unsplash.com/photo-1581093588401-22d1f25710aa?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .brand-mark { display: inline-flex; align-items: center; gap: 12px; margin: 8px 0 12px; color: #f2f7ff; letter-spacing: .18em; text-transform: uppercase; font-size: 14px; font-weight: 800; }
+    .brand-mark img { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 2px solid #fff; }
+    .qtable { overflow: auto; margin: 16px 0; border: 1px solid var(--line); background: var(--surface); }
+    .qtable table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    .qtable th, .qtable td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; font-size: 13px; }
+    .qtable th { background: var(--black); color: #fff; font: 800 11px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; letter-spacing: .05em; }
+    .mono { white-space: pre-wrap; font: 13px/1.5 "Cascadia Mono", Consolas, monospace; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--orange); padding: 14px; }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">Cascades Calgary · Ejemplo practico · Aplicacion de cuestionario</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Aplicacion del cuestionario base a Cascades Calgary</h1>
+        <p>Documento de prueba con la informacion disponible de fases 1, 2 y 3 para mostrar el formato de discovery y preparacion de propuesta/cotizacion.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-09-04</span><span>ES / EN</span><span>Version ejemplo</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">Cascades Calgary · Practical example · Questionnaire application</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Applying the baseline questionnaire to Cascades Calgary</h1>
+        <p>Sample document based on available Phase 1-2-3 information to show discovery format for concept proposal and preliminary quotation.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-09-04</span><span>ES / EN</span><span>Sample version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#resumen">01 · Resumen</a>
+          <a href="#flujo">02 · Flujo base</a>
+          <a href="#q14">03 · Respuestas 1-14</a>
+          <a href="#adjuntos">04 · Adjuntos y cierre</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#resumen">01 · Summary</a>
+          <a href="#flujo">02 · Baseline flow</a>
+          <a href="#q14">03 · Answers 1-14</a>
+          <a href="#adjuntos">04 · Attachments and closure</a>
+        </div>
+      </nav>
+    </aside>
+    <main>
+      <section id="resumen">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>Calgary: caso claro de cuellos en salida RDC y valor de automatizar el flujo completo.</h2>
+          <div class="decision"><strong>Conclusion de ejemplo</strong>La evidencia disponible en Calgary permite una aplicacion mas madura del cuestionario: hay cuello identificado, arquitectura de solucion por fases y rangos economicos/operativos. Aun asi, el ROI final exige reconciliacion estricta de ahorros por turno y por tarea.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>Calgary: clear case of RDC outfeed bottlenecks and value of full-flow automation.</h2>
+          <div class="decision"><strong>Sample conclusion</strong>Available Calgary evidence supports a more mature questionnaire application: bottleneck is identified, phased solution architecture exists, and operational/financial ranges are defined. Final ROI still requires strict per-shift/per-task savings reconciliation.</div>
+        </div>
+      </section>
+
+      <section id="flujo">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Flujo base Calgary (AS-IS operacional)</div>
+          <h2>Interfaz critica: salidas RDC -> transfer manual -> FG/2da pasada/expedicion.</h2>
+          <div class="mono">flowchart LR
+A[WIP entrada] --> B[Transfer alimentacion]
+B --> C[McKinley RDC]
+B --> D[Koppers RDC]
+B --> E[Ward RDC]
+C --> F[Salida manual]
+D --> F
+E --> F
+F --> G[Transfer manual sur-norte]
+G --> H[FG miniline]
+G --> I[Two-Piece Folder Gluer]
+G --> J[Expedicion]
+H --> K[Paletizado / Plug&Play]
+I --> K
+K --> J</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Calgary baseline flow (AS-IS)</div>
+          <h2>Critical interface: RDC outfeeds -> manual transfer -> FG/2nd pass/shipping.</h2>
+          <div class="mono">flowchart LR
+A[Inbound WIP] --> B[Feed transfer]
+B --> C[McKinley RDC]
+B --> D[Koppers RDC]
+B --> E[Ward RDC]
+C --> F[Manual outfeed]
+D --> F
+E --> F
+F --> G[Manual south-north transfer]
+G --> H[FG miniline]
+G --> I[Two-Piece Folder Gluer]
+G --> J[Shipping]
+H --> K[Palletizing / Plug&Play]
+I --> K
+K --> J</div>
+        </div>
+      </section>
+
+      <section id="q14">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Aplicacion del cuestionario (Cascades Calgary)</div>
+          <h2>Respuestas de ejemplo a las 14 preguntas.</h2>
+          <div class="qtable"><table><thead><tr><th>#</th><th>Pregunta</th><th>Respuesta de ejemplo (Calgary)</th><th>Confianza</th><th>Pendiente validar</th></tr></thead><tbody>
+            <tr><td>1</td><td>Objetivo principal</td><td>Eliminar bloqueo de salida en 3 RDC, elevar velocidad sostenida y continuidad hacia segunda pasada/FG/expedicion; mejorar OEE y trazabilidad de flujo.</td><td>Alta</td><td>Objetivos KPI finales firmados por cliente.</td></tr>
+            <tr><td>2</td><td>Areas incluidas</td><td>WIP, alimentacion y salida de RDC, transfer, tridentes, AMR WIP, paletizado Plug&Play, salida final y expedicion.</td><td>Alta</td><td>Limite exacto por fase contractual.</td></tr>
+            <tr><td>3</td><td>Flujo actual</td><td>Tres RDC comparten evacuacion con transfer manual; decisiones de routing en operacion causan waits, rehandling y starvation downstream.</td><td>Alta</td><td>Mapa temporal detallado por turno.</td></tr>
+            <tr><td>4</td><td>Lista de equipos</td><td>McKinley 66x130, Koppers 49, Ward, FG miniline, Two-Piece Folder Gluer; propuesta incluye transfer car automatico, conveyors coordinados, tridentes, AMR e Ingepack/Plug&Play.</td><td>Alta</td><td>Ficha tecnica final por equipo instalado.</td></tr>
+            <tr><td>5</td><td>Cuellos de botella</td><td>Interfaz de evacuacion de RDC, falta de reserva destino, dependencia de empuje manual, congestion en salida y alimentacion irregular de segunda pasada/FG.</td><td>Alta</td><td>Pareto de causas por severidad.</td></tr>
+            <tr><td>6</td><td>KPIs disponibles</td><td>Benchmark/repositorio: OEE +3 a +6 pp, starvation -60% a -87%, productividad util +5% a +12%, produccion adicional +4.2M m/año.</td><td>Alta</td><td>Serie historica oficial del cliente.</td></tr>
+            <tr><td>7</td><td>Turnos y tareas manuales</td><td>Indicadores de ahorro laboral por fases: Fase 1 (hasta 4 puestos equivalentes), Fase 2/3 (hasta 10 en paletizado y 9 en movimiento WIP, segun configuracion).</td><td>Media</td><td>Reconciliacion por turno/tarea para evitar doble conteo.</td></tr>
+            <tr><td>8</td><td>Mantenimiento</td><td>Necesidad de pasar de mantenimiento reactivo a preventivo en transferencias, sensores, interlocks y puntos de handoff; reduccion esperada de MTO en conveyors no productivos.</td><td>Media</td><td>MTBF/MTTR reales y plan de repuestos.</td></tr>
+            <tr><td>9</td><td>Trazabilidad</td><td>Objetivo funcional: carga con identidad, destino reservado y capacidad confirmada antes de mover; integracion WCS/PLC y eventos trazables.</td><td>Alta</td><td>Alcance final ERP/APS/MES/WMS/Fleet.</td></tr>
+            <tr><td>10</td><td>Restricciones layout/seguridad</td><td>Interlocks obligatorios: carga valida, destino disponible, transfer alineado, envolvente libre, scanner y freno OK; diseno debe incluir modo degradado seguro.</td><td>Alta</td><td>Ingenieria de detalle FAT/SAT completa.</td></tr>
+            <tr><td>11</td><td>Datos economicos base</td><td>Referencia de paquetes Fase 1: €1,765,782 subtotal; ahorros laborales brutos reportados CAD 320k/año + CAD 800k/año (sin contar capacidad extra).</td><td>Alta</td><td>Capex/opex final y costos indirectos (ramp-up, soporte).</td></tr>
+            <tr><td>12</td><td>Expectativa retorno</td><td>Objetivo comercial: payback <=2 anos; rango orientativo 12-24 meses segun alcance e integracion.</td><td>Media-Alta</td><td>Modelo financiero final con supuestos auditables.</td></tr>
+            <tr><td>13</td><td>Prioridad cliente</td><td>Transformacion por fases ya definida: F1 salida/transfer, F2 paletizado, F3 orquestacion Ingetrans+AMR+WIP.</td><td>Alta</td><td>Secuencia definitiva de implementacion.</td></tr>
+            <tr><td>14</td><td>Plazo deseado</td><td>Estimacion de referencia hasta operacion: 11-12 meses para Fase 1; roadmap total segun ventanas y complejidad multi-fase.</td><td>Media-Alta</td><td>Master schedule aprobado.</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Questionnaire application (Cascades Calgary)</div>
+          <h2>Sample answers to all 14 questions.</h2>
+          <div class="qtable"><table><thead><tr><th>#</th><th>Question</th><th>Sample answer (Calgary)</th><th>Confidence</th><th>Validation gap</th></tr></thead><tbody>
+            <tr><td>1</td><td>Main objective</td><td>Remove outfeed blockage across 3 RDCs, increase sustainable speed and continuity to 2nd pass/FG/shipping; improve OEE and full-flow traceability.</td><td>High</td><td>Final KPI targets signed by client.</td></tr>
+            <tr><td>2</td><td>Areas in scope</td><td>WIP, RDC feed/outfeed, transfer, tridents, AMR WIP, Plug&Play palletizing, final outflow and shipping.</td><td>High</td><td>Exact contractual phase boundaries.</td></tr>
+            <tr><td>3</td><td>Current flow</td><td>Three RDCs share a manual evacuation point; routing decisions during operation create waits, rehandling and downstream starvation.</td><td>High</td><td>Detailed time-based shift map.</td></tr>
+            <tr><td>4</td><td>Equipment list</td><td>McKinley 66x130, Koppers 49, Ward, FG miniline, Two-Piece Folder Gluer; proposal includes automated transfer car, coordinated conveyors, tridents, AMR and Ingepack/Plug&Play.</td><td>High</td><td>Final machine-level technical sheets.</td></tr>
+            <tr><td>5</td><td>Main bottlenecks</td><td>RDC evacuation interface, no destination reservation, manual-push dependency, outfeed congestion, irregular supply to 2nd pass/FG.</td><td>High</td><td>Root-cause Pareto by severity.</td></tr>
+            <tr><td>6</td><td>Available KPIs</td><td>Repo benchmark: OEE +3 to +6 pp, starvation -60% to -87%, usable productivity +5% to +12%, extra production +4.2M m/year.</td><td>High</td><td>Official customer historical series.</td></tr>
+            <tr><td>7</td><td>Shifts and manual tasks</td><td>Labor indicators by phase: Phase 1 (up to 4 equivalent positions), Phase 2/3 (up to 10 in palletizing and 9 in WIP movement, depending on final setup).</td><td>Medium</td><td>Per-shift/per-task reconciliation to avoid double counting.</td></tr>
+            <tr><td>8</td><td>Maintenance incidents</td><td>Need to move from reactive to preventive maintenance for transfers, sensors, interlocks and handoff points; expected MTO reduction on non-productive conveyors.</td><td>Medium</td><td>Real MTBF/MTTR and spare strategy.</td></tr>
+            <tr><td>9</td><td>Traceability level</td><td>Target state: no load moves without ID, reserved destination and confirmed capacity; WCS/PLC integration and traceable event chain.</td><td>High</td><td>Final ERP/APS/MES/WMS/Fleet scope.</td></tr>
+            <tr><td>10</td><td>Layout/safety constraints</td><td>Mandatory interlocks: valid load, free destination, aligned transfer, free safety envelope, scanner and brake OK; design must include safe degraded mode.</td><td>High</td><td>Full FAT/SAT detail engineering.</td></tr>
+            <tr><td>11</td><td>Baseline economics</td><td>Phase 1 package reference: €1,765,782 subtotal; reported gross labor savings CAD 320k/year + CAD 800k/year (excluding extra capacity value).</td><td>High</td><td>Final capex/opex and indirect costs (ramp-up, support).</td></tr>
+            <tr><td>12</td><td>Return expectation</td><td>Commercial target: payback <=2 years; indicative 12-24 months depending on final scope and integration depth.</td><td>Medium-High</td><td>Final auditable financial model.</td></tr>
+            <tr><td>13</td><td>Client priority</td><td>Phased transformation already framed: P1 outfeed/transfer, P2 palletizing, P3 Ingetrans+AMR+WIP orchestration.</td><td>High</td><td>Final deployment sequence.</td></tr>
+            <tr><td>14</td><td>Desired timeline</td><td>Reference estimate to operation: 11-12 months for Phase 1; full roadmap depends on shutdown windows and multi-phase complexity.</td><td>Medium-High</td><td>Approved master schedule.</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="adjuntos">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Adjuntos recomendados y cierre de propuesta</div>
+          <h2>Checklist de cierre</h2>
+          <ul class="checklist">
+            <li>Layout 2D/3D (DWG, DXF, PDF): parcial, requiere version de ingenieria final.</li>
+            <li>Historico KPI por turno (>=4 semanas): parcial, recomendado consolidar para SAT financiero.</li>
+            <li>Lista de equipos y fichas tecnicas: avanzada, con puntos U/C por cerrar.</li>
+            <li>Fotos/video de zonas de bloqueo y WIP: recomendado para validar baseline visual y entrenamiento.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Recommended attachments and proposal closure</div>
+          <h2>Closure checklist</h2>
+          <ul class="checklist">
+            <li>2D/3D layout (DWG, DXF, PDF): partial, final engineering version required.</li>
+            <li>Shift KPI history (>=4 weeks): partial, should be consolidated for financial SAT.</li>
+            <li>Machine list and technical datasheets: advanced, with remaining U/C gaps.</li>
+            <li>Bottleneck and WIP photos/video: recommended for visual baseline and training.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

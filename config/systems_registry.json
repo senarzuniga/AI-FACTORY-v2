@@ -1,0 +1,13 @@
+{
+  "systems": [
+    {
+      "system_name": "Ingetrans",
+      "system_type": "Rail-guided transfer carriage",
+      "version": "1.0.0",
+      "validation_status": "validated",
+      "approval_status": "approved",
+      "last_updated": "2026-09-09T10:45:20.570914",
+      "config_file": "config/ingetrans_parameters.json"
+    }
+  ]
+}

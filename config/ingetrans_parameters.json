@@ -1,0 +1,93 @@
+{
+  "system_name": "Ingetrans",
+  "system_description": "Rail-guided transfer carriage system with dedicated fixed reel tracks",
+  "version": "1.0.0",
+  "last_updated": "2026-09-01T10:58:05.543+02:00",
+  "validation_status": "validated",
+  "parameters": {
+    "system_type": {
+      "description": "Surface rail-guided transfer carriage with dedicated fixed reel tracks",
+      "status": "active"
+    },
+    "transfer_speed": {
+      "parameter": "Transfer speed",
+      "proposal_basis": "Reference nominal value",
+      "unit": "m/min",
+      "min_value": 80,
+      "max_value": 100,
+      "notes": "Final value subject to approved layout and safety zones",
+      "status": "active"
+    },
+    "track_speed": {
+      "parameter": "Track speed",
+      "proposal_basis": "Reference nominal value",
+      "unit": "m/min",
+      "min_value": 12,
+      "max_value": 19,
+      "notes": "Rail movement speed",
+      "status": "active"
+    },
+    "acceleration_deceleration": {
+      "parameter": "Acceleration/deceleration",
+      "proposal_basis": "Reference ramp",
+      "value": 1.5,
+      "unit": "seconds",
+      "notes": "Time to accelerate or decelerate to nominal speed",
+      "status": "active"
+    },
+    "pickup_dropoff": {
+      "parameter": "Pickup/drop-off",
+      "proposal_basis": "Reference transfer action",
+      "value": 6,
+      "unit": "seconds per interface",
+      "notes": "Time required for each pickup or dropoff operation",
+      "status": "active"
+    },
+    "reel_envelope": {
+      "parameter": "Reel envelope",
+      "proposal_basis": "Maximum specifications",
+      "diameter": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width_length": {
+        "value": 2800,
+        "unit": "mm"
+      },
+      "weight": {
+        "value": 3500,
+        "unit": "kg"
+      },
+      "notes": "Subject to final approved reel matrix",
+      "status": "active"
+    },
+    "controls": {
+      "parameter": "Controls",
+      "system_architecture": "Industrial PLC/HMI architecture",
+      "communication": "PROFINET/industrial communications",
+      "interface_signals": "Defined during engineering phase",
+      "status": "active"
+    },
+    "safety": {
+      "parameter": "Safety",
+      "components": [
+        "Safety PLC functions",
+        "Area scanners",
+        "Interlocks",
+        "Emergency stops",
+        "Protected access"
+      ],
+      "standard": "According to final risk assessment",
+      "compliance": "ISO 13849-1 / EN 61800-5-2 (subject to verification)",
+      "status": "active"
+    }
+  },
+  "metadata": {
+    "source": "Engineering specification",
+    "validation_status": "approved",
+    "approval_status": "approved",
+    "revision": "1",
+    "created_date": "2026-09-01T10:58:05.543+02:00",
+    "approved_by": "Engineering Department"
+  }
+}

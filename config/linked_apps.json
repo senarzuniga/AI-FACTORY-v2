@@ -2,11 +2,19 @@
   "apps": [
     {
       "name": "adaptive-sales-engine",
-      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target adaptive-sales-engine"
+      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target adaptive-sales-engine",
+      "menu_visible": true
     },
     {
       "name": "collaborative-hub-api",
-      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target collaborative-hub-api"
+      "deploy_command": "powershell -ExecutionPolicy Bypass -File scripts/deploy_linked_apps.ps1 -Target collaborative-hub-api",
+      "menu_visible": true
+    },
+    {
+      "name": "transcriptions-app",
+      "deploy_command": "powershell -ExecutionPolicy Bypass -Command \"streamlit run dashboard/streamlit/transcriptions_app.py --server.port 8503\"",
+      "menu_visible": true,
+      "status": "under_development"
     }
   ]
 }
