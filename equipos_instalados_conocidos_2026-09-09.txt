@@ -1,0 +1,159 @@
+EQUIPOS INSTALADOS CONOCIDOS Y EXTRAIBLES
+Fecha de extracción: 2026-09-09
+Workspace: AI-FACTORY-v2.worktrees/equipos-instalados-cascades-report
+
+FUENTES CONSULTADAS
+- CALGARY_THREE_PHASE_AUTOMATION_MASTER_REPORT_2026-08-17.md
+- CALGARY_PHASE_1_2_3_INGECART_REPORT_2026-08-18.md
+- CALGARY_PHASE_2_PALLETIZING_REPORT_2026-08-17.md
+- CALGARY_PHASE_3_INGETRANS_AMR_REPORT_2026-08-17.md
+- BIBLIOTECA DE MAQUINAS Y EQUIPOS.txt
+- knowledge/corrugated_equipment/converter_equipment_catalog_v1.json
+- Reportes y análisis del repositorio en formato .md/.html/.txt
+
+RESUMEN EJECUTIVO
+Se han encontrado evidencias verificables de equipos asociados a Cascades Calgary. Para IP Waterloo, Cascades Piscataway, Cartonajes Font, MasterCorr y LLC Covington no aparece, en los informes, emails y bases de conocimiento disponibles en este workspace, un inventario concreto de equipos instalados que permita extraer una lista fiable. Se incluye esa limitación explícitamente al final del documento.
+
+1) CASCADES CALGARY – EQUIPOS CONOCIDOS / EXTRAIBLES
+(Se basan en la biblioteca técnica y los informes de automatización del proyecto)
+
+1. Fosber S/LINE 370 / S/LINE 420
+   - Corrugadora completa
+   - Evidencia: A/B
+   - Categoría: complete corrugator line
+
+2. Dong Fang Apstar HG2 / HS2
+   - Impresora flexo + RDC
+   - Evidencia: B
+   - Categoría: flexographic rotary die cutter
+
+3. S&S ZLRF / ZLRF-F / ZLRF-G
+   - FFG modular legacy
+   - Evidencia: U
+   - Observación: identificación pendiente; no se asigna capacidad hasta verificar la placa exacta
+
+4. Latitude LMC 42 in FFG
+   - Flexo Folder Gluer
+   - Evidencia: C
+   - Referencia: 42 in / 1,066 mm
+
+5. Curioni 2000 / 78 in
+   - FFG / Inliner legacy
+   - Evidencia: C
+   - Referencia: ancho aprox. 2,000 mm / 78 in
+
+6. Ward 66 x 115 in RDC
+   - RDC heavy-duty
+   - Evidencia: C
+   - Aplicación: single, double y posible triple wall según configuración
+
+7. Young Shin Zenith 210S Plus
+   - Troqueladora plana automática
+   - Evidencia: A/B
+   - Formato máximo: 2,100 x 1,500 mm
+
+8. BOBST SPO 1575 / SPO 1574
+   - Troqueladora plana legacy
+   - Evidencia: C
+
+9. Post 74 in FG/CORR
+   - Folder Gluer especial / corrugado especial
+   - Evidencia: C
+
+10. McKinley 66 x 130 in
+   - RDC jumbo heavy-duty
+   - Evidencia: C/U
+   - Referido en informes como salida de RDC y cuello de botella de transferencia
+
+11. Koppers 49 in RDC
+   - RDC legacy
+   - Evidencia: U
+   - Modelo pendiente de identificación
+
+12. ESTAR Two-Piece FGS
+   - Folder Gluer + Stitcher
+   - Evidencia: C
+
+13. EMBA 175 QS Ultima
+   - FFG de alta productividad
+   - Evidencia: A
+
+14. EMBA 215 QS Ultima
+   - FFG de alta productividad
+   - Evidencia: A
+
+15. EMBA 245 QS Ultima
+   - FFG grande / TwinFeed opcional
+   - Evidencia: A
+
+16. EMBA 295 QS Ultima
+   - FFG gran formato
+   - Evidencia: A
+
+17. Transfer car para conveyors -EQUIPO INGECART-
+   - Transporte transversal / transfer automático norte-sur
+   - Evidencia: E
+   - Se menciona explícitamente en la automatización de la Fase 1 de Calgary
+
+18. Conveyors automáticos de salida -EQUIPO INGECART-
+   - Tres conveyors de salida coordiandos
+   - Evidencia: proyecto / análisis funcional
+   - Referencia: McKinley, Koppers y Ward
+
+19. Tridentes / interlocks / handoff points -EQUIPO INGECART-
+   - Tres tridentes para intercambio con AGV/AMR y WIP intermedio
+   - Evidencia: proyecto / análisis funcional
+
+20. Paletizadores Plug & Play (líneas seleccionadas) -EQUIPO INGECART-
+   - Células compactas de paletización
+   - Evidencia: proyecto / análisis funcional
+   - En Fase 2 se menciona EMBA y Martin como seleccionadas
+
+21. AMR / -EQUIPO INGECART-
+   - 1 ROBOT amr OPERANDO EN ZONA DE CONVERSION , GESTIONA WIP DE MAQUINAS FG Y COSEDORA CON CARGA 90
+   - Flota móvil y orquestación logística
+   - Evidencia: proyecto / análisis funcional
+   - Asociado a la Fase 3 de Calgary
+
+22.Ingetrans  -EQUIPO INGECART-
+23. SISTEMA rfid
+
+2) IP WATERLOO – -EQUIPO INGECART-
+1 0 Area Corrugator Line AMR .
+The offer includes:
+1 AMR modelo KMP 1500P Master .
+8 customized waste cages, as follows:
+2 cages for Corrugator 1
+2 cages for Corrugator 2
+2 cages for waste from the splicer (infeed to the drying table/bridge) 2 cages for the stacker area
+1	Weighing station processed by load cells, with load sensors to determine the weight of the material, with connection/integration to transmit the data.
+The cages will be supplied with casters (wheels). Conveyors + interface
+2	conveyors, each equipped with five (5) motorized belt lines (trident configuration), for loading and unloading cages from the transfer station. Included: electronic interface for integration with the transfer station conveyors.
+Wi-Fi coverage for a distance of 150 meters .
+20 Converting Area AMR .
+The offer includes:
+3 AMR KMP 1500P Master
+7 AMR system activation buttons, distributed across each work area.
+3 Conveyors, each equipped with five (5) motorized belt lines (trident configuration), for loading and unloading cages from the transfer station.
+Item included: four (4) platforms for receiving interlayer sheet pallets from the transfer station to the Load Former position.
+Included: electronic interface for integration with the transfer station conveyors. 18 waste collection cages. The cages will be supplied with casters (wheels).
+
+
+paletizador heavy dutty , 2 unidades a la salida de una EVOL.
+mitsubishi evol
+
+3) CASCADES PISCATAWAY – -EQUIPO INGECART-
+automatic robot palletizer system including conveyors, bundle stacker, two (2) robotic palletizing units, pad paper handling, 4-sides squaring device, safety components 
+4) CARTONAJES FONT –-EQUIPO INGECART-
+Paletizador havy dutty como el de Cascades, una unidad
+Paletizador Heavy dutty para tamaño carton jumbo
+Paletizador Pluga and play
+Carga automatica de camiones
+Tranfer para gestion de conveyors zona shipping
+SR 1400
+
+
+5) MASTERCORR LLC COVINGTON– -EQUIPO INGECART-
+Ingetrans  -EQUIPO INGECART-
+SISTEMA rfid
+equipo no ingecart ; corrugadora BHS speed line

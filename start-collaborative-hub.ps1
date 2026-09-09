@@ -4,6 +4,7 @@ param(
     [switch]$StartAPI,
     [switch]$StartDashboard,
     [switch]$StartHumanPortal,
+    [switch]$StartTranscriptions,
     [switch]$TestSharePoint
 )
 
@@ -19,6 +20,7 @@ New-Item -ItemType Directory -Path "logs" -Force | Out-Null
 $apiPort = 8000
 $dashboardPort = 8501
 $humanPortalPort = 8502
+$transcriptionPort = 8503
 
 function Write-Step {
     param([string]$Message, [ConsoleColor]$Color = [ConsoleColor]::Cyan)
@@ -82,7 +84,7 @@ if ($TestSharePoint) {
     }
 }
 
-$singleMode = $StartAPI -or $StartDashboard -or $StartHumanPortal
+$singleMode = $StartAPI -or $StartDashboard -or $StartHumanPortal -or $StartTranscriptions
 
 if ($StartAPI -or -not $singleMode) {
     Start-ServiceWindow -Name "Hub API" -Port $apiPort -Command "python -m uvicorn api.routes.hub_api:app --host 0.0.0.0 --port $apiPort"
@@ -96,9 +98,14 @@ if ($StartHumanPortal -or -not $singleMode) {
     Start-ServiceWindow -Name "Human Interaction Portal" -Port $humanPortalPort -Command "streamlit run dashboard/streamlit/human_interaction_portal.py --server.port $humanPortalPort"
 }
 
+if ($StartTranscriptions -or -not $singleMode) {
+    Start-ServiceWindow -Name "Transcriptions Panel" -Port $transcriptionPort -Command "streamlit run dashboard/streamlit/transcriptions_app.py --server.port $transcriptionPort"
+}
+
 Write-Host ""
 Write-Step "Access URLs" Cyan
 Write-Host "- Human Portal : http://localhost:$humanPortalPort"
 Write-Host "- Dashboard    : http://localhost:$dashboardPort"
+Write-Host "- Transcriptions: http://localhost:$transcriptionPort"
 Write-Host "- API          : http://localhost:$apiPort"
 Write-Host "- API Health   : http://localhost:$apiPort/hub/status"

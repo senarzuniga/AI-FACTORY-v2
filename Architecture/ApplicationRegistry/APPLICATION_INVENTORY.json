@@ -1,0 +1,432 @@
+[
+  {
+    "id": "ai-factory-core",
+    "name": "AI_FACTORY",
+    "type": "APPLICATION",
+    "description": "AI-FACTORY-v2 core orchestrator and governance layer that coordinates protocols, agents, memory, and repository improvement flows.",
+    "repository_path": "main.py; orchestrator/; config.yaml; .forge/",
+    "entry_point": "main.py",
+    "ui": [
+      "dashboard/orchestrator_panel.html"
+    ],
+    "api": [
+      "api/routes/hub_api.py"
+    ],
+    "dependencies": [
+      "orchestrator.core",
+      "orchestrator.agents",
+      "orchestrator.memory",
+      "config.yaml",
+      ".forge"
+    ],
+    "consumers": [
+      "IS_BACKOFFICE",
+      "Collaborative Hub",
+      "AI_COORDINATOR"
+    ],
+    "providers": [
+      "AIFactoryV2",
+      "GNAPCoordinator",
+      "IMCTSEngine",
+      "EpochProtocol"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 72,
+    "health": "DEVELOPMENT",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Govern orchestration and optimization flows while preserving a controlled execution model.",
+    "inputs": [
+      "repo context",
+      "configuration",
+      "GitHub metadata",
+      "agent prompts"
+    ],
+    "outputs": [
+      "validated hypotheses",
+      "PR-ready diffs",
+      "learning artifacts",
+      "execution logs"
+    ],
+    "capabilities": [
+      "planning",
+      "evaluation",
+      "critic validation",
+      "execution",
+      "memory replay",
+      "protocol coordination"
+    ],
+    "related_applications": [
+      "legacy-ai-factory",
+      "collaborative-hub",
+      "adaptive-sales-engine"
+    ],
+    "is_backoffice_integration": "Operational orchestration layer; not a user-facing application itself.",
+    "ai_factory_integration": "Canonical brain of the ecosystem.",
+    "evidence": [
+      "README.md",
+      "main.py",
+      "config.yaml",
+      "orchestrator/main.py"
+    ],
+    "recommended_action": "Keep as governance and orchestration root; avoid presenting it directly as a user-facing IS_BACKOFFICE application."
+  },
+  {
+    "id": "legacy-ai-factory",
+    "name": "Legacy AI Factory v2",
+    "type": "APPLICATION",
+    "description": "Original agent-based orchestrator retained for compatibility and historical execution patterns.",
+    "repository_path": "ai-factory-v2/",
+    "entry_point": "ai-factory-v2/orchestrator.py",
+    "ui": [],
+    "api": [],
+    "dependencies": [
+      "agents/",
+      "learning/",
+      "models/",
+      "db/",
+      "utils/"
+    ],
+    "consumers": [
+      "legacy automation workflows"
+    ],
+    "providers": [
+      "AnalyzerAgent",
+      "GeneratorAgent",
+      "EvaluatorAgent",
+      "ExecutorAgent"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 58,
+    "health": "DEVELOPMENT",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Provide the historical implementation path while the advanced protocol stack remains canonical.",
+    "inputs": [
+      "repository state",
+      "GitHub data",
+      "OpenAI model responses"
+    ],
+    "outputs": [
+      "PR proposals",
+      "learning history",
+      "cycle reports"
+    ],
+    "capabilities": [
+      "repository analysis",
+      "hypothesis generation",
+      "execution",
+      "learning persistence"
+    ],
+    "related_applications": [
+      "ai-factory-core"
+    ],
+    "is_backoffice_integration": "Not directly exposed to end users.",
+    "ai_factory_integration": "Legacy implementation retained as a compatibility path.",
+    "evidence": [
+      "ai-factory-v2/orchestrator.py",
+      "ai-factory-v2/learning/history.json",
+      "tests/test_orchestration_taxonomy.py"
+    ],
+    "recommended_action": "Keep as a compatibility implementation and treat the orchestrator/ package as the canonical active runtime."
+  },
+  {
+    "id": "collaborative-hub",
+    "name": "Collaborative Hub",
+    "type": "APPLICATION",
+    "description": "Operational platform that exposes the FastAPI service and user-facing Streamlit dashboards for the AI-FACTORY ecosystem.",
+    "repository_path": "api/; dashboard/; config/collaborative_hub.json; start-collaborative-hub.ps1",
+    "entry_point": "api/routes/hub_api.py",
+    "ui": [
+      "dashboard/streamlit/hub_dashboard.py",
+      "dashboard/streamlit/human_interaction_portal.py",
+      "dashboard/streamlit/transcriptions_app.py",
+      "dashboard/orchestrator_panel.html"
+    ],
+    "api": [
+      "http://localhost:8000/",
+      "http://localhost:8000/hub/status",
+      "http://localhost:8000/hub/config"
+    ],
+    "dependencies": [
+      "FastAPI",
+      "Streamlit",
+      "agents.action_engine",
+      "config/collaborative_hub.json"
+    ],
+    "consumers": [
+      "human users",
+      "administrators",
+      "workflows"
+    ],
+    "providers": [
+      "hub_status",
+      "hub_config",
+      "ActionPool routers"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 68,
+    "health": "ONLINE",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Serve as the operational user layer and UI shell for AI-FACTORY-v2 and linked applications.",
+    "inputs": [
+      "hub configuration",
+      "action requests",
+      "portal user context"
+    ],
+    "outputs": [
+      "status responses",
+      "dashboard views",
+      "action metadata"
+    ],
+    "capabilities": [
+      "status monitoring",
+      "workflow launch",
+      "portal access",
+      "technical dashboarding"
+    ],
+    "related_applications": [
+      "ai-factory-core",
+      "transcriptions-app",
+      "adaptive-sales-engine"
+    ],
+    "is_backoffice_integration": "This is the closest operational equivalent to the requested IS_BACKOFFICE shell in this repository.",
+    "ai_factory_integration": "UI and API bridge between orchestration and the human operator.",
+    "evidence": [
+      "api/routes/hub_api.py",
+      "dashboard/streamlit/hub_dashboard.py",
+      "dashboard/streamlit/human_interaction_portal.py",
+      "start-collaborative-hub.ps1"
+    ],
+    "recommended_action": "Use this layer as the canonical operational shell; keep internal engines hidden from the main menu."
+  },
+  {
+    "id": "transcriptions-app",
+    "name": "Transcripciones",
+    "type": "APPLICATION",
+    "description": "Entry panel and intake workflow for transcript processing, summarization, and meeting operational follow-up.",
+    "repository_path": "dashboard/streamlit/transcriptions_app.py",
+    "entry_point": "dashboard/streamlit/transcriptions_app.py",
+    "ui": [
+      "http://localhost:8503"
+    ],
+    "api": [],
+    "dependencies": [
+      "Streamlit",
+      "AI-FACTORY-v2 collaborative hub"
+    ],
+    "consumers": [
+      "operators",
+      "administrators",
+      "human portal users"
+    ],
+    "providers": [
+      "transcription intake",
+      "summary placeholder",
+      "operational actions"
+    ],
+    "status": "UNDER_DEVELOPMENT",
+    "completion_percent": 35,
+    "health": "DEVELOPMENT",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Provide a user-facing panel for transcript capture and operational summaries.",
+    "inputs": [
+      "manual transcription text",
+      "uploaded audio/video",
+      "meeting notes"
+    ],
+    "outputs": [
+      "summary snippets",
+      "action list",
+      "operator-ready draft"
+    ],
+    "capabilities": [
+      "capture",
+      "summarisation",
+      "task extraction",
+      "workflow entry"
+    ],
+    "related_applications": [
+      "collaborative-hub"
+    ],
+    "is_backoffice_integration": "In scope for visible main menu and panel entry.",
+    "ai_factory_integration": "Operational intake workflow connected to the collaborative hub shell.",
+    "evidence": [
+      "dashboard/streamlit/transcriptions_app.py",
+      "dashboard/orchestrator_panel.html"
+    ],
+    "recommended_action": "Promote as a visible panel under the operational menu; keep the app lightweight until transcription backend integration is ready."
+  },
+  {
+    "id": "adaptive-sales-engine",
+    "name": "Adaptive Sales Engine",
+    "type": "APPLICATION",
+    "description": "Linked business application detected and referenced by the orchestration dashboard and collaborative hub configuration.",
+    "repository_path": "external/workspace: adaptive-sales-engine",
+    "entry_point": "external app",
+    "ui": [
+      "http://localhost:5173"
+    ],
+    "api": [
+      "http://localhost:5173/api/health"
+    ],
+    "dependencies": [
+      "linked deployment",
+      "collaborative hub API",
+      "data pipeline"
+    ],
+    "consumers": [
+      "commercial user flows"
+    ],
+    "providers": [
+      "offer management",
+      "sales actions",
+      "customer requests"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 50,
+    "health": "ONLINE",
+    "owner": "external repo",
+    "purpose": "Provide the business-facing workflow that the AI platform supports and monitors.",
+    "inputs": [
+      "customer requests",
+      "offers",
+      "market signals"
+    ],
+    "outputs": [
+      "actions",
+      "sales proposals",
+      "dashboard metrics"
+    ],
+    "capabilities": [
+      "commercial orchestration",
+      "offer generation",
+      "request management"
+    ],
+    "related_applications": [
+      "collaborative-hub",
+      "ai-factory-core"
+    ],
+    "is_backoffice_integration": "External app connected opportunistically through linked deployment and panel status checks.",
+    "ai_factory_integration": "Business execution consumer of AI orchestration and actions.",
+    "evidence": [
+      "data/learning/cascade_results.json",
+      "dashboard/orchestrator_panel.html",
+      "config/linked_apps.json"
+    ],
+    "recommended_action": "Keep as linked operational app; do not duplicate it inside AI_FACTORY core."
+  },
+  {
+    "id": "knowledge-hub",
+    "name": "Knowledge Hub",
+    "type": "KNOWLEDGE",
+    "description": "Evidence and concept layer represented by knowledge artifacts and documentation assets in .forge and docs/.",
+    "repository_path": ".forge/; docs/; data/learning/",
+    "entry_point": ".forge/knowledge_map.json",
+    "ui": [],
+    "api": [],
+    "dependencies": [
+      ".forge",
+      "docs",
+      "data"
+    ],
+    "consumers": [
+      "AI_FACTORY",
+      "collaborative hub",
+      "architecture review"
+    ],
+    "providers": [
+      "knowledge map",
+      "integration docs",
+      "learning data"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 64,
+    "health": "DEVELOPMENT",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Preserve operational knowledge, project rules, and context artifacts.",
+    "inputs": [
+      "docs",
+      "JSON maps",
+      "learning results"
+    ],
+    "outputs": [
+      "knowledge summaries",
+      "capabilities map",
+      "context files"
+    ],
+    "capabilities": [
+      "context retrieval",
+      "knowledge indexing",
+      "design guidance"
+    ],
+    "related_applications": [
+      "ai-factory-core",
+      "collaborative-hub"
+    ],
+    "is_backoffice_integration": "Knowledge asset layer; not directly user-facing unless presented as admin evidence.",
+    "ai_factory_integration": "Support layer for the orchestration system.",
+    "evidence": [
+      ".forge/knowledge_map.json",
+      ".forge/skill_registry.json",
+      "docs/"
+    ],
+    "recommended_action": "Keep, but avoid exposing raw knowledge assets as primary operational applications."
+  },
+  {
+    "id": "orchestrator-core",
+    "name": "Orchestrator Core",
+    "type": "ENGINE",
+    "description": "Advanced protocol engine set for EPOCH, I-MCTS, Escher-loop, GNAP, and Co-EPG coordination.",
+    "repository_path": "orchestrator/core/; orchestrator/agents/; orchestrator/memory/; orchestrator/utils/",
+    "entry_point": "orchestrator/main.py",
+    "ui": [],
+    "api": [],
+    "dependencies": [
+      "protocol config",
+      "GitHub client",
+      "VectorStore",
+      "ExperienceReplay"
+    ],
+    "consumers": [
+      "AI_FACTORY"
+    ],
+    "providers": [
+      "EpochProtocol",
+      "IMCTSEngine",
+      "EscherLoop",
+      "GNAPCoordinator",
+      "CoEPGTrainer"
+    ],
+    "status": "PARTIAL",
+    "completion_percent": 70,
+    "health": "DEVELOPMENT",
+    "owner": "AI-FACTORY-v2",
+    "purpose": "Provide reusable intelligence and coordination engines for optimization and execution flows.",
+    "inputs": [
+      "repository metadata",
+      "candidate actions",
+      "learning state"
+    ],
+    "outputs": [
+      "search results",
+      "parallel actions",
+      "episode updates"
+    ],
+    "capabilities": [
+      "search",
+      "co-evolution",
+      "job routing",
+      "memory retention"
+    ],
+    "related_applications": [
+      "ai-factory-core"
+    ],
+    "is_backoffice_integration": "Internal engine only; not surfaced as a visible app.",
+    "ai_factory_integration": "Core intelligence provider for AI_FACTORY.",
+    "evidence": [
+      "orchestrator/core/epoch_protocol.py",
+      "orchestrator/core/imcts_engine.py",
+      "orchestrator/core/gnap_coordinator.py"
+    ],
+    "recommended_action": "Keep internal and expose only abstracted capabilities through the top-level AI_FACTORY and the hub shell."
+  }
+]

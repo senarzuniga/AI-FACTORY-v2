@@ -9,7 +9,8 @@
   "ports": {
     "api": 8000,
     "dashboard": 8501,
-    "human_portal": 8502
+    "human_portal": 8502,
+    "transcriptions": 8503
   },
   "urls": {
     "teams_community": "https://teams.live.com/l/community/FEA5JSTpd_3FAKh9gI",

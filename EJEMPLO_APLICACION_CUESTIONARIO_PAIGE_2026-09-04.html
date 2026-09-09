@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ejemplo practico de aplicacion del cuestionario INGECART para PAIGE con datos conocidos, evidencias y gaps de validacion." />
+  <title>INGECART | Ejemplo aplicacion cuestionario - PAIGE</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(8,8,8,.94), rgba(8,8,8,.68)), url('https://images.unsplash.com/photo-1565932887479-b18108f07efd?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .brand-mark { display: inline-flex; align-items: center; gap: 12px; margin: 8px 0 12px; color: #f2f7ff; letter-spacing: .18em; text-transform: uppercase; font-size: 14px; font-weight: 800; }
+    .brand-mark img { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 2px solid #fff; }
+    .qtable { overflow: auto; margin: 16px 0; border: 1px solid var(--line); background: var(--surface); }
+    .qtable table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    .qtable th, .qtable td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; font-size: 13px; }
+    .qtable th { background: var(--black); color: #fff; font: 800 11px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; letter-spacing: .05em; }
+    .mono { white-space: pre-wrap; font: 13px/1.5 "Cascadia Mono", Consolas, monospace; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--orange); padding: 14px; }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">PAIGE · Ejemplo practico · Aplicacion de cuestionario</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Aplicacion del cuestionario base a PAIGE</h1>
+        <p>Documento de prueba para mostrar como quedaria la fase de discovery tecnico-comercial con informacion conocida, supuestos controlados y brechas de validacion.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-09-04</span><span>ES / EN</span><span>Version ejemplo</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">PAIGE · Practical example · Questionnaire application</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Applying the baseline questionnaire to PAIGE</h1>
+        <p>Sample document showing how technical-commercial discovery would look using known information, controlled assumptions and explicit validation gaps.</p>
+        <div class="meta"><span>AI-FACTORY v2</span><span>2026-09-04</span><span>ES / EN</span><span>Sample version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#resumen">01 · Resumen</a>
+          <a href="#flujo">02 · Flujo minimo conocido</a>
+          <a href="#q14">03 · Respuestas 1-14</a>
+          <a href="#adjuntos">04 · Adjuntos y gaps</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#resumen">01 · Summary</a>
+          <a href="#flujo">02 · Known minimum flow</a>
+          <a href="#q14">03 · Answers 1-14</a>
+          <a href="#adjuntos">04 · Attachments and gaps</a>
+        </div>
+      </nav>
+    </aside>
+    <main>
+      <section id="resumen">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>PAIGE: el valor esta en flujo + WIP + logistica automatizada, no en velocidad nominal aislada.</h2>
+          <div class="decision"><strong>Conclusion de ejemplo</strong>Con los datos disponibles, PAIGE tiene mejor perfil tecnico en esquema tipo Modelo B (mas amortiguacion y resiliencia), siempre que se valide layout real DWG/DXF y se cierre baseline KPI por turno. Este documento responde el cuestionario con lo conocido y marca lo pendiente para cotizacion robusta.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>PAIGE: value comes from flow + WIP + automated logistics, not isolated nominal speed.</h2>
+          <div class="decision"><strong>Sample conclusion</strong>With available evidence, PAIGE shows a stronger technical profile with a Model-B-style scheme (higher buffering and resilience), provided real DWG/DXF layout is validated and shift-level KPI baseline is completed. This document answers the questionnaire with known data and flags pending items.</div>
+        </div>
+      </section>
+
+      <section id="flujo">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Flujo minimo conocido (fuente cliente)</div>
+          <h2>Referencia de flujo operativo base para mapear estaciones y cuellos.</h2>
+          <div class="mono">flowchart LR
+A[Recepcion ferrocarril] --> B[Conveyor bobinas]
+B --> C[Pesaje + RFID]
+C --> D[Almacen bobinas]
+D --> E[Forklift]
+E --> F[INGETRANS]
+F --> G[Corrugadora Norte]
+F --> H[Corrugadora Sur]
+G --> I[AMRs Scrap]
+H --> I
+I --> J[Transfer longitudinal]
+J --> K[Buffer conversion (sur)]
+K --> L[RDC 1]
+K --> M[RDC 2]
+K --> N[FFG]
+L --> O[Conveyor norte a expedicion]
+M --> O
+N --> P[Salida sur a WIP 2da/3ra pasada]
+P --> Q[Troqueladora plana]
+Q --> R[Folder Gluer]
+R --> S[Paletizado]
+S --> T[EasyPack]
+T --> U[Shipping]</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Known minimum flow (client source)</div>
+          <h2>Baseline operational flow reference to map stations and bottlenecks.</h2>
+          <div class="mono">flowchart LR
+A[Rail receiving] --> B[Reel conveyor]
+B --> C[Weighing + RFID]
+C --> D[Reel warehouse]
+D --> E[Forklift]
+E --> F[INGETRANS]
+F --> G[North corrugator]
+F --> H[South corrugator]
+G --> I[AMR scrap]
+H --> I
+I --> J[Longitudinal transfer]
+J --> K[Converting buffer (south)]
+K --> L[RDC 1]
+K --> M[RDC 2]
+K --> N[FFG]
+L --> O[North conveyor to shipping]
+M --> O
+N --> P[South outfeed to 2nd/3rd pass WIP]
+P --> Q[Flat die cutter]
+Q --> R[Folder gluer]
+R --> S[Palletizing]
+S --> T[EasyPack]
+T --> U[Shipping]</div>
+        </div>
+      </section>
+
+      <section id="q14">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Aplicacion del cuestionario (PAIGE)</div>
+          <h2>Respuestas de ejemplo a las 14 preguntas.</h2>
+          <div class="qtable"><table><thead><tr><th>#</th><th>Pregunta</th><th>Respuesta de ejemplo (PAIGE)</th><th>Confianza</th><th>Pendiente validar</th></tr></thead><tbody>
+            <tr><td>1</td><td>Objetivo principal</td><td>Recuperar capacidad util y estabilidad de flujo: +4 a +8 pp OEE, reduccion starvation hasta 60-87%, menor rehandling y mayor seguridad.</td><td>Media-Alta</td><td>Objetivo contractual final del cliente.</td></tr>
+            <tr><td>2</td><td>Areas incluidas</td><td>Recepcion bobinas, corrugadoras, transferencia longitudinal, WIP conversion, RDC/FFG/troquel/folder gluer, paletizado y shipping.</td><td>Alta</td><td>Limites exactos de obra civil e interfaces externas.</td></tr>
+            <tr><td>3</td><td>Flujo actual</td><td>Ver flujo Mermaid de este informe (AS-IS minimo conocido aportado por cliente).</td><td>Alta</td><td>Version levantada en plano real con distancias y sentidos.</td></tr>
+            <tr><td>4</td><td>Lista de equipos</td><td>Base conocida: Fosber S/LINE, Dong Fang Apstar, Ward, LMC 42, Curioni 2000, Young Shin 210S, BOBST SPO 1575, Post 74, transfer car. Algunos modelos en estado U/C.</td><td>Media</td><td>Placa, serie, ano, retrofit, velocidad sostenida por SKU.</td></tr>
+            <tr><td>5</td><td>Cuellos de botella</td><td>Zona de intercambio corrugado-conversion, congestion en transferencias, giros/reorientaciones, falta de desacople en picos, riesgo de bloqueo y starvation downstream.</td><td>Alta</td><td>Mapa de cuellos por turno y por causa.</td></tr>
+            <tr><td>6</td><td>KPIs disponibles</td><td>Benchmarks de repositorio: OEE +6 pp, starvation -87%, +4.2M m/año, ahorro ~€309k/año, downtime logistico -56h/año.</td><td>Media</td><td>Historico real PAIGE >=4 semanas.</td></tr>
+            <tr><td>7</td><td>Turnos y tareas manuales</td><td>Se observa alta dependencia de movimiento manual y coordinacion reactiva en buffers/transfer/salida.</td><td>Media-Baja</td><td>Matriz real por turno: roles, tareas, tiempos no productivos.</td></tr>
+            <tr><td>8</td><td>Mantenimiento</td><td>Riesgos tipicos: puntos mecanicos extra, transferencias, averias que propagan bloqueo, necesidad de plan preventivo robusto.</td><td>Media</td><td>MTBF, MTTR, backlog, repuestos criticos por equipo.</td></tr>
+            <tr><td>9</td><td>Trazabilidad</td><td>Existe referencia a Pesaje + RFID e integracion de flujo con INGETRANS; propuesta objetivo: ID de carga + reserva de destino + eventos trazables.</td><td>Media</td><td>Nivel real de integracion ERP/MES/WMS/PLC/Fleet.</td></tr>
+            <tr><td>10</td><td>Restricciones layout/seguridad</td><td>Validacion geometrica pendiente; decision final depende de planos DWG/DXF y analisis de rutas, cruces y seguridad funcional.</td><td>Alta</td><td>Ingenieria de detalle, scanners, zonas seguras, accesos.</td></tr>
+            <tr><td>11</td><td>Datos economicos base</td><td>Referencia benchmark: ahorro operativo ~€309k/año; caso final debe usar costo minuto parada, mano de obra y OPEX reales de PAIGE.</td><td>Media</td><td>Drivers financieros oficiales del cliente.</td></tr>
+            <tr><td>12</td><td>Expectativa retorno</td><td>Payback comercial orientativo 12-24 meses sujeto a baseline real y sin doble conteo de ahorros.</td><td>Media</td><td>Criterio formal de aprobacion financiera.</td></tr>
+            <tr><td>13</td><td>Prioridad cliente</td><td>Recomendacion: transformacion por fases (quick wins de flujo + escalado WIP/logistica automatizada).</td><td>Alta</td><td>Preferencia ejecutiva final (capex vs robustez).</td></tr>
+            <tr><td>14</td><td>Plazo deseado</td><td>Estimacion preliminar 11-14 meses a operacion estable (ingenieria, fabricacion, instalacion, SAT).</td><td>Media</td><td>Plan maestro con ventanas reales de parada.</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Questionnaire application (PAIGE)</div>
+          <h2>Sample answers to all 14 questions.</h2>
+          <div class="qtable"><table><thead><tr><th>#</th><th>Question</th><th>Sample answer (PAIGE)</th><th>Confidence</th><th>Validation gap</th></tr></thead><tbody>
+            <tr><td>1</td><td>Main objective</td><td>Recover usable capacity and flow stability: +4 to +8 pp OEE, starvation reduction up to 60-87%, less rehandling and improved safety.</td><td>Medium-High</td><td>Final contractual target.</td></tr>
+            <tr><td>2</td><td>Areas in scope</td><td>Reel receiving, corrugators, longitudinal transfer, converting WIP, RDC/FFG/die cutter/folder gluer, palletizing and shipping.</td><td>High</td><td>Exact civil-work and external interfaces.</td></tr>
+            <tr><td>3</td><td>Current flow</td><td>See Mermaid AS-IS flow in this report (minimum known client baseline).</td><td>High</td><td>Surveyed version with real distances and directions.</td></tr>
+            <tr><td>4</td><td>Equipment list</td><td>Known base: Fosber S/LINE, Dong Fang Apstar, Ward, LMC 42, Curioni 2000, Young Shin 210S, BOBST SPO 1575, Post 74, transfer car. Some models still U/C evidence grade.</td><td>Medium</td><td>Nameplate, serial, year, retrofit, sustained speed by SKU.</td></tr>
+            <tr><td>5</td><td>Main bottlenecks</td><td>Corrugator-to-converting interface, transfer congestion, extra turning/reorientation, weak decoupling at peaks, blockage and downstream starvation risk.</td><td>High</td><td>Shift-level bottleneck map by root cause.</td></tr>
+            <tr><td>6</td><td>Available KPIs</td><td>Repository benchmarks: OEE +6 pp, starvation -87%, +4.2M m/year, ~€309k/year savings, logistics downtime -56 h/year.</td><td>Medium</td><td>Real PAIGE historical KPIs for >=4 weeks.</td></tr>
+            <tr><td>7</td><td>Shifts and manual tasks</td><td>Observed dependence on manual movement and reactive buffer/transfer/outfeed coordination.</td><td>Medium-Low</td><td>Real shift matrix: roles, tasks, non-productive time.</td></tr>
+            <tr><td>8</td><td>Maintenance incidents</td><td>Typical risk profile: additional mechanical points, transfer-related failures, blockage propagation, need for stronger preventive routines.</td><td>Medium</td><td>MTBF, MTTR, backlog and critical spare data.</td></tr>
+            <tr><td>9</td><td>Traceability level</td><td>Weighing + RFID and INGETRANS references exist; target state is load ID + destination reservation + full movement events.</td><td>Medium</td><td>Actual ERP/MES/WMS/PLC/Fleet integration level.</td></tr>
+            <tr><td>10</td><td>Layout/safety constraints</td><td>Geometric validation still pending; final decision requires DWG/DXF ingestion and route/conflict/functional-safety analysis.</td><td>High</td><td>Detailed engineering for scanners, safe zones and accesses.</td></tr>
+            <tr><td>11</td><td>Baseline economics</td><td>Benchmark reference ~€309k/year savings; final case must use real PAIGE downtime cost, labor cost and OPEX.</td><td>Medium</td><td>Official client finance drivers.</td></tr>
+            <tr><td>12</td><td>Return expectation</td><td>Indicative commercial payback 12-24 months subject to real baseline and strict anti-double-counting.</td><td>Medium</td><td>Formal investment approval criteria.</td></tr>
+            <tr><td>13</td><td>Client priority</td><td>Recommended phased transformation (quick flow wins first, then scaling WIP and automated logistics).</td><td>High</td><td>Final executive preference (capex vs robustness).</td></tr>
+            <tr><td>14</td><td>Desired timeline</td><td>Preliminary estimate: 11-14 months to stable operation (engineering, fabrication, installation, SAT).</td><td>Medium</td><td>Master schedule with real shutdown windows.</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="adjuntos">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Adjuntos recomendados para cerrar propuesta/cotizacion</div>
+          <h2>Estado de evidencia</h2>
+          <ul class="checklist">
+            <li>Layout 2D/3D (DWG, DXF, PDF): <strong>Pendiente critico</strong>.</li>
+            <li>Historico KPI por turno (>=4 semanas): <strong>Pendiente critico</strong>.</li>
+            <li>Lista de equipos y fichas tecnicas completas: <strong>Parcial</strong>.</li>
+            <li>Fotos/video de bloqueos y WIP: <strong>Pendiente</strong>.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Recommended attachments to close proposal/quotation</div>
+          <h2>Evidence status</h2>
+          <ul class="checklist">
+            <li>2D/3D layout (DWG, DXF, PDF): <strong>Critical pending</strong>.</li>
+            <li>Shift KPI history (>=4 weeks): <strong>Critical pending</strong>.</li>
+            <li>Full machine list and datasheets: <strong>Partial</strong>.</li>
+            <li>Bottleneck and WIP photos/video: <strong>Pending</strong>.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

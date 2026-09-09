@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cuestionario bilingue para preparar propuesta y cotizacion de automatizacion integral en plantas de corrugado (flujo, cuellos de botella, OEE, ROI y hoja de captura Mermaid)." />
+  <title>INGECART | Cuestionario base para automatizacion de planta de corrugado</title>
+  <link rel="stylesheet" href="calgary_report_theme.css" />
+  <style>
+    .hero { background: linear-gradient(90deg, rgba(8,8,8,.93), rgba(8,8,8,.68)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1800&q=80') center/cover; }
+    .brand-mark { display: inline-flex; align-items: center; gap: 12px; margin: 8px 0 12px; color: #f2f7ff; letter-spacing: .18em; text-transform: uppercase; font-size: 14px; font-weight: 800; }
+    .brand-mark img { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 2px solid #fff; }
+    .matrix { overflow: auto; border: 1px solid var(--line); background: var(--surface); margin: 18px 0; }
+    .matrix table { width: 100%; min-width: 900px; border-collapse: collapse; }
+    .matrix th, .matrix td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
+    .matrix th { background: #0f0f0f; color: #fff; font: 800 11px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; letter-spacing: .05em; }
+    .block { padding: 16px; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--orange); white-space: pre-wrap; font: 13px/1.5 "Cascadia Mono", Consolas, monospace; }
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+    .kpi { border: 1px solid var(--line); background: var(--surface); padding: 16px; }
+    .kpi .value { color: var(--orange-dark); font: 800 27px/1 Georgia, serif; }
+    .kpi .label { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    @media (max-width: 980px) { .kpi-strip, .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">INGECART · Automation Concept Proposal Intake</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Cuestionario base para automatizacion de planta de corrugado</h1>
+        <p>Documento para Carlos Perez: informacion minima y critica para construir una propuesta de concepto y una cotizacion preliminar orientada a mejora de flujo completo, no solo a instalar un equipo aislado.</p>
+        <div class="meta"><span>AI-FACTORY v2 + IS-BACKOFFICE + ING_DIGHUB</span><span>2026-09-04</span><span>ES / EN</span><span>Version cliente reenviable</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">INGECART · Automation Concept Proposal Intake</div>
+        <div class="brand-mark"><img src="simple-in.png" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Baseline questionnaire for corrugated plant automation</h1>
+        <p>Document for Carlos Perez: minimum critical information required to build a concept proposal and a preliminary quotation focused on full plant flow performance, not isolated equipment installation.</p>
+        <div class="meta"><span>AI-FACTORY v2 + IS-BACKOFFICE + ING_DIGHUB</span><span>2026-09-04</span><span>ES / EN</span><span>Client-forward version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Core principle</strong>
+      <span>Flow first</span><span>Evidence based</span><span>Bottleneck removal</span><span>OEE + ROI discipline</span><span>No double counting</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Tabla de contenido">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#concepto">01 · Propuesta de concepto</a>
+          <a href="#minimo">02 · Informacion minima a recabar</a>
+          <a href="#flujo">03 · Formato de flujo (Mermaid)</a>
+          <a href="#equipos">04 · Datos por estacion/equipo</a>
+          <a href="#kpi">05 · KPIs, cuellos y pain points</a>
+          <a href="#roi">06 · Datos financieros para ROI</a>
+          <a href="#checklist">07 · Checklist listo para enviar</a>
+          <a href="#fuentes">08 · Fuentes de referencia</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#concepto">01 · Concept proposal</a>
+          <a href="#minimo">02 · Minimum required data</a>
+          <a href="#flujo">03 · Flow format (Mermaid)</a>
+          <a href="#equipos">04 · Station/equipment data</a>
+          <a href="#kpi">05 · KPIs, bottlenecks and pain points</a>
+          <a href="#roi">06 · Financial data for ROI</a>
+          <a href="#checklist">07 · Ready-to-send checklist</a>
+          <a href="#fuentes">08 · Reference sources</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="concepto">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Propuesta de concepto INGECART</div>
+          <h2>Automatizar el flujo productivo completo para lograr efecto multiplicador.</h2>
+          <div class="decision"><strong>Tesis comercial y tecnica</strong>La propuesta debe demostrar como la automatizacion reduce bloqueos, starvation y rehandling entre estaciones. El valor no es solo mecanico: es capacidad util, estabilidad operativa, seguridad y trazabilidad punta a punta.</div>
+          <div class="two-col">
+            <article class="card accent"><h3>Oferta de valor</h3><ul><li>Industrial machinery: mayor eficiencia y menos manipulacion manual.</li><li>Installation & commissioning: integracion sin romper el flujo actual.</li><li>Robotics & palletizing: menos errores, mas throughput y seguridad.</li><li>Project management: punto unico de contacto de extremo a extremo.</li></ul></article>
+            <article class="card green"><h3>Enfoque 360</h3><ul><li>Turnkey A-Z: diseno, ejecucion, formacion y arranque.</li><li>Technical auditing: diagnostico independiente y sin sesgo OEM.</li><li>Industrial Intelligence (Ing_PRO): IA para operaciones, mantenimiento y calidad.</li><li>Contratista principal: cliente con un responsable unico (INGECART).</li></ul></article>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · INGECART concept proposal</div>
+          <h2>Automate the full production flow to create a multiplier effect.</h2>
+          <div class="decision"><strong>Commercial and technical thesis</strong>The proposal must show how automation removes blockages, starvation and rehandling between stations. Value is not only mechanical: it is usable capacity, operating stability, safety and end-to-end traceability.</div>
+          <div class="two-col">
+            <article class="card accent"><h3>Value offer</h3><ul><li>Industrial machinery: higher efficiency and reduced manual handling.</li><li>Installation & commissioning: seamless integration into current flow.</li><li>Robotics & palletizing: lower errors, higher throughput, safer operation.</li><li>Project management: single point of contact across the lifecycle.</li></ul></article>
+            <article class="card green"><h3>360 approach</h3><ul><li>Turnkey A-Z: design, execution, training and startup.</li><li>Technical auditing: independent diagnosis without OEM bias.</li><li>Industrial Intelligence (Ing_PRO): AI for operations, maintenance and quality.</li><li>Main contractor model: one accountable partner for the client.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="minimo">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Informacion minima a recabar (imprescindible)</div>
+          <h2>Sin esta base no hay propuesta de concepto robusta ni ROI defendible.</h2>
+          <div class="matrix"><table><thead><tr><th>Bloque</th><th>Dato minimo</th><th>Pregunta clave al cliente</th><th>Uso en propuesta</th></tr></thead><tbody>
+            <tr><td>Objetivo de negocio</td><td>Meta de capacidad, servicio, calidad, seguridad y costo.</td><td>Que resultado quiere mejorar en 12-24 meses y en que magnitud?</td><td>Define alcance y KPI objetivo.</td></tr>
+            <tr><td>Alcance fisico</td><td>Area incluida: corrugadora, conversion, WIP, paletizado, expedicion.</td><td>Que areas SI y NO entran en el proyecto?</td><td>Evita desviaciones de alcance.</td></tr>
+            <tr><td>Flujo actual</td><td>Secuencia real estacion a estacion (incluye retornos/2da pasada).</td><td>Como viaja el material hoy desde entrada hasta shipping?</td><td>Mapa AS-IS para detectar cuellos.</td></tr>
+            <tr><td>Datos por estacion</td><td>Equipo, modelo, output nominal/sostenido, paradas, restricciones.</td><td>Cual es la velocidad sostenida real por SKU/turno?</td><td>Modelo de capacidad util.</td></tr>
+            <tr><td>Interfaz logistica</td><td>Transfer, conveyors, montacargas, AMR/AGV, reglas de prioridad.</td><td>Donde se bloquea salida/entrada y por que?</td><td>Diseno de control de flujo.</td></tr>
+            <tr><td>KPI baseline</td><td>OEE, disponibilidad, starvation, blocked minutes, rehandling, merma.</td><td>Que KPIs tienen historico por turno y por causa?</td><td>Base de comparacion BEFORE/AFTER.</td></tr>
+            <tr><td>Operacion y personal</td><td>Turnos, roles, tareas manuales, faltas de operador, cambios de turno.</td><td>Que tareas manuales consumen mas tiempo no productivo?</td><td>Ahorro laboral con reconciliacion real.</td></tr>
+            <tr><td>Mantenimiento</td><td>MTBF, MTTR, preventivo vs reactivo, repuestos criticos.</td><td>Que fallos detienen toda la celda o el flujo completo?</td><td>Riesgo tecnico + plan por fases.</td></tr>
+            <tr><td>IT/OT integracion</td><td>PLC, MES/WMS/ERP, trazabilidad, etiquetas/ID de carga.</td><td>Como se identifica cada carga y como se reserva destino?</td><td>Arquitectura de control y trazabilidad.</td></tr>
+            <tr><td>Finanzas</td><td>CAPEX disponible, OPEX actual, costo minuto parada, costo merma.</td><td>Que drivers economicos acepta la direccion para aprobar ROI?</td><td>Payback y caso economico.</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · Minimum required data</div>
+          <h2>Without this baseline, there is no robust concept proposal or defensible ROI.</h2>
+          <div class="matrix"><table><thead><tr><th>Block</th><th>Minimum data</th><th>Key client question</th><th>Use in proposal</th></tr></thead><tbody>
+            <tr><td>Business target</td><td>Capacity, service, quality, safety and cost targets.</td><td>What result must improve in 12-24 months, and by how much?</td><td>Defines scope and target KPIs.</td></tr>
+            <tr><td>Physical scope</td><td>Included area: corrugator, converting, WIP, palletizing, shipping.</td><td>Which areas are IN and OUT of scope?</td><td>Avoids scope drift.</td></tr>
+            <tr><td>Current flow</td><td>Real station-by-station sequence (including returns/2nd pass).</td><td>How does material move today from input to shipping?</td><td>AS-IS map to find bottlenecks.</td></tr>
+            <tr><td>Station data</td><td>Machine/model, nominal and sustained output, stops, limits.</td><td>What is real sustained speed by SKU/shift?</td><td>Usable capacity model.</td></tr>
+            <tr><td>Logistics interface</td><td>Transfer, conveyors, forklifts, AMR/AGV, priority rules.</td><td>Where does output/input block and why?</td><td>Flow control design.</td></tr>
+            <tr><td>KPI baseline</td><td>OEE, availability, starvation, blocked minutes, rehandling, scrap.</td><td>Which KPIs are tracked by shift and root cause?</td><td>BEFORE/AFTER baseline.</td></tr>
+            <tr><td>Operation & people</td><td>Shifts, roles, manual tasks, absenteeism, handover losses.</td><td>Which manual tasks consume most non-productive time?</td><td>Labor impact with strict reconciliation.</td></tr>
+            <tr><td>Maintenance</td><td>MTBF, MTTR, preventive/reactive mix, critical spare parts.</td><td>Which failures stop the whole cell/flow?</td><td>Technical risk and phased plan.</td></tr>
+            <tr><td>IT/OT integration</td><td>PLC, MES/WMS/ERP, traceability, load ID and reservations.</td><td>How is each load identified and destination reserved?</td><td>Control + traceability architecture.</td></tr>
+            <tr><td>Finance</td><td>Available CAPEX, current OPEX, downtime cost, scrap cost.</td><td>Which financial drivers are accepted to approve ROI?</td><td>Payback and business case.</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="flujo">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Formato de toma de datos para flujo Mermaid (AS-IS)</div>
+          <h2>Pedir el flujo real completo y el nombre comercial de cada equipo por estacion.</h2>
+          <div class="decision green"><strong>Regla clave</strong>Cada nodo del flujo debe incluir nombre de estacion + equipo comercial + codigo interno + salida/hora + restricciones. Si el equipo no esta en la biblioteca, se rellena ficha tecnica manual.</div>
+          <div class="block">flowchart LR
+A[Recepcion bobinas] --> B[Pesaje + RFID]
+B --> C[Almacen bobinas]
+C --> D[Corrugadora Norte]
+C --> E[Corrugadora Sur]
+D --> F[Transfer longitudinal]
+E --> F
+F --> G[Buffer conversion WIP]
+G --> H[RDC 1]
+G --> I[RDC 2]
+G --> J[FFG]
+H --> K[2da/3ra pasada o expedicion]
+I --> K
+J --> K
+K --> L[Paletizado]
+L --> M[Shipping]</div>
+          <h3>Plantilla de captura por nodo</h3>
+          <div class="matrix"><table><thead><tr><th>Nodo</th><th>Nombre estacion</th><th>Equipo comercial (OEM + modelo)</th><th>Capacidad nominal</th><th>Capacidad sostenida real</th><th>Input/Output</th><th>Paradas / causas</th><th>Dependencias</th></tr></thead><tbody>
+            <tr><td>H</td><td>RDC 1</td><td>Dong Fang Apstar HS2</td><td>13,000 sheets/h</td><td>10,600 sheets/h</td><td>In: board stacks / Out: bundles</td><td>Blocked outfeed, setup</td><td>Transfer + destino libre</td></tr>
+            <tr><td>J</td><td>FFG</td><td>EMBA 245 QS Ultima</td><td>xx</td><td>xx</td><td>In: bundles / Out: pallets</td><td>Starvation, changeover</td><td>WIP + palletizer</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Mermaid flow data intake format (AS-IS)</div>
+          <h2>Request the full real flow and the commercial machine name at every station.</h2>
+          <div class="decision green"><strong>Key rule</strong>Every flow node must include station name + commercial machine name + internal code + output/hour + constraints. If machine is not in the library, fill a manual technical form.</div>
+          <div class="block">flowchart LR
+A[Reel receiving] --> B[Weighing + RFID]
+B --> C[Reel warehouse]
+C --> D[North corrugator]
+C --> E[South corrugator]
+D --> F[Longitudinal transfer]
+E --> F
+F --> G[Converting WIP buffer]
+G --> H[RDC 1]
+G --> I[RDC 2]
+G --> J[FFG]
+H --> K[2nd/3rd pass or shipping]
+I --> K
+J --> K
+K --> L[Palletizing]
+L --> M[Shipping]</div>
+          <h3>Node capture template</h3>
+          <div class="matrix"><table><thead><tr><th>Node</th><th>Station name</th><th>Commercial machine (OEM + model)</th><th>Nominal capacity</th><th>Real sustained capacity</th><th>Input/Output</th><th>Stops / causes</th><th>Dependencies</th></tr></thead><tbody>
+            <tr><td>H</td><td>RDC 1</td><td>Dong Fang Apstar HS2</td><td>13,000 sheets/h</td><td>10,600 sheets/h</td><td>In: board stacks / Out: bundles</td><td>Blocked outfeed, setup</td><td>Transfer + destination free</td></tr>
+            <tr><td>J</td><td>FFG</td><td>EMBA 245 QS Ultima</td><td>xx</td><td>xx</td><td>In: bundles / Out: pallets</td><td>Starvation, changeover</td><td>WIP + palletizer</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="equipos">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Datos tecnicos por estacion y por tipo de equipo</div>
+          <h2>Si el equipo no es conocido, levantar ficha minima de ingenieria.</h2>
+          <ul class="checklist">
+            <li>Fabricante, modelo, ano, serie, configuracion, retrofit, estado.</li>
+            <li>Formato min/max, espesores, flute types, y mix de producto.</li>
+            <li>Velocidad nominal, velocidad sostenida y output bueno (OEE aplicado).</li>
+            <li>Setup/changeover, MTBF, MTTR, fallos frecuentes y repuestos criticos.</li>
+            <li>Interfaz con transfer/conveyor/AMR, I/O, interlocks y seguridad.</li>
+            <li>Power/air, footprint, operadores por turno y nivel de automatizacion.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Technical data per station and equipment type</div>
+          <h2>If a machine is unknown, collect a minimum engineering data sheet.</h2>
+          <ul class="checklist">
+            <li>Manufacturer, model, year, serial, configuration, retrofit, condition.</li>
+            <li>Min/max format, board thickness, flute types, product mix.</li>
+            <li>Nominal speed, sustained speed and good output (OEE-adjusted).</li>
+            <li>Setup/changeover, MTBF, MTTR, recurring failures, critical spares.</li>
+            <li>Transfer/conveyor/AMR interface, I/O, interlocks and safety logic.</li>
+            <li>Power/air, footprint, operators per shift and automation level.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="kpi">
+        <div class="lang lang-es">
+          <div class="section-no">05 · KPIs, cuellos de botella y pain points</div>
+          <h2>Medir para decidir: baseline por turno, maquina y causa.</h2>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="value">OEE</div><div class="label">Availability x Performance x Quality</div></div>
+            <div class="kpi"><div class="value">Blocked min</div><div class="label">Minutos por bloqueo de salida/entrada</div></div>
+            <div class="kpi"><div class="value">Starvation</div><div class="label">Eventos y minutos perdidos por falta de alimentacion</div></div>
+            <div class="kpi"><div class="value">Rehandling</div><div class="label">Movimientos no productivos y manipulaciones extra</div></div>
+          </div>
+          <div class="two-col">
+            <article class="card amber"><h3>Preguntas clave de cuello</h3><ul><li>Que estacion para al resto de la linea cuando falla?</li><li>Donde se acumula WIP sin prioridad?</li><li>Donde hay transfer manual que bloquea capacidad?</li><li>Que excepciones no estan estandarizadas?</li></ul></article>
+            <article class="card red"><h3>Indicadores de dolor operacional</h3><ul><li>Cambio de turno con perdida de continuidad.</li><li>Busqueda de material o destino libre.</li><li>Errores de routing o carga desalineada.</li><li>Paradas por logistica interna, no por proceso principal.</li></ul></article>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · KPIs, bottlenecks and pain points</div>
+          <h2>Measure before deciding: baseline by shift, machine and root cause.</h2>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="value">OEE</div><div class="label">Availability x Performance x Quality</div></div>
+            <div class="kpi"><div class="value">Blocked min</div><div class="label">Minutes blocked at output/input interfaces</div></div>
+            <div class="kpi"><div class="value">Starvation</div><div class="label">Events and lost minutes due to missing supply</div></div>
+            <div class="kpi"><div class="value">Rehandling</div><div class="label">Non-productive moves and extra handling</div></div>
+          </div>
+          <div class="two-col">
+            <article class="card amber"><h3>Key bottleneck questions</h3><ul><li>Which station stops the rest of the line when it fails?</li><li>Where does WIP accumulate without priority logic?</li><li>Where does manual transfer block capacity?</li><li>Which exceptions are unmanaged or inconsistent?</li></ul></article>
+            <article class="card red"><h3>Operational pain indicators</h3><ul><li>Shift handover losses and continuity breaks.</li><li>Search time for material and free destination.</li><li>Routing mistakes and misaligned loads.</li><li>Internal logistics downtime instead of process downtime.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="roi">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Datos necesarios para estimar ROI y payback</div>
+          <h2>Sin disciplina economica, el ROI pierde credibilidad.</h2>
+          <div class="matrix"><table><thead><tr><th>Variable</th><th>Dato requerido</th><th>Unidad</th><th>Nota de validacion</th></tr></thead><tbody>
+            <tr><td>CAPEX</td><td>Inversion por fase (equipo, integracion, instalacion, software)</td><td>EUR/USD</td><td>Separar por paquete y por fase.</td></tr>
+            <tr><td>OPEX actual</td><td>Mano de obra, mantenimiento, energia, consumibles, scrap</td><td>EUR/año</td><td>Basado en historico real.</td></tr>
+            <tr><td>Costo parada</td><td>Coste por minuto de corrugadora/conversion detenida</td><td>EUR/min</td><td>Con validacion de finanzas.</td></tr>
+            <tr><td>Ahorro laboral</td><td>Tareas y puestos eliminables por turno y por area</td><td>h/año o EUR/año</td><td>No duplicar ahorro entre fases.</td></tr>
+            <tr><td>Ganancia capacidad</td><td>Output adicional vendible (no nominal)</td><td>m, cajas, pallets/año</td><td>Aplicar mix real y OEE.</td></tr>
+            <tr><td>Riesgo</td><td>Ramp-up, curva de adopcion, downtime de implantacion</td><td>dias/%, EUR</td><td>Usar escenarios conservador/base/agresivo.</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>Formula guia</strong>ROI = (Beneficio anual neto) / (CAPEX + OPEX incremental). Payback = CAPEX / ahorro anual neto. Validar con baseline auditado y trazabilidad de supuestos.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Required ROI and payback inputs</div>
+          <h2>Without financial discipline, ROI is not credible.</h2>
+          <div class="matrix"><table><thead><tr><th>Variable</th><th>Required data</th><th>Unit</th><th>Validation note</th></tr></thead><tbody>
+            <tr><td>CAPEX</td><td>Investment by phase (equipment, integration, installation, software)</td><td>EUR/USD</td><td>Separate by package and phase.</td></tr>
+            <tr><td>Current OPEX</td><td>Labor, maintenance, energy, consumables, scrap</td><td>EUR/year</td><td>Use real historical data.</td></tr>
+            <tr><td>Downtime cost</td><td>Cost per minute of stopped corrugator/converting</td><td>EUR/min</td><td>Finance validated value.</td></tr>
+            <tr><td>Labor savings</td><td>Removable tasks/positions by shift and area</td><td>h/year or EUR/year</td><td>No double counting across phases.</td></tr>
+            <tr><td>Capacity gain</td><td>Additional sellable output (not nominal)</td><td>m, boxes, pallets/year</td><td>Apply real mix and OEE.</td></tr>
+            <tr><td>Risk</td><td>Ramp-up, adoption curve, implementation downtime</td><td>days/%, EUR</td><td>Use conservative/base/aggressive scenarios.</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>Guiding formula</strong>ROI = (Net annual benefit) / (CAPEX + incremental OPEX). Payback = CAPEX / net annual savings. Validate with audited baseline and traceable assumptions.</div>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Cuestionario listo para reenviar a cliente</div>
+          <h2>Bloque corto, directo y accionable para discovery comercial-tecnico.</h2>
+          <div class="block">CUESTIONARIO BASE - AUTOMATIZACION PLANTA DE CORRUGADO (INGECART)
+
+1) Objetivo principal del proyecto (capacidad, seguridad, costo, calidad, servicio):
+2) Areas incluidas en el alcance (corrugadora, conversion, WIP, paletizado, shipping):
+3) Flujo actual de material (adjuntar esquema o describir estacion por estacion):
+4) Lista de equipos por estacion (OEM, modelo comercial, ano, velocidad nominal/sostenida):
+5) Donde se producen hoy los principales cuellos de botella?
+6) KPIs actuales disponibles (OEE, blocked minutes, starvation, merma, rehandling):
+7) Turnos, estructura de personal y tareas manuales repetitivas:
+8) Incidencias frecuentes de mantenimiento (MTBF, MTTR, repuestos criticos):
+9) Nivel de trazabilidad actual (ID de carga, reservas de destino, WMS/MES/ERP):
+10) Restricciones de layout, seguridad y obra civil:
+11) Datos economicos base (costo de parada, costo laboral, OPEX, CAPEX objetivo):
+12) Expectativa de retorno (payback objetivo, criterios de aprobacion de inversion):
+13) Prioridad del cliente: quick wins vs transformacion por fases:
+14) Plazo deseado para ingenieria, instalacion y arranque:
+
+Adjuntos recomendados:
+- Layout 2D/3D (DWG, DXF, PDF)
+- Historico KPI por turno (minimo 4 semanas)
+- Lista de equipos y fichas tecnicas
+- Fotos/video de zonas de bloqueo y WIP</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Ready-to-send client checklist</div>
+          <h2>Short, direct and actionable commercial-technical discovery block.</h2>
+          <div class="block">BASELINE QUESTIONNAIRE - CORRUGATED PLANT AUTOMATION (INGECART)
+
+1) Main project objective (capacity, safety, cost, quality, service):
+2) In-scope areas (corrugator, converting, WIP, palletizing, shipping):
+3) Current material flow (attach scheme or station-by-station description):
+4) Equipment list per station (OEM, commercial model, year, nominal/sustained speed):
+5) Where are the current main bottlenecks?
+6) Available baseline KPIs (OEE, blocked minutes, starvation, scrap, rehandling):
+7) Shift structure, staffing and repetitive manual tasks:
+8) Frequent maintenance incidents (MTBF, MTTR, critical spares):
+9) Current traceability level (load ID, destination reservation, WMS/MES/ERP):
+10) Layout, safety and civil-work constraints:
+11) Financial baseline data (downtime cost, labor cost, OPEX, CAPEX target):
+12) Expected return (target payback, investment approval criteria):
+13) Client priority: quick wins vs phased transformation:
+14) Desired timeline for engineering, installation and startup:
+
+Recommended attachments:
+- 2D/3D layout (DWG, DXF, PDF)
+- KPI history by shift (minimum 4 weeks)
+- Machine list and technical datasheets
+- Photos/video of bottleneck and WIP areas</div>
+        </div>
+      </section>
+
+      <section id="fuentes">
+        <div class="lang lang-es">
+          <div class="section-no">08 · Fuentes analizadas para este documento</div>
+          <h2>Conocimiento interno + benchmark tecnico-operativo + marco OEE.</h2>
+          <ul class="checklist">
+            <li>Calgary (Fase 1/2/3): flujo, WIP, AMR, transfer, ROI y disciplina anti doble conteo.</li>
+            <li>Paige y President Container: metodologia de auditoria, bottleneck map y capas de analisis.</li>
+            <li>IS-BACKOFFICE: simuladores, KPIs, LPI, drivers financieros y logica ROI.</li>
+            <li>ING_DIGHUB soluciones: transfer, AMR, paletizado, auditoria, truck loading e integracion 360.</li>
+            <li>Marco OEE (oee.com): Availability, Performance, Quality y perdida por factor.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">08 · Sources used for this document</div>
+          <h2>Internal knowledge + technical/operational benchmarks + OEE framework.</h2>
+          <ul class="checklist">
+            <li>Calgary (Phase 1/2/3): flow, WIP, AMR, transfer, ROI and anti-double-counting discipline.</li>
+            <li>Paige and President Container: audit method, bottleneck mapping and analysis layers.</li>
+            <li>IS-BACKOFFICE: simulators, KPIs, LPI, financial drivers and ROI logic.</li>
+            <li>ING_DIGHUB solutions: transfer, AMR, palletizing, audit, truck loading and 360 integration.</li>
+            <li>OEE framework (oee.com): Availability, Performance, Quality and loss factors.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="calgary_report_language.js"></script>
+</body>
+</html>

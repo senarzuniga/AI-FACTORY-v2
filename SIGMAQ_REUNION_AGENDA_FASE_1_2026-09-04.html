@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe operativo para gestionar la reunion tecnica SigmaQ Fase 1: desperdicio y trim entre corrugador y embaladora, con agenda, layout, videos, datos y roadmap modular." />
+  <title>SigmaQ Guatemala | Reunion Fase 1 | Informe Operativo</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --paper: #f3f0ea;
+      --surface: #ffffff;
+      --line: #d2cbc0;
+      --muted: #625f59;
+      --orange: #ff5a10;
+      --orange-dark: #b74900;
+      --green: #14735f;
+      --amber: #9b7100;
+      --red: #a33232;
+      --black: #0c0c0c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px), var(--paper);
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    .hero {
+      min-height: 62vh;
+      display: flex;
+      align-items: flex-end;
+      background-color: var(--black);
+      background-image: linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.68) 48%, rgba(0,0,0,.12) 82%);
+      color: #fff;
+      border-bottom: 8px solid var(--orange);
+    }
+    .hero-inner, .source-ribbon .inner, .layout, .report-footer-inner { width: min(1260px, calc(100% - 48px)); margin: 0 auto; }
+    .hero-inner { padding: 62px 0 52px; }
+    .eyebrow { color: #ffb38b; font: 700 12px/1.2 "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .08em; }
+    h1 { max-width: 1040px; margin: 16px 0 18px; font: 800 clamp(32px, 5.2vw, 62px)/1.04 Georgia, serif; }
+    .hero p { max-width: 860px; margin: 0; color: #ece7dd; font-size: 18px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 20px; color: #c8c4bc; font: 600 13px/1.4 "Cascadia Mono", monospace; }
+    .source-ribbon { background: var(--black); color: #eee; }
+    .source-ribbon .inner { display: flex; flex-wrap: wrap; gap: 24px; padding: 16px 0; font-size: 13px; }
+    .source-ribbon strong { color: var(--orange); }
+    .layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 42px; }
+    aside { padding: 40px 0; }
+    .toc { position: sticky; top: 20px; border-top: 5px solid var(--orange); padding-top: 16px; }
+    .toc-title { margin-bottom: 12px; font: 800 12px "Cascadia Mono", monospace; text-transform: uppercase; }
+    .toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); text-decoration: none; font-size: 12.5px; }
+    .toc a:hover { color: var(--orange-dark); }
+    main { min-width: 0; padding: 46px 0 80px; }
+    section { margin-bottom: 64px; scroll-margin-top: 20px; }
+    .section-no { color: var(--orange-dark); font: 700 12px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    h2 { margin: 5px 0 20px; font: 800 clamp(24px, 3.4vw, 38px)/1.08 Georgia, serif; }
+    h3 { margin: 24px 0 10px; font-size: 19px; }
+    p { margin: 0 0 14px; }
+    .lead { max-width: 920px; color: #393834; font-size: 18px; }
+    .decision { margin: 20px 0; padding: 22px 24px; border-left: 7px solid var(--orange); background: var(--surface); box-shadow: 0 10px 30px rgba(20,20,20,.07); }
+    .decision strong { display: block; margin-bottom: 8px; color: var(--orange-dark); font: 800 12px "Cascadia Mono", monospace; text-transform: uppercase; }
+    .decision.green { border-left-color: var(--green); } .decision.green strong { color: var(--green); }
+    .decision.amber { border-left-color: var(--amber); } .decision.amber strong { color: var(--amber); }
+    .decision.red { border-left-color: var(--red); } .decision.red strong { color: var(--red); }
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 24px 0; border: 1px solid var(--line); background: var(--surface); }
+    .kpi { min-width: 0; padding: 20px; border-right: 1px solid var(--line); }
+    .kpi:last-child { border-right: 0; }
+    .kpi-value { color: var(--orange-dark); font: 800 24px/1.1 Georgia, serif; }
+    .kpi-label { margin-top: 8px; color: var(--muted); font-size: 12px; }
+    .kpi small { display: block; margin-top: 6px; color: var(--green); }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 16px; margin: 18px 0; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { padding: 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+    .card.accent { border-top: 5px solid var(--orange); }
+    .card.green { border-top: 5px solid var(--green); }
+    .card.amber { border-top: 5px solid var(--amber); }
+    .card.red { border-top: 5px solid var(--red); }
+    .card h3 { margin-top: 0; }
+    .card ul { margin: 0; padding-left: 20px; } .card li { margin-bottom: 6px; }
+    .tag { display: inline-block; padding: 4px 8px; border-radius: 3px; font: 700 10px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    .fact { color: var(--green); background: #e0f0e9; }
+    .proposal { color: #6e4d00; background: #f6eac9; }
+    .risk { color: var(--red); background: #f2dddd; }
+    .table-wrap { overflow: auto; margin: 16px 0; border: 1px solid var(--line); background: var(--surface); }
+    table { width: 100%; min-width: 760px; border-collapse: collapse; }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
+    th { background: var(--black); color: #fff; font: 700 11px "Cascadia Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #faf7f1; }
+    .number { white-space: nowrap; font-family: "Cascadia Mono", monospace; font-weight: 700; }
+    .total-row td { background: #eee7dc; font-weight: 800; }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 22px 0; }
+    .flow-step { display: flex; min-height: 96px; align-items: center; justify-content: center; padding: 12px; border: 1px solid var(--line); background: var(--surface); text-align: center; font-weight: 700; font-size: 13.5px; }
+    .flow-step.control { border-color: var(--orange); background: #fff3eb; }
+    .flow-step.risk { border-color: var(--red); background: #fbecec; }
+    .risk-list { margin: 16px 0; padding: 0; list-style: none; }
+    .risk-list li { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .risk-list strong { color: var(--red); font: 700 11px "Cascadia Mono", monospace; text-transform: uppercase; }
+    .checklist { list-style: none; margin: 0; padding: 0; }
+    .checklist li { position: relative; padding: 8px 0 8px 30px; border-bottom: 1px dashed var(--line); font-size: 14px; }
+    .checklist li::before { content: "\2610"; position: absolute; left: 0; top: 8px; color: var(--orange-dark); font-size: 16px; }
+    .media-frame { border: 1px solid var(--line); background: var(--surface); padding: 16px; margin: 18px 0; }
+    .media-frame img, .media-frame object { display: block; width: 100%; height: auto; border-radius: 4px; }
+    .media-caption { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+    .media-caption strong { color: var(--ink); }
+    .link-list { margin: 12px 0; padding-left: 18px; }
+    .link-list li { margin-bottom: 8px; }
+    code.path { background: #eee7dc; padding: 2px 6px; border-radius: 3px; font-size: 12.5px; word-break: break-all; }
+    footer.report-footer { border-top: 1px solid var(--line); padding: 24px 0 60px; color: var(--muted); font-size: 12.5px; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      aside { display: none; }
+      .kpi-strip, .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .hero-inner, .source-ribbon .inner, .layout, .report-footer-inner { width: min(100% - 28px, 1260px); }
+      h1 { font-size: 34px; }
+      .hero p { font-size: 16px; }
+      .kpi-strip, .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); }
+      .kpi { border-right: 0; border-bottom: 1px solid var(--line); }
+      .risk-list li { grid-template-columns: 1fr; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">SigmaQ Guatemala · Fase 1 del roadmap modular · Reunion tecnica</div>
+      <h1>Informe operativo para gestionar la reunion de desperdicio y trim</h1>
+      <p>Documento de trabajo para conducir la sesion con Rafael Orlando Rodriguez Ramirez (SigmaQ), con enfoque en Fase 1: manejo de desperdicio y trim entre corrugador y embaladora, validacion de layout, datos tecnicos y criterio de negocio.</p>
+      <div class="hero-meta">
+        <span>Preparado: 04-09-2026</span>
+        <span>Proyecto: sigmaq-guatemala-expansion-2026</span>
+        <span>Uso: interno INGECART</span>
+        <span>Formato base: ANALISIS_CALGARY_PHASE_1_AUTOMATION_2026-08-17</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="source-ribbon">
+    <div class="inner">
+      <strong>Fuentes activas</strong>
+      <span>Correo 03-09-2026 con SigmaQ</span>
+      <span>data/sigmaq_guatemala_strategy.md</span>
+      <span>data/sigmaq_guatemala_project.json</span>
+      <span>ingesite.github.io/solutions</span>
+      <span>Corrugated Plant Automation Solutions v2.pptx (30 slides)</span>
+      <span>SIGMAQ Layout Definitivo 06.dwg</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Tabla de contenido">
+        <div class="toc-title">Contenido</div>
+        <a href="#executive">01 · Resumen y objetivo</a>
+        <a href="#agenda">02 · Agenda temporizada</a>
+        <a href="#email">03 · Analisis del correo</a>
+        <a href="#points">04 · Contenido por punto</a>
+        <a href="#layouts-plan">05 · Planos y layout</a>
+        <a href="#visuals">06 · Videos y recursos visuales</a>
+        <a href="#technical">07 · Datos tecnicos y preguntas</a>
+        <a href="#alternatives">08 · Alternativas de layout</a>
+        <a href="#kpis">09 · KPIs y business case</a>
+        <a href="#roadmap">10 · Roadmap Fase 1-3</a>
+        <a href="#checklist">11 · Checklist de preparacion</a>
+        <a href="#minutes">12 · Acta y proximos pasos</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="executive">
+        <div class="section-no">01 · Resumen ejecutivo y objetivo de reunion</div>
+        <h2>La respuesta de SigmaQ es un "si por fases", no un rechazo.</h2>
+        <p class="lead">El intercambio con Rafael confirma un patron phase-gate: primero validar Fase 1 (desperdicio/trim), luego abrir Fase 2 (bobinas) y Fase 3 (paletizacion, WIP, AMR) en ventanas separadas. El objetivo de esta reunion es cerrar diagnostico, alternativa de layout a desarrollar y paquete de datos para propuesta tecnica Fase 1.</p>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="kpi-value">1/3</div><div class="kpi-label">Fases en alcance inmediato</div><small>Solo Fase 1 en esta sesion</small></div>
+          <div class="kpi"><div class="kpi-value">4</div><div class="kpi-label">Puntos de agenda acordados</div><small>Flujo, cuellos, layout, requisitos</small></div>
+          <div class="kpi"><div class="kpi-value">~180 min</div><div class="kpi-label">Duracion recomendada</div><small>incluye cierre con decisiones</small></div>
+          <div class="kpi"><div class="kpi-value">ROI</div><div class="kpi-label">Estado</div><small>hipotesis pendiente de datos SigmaQ</small></div>
+        </div>
+        <div class="decision green"><strong>Decisiones esperadas</strong>Confirmar alcance Fase 1, validar cuellos de botella reales, elegir alternativa conceptual a desarrollar, fijar informacion tecnica faltante y acordar fecha de entrega de propuesta preliminar.</div>
+      </section>
+
+      <section id="agenda">
+        <div class="section-no">02 · Agenda temporizada</div>
+        <h2>Guion de reunion en el orden propuesto por SigmaQ.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Hora</th><th>Duracion</th><th>Bloque</th><th>Contenido</th><th>Output esperado</th></tr></thead>
+            <tbody>
+              <tr><td>09:00</td><td class="number">10 min</td><td>Apertura</td><td>Objetivo, alcance y reglas de foco Fase 1</td><td>Alineacion de la sesion</td></tr>
+              <tr><td>09:10</td><td class="number">30 min</td><td>Punto 1</td><td>Flujo actual de desperdicio y trim</td><td>Mapa as-is validado</td></tr>
+              <tr><td>09:40</td><td class="number">25 min</td><td>Punto 2</td><td>Congestion, perdida y control de material</td><td>Matriz de cuellos priorizada</td></tr>
+              <tr><td>10:05</td><td class="number">35 min</td><td>Punto 3</td><td>Alternativas de layout y solucion</td><td>Alternativa shortlist</td></tr>
+              <tr><td>10:40</td><td class="number">30 min</td><td>Punto 4</td><td>Requisitos SigmaQ: capacidad, flexibilidad, trazabilidad, escalabilidad</td><td>Requisitos acordados</td></tr>
+              <tr><td>11:10</td><td class="number">25 min</td><td>Complemento</td><td>KPIs base y business case preliminar</td><td>Hipotesis de calculo aceptadas</td></tr>
+              <tr class="total-row"><td>11:35</td><td class="number">25 min</td><td>Cierre</td><td>Roadmap, responsables y proxima fecha</td><td>Acta cerrada con acciones</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="decision amber"><strong>Disciplina de alcance</strong>Si aparecen temas de bobinas o paletizacion en detalle, registrar en acta y trasladar a sesiones Fase 2/Fase 3 para no diluir la decision Fase 1.</div>
+      </section>
+
+      <section id="email">
+        <div class="section-no">03 · Analisis del hilo de correo</div>
+        <h2>Lectura comercial y tecnica para conducir la conversacion.</h2>
+        <div class="grid-2">
+          <article class="card">
+            <span class="tag fact">Hecho</span>
+            <h3>Mensaje central</h3>
+            <p>Rafael propone primera sesion centrada en desperdicio y trim entre corrugador y embaladora; bobinas y paletizacion quedan en siguientes bloques con presupuesto separado.</p>
+            <p><code class="path">data/sigmaq_guatemala_email_reply.txt</code> y <code class="path">data/sigmaq_guatemala_strategy.md</code></p>
+          </article>
+          <article class="card red">
+            <span class="tag risk">Riesgo</span>
+            <h3>Error a evitar</h3>
+            <p>Empujar una propuesta integral de planta completa en esta reunion. Disminuye probabilidad de cierre en la fase de entrada.</p>
+          </article>
+        </div>
+        <div class="decision"><strong>Implicacion de gestion</strong>La reunion no debe buscar "cerrar todo"; debe dejar validado el caso tecnico y operativo de Fase 1 con evidencia suficiente para abrir propuesta y presupuesto de esa fase.</div>
+      </section>
+
+      <section id="points">
+        <div class="section-no">04 · Contenido por punto de agenda</div>
+        <h2>Que mostrar y que preparar para cada punto acordado.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Punto</th><th>Que mostrar en reunion</th><th>Que preparar antes</th></tr></thead>
+            <tbody>
+              <tr><td>1. Flujo actual</td><td>Diagrama as-is de generacion, transporte y evacuacion de desperdicio/trim hasta embaladora.</td><td>Plano marcado, fotos de puntos reales, rutas actuales y responsables de operacion por zona.</td></tr>
+              <tr><td>2. Cuellos y perdidas</td><td>Matriz causa-impacto: atascos, paros, limpieza, retrabajo, seguridad, trazabilidad.</td><td>Datos historicos de paradas, incidencias y merma por turno/maquina.</td></tr>
+              <tr><td>3. Layout y solucion</td><td>2-3 alternativas con logica SR-1400: captacion, transporte, interfaz, compactacion y control.</td><td>Restricciones de obra, alturas, accesos, energia, seguridad y continuidad durante implantacion.</td></tr>
+              <tr><td>4. Requisitos SigmaQ</td><td>Checklist de capacidad, flexibilidad, trazabilidad y escalabilidad validado en vivo.</td><td>Cuestionario tecnico y formato de captura de decisiones con responsable y fecha.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flow">
+          <div class="flow-step">Generacion trim</div>
+          <div class="flow-step risk">Transferencia actual</div>
+          <div class="flow-step risk">Acumulacion / perdida</div>
+          <div class="flow-step control">Ruta objetivo controlada</div>
+          <div class="flow-step">Evacuacion estable</div>
+        </div>
+      </section>
+
+      <section id="layouts-plan">
+        <div class="section-no">05 · Planos y layout de referencia</div>
+        <h2>El DWG definitivo es activo principal de la reunion.</h2>
+        <div class="decision amber">
+          <strong>Archivo detectado</strong>
+          <ul>
+            <li><code class="path">C:\Users\Inaki Senar\Documents\INGECART\COMMERCIAL\PROYECTOS\Sigmaq Guatemala\SIGMAQ_24-07-2026  Layout Definitivo 06.dwg</code></li>
+            <li>Tamano: 65.26 MB · Ultima modificacion: 04-09-2026 14:46</li>
+            <li><a href="file:///C:/Users/Inaki%20Senar/Documents/INGECART/COMMERCIAL/PROYECTOS/Sigmaq%20Guatemala/SIGMAQ_24-07-2026%20%20Layout%20Definitivo%2006.dwg">Abrir DWG local</a> (requiere visor CAD).</li>
+          </ul>
+        </div>
+        <div class="media-frame">
+          <object data="file:///C:/Users/Inaki%20Senar/Documents/INGECART/COMMERCIAL/PROYECTOS/Sigmaq%20Guatemala/SIGMAQ_24-07-2026%20%20Layout%20Definitivo%2006.dwg" type="application/acad">
+            <p>No se puede renderizar el DWG en navegador. Abrir con AutoCAD/visor o exportar a PDF/PNG para incrustar.</p>
+          </object>
+          <div class="media-caption"><strong>Accion recomendada:</strong> exportar este DWG a PDF A3/A1 con capas visibles (maquinas, pasillos, residuos, utilities) antes de la sesion.</div>
+        </div>
+      </section>
+
+      <section id="visuals">
+        <div class="section-no">06 · Videos y recursos visuales</div>
+        <h2>Material visual para explicar la solucion sin entrar en detalle de ingenieria cerrada.</h2>
+        <div class="grid-3">
+          <article class="card accent">
+            <span class="tag fact">Fase 1</span>
+            <h3>SR-1400 Waste System</h3>
+            <p><a href="https://ingesitehub.netlify.app/solutions/sr1400-es.html" target="_blank" rel="noopener">Pagina solucion</a> · <a href="https://ingesitehub.netlify.app/public/videos/sr1400-la-solucion-para-recoger-y-transportar-to720p_hd.html?ref=s" target="_blank" rel="noopener">Video</a></p>
+            <img src="https://ingesitehub.netlify.app/assets/images/Ingecart%20SR-1400%20Waste%20System.png" alt="SR-1400 Waste System" />
+          </article>
+          <article class="card green">
+            <span class="tag proposal">Roadmap Fase 2</span>
+            <h3>INGETRANS Bobinas</h3>
+            <p><a href="https://ingesitehub.netlify.app/solutions/ingetrans-es.html" target="_blank" rel="noopener">Pagina solucion</a> · <a href="https://ingesitehub.netlify.app/public/videos/ingetrans-280_-automated-reel-transport-system-full-2nd-geration.html?ref=ING_TRANS" target="_blank" rel="noopener">Video</a></p>
+            <img src="https://ingesitehub.netlify.app/assets/images/ingetrans-click.png" alt="INGETRANS" />
+          </article>
+          <article class="card amber">
+            <span class="tag proposal">Roadmap Fase 3</span>
+            <h3>AMR + Palletizing</h3>
+            <p><a href="https://ingesitehub.netlify.app/solutions/amr-intralogistics-es.html" target="_blank" rel="noopener">AMR</a> · <a href="https://ingesitehub.netlify.app/solutions/plug-play-palletizer-es.html" target="_blank" rel="noopener">Plug&amp;Play</a></p>
+            <img src="https://ingesitehub.netlify.app/assets/images/INTRALOGISTICS%20AMR.png" alt="AMR Intralogistics" />
+          </article>
+        </div>
+        <div class="decision"><strong>Uso recomendado en reunion</strong>En Fase 1 usar SR-1400 como columna principal. Mostrar INGETRANS y AMR/Plug&amp;Play solo como continuidad del roadmap modular para no abrir alcance tecnico fuera de objetivo.</div>
+      </section>
+
+      <section id="technical">
+        <div class="section-no">07 · Datos tecnicos y preguntas a SigmaQ</div>
+        <h2>Informacion minima para dimensionar propuesta Fase 1.</h2>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Datos de proceso requeridos</h3>
+            <ul class="checklist">
+              <li>Toneladas de desperdicio por dia/turno y por origen (corrugadora, converting, troquel).</li>
+              <li>Velocidad de linea y picos de produccion por familia de producto.</li>
+              <li>Incidencias de atasco/parada asociadas a evacuacion de trim.</li>
+              <li>Metodo actual de captacion/transporte/compactacion y personal implicado.</li>
+              <li>Restricciones de seguridad, polvo, incendio y housekeeping.</li>
+            </ul>
+          </article>
+          <article class="card amber">
+            <h3>Preguntas de diseno en sesion</h3>
+            <ul class="checklist">
+              <li>Que no puede detenerse durante implantacion (ventanas de parada reales).</li>
+              <li>Que zonas de layout son intocables y cuales permiten modificacion.</li>
+              <li>Que KPIs usa SigmaQ hoy para medir desperdicio y continuidad de flujo.</li>
+              <li>Que sistemas existentes deben integrarse (PLC, MES, reportes, SCADA).</li>
+              <li>Que umbral de ROI consideran aceptable para aprobar Fase 1.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="decision red"><strong>Regla de calidad de datos</strong>No cerrar dimensionado ni ROI con estimaciones generales. Requiere baseline validado en planta y reconciliado por turno/area para evitar doble conteo de ahorro.</div>
+      </section>
+
+      <section id="alternatives">
+        <div class="section-no">08 · Alternativas de layout Fase 1</div>
+        <h2>Tres escenarios para discutir en la reunion.</h2>
+        <div class="grid-3">
+          <article class="card accent">
+            <span class="tag proposal">A</span>
+            <h3>Minima intervencion</h3>
+            <p>Ajuste de captacion y transferencia sobre layout actual, obra limitada, impacto bajo en parada, mejora moderada.</p>
+          </article>
+          <article class="card green">
+            <span class="tag proposal">B</span>
+            <h3>Balanceada (recomendada)</h3>
+            <p>Integracion SR-1400 con nodos de interfaz optimizados; balance entre capex, continuidad operativa y escalabilidad futura.</p>
+          </article>
+          <article class="card amber">
+            <span class="tag proposal">C</span>
+            <h3>Alta capacidad futura</h3>
+            <p>Preparada desde inicio para transicion rapida a Fase 2/3; mayor inversion inicial y mayor complejidad de implantacion.</p>
+          </article>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Criterio</th><th>A</th><th>B (recomendada)</th><th>C</th></tr></thead>
+            <tbody>
+              <tr><td>Intervencion civil</td><td>Baja</td><td>Media</td><td>Alta</td></tr>
+              <tr><td>Riesgo de implantacion</td><td>Bajo</td><td>Medio</td><td>Medio/alto</td></tr>
+              <tr><td>Mejora de flujo esperada</td><td>Media</td><td>Alta</td><td>Muy alta</td></tr>
+              <tr><td>Escalabilidad Fase 2-3</td><td>Media</td><td>Alta</td><td>Muy alta</td></tr>
+              <tr><td>Tiempo a propuesta</td><td>Rapido</td><td>Rapido/medio</td><td>Medio</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="kpis">
+        <div class="section-no">09 · KPIs y business case preliminar</div>
+        <h2>Marco de evaluacion economica con hipotesis explicitas.</h2>
+        <div class="kpi-strip">
+          <div class="kpi"><div class="kpi-value">+3 a +6 pp</div><div class="kpi-label">OEE util objetivo</div><small>tramo salida/transfer</small></div>
+          <div class="kpi"><div class="kpi-value">-40% a -65%</div><div class="kpi-label">Bloqueo por salida</div><small>si se valida cuello actual</small></div>
+          <div class="kpi"><div class="kpi-value">-30% a -50%</div><div class="kpi-label">Rehandling</div><small>dependiente de layout final</small></div>
+          <div class="kpi"><div class="kpi-value">12-24 meses</div><div class="kpi-label">ROI objetivo</div><small>solo tras baseline real</small></div>
+        </div>
+        <div class="decision amber"><strong>Advertencia de hipotesis</strong>Rangos orientativos tomados de referencias internas del repositorio Calgary y activos de soluciones. No presentar como compromiso contractual hasta validar datos de SigmaQ y definir alcance tecnico exacto.</div>
+        <ul class="risk-list">
+          <li><strong>Doble conteo</strong>Si un ahorro de mano de obra se asigna a Fase 1, no puede volver a contarse en Fase 2/Fase 3.</li>
+          <li><strong>Base de comparacion</strong>Comparar contra productividad real del flujo, no contra velocidad nominal de maquina.</li>
+          <li><strong>Costes completos</strong>Incluir capex, instalacion, integracion, mantenimiento y soporte para estimar payback.</li>
+        </ul>
+      </section>
+
+      <section id="roadmap">
+        <div class="section-no">10 · Roadmap modular Fase 1-3</div>
+        <h2>Secuencia comercial y tecnica recomendada.</h2>
+        <div class="grid-3">
+          <article class="card accent"><span class="tag fact">Ahora</span><h3>Fase 1 · Desperdicio y trim</h3><p>Victoria tecnica inicial y ROI visible. Objetivo: estabilizar flujo entre corrugador y embaladora.</p></article>
+          <article class="card"><span class="tag proposal">Siguiente</span><h3>Fase 2 · Bobinas y alimentacion</h3><p>Abrir al confirmar resultados Fase 1. Usar INGETRANS como caso principal de suministro continuo.</p></article>
+          <article class="card"><span class="tag proposal">Posterior</span><h3>Fase 3 · Paletizado, WIP, AMR</h3><p>Escalar automatizacion de salida e intralogistica avanzada cuando exista base operativa y presupuestaria.</p></article>
+        </div>
+      </section>
+
+      <section id="checklist">
+        <div class="section-no">11 · Checklist de preparacion de reunion</div>
+        <h2>Todo lo que debe estar listo antes de sentarse con SigmaQ.</h2>
+        <div class="grid-2">
+          <article class="card green">
+            <h3>Material tecnico</h3>
+            <ul class="checklist">
+              <li>DWG definitivo revisado y exportado a PDF/PNG para presentacion.</li>
+              <li>Mapa as-is de flujo de desperdicio/trim con leyenda clara.</li>
+              <li>Alternativas A/B/C en una hoja comparativa.</li>
+              <li>Plantilla de captura de requisitos y decisiones en vivo.</li>
+            </ul>
+          </article>
+          <article class="card amber">
+            <h3>Material comercial y visual</h3>
+            <ul class="checklist">
+              <li>Presentacion <code class="path">Corrugated Plant Automation Solutions v2.pptx</code> (36.99 MB, 30 slides) preparada.</li>
+              <li>Slides foco sugerido: 2, 7, 10, 11, 23, 24 para corrugador/waste; 12-18 para roadmap.</li>
+              <li>Links de soluciones y videos testeados en el equipo de reunion.</li>
+              <li>Acta preformateada con responsables y fechas para cerrar en la misma sesion.</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Enlaces de trabajo rapido</h3>
+        <ul class="link-list">
+          <li><a href="https://ingesitehub.netlify.app/solutions" target="_blank" rel="noopener">https://ingesitehub.netlify.app/solutions</a></li>
+          <li><a href="file:///C:/Users/Inaki%20Senar/Documents/INGECART/MARKETING/CONTENT/Corrugated%20Plant%20Automation%20Solutions%20v2.pptx">Abrir PPTX local</a></li>
+          <li><a href="file:///C:/Users/Inaki%20Senar/Documents/INGECART/COMMERCIAL/PROYECTOS/Sigmaq%20Guatemala/SIGMAQ_24-07-2026%20%20Layout%20Definitivo%2006.dwg">Abrir DWG local</a></li>
+        </ul>
+      </section>
+
+      <section id="minutes">
+        <div class="section-no">12 · Plantilla de acta y proximos pasos</div>
+        <h2>Cerrar la reunion con decisiones operables.</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Decision / accion</th><th>Responsable</th><th>Fecha objetivo</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td>Alcance final validado de Fase 1</td><td>INGECART + SigmaQ</td><td>___</td><td>Abierto</td></tr>
+              <tr><td>Entrega de datos baseline de planta</td><td>SigmaQ</td><td>___</td><td>Abierto</td></tr>
+              <tr><td>Eleccion de alternativa layout (A/B/C)</td><td>SigmaQ</td><td>___</td><td>Abierto</td></tr>
+              <tr><td>Propuesta tecnica preliminar Fase 1</td><td>INGECART</td><td>___</td><td>Abierto</td></tr>
+              <tr><td>Programacion sesion Fase 2</td><td>INGECART + SigmaQ</td><td>___</td><td>Abierto</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="decision green"><strong>Criterio de exito de esta reunion</strong>Salir con foco confirmado en Fase 1, requisitos tecnicos capturados, datos comprometidos por SigmaQ y una fecha concreta para devolver propuesta preliminar.</div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="report-footer">
+    <div class="report-footer-inner">
+      Informe generado para gestion operativa de la oportunidad SigmaQ Guatemala. Estructura visual basada en el formato Calgary solicitado.
+      Fuentes: <code class="path">data/sigmaq_guatemala_strategy.md</code>, <code class="path">data/sigmaq_guatemala_project.json</code>, <code class="path">data/sigmaq_guatemala_email_reply.txt</code>,
+      <code class="path">C:\Users\Inaki Senar\Documents\GitHub\ingesite.github.io\solutions</code>,
+      <code class="path">C:\Users\Inaki Senar\Documents\INGECART\MARKETING\CONTENT\Corrugated Plant Automation Solutions v2.pptx</code> y
+      <code class="path">C:\Users\Inaki Senar\Documents\INGECART\COMMERCIAL\PROYECTOS\Sigmaq Guatemala\SIGMAQ_24-07-2026  Layout Definitivo 06.dwg</code>.
+    </div>
+  </footer>
+</body>
+</html>

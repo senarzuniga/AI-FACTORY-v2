@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-09T10:45:20.617884",
+  "system": "Ingetrans",
+  "operation": "data_propagation",
+  "propagated_files": [
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\data\\ingetrans_parameters.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\ai-factory-v2\\config\\ingetrans_parameters.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\api\\config\\ingetrans_parameters.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\orchestrator\\config\\ingetrans_parameters.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\agents\\config\\ingetrans_parameters.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\config\\systems_registry.json",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\ai-factory-v2\\db\\migrations\\ingetrans_schema.sql",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\api\\db\\ingetrans_schema.sql",
+    "C:\\Users\\isena\\Documents\\GitHub\\AI-FACTORY-v2.worktrees\\worktree-analysis-and-integration\\orchestrator\\db\\ingetrans_schema.sql"
+  ],
+  "failed_operations": [],
+  "status": "success",
+  "total_propagated": 9,
+  "total_failed": 0
+}

@@ -139,7 +139,10 @@ Individual services:
 .\start-collaborative-hub.ps1 -StartAPI
 .\start-collaborative-hub.ps1 -StartDashboard
 .\start-collaborative-hub.ps1 -StartHumanPortal
+.\start-collaborative-hub.ps1 -StartTranscriptions
 ```
+
+The repository also includes a lightweight transcript intake panel at `dashboard/streamlit/transcriptions_app.py`, exposed on port 8503 and listed in the central orchestrator panel.
 
 ## Architecture reorganization launcher
 

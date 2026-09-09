@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe técnico profesional de consultoría INGECART para definir el cuestionario mínimo necesario para preparar propuestas realistas de automatización con fases rápidas y retorno defendible." />
+  <title>INGECART | Informe técnico de consultoría para cuestionario de automatización</title>
+  <style>
+    :root {
+      --ink: #181817;
+      --paper: #f2efe8;
+      --surface: #fff;
+      --line: #d2cbc0;
+      --muted: #625f59;
+      --orange: #ff5a10;
+      --orange-dark: #a94400;
+      --green: #14735f;
+      --amber: #8b6700;
+      --red: #9f3232;
+      --black: #0c0c0c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: repeating-linear-gradient(90deg, rgba(23,23,23,.025) 0, rgba(23,23,23,.025) 1px, transparent 1px, transparent 42px), var(--paper);
+      color: var(--ink);
+      font-family: "Aptos", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      background:
+        radial-gradient(circle at 78% 24%, rgba(255,90,16,.22), transparent 0 18%),
+        linear-gradient(90deg, rgba(0,0,0,.96), rgba(0,0,0,.74) 58%, rgba(0,0,0,.30)),
+        linear-gradient(135deg, #111 0%, #1b1b1b 38%, #2a2521 100%);
+      color: #fff;
+      border-bottom: 8px solid var(--orange);
+    }
+    .hero-inner, .ribbon-inner, .layout { width: min(1240px, calc(100% - 48px)); margin: 0 auto; }
+    .hero-inner { padding: 76px 0 58px; }
+    .eyebrow, .section-no, .tag, .toc-title, .meta { font-family: "Cascadia Mono", Consolas, monospace; }
+    .eyebrow { color: #ffb38b; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 980px; margin: 16px 0 20px; font: 800 clamp(40px, 6vw, 78px)/.98 Georgia, serif; letter-spacing: 0; overflow-wrap: anywhere; }
+    .hero p { max-width: 830px; margin: 0; color: #eee8de; font-size: 20px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 28px; color: #ccc7be; font-size: 12px; font-weight: 700; }
+    .ribbon { background: var(--black); color: #eee; }
+    .ribbon-inner { display: flex; flex-wrap: wrap; gap: 24px; padding: 17px 0; font-size: 13px; }
+    .ribbon strong { color: var(--orange); }
+    .layout { display: grid; grid-template-columns: 250px minmax(0,1fr); gap: 46px; }
+    aside { padding: 46px 0; }
+    .toc { position: sticky; top: 20px; border-top: 5px solid var(--orange); padding-top: 15px; }
+    .toc-title { margin-bottom: 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .toc a { display: block; padding: 7px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; text-decoration: none; }
+    .toc a:hover { color: var(--orange-dark); }
+    main { min-width: 0; padding: 50px 0 80px; }
+    section { margin-bottom: 70px; scroll-margin-top: 20px; }
+    .section-no { color: var(--orange-dark); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    h2 { margin: 5px 0 24px; font: 800 clamp(28px, 4vw, 46px)/1.05 Georgia, serif; letter-spacing: 0; overflow-wrap: anywhere; }
+    h3 { margin: 26px 0 10px; font-size: 20px; letter-spacing: 0; overflow-wrap: anywhere; }
+    p { margin: 0 0 14px; }
+    .lead { max-width: 900px; color: #3b3935; font-size: 20px; }
+    .decision { margin: 24px 0; padding: 25px 27px; border-left: 7px solid var(--orange); background: var(--surface); box-shadow: 0 10px 28px rgba(20,20,20,.07); }
+    .decision strong { display: block; margin-bottom: 7px; color: var(--orange-dark); font: 800 12px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; }
+    .decision.green { border-left-color: var(--green); }
+    .decision.green strong { color: var(--green); }
+    .checklist { margin: 16px 0; padding: 0; list-style: none; }
+    .checklist li { padding: 11px 0 11px 28px; border-bottom: 1px solid var(--line); position: relative; }
+    .checklist li::before { content: "✓"; position: absolute; left: 2px; color: var(--green); font-weight: 900; }
+    .lang.hidden { display: none; }
+    .language-switcher { position: fixed; top: 18px; right: 18px; z-index: 10; display: flex; padding: 3px; border: 1px solid #777; border-radius: 4px; background: rgba(9,9,9,.92); }
+    .language-switcher button { min-width: 44px; padding: 8px 10px; border: 0; border-radius: 2px; background: transparent; color: #fff; font: 800 12px "Cascadia Mono", Consolas, monospace; cursor: pointer; }
+    .language-switcher button[aria-pressed="true"] { background: var(--orange); color: #111; }
+    .brand-mark { display: inline-flex; align-items: center; gap: 12px; margin: 8px 0 12px; color: #f2f7ff; letter-spacing: .18em; text-transform: uppercase; font-size: 14px; font-weight: 800; }
+    .brand-mark img { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 2px solid #fff; }
+    .kpi-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 22px 0; }
+    .kpi { border: 1px solid var(--line); background: var(--surface); padding: 18px; }
+    .kpi-value { color: var(--orange-dark); font: 800 28px/1 Georgia, serif; }
+    .kpi-label { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .matrix { overflow: auto; margin: 18px 0; border: 1px solid var(--line); background: var(--surface); }
+    .matrix table { width: 100%; min-width: 980px; border-collapse: collapse; }
+    .matrix th, .matrix td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 13px; }
+    .matrix th { background: var(--black); color: #fff; font: 800 11px "Cascadia Mono", Consolas, monospace; text-transform: uppercase; letter-spacing: .05em; }
+    .note-block { padding: 16px; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--orange); white-space: pre-wrap; font: 13px/1.5 "Cascadia Mono", Consolas, monospace; }
+    .phase-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 20px 0; }
+    .phase-card { padding: 18px; background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--orange); }
+    .phase-card.green { border-top-color: var(--green); }
+    .phase-card.amber { border-top-color: var(--amber); }
+    .phase-card.red { border-top-color: var(--red); }
+    .phase-card h3 { margin-top: 0; }
+    @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } aside { display: none; } .kpi-strip, .phase-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .hero-inner, .ribbon-inner, .layout { width: min(calc(100% - 28px),1240px); } h1 { font-size: 42px; } .hero p { font-size: 17px; } }
+    @media print { body { background: #fff; font-size: 10pt; } .hero { min-height: 210mm; print-color-adjust: exact; -webkit-print-color-adjust: exact; } .layout { display: block; width: 100%; } aside, .language-switcher { display: none; } main { padding: 12mm; } section { margin-bottom: 12mm; } .decision, .matrix, .phase-card, .kpi { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="language-switcher" role="group" aria-label="Idioma / Language">
+    <button data-language="es" aria-pressed="true">ES</button>
+    <button data-language="en" aria-pressed="false">EN</button>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="lang lang-es">
+        <div class="eyebrow">INGECART · Consultoría de automatización · Documento marco</div>
+        <div class="brand-mark"><img src="data:image/png;base64,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" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Informe técnico profesional para definir el cuestionario de automatización</h1>
+        <p>El cuestionario no debe servir solo para “pedir datos”. Debe capturar la mínima información útil que permita a INGECART construir propuestas realistas, percibidas por el cliente como implantables, rápidas y con retorno visible.</p>
+        <div class="meta"><span>Consultoría INGECART</span><span>2026-09-04</span><span>ES / EN</span><span>Versión profesional</span></div>
+      </div>
+      <div class="lang lang-en hidden">
+        <div class="eyebrow">INGECART · Automation consulting · Framework document</div>
+        <div class="brand-mark"><img src="data:image/png;base64,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" alt="Ingecart" /><span>INGECART</span></div>
+        <h1>Professional technical report to define the automation questionnaire</h1>
+        <p>The questionnaire must do more than “request data”. It must capture the minimum useful information that enables INGECART to build realistic proposals perceived by the client as implementable, fast and return-oriented.</p>
+        <div class="meta"><span>INGECART Consulting</span><span>2026-09-04</span><span>ES / EN</span><span>Professional version</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <strong>Consulting principle</strong>
+      <span>Easy-to-give data</span>
+      <span>Design-ready discovery</span>
+      <span>Quick wins first</span>
+      <span>Phased roadmap</span>
+      <span>ROI with evidence</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside>
+      <nav class="toc" aria-label="Tabla de contenido">
+        <div class="lang lang-es">
+          <div class="toc-title">Contenido</div>
+          <a href="#tesis">01 · Tesis de consultoría</a>
+          <a href="#salida">02 · Qué debe producir el cuestionario</a>
+          <a href="#minimo">03 · Información mínima útil</a>
+          <a href="#rapido">04 · Filtro de quick wins</a>
+          <a href="#fases">05 · Cómo derivar propuestas por fases</a>
+          <a href="#cliente">06 · Cuestionario cliente-ready</a>
+          <a href="#entregables">07 · Entregables resultantes</a>
+          <a href="#criterios">08 · Criterios de validación</a>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="toc-title">Contents</div>
+          <a href="#tesis">01 · Consulting thesis</a>
+          <a href="#salida">02 · What the questionnaire must produce</a>
+          <a href="#minimo">03 · Minimum useful information</a>
+          <a href="#rapido">04 · Quick-win filter</a>
+          <a href="#fases">05 · How to derive phased proposals</a>
+          <a href="#cliente">06 · Client-ready questionnaire</a>
+          <a href="#entregables">07 · Resulting deliverables</a>
+          <a href="#criterios">08 · Validation criteria</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="tesis">
+        <div class="lang lang-es">
+          <div class="section-no">01 · Tesis de consultoría</div>
+          <h2>La captura de datos debe estar diseñada para generar propuestas, no para llenar formularios.</h2>
+          <p class="lead">Desde la óptica consultiva, el cliente debe poder responder con información fácil de obtener: flujo, equipos, turnos, paradas, cuellos conocidos, problemas de fiabilidad, seguridad y espacio. Con esa base, INGECART debe ser capaz de producir una primera propuesta de concepto, identificar quick wins y estructurar un roadmap por fases similar al caso Calgary.</p>
+          <div class="decision"><strong>Regla profesional</strong>Si una pregunta no ayuda a decidir entre quick win, mejora de flujo, automatización logística, intervención de fin de línea o transformación por fases, esa pregunta no pertenece al cuestionario mínimo.</div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">AS-IS</div><div class="kpi-label">Mapa real de flujo y equipos</div></div>
+            <div class="kpi"><div class="kpi-value">Pain points</div><div class="kpi-label">Cuellos, riesgos y pérdidas visibles</div></div>
+            <div class="kpi"><div class="kpi-value">Quick wins</div><div class="kpi-label">Opciones rápidas con impacto percibido</div></div>
+            <div class="kpi"><div class="kpi-value">Roadmap</div><div class="kpi-label">Fases con retorno y validación</div></div>
+          </div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">01 · Consulting thesis</div>
+          <h2>Data capture must be designed to generate proposals, not to fill forms.</h2>
+          <p class="lead">From a consulting perspective, the client should be able to answer using easy-to-obtain information: flow, equipment, shifts, stops, known bottlenecks, reliability issues, safety and space constraints. With that baseline, INGECART must be able to produce a first concept proposal, identify quick wins and structure a Calgary-style phased roadmap.</p>
+          <div class="decision"><strong>Professional rule</strong>If a question does not help decide between quick win, flow improvement, logistics automation, end-of-line intervention or phased transformation, it does not belong in the minimum questionnaire.</div>
+          <div class="kpi-strip">
+            <div class="kpi"><div class="kpi-value">AS-IS</div><div class="kpi-label">Real flow and equipment map</div></div>
+            <div class="kpi"><div class="kpi-value">Pain points</div><div class="kpi-label">Bottlenecks, risks and visible losses</div></div>
+            <div class="kpi"><div class="kpi-value">Quick wins</div><div class="kpi-label">Fast options with perceived impact</div></div>
+            <div class="kpi"><div class="kpi-value">Roadmap</div><div class="kpi-label">Phases with return and validation</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="salida">
+        <div class="lang lang-es">
+          <div class="section-no">02 · Qué debe producir el cuestionario una vez respondido</div>
+          <h2>El objetivo no es la encuesta; el objetivo es el informe de propuesta.</h2>
+          <ul class="checklist">
+            <li>Mapa AS-IS del flujo en formato Mermaid o equivalente.</li>
+            <li>Matriz de equipos con nombre comercial, función, capacidad nominal y velocidad sostenida estimada.</li>
+            <li>Mapa de cuellos de botella, puntos de espera, rehandling y problemas de seguridad.</li>
+            <li>Primera hipótesis de quick wins: qué puede implementarse rápido y con mínima interferencia.</li>
+            <li>Opciones de propuesta por fases: Fase 1 inmediata, Fase 2 de consolidación, Fase 3 de integración total.</li>
+            <li>Caso económico orientativo con disciplina OEE, throughput y no doble conteo.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">02 · What the questionnaire must produce once answered</div>
+          <h2>The goal is not the survey; the goal is the proposal report.</h2>
+          <ul class="checklist">
+            <li>AS-IS material flow map in Mermaid or equivalent format.</li>
+            <li>Equipment matrix with commercial name, function, nominal capacity and estimated sustained speed.</li>
+            <li>Bottleneck map, waiting points, rehandling and safety issues.</li>
+            <li>First quick-win hypothesis: what can be implemented fast with minimal interference.</li>
+            <li>Phased proposal options: immediate Phase 1, consolidation Phase 2, total integration Phase 3.</li>
+            <li>Indicative business case with OEE, throughput and anti-double-counting discipline.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="minimo">
+        <div class="lang lang-es">
+          <div class="section-no">03 · Información mínima útil para poder diseñar propuestas realistas</div>
+          <h2>Capturar poco, pero capturar lo correcto.</h2>
+          <div class="matrix"><table><thead><tr><th>Bloque</th><th>Información mínima</th><th>Por qué es suficiente</th><th>Qué propuesta permite generar</th></tr></thead><tbody>
+            <tr><td>1. Flujo</td><td>Secuencia real de material desde entrada hasta expedición, con retornos y segundas/terceras pasadas.</td><td>Permite localizar interfaces críticas y dependencias.</td><td>Transfer, WIP, routing, AMR, conveyors, desacople.</td></tr>
+            <tr><td>2. Equipos</td><td>Nombre comercial de cada equipo, OEM/modelo, función y output aproximado.</td><td>Permite buscar especificaciones y estimar restricciones de capacidad.</td><td>Matriz técnica, sizing conceptual y cuellos por estación.</td></tr>
+            <tr><td>3. Calendario operativo</td><td>Turnos, días/año, paradas programadas, cambios de turno y ventanas de intervención.</td><td>Permite estimar impacto real y viabilidad de implantación rápida.</td><td>Roadmap, plan de implantación y ahorro anualizado.</td></tr>
+            <tr><td>4. Pérdidas visibles</td><td>Paradas conocidas, máquinas críticas, bloqueos, starvation, acumulación, rehandling.</td><td>El cliente puede responder aunque no tenga OEE perfecto.</td><td>Quick wins y árbol inicial de pérdidas.</td></tr>
+            <tr><td>5. Fiabilidad</td><td>Fallos frecuentes, equipos frágiles, repuestos problemáticos, mantenimiento reactivo.</td><td>Permite separar problema de flujo vs problema mecánico.</td><td>Fases técnicas y plan de riesgo.</td></tr>
+            <tr><td>6. Seguridad y espacio</td><td>Zonas congestionadas, cruces de carretilla, riesgos manuales, falta de espacio, restricciones civiles.</td><td>Condiciona si la solución debe ser compacta, móvil o por islas.</td><td>AMR, tridentes, paletizado compacto, rutas seguras.</td></tr>
+            <tr><td>7. Datos económicos básicos</td><td>Coste laboral aproximado, coste de parada, merma relevante, objetivo de payback.</td><td>Sin esto no hay priorización ejecutiva.</td><td>Propuesta rápida vs propuesta transformacional.</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">03 · Minimum useful information to design realistic proposals</div>
+          <h2>Capture less, but capture the right things.</h2>
+          <div class="matrix"><table><thead><tr><th>Block</th><th>Minimum information</th><th>Why it is enough</th><th>What proposal it enables</th></tr></thead><tbody>
+            <tr><td>1. Flow</td><td>Real material sequence from input to shipping, including returns and second/third pass.</td><td>Locates critical interfaces and dependencies.</td><td>Transfer, WIP, routing, AMR, conveyors, decoupling.</td></tr>
+            <tr><td>2. Equipment</td><td>Commercial machine name, OEM/model, function and approximate output.</td><td>Enables spec lookup and conceptual capacity limits.</td><td>Technical matrix, conceptual sizing and station bottlenecks.</td></tr>
+            <tr><td>3. Operating calendar</td><td>Shifts, workdays/year, planned shutdowns, handovers and intervention windows.</td><td>Enables real impact and fast-implementation feasibility.</td><td>Roadmap, implementation plan and annualized savings.</td></tr>
+            <tr><td>4. Visible losses</td><td>Known stops, critical machines, blockages, starvation, accumulation, rehandling.</td><td>The client can answer even without perfect OEE data.</td><td>Quick wins and first loss tree.</td></tr>
+            <tr><td>5. Reliability</td><td>Frequent failures, fragile machines, spare part problems, reactive maintenance.</td><td>Separates flow problem from mechanical problem.</td><td>Technical phases and risk plan.</td></tr>
+            <tr><td>6. Safety and space</td><td>Congested areas, forklift crossings, manual hazards, lack of space, civil constraints.</td><td>Defines whether solution must be compact, mobile or island-based.</td><td>AMR, tridents, compact palletizing, safe routing.</td></tr>
+            <tr><td>7. Basic economics</td><td>Approximate labor cost, downtime cost, meaningful scrap cost, target payback.</td><td>Without this there is no executive prioritization.</td><td>Fast proposal vs transformational proposal.</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="rapido">
+        <div class="lang lang-es">
+          <div class="section-no">04 · Filtro de quick wins</div>
+          <h2>Cómo detectar opciones percibidas por el cliente como rápidas y razonables.</h2>
+          <div class="matrix"><table><thead><tr><th>Condición observada</th><th>Lectura consultiva</th><th>Posible quick win</th><th>Horizonte típico</th></tr></thead><tbody>
+            <tr><td>Bloqueo frecuente en salida de máquina</td><td>Se está perdiendo capacidad útil, no solo tiempo de operario.</td><td>Conveyor/transfer automático, cola regulada, reserva de destino.</td><td>3-9 meses</td></tr>
+            <tr><td>Paletizado manual o inestable</td><td>El final de línea está frenando la venta de capacidad.</td><td>Plug &amp; Play palletizer / EasyPack / compact end-of-line.</td><td>2-6 meses</td></tr>
+            <tr><td>Movimientos repetitivos de carretilla</td><td>Hay logística interna no productiva y riesgo de seguridad.</td><td>AMR parcial, tridentes, estaciones de intercambio.</td><td>4-10 meses</td></tr>
+            <tr><td>WIP saturado o sin prioridad</td><td>La planta no desacopla bien la variabilidad.</td><td>WIP gestionado, reglas de routing, software de flujo.</td><td>2-8 meses</td></tr>
+            <tr><td>Problemas de seguridad y espacio</td><td>La solución debe reducir contacto manual y tráfico cruzado.</td><td>Rediseño de rutas, compactación de estaciones, handoff seguro.</td><td>2-6 meses</td></tr>
+          </tbody></table></div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">04 · Quick-win filter</div>
+          <h2>How to detect options the client will perceive as fast and reasonable.</h2>
+          <div class="matrix"><table><thead><tr><th>Observed condition</th><th>Consulting reading</th><th>Possible quick win</th><th>Typical horizon</th></tr></thead><tbody>
+            <tr><td>Frequent machine outfeed blockage</td><td>Usable capacity is being lost, not only operator time.</td><td>Automated conveyor/transfer, controlled queue, destination reservation.</td><td>3-9 months</td></tr>
+            <tr><td>Manual or unstable palletizing</td><td>End of line is limiting sellable capacity.</td><td>Plug &amp; Play palletizer / EasyPack / compact end-of-line.</td><td>2-6 months</td></tr>
+            <tr><td>Repetitive forklift movement</td><td>There is non-productive internal logistics and safety risk.</td><td>Partial AMR, tridents, exchange stations.</td><td>4-10 months</td></tr>
+            <tr><td>Saturated or unmanaged WIP</td><td>The plant does not decouple variability well.</td><td>Managed WIP, routing rules, flow software.</td><td>2-8 months</td></tr>
+            <tr><td>Safety and space problems</td><td>The solution must reduce manual contact and cross traffic.</td><td>Route redesign, compact stations, safe handoff.</td><td>2-6 months</td></tr>
+          </tbody></table></div>
+        </div>
+      </section>
+
+      <section id="fases">
+        <div class="lang lang-es">
+          <div class="section-no">05 · Cómo derivar propuestas y diseños por fases</div>
+          <h2>El cuestionario debe desembocar en una arquitectura comercial-técnica de implantación.</h2>
+          <div class="phase-grid">
+            <article class="phase-card"><h3>Fase 0</h3><p><strong>Descubrimiento rápido.</strong> Flujo AS-IS, equipos, pérdidas visibles, restricciones y baseline inicial.</p></article>
+            <article class="phase-card green"><h3>Fase 1</h3><p><strong>Quick wins.</strong> Actuar sobre cuellos claros: salidas, transfer, paletizado, seguridad o WIP simple.</p></article>
+            <article class="phase-card amber"><h3>Fase 2</h3><p><strong>Consolidación.</strong> Integrar routing, trazabilidad, buffers y coordinación entre estaciones.</p></article>
+            <article class="phase-card red"><h3>Fase 3</h3><p><strong>Transformación.</strong> Automatización sistémica: WCS, AMR, integración ERP/MES/WMS y flujo orquestado.</p></article>
+          </div>
+          <div class="decision green"><strong>Lección Calgary</strong>La propuesta gana tracción cuando la Fase 1 es comprensible, rápida y ligada a un cuello visible; las fases 2 y 3 amplían la capa de valor hacia WIP, trazabilidad, capacidad y escalabilidad.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">05 · How to derive phased proposals and designs</div>
+          <h2>The questionnaire must lead to a commercial-technical implementation architecture.</h2>
+          <div class="phase-grid">
+            <article class="phase-card"><h3>Phase 0</h3><p><strong>Rapid discovery.</strong> AS-IS flow, equipment, visible losses, constraints and first baseline.</p></article>
+            <article class="phase-card green"><h3>Phase 1</h3><p><strong>Quick wins.</strong> Act on clear bottlenecks: outfeeds, transfer, palletizing, safety or simple WIP.</p></article>
+            <article class="phase-card amber"><h3>Phase 2</h3><p><strong>Consolidation.</strong> Integrate routing, traceability, buffers and coordination between stations.</p></article>
+            <article class="phase-card red"><h3>Phase 3</h3><p><strong>Transformation.</strong> Systemic automation: WCS, AMR, ERP/MES/WMS integration and orchestrated flow.</p></article>
+          </div>
+          <div class="decision green"><strong>Calgary lesson</strong>The proposal gains traction when Phase 1 is understandable, fast and linked to a visible bottleneck; Phases 2 and 3 expand value into WIP, traceability, capacity and scalability.</div>
+        </div>
+      </section>
+
+      <section id="cliente">
+        <div class="lang lang-es">
+          <div class="section-no">06 · Cuestionario profesional listo para cliente</div>
+          <h2>Versión mínima útil para convertir respuestas en propuesta.</h2>
+          <div class="note-block">CUESTIONARIO DE CONSULTORIA PARA AUTOMATIZACION DE PLANTAS DE CORRUGADO (INGECART)
+
+Bloque A - Flujo y alcance
+1) Describa el flujo actual del material desde entrada hasta expedicion.
+2) Indique qué áreas del proceso quiere analizar o mejorar.
+3) Si existen segundas o terceras pasadas, devoluciones o circuitos de retrabajo, describalos.
+
+Bloque B - Equipos implicados
+4) Liste las máquinas principales por estación: fabricante, modelo comercial y función.
+5) Indique, aunque sea de forma aproximada, qué máquinas considera críticas o limitantes.
+
+Bloque C - Operación real
+6) Número de turnos, horas por turno, días trabajados al año y principales paradas programadas.
+7) Tareas manuales repetitivas que hoy ocupan más tiempo: transporte, empuje, paletizado, búsqueda, carga/descarga, etc.
+
+Bloque D - Problemas conocidos
+8) Cuáles son hoy los cuellos de botella más visibles?
+9) En qué puntos se producen esperas, bloqueos, acumulación o falta de material?
+10) Qué problemas de fiabilidad, mantenimiento o repuestos afectan más a la operación?
+11) Qué problemas de seguridad, ergonomía o falta de espacio condicionan una mejora?
+
+Bloque E - Datos para caso económico
+12) Coste aproximado de mano de obra asociada a las tareas afectadas.
+13) Coste estimado de paradas, pérdida de producción o merma cuando el problema aparece.
+14) Qué expectativa de retorno considera razonable (por ejemplo: quick win, < 2 años, por fases)?
+
+Adjuntos recomendados
+- Layout o croquis del flujo
+- Lista de equipos
+- Fotos o vídeos de las zonas críticas
+- KPI disponibles, si existen (OEE, throughput, paradas, mermas)</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">06 · Professional client-ready questionnaire</div>
+          <h2>Minimum useful version to convert answers into a proposal.</h2>
+          <div class="note-block">CONSULTING QUESTIONNAIRE FOR CORRUGATED PLANT AUTOMATION (INGECART)
+
+Block A - Flow and scope
+1) Describe the current material flow from input to shipping.
+2) Indicate which process areas you want to analyze or improve.
+3) If there are second/third passes, returns or rework loops, describe them.
+
+Block B - Equipment involved
+4) List the main machines by station: manufacturer, commercial model and function.
+5) Even approximately, indicate which machines you consider critical or limiting.
+
+Block C - Real operation
+6) Number of shifts, hours per shift, workdays per year and main planned stoppages.
+7) Repetitive manual tasks that consume the most time today: transport, pushing, palletizing, searching, loading/unloading, etc.
+
+Block D - Known problems
+8) What are the most visible bottlenecks today?
+9) At which points do waits, blockages, accumulation or lack of material occur?
+10) Which reliability, maintenance or spare-part problems impact operation the most?
+11) Which safety, ergonomic or space constraints limit improvement?
+
+Block E - Inputs for the business case
+12) Approximate labor cost associated with the affected tasks.
+13) Estimated cost of stoppages, lost production or scrap when the problem appears.
+14) What return expectation seems reasonable to you (for example: quick win, < 2 years, phased)?
+
+Recommended attachments
+- Layout or flow sketch
+- Equipment list
+- Photos or videos of critical areas
+- Available KPIs, if any (OEE, throughput, stoppages, scrap)</div>
+        </div>
+      </section>
+
+      <section id="entregables">
+        <div class="lang lang-es">
+          <div class="section-no">07 · Entregables resultantes</div>
+          <h2>Qué debe entregar INGECART después de recibir el cuestionario.</h2>
+          <ul class="checklist">
+            <li>Informe técnico-ejecutivo tipo Calgary.</li>
+            <li>Mapa de flujo actual y puntos críticos.</li>
+            <li>Propuesta de concepto con 2-3 opciones realistas.</li>
+            <li>Propuesta de fases: rápida, intermedia y transformación.</li>
+            <li>Impacto orientativo en OEE, throughput, seguridad y mano de obra indirecta.</li>
+            <li>Próximo paso recomendado: visita, levantamiento, simulación o budgetary quote.</li>
+          </ul>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">07 · Resulting deliverables</div>
+          <h2>What INGECART should deliver after receiving the questionnaire.</h2>
+          <ul class="checklist">
+            <li>Calgary-style technical-executive report.</li>
+            <li>Current flow map and critical points.</li>
+            <li>Concept proposal with 2-3 realistic options.</li>
+            <li>Phased proposal: fast, intermediate and transformational.</li>
+            <li>Indicative impact on OEE, throughput, safety and indirect labor.</li>
+            <li>Recommended next step: site visit, survey, simulation or budgetary quote.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="criterios">
+        <div class="lang lang-es">
+          <div class="section-no">08 · Criterios de validación profesional</div>
+          <h2>Cómo saber si el cuestionario ya sirve para hacer consultoría de verdad.</h2>
+          <div class="matrix"><table><thead><tr><th>Criterio</th><th>Debe cumplirse</th></tr></thead><tbody>
+            <tr><td>Permite dibujar el flujo</td><td>Sí, con estaciones, retornos, buffers y expedición.</td></tr>
+            <tr><td>Permite ubicar equipos críticos</td><td>Sí, por nombre comercial y función.</td></tr>
+            <tr><td>Permite detectar quick wins</td><td>Sí, a partir de bloqueos, paletizado, movimientos repetitivos, seguridad y espacio.</td></tr>
+            <tr><td>Permite construir fases</td><td>Sí, diferenciando actuación inmediata, consolidación e integración sistémica.</td></tr>
+            <tr><td>Permite un caso económico preliminar</td><td>Sí, con coste laboral, coste de parada y expectativa de retorno.</td></tr>
+            <tr><td>Permite reconocer lagunas de evidencia</td><td>Sí, dejando claro qué requiere visita, layout, simulación o datos históricos.</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>Conclusión</strong>El cuestionario correcto para INGECART no es el más largo; es el que convierte información accesible del cliente en una propuesta creíble, rápida de leer y fuerte en lógica industrial.</div>
+        </div>
+        <div class="lang lang-en hidden">
+          <div class="section-no">08 · Professional validation criteria</div>
+          <h2>How to know whether the questionnaire is now fit for real consulting work.</h2>
+          <div class="matrix"><table><thead><tr><th>Criterion</th><th>Must be true</th></tr></thead><tbody>
+            <tr><td>It enables drawing the flow</td><td>Yes, including stations, returns, buffers and shipping.</td></tr>
+            <tr><td>It identifies critical machines</td><td>Yes, by commercial name and function.</td></tr>
+            <tr><td>It detects quick wins</td><td>Yes, from blockages, palletizing, repetitive movement, safety and space.</td></tr>
+            <tr><td>It supports phased proposals</td><td>Yes, distinguishing immediate action, consolidation and systemic integration.</td></tr>
+            <tr><td>It supports a preliminary business case</td><td>Yes, with labor cost, downtime cost and return expectation.</td></tr>
+            <tr><td>It exposes evidence gaps</td><td>Yes, clearly showing what requires a visit, layout, simulation or historical data.</td></tr>
+          </tbody></table></div>
+          <div class="decision"><strong>Conclusion</strong>The right questionnaire for INGECART is not the longest one; it is the one that converts accessible client information into a credible proposal that is fast to read and strong in industrial logic.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll('.lang').forEach((element) => {
+        element.classList.toggle('hidden', !element.classList.contains(`lang-${language}`));
+      });
+      document.querySelectorAll('[data-language]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.language === language));
+      });
+    }
+
+    document.querySelectorAll('[data-language]').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.language));
+    });
+  </script>
+</body>
+</html>
