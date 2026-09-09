@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Informe bilingüe de resultados del Digital Twin para Ingetrans en entorno de trabajos cortos con devolución de bobinas." />
+  <title>INGECART · Digital Twin Short Runs Report</title>
+  <style>
+    :root {
+      --bg: #08131c;
+      --bg-2: #0e1d2c;
+      --panel: rgba(15, 25, 38, 0.95);
+      --panel-2: rgba(19, 34, 52, 0.96);
+      --line: rgba(255,255,255,0.12);
+      --line-strong: rgba(124,231,221,0.32);
+      --ink: #edf6ff;
+      --muted: #a8bfd8;
+      --blue: #5aa8ff;
+      --cyan: #7ce7dd;
+      --teal: #4fd9ae;
+      --green: #8fe88d;
+      --amber: #ffbf69;
+      --orange: #ff915d;
+      --red: #ff7272;
+      --purple: #9d8bff;
+      --shadow: rgba(0,0,0,0.28);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,168,255,0.18), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(124,231,221,0.12), transparent 32%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92vw, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(8, 19, 28, 0.82);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(92vw, var(--max));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 58px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      box-shadow: 0 0 12px rgba(255,145,93,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .language-switcher button {
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .language-switcher button.active {
+      background: linear-gradient(135deg, rgba(122,231,221,0.18), rgba(90,168,255,0.14));
+      color: var(--ink);
+      border: 1px solid var(--line-strong);
+    }
+
+    .hero {
+      padding: 56px 0 18px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19,34,54,0.95), rgba(10,18,29,0.96));
+      border-radius: 22px;
+      padding: 42px 42px 30px;
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(122,231,221,0.07) 36%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 18px;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      max-width: 920px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lead {
+      max-width: 890px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      margin: 0 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      padding: 4px;
+      border: 1px solid var(--line);
+    }
+
+    .header-logo span {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .section {
+      padding: 18px 0 10px;
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+    }
+
+    .section-no {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(17,25,37,0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+      min-height: 100%;
+    }
+
+    .card.accent { border-color: rgba(124,231,221,0.35); }
+    .card.green { border-color: rgba(143,232,141,0.38); }
+    .card.amber { border-color: rgba(255,191,105,0.38); }
+    .card.red { border-color: rgba(255,114,114,0.4); }
+
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .metric {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .small-note {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .kpi-table th,
+    .kpi-table td {
+      text-align: left;
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.96rem;
+      vertical-align: top;
+    }
+
+    .kpi-table th {
+      background: rgba(122,231,221,0.06);
+      color: var(--ink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .kpi-table td:nth-child(2),
+    .kpi-table td:nth-child(3),
+    .kpi-table td:nth-child(4) {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+    }
+
+    .formula {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--green);
+      background: rgba(143,232,141,0.05);
+      border-radius: 0 14px 14px 0;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .highlight {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .callout {
+      padding: 18px 20px;
+      border-left: 4px solid var(--amber);
+      background: rgba(255,191,105,0.06);
+      border-radius: 0 14px 14px 0;
+      color: var(--ink);
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    .lang.hidden {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .col-3, .col-4, .col-6, .col-8 {
+        grid-column: span 12;
+      }
+
+      .hero-shell {
+        padding: 28px 22px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>INGECART</span>
+      </div>
+      <div class="language-switcher" role="tablist" aria-label="Language switcher">
+        <button type="button" class="active" data-language="es" aria-pressed="true">ES</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-shell">
+      <div class="lang lang-es">
+        <div class="header-logo">
+          <img src="./simple-in.png" alt="Ingecart logo" onerror="this.onerror=null;this.src='../assets/images/simple-in.png';" />
+          <span>INGECART</span>
+        </div>
+        <div class="eyebrow">Digital Twin · Trabajos cortos · Devolución de bobinas</div>
+        <h1>Resultados del test Digital Twin con INGETRANS en entorno de producción de series cortas</h1>
+        <p class="lead">El escenario reproduce una planta de referencia con alta variabilidad, trabajos cortos y frecuentes cambios de bobina. La comparación muestra que la diferencia competitiva no viene de la velocidad de la máquina, sino de mantener continuidad de material y reducir la dependencia del operario y del montacargas.</p>
+        <div class="meta-row">
+          <span class="chip">Ingetrans</span>
+          <span class="chip">Short runs</span>
+          <span class="chip">Reel return</span>
+          <span class="chip">OEE +8 pp</span>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="header-logo">
+          <img src="./simple-in.png" alt="Ingecart logo" onerror="this.onerror=null;this.src='../assets/images/simple-in.png';" />
+          <span>INGECART</span>
+        </div>
+        <div class="eyebrow">Digital Twin · Short runs · Reel return</div>
+        <h1>Digital Twin test results with INGETRANS in a short-run production environment</h1>
+        <p class="lead">The scenario reproduces a reference plant with high variability, short jobs and frequent reel changes. The comparison shows that the competitive gap does not come from machine speed, but from preserving material continuity and reducing dependence on the operator and the forklift.</p>
+        <div class="meta-row">
+          <span class="chip">Ingetrans</span>
+          <span class="chip">Short runs</span>
+          <span class="chip">Reel return</span>
+          <span class="chip">OEE +8 pp</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>En trabajos cortos, la capacidad del sistema para entregar la siguiente bobina a tiempo define la productividad.</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card accent col-3">
+            <div class="metric">+12,8%</div>
+            <div class="metric-label">Producción</div>
+            <div class="small-note">14,1 M → 15,9 M m</div>
+          </div>
+          <div class="card green col-3">
+            <div class="metric">+8 pp</div>
+            <div class="metric-label">OEE</div>
+            <div class="small-note">80% → 88%</div>
+          </div>
+          <div class="card amber col-3">
+            <div class="metric">-86%</div>
+            <div class="metric-label">Starvation</div>
+            <div class="small-note">1.260 → 170/año</div>
+          </div>
+          <div class="card red col-3">
+            <div class="metric">-75%</div>
+            <div class="metric-label">Downtime</div>
+            <div class="small-note">86 h → 21 h/año</div>
+          </div>
+        </div>
+
+        <div class="formula">La diferencia no está en la velocidad del corrugador: está en la capacidad de mantener la continuidad de bobinas durante cada cambio y en la devolución automática del material sin bloquear la línea.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>In short runs, the system’s ability to deliver the next reel on time defines productivity.</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card accent col-3">
+            <div class="metric">+12.8%</div>
+            <div class="metric-label">Production</div>
+            <div class="small-note">14.1 M → 15.9 M m</div>
+          </div>
+          <div class="card green col-3">
+            <div class="metric">+8 pp</div>
+            <div class="metric-label">OEE</div>
+            <div class="small-note">80% → 88%</div>
+          </div>
+          <div class="card amber col-3">
+            <div class="metric">-86%</div>
+            <div class="metric-label">Starvation</div>
+            <div class="small-note">1,260 → 170/year</div>
+          </div>
+          <div class="card red col-3">
+            <div class="metric">-75%</div>
+            <div class="metric-label">Downtime</div>
+            <div class="small-note">86 h → 21 h/year</div>
+          </div>
+        </div>
+
+        <div class="formula">The difference is not in corrugator speed: it is in the ability to maintain reel continuity during every change and in the automatic return of material without blocking the line.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">02 · Escenario de referencia</div>
+          <h2>Perfil del test Digital Twin</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card col-4">
+            <div class="metric-label">Parámetros clave</div>
+            <ul>
+              <li>1 corrugador</li>
+              <li>5 roll stands</li>
+              <li>10 supply tracks</li>
+              <li>Velocidad media: 220 m/min</li>
+              <li>Trabajos cortos: 30 min a 3 h</li>
+              <li>Frecuencia alta de cambio</li>
+            </ul>
+          </div>
+          <div class="card col-4">
+            <div class="metric-label">Ritmo operativo</div>
+            <ul>
+              <li>Consumo medio: 8,8 bobinas/hora</li>
+              <li>Peso medio: 2.100 kg</li>
+              <li>Cambio de bobina cada 5–12 min</li>
+              <li>Alta variabilidad de SKU</li>
+              <li>Ventanas de entrega ajustadas</li>
+            </ul>
+          </div>
+          <div class="card col-4">
+            <div class="metric-label">Objetivo del análisis</div>
+            <ul>
+              <li>Evaluar continuidad logística</li>
+              <li>Medir impacto de la espera de reel</li>
+              <li>Comparar forklift vs Ingetrans</li>
+              <li>Cuantificar impacto de devolución automática</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">02 · Reference scenario</div>
+          <h2>Digital Twin test profile</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card col-4">
+            <div class="metric-label">Key parameters</div>
+            <ul>
+              <li>1 corrugator</li>
+              <li>5 roll stands</li>
+              <li>10 supply tracks</li>
+              <li>Average speed: 220 m/min</li>
+              <li>Short jobs: 30 min to 3 h</li>
+              <li>High change frequency</li>
+            </ul>
+          </div>
+          <div class="card col-4">
+            <div class="metric-label">Operating rhythm</div>
+            <ul>
+              <li>Average consumption: 8.8 reels/hour</li>
+              <li>Average weight: 2,100 kg</li>
+              <li>Reel change every 5–12 min</li>
+              <li>High SKU variability</li>
+              <li>Tight delivery windows</li>
+            </ul>
+          </div>
+          <div class="card col-4">
+            <div class="metric-label">Analysis objective</div>
+            <ul>
+              <li>Assess logistics continuity</li>
+              <li>Measure reel waiting impact</li>
+              <li>Compare forklift vs Ingetrans</li>
+              <li>Quantify automated return impact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">03 · KPI de cambio de trabajo</div>
+          <h2>Los tiempos de entrega y respuesta se reducen de forma muy significativa</h2>
+        </div>
+
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Indicador</th>
+              <th>Forklift</th>
+              <th>INGETRANS</th>
+              <th>Mejora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tiempo medio de entrega</td>
+              <td>128 s</td>
+              <td>54 s</td>
+              <td><span class="pill">-57,8%</span></td>
+            </tr>
+            <tr>
+              <td>Tiempo medio de respuesta</td>
+              <td>46 s</td>
+              <td>17 s</td>
+              <td><span class="pill">-63,0%</span></td>
+            </tr>
+            <tr>
+              <td>Tiempo total de logística por cambio</td>
+              <td>174 s</td>
+              <td>71 s</td>
+              <td><span class="pill">-59,2%</span></td>
+            </tr>
+            <tr>
+              <td>Recuperación por changeover</td>
+              <td>Base</td>
+              <td>+18%</td>
+              <td><span class="pill">+18%</span></td>
+            </tr>
+            <tr>
+              <td>Paradas por falta de bobina</td>
+              <td>1.260/año</td>
+              <td>170/año</td>
+              <td><span class="pill">-86,5%</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="formula">El efecto real se observa cuando el cambio de trabajo no se considera un evento aislado, sino un momento crítico en el que una espera de 2–3 minutos puede perder toda la siguiente secuencia.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">03 · Job-change KPI</div>
+          <h2>Delivery and response times are reduced significantly</h2>
+        </div>
+
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Forklift</th>
+              <th>INGETRANS</th>
+              <th>Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Average delivery time</td>
+              <td>128 s</td>
+              <td>54 s</td>
+              <td><span class="pill">-57.8%</span></td>
+            </tr>
+            <tr>
+              <td>Average response time</td>
+              <td>46 s</td>
+              <td>17 s</td>
+              <td><span class="pill">-63.0%</span></td>
+            </tr>
+            <tr>
+              <td>Total logistics time per change</td>
+              <td>174 s</td>
+              <td>71 s</td>
+              <td><span class="pill">-59.2%</span></td>
+            </tr>
+            <tr>
+              <td>Changeover recovery</td>
+              <td>Base</td>
+              <td>+18%</td>
+              <td><span class="pill">+18%</span></td>
+            </tr>
+            <tr>
+              <td>Starvation events</td>
+              <td>1,260/year</td>
+              <td>170/year</td>
+              <td><span class="pill">-86.5%</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="formula">The real effect is visible when a job change is not treated as a single event, but as a critical moment in which a 2–3 minute wait may lose the entire next sequence.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">04 · Impacto operativo</div>
+          <h2>La estabilidad del flujo y la devolución automática de bobinas reducen el cuello de botella logístico</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card col-6">
+            <div class="metric-label">Efecto en la línea</div>
+            <ul>
+              <li><span class="highlight">-75,6%</span> en downtime del corrugador: 86 → 21 h/año.</li>
+              <li><span class="highlight">+7,2 M m</span> de capacidad adicional anual.</li>
+              <li><span class="highlight">+8 puntos</span> de OEE: 80% → 88%.</li>
+              <li>Menor congestión junto a la máquina y menor dependencia del montacargas.</li>
+            </ul>
+          </div>
+          <div class="card col-6">
+            <div class="metric-label">Devolución de bobinas</div>
+            <ul>
+              <li>26.100 → 29.900 retornos/año.</li>
+              <li><span class="highlight">+3.800</span> devoluciones (+14,6%), sin bloquear la línea.</li>
+              <li>Más trazabilidad y mejor secuenciación entre trabajos cortos.</li>
+              <li>Reducción del “ruido” operacional y de la búsqueda manual del material.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">04 · Operational impact</div>
+          <h2>Flow stability and automatic reel return reduce the logistics bottleneck</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card col-6">
+            <div class="metric-label">Line effect</div>
+            <ul>
+              <li><span class="highlight">-75.6%</span> corrugator downtime: 86 → 21 h/year.</li>
+              <li><span class="highlight">+7.2 M m</span> extra annual capacity.</li>
+              <li><span class="highlight">+8 points</span> OEE: 80% → 88%.</li>
+              <li>Lower congestion near the machine and less dependence on the forklift.</li>
+            </ul>
+          </div>
+          <div class="card col-6">
+            <div class="metric-label">Reel return</div>
+            <ul>
+              <li>26,100 → 29,900 returns/year.</li>
+              <li><span class="highlight">+3,800</span> returns (+14.6%), without blocking the line.</li>
+              <li>Greater traceability and better sequencing across short jobs.</li>
+              <li>Reduced operational noise and less manual material searching.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">05 · Resultado financiero</div>
+          <h2>El caso económico es aún más sólido en producciones cortas porque el coste del tiempo muerto es mayor</h2>
+        </div>
+
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ahorro operativo anual</td>
+              <td>€368.000</td>
+            </tr>
+            <tr>
+              <td>Capacidad adicional</td>
+              <td>7,2 millones de metros/año</td>
+            </tr>
+            <tr>
+              <td>Downtime evitado</td>
+              <td>65 h/año</td>
+            </tr>
+            <tr>
+              <td>Reducción de eventos de “wrong reel”</td>
+              <td>~80%</td>
+            </tr>
+            <tr>
+              <td>Recuperación real de tiempo</td>
+              <td>+18% tiempo efectivo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">05 · Financial result</div>
+          <h2>The financial case is even stronger in short production because the cost of dead time is higher</h2>
+        </div>
+
+        <table class="kpi-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Annual operating savings</td>
+              <td>€368,000</td>
+            </tr>
+            <tr>
+              <td>Additional capacity</td>
+              <td>7.2 million meters/year</td>
+            </tr>
+            <tr>
+              <td>Downtime avoided</td>
+              <td>65 h/year</td>
+            </tr>
+            <tr>
+              <td>Reduction in wrong-reel events</td>
+              <td>~80%</td>
+            </tr>
+            <tr>
+              <td>Actual time recovery</td>
+              <td>+18% effective time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">06 · Estado de validación y gaps</div>
+          <h2>Qué está validado, qué es transferible y qué debe confirmarse con datos del cliente</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card accent col-4">
+            <div class="metric-label">Validado en fuente</div>
+            <ul>
+              <li>Parámetros del escenario: 1 corrugador, 5 roll stands, 10 supply tracks, 220 m/min, 8,8 bobinas/hora.</li>
+              <li>KPI del test: producción, OEE, starvation, downtime, tiempos de entrega y respuesta.</li>
+              <li>Flujo bidireccional con suministro y devolución automática de bobinas.</li>
+            </ul>
+          </div>
+          <div class="card amber col-4">
+            <div class="metric-label">Parcialmente confirmado</div>
+            <ul>
+              <li>La mejora frente al benchmark base es coherente con un escenario de más estrés por cambios y series cortas.</li>
+              <li>Las afirmaciones sobre menor congestión, menor búsqueda y menor intervención están soportadas cualitativamente.</li>
+              <li>La reducción de wrong reel figura como valor aproximado (~80%).</li>
+            </ul>
+          </div>
+          <div class="card red col-4">
+            <div class="metric-label">Gap de validación local</div>
+            <ul>
+              <li>El ahorro anual y la capacidad adicional deben recalibrarse con calendario, mix, coste y consumo reales del cliente.</li>
+              <li>No debe presentarse como garantía de planta específica sin inputs locales y modelo calibrado.</li>
+              <li>Faltan percentiles p50/p95 de request-to-delivery para esta versión comercial del informe.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="formula">Nivel de confianza comercial: alto para los datos del escenario Digital Twin; medio para su extrapolación directa a una planta concreta sin calibración local.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">06 · Validation status and gaps</div>
+          <h2>What is validated, what is transferable, and what still needs customer data confirmation</h2>
+        </div>
+
+        <div class="grid">
+          <div class="card accent col-4">
+            <div class="metric-label">Validated in source</div>
+            <ul>
+              <li>Scenario parameters: 1 corrugator, 5 roll stands, 10 supply tracks, 220 m/min, 8.8 reels/hour.</li>
+              <li>Test KPI values: production, OEE, starvation, downtime, delivery and response times.</li>
+              <li>Bidirectional flow with automatic reel supply and return.</li>
+            </ul>
+          </div>
+          <div class="card amber col-4">
+            <div class="metric-label">Partially confirmed</div>
+            <ul>
+              <li>The uplift versus the base benchmark is consistent with a higher-stress short-run scenario.</li>
+              <li>Claims about lower congestion, reduced searching and less operator intervention are qualitatively supported.</li>
+              <li>Wrong-reel reduction is stated as an approximate value (~80%).</li>
+            </ul>
+          </div>
+          <div class="card red col-4">
+            <div class="metric-label">Local validation gap</div>
+            <ul>
+              <li>Annual savings and extra capacity must be recalibrated using the customer’s actual calendar, mix, cost and consumption data.</li>
+              <li>It should not be presented as a site-specific guarantee without local inputs and a calibrated model.</li>
+              <li>Request-to-delivery p50/p95 percentiles are not yet published in this client-facing version.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="formula">Commercial confidence level: high for the Digital Twin scenario data; medium for direct extrapolation to a specific plant without local calibration.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">07 · Conclusión</div>
+          <h2>En plantas con alta mezcla y series cortas, la logística de bobinas deja de ser un servicio y se convierte en un activo productivo crítico.</h2>
+        </div>
+
+        <div class="callout">
+          La prueba Digital Twin, en este escenario de referencia, indica que Ingetrans mejora la continuidad del proceso no por aumentar la velocidad de la máquina, sino por asegurar la entrega de la siguiente bobina en el momento correcto, con devoluciones automáticas y un nivel de coordinación mucho más estable.
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">07 · Conclusion</div>
+          <h2>In plants with high mix and short runs, reel logistics stops being a support function and becomes a critical productive asset.</h2>
+        </div>
+
+        <div class="callout">
+          In this reference scenario, the Digital Twin test indicates that Ingetrans improves process continuity not by increasing machine speed, but by ensuring the next reel is delivered at the right time, with automatic returns and a much more stable level of coordination.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-language]');
+    const languageBlocks = document.querySelectorAll('.lang');
+
+    function applyLanguage(lang) {
+      languageBlocks.forEach(block => {
+        block.classList.toggle('hidden', !block.classList.contains('lang-' + lang));
+      });
+
+      buttons.forEach(button => {
+        const isActive = button.dataset.language === lang;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => applyLanguage(button.dataset.language));
+    });
+  </script>
+</body>
+</html>

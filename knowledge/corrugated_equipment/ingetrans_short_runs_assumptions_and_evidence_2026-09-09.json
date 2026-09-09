@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "assumptions_and_evidence",
+  "subject": "INGETRANS Digital Twin short-run client report",
+  "analysis_date": "2026-09-09",
+  "scenario_status": "validated_reference_scenario",
+  "scope": {
+    "product": "INGETRANS",
+    "scenario": "High-mix, short-run corrugated plant with automated reel supply and return",
+    "intended_use": "Client-facing Digital Twin summary for benchmark/reference scenario",
+    "limitation": "Not a plant-specific guarantee without local calibration"
+  },
+  "sources": [
+    {
+      "id": "SRC-01",
+      "path": "DIGITAL_TWIN_SIMULATION_REPORT_SHORT_RUNS_2026-08-19.txt",
+      "type": "primary_simulation_summary",
+      "confidence": 0.94
+    },
+    {
+      "id": "SRC-02",
+      "path": "knowledge/corrugated_equipment/simulation_hypotheses_corrugated_v1.json",
+      "type": "benchmark_hypothesis_pack",
+      "confidence": 0.81
+    },
+    {
+      "id": "SRC-03",
+      "path": "CALGARY_PHASE_3_INGETRANS_AMR_REPORT_2026-08-17.md",
+      "type": "orchestration_reference",
+      "confidence": 0.78
+    },
+    {
+      "id": "SRC-04",
+      "path": "CALGARY_PHASE_1_2_3_INGECART_REPORT_2026-08-18.md",
+      "type": "product_positioning_reference",
+      "confidence": 0.76
+    }
+  ],
+  "validated_claims": [
+    {
+      "id": "VC-01",
+      "statement": "The reference short-run scenario uses 1 corrugator, 5 roll stands, 10 supply tracks, 220 m/min average speed, 8.8 reels/hour average consumption, 2,100 kg average reel weight, and reel change intervals of 5-12 minutes.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated",
+      "confidence": 0.97
+    },
+    {
+      "id": "VC-02",
+      "statement": "Under the short-run scenario, quarterly production improves from 14.1 M m to 15.9 M m and OEE from 80% to 88% with Ingetrans.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated",
+      "confidence": 0.96
+    },
+    {
+      "id": "VC-03",
+      "statement": "Average delivery time improves from 128 s to 54 s and average response time from 46 s to 17 s in the simulated short-run scenario.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated",
+      "confidence": 0.97
+    },
+    {
+      "id": "VC-04",
+      "statement": "Annual starvation events reduce from 1,260 to 170 and corrugator downtime from 86 h/year to 21 h/year in the simulated short-run scenario.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated",
+      "confidence": 0.96
+    },
+    {
+      "id": "VC-05",
+      "statement": "Annual reel returns increase from 26,100 to 29,900, confirming that the modeled system includes automatic return alongside automated supply.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated",
+      "confidence": 0.95
+    },
+    {
+      "id": "VC-06",
+      "statement": "The short-run scenario reports annual operating savings of EUR 368,000, extra capacity of 7.2 million meters/year, and changeover recovery of +18% effective time.",
+      "source_ids": ["SRC-01"],
+      "validation_state": "validated_as_scenario_output",
+      "confidence": 0.91
+    },
+    {
+      "id": "VC-07",
+      "statement": "The short-run scenario is directionally stronger than the base benchmark pack, which references 6 OEE points, 87% starvation reduction, 4.2 million additional meters/year, EUR 309,300 savings, and 56 downtime hours reduced.",
+      "source_ids": ["SRC-01", "SRC-02"],
+      "validation_state": "cross_checked",
+      "confidence": 0.87
+    },
+    {
+      "id": "VC-08",
+      "statement": "The broader Ingetrans product positioning emphasizes reel traceability, bidirectional flow, synchronized material entry, and central priority control.",
+      "source_ids": ["SRC-03", "SRC-04"],
+      "validation_state": "cross_checked",
+      "confidence": 0.82
+    }
+  ],
+  "derived_metrics": [
+    {
+      "id": "DM-01",
+      "statement": "Combined logistics time per change drops from 174 s to 71 s.",
+      "method": "(128 + 46) - (54 + 17)",
+      "result": "103 s saved per cycle",
+      "confidence": 0.97
+    },
+    {
+      "id": "DM-02",
+      "statement": "Combined logistics time reduction equals 59.2%.",
+      "method": "103 / 174",
+      "result": "59.2%",
+      "confidence": 0.97
+    },
+    {
+      "id": "DM-03",
+      "statement": "Reel returns improve by 3,800 per year, equivalent to 14.6%.",
+      "method": "(29900 - 26100) / 26100",
+      "result": "14.6%",
+      "confidence": 0.96
+    }
+  ],
+  "contradictions_and_resolutions": [
+    {
+      "id": "CR-01",
+      "issue": "The legacy public Digital Twin page includes a review warning for generic benchmark values.",
+      "resolution": "Treat the short-run report as a validated reference scenario inside AI-FACTORY, but explicitly label it as a scenario benchmark rather than a plant-specific guarantee.",
+      "confidence": 0.86
+    },
+    {
+      "id": "CR-02",
+      "issue": "Base benchmark values are lower than the short-run scenario uplift.",
+      "resolution": "This is not a conflict: the short-run source itself explains that the logistics penalty is more severe under high changeover stress, making automation benefits larger.",
+      "confidence": 0.9
+    }
+  ],
+  "gap_analysis": {
+    "known": [
+      "Scenario configuration and major KPI values are explicit in the primary source.",
+      "The mechanism of benefit is consistent across the short-run source and Ingetrans orchestration references.",
+      "The report's headline claims on production, OEE, downtime, starvation and reel-return flow are supported."
+    ],
+    "partially_confirmed": [
+      "Wrong-reel reduction is approximate and not broken down by event classification.",
+      "Qualitative statements about search time, operator intervention and congestion are supported directionally but not tied to standalone raw event tables in the current sources."
+    ],
+    "contradictions": [
+      "No direct numeric contradiction was found after cross-checking the short-run source against the benchmark pack; differences are scenario-driven."
+    ],
+    "missing": [
+      "Customer-specific calibration inputs: product mix, production calendar, local labor cost, actual reel-consumption profile, and installed CAPEX/OPEX.",
+      "p50/p95 request-to-delivery metrics for this exact short-run commercial page.",
+      "Raw simulation event tables behind the summarized KPI layer."
+    ],
+    "next_actions": [
+      "Recalculate savings and capacity for each target client using plant-specific inputs before quoting business case commitments.",
+      "Publish p50/p95 logistics latency and starvation exposure charts if this report will support technical procurement review.",
+      "Link the client-facing HTML page to this evidence artifact in future report-generation workflows."
+    ]
+  }
+}
