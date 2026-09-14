@@ -1,0 +1,296 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "product_evolution_assumptions_and_evidence",
+  "subject": "INGETRANS Smart product evolution",
+  "analysis_date": "2026-09-10",
+  "status": "working_product_definition",
+  "goal": "Define a rail-less evolution of INGETRANS based on the Modulo Smart Weels drive and steering technology while preserving the product's corrugated reel logistics value proposition.",
+  "product_boundary": "For this definition, INGETRANS Smart is scoped as a corrugated reel supply-and-return product, not as a generic intralogistics platform for every load type.",
+  "sources": [
+    {
+      "id": "SRC-ING-01",
+      "path": "C:/Users/isena/Documents/GitHub/ingesite.github.io/solutions/ingetrans.html",
+      "type": "public_product_page_en",
+      "confidence": 0.9
+    },
+    {
+      "id": "SRC-ING-02",
+      "path": "C:/Users/isena/Documents/GitHub/ingesite.github.io/solutions/ingetrans-es.html",
+      "type": "public_product_page_es",
+      "confidence": 0.9
+    },
+    {
+      "id": "SRC-ING-03",
+      "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/CALGARY_PHASE_1_2_3_INGECART_REPORT_2026-08-18.md",
+      "type": "product_positioning_reference",
+      "confidence": 0.82
+    },
+    {
+      "id": "SRC-ING-04",
+      "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/CALGARY_PHASE_3_INGETRANS_AMR_REPORT_2026-08-17.md",
+      "type": "flow_orchestration_reference",
+      "confidence": 0.84
+    },
+    {
+      "id": "SRC-ING-05",
+      "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/generate_paige_corrugator_offer_word.py",
+      "type": "commercial_engineering_basis",
+      "confidence": 0.84
+    },
+    {
+      "id": "SRC-ING-06",
+      "path": "C:/Users/isena/Documents/INGECART/PRODUCTO/INGETRANS/agv system JNOV TECH Info PRC-23-099.pdf",
+      "type": "third_party_modular_drive_system_proposal",
+      "confidence": 0.92
+    },
+    {
+      "id": "SRC-ING-07",
+      "path": "C:/Users/isena/.copilot/session-state/5719b67b-c8d4-4434-8576-c2312a5d7805/files/jnov_agv_extract.txt",
+      "type": "pdf_text_extract",
+      "confidence": 0.92
+    },
+    {
+      "id": "SRC-ING-08",
+      "path": "C:/Users/isena/Documents/INGECART/PRODUCTO/INGETRANS/JNOV TECH General overview exter 2023 EN _compressed.pdf",
+      "type": "supplier_corporate_overview_2023",
+      "confidence": 0.9
+    },
+    {
+      "id": "SRC-ING-09",
+      "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/knowledge/corrugated_equipment/ingetrans_smart_jnov_evidence_update_2026-09-14.md",
+      "type": "consolidated_evidence_update",
+      "confidence": 0.93
+    }
+  ],
+  "validated_baseline_claims": [
+    {
+      "id": "BC-01",
+      "statement": "Current INGETRANS is described as a turnkey rail-guided intralogistics system for automated transport, delivery and return of paper reels between warehouse exchange area and corrugator consumption points.",
+      "source_ids": [
+        "SRC-ING-01",
+        "SRC-ING-02",
+        "SRC-ING-05"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "id": "BC-02",
+      "statement": "Current INGETRANS value proposition is to reduce forklift dependency, improve safety, synchronize reel supply with production and preserve reel identity during return flow.",
+      "source_ids": [
+        "SRC-ING-01",
+        "SRC-ING-03",
+        "SRC-ING-04",
+        "SRC-ING-05"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "id": "BC-03",
+      "statement": "Legacy public references describe a transfer carriage speed of 80 m/min, track speed of 59 m/min, approximately 4.5 s acceleration ramp and approximately 6 s pick-up/drop-off interfaces.",
+      "source_ids": [
+        "SRC-ING-01",
+        "SRC-ING-02",
+        "SRC-ING-05"
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "validated_smart_weels_module_claims": [
+    {
+      "id": "JC-01",
+      "statement": "The Modulo Smart Weels modular drive system can be attached directly to new or existing frames and cover loads from 1 to 60 tons through different wheel combinations.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-02",
+      "statement": "The Modulo Smart Weels drive and steering module uses two independent drive wheels, differential steering, a single hybrid power and signal connector and brushless motors to combine traction, compactness and low-friction direction changes.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-03",
+      "statement": "For the Smart Weels 4TP reference, published values include 4,000 kg carrying capacity, 4,000 kg towed load capacity, speed from 1 mm/s to 2 km/h, 3% slope, polyurethane tire, IP54, and nominal service life of 2,500 km or 10,000 operating hours.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "id": "JC-04",
+      "statement": "Standard operating modes include crab mode, car mode and autorotation, with optional semi-automatic line tracking using optical guidance sensors, painted or DataMatrix lines and external PLC coordination over EtherNet/IP or PROFINET on request.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-05",
+      "statement": "Safety functions include Safety Stop 1 at PLd level, STO, safety brakes, remote emergency stop, loss-of-radio stop behavior and optional external safety sensor inputs.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-06",
+      "statement": "The Modulo Smart Weels installation is designed as fast and low-adjustment, with plate mounting, quick electrical connection and direct integration on customer frames without fixed rail infrastructure.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "id": "JC-07",
+      "statement": "PRC-23-099 was issued to MTORRES on 2023-08-09 with one-month validity; MDS-2x4TP list price was 40,894 EUR (qty 1) and 31,187 EUR per unit (qty 10); complete kit with batteries, remote and foot guards 45,803 EUR (qty 1).",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-08",
+      "statement": "Semi-automatic line-following requires an optical sensor per DDW (5,496 EUR each, LIC-0002 included); path generation and fleet scheduling are excluded from the JNOV supply and must be coded in the JNOV PLC or the customer master PLC.",
+      "source_ids": [
+        "SRC-ING-06",
+        "SRC-ING-07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-09",
+      "statement": "Lead time is T0+24 weeks for delivery and T0+26 weeks for commissioning; supply is EXW Pujaudran with 24-month warranty (12 months for batteries).",
+      "source_ids": [
+        "SRC-ING-06"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-10",
+      "statement": "Floor requirements: concrete or asphalt, DIN 18202 table 3 line 3 flatness (4 mm/1 m, 10 mm/4 m), slope 3%, ground contact pressure above 10 N/mm2; auxiliary castors must carry less than 50% of total mass with rolling resistance at or below 1.5%.",
+      "source_ids": [
+        "SRC-ING-06"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "id": "JC-11",
+      "statement": "Supervision or command by a customer PLC over EtherNet/IP (PROFINET on request) exposes operating mode, battery level, current movement and active fault number, and accepts speed and direction setpoints.",
+      "source_ids": [
+        "SRC-ING-06"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "id": "JC-12",
+      "statement": "JNOV 2023 roadmap lists assisted navigation for MDS, multi-MDS assembly-line use and an AGV MDS milestone for 2024-2025; free autonomous navigation was not available in 2023.",
+      "source_ids": [
+        "SRC-ING-08"
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "evolution_hypotheses": [
+    {
+      "id": "EH-01",
+      "statement": "INGETRANS Smart can preserve the core function of automated reel delivery and return while removing fixed rails by mounting Modulo Smart Weels modules under a custom INGECART reel carrier frame.",
+      "confidence": 0.9,
+      "type": "engineering_hypothesis"
+    },
+    {
+      "id": "EH-02",
+      "statement": "The most defensible first product version is rail-less and reconfigurable, but not marketed as full free-navigation autonomy unless additional navigation sensors and validated fleet logic are specified.",
+      "confidence": 0.95,
+      "type": "evidence_guardrail"
+    },
+    {
+      "id": "EH-03",
+      "statement": "A three-level offer is technically coherent: Smart Manual, Smart Guided, and Smart Orchestrated, each adding more route intelligence without changing the base carrier architecture.",
+      "confidence": 0.88,
+      "type": "productization_hypothesis"
+    }
+  ],
+  "contradictions_and_limits": [
+    {
+      "id": "CL-01",
+      "issue": "Legacy reel envelope references differ between internal sources.",
+      "detail": "Public product pages cite up to 1,800 mm reel length and below 3,500 kg, while one internal engineering basis mentions up to 2,800 mm width/length subject to reel matrix.",
+      "resolution": "Use final approved reel matrix as governing design basis and avoid a single unconditional length claim in the Smart dossier.",
+      "confidence": 0.93
+    },
+    {
+      "id": "CL-02",
+      "issue": "The reference module documentation supports rail-less mobility and semi-automatic guidance, but not unrestricted SLAM-based AGV autonomy.",
+      "resolution": "Position Ingetrans Smart as a rail-less intelligent mobile platform with configurable guidance and PLC orchestration, not as free-navigation AGV unless separately validated.",
+      "confidence": 0.97
+    },
+    {
+      "id": "CL-03",
+      "issue": "The mobility-module certification applies to the supplied wheel and cabinet subsystem, not automatically to the complete INGECART customer machine.",
+      "resolution": "State that complete CE/risk assessment remains part of final machine engineering and site integration.",
+      "confidence": 0.96
+    },
+    {
+      "id": "CL-04",
+      "issue": "Maximum speed differs between sources: 2 km/h in PRC-23-099 versus 2.5 km/h in the 2023 overview.",
+      "resolution": "Use 2 km/h as the contractual DDW-4TP value; treat 2.5 km/h as range-level marketing data.",
+      "confidence": 0.95
+    },
+    {
+      "id": "CL-05",
+      "issue": "All pricing evidence comes from a 2023 offer addressed to MTORRES whose validity expired.",
+      "resolution": "Flag prices as historical reference in ASE and request an INGECART-specific quotation before any commercial use.",
+      "confidence": 0.97
+    },
+    {
+      "id": "CL-06",
+      "issue": "Battery autonomy is stated as 1000 m per battery without load, floor or duty-cycle conditions.",
+      "resolution": "Require an autonomy-versus-load curve in the new quotation and size one battery per DDW plus reserve.",
+      "confidence": 0.9
+    },
+    {
+      "id": "CL-07",
+      "issue": "Path generation and fleet management are outside the JNOV supply.",
+      "resolution": "Define them as INGECART master PLC / WCS scope for Smart Guided and Smart Orchestrated.",
+      "confidence": 0.96
+    }
+  ],
+  "gap_analysis": {
+    "known": [
+      "Current INGETRANS baseline function and public positioning are clear.",
+      "The Modulo Smart Weels technology provides a credible rail-less mobility basis.",
+      "The strongest Smart value proposition is installation simplification plus route flexibility while preserving supply/return automation.",
+      "JNOV commercial structure (base kit, semi-auto option, PLC interface option, services, lead time) is documented from PRC-23-099 and the 2023 overview."
+    ],
+    "partially_confirmed": [
+      "Final Smart payload architecture for corrugated reels depends on chosen frame geometry, number of wheels, center of gravity and floor conditions.",
+      "Full throughput delta versus rail-guided INGETRANS requires a dedicated cycle-time and route-conflict model."
+    ],
+    "missing": [
+      "Final reel-carrier mechanical concept, including cradle geometry and load distribution.",
+      "Approved navigation concept per customer segment: manual only, line-guided or external PLC/fleet orchestrated.",
+      "Final safety architecture for complete customer machine.",
+      "Commercial target price and installed ROI model for Smart."
+    ],
+    "next_actions": [
+      "Request an updated JNOV TECH quotation addressed to INGECART for MDS-2x4TP and MDS-2x4TL including LIC-0002, PLC supervision and autonomy curve.",
+      "Design a reference Smart carrier with mass breakdown and wheel loading.",
+      "Simulate request-to-delivery times for Smart versus rail-guided INGETRANS on 2-3 reference layouts.",
+      "Define a standard controls stack for WCS, ERP/MES/WMS and external PLC integration.",
+      "Prepare EN/ES public solution pages once the product architecture is approved.",
+      "Register the INGETRANS Smart variant in ASE with the three cost bands marked as 2023 historical reference."
+    ]
+  },
+  "last_evidence_review": "2026-09-14"
+}
