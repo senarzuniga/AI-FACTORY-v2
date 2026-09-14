@@ -1,0 +1,90 @@
+{
+ "reference_case": {
+  "area_m2": 4000,
+  "rolls": 3000,
+  "ceiling_m": 12,
+  "zones_base": "20-30",
+  "source": "MTorres Of. 26-05-073V0"
+ },
+ "mtorres_base": {
+  "anchors": 160,
+  "tags": 3000,
+  "accuracy_cm": 50,
+  "capex_eur": 509946,
+  "capex_split": {
+   "design_infra": 231990,
+   "tags": 184500,
+   "install_commissioning": 93456
+  },
+  "licence_eur_per_year_from_year5": 69000,
+  "tco5": 509946,
+  "tco10": 854946,
+  "install": "3 tech x 3 weeks + 12 weeks commissioning"
+ },
+ "iar_scenarios": {
+  "pozyx_class": {
+   "anchors": 60,
+   "hardware": 186000,
+   "capex": 415000,
+   "licence_yr": 24000,
+   "tco5": 511000,
+   "tco10": 631000,
+   "delta_tco10_pct": -26
+  },
+  "growspace_class": {
+   "anchors": 60,
+   "hardware": 200000,
+   "capex": 429000,
+   "licence_yr": 0,
+   "tco5": 429000,
+   "tco10": 429000,
+   "delta_tco10_pct": -50
+  },
+  "eliko_class": {
+   "anchors": 40,
+   "hardware": 923800,
+   "capex": 1152800,
+   "licence_yr": 94800,
+   "tco5": 1532000,
+   "tco10": 2006000,
+   "delta_tco10_pct": 135,
+   "note": "ruled out at 3000 tags unless flat licence"
+  }
+ },
+ "iar_common_costs": {
+  "engineering_integration": 120000,
+  "rfid_portals": 24000,
+  "installation": 60000,
+  "pilot": 25000
+ },
+ "value_model_assumptions": {
+  "moves_per_day": 250,
+  "search_min_before": 4.0,
+  "search_min_base": 1.0,
+  "search_min_iar": 0.5,
+  "forklift_eur_h": 45,
+  "days": 330,
+  "picks_per_day": 120,
+  "wrong_pick_rate": 0.015,
+  "wrong_pick_cost": 150,
+  "stock_value_eur": 4875000,
+  "carrying_cost": 0.12,
+  "paper_consumption_eur": 26000000,
+  "untracked_remnant_rate": 0.008
+ },
+ "annual_benefit": {
+  "mtorres_base": 339645,
+  "iar": 447552
+ },
+ "payback_years": {
+  "mtorres_base": 1.5,
+  "iar_pozyx_class": 1.0
+ },
+ "iar_supplier_scores": {
+  "Pozyx": 84.0,
+  "GrowSpace": 80.8,
+  "Sewio": 76.3,
+  "Eliko": 72.8,
+  "weights": "technical 40 / maturity 20 / economic 25 / lifecycle 10 / integration 5"
+ }
+}

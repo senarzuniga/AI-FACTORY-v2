@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>INGECART · IAR Real-Time Roll Location — Informe técnico / Technical report</title>
+<style>
+@page {
+  size: A4;
+  margin: 17mm 16mm 16mm 16mm;
+  @top-left-corner { content: ""; background: linear-gradient(to bottom, #111111 0, #111111 5.9mm, #FF6304 5.9mm, #FF6304 7.5mm, #ffffff 7.5mm); }
+  @top-right-corner { content: ""; background: linear-gradient(to bottom, #111111 0, #111111 5.9mm, #FF6304 5.9mm, #FF6304 7.5mm, #ffffff 7.5mm); }
+  @top-center { content: ""; width: 100%; background: linear-gradient(to bottom, #111111 0, #111111 5.9mm, #FF6304 5.9mm, #FF6304 7.5mm, #ffffff 7.5mm); }
+  @bottom-left {
+    content: "INGECART · Engineering & Auditing — Propuesta técnico-comercial. Documento confidencial.";
+    font-family: Arial, Helvetica, "Liberation Sans", "Nimbus Sans", sans-serif, "Segoe UI Symbol", "Apple Symbols", "DejaVu Sans"; font-size: 6.8pt; color: #8a8a8a;
+    border-top: 1.2pt solid #FF6304; padding-top: 3pt; vertical-align: top;
+    width: 100%; white-space: nowrap;
+  }
+  @bottom-right {
+    content: "Pág. " counter(page) " de " counter(pages);
+    font-family: Arial, Helvetica, "Liberation Sans", "Nimbus Sans", sans-serif, "Segoe UI Symbol", "Apple Symbols", "DejaVu Sans"; font-size: 6.8pt; color: #8a8a8a;
+    border-top: 1.2pt solid #FF6304; padding-top: 3pt; vertical-align: top;
+    text-align: right; white-space: nowrap; width: 34mm;
+  }
+}
+@page :first {
+  margin-top: 20mm;
+  @bottom-left { content: "INGECART S.L. · Pol. Ind. Llaverno 9-10 · 08739 Subirats · Barcelona (España) · +34 938 183 316 · www.ingecart.eu"; }
+  @bottom-right { content: ""; border-top: 1.2pt solid #FF6304; }
+}
+
+body { font-family: Arial, Helvetica, "Liberation Sans", "Nimbus Sans", sans-serif, "Segoe UI Symbol", "Apple Symbols", "DejaVu Sans"; font-size: 8.6pt; line-height: 1.45; color: #232323; margin: 0; }
+h1,h2,h3,h4 { margin: 0; font-weight: bold; }
+
+.cover-logo { width: 62mm; margin-bottom: 10mm; }
+.cover-kicker { font-size: 8pt; letter-spacing: 2.6pt; color: #FF6304; font-weight: bold; text-transform: uppercase; margin-bottom: 4mm; }
+.cover-title { font-size: 27pt; line-height: 1.1; color: #111111; font-weight: bold; letter-spacing: -0.4pt; }
+.cover-rule { width: 42mm; height: 2.6mm; background: #FF6304; margin: 6mm 0; }
+.cover-sub { font-size: 10.5pt; color: #4a4a4a; line-height: 1.5; max-width: 150mm; }
+.cover-claim { margin-top: 9mm; padding: 5mm 6mm; background: #f4f4f4; border-left: 3.2mm solid #FF6304; font-size: 9.4pt; color: #2a2a2a; }
+
+table { border-collapse: collapse; width: 100%; margin: 0 0 4mm 0; }
+th, td { padding: 2.1mm 2.6mm; text-align: left; vertical-align: top; font-size: 8.2pt; }
+thead th { background: #111111; color: #fff; font-size: 7.6pt; letter-spacing: 0.4pt; text-transform: uppercase; }
+tbody tr { border-bottom: 0.4pt solid #e2e2e2; }
+tbody tr:nth-child(even) { background: #f5f5f5; }
+tbody td:first-child { border-left: 0.9mm solid #d9d9d9; }
+.meta td:first-child { border-left: 0.9mm solid #FF6304; font-weight: bold; width: 30mm; }
+.meta td:nth-child(3) { font-weight: bold; width: 30mm; border-left: 0.9mm solid #FF6304; }
+.sec-row td { background: #FF6304; color: #fff; font-weight: bold; font-size: 7.8pt; letter-spacing: 0.5pt; text-transform: uppercase; border-left: none !important; }
+.dark td { background: #111; color: #fff; }
+.dark td:first-child { border-left: 0.9mm solid #FF6304; }
+td.num, th.num { text-align: right; }
+td.ctr, th.ctr { text-align: center; }
+.plain td { border-left: none !important; }
+.plain tr { border-bottom: none; }
+.plain tr:nth-child(even) { background: transparent; }
+
+.sec { background: #FF6304; color: #fff; font-weight: bold; font-size: 9pt; letter-spacing: 0.6pt; text-transform: uppercase; padding: 2.2mm 3mm; margin: 0 0 4mm 0; }
+.sec .n { color: #ffd9c2; margin-right: 3mm; }
+.sec.k { background: #111111; }
+.sec.k .n { color: #FF6304; }
+h3.sub { font-size: 9pt; color: #111; margin: 5mm 0 2mm 0; border-bottom: 0.8pt solid #FF6304; padding-bottom: 1.2mm; }
+p { margin: 0 0 2.8mm 0; }
+ul { margin: 0 0 3mm 0; padding-left: 5mm; }
+li { margin-bottom: 1.4mm; }
+.lead { font-size: 9.4pt; color: #333; }
+.callout { background: #f4f4f4; border-left: 3mm solid #111; padding: 3.2mm 4mm; margin: 0 0 4mm 0; font-size: 8.4pt; }
+.callout.orange { border-left-color: #FF6304; }
+.note { font-size: 7.4pt; color: #777; line-height: 1.4; }
+.kpi-wrap { width: 100%; margin-bottom: 5mm; }
+.kpi-wrap td { width: 25%; text-align: center; background: #111; color: #fff; padding: 4mm 2mm; border-left: 1.2pt solid #333; }
+.kpi-wrap td:first-child { border-left: none; }
+.kpi-v { font-size: 15pt; font-weight: bold; color: #FF6304; display: block; line-height: 1.1; }
+.kpi-l { font-size: 6.6pt; letter-spacing: 0.5pt; text-transform: uppercase; color: #d5d5d5; }
+.pb { page-break-before: always; }
+.avoid { page-break-inside: avoid; }
+.two { width: 100%; }
+.two td { vertical-align: top; padding: 0; font-size: 8.2pt; border-left: none !important; }
+.two tr { border-bottom: none; }
+.two tr:nth-child(even) { background: transparent; }
+.two td.l { padding-right: 5mm; }
+.tick { color: #FF6304; font-weight: bold; }
+.x { color: #999; font-weight: bold; }
+.formula hr.fsep { border:0; border-top:0.6pt solid #aaa; margin:1.6mm 0; }
+.formula { font-family: Consolas, "DejaVu Sans Mono", "Liberation Mono", "Courier New", monospace, "Segoe UI Symbol"; font-size: 7.6pt; background: #f5f5f5; padding: 2.4mm 3mm; margin: 0 0 3mm 0; border-left: 1mm solid #cfcfcf; }
+
+.faq { margin-bottom: 3.6mm; page-break-inside: avoid; }
+.faq .q { font-weight: bold; color: #111; font-size: 8.6pt; border-left: 1.6mm solid #FF6304; padding-left: 2.6mm; margin-bottom: 1.4mm; }
+.faq .a { padding-left: 4.2mm; color: #3a3a3a; }
+.big-num { font-size: 20pt; font-weight: bold; color: #FF6304; line-height: 1; }
+.tag { display: inline-block; background: #111; color: #fff; font-size: 6.6pt; letter-spacing: 0.5pt; text-transform: uppercase; padding: 0.8mm 2mm; margin-bottom: 1.5mm; }
+.tag.o { background: #FF6304; }
+
+/* ---------- Vista en navegador (los @page margin-boxes solo los aplica WeasyPrint) ---------- */
+@media screen {
+  body { max-width: 178mm; margin: 0 auto; padding: 0 6mm 14mm 6mm; background: #fff; }
+  body::before {
+    content: ""; display: block; position: fixed; top: 0; left: 0; right: 0; height: 7.5mm;
+    background: linear-gradient(to bottom, #111 0, #111 5.9mm, #FF6304 5.9mm, #FF6304 7.5mm);
+    z-index: 99;
+  }
+  body { padding-top: 14mm; }
+  .pb { border-top: 0.8pt dashed #ccc; margin-top: 12mm; padding-top: 10mm; }
+  .screen-note {
+    display: block; background: #f4f4f4; border-left: 3mm solid #FF6304;
+    padding: 3mm 4mm; margin: 0 0 6mm 0; font-size: 8pt; color: #555;
+  }
+}
+@media print { .screen-note { display: none; } }
+.screen-note { display: none; }
+</style>
+
+<style>
+.lang.hidden { display: none; }
+.lang-switch { position: fixed; top: 10mm; right: 6mm; z-index: 100; display: flex; gap: 2px; background: #111; padding: 2px; border-radius: 3px; }
+.lang-switch button { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; letter-spacing: 1pt; color: #ddd; background: transparent; border: 0; padding: 2.2mm 3.4mm; cursor: pointer; text-transform: uppercase; }
+.lang-switch button.active { background: #FF6304; color: #fff; }
+@media print { .lang-switch { display: none; } }
+.src { font-size: 6.9pt; color: #777; }
+</style>
+
+</head>
+<body>
+
+<div class="lang-switch" role="tablist" aria-label="Idioma / Language">
+  <button type="button" class="active" data-language="es" aria-pressed="true">ES</button>
+  <button type="button" data-language="en" aria-pressed="false">EN</button>
+</div>
+
+<div class="screen-note"><b>Vista previa / Browser preview.</b> Selector ES/EN arriba a la derecha; el PDF imprime el idioma visible. ES/EN switch top-right; the PDF prints the visible language.</div>
+<div class="lang lang-es">
+
+<img src="data:image/png;base64,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" class="cover-logo" alt="INGECART">
+<div class="cover-kicker">Informe técnico de producto</div>
+<div class="cover-title">IAR · Localización en tiempo real<br>de bobinas de papel</div>
+<div class="cover-rule"></div>
+<div class="cover-sub">
+Evolución de la solución de gestión de almacén de bobinas en tiempo real: de la oferta base MTorres
+(Of. 26-05-073V0, RTLS de 160 anclas y 3.000 tags con TorresFactory) a la arquitectura IAR de INGECART:
+UWB-first con eje Z real, checkpoints RFID de identidad, capa de abstracción de proveedor e integración
+MES/WMS preparada para gemelo digital.
+</div>
+<div class="cover-claim">
+<b>Misma función, más precisión, menos dependencia.</b><br>
+Localización a nivel de hueco (10–30 cm) en lugar de zona (50 cm, 20–30 zonas), identidad confirmada por RFID
+en cada evento crítico, proveedor de radio intercambiable y un TCO a 10 años entre un 26 % y un 50 % inferior
+en las arquitecturas recomendadas.
+</div>
+<table class="meta" style="margin-top:8mm"><tbody>
+<tr><td>Producto</td><td>IAR — Intelligent Automatic Roll location (almacén inteligente de bobinas)</td><td>Nº documento</td><td>IAR-RPT-2026-09 · Rev. 1</td></tr>
+<tr><td>Base de referencia</td><td>Oferta MTorres Of. 26-05-073V0 — Real Time Warehouse Management Solution</td><td>Fecha</td><td>14/09/2026</td></tr>
+<tr><td>Caso de aplicación</td><td>Almacén no automatizado de 80 × 50 m (≈ 4.000 m²), ≈ 3.000 bobinas verticales Ø 1.600 mm apiladas a 3 alturas, techo ≤ 12 m</td><td>Estado</td><td>Definición de producto para decisión · sujeto a benchmark en planta</td></tr>
+<tr><td>Fuentes</td><td>Oferta MTorres; IAR Executive Technical Assessment; RTLS-UWB documento técnico v2; fichas Pozyx, Sewio, Eliko, GrowSpace; precios Eliko; fuentes públicas (acceso 14/09/2026)</td><td>Emisor</td><td>INGECART · Ingeniería de Producto</td></tr>
+</tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">01</span>Resumen ejecutivo</div>
+<table class="kpi-wrap"><tr>
+<td><span class="kpi-v">10–30 cm</span><span class="kpi-l">Precisión UWB (frente a 50 cm)</span></td>
+<td><span class="kpi-v">3D real</span><span class="kpi-l">Eje Z para bobinas apiladas</span></td>
+<td><span class="kpi-v">−26 a −50 %</span><span class="kpi-l">TCO a 10 años vs oferta base</span></td>
+<td><span class="kpi-v">≈ 1 año</span><span class="kpi-l">Payback estimado</span></td>
+</tr></table>
+<table class="two"><tr><td class="l" style="width:50%">
+<span class="tag">Punto de partida</span>
+<p>La oferta MTorres resuelve la visibilidad del almacén con un RTLS de 160 anclas PoE en columnas, 3.000 tags en
+insertos de mandril de 4", precisión declarada de hasta 50 cm, 20–30 zonas lógicas por geofencing y la plataforma
+TorresFactory con integración MES/SAP. Precio 509.946 € EXW y licencia de 69.000 €/año a partir del quinto año.
+Instalación 3 técnicos × 3 semanas y puesta en marcha 12 semanas.</p>
+<span class="tag o">Qué cambia IAR</span>
+<p>INGECART mantiene el alcance funcional y sustituye la caja cerrada por una arquitectura <b>UWB-first</b> con anclas
+a distintas alturas para <b>3D real</b>, <b>checkpoints RFID</b> en recepción, retorno y consumo, una <b>capa de abstracción
+de proveedor</b> (omlox/MQTT) que evita el bloqueo tecnológico, y un motor de posición con confianza, filtrado y
+diagnóstico. El resultado es localización a nivel de hueco, identidad verificada y libertad de proveedor.</p>
+</td><td style="width:50%">
+<span class="tag">Cuantificación</span>
+<p>Para el almacén de referencia, el beneficio anual estimado pasa de ≈ 340 k€ (base) a ≈ 448 k€ (IAR): menos
+tiempo de búsqueda (216 k€), menos bobinas erróneas (80 k€), menor stock de seguridad (47 k€) y recuperación de
+retales no trazados (104 k€). El TCO a 10 años baja de 855 k€ a 631 k€ (clase Pozyx) o 429 k€ (clase GrowSpace).</p>
+<span class="tag o">Decisión recomendada</span>
+<p>Piloto comparativo en el mismo almacén con dos proveedores UWB (Pozyx y GrowSpace) durante 6–8 semanas,
+con bobinas reales y turno completo, midiendo precisión X/Y/Z, latencia, disponibilidad y consistencia MES;
+adjudicación tras normalizar el TCO a 5 y 10 años.</p>
+</td></tr></table>
+<div class="callout orange">
+<b>Advertencia de rigor.</b> Las cifras de precisión son declaraciones de fabricante (10–30 cm Pozyx; 30 cm Sewio;
+30 cm ± 20 cm Eliko) y no tolerancias garantizadas en un almacén con metal, apilado y oclusión. Las cifras económicas
+de valor se basan en supuestos explícitos (§07) que deben sustituirse por los datos del cliente en el estudio de aplicación.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">02</span>La oferta base MTorres: qué incluye y qué limita</div>
+<table><thead><tr><th>Bloque</th><th>Contenido de la oferta 26-05-073V0</th><th>Observación de ingeniería</th></tr></thead><tbody><tr><td style="width:30mm">Área y alcance</td><td>Almacén no automatizado 80 × 50 m (≈ 4.000 m²), techo ≤ 12 m, ≈ 3.000 bobinas Ø 1.600 mm a 3 alturas; solo identificación, tracking, trazabilidad y visualización</td><td>No modifica procesos ni manipulación; transportadores, desbobinador y zona de mandriles vacíos fuera del RTLS</td></tr><tr><td style="width:30mm">Infraestructura RTLS</td><td>160 anclas PoE en columnas existentes; red PoE incluida; canalizaciones a cargo del cliente</td><td>≈ 25 m² por ancla: densidad muy alta para 4.000 m²; sugiere tecnología de menor alcance o diseño conservador</td></tr><tr><td style="width:30mm">Tags</td><td>3.000 tags en inserto mecánico para mandril de 4", colocación y retirada manual en recepción y fin de vida; inserto consumible, tag recuperable</td><td>Coste 30.750 € por lote de 500 (≈ 61,5 €/tag); inserción manual añade tarea al carretillero</td></tr><tr><td style="width:30mm">Precisión y zonificación</td><td>Hasta 50 cm; 20–30 zonas lógicas de almacenamiento por geofencing</td><td>Localización a nivel de zona, no de hueco; sin eje Z declarado para apilado</td></tr><tr><td style="width:30mm">Plataforma</td><td>TorresFactory (base) + integración MES/SAP; vistas de recepción, almacén, alarmas y eventos</td><td>Software propietario; licencia 69.000 €/año desde el año 5 (≈ 13,5 % del CAPEX anual)</td></tr><tr><td style="width:30mm">Recepción</td><td>Estación de medición y pesaje del cliente + lectura DataMatrix + asignación automática de tag</td><td>Medición y pesaje fuera del alcance MTorres</td></tr><tr><td style="width:30mm">Servicios</td><td>Instalación 3 técnicos × 3 semanas; commissioning y aceptación 12 semanas en planta</td><td>Plazo de puesta en marcha largo para el alcance</td></tr><tr><td style="width:30mm">Precio</td><td>231.990 € diseño e infraestructura + 184.500 € tags + 93.456 € instalación = 509.946 € EXW</td><td>Tags = 36 % del CAPEX; licencia recurrente no incluida en el precio</td></tr></tbody></table>
+<div class="callout">
+<b>Lectura.</b> La oferta es una solución llave en mano coherente, pero con tres limitaciones para el caso de bobinas
+apiladas: precisión de zona, sin altura, y dependencia total de un proveedor de radio y software con licencia creciente.
+</div>
+
+<div class="sec"><span class="n">03</span>Requisitos operacionales del almacén de bobinas</div>
+<table><thead><tr><th>Requisito</th><th>Por qué importa</th><th>Base MTorres</th><th>IAR</th></tr></thead><tbody><tr><td style="width:42mm">Confianza de posición a nivel de hueco bajo estiba densa</td><td>El carretillero debe ir a la bobina correcta, no a la zona</td><td>Zona (50 cm, 20–30 zonas)</td><td>Hueco (10–30 cm) con confianza por posición</td></tr><tr><td style="width:42mm">Eje Z fiable para bobinas apiladas a 3 alturas</td><td>Saber qué bobina de la pila es la buscada</td><td>No declarado</td><td>3D real con anclas a distintas alturas; barómetro/IMU como apoyo</td></tr><tr><td style="width:42mm">Actualización cuasi en tiempo real</td><td>Reducir búsqueda y detectar movimientos no previstos</td><td>Sí (RTLS continuo)</td><td>Sí, con refresco por movimiento y latencia determinista en edge</td></tr><tr><td style="width:42mm">Robustez ante multipath metálico y oclusión</td><td>Bobinas y estanterías metálicas degradan la radio</td><td>Diseño conservador de anclas</td><td>Filtrado de outliers, puntuación de confianza y diagnóstico de salud</td></tr><tr><td style="width:42mm">Identidad inequívoca en eventos críticos</td><td>Evitar bobina errónea en producción</td><td>DataMatrix en recepción</td><td>RFID en recepción, retorno de retal y consumo + DataMatrix</td></tr><tr><td style="width:42mm">Integración transaccional MES/WMS</td><td>Inventario y movimientos consistentes</td><td>TorresFactory ↔ MES/SAP</td><td>Contratos bidireccionales de inventario, movimiento y conciliación; modelo unificado de estado de bobina</td></tr><tr><td style="width:42mm">Escalabilidad y no dependencia</td><td>Réplica en otras plantas y evolución</td><td>Proveedor único</td><td>Capa de abstracción (omlox hub / MQTT) desde la fase 1</td></tr><tr><td style="width:42mm">Preparación para gemelo digital e IA</td><td>Optimización de búsquedas, flujo de carretillas, congestión</td><td>No declarado</td><td>Flujo de estado con marca de tiempo e histórico reproducible</td></tr></tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">04</span>Tecnologías de posicionamiento: análisis comparado</div>
+<table><thead><tr><th>Tecnología</th><th>Madurez</th><th>Ventajas</th><th>Limitaciones</th><th>Idoneidad almacén bobinas</th></tr></thead><tbody><tr><td style="width:34mm">UWB (TDoA / TWR / AP-TWR)</td><td>Alta</td><td>Precisión 10–30 cm, baja latencia, inmunidad al metal superior</td><td>Geometría y calibración de anclas críticas; sincronización en TDoA</td><td>Muy alta — núcleo</td></tr><tr><td style="width:34mm">BLE AoA</td><td>Media-alta</td><td>Ecosistema amplio, precisión media</td><td>Sensible a reflexiones y oclusión</td><td>Media</td></tr><tr><td style="width:34mm">BLE RSSI / Wi-Fi</td><td>Alta (gruesa)</td><td>Bajo coste, despliegue simple</td><td>1–10 m de varianza</td><td>Baja para hueco exacto</td></tr><tr><td style="width:34mm">RFID</td><td>Muy alta</td><td>Identidad muy robusta, lectura por evento</td><td>No da posición continua</td><td>Alta como capa compañera</td></tr><tr><td style="width:34mm">GPS / RTK</td><td>Muy alta exterior</td><td>Excelente en exterior</td><td>No válido en interior</td><td>Baja</td></tr><tr><td style="width:34mm">Visión</td><td>Media-alta</td><td>Contexto semántico</td><td>Oclusión, polvo, mantenimiento</td><td>Media como refuerzo en zonas críticas</td></tr><tr><td style="width:34mm">Híbrida UWB + RFID (+ visión)</td><td>Alta a nivel arquitectura</td><td>Resiliencia y degradación controlada</td><td>Mayor complejidad de integración</td><td>Muy alta a largo plazo</td></tr></tbody></table>
+<h3 class="sub">Métodos de cálculo UWB</h3>
+<table><thead><tr><th>Método</th><th>Cómo funciona</th><th>Implicación de instalación</th><th>Proveedores</th></tr></thead><tbody><tr><td style="width:24mm">TDoA</td><td>El tag emite un blink; anclas sincronizadas miden la diferencia de tiempo de llegada</td><td>Requiere sincronización estricta (Ethernet o radio); muy escalable en tags y favorable a batería</td><td>Pozyx, Sewio</td></tr><tr><td style="width:24mm">TWR</td><td>Intercambio ida-vuelta tag-ancla; no requiere sincronizar anclas</td><td>Instalación más simple; refresco algo menor a igual número de anclas</td><td>GrowSpace</td></tr><tr><td style="width:24mm">AP-TWR</td><td>Un ancla activa y el resto escuchan pasivamente: hasta 8× más datos por posicionamiento</td><td>Menos anclas por superficie (≈ 2.500 m² con 4 anclas en espacio abierto)</td><td>Eliko</td></tr></tbody></table>
+<p class="note">Fuentes públicas: Pozyx 10–30 cm; Sewio hasta 30 cm (TDoA), caso Volkswagen 50 cm y 333 ms; Eliko 30 cm ± 20 cm, hasta 75 Hz.
+Pozyx v2025.2 incorpora conector omlox hub y precisión configurable por zona (10–30 cm / ≈ 5 m / presencia). Referencias en §12.</p>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">05</span>Evaluación de proveedores UWB</div>
+<table><thead><tr><th>Proveedor</th><th>Perfil técnico</th><th>Integración</th><th>Modelo económico</th><th>Puntuación IAR</th></tr></thead><tbody><tr><td style="width:26mm">Pozyx (BE)</td><td>UWB TDoA + BLE; 10–30 cm; modos 2.5D y 3D real; > 150.000 trackers; ArcelorMittal, Alcon, Bonduelle</td><td>MQTT local (puerto 1883, JSON X/Y/Z mm), API HTTP, conector omlox hub</td><td>Kit 6.000 €; tag ≈ 45 € en volumen; licencia de plataforma (≈ 3.100 €/año para 200 tags)</td><td>84,0 — opción equilibrada líder</td></tr><tr><td style="width:26mm">GrowSpace (KR)</td><td>UWB TWR; sin sincronización de anclas; hasta 10 Hz; mínimo 4 anclas para 3D</td><td>MQTT JSON X/Y/Z documentado públicamente (GitBook)</td><td>Hardware con precio público (kits desde 359 $), sin licencia recurrente; tags bajo cotización</td><td>80,8 — mejor economía de entrada; requiere endurecimiento industrial</td></tr><tr><td style="width:26mm">Sewio / HID (CZ)</td><td>UWB TDoA; hasta 30 cm; Z por barómetro (beta); Volkswagen, Toyota, Budvar, Bora, SEG</td><td>REST + WebSocket documentados (docs.sewio.net); gemelo digital soportado vía API</td><td>Precios bajo petición; kit 400 m² reutilizable</td><td>76,3 — técnicamente sólido, economía opaca</td></tr><tr><td style="width:26mm">Eliko (EE)</td><td>UWB AP-TWR; 30 cm ± 20 cm; hasta 3 cm en óptimo; Bosch, SKF, Ericsson</td><td>REST + NMEA; documentación bajo contacto</td><td>Ancla 550 €; tag IP67 375 € / IP52 145 €; licencia 120 €/ancla + 30 €/tag al año</td><td>72,8 — fiable, pero coste recurrente por tag penaliza a 3.000 bobinas</td></tr></tbody></table>
+<p class="note">Método de puntuación IAR: ajuste técnico 40 %, madurez industrial 20 %, atractivo económico 25 %, visibilidad de ciclo de vida 10 %, preparación de integración 5 %.
+Sensibilidad: si prima el coste del PoC sube GrowSpace; si prima la preparación industrial, Pozyx mantiene el liderazgo.</p>
+<div class="callout">
+<b>Modelos de licencia.</b> (A) Suscripción anual por tag y plataforma — crece con el número de bobinas y el sistema se apaga si se deja de pagar.
+(B) Licencia perpetua + mantenimiento anual porcentual — mayor inversión inicial, factura estable. (C) Hardware abierto sin licencia recurrente —
+máxima flexibilidad, requiere más ingeniería propia. Para 3.000 tags el modelo (A) con cuota por tag es el que más penaliza el TCO.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">06</span>Arquitectura IAR recomendada</div>
+<table><thead><tr><th>Capa</th><th>Contenido</th><th>Mejora frente a la base</th></tr></thead><tbody><tr><td style="width:30mm">Hardware de posición</td><td>Anclas UWB fijas a distintas alturas (3D real), tags activos en inserto de mandril, RFID en portales de recepción/retorno/consumo, visión opcional en zonas críticas</td><td>Eje Z, identidad verificada, menor densidad de anclas por diseño de radio</td></tr><tr><td style="width:30mm">Comunicaciones</td><td>Red local determinista (PoE) y backbone de eventos (movimiento, inventario, excepciones)</td><td>Latencia predecible; separación adquisición/reconciliación</td></tr><tr><td style="width:30mm">Motor de posición</td><td>Tiempo real con puntuación de confianza, filtrado de outliers, diagnóstico de salud de anclas y tags</td><td>Robustez ante multipath y oclusión; alarmas de deriva de calibración</td></tr><tr><td style="width:30mm">Middleware</td><td>API de abstracción de proveedor (omlox hub / MQTT) y modelo unificado de estado de bobina</td><td>Proveedor de radio intercambiable; protege el roadmap</td></tr><tr><td style="width:30mm">Interfaz MES/WMS</td><td>Contratos bidireccionales de inventario, movimiento y conciliación; recomendación de bobina y validación por carretillero</td><td>Consistencia transaccional; picking guiado</td></tr><tr><td style="width:30mm">Gemelo digital</td><td>Flujo de estado con marca de tiempo e histórico reproducible (replay)</td><td>Base para simulación y optimización</td></tr><tr><td style="width:30mm">Módulos IA (futuro)</td><td>Optimización de búsqueda, flujo de carretillas, predicción de congestión, mantenimiento predictivo</td><td>Valor incremental sin rehacer la plataforma</td></tr></tbody></table>
+<h3 class="sub">Trade-offs de ingeniería resueltos</h3>
+<ul>
+<li><b>Centralizado vs distribuido:</b> adquisición distribuida con reconciliación centralizada.</li>
+<li><b>Proveedor único vs abstracción:</b> abstracción desde la fase 1; el proveedor único acelera el arranque pero bloquea el roadmap.</li>
+<li><b>Tags activos vs pasivos:</b> activos UWB para posición continua; RFID pasivo para identidad a coste mínimo.</li>
+<li><b>Anclas fijas vs infraestructura móvil:</b> anclas fijas por repetibilidad; anclas en columnas existentes sin obra.</li>
+<li><b>Cloud vs edge:</b> edge para latencia determinista; cloud para analítica e histórico.</li>
+</ul>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">07</span>Cuantificación de mejoras y TCO</div>
+<h3 class="sub">Coste total de propiedad (almacén de referencia, 4.000 m², 3.000 bobinas)</h3>
+<table><thead><tr><th>Escenario</th><th>Anclas</th><th>Hardware</th><th>CAPEX total</th><th>Licencia anual</th><th>TCO 5 años</th><th>TCO 10 años</th><th>Δ vs base</th></tr></thead><tbody><tr><td style="width:40mm">Base MTorres (oferta)</td><td>160</td><td>incluido</td><td>509.946 €</td><td>69.000 € desde año 5</td><td>509.946 €</td><td>854.946 €</td><td>—</td></tr><tr><td style="width:40mm">IAR clase Pozyx (TDoA, 3D)</td><td>≈ 60</td><td>186.000 €</td><td>415.000 €</td><td>≈ 24.000 €</td><td>511.000 €</td><td>631.000 €</td><td>−26 %</td></tr><tr><td style="width:40mm">IAR clase GrowSpace (TWR, abierto)</td><td>≈ 60</td><td>200.000 €</td><td>429.000 €</td><td>0 €</td><td>429.000 €</td><td>429.000 €</td><td>−50 %</td></tr><tr><td style="width:40mm">IAR clase Eliko (AP-TWR)</td><td>≈ 40</td><td>923.800 €</td><td>1.152.800 €</td><td>94.800 €</td><td>1.532.000 €</td><td>2.006.000 €</td><td>+135 %</td></tr></tbody></table>
+<p class="note">Supuestos IAR: ingeniería e integración INGECART 120.000 €, portales RFID 24.000 €, instalación 60.000 €, piloto comparativo 25.000 €;
+tags 45 € (Pozyx), 60 € (GrowSpace, estimado), 300 € (Eliko IP67 con descuento por volumen); anclas 750 € (Pozyx, estimado), 250 € (GrowSpace, estimado), 550 € (Eliko lista);
+licencia Pozyx escalada con descuento a ≈ 8 €/tag/año; Eliko 120 €/ancla + 30 €/tag (lista). Densidad de anclas para 3D con techo de 12 m estimada en 60–80 m²/ancla.
+Los precios no públicos deben confirmarse con oferta formal; la clase Eliko queda descartada para 3.000 tags salvo negociación de licencia plana.</p>
+<h3 class="sub">Beneficio operativo anual estimado</h3>
+<table><thead><tr><th>Palanca</th><th>Supuesto base</th><th>Base MTorres (zona)</th><th>IAR (hueco + RFID)</th><th>Referencia pública</th></tr></thead><tbody><tr><td style="width:38mm">Tiempo de búsqueda y verificación</td><td>250 movimientos/día, 4 min → 1 min (base) / 0,5 min (IAR), 45 €/h, 330 días</td><td>185.600 €</td><td>216.600 €</td><td>Toyota/Sewio: información de inventario de 8 h a 1 s; 18.000 h-persona/año liberadas</td></tr><tr><td style="width:38mm">Bobina errónea en producción</td><td>1,5 % de 120 picks/día, 150 € por incidente; −70 % base / −90 % IAR</td><td>62.400 €</td><td>80.200 €</td><td>Bora/Sewio: 0 errores de picking en 3 meses, −15 % tiempo de picking; SEG: 95 % → 100 % registros correctos</td></tr><tr><td style="width:38mm">Stock de seguridad</td><td>4,9 M€ de papel; −5 % base / −8 % IAR; coste de posesión 12 %</td><td>29.300 €</td><td>46.800 €</td><td>Toyota/Sewio: stock de seguridad de 8 h a 4 h (−50 %)</td></tr><tr><td style="width:38mm">Retales no trazados</td><td>0,8 % de 26 M€ de consumo; recuperación 30 % base / 50 % IAR</td><td>62.400 €</td><td>104.000 €</td><td>Budvar/Sewio: +19 % utilización virtual del almacén</td></tr><tr><td style="width:38mm"><b>Total anual</b></td><td></td><td><b>≈ 339.600 €</b></td><td><b>≈ 447.600 €</b></td><td></td></tr><tr><td style="width:38mm"><b>Payback simple</b></td><td>CAPEX / beneficio neto</td><td><b>≈ 1,5 años</b></td><td><b>≈ 1,0 año</b> (clase Pozyx)</td><td></td></tr></tbody></table>
+<div class="callout orange">
+<b>Cómo leer estas cifras.</b> Los porcentajes de mejora son supuestos de ingeniería anclados en casos publicados por fabricantes, no garantías.
+El estudio de aplicación sustituye cada supuesto por el dato real de la planta (movimientos/día, coste hora, incidentes, valor de stock, retal).
+El lucro cesante por paradas de corrugadora por bobina no encontrada no está incluido y suele ser la partida mayor.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">08</span>Mejoras técnicas IAR frente a la oferta base — tabla de decisión</div>
+<table><thead><tr><th>Criterio</th><th>Base MTorres</th><th>IAR INGECART</th><th>Impacto</th></tr></thead><tbody><tr><td style="width:36mm">Precisión de localización</td><td>Hasta 50 cm; zona lógica</td><td>10–30 cm declarado; hueco</td><td>Búsqueda dirigida a la bobina, no a la zona</td></tr><tr><td style="width:36mm">Altura (eje Z)</td><td>No declarado</td><td>3D real con anclas a varias alturas</td><td>Identifica la bobina correcta dentro de la pila</td></tr><tr><td style="width:36mm">Identidad</td><td>DataMatrix en recepción</td><td>DataMatrix + RFID en recepción, retorno y consumo</td><td>Elimina bobina errónea y cierra el ciclo del retal</td></tr><tr><td style="width:36mm">Densidad de anclas</td><td>160 (≈ 25 m²/ancla)</td><td>≈ 40–60 según método (AP-TWR / TDoA)</td><td>Menos hardware, menos puntos de fallo, menos instalación</td></tr><tr><td style="width:36mm">Dependencia de proveedor</td><td>Plataforma propietaria única</td><td>Abstracción omlox/MQTT; proveedor sustituible</td><td>Protege inversión y réplica internacional</td></tr><tr><td style="width:36mm">Licencia</td><td>69.000 €/año desde año 5</td><td>0–24.000 €/año según clase</td><td>TCO 10 años −26 % a −50 %</td></tr><tr><td style="width:36mm">Integración</td><td>MES/SAP vía TorresFactory</td><td>Contratos MES/WMS + picking guiado + gemelo digital</td><td>Valor operativo, no solo visibilidad</td></tr><tr><td style="width:36mm">Diagnóstico</td><td>Alarmas y eventos</td><td>Confianza por posición, salud de anclas, deriva de calibración</td><td>Mantenimiento predictivo del propio RTLS</td></tr><tr><td style="width:36mm">Puesta en marcha</td><td>3 semanas instalación + 12 semanas commissioning</td><td>Piloto 6–8 semanas + despliegue por fases</td><td>Riesgo controlado antes de comprometer</td></tr><tr><td style="width:36mm">Cumplimiento radio UE</td><td>No detallado</td><td>RED 2014/53/UE, ETSI EN 302 065-2, Decisión (UE) 2024/1467</td><td>Conformidad documentada del producto</td></tr></tbody></table>
+
+<div class="sec"><span class="n">09</span>Riesgos y mitigaciones</div>
+<table><thead><tr><th>Riesgo</th><th>Impacto</th><th>Mitigación</th></tr></thead><tbody><tr><td style="width:44mm">Multipath y oclusión por bobinas metálicas y apilado</td><td>Precisión real peor que la declarada</td><td>Radio survey, piloto con bobinas reales, filtrado por confianza, anclas a varias alturas, RFID como respaldo de identidad</td></tr><tr><td style="width:44mm">Deriva de calibración de anclas</td><td>Pérdida progresiva de precisión</td><td>Diagnóstico de salud, recalibración programada, alarmas de deriva</td></tr><tr><td style="width:44mm">Escalada de costes por licencias por tag</td><td>TCO fuera de control al crecer</td><td>Descartar modelos por tag a 3.000 bobinas; negociar licencia plana o modelo abierto</td></tr><tr><td style="width:44mm">Eje Z en beta (Sewio) o 3D exigente (Pozyx)</td><td>Altura no fiable</td><td>Exigir cifra de precisión Z contractual; barómetro/IMU; validación en piloto</td></tr><tr><td style="width:44mm">Inserto de mandril como consumible</td><td>Coste y tarea manual recurrente</td><td>Diseño INGECART de inserto robusto; estudiar inserción/recuperación automática en fase 2</td></tr><tr><td style="width:44mm">Cobertura Wi-Fi / PoE insuficiente</td><td>Anclas sin red</td><td>Estudio de infraestructura; PoE incluido; canalizaciones acordadas</td></tr><tr><td style="width:44mm">Dependencia de un solo proveedor pequeño</td><td>Continuidad</td><td>Abstracción desde fase 1; segunda fuente validada en el piloto</td></tr></tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">10</span>Plan de validación e implantación</div>
+<table><thead><tr><th>Fase</th><th>Actividad</th><th>Entregable</th><th>Plazo</th></tr></thead><tbody><tr><td style="width:10mm">F0</td><td>Estudio de aplicación</td><td>Levantamiento del almacén, matriz de bobinas, flujos, radio survey, datos para el caso de negocio</td><td>2 sem.</td></tr><tr><td style="width:10mm">F1</td><td>Piloto comparativo mismo sitio</td><td>Kits Pozyx (3D) y GrowSpace en zona de 500–1.000 m², bobinas reales, turno completo; medición X/Y/Z, latencia, disponibilidad, consistencia MES</td><td>6–8 sem.</td></tr><tr><td style="width:10mm">F2</td><td>Normalización económica</td><td>TCO a 5 y 10 años con ofertas formales; adjudicación del proveedor de radio</td><td>2 sem.</td></tr><tr><td style="width:10mm">F3</td><td>Ingeniería de detalle</td><td>Diseño de anclas, insertos, portales RFID, middleware de abstracción, contratos MES/WMS, expediente de conformidad radio</td><td>6 sem.</td></tr><tr><td style="width:10mm">F4</td><td>Despliegue por zonas</td><td>Instalación sobre columnas existentes, comisionado por zona sin parar el almacén</td><td>6–8 sem.</td></tr><tr><td style="width:10mm">F5</td><td>Aceptación</td><td>Matriz FAT/SAT: precisión por percentil, tasa de identidad correcta, latencia, disponibilidad, exactitud de inventario</td><td>2 sem.</td></tr></tbody></table>
+<h3 class="sub">Criterios de aceptación propuestos</h3>
+<ul>
+<li>Error de posición P95 ≤ 30 cm en X/Y y asignación correcta de nivel de pila ≥ 98 % en zona de bobinas.</li>
+<li>Latencia posición → MES ≤ 2 s en P95; disponibilidad del sistema ≥ 99 % en 30 días.</li>
+<li>Identidad correcta en recepción, retorno y consumo ≥ 99,9 % (RFID + DataMatrix).</li>
+<li>Exactitud de inventario (conteo físico vs sistema) ≥ 99,5 % tras 30 días.</li>
+<li>Cero dependencia de conectividad externa para la operación; degradación controlada documentada.</li>
+</ul>
+
+<div class="sec"><span class="n">11</span>Normativa y conformidad</div>
+<table><thead><tr><th>Norma / reglamento</th><th>Aplicación</th></tr></thead><tbody><tr><td style="width:52mm">Directiva RED 2014/53/UE</td><td>Equipos radioeléctricos UWB y RFID: salud, seguridad, EMC y uso eficiente del espectro</td></tr><tr><td style="width:52mm">ETSI EN 302 065-2</td><td>Aplicaciones UWB de localización y seguimiento; verificar versión armonizada vigente</td></tr><tr><td style="width:52mm">Decisión de Ejecución (UE) 2024/1467</td><td>Límites UWB 6–8,5 GHz: −41,3 dBm/MHz e.i.r.p. medio y 0 dBm pico; interior potencia mejorada para localización −31,3 dBm/MHz y 10 dBm bajo condiciones</td></tr><tr><td style="width:52mm">omlox (PI) Core Zone v2 / Hub</td><td>Interoperabilidad UWB (IEEE 802.15.4z, UL-TDoA, canal 9) e integración multitecnología</td></tr><tr><td style="width:52mm">Directiva 2006/42/CE · EN ISO 13849 · EN 60204-1</td><td>Estación de recepción y elementos electromecánicos (como declara la oferta base)</td></tr><tr><td style="width:52mm">Reglamento (UE) 2023/1230</td><td>Máquinas entregadas desde el 20/01/2027</td></tr></tbody></table>
+
+<div class="sec k"><span class="n">12</span>Fuentes</div>
+<p class="src">Internas: Of. 26-05-073V0 (MTorres) · IAR_EXECUTIVE_TECHNICAL_ASSESSMENT_REPORT.html · RTLS-UWB Documento técnico v2 · Pozyx_/Sewio_/Eliko_/GrowSpace_Evaluacion_RTLS · Precios_Eliko · Eliko_Kit_Alquiler.<br>
+Públicas (acceso 14/09/2026): pozyx.io/technology/rtls-explained · pozyx.io/products/software/location-and-sensor-hub · sewio.net/uwb-technology · sewio.net/customer-projects/toyota-motors · sewio.net/customer-projects/bora · sewio.net/customer-projects/seg-automotive · sewio.net (Budweiser Budvar 99 % uptime) · eliko.tech/elikos-active-passive-twr-protocol-explained · eliko.tech/product-new-kio-rtls · eliko.tech/case-study/vechicle-tracking-drives-efficiency-at-bosch · omlox.com · profibus.com/technologies/omlox · etsi.org EN 302 065-2 V2.1.1 · eur-lex.europa.eu 2014/53/UE · eur-lex.europa.eu OJ L 2024/1467.<br>
+Las cifras de fabricantes se citan como hechos publicados, no como auditorías independientes. No se localizó publicación primaria de MTorres sobre prestaciones RTLS de TorresFactory ni cifra pública de ROI Pozyx/ArcelorMittal.
+Documento emitido por INGECART · Ingeniería de Producto. Rev. 1 — 14/09/2026.</p>
+
+</div>
+<div class="lang lang-en hidden">
+
+<img src="data:image/png;base64,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" class="cover-logo" alt="INGECART">
+<div class="cover-kicker">Technical product report</div>
+<div class="cover-title">IAR · Real-time location<br>of paper reels</div>
+<div class="cover-rule"></div>
+<div class="cover-sub">
+Evolution of the real-time reel warehouse management solution: from the MTorres base offer
+(Of. 26-05-073V0, RTLS with 160 anchors and 3,000 tags on TorresFactory) to the INGECART IAR architecture:
+UWB-first with true Z axis, RFID identity checkpoints, vendor abstraction layer and MES/WMS integration
+ready for a digital twin.
+</div>
+<div class="cover-claim">
+<b>Same function, more precision, less dependency.</b><br>
+Slot-level location (10–30 cm) instead of zone level (50 cm, 20–30 zones), identity confirmed by RFID at every
+critical event, an interchangeable radio vendor and a 10-year TCO 26 % to 50 % lower in the recommended architectures.
+</div>
+<table class="meta" style="margin-top:8mm"><tbody>
+<tr><td>Product</td><td>IAR — Intelligent Automatic Roll location (smart reel warehouse)</td><td>Document no.</td><td>IAR-RPT-2026-09 · Rev. 1</td></tr>
+<tr><td>Reference basis</td><td>MTorres offer Of. 26-05-073V0 — Real Time Warehouse Management Solution</td><td>Date</td><td>14/09/2026</td></tr>
+<tr><td>Application case</td><td>Non-automated warehouse 80 × 50 m (≈ 4,000 m²), ≈ 3,000 vertical reels Ø 1,600 mm stacked 3-high, ceiling ≤ 12 m</td><td>Status</td><td>Product definition for decision · subject to on-site benchmark</td></tr>
+<tr><td>Sources</td><td>MTorres offer; IAR Executive Technical Assessment; RTLS-UWB technical document v2; Pozyx, Sewio, Eliko, GrowSpace sheets; Eliko prices; public sources (accessed 14/09/2026)</td><td>Issuer</td><td>INGECART · Product Engineering</td></tr>
+</tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">01</span>Executive summary</div>
+<table class="kpi-wrap"><tr>
+<td><span class="kpi-v">10–30 cm</span><span class="kpi-l">UWB accuracy (vs 50 cm)</span></td>
+<td><span class="kpi-v">True 3D</span><span class="kpi-l">Z axis for stacked reels</span></td>
+<td><span class="kpi-v">−26 to −50 %</span><span class="kpi-l">10-year TCO vs base offer</span></td>
+<td><span class="kpi-v">≈ 1 year</span><span class="kpi-l">Estimated payback</span></td>
+</tr></table>
+<table class="two"><tr><td class="l" style="width:50%">
+<span class="tag">Starting point</span>
+<p>The MTorres offer delivers warehouse visibility with an RTLS of 160 PoE anchors on columns, 3,000 tags in 4"
+core inserts, declared accuracy of up to 50 cm, 20–30 logical zones by geofencing and the TorresFactory platform with
+MES/SAP integration. Price 509,946 € EXW plus a 69,000 €/year licence from year five. Installation 3 technicians ×
+3 weeks and commissioning 12 weeks.</p>
+<span class="tag o">What IAR changes</span>
+<p>INGECART keeps the functional scope and replaces the closed box with a <b>UWB-first</b> architecture using anchors at
+different heights for <b>true 3D</b>, <b>RFID checkpoints</b> at receipt, return and consumption, a <b>vendor abstraction
+layer</b> (omlox/MQTT) that avoids lock-in, and a positioning engine with confidence scoring, filtering and diagnostics.
+The result is slot-level location, verified identity and vendor freedom.</p>
+</td><td style="width:50%">
+<span class="tag">Quantification</span>
+<p>For the reference warehouse the estimated annual benefit rises from ≈ 340 k€ (base) to ≈ 448 k€ (IAR): less search
+time (216 k€), fewer wrong reels (80 k€), lower safety stock (47 k€) and recovery of untracked remnants (104 k€).
+The 10-year TCO falls from 855 k€ to 631 k€ (Pozyx class) or 429 k€ (GrowSpace class).</p>
+<span class="tag o">Recommended decision</span>
+<p>Same-site comparative pilot with two UWB vendors (Pozyx and GrowSpace) over 6–8 weeks, with real reels and full
+shifts, measuring X/Y/Z accuracy, latency, availability and MES consistency; award after normalising 5- and 10-year TCO.</p>
+</td></tr></table>
+<div class="callout orange">
+<b>Rigour notice.</b> Accuracy figures are manufacturer statements (10–30 cm Pozyx; 30 cm Sewio; 30 cm ± 20 cm Eliko),
+not guaranteed tolerances in a warehouse with metal, stacking and occlusion. Value figures rest on explicit assumptions (§07)
+to be replaced by customer data in the application study.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">02</span>The MTorres base offer: what it includes and what it limits</div>
+<table><thead><tr><th>Block</th><th>Content of offer 26-05-073V0</th><th>Engineering observation</th></tr></thead><tbody><tr><td style="width:30mm">Area and scope</td><td>Non-automated warehouse 80 × 50 m (≈ 4,000 m²), ceiling ≤ 12 m, ≈ 3,000 reels Ø 1,600 mm stacked 3-high; identification, tracking, traceability and visualisation only</td><td>No change to processes or handling; conveyors, unwinder and empty-core area outside the RTLS</td></tr><tr><td style="width:30mm">RTLS infrastructure</td><td>160 PoE anchors on existing columns; PoE network included; conduits by customer</td><td>≈ 25 m² per anchor: very high density for 4,000 m²; suggests shorter-range technology or conservative design</td></tr><tr><td style="width:30mm">Tags</td><td>3,000 tags in a mechanical insert for 4" cores, manual insertion and removal at receipt and end of life; insert is a consumable, tag recoverable</td><td>Cost 30,750 € per lot of 500 (≈ 61.5 €/tag); manual insertion adds a forklift-driver task</td></tr><tr><td style="width:30mm">Accuracy and zoning</td><td>Up to 50 cm; 20–30 logical storage zones by geofencing</td><td>Zone-level location, not slot level; no Z axis declared for stacking</td></tr><tr><td style="width:30mm">Platform</td><td>TorresFactory (base) + MES/SAP integration; receipt, warehouse, alarms and events views</td><td>Proprietary software; licence 69,000 €/year from year 5 (≈ 13.5 % of CAPEX per year)</td></tr><tr><td style="width:30mm">Receipt</td><td>Customer measuring and weighing station + DataMatrix reading + automatic tag assignment</td><td>Measuring and weighing outside MTorres scope</td></tr><tr><td style="width:30mm">Services</td><td>Installation 3 technicians × 3 weeks; commissioning and acceptance 12 weeks on site</td><td>Long commissioning for the scope</td></tr><tr><td style="width:30mm">Price</td><td>231,990 € design and infrastructure + 184,500 € tags + 93,456 € installation = 509,946 € EXW</td><td>Tags = 36 % of CAPEX; recurring licence not in the price</td></tr></tbody></table>
+<div class="callout">
+<b>Reading.</b> The offer is a coherent turnkey solution, but with three limitations for stacked reels: zone-level accuracy,
+no height, and full dependence on a single radio and software vendor with a growing licence.
+</div>
+
+<div class="sec"><span class="n">03</span>Operational requirements of the reel warehouse</div>
+<table><thead><tr><th>Requirement</th><th>Why it matters</th><th>MTorres base</th><th>IAR</th></tr></thead><tbody><tr><td style="width:42mm">Slot-level position confidence under dense stacking</td><td>The driver must go to the right reel, not the zone</td><td>Zone (50 cm, 20–30 zones)</td><td>Slot (10–30 cm) with per-position confidence</td></tr><tr><td style="width:42mm">Reliable Z axis for reels stacked 3-high</td><td>Know which reel in the stack is the one</td><td>Not declared</td><td>True 3D with anchors at several heights; barometer/IMU as support</td></tr><tr><td style="width:42mm">Near-real-time update</td><td>Cut search time and detect unexpected moves</td><td>Yes (continuous RTLS)</td><td>Yes, motion-based refresh and deterministic edge latency</td></tr><tr><td style="width:42mm">Robustness to metallic multipath and occlusion</td><td>Reels and metal racks degrade radio</td><td>Conservative anchor design</td><td>Outlier filtering, confidence scoring and health diagnostics</td></tr><tr><td style="width:42mm">Unambiguous identity at critical events</td><td>Avoid the wrong reel in production</td><td>DataMatrix at receipt</td><td>RFID at receipt, remnant return and consumption + DataMatrix</td></tr><tr><td style="width:42mm">Transactional MES/WMS integration</td><td>Consistent inventory and movements</td><td>TorresFactory ↔ MES/SAP</td><td>Bidirectional inventory, movement and reconciliation contracts; unified roll-state model</td></tr><tr><td style="width:42mm">Scalability and no lock-in</td><td>Replication in other plants and evolution</td><td>Single vendor</td><td>Abstraction layer (omlox hub / MQTT) from phase 1</td></tr><tr><td style="width:42mm">Digital-twin and AI readiness</td><td>Search, forklift-flow and congestion optimisation</td><td>Not declared</td><td>Timestamped state stream and replay-ready history</td></tr></tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">04</span>Positioning technologies: comparative analysis</div>
+<table><thead><tr><th>Technology</th><th>Maturity</th><th>Advantages</th><th>Limitations</th><th>Fit for reel warehouse</th></tr></thead><tbody><tr><td style="width:34mm">UWB (TDoA / TWR / AP-TWR)</td><td>High</td><td>10–30 cm accuracy, low latency, superior immunity to metal</td><td>Anchor geometry and calibration critical; synchronisation in TDoA</td><td>Very high — core</td></tr><tr><td style="width:34mm">BLE AoA</td><td>Medium-high</td><td>Broad ecosystem, medium accuracy</td><td>Sensitive to reflections and occlusion</td><td>Medium</td></tr><tr><td style="width:34mm">BLE RSSI / Wi-Fi</td><td>High (coarse)</td><td>Low cost, simple deployment</td><td>1–10 m variance</td><td>Low for exact slot</td></tr><tr><td style="width:34mm">RFID</td><td>Very high</td><td>Very robust identity, event-based reading</td><td>No continuous position</td><td>High as companion layer</td></tr><tr><td style="width:34mm">GPS / RTK</td><td>Very high outdoor</td><td>Excellent outdoors</td><td>Not valid indoors</td><td>Low</td></tr><tr><td style="width:34mm">Vision</td><td>Medium-high</td><td>Semantic context</td><td>Occlusion, dust, maintenance</td><td>Medium as augmentation in critical zones</td></tr><tr><td style="width:34mm">Hybrid UWB + RFID (+ vision)</td><td>High at architecture level</td><td>Resilience and controlled degradation</td><td>Higher integration complexity</td><td>Very high long-term</td></tr></tbody></table>
+<h3 class="sub">UWB ranging methods</h3>
+<table><thead><tr><th>Method</th><th>How it works</th><th>Installation implication</th><th>Vendors</th></tr></thead><tbody><tr><td style="width:24mm">TDoA</td><td>Tag emits a blink; synchronised anchors measure time difference of arrival</td><td>Requires strict synchronisation (Ethernet or radio); very scalable in tags and battery friendly</td><td>Pozyx, Sewio</td></tr><tr><td style="width:24mm">TWR</td><td>Two-way exchange tag-anchor; no anchor synchronisation</td><td>Simpler installation; somewhat lower refresh at equal anchor count</td><td>GrowSpace</td></tr><tr><td style="width:24mm">AP-TWR</td><td>One active anchor, the rest listen passively: up to 8× more data per fix</td><td>Fewer anchors per area (≈ 2,500 m² with 4 anchors in open space)</td><td>Eliko</td></tr></tbody></table>
+<p class="note">Public sources: Pozyx 10–30 cm; Sewio up to 30 cm (TDoA), Volkswagen case 50 cm and 333 ms; Eliko 30 cm ± 20 cm, up to 75 Hz.
+Pozyx v2025.2 adds an omlox hub connector and zone-configurable accuracy (10–30 cm / ≈ 5 m / presence). References in §12.</p>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">05</span>UWB vendor assessment</div>
+<table><thead><tr><th>Vendor</th><th>Technical profile</th><th>Integration</th><th>Economic model</th><th>IAR score</th></tr></thead><tbody><tr><td style="width:26mm">Pozyx (BE)</td><td>UWB TDoA + BLE; 10–30 cm; 2.5D and true 3D modes; > 150,000 trackers; ArcelorMittal, Alcon, Bonduelle</td><td>Local MQTT (port 1883, JSON X/Y/Z mm), HTTP API, omlox hub connector</td><td>Kit 6,000 €; tag ≈ 45 € in volume; platform licence (≈ 3,100 €/year for 200 tags)</td><td>84.0 — leading balanced option</td></tr><tr><td style="width:26mm">GrowSpace (KR)</td><td>UWB TWR; no anchor synchronisation; up to 10 Hz; minimum 4 anchors for 3D</td><td>MQTT JSON X/Y/Z publicly documented (GitBook)</td><td>Hardware with public prices (kits from 359 $), no recurring licence; tags on quotation</td><td>80.8 — best entry economics; needs industrial hardening</td></tr><tr><td style="width:26mm">Sewio / HID (CZ)</td><td>UWB TDoA; up to 30 cm; Z by barometer (beta); Volkswagen, Toyota, Budvar, Bora, SEG</td><td>Documented REST + WebSocket (docs.sewio.net); digital twin supported via API</td><td>Prices on request; 400 m² kit reusable</td><td>76.3 — technically solid, opaque economics</td></tr><tr><td style="width:26mm">Eliko (EE)</td><td>UWB AP-TWR; 30 cm ± 20 cm; down to 3 cm in optimum; Bosch, SKF, Ericsson</td><td>REST + NMEA; documentation on contact</td><td>Anchor 550 €; tag IP67 375 € / IP52 145 €; licence 120 €/anchor + 30 €/tag per year</td><td>72.8 — reliable, but per-tag recurring cost penalises 3,000 reels</td></tr></tbody></table>
+<p class="note">IAR scoring method: technical fit 40 %, industrial maturity 20 %, economic attractiveness 25 %, lifecycle visibility 10 %, integration readiness 5 %.
+Sensitivity: if PoC cost prevails GrowSpace rises; if industrial readiness prevails Pozyx keeps the lead.</p>
+<div class="callout">
+<b>Licence models.</b> (A) Annual subscription per tag and platform — grows with reel count and the system stops if unpaid.
+(B) Perpetual licence + annual percentage maintenance — higher initial outlay, stable invoice. (C) Open hardware without recurring licence —
+maximum flexibility, more in-house engineering. For 3,000 tags, model (A) with a per-tag fee penalises TCO the most.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">06</span>Recommended IAR architecture</div>
+<table><thead><tr><th>Layer</th><th>Content</th><th>Improvement over base</th></tr></thead><tbody><tr><td style="width:30mm">Positioning hardware</td><td>Fixed UWB anchors at several heights (true 3D), active tags in core inserts, RFID at receipt/return/consumption portals, optional vision in critical zones</td><td>Z axis, verified identity, lower anchor density by radio design</td></tr><tr><td style="width:30mm">Communications</td><td>Deterministic local network (PoE) and event backbone (movement, inventory, exceptions)</td><td>Predictable latency; acquisition separated from reconciliation</td></tr><tr><td style="width:30mm">Positioning engine</td><td>Real time with confidence scoring, outlier filtering, anchor and tag health diagnostics</td><td>Robustness to multipath and occlusion; calibration-drift alarms</td></tr><tr><td style="width:30mm">Middleware</td><td>Vendor abstraction API (omlox hub / MQTT) and unified roll-state model</td><td>Interchangeable radio vendor; protects the roadmap</td></tr><tr><td style="width:30mm">MES/WMS interface</td><td>Bidirectional inventory, movement and reconciliation contracts; reel recommendation and driver validation</td><td>Transactional consistency; guided picking</td></tr><tr><td style="width:30mm">Digital twin</td><td>Timestamped state stream and replay-ready history</td><td>Basis for simulation and optimisation</td></tr><tr><td style="width:30mm">AI modules (future)</td><td>Search optimisation, forklift flow, congestion prediction, predictive maintenance</td><td>Incremental value without rebuilding the platform</td></tr></tbody></table>
+<h3 class="sub">Engineering trade-offs resolved</h3>
+<ul>
+<li><b>Centralised vs distributed:</b> distributed acquisition with centralised reconciliation.</li>
+<li><b>Single vendor vs abstraction:</b> abstraction from phase 1; a single vendor speeds start-up but locks the roadmap.</li>
+<li><b>Active vs passive tags:</b> active UWB for continuous position; passive RFID for identity at minimum cost.</li>
+<li><b>Fixed anchors vs mobile infrastructure:</b> fixed anchors for repeatability; anchors on existing columns without civil works.</li>
+<li><b>Cloud vs edge:</b> edge for deterministic latency; cloud for analytics and history.</li>
+</ul>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">07</span>Quantified improvements and TCO</div>
+<h3 class="sub">Total cost of ownership (reference warehouse, 4,000 m², 3,000 reels)</h3>
+<table><thead><tr><th>Scenario</th><th>Anchors</th><th>Hardware</th><th>Total CAPEX</th><th>Annual licence</th><th>5-year TCO</th><th>10-year TCO</th><th>Δ vs base</th></tr></thead><tbody><tr><td style="width:40mm">MTorres base (offer)</td><td>160</td><td>included</td><td>509,946 €</td><td>69,000 € from year 5</td><td>509,946 €</td><td>854,946 €</td><td>—</td></tr><tr><td style="width:40mm">IAR Pozyx class (TDoA, 3D)</td><td>≈ 60</td><td>186,000 €</td><td>415,000 €</td><td>≈ 24,000 €</td><td>511,000 €</td><td>631,000 €</td><td>−26 %</td></tr><tr><td style="width:40mm">IAR GrowSpace class (TWR, open)</td><td>≈ 60</td><td>200,000 €</td><td>429,000 €</td><td>0 €</td><td>429,000 €</td><td>429,000 €</td><td>−50 %</td></tr><tr><td style="width:40mm">IAR Eliko class (AP-TWR)</td><td>≈ 40</td><td>923,800 €</td><td>1,152,800 €</td><td>94,800 €</td><td>1,532,000 €</td><td>2,006,000 €</td><td>+135 %</td></tr></tbody></table>
+<p class="note">IAR assumptions: INGECART engineering and integration 120,000 €, RFID portals 24,000 €, installation 60,000 €, comparative pilot 25,000 €;
+tags 45 € (Pozyx), 60 € (GrowSpace, estimated), 300 € (Eliko IP67 with volume discount); anchors 750 € (Pozyx, estimated), 250 € (GrowSpace, estimated), 550 € (Eliko list);
+Pozyx licence scaled with discount to ≈ 8 €/tag/year; Eliko 120 €/anchor + 30 €/tag (list). Anchor density for 3D under a 12 m ceiling estimated at 60–80 m²/anchor.
+Non-public prices must be confirmed by formal quotation; the Eliko class is ruled out for 3,000 tags unless a flat licence is negotiated.</p>
+<h3 class="sub">Estimated annual operational benefit</h3>
+<table><thead><tr><th>Lever</th><th>Base assumption</th><th>MTorres base (zone)</th><th>IAR (slot + RFID)</th><th>Public reference</th></tr></thead><tbody><tr><td style="width:38mm">Search and verification time</td><td>250 movements/day, 4 min → 1 min (base) / 0.5 min (IAR), 45 €/h, 330 days</td><td>185,600 €</td><td>216,600 €</td><td>Toyota/Sewio: inventory information from 8 h to 1 s; 18,000 person-hours/year freed</td></tr><tr><td style="width:38mm">Wrong reel in production</td><td>1.5 % of 120 picks/day, 150 € per incident; −70 % base / −90 % IAR</td><td>62,400 €</td><td>80,200 €</td><td>Bora/Sewio: 0 picking errors in 3 months, −15 % picking time; SEG: 95 % → 100 % correct records</td></tr><tr><td style="width:38mm">Safety stock</td><td>4.9 M€ of paper; −5 % base / −8 % IAR; carrying cost 12 %</td><td>29,300 €</td><td>46,800 €</td><td>Toyota/Sewio: safety stock from 8 h to 4 h (−50 %)</td></tr><tr><td style="width:38mm">Untracked remnants</td><td>0.8 % of 26 M€ consumption; recovery 30 % base / 50 % IAR</td><td>62,400 €</td><td>104,000 €</td><td>Budvar/Sewio: +19 % virtual warehouse utilisation</td></tr><tr><td style="width:38mm"><b>Annual total</b></td><td></td><td><b>≈ 339,600 €</b></td><td><b>≈ 447,600 €</b></td><td></td></tr><tr><td style="width:38mm"><b>Simple payback</b></td><td>CAPEX / net benefit</td><td><b>≈ 1.5 years</b></td><td><b>≈ 1.0 year</b> (Pozyx class)</td><td></td></tr></tbody></table>
+<div class="callout orange">
+<b>How to read these figures.</b> Improvement percentages are engineering assumptions anchored in manufacturer-published cases, not guarantees.
+The application study replaces each assumption with real plant data (movements/day, hourly cost, incidents, stock value, remnants).
+Lost production from corrugator stops due to reels not found is not included and is usually the largest item.
+</div>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">08</span>IAR technical improvements versus the base offer — decision table</div>
+<table><thead><tr><th>Criterion</th><th>MTorres base</th><th>INGECART IAR</th><th>Impact</th></tr></thead><tbody><tr><td style="width:36mm">Location accuracy</td><td>Up to 50 cm; logical zone</td><td>10–30 cm declared; slot</td><td>Search directed to the reel, not the zone</td></tr><tr><td style="width:36mm">Height (Z axis)</td><td>Not declared</td><td>True 3D with anchors at several heights</td><td>Identifies the right reel within the stack</td></tr><tr><td style="width:36mm">Identity</td><td>DataMatrix at receipt</td><td>DataMatrix + RFID at receipt, return and consumption</td><td>Eliminates wrong reels and closes the remnant loop</td></tr><tr><td style="width:36mm">Anchor density</td><td>160 (≈ 25 m²/anchor)</td><td>≈ 40–60 depending on method (AP-TWR / TDoA)</td><td>Less hardware, fewer failure points, less installation</td></tr><tr><td style="width:36mm">Vendor dependency</td><td>Single proprietary platform</td><td>omlox/MQTT abstraction; replaceable vendor</td><td>Protects investment and international replication</td></tr><tr><td style="width:36mm">Licence</td><td>69,000 €/year from year 5</td><td>0–24,000 €/year by class</td><td>10-year TCO −26 % to −50 %</td></tr><tr><td style="width:36mm">Integration</td><td>MES/SAP via TorresFactory</td><td>MES/WMS contracts + guided picking + digital twin</td><td>Operational value, not only visibility</td></tr><tr><td style="width:36mm">Diagnostics</td><td>Alarms and events</td><td>Per-position confidence, anchor health, calibration drift</td><td>Predictive maintenance of the RTLS itself</td></tr><tr><td style="width:36mm">Commissioning</td><td>3 weeks installation + 12 weeks commissioning</td><td>6–8 week pilot + phased roll-out</td><td>Controlled risk before commitment</td></tr><tr><td style="width:36mm">EU radio compliance</td><td>Not detailed</td><td>RED 2014/53/EU, ETSI EN 302 065-2, Decision (EU) 2024/1467</td><td>Documented product conformity</td></tr></tbody></table>
+
+<div class="sec"><span class="n">09</span>Risks and mitigations</div>
+<table><thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody><tr><td style="width:44mm">Multipath and occlusion from metallic reels and stacking</td><td>Real accuracy worse than declared</td><td>Radio survey, pilot with real reels, confidence filtering, anchors at several heights, RFID as identity backup</td></tr><tr><td style="width:44mm">Anchor calibration drift</td><td>Progressive accuracy loss</td><td>Health diagnostics, scheduled recalibration, drift alarms</td></tr><tr><td style="width:44mm">Cost escalation from per-tag licences</td><td>TCO out of control as fleet grows</td><td>Rule out per-tag models at 3,000 reels; negotiate flat licence or open model</td></tr><tr><td style="width:44mm">Z axis in beta (Sewio) or demanding 3D (Pozyx)</td><td>Unreliable height</td><td>Require contractual Z accuracy figure; barometer/IMU; pilot validation</td></tr><tr><td style="width:44mm">Core insert as consumable</td><td>Recurring cost and manual task</td><td>Robust INGECART insert design; study automatic insertion/recovery in phase 2</td></tr><tr><td style="width:44mm">Insufficient Wi-Fi / PoE coverage</td><td>Anchors without network</td><td>Infrastructure study; PoE included; agreed conduits</td></tr><tr><td style="width:44mm">Dependence on a single small vendor</td><td>Continuity</td><td>Abstraction from phase 1; second source validated in the pilot</td></tr></tbody></table>
+
+<div class="pb"></div>
+<div class="sec"><span class="n">10</span>Validation and implementation plan</div>
+<table><thead><tr><th>Phase</th><th>Activity</th><th>Deliverable</th><th>Duration</th></tr></thead><tbody><tr><td style="width:10mm">F0</td><td>Application study</td><td>Warehouse survey, reel matrix, flows, radio survey, data for the business case</td><td>2 wks</td></tr><tr><td style="width:10mm">F1</td><td>Same-site comparative pilot</td><td>Pozyx (3D) and GrowSpace kits in a 500–1,000 m² zone, real reels, full shift; X/Y/Z accuracy, latency, availability, MES consistency</td><td>6–8 wks</td></tr><tr><td style="width:10mm">F2</td><td>Economic normalisation</td><td>5- and 10-year TCO with formal quotations; radio vendor award</td><td>2 wks</td></tr><tr><td style="width:10mm">F3</td><td>Detail engineering</td><td>Anchor design, inserts, RFID portals, abstraction middleware, MES/WMS contracts, radio conformity file</td><td>6 wks</td></tr><tr><td style="width:10mm">F4</td><td>Zone-by-zone roll-out</td><td>Installation on existing columns, commissioning per zone without stopping the warehouse</td><td>6–8 wks</td></tr><tr><td style="width:10mm">F5</td><td>Acceptance</td><td>FAT/SAT matrix: accuracy by percentile, correct-identity rate, latency, availability, inventory accuracy</td><td>2 wks</td></tr></tbody></table>
+<h3 class="sub">Proposed acceptance criteria</h3>
+<ul>
+<li>P95 position error ≤ 30 cm in X/Y and correct stack-level assignment ≥ 98 % in the reel zone.</li>
+<li>Position → MES latency ≤ 2 s at P95; system availability ≥ 99 % over 30 days.</li>
+<li>Correct identity at receipt, return and consumption ≥ 99.9 % (RFID + DataMatrix).</li>
+<li>Inventory accuracy (physical count vs system) ≥ 99.5 % after 30 days.</li>
+<li>No dependence on external connectivity for operation; documented controlled degradation.</li>
+</ul>
+
+<div class="sec"><span class="n">11</span>Standards and compliance</div>
+<table><thead><tr><th>Standard / regulation</th><th>Application</th></tr></thead><tbody><tr><td style="width:52mm">RED Directive 2014/53/EU</td><td>UWB and RFID radio equipment: health, safety, EMC and efficient spectrum use</td></tr><tr><td style="width:52mm">ETSI EN 302 065-2</td><td>UWB location and tracking applications; verify the harmonised version in force</td></tr><tr><td style="width:52mm">Implementing Decision (EU) 2024/1467</td><td>UWB limits 6–8.5 GHz: −41.3 dBm/MHz e.i.r.p. mean and 0 dBm peak; indoor enhanced power for localisation −31.3 dBm/MHz and 10 dBm under conditions</td></tr><tr><td style="width:52mm">omlox (PI) Core Zone v2 / Hub</td><td>UWB interoperability (IEEE 802.15.4z, UL-TDoA, channel 9) and multi-technology integration</td></tr><tr><td style="width:52mm">Directive 2006/42/EC · EN ISO 13849 · EN 60204-1</td><td>Receipt station and electromechanical elements (as declared in the base offer)</td></tr><tr><td style="width:52mm">Regulation (EU) 2023/1230</td><td>Machinery delivered from 20/01/2027</td></tr></tbody></table>
+
+<div class="sec k"><span class="n">12</span>Sources</div>
+<p class="src">Internal: Of. 26-05-073V0 (MTorres) · IAR_EXECUTIVE_TECHNICAL_ASSESSMENT_REPORT.html · RTLS-UWB technical document v2 · Pozyx_/Sewio_/Eliko_/GrowSpace_Evaluacion_RTLS · Precios_Eliko · Eliko_Kit_Alquiler.<br>
+Public (accessed 14/09/2026): pozyx.io/technology/rtls-explained · pozyx.io/products/software/location-and-sensor-hub · sewio.net/uwb-technology · sewio.net/customer-projects/toyota-motors · sewio.net/customer-projects/bora · sewio.net/customer-projects/seg-automotive · sewio.net (Budweiser Budvar 99 % uptime) · eliko.tech/elikos-active-passive-twr-protocol-explained · eliko.tech/product-new-kio-rtls · eliko.tech/case-study/vechicle-tracking-drives-efficiency-at-bosch · omlox.com · profibus.com/technologies/omlox · etsi.org EN 302 065-2 V2.1.1 · eur-lex.europa.eu 2014/53/EU · eur-lex.europa.eu OJ L 2024/1467.<br>
+Manufacturer figures are cited as published facts, not independent audits. No primary MTorres publication on TorresFactory RTLS performance and no public Pozyx/ArcelorMittal ROI figure were found.
+Issued by INGECART · Product Engineering. Rev. 1 — 14/09/2026.</p>
+
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('[data-language]');
+  var blocks = document.querySelectorAll('.lang');
+  function apply(lang) {
+    blocks.forEach(function (b) { b.classList.toggle('hidden', !b.classList.contains('lang-' + lang)); });
+    buttons.forEach(function (btn) { var on = btn.dataset.language === lang; btn.classList.toggle('active', on); btn.setAttribute('aria-pressed', String(on)); });
+    document.documentElement.setAttribute('lang', lang);
+    try { localStorage.setItem('iar_report_lang', lang); } catch (e) {}
+  }
+  buttons.forEach(function (btn) { btn.addEventListener('click', function () { apply(btn.dataset.language); }); });
+  var saved = null; try { saved = localStorage.getItem('iar_report_lang'); } catch (e) {}
+  var q = (location.search.match(/[?&]lang=(es|en)/) || [])[1];
+  apply(q || saved || 'es');
+})();
+</script>
+
+</body>
+</html>
