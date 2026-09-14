@@ -137,8 +137,34 @@ def build_chapter(ins) -> None:
         "Speed, traction, energy, braking and safety values are INGECART design data for the IGC-DW drive-wheel family and the reference platform (2,800 x 1,500 mm, 3,500 kg design mass, 26 m route) and will be confirmed for the Paige reel carrier in the application study and the Functional Design Specification.",
         "Stopping distances and the performance level of the safety functions are validated with the real reel load during factory and site acceptance, in accordance with EN ISO 3691-4 and EN ISO 13849-2.",
         "The Smart reel carrier, its wheel configuration and mass distribution are engineered by INGECART; the reel envelope of Block A remains the governing design basis.",
-        "Block A-Smart supply is offered at the same EXW price as Block A. The rail installation service block (14 days, 1 technician) is not required for Block A-Smart and is removed from the site-services table when this option is selected; the mechanical assembly block is re-quoted after layout approval. Indicative programme from order to CE handover: 18-20 weeks (application study 2, detail engineering 4, manufacturing 10-12, factory tests 1, installation 1, conformity 1).",
+        "Indicative programme from order to CE handover: 18-20 weeks (application study 2, detail engineering 4, manufacturing 10-12, factory tests 1, installation 1, conformity 1).",
         "Block A and Block A-Smart are mutually exclusive alternatives within this proposal.",
+    ])
+
+    ins.heading("5A.10 Block A-Smart price basis", 2)
+    ins.paragraph(
+        "The Block A-Smart price is derived from the Block A price by removing the rail and conductor-line "
+        "content of the equipment supply and the corresponding site work. Three effects are priced separately "
+        "so that the customer can see where the saving comes from."
+    )
+    ins.table([
+        ["Item", "Block A (rail-guided)", "Block A-Smart (rail-less)", "Basis"],
+        ["Equipment supply EXW Barcelona", "869.396,91 EUR", "825.927,06 EUR", "-5%: running rails, conductor line, current collector, rail end stops and rail-mounted fixings removed; IGC-DW wheels, battery, charger, navigation and safety scanners added."],
+        ["INGETRANS site services (mechanical assembly, commissioning, start-up and training)", "196.756,20 EUR", "167.242,77 EUR", "-15% on labor, days and associated costs: no rail alignment or conductor-line installation; mapping and station set-up replace rail works."],
+        ["Customer civil works specific to INGETRANS in the corridor (indicative, customer scope)", "73.800 - 143.100 EUR", "14.800 - 28.600 EUR", "-80%: no trench, embedded plates, concreting, levelling of more than 60 m of rails, no supports and feed for the conductor line; only local floor repair and one charging position remain."],
+    ], widths=[2.6, 1.7, 1.7, 3.4])
+    ins.table([
+        ["Service package - Block A-Smart", "Days", "Tech.", "Labor", "Associated costs", "Subtotal"],
+        ["INGETRANS Smart mechanical assembly", "20", "4", "80.784,00 EUR", "13.412,69 EUR", "94.196,69 EUR"],
+        ["INGETRANS Smart commissioning, mapping and station set-up", "12", "2", "23.562,00 EUR", "6.979,27 EUR", "30.541,27 EUR"],
+        ["INGETRANS Smart start-up and training", "17", "2", "33.660,00 EUR", "8.844,81 EUR", "42.504,81 EUR"],
+        ["TOTAL INGETRANS Smart site services", "49", "-", "138.006,00 EUR", "29.236,77 EUR", "167.242,77 EUR"],
+    ], widths=[3.4, 0.8, 0.8, 1.6, 1.6, 1.6])
+    ins.bullets([
+        "Total equipment supply with Block A-Smart selected: 2.015.513,06 EUR EXW (saving 43.469,85 EUR versus 2.058.982,91 EUR with Block A).",
+        "Total installation, commissioning, start-up and training with Block A-Smart selected: 355.929,61 EUR (saving 29.513,43 EUR versus 385.443,04 EUR with Block A). Tracks, train unloading conveyor and AMR service blocks are unchanged.",
+        "Civil-works figures are indicative customer-scope ranges derived from the INGECART technical study for a 26 m route and scaled to the more than 60 m Paige corridor; they are not part of the INGECART supply and are confirmed in the application study. Lost production during rail works is not included and is normally the largest saving.",
+        "Combined indicative saving for the customer with Block A-Smart: 72.983,28 EUR in INGECART supply and services plus 59.000 - 114.500 EUR in avoided civil works.",
     ])
     ins.paragraph("")
 
@@ -150,7 +176,10 @@ EXEC_SUMMARY_BULLET = (
 )
 
 PRICE_NOTE = (
-    "Block A-Smart (INGETRANS Smart, rail-less option described in chapter 5A) is offered at the same EXW "
-    "supply price as Block A and replaces it when selected. When Block A-Smart is chosen, the rail installation "
-    "service block is not applicable and the mechanical assembly block is re-quoted after layout approval."
+    "Block A-Smart (INGETRANS Smart, rail-less option described in chapter 5A) replaces Block A when selected. "
+    "Block A-Smart equipment supply: 825.927,06 EUR EXW (5% below Block A, rails and conductor line removed). "
+    "INGETRANS site services with Block A-Smart: 167.242,77 EUR (15% below the Block A services of 196.756,20 EUR). "
+    "Total equipment supply with Block A-Smart: 2.015.513,06 EUR EXW; total site services: 355.929,61 EUR. "
+    "Customer civil works specific to INGETRANS in the corridor are reduced by about 80% (indicative 14.800 - 28.600 EUR "
+    "instead of 73.800 - 143.100 EUR), see section 5A.10."
 )
