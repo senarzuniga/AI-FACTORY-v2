@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Documento tecnico de producto para la evolucion de INGETRANS a INGETRANS Smart, integrando el Modulo Smart Weels como base de movilidad rail-less." />
+  <title>INGECART · INGETRANS Smart Technical Product Report</title>
+  <style>
+    :root {
+      --bg: #08131c;
+      --panel: rgba(15, 25, 38, 0.95);
+      --panel-2: rgba(19, 34, 52, 0.96);
+      --line: rgba(255,255,255,0.12);
+      --line-strong: rgba(124,231,221,0.35);
+      --ink: #edf6ff;
+      --muted: #a8bfd8;
+      --blue: #5aa8ff;
+      --cyan: #7ce7dd;
+      --green: #8fe88d;
+      --amber: #ffbf69;
+      --orange: #ff915d;
+      --red: #ff7272;
+      --shadow: rgba(0,0,0,0.28);
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(90,168,255,0.18), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(124,231,221,0.12), transparent 32%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(92vw, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 19, 28, 0.84);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      width: min(92vw, var(--max));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      box-shadow: 0 0 12px rgba(255,145,93,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .language-switcher button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .language-switcher button.active {
+      color: var(--ink);
+      background: linear-gradient(135deg, rgba(122,231,221,0.18), rgba(90,168,255,0.14));
+      border: 1px solid var(--line-strong);
+    }
+
+    .hero { padding: 56px 0 18px; }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(19,34,54,0.95), rgba(10,18,29,0.96));
+      border-radius: 22px;
+      padding: 42px 42px 30px;
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(122,231,221,0.07) 36%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      padding: 4px;
+      border: 1px solid var(--line);
+    }
+
+    .header-logo span {
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      max-width: 980px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lead {
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .section { padding: 18px 0 10px; }
+    .section-header { margin-bottom: 16px; }
+    .section-no {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.06rem;
+      letter-spacing: -0.02em;
+    }
+
+    p, li { color: var(--muted); }
+    ul, ol { margin: 10px 0 0 18px; padding: 0; }
+    li { margin-bottom: 8px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(17,25,37,0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+      min-height: 100%;
+    }
+
+    .card.accent { border-color: rgba(124,231,221,0.35); }
+    .card.green { border-color: rgba(143,232,141,0.35); }
+    .card.amber { border-color: rgba(255,191,105,0.35); }
+    .card.red { border-color: rgba(255,114,114,0.35); }
+
+    .col-3 { grid-column: span 3; }
+    .col-4 { grid-column: span 4; }
+    .col-5 { grid-column: span 5; }
+    .col-6 { grid-column: span 6; }
+    .col-7 { grid-column: span 7; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+
+    .metric {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .metric-label,
+    .small-title {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .kpi-table th,
+    .kpi-table td {
+      text-align: left;
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.96rem;
+      vertical-align: top;
+    }
+
+    .kpi-table th {
+      background: rgba(122,231,221,0.06);
+      color: var(--ink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .formula,
+    .callout {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 0 14px 14px 0;
+      color: var(--ink);
+    }
+
+    .formula {
+      border-left: 4px solid var(--green);
+      background: rgba(143,232,141,0.05);
+      font-weight: 700;
+    }
+
+    .callout {
+      border-left: 4px solid var(--amber);
+      background: rgba(255,191,105,0.06);
+    }
+
+    .highlight { color: var(--cyan); font-weight: 700; }
+    .lang.hidden { display: none; }
+
+    @media (max-width: 980px) {
+      .col-3, .col-4, .col-5, .col-6, .col-7, .col-8 { grid-column: span 12; }
+      .hero-shell { padding: 28px 22px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>INGECART</span>
+      </div>
+      <div class="language-switcher" role="tablist" aria-label="Language switcher">
+        <button type="button" class="active" data-language="es" aria-pressed="true">ES</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-shell">
+      <div class="lang lang-es">
+        <div class="header-logo">
+          <img src="data:image/png;base64,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" alt="Ingecart logo" />
+          <span>INGECART</span>
+        </div>
+        <div class="eyebrow">Producto · Intralogistica de bobinas · Evolucion rail-less</div>
+        <h1>INGETRANS Smart</h1>
+        <p class="lead">INGETRANS Smart es la evolucion de INGETRANS desde un transfer car guiado por railes fijos hacia una plataforma inteligente de transporte de bobinas basada en modulos de traccion y direccion integrados. El objetivo no es cambiar la funcion industrial del producto, sino simplificar la instalacion en cliente, eliminar infraestructura fija de guiado y habilitar recorridos mas flexibles sin perder trazabilidad, seguridad ni sincronizacion con produccion.</p>
+        <div class="meta-row">
+          <span class="chip">Rail-less</span>
+          <span class="chip">Smart wheels</span>
+          <span class="chip">Reel supply + return</span>
+          <span class="chip">WCS / PLC ready</span>
+          <span class="chip">Rev. 1.1 ? 2026-09-14 ? section 09A</span>
+          <span class="chip">Rev. 1.1 ? 2026-09-14 ? seccion 09A</span>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="header-logo">
+          <img src="data:image/png;base64,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" alt="Ingecart logo" />
+          <span>INGECART</span>
+        </div>
+        <div class="eyebrow">Product · Reel intralogistics · Rail-less evolution</div>
+        <h1>INGETRANS Smart</h1>
+        <p class="lead">INGETRANS Smart evolves INGETRANS from a fixed-rail transfer car into an intelligent reel transport platform built around integrated drive and steering modules. The goal is not to change the product's industrial function, but to simplify installation, remove fixed guide-rail infrastructure and enable more flexible routes without losing traceability, safety or production synchronization.</p>
+        <div class="meta-row">
+          <span class="chip">Rail-less</span>
+          <span class="chip">Smart wheels</span>
+          <span class="chip">Reel supply + return</span>
+          <span class="chip">WCS / PLC ready</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">01 · Resumen ejecutivo</div>
+          <h2>La misma funcion productiva, con menos obra civil, menos rigidez de layout y mas flexibilidad operativa</h2>
+        </div>
+        <div class="grid">
+          <div class="card accent col-3">
+            <div class="metric">0</div>
+            <div class="metric-label">Raíles fijos de guiado</div>
+            <p>La evolucion elimina el guiado mecanico por railes y lo sustituye por movilidad inteligente integrada en el carro.</p>
+          </div>
+          <div class="card green col-3">
+            <div class="metric">3</div>
+            <div class="metric-label">Capas de oferta</div>
+            <p>Smart Manual, Smart Guided y Smart Orchestrated.</p>
+          </div>
+          <div class="card amber col-3">
+            <div class="metric">1-60 t</div>
+            <div class="metric-label">Modulo Smart Weels</div>
+            <p>Base modular de movilidad adaptable a diferentes masas y configuraciones.</p>
+          </div>
+          <div class="card red col-3">
+            <div class="metric">PLd</div>
+            <div class="metric-label">Base de seguridad</div>
+            <p>SS1, STO, frenos de seguridad y entradas para sensores externos.</p>
+          </div>
+        </div>
+        <div class="formula">Tesis de producto: INGETRANS Smart conserva el valor industrial de INGETRANS — entrega JIT, retorno automatizado, trazabilidad y menos carretilla — pero sustituye infraestructura fija por inteligencia de movilidad.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">01 · Executive summary</div>
+          <h2>The same production function, with less civil work, less layout rigidity and more operating flexibility</h2>
+        </div>
+        <div class="grid">
+          <div class="card accent col-3">
+            <div class="metric">0</div>
+            <div class="metric-label">Fixed guide rails</div>
+            <p>The evolution removes mechanical rail guidance and replaces it with intelligent mobility built into the carrier.</p>
+          </div>
+          <div class="card green col-3">
+            <div class="metric">3</div>
+            <div class="metric-label">Offer layers</div>
+            <p>Smart Manual, Smart Guided and Smart Orchestrated.</p>
+          </div>
+          <div class="card amber col-3">
+            <div class="metric">1-60 t</div>
+            <div class="metric-label">Smart Weels Module</div>
+            <p>Modular mobility base adaptable to different masses and configurations.</p>
+          </div>
+          <div class="card red col-3">
+            <div class="metric">PLd</div>
+            <div class="metric-label">Safety basis</div>
+            <p>SS1, STO, safety brakes and external-sensor safety inputs.</p>
+          </div>
+        </div>
+        <div class="formula">Product thesis: INGETRANS Smart keeps INGETRANS's industrial value — JIT delivery, automated return, traceability and less forklift dependence — while replacing fixed infrastructure with mobility intelligence.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">02 · Base actual del producto</div>
+          <h2>Que es hoy INGETRANS</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-7">
+            <h3>Definicion actual validada</h3>
+            <p>La base documental actual describe INGETRANS como una solucion intralogistica turnkey guiada por carril que automatiza el transporte, la entrega y el retorno de bobinas de papel entre una zona controlada de intercambio y los puntos de consumo de la corrugadora. Su valor principal es reducir dependencia de carretillas en el area de corrugadora, mejorar seguridad y sincronizar el suministro de bobinas con la secuencia productiva.</p>
+            <ul>
+              <li>Entrega automatizada a vias de roll stand.</li>
+              <li>Retorno automatizado de bobinas no usadas o parcialmente consumidas.</li>
+              <li>Integracion con planificacion, MES/WMS y control de secuencia.</li>
+              <li>Trazabilidad de identidad y remanente de bobina.</li>
+              <li>Control central de prioridad y continuidad de material.</li>
+            </ul>
+          </div>
+          <div class="card col-5">
+            <h3>Base tecnica legacy</h3>
+            <table class="kpi-table">
+              <thead><tr><th>Parametro</th><th>Referencia actual</th></tr></thead>
+              <tbody>
+                <tr><td>Tipo de sistema</td><td>Carro transfer guiado por carril + vias fijas</td></tr>
+                <tr><td>Velocidad transfer</td><td>Hasta 80 m/min</td></tr>
+                <tr><td>Velocidad de via</td><td>Hasta 59 m/min</td></tr>
+                <tr><td>Rampas</td><td>Aprox. 4,5 s</td></tr>
+                <tr><td>Pick-up / Drop-off</td><td>Aprox. 6 s por interfaz</td></tr>
+                <tr><td>Manipulacion</td><td>Hasta 2 bobinas simultaneas</td></tr>
+                <tr><td>Gobierno</td><td>PLC/HMI + interfaz de planificacion</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">02 · Current product baseline</div>
+          <h2>What INGETRANS is today</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-7">
+            <h3>Validated current definition</h3>
+            <p>The current documentation describes INGETRANS as a turnkey rail-guided intralogistics solution that automates the transport, delivery and return of paper reels between a controlled exchange area and corrugator consumption points. Its main value is to reduce forklift dependency in the corrugator area, improve safety and synchronize reel supply with production sequence.</p>
+            <ul>
+              <li>Automated delivery to roll-stand lanes.</li>
+              <li>Automated return of unused or partially consumed reels.</li>
+              <li>Integration with planning, MES/WMS and sequence control.</li>
+              <li>Traceability of reel identity and remnant status.</li>
+              <li>Central priority control and material continuity.</li>
+            </ul>
+          </div>
+          <div class="card col-5">
+            <h3>Legacy technical basis</h3>
+            <table class="kpi-table">
+              <thead><tr><th>Parameter</th><th>Current reference</th></tr></thead>
+              <tbody>
+                <tr><td>System type</td><td>Rail-guided transfer carriage + fixed tracks</td></tr>
+                <tr><td>Transfer speed</td><td>Up to 80 m/min</td></tr>
+                <tr><td>Track speed</td><td>Up to 59 m/min</td></tr>
+                <tr><td>Ramps</td><td>Approx. 4.5 s</td></tr>
+                <tr><td>Pick-up / Drop-off</td><td>Approx. 6 s per interface</td></tr>
+                <tr><td>Handling</td><td>Up to 2 simultaneous reels</td></tr>
+                <tr><td>Control</td><td>PLC/HMI + planning interface</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">03 · Evolucion de producto</div>
+          <h2>De transfer car guiado por rail a plataforma de movilidad inteligente</h2>
+        </div>
+        <table class="kpi-table">
+          <thead>
+            <tr><th>Capa</th><th>INGETRANS actual</th><th>INGETRANS Smart</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Guiado</td><td>Raíles y vias fijas</td><td>Movilidad rail-less con ruedas motrices y directrices integradas</td></tr>
+            <tr><td>Adaptacion a layout</td><td>Requiere infraestructura fija y alineacion mecanica</td><td>Se adapta por configuracion de carro, software y, si aplica, guiado optico / PLC</td></tr>
+            <tr><td>Instalacion</td><td>Mayor obra civil y puesta en linea fisica</td><td>Montaje directo sobre bastidor y menos dependencia de railes</td></tr>
+            <tr><td>Flexibilidad</td><td>Recorridos esencialmente definidos por la via</td><td>Recorridos reconfigurables, decisiones de rama y modos multiples</td></tr>
+            <tr><td>Evolucion funcional</td><td>Alta para entornos estables</td><td>Mayor facilidad para brownfield, cambios de layout y despliegues modulares</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">INGETRANS Smart no elimina la logica de suministro y retorno. Elimina la dependencia de la infraestructura de guiado fijo y la traslada a una base movil inteligente diseñada para integrarse sobre un carro de bobinas INGECART.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">03 · Product evolution</div>
+          <h2>From rail-guided transfer car to intelligent mobility platform</h2>
+        </div>
+        <table class="kpi-table">
+          <thead>
+            <tr><th>Layer</th><th>Current INGETRANS</th><th>INGETRANS Smart</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Guidance</td><td>Fixed rails and tracks</td><td>Rail-less mobility with integrated drive and steering wheels</td></tr>
+            <tr><td>Layout adaptation</td><td>Requires fixed infrastructure and mechanical alignment</td><td>Adapts through carrier configuration, software and, if selected, optical / PLC guidance</td></tr>
+            <tr><td>Installation</td><td>Higher civil-work and physical commissioning burden</td><td>Direct frame mounting with less dependence on fixed rails</td></tr>
+            <tr><td>Flexibility</td><td>Routes are largely defined by track</td><td>Reconfigurable routes, branch decisions and multiple driving modes</td></tr>
+            <tr><td>Functional evolution</td><td>Strong for stable environments</td><td>Better suited to brownfield sites, layout changes and modular deployments</td></tr>
+          </tbody>
+        </table>
+        <div class="callout">INGETRANS Smart does not remove the supply-and-return logic. It removes dependence on fixed guide infrastructure and transfers it to an intelligent mobile base integrated into an INGECART reel carrier.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">04 · Tecnologia base integrada</div>
+          <h2>Modulo Smart Weels como base de movilidad inteligente</h2>
+        </div>
+        <div class="grid">
+          <div class="card accent col-8">
+            <h3>Hechos tecnicos extraidos del documento de referencia</h3>
+            <ul>
+              <li>El Modulo Smart Weels puede integrarse directamente sobre bastidores nuevos o existentes.</li>
+              <li>La familia cubre cargas desde 1 hasta 60 toneladas con distintas combinaciones de ruedas.</li>
+              <li>El modulo integra dos ruedas motrices independientes, direccion diferencial y un unico conector hibrido de potencia y señal.</li>
+              <li>Existen versiones estandar, preload y lifting integrado.</li>
+              <li>La solucion admite control local por radio, modos multiples y opcionalmente supervision o mando por PLC cliente via EtherNet/IP; PROFINET disponible bajo demanda.</li>
+            </ul>
+          </div>
+          <div class="card green col-4">
+            <h3>Dato de referencia Smart Weels 4TP</h3>
+            <ul>
+              <li>Capacidad portante: 4.000 kg</li>
+              <li>Carga remolcada: 4.000 kg</li>
+              <li>Velocidad: 1 mm/s a 2 km/h</li>
+              <li>Fuerza nominal: 1,6 kN</li>
+              <li>Fuerza maxima: 4,5 kN</li>
+              <li>Proteccion: IP54</li>
+              <li>Pendiente permisible: 3%</li>
+            </ul>
+          </div>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Elemento</th><th>Base del modulo</th><th>Implicacion para Ingetrans Smart</th></tr></thead>
+          <tbody>
+            <tr><td>ELC control box</td><td>Centraliza control, receptor radio, baterias y carga</td><td>Permite una arquitectura compacta de carro inteligente sin armario remoto complejo</td></tr>
+            <tr><td>Baterias Li-ion</td><td>Integradas o extraibles</td><td>Autonomia configurable y servicio simplificado</td></tr>
+            <tr><td>Conector unico M23</td><td>Potencia y señal por cable hibrido</td><td>Menos complejidad de integracion y mantenimiento</td></tr>
+            <tr><td>Modos Car / Crab / Autorotation</td><td>Incluidos en licencia base</td><td>Permiten maniobra fina en pasillos, alineacion y giro en zonas limitadas</td></tr>
+            <tr><td>Guidance opcional</td><td>Line tracking con sensores opticos y marcas</td><td>Permite rutas rail-less pero controladas y reconfigurables</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">04 · Integrated base technology</div>
+          <h2>Smart Weels Module as the intelligent mobility base</h2>
+        </div>
+        <div class="grid">
+          <div class="card accent col-8">
+            <h3>Technical facts extracted from the reference document</h3>
+            <ul>
+              <li>The Smart Weels Module can be attached directly to new or existing frames.</li>
+              <li>The family covers loads from 1 to 60 tons using different wheel combinations.</li>
+              <li>The module integrates two independent drive wheels, differential steering and a single hybrid power and signal connector.</li>
+              <li>Standard, preload and integrated-lift versions are available.</li>
+              <li>The solution supports local radio control, multiple operating modes and optionally customer-PLC supervision or command over EtherNet/IP; PROFINET available on request.</li>
+            </ul>
+          </div>
+          <div class="card green col-4">
+            <h3>Smart Weels 4TP reference data</h3>
+            <ul>
+              <li>Carrying capacity: 4,000 kg</li>
+              <li>Towed load: 4,000 kg</li>
+              <li>Speed: 1 mm/s to 2 km/h</li>
+              <li>Nominal force: 1.6 kN</li>
+              <li>Maximum force: 4.5 kN</li>
+              <li>Protection: IP54</li>
+              <li>Permissible slope: 3%</li>
+            </ul>
+          </div>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Element</th><th>Module basis</th><th>Implication for Ingetrans Smart</th></tr></thead>
+          <tbody>
+            <tr><td>ELC control box</td><td>Centralizes control, radio receiver, batteries and charging</td><td>Enables a compact intelligent-carrier architecture without a complex remote cabinet</td></tr>
+            <tr><td>Li-ion batteries</td><td>Integrated or removable</td><td>Configurable autonomy and simpler service model</td></tr>
+            <tr><td>Single M23 connector</td><td>Hybrid power and signal cable</td><td>Less integration and maintenance complexity</td></tr>
+            <tr><td>Car / Crab / Autorotation modes</td><td>Included in base license</td><td>Allow fine maneuvering in aisles, alignment and rotation in constrained areas</td></tr>
+            <tr><td>Optional guidance</td><td>Line tracking with optical sensors and markers</td><td>Enables rail-less but still controlled and reconfigurable routes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">05 · Arquitectura objetivo</div>
+          <h2>Como se construye Ingetrans Smart</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4">
+            <h3>1. Smart Carrier INGECART</h3>
+            <p>Bastidor de transporte de bobinas con cuna, protecciones, sensores de presencia, puntos de transferencia y geometria definida por matriz de bobinas de cliente.</p>
+          </div>
+          <div class="card col-4">
+            <h3>2. Modulo Smart Weels</h3>
+            <p>2 o mas modulos motrices/directrices integrados bajo el bastidor, en configuracion diagonal o segun centro de gravedad y estrategia de guiado.</p>
+          </div>
+          <div class="card col-4">
+            <h3>3. ELC + energia</h3>
+            <p>Caja de control, baterias, carga, diagnostico, baliza y zumbador integrados en el sistema movil.</p>
+          </div>
+          <div class="card col-6">
+            <h3>4. Interfaces de planta</h3>
+            <ul>
+              <li>Puntos de exchange con almacén o conveyors.</li>
+              <li>Interfaz de entrega/retorno con roll stands o estaciones de transferencia.</li>
+              <li>Handshake con sensores, enclavamientos y zonas protegidas.</li>
+            </ul>
+          </div>
+          <div class="card col-6">
+            <h3>5. Capa digital</h3>
+            <ul>
+              <li>Control local del vehiculo.</li>
+              <li>Integracion PLC cliente / WCS / MES / WMS / ERP.</li>
+              <li>Historial de movimientos, estado de bateria, modo, alarmas y trazabilidad.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="formula">Arquitectura de producto propuesta: reel carrier INGECART + movilidad Modulo Smart Weels + capa de control y trazabilidad + interfaces de exchange y entrega.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">05 · Target architecture</div>
+          <h2>How Ingetrans Smart is built</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4">
+            <h3>1. INGECART Smart Carrier</h3>
+            <p>Reel transport frame with cradle, guards, presence sensors, transfer interfaces and geometry defined by the customer's reel matrix.</p>
+          </div>
+          <div class="card col-4">
+            <h3>2. Smart Weels Module</h3>
+            <p>Two or more integrated drive/steering modules under the frame, arranged diagonally or according to center of gravity and guidance strategy.</p>
+          </div>
+          <div class="card col-4">
+            <h3>3. ELC + energy</h3>
+            <p>Integrated control box, batteries, charging, diagnostics, beacon and buzzer within the mobile system.</p>
+          </div>
+          <div class="card col-6">
+            <h3>4. Plant interfaces</h3>
+            <ul>
+              <li>Exchange points with warehouse or conveyors.</li>
+              <li>Delivery/return interface with roll stands or transfer stations.</li>
+              <li>Handshakes with sensors, interlocks and protected zones.</li>
+            </ul>
+          </div>
+          <div class="card col-6">
+            <h3>5. Digital layer</h3>
+            <ul>
+              <li>Local vehicle control.</li>
+              <li>Customer PLC / WCS / MES / WMS / ERP integration.</li>
+              <li>Movement history, battery state, mode, alarms and traceability.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="formula">Proposed product architecture: INGECART reel carrier + Smart Weels Module mobility + control and traceability layer + exchange and delivery interfaces.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">06 · Modos operativos y guiado</div>
+          <h2>La flexibilidad viene del software, los modos de movimiento y la capa de guiado, no de los railes</h2>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Nivel</th><th>Descripcion</th><th>Uso recomendado</th></tr></thead>
+          <tbody>
+            <tr><td>Smart Manual</td><td>Control por radio con modos Car, Crab y Autorotation; velocidad variable y maniobra fina.</td><td>Puestas en marcha, layouts cortos, estaciones simples o fases piloto.</td></tr>
+            <tr><td>Smart Guided</td><td>Seguimiento de linea con sensor optico, marcas y decisiones de rama; lineas pintadas o DataMatrix.</td><td>Recorridos recurrentes sin rail, con necesidad de repetibilidad y flexibilidad reconfigurable.</td></tr>
+            <tr><td>Smart Orchestrated</td><td>Coordinacion con PLC externo / WCS / fleet logic via EtherNet/IP o PROFINET bajo demanda.</td><td>Multiples estaciones, prioridades, secuenciacion, trazabilidad y reglas de mission scheduling.</td></tr>
+          </tbody>
+        </table>
+        <div class="grid">
+          <div class="card accent col-6">
+            <h3>Funciones de guiado soportadas por el Modulo Smart Weels</h3>
+            <ul>
+              <li>Line tracking con control manual de velocidad.</li>
+              <li>Dual line sensors para mayor precision.</li>
+              <li>Eventos de cambio de velocidad, parada a posicion, cambio de angulo y decision de ramas.</li>
+              <li>Comunicacion bidireccional con PLC externo para path planning y scheduling.</li>
+            </ul>
+          </div>
+          <div class="card amber col-6">
+            <h3>Guardrail tecnico</h3>
+            <p>La base documental valida movilidad rail-less y guiado configurable, pero no debe venderse como navegacion totalmente libre tipo SLAM si no se añaden sensores y logica de flota especificamente validados para ello.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">06 · Operating modes and guidance</div>
+          <h2>Flexibility comes from software, motion modes and the guidance layer, not from rails</h2>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Level</th><th>Description</th><th>Recommended use</th></tr></thead>
+          <tbody>
+            <tr><td>Smart Manual</td><td>Radio control with Car, Crab and Autorotation modes; variable speed and fine maneuvering.</td><td>Commissioning, short layouts, simple stations or pilot phases.</td></tr>
+            <tr><td>Smart Guided</td><td>Line tracking with optical sensor, markers and branch decisions; painted or DataMatrix lines.</td><td>Recurring rail-less routes requiring repeatability and reconfigurable flexibility.</td></tr>
+            <tr><td>Smart Orchestrated</td><td>Coordination with external PLC / WCS / fleet logic via EtherNet/IP or PROFINET on request.</td><td>Multiple stations, priorities, sequencing, traceability and mission-scheduling rules.</td></tr>
+          </tbody>
+        </table>
+        <div class="grid">
+          <div class="card accent col-6">
+            <h3>Guidance functions supported by the Smart Weels Module</h3>
+            <ul>
+              <li>Line tracking with manual speed control.</li>
+              <li>Dual line sensors for higher positioning accuracy.</li>
+              <li>Events for speed change, stop at position, angle change and branch decisions.</li>
+              <li>Bidirectional communication with external PLC for path planning and scheduling.</li>
+            </ul>
+          </div>
+          <div class="card amber col-6">
+            <h3>Technical guardrail</h3>
+            <p>The document base validates rail-less mobility and configurable guidance, but the product should not be marketed as fully free-navigation SLAM unless additional sensors and fleet logic are specifically validated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">07 · Seguridad e instalacion</div>
+          <h2>Menos infraestructura fija no significa menos seguridad; significa otra arquitectura de seguridad</h2>
+        </div>
+        <div class="grid">
+          <div class="card green col-6">
+            <h3>Base de seguridad validada</h3>
+            <ul>
+              <li>Safety Stop 1 nivel PLd.</li>
+              <li>Entradas STO en drives.</li>
+              <li>Frenos de seguridad por rueda.</li>
+              <li>Parada por perdida de señal radio.</li>
+              <li>Parada de emergencia en radio y opcion en caja de control.</li>
+              <li>Entradas auxiliares para sensores y sensores de seguridad externos.</li>
+            </ul>
+          </div>
+          <div class="card accent col-6">
+            <h3>Ventajas de instalacion</h3>
+            <ul>
+              <li>Montaje mecanico por placa centrada y tornilleria.</li>
+              <li>Conexion electrica rapida por cable hibrido M23.</li>
+              <li>Menos ajuste que una via fisica fija.</li>
+              <li>Menor dependencia de obra civil, alineacion y tolerancias de rail.</li>
+              <li>Mayor facilidad de desmontaje, relocalizacion y reutilizacion.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout">La certificacion del subsistema de movilidad no sustituye la ingenieria de seguridad de la maquina completa. INGETRANS Smart debe cerrarse siempre con risk assessment, zonas, enclavamientos e interfaces definidos por aplicación.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">07 · Safety and installation</div>
+          <h2>Less fixed infrastructure does not mean less safety; it means a different safety architecture</h2>
+        </div>
+        <div class="grid">
+          <div class="card green col-6">
+            <h3>Validated safety basis</h3>
+            <ul>
+              <li>Safety Stop 1 at PLd level.</li>
+              <li>STO inputs on drives.</li>
+              <li>Safety brakes on each wheel.</li>
+              <li>Stop behavior on radio-signal loss.</li>
+              <li>Emergency stop on radio control and optional emergency stop on control box.</li>
+              <li>Auxiliary inputs for external sensors and safety sensors.</li>
+            </ul>
+          </div>
+          <div class="card accent col-6">
+            <h3>Installation advantages</h3>
+            <ul>
+              <li>Mechanical mounting via centered plate and fasteners.</li>
+              <li>Quick electrical connection through hybrid M23 cable.</li>
+              <li>Lower adjustment burden than a fixed physical rail system.</li>
+              <li>Less dependence on civil work, rail alignment and guide tolerances.</li>
+              <li>Better ease of dismantling, relocation and reuse.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout">Mobility-subsystem certification does not replace complete-machine safety engineering. INGETRANS Smart must always be finalized with application-specific risk assessment, zoning, interlocks and interface definition.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">08 · Reglas de ingenieria</div>
+          <h2>Decisiones clave para configurar el producto correctamente</h2>
+        </div>
+        <ul>
+          <li>Seleccionar numero y tipo de Modulo Smart Weels segun masa total, centro de gravedad, geometria del carro, carga dinamica y suelo.</li>
+          <li>Usar version <span class="highlight">TP preload</span> cuando el bastidor sea rigido o el suelo tenga defectos; usar <span class="highlight">TL lifting</span> si se requiere compensacion dinamica o elevacion integrada.</li>
+          <li>Asegurar que el sistema motriz soporte mas del 50% de la masa total cuando se usan castores auxiliares.</li>
+          <li>Verificar suelo de hormigon o asfalto, planitud segun DIN 18202 y presion de contacto admisible.</li>
+          <li>Definir desde ingenieria si la planta necesita modo manual, guiado optico o coordinacion externa con WCS/PLC.</li>
+          <li>Cerrar matriz de bobinas: diametro, ancho/longitud, peso, remanente y condiciones de cradle/retorno.</li>
+        </ul>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">08 · Engineering rules</div>
+          <h2>Key decisions required to configure the product correctly</h2>
+        </div>
+        <ul>
+          <li>Select Smart Weels Module quantity and version according to total mass, center of gravity, carrier geometry, dynamic load and floor quality.</li>
+          <li>Use the <span class="highlight">TP preload</span> version when the frame is rigid or the floor has defects; use <span class="highlight">TL lifting</span> if dynamic compensation or integrated lifting is needed.</li>
+          <li>Ensure the drive system carries more than 50% of the total mass when auxiliary castors are used.</li>
+          <li>Verify concrete or asphalt floor, flatness per DIN 18202 and permissible ground-contact pressure.</li>
+          <li>Decide during engineering whether the plant needs manual mode, optical guidance or external WCS/PLC orchestration.</li>
+          <li>Close the reel matrix: diameter, width/length, weight, remnant status and cradle/return conditions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">09 · Valor industrial</div>
+          <h2>Donde gana Ingetrans Smart</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4"><h3>Instalacion</h3><p>Menos obra civil, menor dependencia de alineacion fisica y mejor encaje en brownfield.</p></div>
+          <div class="card col-4"><h3>Flexibilidad</h3><p>Recorridos y logica de movimiento reconfigurables sin rehacer railes fijos.</p></div>
+          <div class="card col-4"><h3>Evolutividad</h3><p>Permite empezar simple y crecer hacia guiado o orquestacion completa.</p></div>
+          <div class="card col-6"><h3>Seguridad y mantenimiento</h3><p>Reduce infraestructura fija expuesta, simplifica sustitucion de modulos y facilita mantenimiento de layout.</p></div>
+          <div class="card col-6"><h3>Integracion digital</h3><p>Encaja con la vision INGECART de WCS, MES/WMS, prioridad, trazabilidad y continuidad de material.</p></div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">09 · Industrial value</div>
+          <h2>Where Ingetrans Smart wins</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4"><h3>Installation</h3><p>Less civil work, less dependence on physical alignment and better brownfield fit.</p></div>
+          <div class="card col-4"><h3>Flexibility</h3><p>Routes and movement logic become reconfigurable without rebuilding fixed rails.</p></div>
+          <div class="card col-4"><h3>Scalability</h3><p>Lets the customer start simple and grow toward guided or fully orchestrated operation.</p></div>
+          <div class="card col-6"><h3>Safety and maintenance</h3><p>Reduces exposed fixed infrastructure, simplifies module replacement and eases layout maintenance.</p></div>
+          <div class="card col-6"><h3>Digital integration</h3><p>Fits the INGECART vision of WCS, MES/WMS, priority control, traceability and material continuity.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">09A · Infraestructura eliminada, velocidad y mantenimiento</div>
+          <h2>Que desaparece del Ingetrans actual y que cambia en la operacion</h2>
+        </div>
+        <p>La integracion de las ruedas motrices JNOV (DDW-4TP) elimina las dos infraestructuras fijas que concentran la obra civil y el mantenimiento del transfer: los carriles metalicos de rodadura (mas de 60 m en un corredor tipo de cinco roll stands) y la linea de contacto tipo Vahle que alimenta al carro en movimiento. La energia pasa a baterias Li-ion a bordo y el guiado a una linea DataMatrix sobre la solera.</p>
+        <table class="kpi-table">
+          <thead><tr><th>Elemento</th><th>Ingetrans (carril)</th><th>Ingetrans Smart</th></tr></thead>
+          <tbody>
+            <tr><td>Carriles de rodadura</td><td>Mas de 60 m empotrados, zanja, placas, nivelacion</td><td>Eliminados; ruedas de poliuretano sobre solera existente</td></tr>
+            <tr><td>Linea de contacto Vahle</td><td>Catenaria, soportes y colector</td><td>Eliminada; 1 bateria Li-ion por rueda, cargador en armario ELC, parking con toma 230 V</td></tr>
+            <tr><td>Obra civil</td><td>Zanjas y reparacion de solera en el corredor</td><td>Auditoria de planitud DIN 18202 (4 mm/1 m) y reparacion local</td></tr>
+            <tr><td>Servicio de montaje de railes</td><td>Bloque especifico (referencia Paige: 14 dias, 1 tecnico)</td><td>No aplica</td></tr>
+            <tr><td>Finales de carrera</td><td>Mecanicos en via</td><td>Codigos de posicion DataMatrix y zonas software</td></tr>
+            <tr><td>Traccion</td><td>Motor unico sobre carril</td><td>2 x DDW-4TP, cuatro motores brushless, direccion diferencial, omnidireccional</td></tr>
+            <tr><td>Mecanismo de bobina, rampas, vias a roll stands</td><td>Existentes</td><td>Se conservan sin cambio funcional</td></tr>
+          </tbody>
+        </table>
+        <div class="grid">
+          <div class="card col-6"><h3>Velocidades</h3><p>Transfer actual 80 m/min (4,8 km/h) frente a 2 km/h contractual del DDW-4TP (2,5 km/h como dato de gama). Ida de 12 m: 14 s frente a 26 s; de 30 m: 27 s frente a 59 s; de 60 m: 50 s frente a 113 s. Mision completa de 30 m con pick y drop: 66 s (54 misiones/h) frente a 129 s (28 misiones/h). Con 8,8 bobinas/h de referencia la utilizacion del carro Smart queda por debajo del 35 %.</p></div>
+          <div class="card col-6"><h3>Regla de dimensionamiento</h3><p>Ofrecer Smart cuando misiones pico por hora x tiempo de mision Smart sea inferior al 60 % del tiempo disponible; por encima, mantener Ingetrans con carril o prever un segundo carro. La capacidad final se confirma con el gemelo digital sobre el layout aprobado.</p></div>
+          <div class="card col-4"><h3>Seguridad</h3><p>Sistema de traccion con SS1 PLd (cat. 1 IEC 60204-1), STO, frenos sin tension, paro PLd/Cat 3 en mando y parada por perdida de radio. INGECART completa con escaneres de area, seta en armario, hombre muerto, entradas de seguridad y zonas de velocidad segura; CE de maquina completa e ISO 3691-4 a cargo de INGECART.</p></div>
+          <div class="card col-4"><h3>Mantenimiento</h3><p>Desaparecen desgaste y alineacion de carril, escobillas de colector y reductor de traccion. Aparecen inspeccion de neumaticos y cambio de llanta, salud y ciclos de bateria (600 ciclos), limpieza de sensor optico y estado de la linea. Rueda intercambiable como unidad con un conector M23.</p></div>
+          <div class="card col-4"><h3>Mejoras operativas</h3><p>Sin punto unico de fallo en alimentacion electrica, relayout por software, instalacion menos disruptiva, modo manual por radio como modo degradado y energia por mision medible para KPIs.</p></div>
+        </div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">09A · Removed infrastructure, speed and maintenance</div>
+          <h2>What disappears from current Ingetrans and what changes in operation</h2>
+        </div>
+        <p>Integrating JNOV drive and steering wheels (DDW-4TP) removes the two fixed infrastructures that concentrate civil work and maintenance in the transfer car: the embedded steel running rails (more than 60 m in a typical five-roll-stand corridor) and the Vahle-type conductor line powering the car in motion. Power moves to on-board Li-ion batteries and guidance to a DataMatrix floor line.</p>
+        <table class="kpi-table">
+          <thead><tr><th>Element</th><th>Ingetrans (rail)</th><th>Ingetrans Smart</th></tr></thead>
+          <tbody>
+            <tr><td>Running rails</td><td>More than 60 m embedded, trench, plates, levelling</td><td>Removed; polyurethane wheels on the existing floor</td></tr>
+            <tr><td>Vahle conductor line</td><td>Catenary, supports and collector</td><td>Removed; one Li-ion battery per wheel, charger in ELC cabinet, parking with 230 V socket</td></tr>
+            <tr><td>Civil works</td><td>Trenches and floor repair along the corridor</td><td>DIN 18202 flatness survey (4 mm/1 m) and local repair</td></tr>
+            <tr><td>Rail installation service</td><td>Dedicated block (Paige reference: 14 days, 1 technician)</td><td>Not applicable</td></tr>
+            <tr><td>End stops</td><td>Mechanical on rail</td><td>DataMatrix position codes and software zones</td></tr>
+            <tr><td>Traction</td><td>Single motor on rail</td><td>2 x DDW-4TP, four brushless motors, differential steering, omnidirectional</td></tr>
+            <tr><td>Reel mechanism, ramps, roll-stand tracks</td><td>Existing</td><td>Retained without functional change</td></tr>
+          </tbody>
+        </table>
+        <div class="grid">
+          <div class="card col-6"><h3>Speeds</h3><p>Current transfer 80 m/min (4.8 km/h) versus 2 km/h contractual for DDW-4TP (2.5 km/h as range value). One-way 12 m: 14 s vs 26 s; 30 m: 27 s vs 59 s; 60 m: 50 s vs 113 s. Full 30 m mission with pick and drop: 66 s (54 missions/h) vs 129 s (28 missions/h). At the 8.8 reels/h reference demand, Smart carriage utilisation stays below 35%.</p></div>
+          <div class="card col-6"><h3>Sizing rule</h3><p>Offer Smart when peak missions per hour x Smart mission time is below 60% of available time; above that, keep rail-guided Ingetrans or plan a second carriage. Final capacity is confirmed with the digital twin on the approved layout.</p></div>
+          <div class="card col-4"><h3>Safety</h3><p>Drive system with SS1 PLd (cat. 1 IEC 60204-1), STO, power-off brakes, PLd/Cat 3 E-stop on the remote and stop on radio loss. INGECART completes with area scanners, cabinet E-stop, dead-man handle, safety inputs and safe-speed zones; full-machine CE and ISO 3691-4 are INGECART scope.</p></div>
+          <div class="card col-4"><h3>Maintenance</h3><p>Rail wear and alignment, collector brushes and traction gearbox disappear. Tyre inspection and rim replacement, battery health and cycles (600 cycles), optical sensor cleaning and floor-line condition appear. Wheel exchangeable as a unit through one M23 connector.</p></div>
+          <div class="card col-4"><h3>Operational gains</h3><p>No single point of failure in power supply, software relayout, less disruptive installation, radio manual mode as degraded mode and measurable energy per mission for KPIs.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">10 · Configuracion de referencia</div>
+          <h2>Que incluye una solucion Ingetrans Smart estandar</h2>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Bloque</th><th>Contenido</th><th>Nota de ingenieria</th></tr></thead>
+          <tbody>
+            <tr><td>Carrier</td><td>Bastidor/cuna de bobina, protecciones, sensores de presencia y puntos de transferencia</td><td>Definido por matriz de bobinas y metodo de handoff</td></tr>
+            <tr><td>Movilidad</td><td>2x4TP, 4x4TP u otra configuracion del Modulo Smart Weels segun masa y centro de gravedad</td><td>No fijar arquitectura final sin calculo de cargas y suelo</td></tr>
+            <tr><td>Control</td><td>ELC, radio, diagnostico, baliza, modos Car/Crab/Autorotation</td><td>Base minima para Smart Manual</td></tr>
+            <tr><td>Guiado</td><td>Opcional: lineas pintadas/DataMatrix, sensores opticos y eventos de rama</td><td>Base para Smart Guided</td></tr>
+            <tr><td>Orquestacion</td><td>Interfaz con PLC/WCS/MES/WMS/ERP, alarmas, trazabilidad y ordenes</td><td>Base para Smart Orchestrated</td></tr>
+            <tr><td>Energia</td><td>Baterias Li-ion integradas o removibles y estrategia de carga</td><td>Definir autonomia, recambio y ventana operativa</td></tr>
+            <tr><td>Seguridad</td><td>SS1, STO, frenos, e-stop, sensores externos, zonificacion</td><td>Completar con risk assessment de maquina</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">10 · Reference configuration</div>
+          <h2>What a standard Ingetrans Smart solution includes</h2>
+        </div>
+        <table class="kpi-table">
+          <thead><tr><th>Block</th><th>Content</th><th>Engineering note</th></tr></thead>
+          <tbody>
+            <tr><td>Carrier</td><td>Reel frame/cradle, guards, presence sensors and transfer interfaces</td><td>Defined by reel matrix and handoff method</td></tr>
+            <tr><td>Mobility</td><td>2x4TP, 4x4TP or another Smart Weels Module configuration depending on mass and center of gravity</td><td>Do not freeze final architecture without load and floor calculation</td></tr>
+            <tr><td>Control</td><td>ELC, radio control, diagnostics, beacon, Car/Crab/Autorotation modes</td><td>Minimum basis for Smart Manual</td></tr>
+            <tr><td>Guidance</td><td>Optional: painted/DataMatrix lines, optical sensors and branch events</td><td>Basis for Smart Guided</td></tr>
+            <tr><td>Orchestration</td><td>PLC/WCS/MES/WMS/ERP interface, alarms, traceability and job orders</td><td>Basis for Smart Orchestrated</td></tr>
+            <tr><td>Energy</td><td>Integrated or removable Li-ion batteries and charging strategy</td><td>Define autonomy, swapping and operating window</td></tr>
+            <tr><td>Safety</td><td>SS1, STO, brakes, e-stop, external sensors, zoning</td><td>Complete with full-machine risk assessment</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">11 · Ruta de migracion</div>
+          <h2>Como evolucionar desde Ingetrans actual a Ingetrans Smart</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4">
+            <h3>Fase 1 · Smart pilot</h3>
+            <p>Validar carrier, carga, maniobrabilidad, seguridad y tiempos de handoff en una celda o recorrido corto.</p>
+          </div>
+          <div class="card col-4">
+            <h3>Fase 2 · Smart Guided</h3>
+            <p>Eliminar railes en un tramo representativo y sustituirlos por rutas reconfigurables con line guidance y eventos.</p>
+          </div>
+          <div class="card col-4">
+            <h3>Fase 3 · Smart Orchestrated</h3>
+            <p>Integrar prioridad, trazabilidad, secuenciacion y reglas de misión con PLC/WCS y exchange points.</p>
+          </div>
+        </div>
+        <div class="callout">Ruta brownfield recomendada: preservar al principio los puntos de exchange, la logica de reel identity y las interfaces con roll stand, y cambiar primero la capa de movilidad antes que toda la capa de control.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">11 · Migration path</div>
+          <h2>How to evolve from current Ingetrans to Ingetrans Smart</h2>
+        </div>
+        <div class="grid">
+          <div class="card col-4">
+            <h3>Phase 1 · Smart pilot</h3>
+            <p>Validate carrier design, load handling, maneuverability, safety and handoff times in one cell or short route.</p>
+          </div>
+          <div class="card col-4">
+            <h3>Phase 2 · Smart Guided</h3>
+            <p>Remove rails from a representative segment and replace them with reconfigurable guided routes and events.</p>
+          </div>
+          <div class="card col-4">
+            <h3>Phase 3 · Smart Orchestrated</h3>
+            <p>Integrate priority, traceability, sequencing and mission rules through PLC/WCS and exchange points.</p>
+          </div>
+        </div>
+        <div class="callout">Recommended brownfield path: initially preserve exchange points, reel-identity logic and roll-stand interfaces, and replace the mobility layer before replacing the entire control layer.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="lang lang-es">
+        <div class="section-header">
+          <div class="section-no">12 · Estado de validacion</div>
+          <h2>Que esta validado y que sigue pendiente</h2>
+        </div>
+        <div class="grid">
+          <div class="card green col-4">
+            <h3>Validado</h3>
+            <ul>
+              <li>Base actual de INGETRANS como sistema rail-guided de suministro y retorno.</li>
+              <li>Capacidades y modos del Modulo Smart Weels.</li>
+              <li>Viabilidad conceptual de sustituir railes por una base movil inteligente.</li>
+              <li>Para este dossier, el alcance del producto queda fijado en bobinas de corrugado, no en intralogistica generica multcarga.</li>
+            </ul>
+          </div>
+          <div class="card amber col-4">
+            <h3>Parcial</h3>
+            <ul>
+              <li>Configuracion exacta del carrier Smart para la familia de bobinas objetivo.</li>
+              <li>Ciclos y throughput comparativo frente a INGETRANS rail-guided.</li>
+              <li>Arquitectura final de guiado por segmento de cliente.</li>
+            </ul>
+          </div>
+          <div class="card red col-4">
+            <h3>Pendiente</h3>
+            <ul>
+              <li>Definicion mecanica final del carro.</li>
+              <li>Risk assessment de maquina completa.</li>
+              <li>Oferta comercial final, CAPEX y ROI por configuracion.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="formula">Posicion recomendada: vender INGETRANS Smart como evolucion rail-less configurable, con oferta escalonada y sin sobreprometer navegacion totalmente libre hasta completar la validacion de sensores y logica de flota.</div>
+      </div>
+
+      <div class="lang lang-en hidden">
+        <div class="section-header">
+          <div class="section-no">12 · Validation status</div>
+          <h2>What is validated and what remains open</h2>
+        </div>
+        <div class="grid">
+          <div class="card green col-4">
+            <h3>Validated</h3>
+            <ul>
+              <li>Current INGETRANS baseline as a rail-guided supply-and-return system.</li>
+              <li>Capabilities and operating modes of the Smart Weels Module.</li>
+              <li>Conceptual feasibility of replacing rails with an intelligent mobile base.</li>
+              <li>For this dossier, the product scope is fixed on corrugated reels, not on generic multi-load intralogistics.</li>
+            </ul>
+          </div>
+          <div class="card amber col-4">
+            <h3>Partial</h3>
+            <ul>
+              <li>Exact Smart carrier configuration for the target reel family.</li>
+              <li>Comparative cycle time and throughput versus rail-guided INGETRANS.</li>
+              <li>Final guidance architecture by customer segment.</li>
+            </ul>
+          </div>
+          <div class="card red col-4">
+            <h3>Open</h3>
+            <ul>
+              <li>Final carrier mechanical definition.</li>
+              <li>Complete-machine risk assessment.</li>
+              <li>Final commercial offer, CAPEX and ROI by configuration.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="formula">Recommended positioning: market INGETRANS Smart as a configurable rail-less evolution with a staged offer, without overpromising full free navigation until sensors and fleet logic are fully validated.</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-language]');
+    const languageBlocks = document.querySelectorAll('.lang');
+
+    function applyLanguage(lang) {
+      languageBlocks.forEach(block => {
+        block.classList.toggle('hidden', !block.classList.contains('lang-' + lang));
+      });
+
+      buttons.forEach(button => {
+        const isActive = button.dataset.language === lang;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => applyLanguage(button.dataset.language));
+    });
+  </script>
+</body>
+</html>
