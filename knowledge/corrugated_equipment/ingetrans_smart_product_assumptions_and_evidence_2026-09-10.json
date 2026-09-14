@@ -60,6 +60,12 @@
       "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/knowledge/corrugated_equipment/ingetrans_smart_jnov_evidence_update_2026-09-14.md",
       "type": "consolidated_evidence_update",
       "confidence": 0.93
+    },
+    {
+      "id": "SRC-ING-10",
+      "path": "C:/Users/isena/Documents/GitHub/AI-FACTORY-v2/INGETRANS_SMART_PRODUCT_REPORT_2026-09-14.md",
+      "type": "product_report",
+      "confidence": 0.9
     }
   ],
   "validated_baseline_claims": [
@@ -264,6 +270,12 @@
       "issue": "Path generation and fleet management are outside the JNOV supply.",
       "resolution": "Define them as INGECART master PLC / WCS scope for Smart Guided and Smart Orchestrated.",
       "confidence": 0.96
+    },
+    {
+      "id": "CL-09",
+      "issue": "Smart travel speed (2 km/h) is about 58% lower than the rail-guided transfer (80 m/min); a 30 m one-way trip grows from ~27 s to ~58 s.",
+      "resolution": "Offer Smart when peak missions x Smart mission time stays below 60% of available time; keep rail-guided INGETRANS for high-cadence plants.",
+      "confidence": 0.9
     }
   ],
   "gap_analysis": {
@@ -292,5 +304,25 @@
       "Register the INGETRANS Smart variant in ASE with the three cost bands marked as 2023 historical reference."
     ]
   },
-  "last_evidence_review": "2026-09-14"
+  "last_evidence_review": "2026-09-14",
+  "product_decisions": [
+    {
+      "id": "PD-01",
+      "statement": "INGETRANS Smart removes the metal running rails of the transfer car; JNOV DDW wheels provide traction and steering on the plant floor.",
+      "origin": "Product owner statement 2026-09-14",
+      "confidence": 0.95
+    },
+    {
+      "id": "PD-02",
+      "statement": "INGETRANS Smart removes the Vahle catenary / contact line that powers the transfer car; DDW wheels run on on-board Li-ion batteries.",
+      "origin": "Product owner statement 2026-09-14",
+      "confidence": 0.95
+    },
+    {
+      "id": "PD-03",
+      "statement": "Reel pick-up mechanism, feeding tracks to roll stands and exchange zone are retained in the base Smart version.",
+      "origin": "Engineering assumption 2026-09-14",
+      "confidence": 0.8
+    }
+  ]
 }
