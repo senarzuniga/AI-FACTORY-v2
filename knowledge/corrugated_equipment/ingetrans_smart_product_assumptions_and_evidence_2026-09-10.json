@@ -3,7 +3,7 @@
   "artifact_type": "product_evolution_assumptions_and_evidence",
   "subject": "INGETRANS Smart product evolution",
   "analysis_date": "2026-09-10",
-  "status": "working_product_definition",
+  "status": "superseded_drive_basis",
   "goal": "Define a rail-less evolution of INGETRANS based on the Modulo Smart Weels drive and steering technology while preserving the product's corrugated reel logistics value proposition.",
   "product_boundary": "For this definition, INGETRANS Smart is scoped as a corrugated reel supply-and-return product, not as a generic intralogistics platform for every load type.",
   "sources": [
@@ -324,5 +324,7 @@
       "origin": "Engineering assumption 2026-09-14",
       "confidence": 0.8
     }
-  ]
+  ],
+  "superseded_by": "ingetrans_smart_technical_baseline_R2_2026-09-14.json",
+  "supersession_note": "JNOV MDS/DDW-4TP third-party basis replaced on 2026-09-14 by the INGECART IGC-DW drive-wheel family, laser navigation and full-machine CE marking. Retain this file for historical traceability of the JNOV evaluation only."
 }

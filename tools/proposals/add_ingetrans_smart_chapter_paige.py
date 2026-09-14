@@ -262,12 +262,40 @@ def insert_after(doc, anchor_prefix: str, text: str, style: str | None = None, n
 
 
 def main() -> int:
-    if TARGET.exists():
-        print(f"Target already exists, not overwriting: {TARGET}")
+    import argparse
+    import importlib
+
+    parser = argparse.ArgumentParser(description="Insert an INGETRANS Smart chapter into the Paige proposal.")
+    parser.add_argument("--content", default=None, help="Python module in tools/proposals providing build_chapter, EXEC_SUMMARY_BULLET and PRICE_NOTE (default: embedded R1/JNOV content).")
+    parser.add_argument("--target", default=None, help="Output .docx path (default: re3 INGETRANS SMART).")
+    args = parser.parse_args()
+
+    target = Path(args.target) if args.target else TARGET
+    if target.exists():
+        print(f"Target already exists, not overwriting: {target}")
         return 1
+
+    chapter_builder = build_chapter
+    exec_bullet = (
+        "Optional Block A-Smart: the same INGETRANS reel logistics on a rail-less, battery-powered carriage "
+        "(JNOV drive wheels, DataMatrix guidance), removing more than 60 m of embedded rails and the conductor "
+        "line together with their civil works."
+    )
+    price_note = (
+        "Block A-Smart (INGETRANS Smart, rail-less option described in chapter 5A) is offered at the same EXW "
+        "supply price as Block A and replaces it when selected. When Block A-Smart is chosen, the rail installation "
+        "service block is not applicable and the mechanical assembly block is re-quoted after layout approval."
+    )
+    if args.content:
+        sys.path.insert(0, str(Path(__file__).parent))
+        module = importlib.import_module(args.content)
+        chapter_builder = module.build_chapter
+        exec_bullet = module.EXEC_SUMMARY_BULLET
+        price_note = module.PRICE_NOTE
+
     doc = Document(str(SOURCE))
     anchor = find_paragraph(doc, BLOCK_B_HEADING_PREFIX)
-    build_chapter(Inserter(doc, anchor, doc.tables[TEMPLATE_TABLE_INDEX]))
+    chapter_builder(Inserter(doc, anchor, doc.tables[TEMPLATE_TABLE_INDEX]))
 
     insert_after(
         doc,
@@ -276,22 +304,10 @@ def main() -> int:
         style="toc 2",
         new_style="toc 1",
     )
-    insert_after(
-        doc,
-        "Automatic delivery and return of paper reels",
-        "Optional Block A-Smart: the same INGETRANS reel logistics on a rail-less, battery-powered carriage "
-        "(JNOV drive wheels, DataMatrix guidance), removing more than 60 m of embedded rails and the conductor "
-        "line together with their civil works.",
-    )
-    insert_after(
-        doc,
-        "The RFID validation station price is included in Block C",
-        "Block A-Smart (INGETRANS Smart, rail-less option described in chapter 5A) is offered at the same EXW "
-        "supply price as Block A and replaces it when selected. When Block A-Smart is chosen, the rail installation "
-        "service block is not applicable and the mechanical assembly block is re-quoted after layout approval.",
-    )
-    doc.save(str(TARGET))
-    print(f"Saved: {TARGET}")
+    insert_after(doc, "Automatic delivery and return of paper reels", exec_bullet)
+    insert_after(doc, "The RFID validation station price is included in Block C", price_note)
+    doc.save(str(target))
+    print(f"Saved: {target}")
     return 0
 
 
