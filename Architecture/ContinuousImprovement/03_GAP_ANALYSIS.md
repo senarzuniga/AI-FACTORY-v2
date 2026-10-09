@@ -1,6 +1,6 @@
 # Gap Analysis
 
-Generated At: 2026-08-09T11:56:27.274686+00:00
+Generated At: 2026-10-08T15:10:45.814234+00:00
 
 ## Gaps
 ### OBJ-M013-001 — Universal CAD ingestion

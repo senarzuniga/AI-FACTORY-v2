@@ -1,6 +1,6 @@
 # Execution Backlog
 
-Generated At: 2026-08-09T11:56:27.274774+00:00
+Generated At: 2026-10-08T15:10:45.814234+00:00
 
 | Mission ID | Priority | Business Value | Industrial Value | Architecture Value | ROI | OEE Impact | Confidence | Risk | Duration | Executive Score | AHDE Score |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|---:|---:|
