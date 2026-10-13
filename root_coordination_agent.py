@@ -213,7 +213,7 @@ class RootCoordinationAgent:
         }
 
 
-if __name__ == "__main__":
+def main() -> None:
     import argparse
 
     parser = argparse.ArgumentParser(description="Agente raíz de coordinación y mejora continua.")
@@ -226,3 +226,7 @@ if __name__ == "__main__":
     agent = RootCoordinationAgent()
     result = agent.run(args.mission, args.objective, context=context)
     print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()
